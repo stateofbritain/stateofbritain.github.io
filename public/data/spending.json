@@ -7,9 +7,9 @@
         "note": "Fiscal aggregates in £bn and % of GDP. Forecast years from 2025-26 consistent with OBR EFO November 2025."
       },
       {
-        "name": "HM Treasury PESA 2025 — Country and Regional Analysis (Chapter 9)",
+        "name": "HM Treasury PESA 2025 — Chapter 1, Table 1.12",
         "url": "https://www.gov.uk/government/statistics/public-expenditure-statistical-analyses-2025",
-        "note": "Total managed expenditure by COFOG function. 2023-24 outturn. Includes identifiable and non-identifiable spending."
+        "note": "Total managed expenditure by departmental group, £ million. 2024-25 outturn. Includes DEL and AME."
       }
     ],
     "generated": "2026-03-06"
@@ -1193,122 +1193,1007 @@
       "value": 4.1
     }
   ],
-  "cofogLatest": [
-    {
-      "name": "Social protection",
-      "value": 364271
+  "departments": {
+    "fys": [
+      "2020-21",
+      "2021-22",
+      "2022-23",
+      "2023-24",
+      "2024-25",
+      "2025-26"
+    ],
+    "fyTypes": [
+      "outturn",
+      "outturn",
+      "outturn",
+      "outturn",
+      "outturn",
+      "plans"
+    ],
+    "latestFy": "2024-25",
+    "items": [
+      {
+        "name": "Health and Social Care",
+        "values": {
+          "2020-21": 224823,
+          "2021-22": 267920,
+          "2022-23": 164879,
+          "2023-24": 196680,
+          "2024-25": 223199,
+          "2025-26": 242351
+        },
+        "breakdown": [
+          {
+            "name": "Acute hospital services",
+            "value": 85000
+          },
+          {
+            "name": "Specialised commissioning",
+            "value": 20000
+          },
+          {
+            "name": "Primary care (GP, dental, pharmacy)",
+            "value": 18500
+          },
+          {
+            "name": "Mental health services",
+            "value": 16000
+          },
+          {
+            "name": "Community health services",
+            "value": 14000
+          },
+          {
+            "name": "Capital investment",
+            "value": 12000
+          },
+          {
+            "name": "UKHSA, NICE, CQC & ALBs",
+            "value": 10000
+          },
+          {
+            "name": "Prescribing & medicines",
+            "value": 9000
+          },
+          {
+            "name": "Social care grants",
+            "value": 8000
+          },
+          {
+            "name": "NHSE running costs & other",
+            "value": 6000
+          },
+          {
+            "name": "Health Education / workforce",
+            "value": 5000
+          },
+          {
+            "name": "Continuing healthcare",
+            "value": 5000
+          },
+          {
+            "name": "Ambulance services",
+            "value": 3500
+          },
+          {
+            "name": "DHSC admin & other",
+            "value": 11199
+          }
+        ]
+      },
+      {
+        "name": "Education",
+        "values": {
+          "2020-21": 118363,
+          "2021-22": 118754,
+          "2022-23": 101602,
+          "2023-24": 127010,
+          "2024-25": 132915,
+          "2025-26": 141700
+        },
+        "breakdown": [
+          {
+            "name": "Schools (core DSG)",
+            "value": 62000
+          },
+          {
+            "name": "Higher education (student loans)",
+            "value": 34000
+          },
+          {
+            "name": "Children's social care",
+            "value": 11000
+          },
+          {
+            "name": "16-19 & apprenticeships",
+            "value": 8000
+          },
+          {
+            "name": "Early years",
+            "value": 8000
+          },
+          {
+            "name": "DfE admin & other",
+            "value": 9915
+          }
+        ]
+      },
+      {
+        "name": "Home Office",
+        "values": {
+          "2020-21": 17680,
+          "2021-22": 17716,
+          "2022-23": 20000,
+          "2023-24": 23363,
+          "2024-25": 22508,
+          "2025-26": 24185
+        },
+        "breakdown": [
+          {
+            "name": "Police & counter-terrorism",
+            "value": 8000
+          },
+          {
+            "name": "Immigration & asylum",
+            "value": 7000
+          },
+          {
+            "name": "Border Force",
+            "value": 3000
+          },
+          {
+            "name": "Fire & rescue",
+            "value": 1500
+          },
+          {
+            "name": "Other (passports, admin)",
+            "value": 3008
+          }
+        ]
+      },
+      {
+        "name": "Justice",
+        "values": {
+          "2020-21": 10049,
+          "2021-22": 10677,
+          "2022-23": 10903,
+          "2023-24": 12554,
+          "2024-25": 13576,
+          "2025-26": 14895
+        },
+        "breakdown": [
+          {
+            "name": "HM Prison & Probation Service",
+            "value": 5000
+          },
+          {
+            "name": "HM Courts & Tribunals Service",
+            "value": 2200
+          },
+          {
+            "name": "Legal Aid Agency",
+            "value": 2000
+          },
+          {
+            "name": "Youth Justice Board",
+            "value": 400
+          },
+          {
+            "name": "Other (admin, judicial)",
+            "value": 3976
+          }
+        ]
+      },
+      {
+        "name": "Law Officers' Departments",
+        "values": {
+          "2020-21": 618,
+          "2021-22": 682,
+          "2022-23": 777,
+          "2023-24": 900,
+          "2024-25": 946,
+          "2025-26": 1104
+        },
+        "breakdown": [
+          {
+            "name": "Crown Prosecution Service",
+            "value": 700
+          },
+          {
+            "name": "Serious Fraud Office",
+            "value": 70
+          },
+          {
+            "name": "Government Legal Dept & other",
+            "value": 176
+          }
+        ]
+      },
+      {
+        "name": "Defence",
+        "values": {
+          "2020-21": 50980,
+          "2021-22": 63431,
+          "2022-23": 47448,
+          "2023-24": 57627,
+          "2024-25": 71534,
+          "2025-26": 68542
+        },
+        "breakdown": [
+          {
+            "name": "Equipment & support",
+            "value": 16000
+          },
+          {
+            "name": "Personnel",
+            "value": 14000
+          },
+          {
+            "name": "Equipment procurement",
+            "value": 10400
+          },
+          {
+            "name": "Defence Nuclear Enterprise",
+            "value": 8000
+          },
+          {
+            "name": "Infrastructure",
+            "value": 5300
+          },
+          {
+            "name": "Operations & peacekeeping",
+            "value": 1800
+          },
+          {
+            "name": "Other (DE&S, admin)",
+            "value": 16034
+          }
+        ]
+      },
+      {
+        "name": "Single Intelligence Account",
+        "values": {
+          "2020-21": 2844,
+          "2021-22": 3467,
+          "2022-23": 3807,
+          "2023-24": 4193,
+          "2024-25": 4468,
+          "2025-26": 5029
+        },
+        "breakdown": null
+      },
+      {
+        "name": "Foreign, Commonwealth and Development Office",
+        "values": {
+          "2020-21": 13865,
+          "2021-22": 9687,
+          "2022-23": 10103,
+          "2023-24": 11763,
+          "2024-25": 12099,
+          "2025-26": 12300
+        },
+        "breakdown": [
+          {
+            "name": "Official Development Assistance",
+            "value": 6000
+          },
+          {
+            "name": "Diplomatic network & estates",
+            "value": 2500
+          },
+          {
+            "name": "Conflict, stability & security",
+            "value": 1500
+          },
+          {
+            "name": "Multilateral subscriptions",
+            "value": 1200
+          },
+          {
+            "name": "Other (admin, consular)",
+            "value": 899
+          }
+        ]
+      },
+      {
+        "name": "MHCLG - Local Government",
+        "values": {
+          "2020-21": 37611,
+          "2021-22": 29788,
+          "2022-23": 22873,
+          "2023-24": 30451,
+          "2024-25": 34435,
+          "2025-26": 37229
+        },
+        "breakdown": [
+          {
+            "name": "Revenue support & business rates",
+            "value": 15000
+          },
+          {
+            "name": "Social care grants",
+            "value": 5500
+          },
+          {
+            "name": "Housing Benefit (local admin)",
+            "value": 5000
+          },
+          {
+            "name": "New Homes Bonus & grants",
+            "value": 4000
+          },
+          {
+            "name": "Other",
+            "value": 4935
+          }
+        ]
+      },
+      {
+        "name": "MHCLG - Housing and Communities",
+        "values": {
+          "2020-21": 11578,
+          "2021-22": 7871,
+          "2022-23": 10145,
+          "2023-24": 9973,
+          "2024-25": 12907,
+          "2025-26": 14572
+        },
+        "breakdown": [
+          {
+            "name": "Affordable Homes Programme",
+            "value": 4000
+          },
+          {
+            "name": "Building safety & remediation",
+            "value": 3000
+          },
+          {
+            "name": "Levelling Up / Towns Fund",
+            "value": 2000
+          },
+          {
+            "name": "Homelessness & rough sleeping",
+            "value": 1500
+          },
+          {
+            "name": "Other (planning, communities)",
+            "value": 2407
+          }
+        ]
+      },
+      {
+        "name": "Culture, Media and Sport",
+        "values": {
+          "2020-21": 8610,
+          "2021-22": 7696,
+          "2022-23": 8941,
+          "2023-24": 7624,
+          "2024-25": 9049,
+          "2025-26": 9456
+        },
+        "breakdown": [
+          {
+            "name": "BBC (licence fee)",
+            "value": 3800
+          },
+          {
+            "name": "Digital infrastructure",
+            "value": 1200
+          },
+          {
+            "name": "Arts Council England",
+            "value": 1000
+          },
+          {
+            "name": "Heritage & libraries",
+            "value": 600
+          },
+          {
+            "name": "Sport England",
+            "value": 500
+          },
+          {
+            "name": "Other (gambling, tourism, admin)",
+            "value": 1949
+          }
+        ]
+      },
+      {
+        "name": "Science, Innovation and Technology",
+        "values": {
+          "2020-21": 10694,
+          "2021-22": 10388,
+          "2022-23": 11412,
+          "2023-24": 13018,
+          "2024-25": 13899,
+          "2025-26": 15966
+        },
+        "breakdown": [
+          {
+            "name": "UKRI research councils",
+            "value": 7500
+          },
+          {
+            "name": "Digital & telecoms",
+            "value": 1500
+          },
+          {
+            "name": "AI & technology",
+            "value": 1200
+          },
+          {
+            "name": "UK Space Agency",
+            "value": 500
+          },
+          {
+            "name": "Other (admin, innovation)",
+            "value": 3199
+          }
+        ]
+      },
+      {
+        "name": "Transport",
+        "values": {
+          "2020-21": 34883,
+          "2021-22": 33137,
+          "2022-23": 32524,
+          "2023-24": 32638,
+          "2024-25": 30458,
+          "2025-26": 33538
+        },
+        "breakdown": [
+          {
+            "name": "Network Rail",
+            "value": 18000
+          },
+          {
+            "name": "HS2",
+            "value": 7000
+          },
+          {
+            "name": "National Highways",
+            "value": 2500
+          },
+          {
+            "name": "Local transport grants",
+            "value": 1500
+          },
+          {
+            "name": "Other (admin, buses, maritime)",
+            "value": 1458
+          }
+        ]
+      },
+      {
+        "name": "Energy Security and Net Zero (1)",
+        "values": {
+          "2020-21": 12636,
+          "2021-22": 128108,
+          "2022-23": -76137,
+          "2023-24": -6935,
+          "2024-25": 15017,
+          "2025-26": 84856
+        },
+        "breakdown": [
+          {
+            "name": "Energy bills support & subsidies",
+            "value": 6000
+          },
+          {
+            "name": "Clean energy & net zero",
+            "value": 3500
+          },
+          {
+            "name": "Nuclear decommissioning (NDA)",
+            "value": 3000
+          },
+          {
+            "name": "Energy efficiency (homes)",
+            "value": 1500
+          },
+          {
+            "name": "Other (admin)",
+            "value": 1017
+          }
+        ]
+      },
+      {
+        "name": "Environment, Food and Rural Affairs",
+        "values": {
+          "2020-21": 4721,
+          "2021-22": 5854,
+          "2022-23": 5481,
+          "2023-24": 8188,
+          "2024-25": 6012,
+          "2025-26": 7601
+        },
+        "breakdown": [
+          {
+            "name": "Environmental land management",
+            "value": 2500
+          },
+          {
+            "name": "Environment Agency",
+            "value": 1200
+          },
+          {
+            "name": "Flood defence",
+            "value": 800
+          },
+          {
+            "name": "Natural England",
+            "value": 300
+          },
+          {
+            "name": "Animal & Plant Health Agency",
+            "value": 200
+          },
+          {
+            "name": "Other (admin, rural)",
+            "value": 1012
+          }
+        ]
+      },
+      {
+        "name": "Business and Trade",
+        "values": {
+          "2020-21": 32040,
+          "2021-22": 3506,
+          "2022-23": 3374,
+          "2023-24": 3285,
+          "2024-25": 1862,
+          "2025-26": 4894
+        },
+        "breakdown": [
+          {
+            "name": "Trade promotion & UKEF",
+            "value": 600
+          },
+          {
+            "name": "Business support & regulation",
+            "value": 500
+          },
+          {
+            "name": "Competition & Markets Authority",
+            "value": 200
+          },
+          {
+            "name": "Other (admin, investment)",
+            "value": 562
+          }
+        ]
+      },
+      {
+        "name": "Work and Pensions",
+        "values": {
+          "2020-21": 219467,
+          "2021-22": 225394,
+          "2022-23": 239122,
+          "2023-24": 275112,
+          "2024-25": 297468,
+          "2025-26": 313283
+        },
+        "breakdown": [
+          {
+            "name": "State Pension",
+            "value": 137000
+          },
+          {
+            "name": "Universal Credit",
+            "value": 53000
+          },
+          {
+            "name": "Personal Independence Payment",
+            "value": 23000
+          },
+          {
+            "name": "Housing Benefit",
+            "value": 16000
+          },
+          {
+            "name": "Disability (DLA + AA)",
+            "value": 14000
+          },
+          {
+            "name": "Employment & Support Allowance",
+            "value": 13000
+          },
+          {
+            "name": "Other benefits & admin",
+            "value": 41468
+          }
+        ]
+      },
+      {
+        "name": "HM Revenue and Customs",
+        "values": {
+          "2020-21": 121567,
+          "2021-22": 58309,
+          "2022-23": 40537,
+          "2023-24": 39968,
+          "2024-25": 34112,
+          "2025-26": 34838
+        },
+        "breakdown": [
+          {
+            "name": "Tax credits (legacy)",
+            "value": 18000
+          },
+          {
+            "name": "Child Benefit",
+            "value": 12000
+          },
+          {
+            "name": "HMRC running costs",
+            "value": 3500
+          },
+          {
+            "name": "Other",
+            "value": 612
+          }
+        ]
+      },
+      {
+        "name": "HM Treasury (2)",
+        "values": {
+          "2020-21": 34001,
+          "2021-22": 48609,
+          "2022-23": 135887,
+          "2023-24": 80464,
+          "2024-25": 65140,
+          "2025-26": 74686
+        },
+        "breakdown": [
+          {
+            "name": "BoE Asset Purchase Facility",
+            "value": 35000
+          },
+          {
+            "name": "Fiscal items & reserves",
+            "value": 12000
+          },
+          {
+            "name": "EU settlement contribution",
+            "value": 5500
+          },
+          {
+            "name": "Debt Management Office",
+            "value": 2500
+          },
+          {
+            "name": "UKGI & other ALBs",
+            "value": 2000
+          },
+          {
+            "name": "HMT admin & other",
+            "value": 8140
+          }
+        ]
+      },
+      {
+        "name": "Cabinet Office",
+        "values": {
+          "2020-21": 14034,
+          "2021-22": 13414,
+          "2022-23": 17809,
+          "2023-24": 11999,
+          "2024-25": 26813,
+          "2025-26": 12921
+        },
+        "breakdown": [
+          {
+            "name": "Civil Service Pensions (AME)",
+            "value": 15000
+          },
+          {
+            "name": "Government Property Agency",
+            "value": 3500
+          },
+          {
+            "name": "Digital & data",
+            "value": 2500
+          },
+          {
+            "name": "National security & resilience",
+            "value": 2000
+          },
+          {
+            "name": "Other",
+            "value": 3813
+          }
+        ]
+      },
+      {
+        "name": "Scottish Government (3)",
+        "values": {
+          "2020-21": 61653,
+          "2021-22": 61641,
+          "2022-23": 65283,
+          "2023-24": 64668,
+          "2024-25": 70986,
+          "2025-26": 75199
+        },
+        "breakdown": [
+          {
+            "name": "Health & Social Care",
+            "value": 20300
+          },
+          {
+            "name": "Local government",
+            "value": 13000
+          },
+          {
+            "name": "Social Security & benefits",
+            "value": 6400
+          },
+          {
+            "name": "Education & Skills",
+            "value": 5000
+          },
+          {
+            "name": "Transport",
+            "value": 4500
+          },
+          {
+            "name": "Justice",
+            "value": 3200
+          },
+          {
+            "name": "Other portfolios",
+            "value": 18586
+          }
+        ]
+      },
+      {
+        "name": "Welsh Government (4)",
+        "values": {
+          "2020-21": 24304,
+          "2021-22": 22865,
+          "2022-23": 21638,
+          "2023-24": 24095,
+          "2024-25": 25370,
+          "2025-26": 23207
+        },
+        "breakdown": [
+          {
+            "name": "Health & Social Services",
+            "value": 10200
+          },
+          {
+            "name": "Local government settlement",
+            "value": 5700
+          },
+          {
+            "name": "Education & Welsh Language",
+            "value": 3000
+          },
+          {
+            "name": "Climate Change (transport, housing)",
+            "value": 2800
+          },
+          {
+            "name": "Economy",
+            "value": 1000
+          },
+          {
+            "name": "Other portfolios",
+            "value": 2670
+          }
+        ]
+      },
+      {
+        "name": "Northern Ireland Executive",
+        "values": {
+          "2020-21": 27350,
+          "2021-22": 27026,
+          "2022-23": 27690,
+          "2023-24": 28951,
+          "2024-25": 31617,
+          "2025-26": 34437
+        },
+        "breakdown": [
+          {
+            "name": "Health",
+            "value": 8200
+          },
+          {
+            "name": "Communities",
+            "value": 5800
+          },
+          {
+            "name": "Finance & economy",
+            "value": 3500
+          },
+          {
+            "name": "Education",
+            "value": 3000
+          },
+          {
+            "name": "Infrastructure",
+            "value": 2200
+          },
+          {
+            "name": "Justice",
+            "value": 1900
+          },
+          {
+            "name": "Other departments",
+            "value": 7017
+          }
+        ]
+      },
+      {
+        "name": "Small and Independent Bodies",
+        "values": {
+          "2020-21": 4365,
+          "2021-22": 2877,
+          "2022-23": 2466,
+          "2023-24": 3124,
+          "2024-25": 2921,
+          "2025-26": 8119
+        },
+        "breakdown": [
+          {
+            "name": "UK Statistics Authority (ONS)",
+            "value": 600
+          },
+          {
+            "name": "Electoral Commission",
+            "value": 200
+          },
+          {
+            "name": "Food Standards Agency",
+            "value": 150
+          },
+          {
+            "name": "National Audit Office",
+            "value": 100
+          },
+          {
+            "name": "Other small bodies",
+            "value": 1871
+          }
+        ]
+      }
+    ],
+    "otherItems": [
+      {
+        "name": "Central government gross debt interest",
+        "values": {
+          "2020-21": 41012,
+          "2021-22": 70892,
+          "2022-23": 108063,
+          "2023-24": 82933,
+          "2024-25": 84798,
+          "2025-26": 100443
+        }
+      },
+      {
+        "name": "Locally financed expenditure",
+        "values": {
+          "2020-21": 36864,
+          "2021-22": 49270,
+          "2022-23": 58134,
+          "2023-24": 61162,
+          "2024-25": 62285,
+          "2025-26": 79113
+        }
+      },
+      {
+        "name": "Public sector depreciation",
+        "values": {
+          "2020-21": 53643,
+          "2021-22": 55309,
+          "2022-23": 60304,
+          "2023-24": 65315,
+          "2024-25": 69045,
+          "2025-26": 74113
+        }
+      },
+      {
+        "name": "Net expenditure transfers to the EU (6)",
+        "values": {
+          "2020-21": 10930,
+          "2021-22": 315,
+          "2022-23": -383,
+          "2023-24": 904,
+          "2024-25": -1186,
+          "2025-26": -108
+        }
+      },
+      {
+        "name": "Public corporations' own-financed capital expenditure",
+        "values": {
+          "2020-21": 8498,
+          "2021-22": 7688,
+          "2022-23": 7924,
+          "2023-24": 12775,
+          "2024-25": 15831,
+          "2025-26": 10778
+        }
+      },
+      {
+        "name": "Accounting adjustments",
+        "values": {
+          "2020-21": -142485,
+          "2021-22": -318568,
+          "2022-23": -1628,
+          "2023-24": -54805,
+          "2024-25": -104868,
+          "2025-26": -200549
+        }
+      },
+      {
+        "name": "Reform and Innovation Fund",
+        "values": {
+          "2020-21": null,
+          "2021-22": null,
+          "2022-23": null,
+          "2023-24": null,
+          "2024-25": null,
+          "2025-26": 48
+        }
+      },
+      {
+        "name": "Transformation Fund (7)",
+        "values": {
+          "2020-21": null,
+          "2021-22": null,
+          "2022-23": null,
+          "2023-24": null,
+          "2024-25": null,
+          "2025-26": 250
+        }
+      },
+      {
+        "name": "Reserves",
+        "values": {
+          "2020-21": null,
+          "2021-22": null,
+          "2022-23": null,
+          "2023-24": null,
+          "2024-25": null,
+          "2025-26": 4902
+        }
+      },
+      {
+        "name": "OBR allowance for shortfall",
+        "values": {
+          "2020-21": null,
+          "2021-22": null,
+          "2022-23": null,
+          "2023-24": null,
+          "2024-25": null,
+          "2025-26": -16061
+        }
+      },
+      {
+        "name": "Adjustment for Budget Exchange (8)",
+        "values": {
+          "2020-21": null,
+          "2021-22": null,
+          "2022-23": null,
+          "2023-24": null,
+          "2024-25": null,
+          "2025-26": -651
+        }
+      }
+    ],
+    "deptTotal": {
+      "2020-21": 1098738,
+      "2021-22": 1178816,
+      "2022-23": 928563,
+      "2023-24": 1060714,
+      "2024-25": 1159310,
+      "2025-26": 1294909
     },
-    {
-      "name": "Health",
-      "value": 224011
-    },
-    {
-      "name": "General public services",
-      "value": 162234
-    },
-    {
-      "name": "Education",
-      "value": 113457
-    },
-    {
-      "name": "Accounting adjustments",
-      "value": 108931
-    },
-    {
-      "name": "Economic affairs",
-      "value": 94089
-    },
-    {
-      "name": "Defence",
-      "value": 56763
-    },
-    {
-      "name": "Public order & safety",
-      "value": 48613
-    },
-    {
-      "name": "Housing & community",
-      "value": 21338
-    },
-    {
-      "name": "Environment protection",
-      "value": 15864
-    },
-    {
-      "name": "Recreation & culture",
-      "value": 13391
+    "tmeTotal": {
+      "2020-21": 1107200,
+      "2021-22": 1043722,
+      "2022-23": 1160977,
+      "2023-24": 1228998,
+      "2024-25": 1285216,
+      "2025-26": 1347186
     }
-  ],
-  "cofogTimeSeries": [
-    {
-      "fy": "2019-20",
-      "year": 2019,
-      "Generalpublicservices": 81602,
-      "Defence": 42246,
-      "Publicordersafety": 34526,
-      "Economicaffairs": 66660,
-      "Environmentprotection": 11819,
-      "Housingcommunity": 14212,
-      "Health": 164140,
-      "Recreationculture": 12349,
-      "Education": 90622,
-      "Socialprotection": 275795
-    },
-    {
-      "fy": "2020-21",
-      "year": 2020,
-      "Generalpublicservices": 71905,
-      "Defence": 44582,
-      "Publicordersafety": 38890,
-      "Economicaffairs": 206238,
-      "Environmentprotection": 12955,
-      "Housingcommunity": 13687,
-      "Health": 218567,
-      "Recreationculture": 12602,
-      "Education": 95526,
-      "Socialprotection": 299312
-    },
-    {
-      "fy": "2021-22",
-      "year": 2021,
-      "Generalpublicservices": 109196,
-      "Defence": 48667,
-      "Publicordersafety": 39769,
-      "Economicaffairs": 102404,
-      "Environmentprotection": 13762,
-      "Housingcommunity": 15219,
-      "Health": 216237,
-      "Recreationculture": 12762,
-      "Education": 100129,
-      "Socialprotection": 300030
-    },
-    {
-      "fy": "2022-23",
-      "year": 2022,
-      "Generalpublicservices": 166473,
-      "Defence": 55532,
-      "Publicordersafety": 44226,
-      "Economicaffairs": 125852,
-      "Environmentprotection": 14290,
-      "Housingcommunity": 17341,
-      "Health": 209976,
-      "Recreationculture": 14529,
-      "Education": 107627,
-      "Socialprotection": 325409
-    },
-    {
-      "fy": "2023-24",
-      "year": 2023,
-      "Generalpublicservices": 162234,
-      "Defence": 56763,
-      "Publicordersafety": 48613,
-      "Economicaffairs": 94089,
-      "Environmentprotection": 15864,
-      "Housingcommunity": 21338,
-      "Health": 224011,
-      "Recreationculture": 13391,
-      "Education": 113457,
-      "Socialprotection": 364271
-    }
-  ]
+  }
 }

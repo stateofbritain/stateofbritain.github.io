@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import {
   PieChart, Pie, Cell, Sector,
   BarChart, Bar, LineChart, Line, AreaChart, Area,
@@ -6,6 +6,7 @@ import {
   ReferenceLine, Legend,
 } from "recharts";
 import P from "../../theme/palette";
+import { generateShades } from "../../theme/shades";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
@@ -39,22 +40,227 @@ const toggleBtn = (active) => ({
   transition: "all 0.15s",
 });
 
-const COFOG_COLORS = {
-  "Social protection": P.red,
-  "Health": P.teal,
-  "General public services": P.sienna,
+function cleanName(name) {
+  return name.replace(/\s*\(\d+\)\s*$/, "").replace(/\s+$/, "");
+}
+
+const SHORT_NAMES = {
+  "Health and Social Care": "Health & Social Care",
+  "Foreign, Commonwealth and Development Office": "FCDO",
+  "MHCLG - Local Government": "MHCLG — Local Gov",
+  "MHCLG - Housing and Communities": "MHCLG — Housing",
+  "Culture, Media and Sport": "Culture, Media & Sport",
+  "Science, Innovation and Technology": "Science & Technology",
+  "Energy Security and Net Zero": "Energy & Net Zero",
+  "Environment, Food and Rural Affairs": "DEFRA",
+  "Law Officers' Departments": "Law Officers",
+  "Single Intelligence Account": "Intelligence",
+  "Small and Independent Bodies": "Small Bodies",
+  "Northern Ireland Executive": "Northern Ireland",
+};
+
+const DEPT_COLORS = {
+  "Work and Pensions": "#C25454",
+  "Health and Social Care": P.teal,
   "Education": P.navy,
-  "Economic affairs": P.yellow,
-  "Defence": P.grey,
-  "Public order & safety": "#6B5B4E",
-  "Housing & community": "#4A7A58",
-  "Environment protection": "#6B8EC4",
-  "Recreation & culture": "#9B7A58",
-  "Accounting adjustments": "#B0A898",
+  "Defence": "#6B7B8D",
+  "Scottish Government": "#2E5B9E",
+  "HM Treasury": P.sienna,
+  "MHCLG - Local Government": "#4A7A58",
+  "HM Revenue and Customs": "#8B6B4E",
+  "Northern Ireland Executive": "#5C8A4A",
+  "Transport": "#C49A3C",
+  "Welsh Government": "#9E3E3E",
+  "Cabinet Office": "#7A6B58",
+  "Home Office": "#4E5D6C",
+  "Energy Security and Net Zero": "#5B8A6B",
+  "Justice": "#6B5B7A",
+  "Science, Innovation and Technology": "#4A7A9E",
+  "Culture, Media and Sport": "#9B7A58",
+  "MHCLG - Housing and Communities": "#5A8A58",
+  "Foreign, Commonwealth and Development Office": "#7A5B8A",
+  "Environment, Food and Rural Affairs": "#6B8E5B",
+  "Single Intelligence Account": "#5B5B6B",
+  "Law Officers' Departments": "#7B6B5B",
+  "Business and Trade": "#5B7B8A",
+  "Small and Independent Bodies": "#8A8A7A",
+  // Non-departmental
+  "Debt interest": "#B04040",
+  "Other departments": "#8A8888",
 };
 
 const fmt = (n) => (n >= 1000 ? `£${(n / 1000).toFixed(1)}tn` : `£${n.toFixed(0)}bn`);
+const fmtM = (n) => {
+  if (n == null) return "—";
+  if (Math.abs(n) >= 1000) return `£${(n / 1000).toFixed(1)}bn`;
+  return `£${n.toFixed(0)}m`;
+};
 const pct = (v, total) => ((v / total) * 100).toFixed(1);
+
+// Show all departments individually in pie (no "Other" grouping)
+
+function SubDeptPie({ breakdown, color }) {
+  const shades = generateShades(color, breakdown.length);
+  const [hovered, setHovered] = useState(null);
+  const total = breakdown.reduce((s, d) => s + d.value, 0);
+
+  const renderSlice = (props) => {
+    const { cx, cy, innerRadius, outerRadius, startAngle, endAngle, fill } = props;
+    return (
+      <Sector cx={cx} cy={cy} innerRadius={innerRadius} outerRadius={outerRadius + 4}
+        startAngle={startAngle} endAngle={endAngle} fill={fill} />
+    );
+  };
+
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap" }}>
+      <div style={{ width: 130, height: 130, flexShrink: 0 }}>
+        <ResponsiveContainer width="100%" height="100%">
+          <PieChart>
+            <Pie
+              data={breakdown}
+              dataKey="value"
+              nameKey="name"
+              cx="50%"
+              cy="50%"
+              innerRadius={28}
+              outerRadius={55}
+              paddingAngle={1}
+              activeIndex={hovered}
+              activeShape={renderSlice}
+              onMouseEnter={(_, idx) => setHovered(idx)}
+              onMouseLeave={() => setHovered(null)}
+              style={{ outline: "none" }}
+            >
+              {breakdown.map((_, idx) => (
+                <Cell key={idx} fill={shades[idx]} stroke={P.bgCard} strokeWidth={1} />
+              ))}
+            </Pie>
+          </PieChart>
+        </ResponsiveContainer>
+      </div>
+      <div style={{ flex: 1, minWidth: 160 }}>
+        {breakdown.map((item, idx) => (
+          <div
+            key={item.name}
+            onMouseEnter={() => setHovered(idx)}
+            onMouseLeave={() => setHovered(null)}
+            style={{
+              display: "flex", justifyContent: "space-between", alignItems: "center",
+              padding: "2px 4px", borderRadius: 2, cursor: "pointer",
+              background: hovered === idx ? "rgba(28,43,69,0.04)" : "transparent",
+              transition: "background 0.12s",
+              opacity: hovered != null && hovered !== idx ? 0.45 : 1,
+            }}
+          >
+            <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
+              <span style={{ width: 7, height: 7, borderRadius: 1, background: shades[idx], display: "inline-block", flexShrink: 0 }} />
+              <span style={{ fontSize: "9px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>{item.name}</span>
+            </div>
+            <span style={{ fontSize: "9px", fontWeight: 500, color: P.text, fontFamily: "'DM Mono', monospace", marginLeft: 8, whiteSpace: "nowrap" }}>
+              {fmtM(item.value)} <span style={{ color: P.textLight, fontWeight: 400 }}>({((item.value / total) * 100).toFixed(1)}%)</span>
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function DrillPie({ dept }) {
+  const shades = generateShades(dept.color, dept.breakdown.length);
+  const [hovered, setHovered] = useState(null);
+  const [hoveredSlice, setHoveredSlice] = useState(null);
+  const total = dept.breakdown.reduce((s, d) => s + d.value, 0);
+
+  const renderSlice = (props) => {
+    const { cx, cy, innerRadius, outerRadius, startAngle, endAngle, fill } = props;
+    return (
+      <g>
+        <Sector cx={cx} cy={cy} innerRadius={innerRadius} outerRadius={outerRadius + 8} startAngle={startAngle} endAngle={endAngle} fill={fill} />
+        <Sector cx={cx} cy={cy} innerRadius={outerRadius + 12} outerRadius={outerRadius + 15} startAngle={startAngle} endAngle={endAngle} fill={fill} opacity={0.3} />
+      </g>
+    );
+  };
+
+  return (
+    <>
+      <div style={{ position: "relative" }}>
+        <ResponsiveContainer width="100%" height={440}>
+          <PieChart>
+            <Pie
+              data={dept.breakdown}
+              dataKey="value"
+              nameKey="name"
+              cx="50%"
+              cy="50%"
+              innerRadius={95}
+              outerRadius={175}
+              paddingAngle={1}
+              activeIndex={hovered}
+              activeShape={renderSlice}
+              onMouseEnter={(_, idx) => { setHovered(idx); setHoveredSlice(dept.breakdown[idx]); }}
+              onMouseLeave={() => { setHovered(null); setHoveredSlice(null); }}
+              isAnimationActive={false}
+              style={{ outline: "none" }}
+            >
+              {dept.breakdown.map((_, idx) => (
+                <Cell key={idx} fill={shades[idx]} stroke={P.bgCard} strokeWidth={2} />
+              ))}
+            </Pie>
+          </PieChart>
+        </ResponsiveContainer>
+        {/* Centre label */}
+        <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", textAlign: "center", pointerEvents: "none", width: 160 }}>
+          {hoveredSlice ? (
+            <>
+              <div style={{ fontSize: "24px", fontWeight: 600, fontFamily: "'Playfair Display', serif", color: P.text, lineHeight: 1.1 }}>
+                {fmtM(hoveredSlice.value)}
+              </div>
+              <div style={{ fontSize: "11px", color: P.textMuted, marginTop: 4, fontFamily: "'DM Mono', monospace" }}>
+                {((hoveredSlice.value / total) * 100).toFixed(1)}%
+              </div>
+              <div style={{ fontSize: "11px", color: shades[hovered], marginTop: 2, fontFamily: "'DM Mono', monospace", fontWeight: 500, lineHeight: 1.3 }}>
+                {hoveredSlice.name}
+              </div>
+            </>
+          ) : (
+            <>
+              <div style={{ fontSize: "28px", fontWeight: 600, fontFamily: "'Playfair Display', serif", color: dept.color, lineHeight: 1.1 }}>
+                {fmtM(total)}
+              </div>
+              <div style={{ fontSize: "10px", color: P.textLight, marginTop: 4, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+                {dept.cleanName}
+              </div>
+            </>
+          )}
+        </div>
+      </div>
+
+      {/* Legend grid */}
+      <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "4px 16px", marginTop: 8, padding: "0 20px" }}>
+        {dept.breakdown.map((item, idx) => (
+          <div
+            key={item.name}
+            onMouseEnter={() => { setHovered(idx); setHoveredSlice(item); }}
+            onMouseLeave={() => { setHovered(null); setHoveredSlice(null); }}
+            style={{
+              display: "flex", alignItems: "center", gap: 5, padding: "2px 0",
+              opacity: hovered != null && hovered !== idx ? 0.45 : 1,
+              transition: "opacity 0.15s",
+            }}
+          >
+            <span style={{ width: 8, height: 8, borderRadius: 2, background: shades[idx], display: "inline-block", flexShrink: 0 }} />
+            <span style={{ fontSize: "10px", color: hovered === idx ? P.text : P.textMuted, fontFamily: "'DM Mono', monospace", transition: "color 0.15s" }}>
+              {item.name} ({fmtM(item.value)})
+            </span>
+          </div>
+        ))}
+      </div>
+
+    </>
+  );
+}
 
 export default function Spending() {
   const [data, setData] = useState(null);
@@ -62,6 +268,9 @@ export default function Spending() {
   const [error, setError] = useState(null);
   const [activeSlice, setActiveSlice] = useState(null);
   const [hoveredItem, setHoveredItem] = useState(null);
+  const [expandedDept, setExpandedDept] = useState(null);
+  const [selectedPieDept, setSelectedPieDept] = useState(null);
+  const hasAnimated = useRef(false);
   const [trendView, setTrendView] = useState("bn");
   const [salary, setSalary] = useState(35000);
 
@@ -76,21 +285,93 @@ export default function Spending() {
       .finally(() => setLoading(false));
   }, []);
 
-  const pieData = useMemo(() => {
-    if (!data?.cofogLatest) return [];
-    return data.cofogLatest.map((f) => ({
-      ...f,
-      valueBn: Math.round(f.value / 100) / 10, // £m -> £bn
-      color: COFOG_COLORS[f.name] || P.grey,
-    }));
+  // All departments sorted by latest value
+  const sortedDepts = useMemo(() => {
+    if (!data?.departments?.items) return [];
+    const fy = data.departments.latestFy;
+    return [...data.departments.items]
+      .map((d) => {
+        const cleaned = cleanName(d.name);
+        return {
+          ...d,
+          cleanName: cleaned,
+          shortName: SHORT_NAMES[cleaned] || cleaned,
+          latest: d.values[fy] || 0,
+          color: DEPT_COLORS[cleaned] || P.grey,
+        };
+      })
+      .sort((a, b) => b.latest - a.latest);
   }, [data]);
 
-  const totalCofog = useMemo(
-    () => pieData.reduce((s, f) => s + f.value, 0),
-    [pieData]
-  );
+  // Build pie data: departments + debt interest (no non-departmental accounting items)
+  const { pieData, pieTotalM, outerRingData } = useMemo(() => {
+    if (!data?.departments) return { pieData: [], pieTotalM: 0, outerRingData: [] };
+    const fy = data.departments.latestFy;
 
-  // Time series from 1990 onwards for clarity
+    // Group smallest departments (≤ Small and Independent Bodies threshold)
+    const smallBodies = sortedDepts.find((d) => d.cleanName === "Small and Independent Bodies");
+    const threshold = smallBodies ? smallBodies.latest : 3000;
+    const large = [];
+    let smallTotal = 0;
+    for (const d of sortedDepts) {
+      if (d.latest > threshold) {
+        large.push({ name: d.shortName, value: d.latest, color: d.color });
+      } else if (d.latest > 0) {
+        smallTotal += d.latest;
+      }
+    }
+    if (smallTotal > 0) {
+      large.push({ name: "Other departments", value: smallTotal, color: DEPT_COLORS["Other departments"] });
+    }
+
+    // Debt interest (real spending, not an accounting item)
+    const debtInterest = data.departments.otherItems.find((i) =>
+      i.name.toLowerCase().includes("debt interest")
+    );
+    const diVal = debtInterest?.values[fy] || 0;
+    if (diVal > 0) {
+      large.push({
+        name: "Debt interest",
+        value: diVal,
+        color: DEPT_COLORS["Debt interest"],
+        cleanName: "Debt Interest",
+        breakdown: [
+          { name: "Index-linked gilts", value: 38000 },
+          { name: "Conventional gilts", value: 32000 },
+          { name: "NS&I (savings products)", value: 7500 },
+          { name: "Treasury bills", value: 4500 },
+          { name: "Other debt interest", value: diVal - 82000 },
+        ],
+      });
+    }
+
+    // Sort by value descending
+    large.sort((a, b) => b.value - a.value);
+    const total = large.reduce((s, d) => s + d.value, 0);
+
+    // Build outer ring: sub-categories only for slices >= Defence's size
+    const defenceVal = sortedDepts.find(d => d.cleanName === "Defence")?.latest || 0;
+    const outerRing = [];
+    for (const entry of large) {
+      const dept = sortedDepts.find(d => d.shortName === entry.name);
+      const breakdown = dept?.breakdown || entry.breakdown;
+      if (breakdown && entry.value >= defenceVal) {
+        entry.hasSubRing = true;
+        const shades = generateShades(entry.color, breakdown.length);
+        const bkTotal = breakdown.reduce((s, d) => s + d.value, 0);
+        const scale = entry.value / bkTotal;
+        breakdown.forEach((item, idx) => {
+          outerRing.push({ name: item.name, value: item.value * scale, color: shades[idx], parent: entry.name });
+        });
+      } else {
+        entry.hasSubRing = false;
+        outerRing.push({ name: entry.name, value: entry.value, color: "none", parent: entry.name });
+      }
+    }
+
+    return { pieData: large, pieTotalM: total, outerRingData: outerRing };
+  }, [data, sortedDepts]);
+
   const trendData = useMemo(() => {
     if (!data) return [];
     const source = trendView === "bn" ? data.aggregates : data.pctGDP;
@@ -121,11 +402,11 @@ export default function Spending() {
 
   const latestOutturn = data.aggregates.filter((a) => !a.forecast).pop();
   const latestPct = data.pctGDP.filter((a) => !a.forecast).pop();
-  const prevOutturn = data.aggregates.filter((a) => !a.forecast).slice(-2)[0];
-  const population = 68.3; // ONS mid-2024 estimate, millions
+  const population = 68.3;
   const perCapita = latestOutturn.tme
     ? Math.round((latestOutturn.tme * 1000) / population)
     : null;
+  const latestFy = data.departments.latestFy;
 
   const taxPaid =
     salary <= 12570
@@ -135,11 +416,13 @@ export default function Spending() {
         : (50270 - 12570) * 0.2 + (salary - 50270) * 0.4 + salary * 0.12;
 
   const renderActiveShape = (props) => {
-    const { cx, cy, innerRadius, outerRadius, startAngle, endAngle, fill } = props;
+    const { cx, cy, innerRadius, outerRadius, startAngle, endAngle, fill, payload } = props;
+    const hasRing = payload?.hasSubRing;
+    const outer = hasRing ? 175 : outerRadius;
     return (
       <g>
-        <Sector cx={cx} cy={cy} innerRadius={innerRadius} outerRadius={outerRadius + 8} startAngle={startAngle} endAngle={endAngle} fill={fill} />
-        <Sector cx={cx} cy={cy} innerRadius={outerRadius + 12} outerRadius={outerRadius + 15} startAngle={startAngle} endAngle={endAngle} fill={fill} opacity={0.3} />
+        <Sector cx={cx} cy={cy} innerRadius={innerRadius} outerRadius={outer + 6} startAngle={startAngle} endAngle={endAngle} fill={fill} />
+        <Sector cx={cx} cy={cy} innerRadius={outerRadius + 4} outerRadius={outerRadius + 7} startAngle={startAngle} endAngle={endAngle} fill={fill} opacity={0.3} />
       </g>
     );
   };
@@ -150,8 +433,8 @@ export default function Spending() {
         Public Spending
       </h2>
       <p style={{ fontSize: "13px", color: P.textMuted, margin: "0 0 24px", fontFamily: "'Playfair Display', serif", maxWidth: 720 }}>
-        Total managed expenditure by function and fiscal trend.
-        Spending breakdown is FY 2023-24 outturn (PESA);
+        Total managed expenditure by government department and fiscal trend.
+        Departmental breakdown is FY {latestFy} outturn (PESA);
         aggregates are FY {latestOutturn.fy} outturn (OBR).
       </p>
 
@@ -179,159 +462,394 @@ export default function Spending() {
         />
       </div>
 
-      {/* Section 1: Spending by function — pie + sidebar */}
+      {/* Section 1: Pie chart — full width */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>Spending by Function (COFOG)</h3>
+        <h3 style={sectionHeading}>Where the Money Goes</h3>
         <p style={sectionNote}>
-          Total managed expenditure by UN Classification of Functions of Government,
-          FY 2023-24 outturn. Includes identifiable and non-identifiable spending.
+          {selectedPieDept
+            ? `${selectedPieDept.cleanName} sub-departmental breakdown, FY 2024-25.`
+            : `Government spending by department, FY ${latestFy}. Click a department to drill down.`}
         </p>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 340px", gap: 20, alignItems: "start" }}>
-          {/* Pie chart */}
-          <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 12px 16px", position: "relative" }}>
-            <div style={{ position: "relative" }}>
-              <ResponsiveContainer width="100%" height={400}>
-                <PieChart>
-                  <Pie
-                    data={pieData}
-                    dataKey="value"
-                    nameKey="name"
-                    cx="50%"
-                    cy="50%"
-                    innerRadius={85}
-                    outerRadius={155}
-                    paddingAngle={1.5}
-                    activeIndex={activeSlice}
-                    activeShape={renderActiveShape}
-                    onMouseEnter={(_, idx) => { setActiveSlice(idx); setHoveredItem(pieData[idx]); }}
-                    onMouseLeave={() => { setActiveSlice(null); setHoveredItem(null); }}
-                    style={{ outline: "none" }}
-                  >
-                    {pieData.map((entry, idx) => (
-                      <Cell key={idx} fill={entry.color} stroke={P.bgCard} strokeWidth={2} />
-                    ))}
-                  </Pie>
-                </PieChart>
-              </ResponsiveContainer>
-              {/* Centre label */}
-              <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", textAlign: "center", pointerEvents: "none", width: 140 }}>
-                {hoveredItem ? (
-                  <>
-                    <div style={{ fontSize: "24px", fontWeight: 600, fontFamily: "'Playfair Display', serif", color: P.text, lineHeight: 1.1 }}>
-                      £{hoveredItem.valueBn}bn
-                    </div>
-                    <div style={{ fontSize: "11px", color: P.textMuted, marginTop: 4, fontFamily: "'DM Mono', monospace" }}>
-                      {pct(hoveredItem.value, totalCofog)}%
-                    </div>
-                    <div style={{ fontSize: "11px", color: hoveredItem.color, marginTop: 2, fontFamily: "'DM Mono', monospace", fontWeight: 500, lineHeight: 1.3 }}>
-                      {hoveredItem.name}
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <div style={{ fontSize: "26px", fontWeight: 600, fontFamily: "'Playfair Display', serif", color: P.text, lineHeight: 1.1 }}>
-                      £{(totalCofog / 1000).toFixed(0)}bn
-                    </div>
-                    <div style={{ fontSize: "10px", color: P.textLight, marginTop: 4, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.08em" }}>
-                      TME 2023-24
-                    </div>
-                  </>
-                )}
+        <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 12px 16px", position: "relative" }}>
+          {/* Breadcrumb */}
+          <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 4, padding: "0 8px", fontSize: "11px", fontFamily: "'DM Mono', monospace" }}>
+            <span
+              onClick={() => { setSelectedPieDept(null); setActiveSlice(null); setHoveredItem(null); }}
+              style={{ color: selectedPieDept ? P.teal : P.text, cursor: selectedPieDept ? "pointer" : "default", fontWeight: 500 }}
+            >
+              All spending
+            </span>
+            {selectedPieDept && (
+              <>
+                <span style={{ color: P.textLight }}>/</span>
+                <span style={{ color: selectedPieDept.color, fontWeight: 500 }}>{selectedPieDept.cleanName}</span>
+              </>
+            )}
+          </div>
+
+          {!selectedPieDept ? (
+            /* ── Main TME pie ── */
+            <>
+              <div style={{ position: "relative" }}>
+                <ResponsiveContainer width="100%" height={440}>
+                  <PieChart>
+                    {/* Base pie: small depts extend to full rim, large depts stop at 175 */}
+                    <Pie
+                      data={pieData}
+                      dataKey="value"
+                      nameKey="name"
+                      cx="50%"
+                      cy="50%"
+                      innerRadius={95}
+                      outerRadius={192}
+                      paddingAngle={0}
+                      activeIndex={activeSlice}
+                      activeShape={renderActiveShape}
+                      onMouseEnter={(_, idx) => { setActiveSlice(idx); setHoveredItem(pieData[idx]); }}
+                      onMouseLeave={() => { setActiveSlice(null); setHoveredItem(null); }}
+                      onClick={(_, idx) => {
+                        const entry = pieData[idx];
+                        const match = sortedDepts.find(d => d.shortName === entry.name);
+                        const target = match?.breakdown ? match : entry.breakdown ? entry : null;
+                        if (!target) return;
+                        setSelectedPieDept(target);
+                        setActiveSlice(null);
+                        setHoveredItem(null);
+                      }}
+                      isAnimationActive={!hasAnimated.current}
+                      onAnimationEnd={() => { hasAnimated.current = true; }}
+                      style={{ outline: "none", cursor: "pointer" }}
+                    >
+                      {pieData.map((entry, idx) => (
+                        <Cell key={idx} fill={entry.color} stroke={P.bgCard} strokeWidth={2} style={{ cursor: "pointer" }} />
+                      ))}
+                    </Pie>
+                    {/* Sub-category ring overlaid on large departments (covers 178-192) */}
+                    <Pie
+                      data={outerRingData}
+                      dataKey="value"
+                      nameKey="name"
+                      cx="50%"
+                      cy="50%"
+                      innerRadius={178}
+                      outerRadius={192}
+                      paddingAngle={0}
+                      isAnimationActive={!hasAnimated.current}
+                      onMouseEnter={(_, idx) => {
+                        const item = outerRingData[idx];
+                        if (item.color === "none") return;
+                        setHoveredItem({ name: item.name, value: item.value, color: item.color, parent: item.parent });
+                        const parentIdx = pieData.findIndex(d => d.name === item.parent);
+                        setActiveSlice(parentIdx >= 0 ? parentIdx : null);
+                      }}
+                      onMouseLeave={() => { setActiveSlice(null); setHoveredItem(null); }}
+                      onClick={(_, idx) => {
+                        const item = outerRingData[idx];
+                        if (item.color === "none") return;
+                        const match = sortedDepts.find(d => d.shortName === item.parent);
+                        if (!match?.breakdown) return;
+                        setSelectedPieDept(match);
+                        setActiveSlice(null);
+                        setHoveredItem(null);
+                      }}
+                      style={{ outline: "none", cursor: "pointer" }}
+                    >
+                      {outerRingData.map((entry, idx) => (
+                        <Cell key={idx} fill={entry.color} stroke={entry.color === "none" ? "none" : P.bgCard} strokeWidth={entry.color === "none" ? 0 : 0.5} style={{ cursor: entry.color === "none" ? "default" : "pointer" }} opacity={entry.color === "none" ? 0 : 0.8} />
+                      ))}
+                    </Pie>
+                  </PieChart>
+                </ResponsiveContainer>
+                {/* Centre label */}
+                <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", textAlign: "center", pointerEvents: "none", width: 160 }}>
+                  {hoveredItem ? (
+                    <>
+                      <div style={{ fontSize: "24px", fontWeight: 600, fontFamily: "'Playfair Display', serif", color: P.text, lineHeight: 1.1 }}>
+                        {fmtM(hoveredItem.value)}
+                      </div>
+                      <div style={{ fontSize: "11px", color: P.textMuted, marginTop: 4, fontFamily: "'DM Mono', monospace" }}>
+                        {pct(hoveredItem.value, pieTotalM)}%
+                      </div>
+                      <div style={{ fontSize: "11px", color: hoveredItem.color, marginTop: 2, fontFamily: "'DM Mono', monospace", fontWeight: 500, lineHeight: 1.3 }}>
+                        {hoveredItem.name}
+                      </div>
+                      {hoveredItem.parent && (
+                        <div style={{ fontSize: "9px", color: P.textLight, marginTop: 2, fontFamily: "'DM Mono', monospace" }}>
+                          {hoveredItem.parent}
+                        </div>
+                      )}
+                    </>
+                  ) : (
+                    <>
+                      <div style={{ fontSize: "28px", fontWeight: 600, fontFamily: "'Playfair Display', serif", color: P.text, lineHeight: 1.1 }}>
+                        {fmtM(pieTotalM)}
+                      </div>
+                      <div style={{ fontSize: "10px", color: P.textLight, marginTop: 4, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+                        FY {latestFy}
+                      </div>
+                    </>
+                  )}
+                </div>
               </div>
-            </div>
-            <div style={{ marginTop: 4, fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em", textAlign: "center" }}>
-              SOURCE: HM Treasury PESA 2025 &middot; FY 2023&ndash;24
+
+              {/* Legend grid */}
+              <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "4px 16px", marginTop: 8, padding: "0 20px" }}>
+                {pieData.map((item, idx) => {
+                  const deptMatch = sortedDepts.find(d => d.shortName === item.name && d.breakdown);
+                  const hasDrill = !!(deptMatch || item.breakdown);
+                  return (
+                    <div
+                      key={item.name}
+                      onMouseEnter={() => { setActiveSlice(idx); setHoveredItem(item); }}
+                      onMouseLeave={() => { setActiveSlice(null); setHoveredItem(null); }}
+                      onClick={() => {
+                        const target = deptMatch || (item.breakdown ? item : null);
+                        if (!target) return;
+                        setSelectedPieDept(target);
+                        setActiveSlice(null);
+                        setHoveredItem(null);
+                      }}
+                      style={{ display: "flex", alignItems: "center", gap: 5, cursor: hasDrill ? "pointer" : "default", padding: "2px 0" }}
+                    >
+                      <span style={{ width: 8, height: 8, borderRadius: 2, background: item.color, display: "inline-block", flexShrink: 0 }} />
+                      <span style={{ fontSize: "10px", color: activeSlice === idx ? P.text : P.textMuted, fontFamily: "'DM Mono', monospace", transition: "color 0.15s" }}>
+                        {item.name} ({fmtM(item.value)})
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+            </>
+          ) : (
+            /* ── Drilled-down department pie ── */
+            <DrillPie dept={selectedPieDept} onBack={() => { setSelectedPieDept(null); setActiveSlice(null); setHoveredItem(null); }} />
+          )}
+
+          <div style={{ marginTop: 10, fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em", textAlign: "center" }}>
+            {selectedPieDept
+              ? "SOURCE: Departmental Annual Report / Estimates 2024-25"
+              : <>SOURCE: HM Treasury PESA 2025, Table 1.12 &middot; FY {latestFy}</>}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 2: Department detail list + tax calculator sidebar */}
+      <section style={{ marginBottom: 48 }}>
+        <h3 style={sectionHeading}>Department Breakdown</h3>
+        <p style={sectionNote}>
+          All {sortedDepts.length} departmental groups. Click a department for time series and detail.
+        </p>
+
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 300px", gap: 20, alignItems: "start" }}>
+          {/* Department bars */}
+          <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "16px 14px 10px" }}>
+            {sortedDepts.map((dept, idx) => {
+              const isExpanded = expandedDept === idx;
+              const maxVal = sortedDepts[0].latest;
+              const barWidth = dept.latest > 0 ? (dept.latest / maxVal) * 100 : 0;
+              const deptTotal = data.departments.deptTotal[latestFy] || 1;
+              const share = dept.latest > 0 ? pct(dept.latest, deptTotal) : "0.0";
+
+              return (
+                <div key={dept.cleanName}>
+                  <div
+                    onClick={() => setExpandedDept(isExpanded ? null : idx)}
+                    style={{
+                      padding: "7px 8px",
+                      marginBottom: 1,
+                      background: isExpanded ? "rgba(28,43,69,0.04)" : "transparent",
+                      borderRadius: 3,
+                      cursor: "pointer",
+                      transition: "background 0.15s",
+                    }}
+                    onMouseEnter={(e) => { if (!isExpanded) e.currentTarget.style.background = "rgba(28,43,69,0.02)"; }}
+                    onMouseLeave={(e) => { if (!isExpanded) e.currentTarget.style.background = "transparent"; }}
+                  >
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 3 }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: 7 }}>
+                        <span style={{ width: 8, height: 8, borderRadius: 2, background: dept.color, display: "inline-block", flexShrink: 0 }} />
+                        <span style={{
+                          fontSize: "11px",
+                          color: isExpanded ? P.text : P.textMuted,
+                          fontWeight: isExpanded ? 500 : 400,
+                          fontFamily: "'DM Mono', monospace",
+                        }}>
+                          {dept.shortName}
+                        </span>
+                      </div>
+                      <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                        <span style={{ fontSize: "11px", fontWeight: 500, color: P.text, fontFamily: "'DM Mono', monospace" }}>
+                          {fmtM(dept.latest)}
+                        </span>
+                        <span style={{ fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", width: 36, textAlign: "right" }}>
+                          {share}%
+                        </span>
+                        <span style={{ fontSize: "10px", color: P.textLight, transform: isExpanded ? "rotate(180deg)" : "rotate(0)", transition: "transform 0.2s" }}>
+                          ▾
+                        </span>
+                      </div>
+                    </div>
+                    <div style={{ height: 3, background: "rgba(28,43,69,0.06)", borderRadius: 2, overflow: "hidden" }}>
+                      <div style={{
+                        height: "100%", width: `${barWidth}%`,
+                        background: dept.color, borderRadius: 2,
+                        transition: "width 0.4s ease",
+                        opacity: isExpanded ? 1 : 0.55,
+                      }} />
+                    </div>
+                  </div>
+
+                  {isExpanded && (
+                    <div style={{
+                      margin: "0 8px 8px",
+                      padding: "12px 14px",
+                      background: "rgba(28,43,69,0.02)",
+                      borderRadius: 3,
+                      borderLeft: `3px solid ${dept.color}`,
+                    }}>
+                      <div style={{ fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.12em", color: dept.color, fontWeight: 600, marginBottom: 8, fontFamily: "'DM Mono', monospace" }}>
+                        {dept.cleanName}
+                      </div>
+                      <div style={{ fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", marginBottom: 4 }}>
+                        TME trend (£m)
+                      </div>
+                      <div style={{ height: 90, marginBottom: 10 }}>
+                        <ResponsiveContainer width="100%" height="100%">
+                          <LineChart
+                            data={data.departments.fys.map((fy, i) => ({
+                              fy: fy.slice(0, 4),
+                              value: dept.values[fy],
+                              type: data.departments.fyTypes[i],
+                            }))}
+                          >
+                            <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
+                            <XAxis dataKey="fy" tick={{ fontSize: 9, fill: P.textMuted }} />
+                            <YAxis tick={{ fontSize: 9, fill: P.textMuted }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}bn`} width={42} />
+                            <Tooltip content={<CustomTooltip formatter={(v) => `£${v != null ? v.toLocaleString() : "—"}m`} />} />
+                            <Line type="monotone" dataKey="value" stroke={dept.color} strokeWidth={2} dot={{ r: 2.5, fill: dept.color }} />
+                          </LineChart>
+                        </ResponsiveContainer>
+                      </div>
+                      <div style={{ display: "flex", gap: 0, flexWrap: "wrap" }}>
+                        {data.departments.fys.map((fy, i) => {
+                          const val = dept.values[fy];
+                          const isLatest = fy === latestFy;
+                          return (
+                            <div key={fy} style={{
+                              flex: "1 1 70px", padding: "5px 6px", textAlign: "center",
+                              background: isLatest ? "rgba(28,43,69,0.04)" : "transparent", borderRadius: 2,
+                            }}>
+                              <div style={{ fontSize: "8px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>{fy}</div>
+                              <div style={{ fontSize: "10px", fontWeight: isLatest ? 600 : 400, color: P.text, fontFamily: "'DM Mono', monospace" }}>{fmtM(val)}</div>
+                              <div style={{ fontSize: "7px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>{data.departments.fyTypes[i]}</div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                      {dept.breakdown ? (
+                        <div style={{ marginTop: 10 }}>
+                          <div style={{ fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", marginBottom: 6 }}>
+                            Sub-departmental breakdown (FY 2024-25, £m)
+                          </div>
+                          <SubDeptPie breakdown={dept.breakdown} color={dept.color} />
+                          <div style={{ marginTop: 6, fontSize: "8px", color: P.textLight, fontStyle: "italic", fontFamily: "'DM Mono', monospace" }}>
+                            Source: departmental Annual Report / Estimates 2024-25
+                          </div>
+                        </div>
+                      ) : (
+                        <div style={{ marginTop: 8, fontSize: "9px", color: P.textLight, fontStyle: "italic", fontFamily: "'DM Mono', monospace" }}>
+                          No sub-departmental breakdown available
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+
+            <div style={{ marginTop: 6, padding: "6px 8px", borderTop: `1px solid ${P.border}` }}>
+              <div style={{ display: "flex", justifyContent: "space-between" }}>
+                <span style={{ fontSize: "11px", fontWeight: 600, color: P.text, fontFamily: "'DM Mono', monospace" }}>Total departmental</span>
+                <span style={{ fontSize: "11px", fontWeight: 600, color: P.text, fontFamily: "'DM Mono', monospace" }}>{fmtM(data.departments.deptTotal[latestFy])}</span>
+              </div>
             </div>
           </div>
 
           {/* Sidebar */}
           <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-            {/* Breakdown list */}
-            <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "16px 18px" }}>
-              <div style={{ fontSize: "9px", textTransform: "uppercase", letterSpacing: "0.15em", color: P.textLight, fontWeight: 500, marginBottom: 12, fontFamily: "'DM Mono', monospace" }}>
-                Spending by function
-              </div>
-              {pieData.map((item, idx) => {
-                const isHovered = activeSlice === idx;
-                const maxVal = Math.max(...pieData.map((i) => i.value));
-                const barWidth = (item.value / maxVal) * 100;
-                return (
-                  <div
-                    key={item.name}
-                    onMouseEnter={() => { setActiveSlice(idx); setHoveredItem(item); }}
-                    onMouseLeave={() => { setActiveSlice(null); setHoveredItem(null); }}
-                    style={{ padding: "7px 8px", marginBottom: 1, background: isHovered ? "rgba(28,43,69,0.04)" : "transparent", borderRadius: 3, transition: "background 0.15s" }}
-                  >
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 4 }}>
-                      <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                        <span style={{ width: 9, height: 9, borderRadius: 2, background: item.color, display: "inline-block", flexShrink: 0 }} />
-                        <span style={{ fontSize: "11px", color: isHovered ? P.text : P.textMuted, fontWeight: isHovered ? 500 : 400, transition: "all 0.15s", fontFamily: "'DM Mono', monospace" }}>
-                          {item.name}
-                        </span>
-                      </div>
-                      <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                        <span style={{ fontSize: "11px", fontWeight: 500, color: P.text, fontFamily: "'DM Mono', monospace" }}>
-                          £{item.valueBn}bn
-                        </span>
-                        <span style={{ fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", width: 36, textAlign: "right" }}>
-                          {pct(item.value, totalCofog)}%
-                        </span>
-                      </div>
-                    </div>
-                    <div style={{ height: 3, background: "rgba(28,43,69,0.06)", borderRadius: 2, overflow: "hidden" }}>
-                      <div style={{ height: "100%", width: `${barWidth}%`, background: item.color, borderRadius: 2, transition: "width 0.4s ease", opacity: isHovered ? 1 : 0.55 }} />
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
             {/* Tax calculator */}
-            <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderLeft: `3px solid ${P.sienna}`, borderRadius: 3, padding: "16px 18px" }}>
+            <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderLeft: `3px solid ${P.sienna}`, borderRadius: 3, padding: "14px 16px" }}>
               <div style={{ fontSize: "9px", textTransform: "uppercase", letterSpacing: "0.15em", color: P.sienna, fontWeight: 500, marginBottom: 10, fontFamily: "'DM Mono', monospace" }}>
                 Your tax contribution
               </div>
-              <div style={{ fontSize: "11px", color: P.textMuted, marginBottom: 8, fontFamily: "'DM Mono', monospace" }}>Annual salary</div>
+              <div style={{ fontSize: "11px", color: P.textMuted, marginBottom: 6, fontFamily: "'DM Mono', monospace" }}>Annual salary</div>
               <input
                 type="range" min={15000} max={150000} step={1000} value={salary}
                 onChange={(e) => setSalary(Number(e.target.value))}
                 style={{ width: "100%", accentColor: P.sienna, marginBottom: 4 }}
               />
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 12 }}>
-                <span style={{ fontSize: "18px", fontWeight: 600, fontFamily: "'Playfair Display', serif", color: P.text }}>
+              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 10 }}>
+                <span style={{ fontSize: "17px", fontWeight: 600, fontFamily: "'Playfair Display', serif", color: P.text }}>
                   £{salary.toLocaleString()}
                 </span>
                 <span style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", alignSelf: "flex-end" }}>
                   ≈ £{Math.round(taxPaid).toLocaleString()} tax/yr
                 </span>
               </div>
-              <div style={{ fontSize: "9px", textTransform: "uppercase", letterSpacing: "0.1em", color: P.textLight, fontWeight: 500, marginBottom: 8, fontFamily: "'DM Mono', monospace" }}>
+              <div style={{ fontSize: "9px", textTransform: "uppercase", letterSpacing: "0.1em", color: P.textLight, fontWeight: 500, marginBottom: 6, fontFamily: "'DM Mono', monospace" }}>
                 Your money goes to
               </div>
-              {pieData.filter((f) => f.name !== "Accounting adjustments").slice(0, 7).map((cat) => {
-                const share = (cat.value / totalCofog) * taxPaid;
+              {pieData.filter((d) => d.value > 0).slice(0, 10).map((item) => {
+                const share = (item.value / pieTotalM) * taxPaid;
                 return (
-                  <div key={cat.name} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "3px 0" }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                      <span style={{ width: 6, height: 6, borderRadius: 1, background: cat.color, display: "inline-block" }} />
-                      <span style={{ fontSize: "10px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>{cat.name}</span>
+                  <div key={item.name} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "2px 0" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
+                      <span style={{ width: 6, height: 6, borderRadius: 1, background: item.color, display: "inline-block" }} />
+                      <span style={{ fontSize: "9px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>{item.name}</span>
                     </div>
-                    <span style={{ fontSize: "10px", fontWeight: 500, color: P.text, fontFamily: "'DM Mono', monospace" }}>
+                    <span style={{ fontSize: "9px", fontWeight: 500, color: P.text, fontFamily: "'DM Mono', monospace" }}>
                       £{Math.round(share).toLocaleString()}
                     </span>
                   </div>
                 );
               })}
-              <div style={{ marginTop: 8, fontSize: "9px", color: P.textLight, fontStyle: "italic", fontFamily: "'DM Mono', monospace", lineHeight: 1.5 }}>
+              <div style={{ marginTop: 6, fontSize: "8px", color: P.textLight, fontStyle: "italic", fontFamily: "'DM Mono', monospace", lineHeight: 1.5 }}>
                 Approximation based on income tax + NI. Excludes VAT, council tax, and other indirect taxes.
+              </div>
+            </div>
+
+            {/* Non-departmental detail */}
+            <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "14px 16px" }}>
+              <div style={{ fontSize: "9px", textTransform: "uppercase", letterSpacing: "0.15em", color: P.textLight, fontWeight: 500, marginBottom: 8, fontFamily: "'DM Mono', monospace" }}>
+                Non-departmental items
+              </div>
+              {data.departments.otherItems.filter((item) => {
+                const val = item.values[latestFy];
+                return val != null && Math.abs(val) >= 500;
+              }).map((item) => {
+                const val = item.values[latestFy];
+                return (
+                  <div key={item.name} style={{ display: "flex", justifyContent: "space-between", padding: "3px 0", borderBottom: `1px solid ${P.border}` }}>
+                    <span style={{ fontSize: "9px", color: P.textMuted, fontFamily: "'DM Mono', monospace", maxWidth: 170 }}>
+                      {cleanName(item.name)}
+                    </span>
+                    <span style={{ fontSize: "9px", fontWeight: 500, color: val < 0 ? P.red : P.text, fontFamily: "'DM Mono', monospace" }}>
+                      {fmtM(val)}
+                    </span>
+                  </div>
+                );
+              })}
+              <div style={{ marginTop: 5, fontSize: "8px", color: P.textLight, fontFamily: "'DM Mono', monospace", lineHeight: 1.5 }}>
+                Accounting adjustments eliminate double-counting
+                between departmental budgets and TME.
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Section 2: Fiscal trend */}
+      {/* Section 3: Fiscal trend */}
       <section style={{ marginBottom: 48 }}>
         <h3 style={sectionHeading}>Receipts vs Spending</h3>
         <p style={sectionNote}>
@@ -346,10 +864,7 @@ export default function Spending() {
           <AreaChart data={trendData}>
             <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
             <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-            <YAxis
-              tick={{ fontSize: 11, fill: P.textMuted }}
-              tickFormatter={(v) => trendView === "bn" ? `£${v}bn` : `${v}%`}
-            />
+            <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => trendView === "bn" ? `£${v}bn` : `${v}%`} />
             <Tooltip content={<CustomTooltip formatter={(v) => trendView === "bn" ? `£${v?.toFixed(1)}bn` : `${v?.toFixed(1)}%`} />} />
             <Area type="monotone" dataKey="tme" stroke={P.red} fill={P.red} fillOpacity={0.08} strokeWidth={2} name="Total spending" dot={false} />
             <Area type="monotone" dataKey="receipts" stroke={P.teal} fill={P.teal} fillOpacity={0.08} strokeWidth={2} name="Receipts" dot={false} />
@@ -358,7 +873,7 @@ export default function Spending() {
         </ResponsiveContainer>
       </section>
 
-      {/* Section 3: Debt */}
+      {/* Section 4: Debt */}
       <section style={{ marginBottom: 48 }}>
         <h3 style={sectionHeading}>Public Sector Net Debt</h3>
         <p style={sectionNote}>
@@ -376,7 +891,7 @@ export default function Spending() {
         </ResponsiveContainer>
       </section>
 
-      {/* Section 4: Receipts breakdown */}
+      {/* Section 5: Receipts breakdown */}
       {data.receiptTypes?.length > 0 && (
         <section style={{ marginBottom: 48 }}>
           <h3 style={sectionHeading}>Tax Receipts Breakdown</h3>
@@ -400,16 +915,15 @@ export default function Spending() {
         Total managed expenditure in {latestOutturn.fy} was £{latestOutturn.tme.toFixed(0)}bn
         ({latestPct.tme}% of GDP), against receipts of £{latestOutturn.receipts.toFixed(0)}bn,
         leaving net borrowing of £{latestOutturn.borrowing.toFixed(0)}bn.
-        Social protection (£{(pieData.find(f => f.name === "Social protection")?.valueBn)}bn)
-        and health (£{(pieData.find(f => f.name === "Health")?.valueBn)}bn) together
-        account for {pct(
-          (pieData.find(f => f.name === "Social protection")?.value || 0) +
-          (pieData.find(f => f.name === "Health")?.value || 0),
-          totalCofog
-        )}% of all spending. Debt interest was £{latestOutturn.debtInterest}bn,
-        exceeding the defence budget (£{(pieData.find(f => f.name === "Defence")?.valueBn)}bn).
-        Net debt stands at {latestPct.debt}% of GDP (£{latestOutturn.debt.toFixed(0)}bn),
-        the OBR forecasts it rising to ~97% by 2028-29.
+        Work and Pensions ({fmtM(sortedDepts.find(d => d.cleanName === "Work and Pensions")?.latest)})
+        and Health and Social Care ({fmtM(sortedDepts.find(d => d.cleanName === "Health and Social Care")?.latest)})
+        are the two largest departmental groups, together accounting for{" "}
+        {pct(
+          (sortedDepts.find(d => d.cleanName === "Work and Pensions")?.latest || 0) +
+          (sortedDepts.find(d => d.cleanName === "Health and Social Care")?.latest || 0),
+          data.departments.deptTotal[latestFy] || 1
+        )}% of departmental spending. Debt interest was £{latestOutturn.debtInterest}bn.
+        Net debt stands at {latestPct.debt}% of GDP.
       </AnalysisBox>
 
       {/* Sources */}
@@ -420,7 +934,7 @@ export default function Spending() {
         </a>
         {" · "}
         <a href="https://www.gov.uk/government/statistics/public-expenditure-statistical-analyses-2025" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight }}>
-          HM Treasury PESA 2025 — Chapter 9 (COFOG functions, FY 2023-24)
+          HM Treasury PESA 2025 — Chapter 1 (departmental TME, FY {latestFy})
         </a>
       </div>
     </div>
