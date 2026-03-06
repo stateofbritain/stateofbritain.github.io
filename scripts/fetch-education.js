@@ -1,0 +1,212 @@
+/**
+ * fetch-education.js
+ *
+ * Curated UK education data from official sources:
+ *  - IFS Annual Report on Education Spending (per-pupil spending, real terms)
+ *  - DfE GCSE & A-level results (England)
+ *  - OECD PISA (UK vs OECD average)
+ *  - DfE/HESA Higher Education statistics
+ *  - DfE School Workforce Census
+ *  - OECD Education at a Glance (international spending comparison)
+ *
+ * Outputs: public/data/education.json
+ */
+import { writeFileSync } from "fs";
+
+// ── Per-pupil spending (England, state-funded schools) ──────────────────
+// Real terms (2023-24 prices), £ per pupil
+// Source: IFS Annual Report on Education Spending in England 2024
+const perPupilSpending = [
+  { year: "2003-04", value: 5440 },
+  { year: "2004-05", value: 5690 },
+  { year: "2005-06", value: 5950 },
+  { year: "2006-07", value: 6180 },
+  { year: "2007-08", value: 6400 },
+  { year: "2008-09", value: 6540 },
+  { year: "2009-10", value: 6720 },
+  { year: "2010-11", value: 6580 },
+  { year: "2011-12", value: 6370 },
+  { year: "2012-13", value: 6170 },
+  { year: "2013-14", value: 6040 },
+  { year: "2014-15", value: 5960 },
+  { year: "2015-16", value: 5880 },
+  { year: "2016-17", value: 5790 },
+  { year: "2017-18", value: 5730 },
+  { year: "2018-19", value: 5690 },
+  { year: "2019-20", value: 5810 },
+  { year: "2020-21", value: 6070 },
+  { year: "2021-22", value: 6150 },
+  { year: "2022-23", value: 6080 },
+  { year: "2023-24", value: 6310 },
+];
+
+// ── GCSE results (England) ──────────────────────────────────────────────
+// % achieving Grade 5+ (strong pass) in English & Maths
+// Pre-2017: % achieving 5+ A*-C incl. English & Maths (broadly comparable)
+// Source: DfE GCSE & equivalent results, KS4 performance tables
+const gcseResults = [
+  { year: 2005, rate: 44.3, measure: "5+ A*-C incl E&M" },
+  { year: 2006, rate: 45.8, measure: "5+ A*-C incl E&M" },
+  { year: 2007, rate: 46.3, measure: "5+ A*-C incl E&M" },
+  { year: 2008, rate: 47.6, measure: "5+ A*-C incl E&M" },
+  { year: 2009, rate: 49.8, measure: "5+ A*-C incl E&M" },
+  { year: 2010, rate: 53.4, measure: "5+ A*-C incl E&M" },
+  { year: 2011, rate: 58.2, measure: "5+ A*-C incl E&M" },
+  { year: 2012, rate: 59.4, measure: "5+ A*-C incl E&M" },
+  { year: 2013, rate: 59.2, measure: "5+ A*-C incl E&M" },
+  { year: 2014, rate: 56.6, measure: "5+ A*-C incl E&M" },
+  { year: 2015, rate: 53.0, measure: "5+ A*-C incl E&M" },
+  { year: 2016, rate: 53.5, measure: "5+ A*-C incl E&M" },
+  { year: 2017, rate: 39.6, measure: "Grade 5+ E&M" },
+  { year: 2018, rate: 40.2, measure: "Grade 5+ E&M" },
+  { year: 2019, rate: 40.1, measure: "Grade 5+ E&M" },
+  { year: 2020, rate: 49.9, measure: "Grade 5+ E&M (CAG)" },
+  { year: 2021, rate: 51.9, measure: "Grade 5+ E&M (TAG)" },
+  { year: 2022, rate: 45.7, measure: "Grade 5+ E&M" },
+  { year: 2023, rate: 43.2, measure: "Grade 5+ E&M" },
+  { year: 2024, rate: 43.9, measure: "Grade 5+ E&M" },
+];
+
+// ── PISA scores ─────────────────────────────────────────────────────────
+// UK scores and OECD averages for each cycle
+// Source: OECD PISA 2022 Results (published Dec 2023)
+const pisaScores = [
+  { year: 2006, ukMaths: 495, ukReading: 495, ukScience: 515, oecdMaths: 498, oecdReading: 492, oecdScience: 500 },
+  { year: 2009, ukMaths: 492, ukReading: 494, ukScience: 514, oecdMaths: 496, oecdReading: 493, oecdScience: 501 },
+  { year: 2012, ukMaths: 494, ukReading: 499, ukScience: 514, oecdMaths: 494, oecdReading: 496, oecdScience: 501 },
+  { year: 2015, ukMaths: 492, ukReading: 498, ukScience: 509, oecdMaths: 490, oecdReading: 493, oecdScience: 493 },
+  { year: 2018, ukMaths: 502, ukReading: 504, ukScience: 505, oecdMaths: 489, oecdReading: 487, oecdScience: 489 },
+  { year: 2022, ukMaths: 489, ukReading: 494, ukScience: 503, oecdMaths: 472, oecdReading: 476, oecdScience: 485 },
+];
+
+// ── Higher Education participation ──────────────────────────────────────
+// Higher Education Initial Participation Rate (HEIPR), England
+// Source: DfE Participation rates in higher education (academic years)
+const heParticipation = [
+  { year: "2006-07", rate: 38 },
+  { year: "2007-08", rate: 39 },
+  { year: "2008-09", rate: 40 },
+  { year: "2009-10", rate: 43 },
+  { year: "2010-11", rate: 43 },
+  { year: "2011-12", rate: 43 },
+  { year: "2012-13", rate: 38 },
+  { year: "2013-14", rate: 43 },
+  { year: "2014-15", value: 46 },
+  { year: "2015-16", rate: 49 },
+  { year: "2016-17", rate: 50 },
+  { year: "2017-18", rate: 50 },
+  { year: "2018-19", rate: 51 },
+  { year: "2019-20", rate: 53 },
+  { year: "2020-21", rate: 55 },
+  { year: "2021-22", rate: 53 },
+  { year: "2022-23", rate: 52 },
+];
+
+// ── Teacher workforce (England, state-funded schools) ───────────────────
+// Source: DfE School Workforce Census
+const teacherWorkforce = [
+  { year: 2010, teachers: 442, ratio: 17.8, vacancyRate: 0.3 },
+  { year: 2011, teachers: 438, ratio: 17.8, vacancyRate: 0.3 },
+  { year: 2012, teachers: 438, ratio: 17.9, vacancyRate: 0.2 },
+  { year: 2013, teachers: 441, ratio: 17.8, vacancyRate: 0.2 },
+  { year: 2014, teachers: 450, ratio: 17.8, vacancyRate: 0.3 },
+  { year: 2015, teachers: 456, ratio: 18.1, vacancyRate: 0.3 },
+  { year: 2016, teachers: 457, ratio: 18.0, vacancyRate: 0.4 },
+  { year: 2017, teachers: 458, ratio: 17.9, vacancyRate: 0.5 },
+  { year: 2018, teachers: 453, ratio: 17.9, vacancyRate: 0.5 },
+  { year: 2019, teachers: 453, ratio: 17.9, vacancyRate: 0.5 },
+  { year: 2020, teachers: 460, ratio: 17.9, vacancyRate: 0.3 },
+  { year: 2021, teachers: 464, ratio: 17.2, vacancyRate: 0.3 },
+  { year: 2022, teachers: 468, ratio: 17.3, vacancyRate: 0.5 },
+  { year: 2023, teachers: 468, ratio: 17.3, vacancyRate: 0.6 },
+  { year: 2024, teachers: 468, ratio: 17.5, vacancyRate: 0.5 },
+];
+
+// ── International spending comparison ───────────────────────────────────
+// Total public spending on education as % GDP (2021 data)
+// Source: OECD Education at a Glance 2024, Table C2.1
+const intlSpending = [
+  { country: "Norway", pct: 6.4 },
+  { country: "Sweden", pct: 5.8 },
+  { country: "France", pct: 5.5 },
+  { country: "USA", pct: 5.1 },
+  { country: "OECD avg", pct: 4.9 },
+  { country: "Germany", pct: 4.6 },
+  { country: "UK", pct: 4.3 },
+  { country: "Australia", pct: 4.3 },
+  { country: "Canada", pct: 4.2 },
+  { country: "Japan", pct: 3.4 },
+];
+
+// ── Degree classification inflation ─────────────────────────────────────
+// % of UK first degrees awarded as first-class honours
+// Source: HESA Student Statistics
+const degreeClassification = [
+  { year: "2010-11", first: 15, twoOne: 50, twoTwo: 28, third: 7 },
+  { year: "2011-12", first: 17, twoOne: 50, twoTwo: 27, third: 6 },
+  { year: "2012-13", first: 19, twoOne: 50, twoTwo: 25, third: 6 },
+  { year: "2013-14", first: 21, twoOne: 50, twoTwo: 24, third: 5 },
+  { year: "2014-15", first: 22, twoOne: 51, twoTwo: 22, third: 5 },
+  { year: "2015-16", first: 24, twoOne: 51, twoTwo: 21, third: 4 },
+  { year: "2016-17", first: 26, twoOne: 50, twoTwo: 20, third: 4 },
+  { year: "2017-18", first: 28, twoOne: 49, twoTwo: 19, third: 4 },
+  { year: "2018-19", first: 28, twoOne: 49, twoTwo: 19, third: 4 },
+  { year: "2019-20", first: 35, twoOne: 47, twoTwo: 15, third: 3 },
+  { year: "2020-21", first: 36, twoOne: 46, twoTwo: 15, third: 3 },
+  { year: "2021-22", first: 32, twoOne: 47, twoTwo: 17, third: 4 },
+  { year: "2022-23", first: 30, twoOne: 48, twoTwo: 18, third: 4 },
+];
+
+// ── Snapshot metrics ────────────────────────────────────────────────────
+const snapshot = {
+  perPupilLatest: 6310,
+  perPupilYear: "2023-24",
+  perPupilPeakYear: "2009-10",
+  perPupilPeak: 6720,
+  perPupilChange: -6.1, // % below peak in real terms
+  gcseRate: 43.9,
+  gcseYear: 2024,
+  pisaMaths: 489,
+  pisaReading: 494,
+  pisaScience: 503,
+  pisaYear: 2022,
+  heParticipation: 52,
+  heParticipationYear: "2022-23",
+  teacherCount: 468,
+  teacherCountUnit: "k",
+  pupilTeacherRatio: 17.5,
+  spendingPctGdp: 4.3,
+  oecdAvgPctGdp: 4.9,
+  firstClassPct: 30,
+  firstClassYear: "2022-23",
+};
+
+// ── Assemble and write ──────────────────────────────────────────────────
+const output = {
+  snapshot,
+  perPupilSpending,
+  gcseResults,
+  pisaScores,
+  heParticipation: heParticipation.map((d) => ({
+    year: d.year,
+    rate: d.rate ?? d.value, // fix the one typo
+  })),
+  teacherWorkforce,
+  intlSpending,
+  degreeClassification,
+  meta: {
+    generated: new Date().toISOString(),
+    sources: [
+      { name: "IFS Annual Report on Education Spending 2024", url: "https://ifs.org.uk/education-spending" },
+      { name: "DfE GCSE Results (England)", url: "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance" },
+      { name: "OECD PISA 2022", url: "https://www.oecd.org/pisa/" },
+      { name: "DfE HE Participation Rates", url: "https://explore-education-statistics.service.gov.uk/find-statistics/participation-rates-in-higher-education" },
+      { name: "DfE School Workforce Census", url: "https://explore-education-statistics.service.gov.uk/find-statistics/school-workforce-in-england" },
+      { name: "OECD Education at a Glance 2024", url: "https://www.oecd.org/education/education-at-a-glance/" },
+      { name: "HESA Student Statistics", url: "https://www.hesa.ac.uk/data-and-analysis/students" },
+    ],
+  },
+};
+
+writeFileSync("public/data/education.json", JSON.stringify(output, null, 2));
+console.log("  education.json written (" + perPupilSpending.length + " spending years, " + gcseResults.length + " GCSE years, " + pisaScores.length + " PISA cycles)");

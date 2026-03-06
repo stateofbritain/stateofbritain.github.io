@@ -14,7 +14,7 @@ export default function Landing({ onNavigate }) {
             margin: "0 0 8px",
           }}
         >
-          Three pillars of a functioning country
+          The state of Britain, in data
         </h2>
         <p
           style={{

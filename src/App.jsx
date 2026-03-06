@@ -15,6 +15,7 @@ import Energy from "./pillars/foundations/Energy";
 import HealthcareAccess from "./pillars/foundations/HealthcareAccess";
 import Water from "./pillars/foundations/Water";
 import Environment from "./pillars/foundations/Environment";
+import Family from "./pillars/foundations/Family";
 import Startups from "./pillars/growth/Startups";
 import Spinouts from "./pillars/growth/Spinouts";
 import ResearchFunding from "./pillars/growth/ResearchFunding";
@@ -22,11 +23,15 @@ import Productivity from "./pillars/growth/Productivity";
 import ProductiveQuotient from "./pillars/growth/ProductiveQuotient";
 import Investment from "./pillars/growth/Investment";
 import Infrastructure from "./pillars/growth/Infrastructure";
+import Education from "./pillars/growth/Education";
+import Justice from "./pillars/state/Justice";
+import Defence from "./pillars/state/Defence";
+import Immigration from "./pillars/state/Immigration";
 
 // Map of pillar/topic keys to their React components.
 // As pages are built, import and register them here.
 const TOPIC_COMPONENTS = {
-  "state/spending": Spending,
+  "spending/spending": Spending,
   "foundations/housing": Housing,
   "foundations/safety": Safety,
   "foundations/food": FoodCostOfLiving,
@@ -34,6 +39,7 @@ const TOPIC_COMPONENTS = {
   "foundations/healthcare": HealthcareAccess,
   "foundations/water": Water,
   "foundations/environment": Environment,
+  "foundations/family": Family,
   "growth/startups": Startups,
   "growth/spinouts": Spinouts,
   "growth/research": ResearchFunding,
@@ -41,6 +47,10 @@ const TOPIC_COMPONENTS = {
   "growth/pq": ProductiveQuotient,
   "growth/investment": Investment,
   "growth/infrastructure": Infrastructure,
+  "growth/education": Education,
+  "state/justice": Justice,
+  "state/defence": Defence,
+  "state/immigration": Immigration,
 };
 
 function getTopicComponent(pillarKey, topicKey) {
@@ -99,13 +109,15 @@ export default function App() {
               minHeight: 500,
             }}
           >
-            <TopicSidebar
-              pillar={pillarConfig}
-              topics={pillarConfig.topics}
-              activeTopic={activeTopic}
-              onSelect={(t) => navigate(activePillar, t)}
-            />
-            <main style={{ flex: 1, paddingLeft: 24 }}>
+            {Object.keys(pillarConfig.topics).length > 1 && (
+              <TopicSidebar
+                pillar={pillarConfig}
+                topics={pillarConfig.topics}
+                activeTopic={activeTopic}
+                onSelect={(t) => navigate(activePillar, t)}
+              />
+            )}
+            <main style={{ flex: 1, paddingLeft: Object.keys(pillarConfig.topics).length > 1 ? 24 : 0 }}>
               {TopicComponent ? (
                 <TopicComponent />
               ) : (

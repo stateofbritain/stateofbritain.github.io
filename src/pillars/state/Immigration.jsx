@@ -1,0 +1,332 @@
+import { useState, useEffect } from "react";
+import {
+  LineChart, Line, AreaChart, Area, BarChart, Bar,
+  XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
+  ReferenceLine, Legend, Cell, PieChart, Pie,
+} from "recharts";
+import P from "../../theme/palette";
+import MetricCard from "../../components/MetricCard";
+import CustomTooltip from "../../components/CustomTooltip";
+import AnalysisBox from "../../components/AnalysisBox";
+
+const sectionHeading = {
+  fontFamily: "'Playfair Display', serif",
+  fontSize: "20px",
+  fontWeight: 600,
+  color: P.text,
+  margin: "0 0 6px",
+};
+
+const sectionNote = {
+  fontSize: "13px",
+  lineHeight: 1.7,
+  color: P.textMuted,
+  fontFamily: "'Playfair Display', serif",
+  margin: "0 0 18px",
+  maxWidth: 720,
+};
+
+const VISA_COLORS = [P.teal, P.navy, P.sienna, P.red, P.grey];
+const AGE_COLORS = [P.teal, P.navy, P.sienna, "#4A7A58", P.grey, P.red];
+
+export default function Immigration() {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetch("/data/immigration.json")
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
+      .then(setData)
+      .catch((err) => setError(err.message))
+      .finally(() => setLoading(false));
+  }, []);
+
+  if (loading) {
+    return (
+      <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
+        <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>Immigration</h2>
+        <p style={{ fontSize: "12px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>Loading immigration data...</p>
+      </div>
+    );
+  }
+
+  if (error || !data) {
+    return (
+      <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
+        <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>Immigration</h2>
+        <p style={{ fontSize: "12px", color: P.red, fontFamily: "'DM Mono', monospace" }}>Failed to load data: {error ?? "No data"}</p>
+      </div>
+    );
+  }
+
+  const s = data.snapshot;
+
+  return (
+    <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
+      <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 6px" }}>
+        Immigration
+      </h2>
+      <p style={{ fontSize: "13px", color: P.textMuted, margin: "0 0 24px", fontFamily: "'Playfair Display', serif", maxWidth: 720 }}>
+        Migration flows, visa types, asylum, population growth, and demographic change across the UK.
+      </p>
+
+      {/* Metric cards */}
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 14, marginBottom: 32 }}>
+        <MetricCard label="Net migration" value={`${s.netMigration}k`} change={`${s.netMigrationYear} (peak ${s.netMigrationPeak}k in ${s.netMigrationPeakYear})`} color={P.navy} />
+        <MetricCard label="UK population" value={`${s.population}m`} change={String(s.populationYear)} />
+        <MetricCard label="Foreign-born" value={`${s.foreignBornPct}%`} change={String(s.foreignBornYear)} />
+        <MetricCard label="Natural change" value={`${s.naturalChange > 0 ? "+" : ""}${s.naturalChange}k`} change={`Deaths exceed births (${s.naturalChangeYear})`} up color={P.red} />
+      </div>
+
+      {/* Section 1: Net migration */}
+      <section style={{ marginBottom: 48 }}>
+        <h3 style={sectionHeading}>Net Migration</h3>
+        <p style={sectionNote}>
+          UK net migration was near zero in the early 1990s, rose through EU enlargement in 2004,
+          and spiked to a record 710k in 2022 as post-COVID visa liberalisation — especially for
+          health & care workers and students — coincided with Ukraine and Hong Kong schemes.
+          It has since fallen to 348k following visa tightening.
+        </p>
+        <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px" }}>
+          <ResponsiveContainer width="100%" height={340}>
+            <AreaChart data={data.netMigration}>
+              <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
+              <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[-100, 800]} tickFormatter={(v) => `${v}k`} />
+              <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toLocaleString()}k`} />} />
+              <ReferenceLine y={0} stroke={P.text} strokeWidth={1} />
+              <Area type="monotone" dataKey="immigration" stackId="pos" stroke={P.teal} fill={P.teal} fillOpacity={0.15} strokeWidth={1.5} name="Immigration" />
+              <Line type="monotone" dataKey="net" stroke={P.navy} strokeWidth={2.5} dot={{ r: 2, fill: P.navy }} name="Net migration" />
+              <Legend wrapperStyle={{ fontSize: 10, fontFamily: "'DM Mono', monospace" }} />
+            </AreaChart>
+          </ResponsiveContainer>
+          <div style={{ marginTop: 6, fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+            SOURCE: ONS Long-term International Migration, year ending
+          </div>
+        </div>
+      </section>
+
+      {/* Section 2: Visa breakdown */}
+      <section style={{ marginBottom: 48 }}>
+        <h3 style={sectionHeading}>Migration by Visa Type</h3>
+        <p style={sectionNote}>
+          Non-EU/EEA migration by reason, year ending June 2024.
+          Study visas are the largest category (418k), followed by work (277k).
+          The 2024 restrictions on dependants and the care worker route are expected
+          to reduce these numbers significantly.
+        </p>
+        <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 32, flexWrap: "wrap" }}>
+            <ResponsiveContainer width={200} height={200}>
+              <PieChart>
+                <Pie
+                  data={data.visaBreakdown}
+                  dataKey="value"
+                  nameKey="type"
+                  cx="50%"
+                  cy="50%"
+                  innerRadius={40}
+                  outerRadius={80}
+                  paddingAngle={2}
+                  stroke={P.bgCard}
+                  strokeWidth={2}
+                >
+                  {data.visaBreakdown.map((_, i) => (
+                    <Cell key={i} fill={VISA_COLORS[i % VISA_COLORS.length]} />
+                  ))}
+                </Pie>
+                <Tooltip content={<CustomTooltip formatter={(v) => `${v}k`} />} />
+              </PieChart>
+            </ResponsiveContainer>
+            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+              {data.visaBreakdown.map((d, i) => (
+                <div key={d.type} style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                  <div style={{ width: 12, height: 12, borderRadius: 2, background: VISA_COLORS[i % VISA_COLORS.length] }} />
+                  <span style={{ fontSize: "12px", fontFamily: "'DM Mono', monospace", color: P.textMuted }}>
+                    {d.type}: {d.value}k
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div style={{ marginTop: 12, fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+            SOURCE: Home Office Immigration Statistics, year ending June 2024
+          </div>
+        </div>
+      </section>
+
+      {/* Section 3: Asylum */}
+      <section style={{ marginBottom: 48 }}>
+        <h3 style={sectionHeading}>Asylum Applications</h3>
+        <p style={sectionNote}>
+          Asylum applications peaked at 75k in 2022, driven by small boat Channel crossings.
+          The grant rate has historically been low, creating a large backlog of people awaiting decisions.
+        </p>
+        <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px" }}>
+          <ResponsiveContainer width="100%" height={300}>
+            <BarChart data={data.asylum}>
+              <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
+              <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 80]} tickFormatter={(v) => `${v}k`} />
+              <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}k`} />} />
+              <Bar dataKey="applications" name="Applications" fill={P.navy} fillOpacity={0.6} radius={[3, 3, 0, 0]} />
+              <Bar dataKey="grants" name="Grants" fill={P.teal} fillOpacity={0.8} radius={[3, 3, 0, 0]} />
+              <Legend wrapperStyle={{ fontSize: 10, fontFamily: "'DM Mono', monospace" }} />
+            </BarChart>
+          </ResponsiveContainer>
+          <div style={{ marginTop: 6, fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+            SOURCE: Home Office Immigration Statistics
+          </div>
+        </div>
+      </section>
+
+      {/* Section 4: Population growth components */}
+      <section style={{ marginBottom: 48 }}>
+        <h3 style={sectionHeading}>Drivers of Population Growth</h3>
+        <p style={sectionNote}>
+          Since 2020, deaths have exceeded births — the UK's natural population change turned
+          negative for the first time since WWII. All population growth is now driven by
+          net migration.
+        </p>
+        <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px" }}>
+          <ResponsiveContainer width="100%" height={320}>
+            <BarChart data={data.popComponents}>
+              <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
+              <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[-100, 750]} tickFormatter={(v) => `${v}k`} />
+              <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toLocaleString()}k`} />} />
+              <ReferenceLine y={0} stroke={P.text} strokeWidth={1} />
+              <Bar dataKey="naturalChange" name="Natural change (births - deaths)" fill={P.teal} fillOpacity={0.7} radius={[3, 3, 0, 0]} />
+              <Bar dataKey="netMigration" name="Net migration" fill={P.navy} fillOpacity={0.7} radius={[3, 3, 0, 0]} />
+              <Legend wrapperStyle={{ fontSize: 10, fontFamily: "'DM Mono', monospace" }} />
+            </BarChart>
+          </ResponsiveContainer>
+          <div style={{ marginTop: 6, fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+            SOURCE: ONS Components of Population Change, UK
+          </div>
+        </div>
+      </section>
+
+      {/* Section 5: Population */}
+      <section style={{ marginBottom: 48 }}>
+        <h3 style={sectionHeading}>UK Population</h3>
+        <p style={sectionNote}>
+          The UK population has grown from 55.9m in 1971 to {s.population}m, an increase of 22%.
+          Growth was slow (0.1% p.a.) until the late 1990s, then accelerated with rising net migration.
+        </p>
+        <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px" }}>
+          <ResponsiveContainer width="100%" height={280}>
+            <AreaChart data={data.populationSeries}>
+              <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
+              <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[54, 70]} tickFormatter={(v) => `${v}m`} />
+              <Tooltip content={<CustomTooltip formatter={(v) => `${v}m`} />} />
+              <Area type="monotone" dataKey="population" stroke={P.navy} fill={P.navy} fillOpacity={0.1} strokeWidth={2.5} name="Population (millions)" dot={{ r: 2.5, fill: P.navy }} />
+            </AreaChart>
+          </ResponsiveContainer>
+          <div style={{ marginTop: 6, fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+            SOURCE: ONS Population Estimates, UK
+          </div>
+        </div>
+      </section>
+
+      {/* Section 6: Age structure */}
+      <section style={{ marginBottom: 48 }}>
+        <h3 style={sectionHeading}>Age Structure</h3>
+        <p style={sectionNote}>
+          The UK's age profile, mid-2023. Over 25% of the population is 60+, and the
+          dependency ratio (dependants per 100 working-age) has risen from 52 in 2001
+          to {s.dependencyRatio} — driven almost entirely by population ageing.
+        </p>
+        <div style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
+          <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px", flex: "1 1 300px" }}>
+            <ResponsiveContainer width="100%" height={280}>
+              <BarChart data={data.ageStructure}>
+                <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
+                <XAxis dataKey="group" tick={{ fontSize: 11, fill: P.textMuted }} />
+                <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 25]} tickFormatter={(v) => `${v}%`} />
+                <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
+                <Bar dataKey="pct" name="% of population" radius={[3, 3, 0, 0]}>
+                  {data.ageStructure.map((_, i) => (
+                    <Cell key={i} fill={AGE_COLORS[i]} fillOpacity={0.7} />
+                  ))}
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+            <div style={{ marginTop: 6, fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+              SOURCE: ONS Population Estimates by Age, mid-2023
+            </div>
+          </div>
+          <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px", flex: "1 1 300px" }}>
+            <ResponsiveContainer width="100%" height={280}>
+              <AreaChart data={data.dependencyRatio}>
+                <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
+                <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
+                <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 60]} />
+                <Tooltip content={<CustomTooltip />} />
+                <Area type="monotone" dataKey="old" stackId="1" stroke={P.sienna} fill={P.sienna} fillOpacity={0.5} name="Old-age (65+)" />
+                <Area type="monotone" dataKey="young" stackId="1" stroke={P.teal} fill={P.teal} fillOpacity={0.5} name="Youth (0-15)" />
+                <Legend wrapperStyle={{ fontSize: 10, fontFamily: "'DM Mono', monospace" }} />
+              </AreaChart>
+            </ResponsiveContainer>
+            <div style={{ marginTop: 6, fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+              SOURCE: ONS Dependency Ratio, per 100 working age
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 7: Foreign-born share */}
+      <section style={{ marginBottom: 48 }}>
+        <h3 style={sectionHeading}>Foreign-Born Population</h3>
+        <p style={sectionNote}>
+          The share of UK residents born abroad has risen from 9.3% in 2004 to {s.foreignBornPct}%,
+          reflecting two decades of sustained high net migration.
+        </p>
+        <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px" }}>
+          <ResponsiveContainer width="100%" height={260}>
+            <AreaChart data={data.foreignBorn}>
+              <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
+              <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[8, 18]} tickFormatter={(v) => `${v}%`} />
+              <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
+              <Area type="monotone" dataKey="pct" stroke={P.sienna} fill={P.sienna} fillOpacity={0.12} strokeWidth={2.5} name="Foreign-born %" dot={{ r: 2.5, fill: P.sienna }} />
+            </AreaChart>
+          </ResponsiveContainer>
+          <div style={{ marginTop: 6, fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+            SOURCE: ONS Annual Population Survey / Labour Force Survey
+          </div>
+        </div>
+      </section>
+
+      {/* Analysis */}
+      <AnalysisBox>
+        Net migration reached a record {s.netMigrationPeak}k in {s.netMigrationPeakYear}, driven by
+        post-COVID visa liberalisation across health, care, and student routes. Subsequent
+        restrictions have brought it down to {s.netMigration}k in {s.netMigrationYear}, but this
+        is still historically unprecedented. Migration has become the sole engine of population
+        growth: natural change turned negative in 2020 and has stayed there, with deaths now
+        exceeding births by {Math.abs(s.naturalChange)}k per year. The UK population of {s.population}m
+        is 22% larger than in 1971, with {s.foreignBornPct}% born abroad. The dependency ratio
+        has risen to {s.dependencyRatio} per 100 working-age, driven by ageing — old-age dependency
+        now exceeds youth dependency for the first time. Without migration, the UK's working-age
+        population would be shrinking.
+      </AnalysisBox>
+
+      {/* Sources */}
+      <div style={{ marginTop: 24, fontSize: "11px", color: P.textLight, fontFamily: "'DM Mono', monospace", lineHeight: 1.8 }}>
+        <strong>Sources:</strong>{" "}
+        {data.meta.sources.map((src, i) => (
+          <span key={i}>
+            {i > 0 && " · "}
+            <a href={src.url} target="_blank" rel="noopener noreferrer" style={{ color: P.textLight }}>{src.name}</a>
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
