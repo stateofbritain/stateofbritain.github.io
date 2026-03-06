@@ -86,6 +86,12 @@ _Completed tasks are logged here. Do not delete entries -- this is the agent's l
 - **Key files changed:** `src/pillars/growth/Spinouts.jsx`, `src/App.jsx`
 - **Notes:** Curated static data from RAEng/Beauhurst "Spotlight on Spinouts 2025" report (no fetch script — data from PDF, not downloadable dataset). Four sections: Population & Pipeline (2,064 total, 1,337 active, stage breakdown, failure rate, top 20 universities horizontal bar), Investment (equity £17.0bn over 3,788 deals 2015-2024, IUK grants £814m, top investors bar chart, equity/IUK toggle), Sectors (traditional vs emerging tech toggle, horizontal bar charts), Regional Distribution (England/Scotland/Wales/NI metric cards, Golden Triangle stats, gender breakdown). Source citation links to RAEng report.
 
+### [T-024] Productive Quotient page ✅
+- **Completed:** 2026-03-06
+- **Points delivered:** 8
+- **Key files changed:** `scripts/fetch-workforce.js`, `public/data/workforce.json`, `src/pillars/growth/ProductiveQuotient.jsx`, `src/App.jsx`, `package.json`
+- **Notes:** Fetch script downloads 3 official datasets: NHS Digital HCHS Workforce Statistics XLSX (Table 1, monthly FTE by staff group, Sep 2009-Dec 2025), DfE School Workforce Census CSV (national totals, 2011/12-2024/25), Home Office Police Workforce Open Data ODS (officers/staff/PCSOs, 2007-2025). HESA academic vs professional staff curated from published bulletins (data behind paywall). Component shows cross-service comparison bar chart (frontline %), trend lines per service, stacked bar workforce composition, and methodology cards. Key findings: NHS 84.3% clinical, police 62.1% officers+PCSOs, universities 49.0% academic, schools 76.8% teachers+TAs. NHS ratio stable since 2013; police officers fell from 146k (2009) to 125k (2018) then recovered to 149k (2025).
+
 ### [T-023] Productivity page ✅
 - **Completed:** 2026-03-06
 - **Points delivered:** 3
