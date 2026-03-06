@@ -104,7 +104,6 @@ export default function Infrastructure() {
   const latestFttp = data.broadband.fttp[data.broadband.fttp.length - 1];
   const latestGigabit = data.broadband.gigabit[data.broadband.gigabit.length - 1];
   const latestSpeed = data.broadband.speeds[data.broadband.speeds.length - 1];
-  const latest4g = data.broadband.mobile4g[data.broadband.mobile4g.length - 1];
   const latestPunct = data.rail.punctuality[data.rail.punctuality.length - 1];
   const latestJourneys = data.rail.journeys[data.rail.journeys.length - 1];
   const prePandemic = data.rail.journeys.find((r) => r.year === 2018);
@@ -128,7 +127,7 @@ export default function Infrastructure() {
         <MetricCard label="FTTP coverage" value={`${latestFttp.pct}%`} sub={`${latestFttp.premises}m premises (${latestFttp.date})`} />
         <MetricCard label="Gigabit-capable" value={`${latestGigabit.pct}%`} sub={latestGigabit.date} />
         <MetricCard label="Rail journeys" value={`${(latestJourneys.journeysMn / 1000).toFixed(2)}bn`} sub={`${latestJourneys.fy} (${recoveryPct}% of pre-Covid)`} />
-        <MetricCard label="Rail PPM" value={`${latestPunct.ppm}%`} sub={`On time: ${latestPunct.onTime}% (${latestPunct.fy})`} />
+        <MetricCard label="Rail PPM" value={`${latestPunct.ppm}%`} sub={latestPunct.fy} />
         <MetricCard label="Road traffic" value={`${latestTraffic.totalBnMiles}bn mi`} sub={`${latestTraffic.year}`} />
       </div>
 
@@ -193,7 +192,7 @@ export default function Infrastructure() {
         <p style={sectionNote}>
           {railView === "journeys"
             ? "Annual passenger journeys in Great Britain (millions). Collapsed during Covid-19 (2020-21: 388m) and has recovered to 1,729m in 2024-25."
-            : "Public Performance Measure (PPM): % of trains arriving within 5 minutes (commuter) or 10 minutes (long-distance) of schedule. On Time: within 1 minute."}
+            : "Public Performance Measure (PPM): weighted average across all operators. A train meets PPM if it arrives within 5 minutes (commuter) or 10 minutes (long-distance) of schedule."}
         </p>
         <div style={{ display: "flex", gap: 6, marginBottom: 14 }}>
           <button style={toggleBtn(railView === "journeys")} onClick={() => setRailView("journeys")}>Passenger journeys</button>
@@ -216,11 +215,10 @@ export default function Infrastructure() {
           <ResponsiveContainer width="100%" height={340}>
             <LineChart data={data.rail.punctuality}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-              <XAxis dataKey="fy" tick={{ fontSize: 10, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} domain={[50, 100]} />
-              <Tooltip content={<CustomTooltip labelFormatter={(l) => `FY ${l}`} formatter={(v) => v !== null ? `${v}%` : "n/a"} />} />
-              <Line type="monotone" dataKey="ppm" stroke={P.teal} strokeWidth={2} dot={{ r: 3 }} name="PPM" />
-              <Line type="monotone" dataKey="onTime" stroke={P.sienna} strokeWidth={2} dot={{ r: 3 }} name="On Time" connectNulls />
+              <XAxis dataKey="fy" tick={{ fontSize: 10, fill: P.textMuted }} interval={2} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} domain={[70, 100]} />
+              <Tooltip content={<CustomTooltip labelFormatter={(l) => `FY ${l}`} formatter={(v) => `${v}%`} />} />
+              <Line type="monotone" dataKey="ppm" stroke={P.teal} strokeWidth={2} dot={false} name="PPM" />
               <ReferenceLine y={92.5} stroke={P.textLight} strokeDasharray="4 4" label={{ value: "Historic target 92.5%", fontSize: 10, fill: P.textLight, position: "top" }} />
             </LineChart>
           </ResponsiveContainer>
@@ -291,7 +289,7 @@ export default function Infrastructure() {
         </a>
         {" · "}
         <a href="https://dataportal.orr.gov.uk/" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight }}>
-          ORR Data Portal (Table 1220, Rail Performance)
+          ORR Data Portal (Tables 3103, 1220)
         </a>
         {" · "}
         <a href="https://www.gov.uk/government/statistical-data-sets/road-traffic-statistics-tra" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight }}>

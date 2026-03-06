@@ -1,22 +1,22 @@
 /**
  * fetch-infrastructure.js
  *
- * Curates and assembles UK infrastructure data from multiple sources:
+ * Downloads and assembles UK infrastructure data from multiple sources:
  *
  *  1. Ofcom Connected Nations (curated from annual reports)
  *     - Full-fibre (FTTP) coverage time series, 2018-2025
  *     - Gigabit-capable coverage time series, 2019-2025
  *     - Average broadband speeds, 2018-2023
- *     - 4G/5G mobile coverage
+ *     - 4G mobile coverage
  *
- *  2. ORR Passenger Journeys (downloaded, Table 1220)
- *     - Annual passenger journeys in millions
+ *  2. ORR Table 3103 (downloaded) — Historic PPM by operator, quarterly
+ *     - Weighted-average PPM across all operators, 1997-2025
  *
- *  3. ORR Rail Punctuality (curated from ORR published statistics)
- *     - PPM and On Time percentages by financial year
+ *  3. ORR Table 1220 (downloaded) — Passenger journeys
+ *     - Annual passenger journeys in millions, 1984-2025
  *
- *  4. DfT Road Traffic (downloaded, TRA0101)
- *     - Billion vehicle miles by type
+ *  4. DfT TRA0101 (downloaded) — Road traffic by vehicle type
+ *     - Billion vehicle miles, 2000-2024
  *
  *  5. DfT Road Condition (curated from RDC0120)
  *     - % of roads where maintenance should be considered
@@ -62,8 +62,6 @@ function download(url) {
 }
 
 // ── Ofcom Broadband (curated from Connected Nations reports) ─────
-// Source: Ofcom Connected Nations 2018-2025 annual + spring updates
-// Each data point is the September snapshot unless noted
 const BROADBAND = {
   fttp: [
     { date: "Sep 2018", year: 2018, pct: 6, premises: 1.5 },
@@ -103,38 +101,65 @@ const BROADBAND = {
   ],
 };
 
-// ── ORR Rail Punctuality (curated from ORR published statistics) ─
-// Source: ORR Passenger rail performance statistics
-// PPM = Public Performance Measure (within 5 min for commuter, 10 min for long-distance)
-// On Time = within 1 minute of scheduled time
-// "All operators" figures, financial year averages
-const RAIL_PUNCTUALITY = [
-  { fy: "2013-14", year: 2013, ppm: 90.1, onTime: null },
-  { fy: "2014-15", year: 2014, ppm: 89.7, onTime: null },
-  { fy: "2015-16", year: 2015, ppm: 89.1, onTime: null },
-  { fy: "2016-17", year: 2016, ppm: 87.8, onTime: null },
-  { fy: "2017-18", year: 2017, ppm: 87.7, onTime: null },
-  { fy: "2018-19", year: 2018, ppm: 86.4, onTime: 65.2 },
-  { fy: "2019-20", year: 2019, ppm: 87.8, onTime: 67.2 },
-  { fy: "2020-21", year: 2020, ppm: 93.9, onTime: 74.0 },
-  { fy: "2021-22", year: 2021, ppm: 88.4, onTime: 67.0 },
-  { fy: "2022-23", year: 2022, ppm: 85.9, onTime: 61.4 },
-  { fy: "2023-24", year: 2023, ppm: 87.8, onTime: 65.5 },
-  { fy: "2024-25", year: 2024, ppm: 88.6, onTime: 67.5 },
-];
+// ── ORR Table 3103: Historic PPM by operator (quarterly) ────────
+// Compute weighted-average PPM across all operators per financial year
+const ORR_PPM_URL =
+  "https://dataportal.orr.gov.uk/media/1811/table-3103-historic-passenger-trains-planned-ppm-and-casl-quarterly-by-operator.ods";
 
-// ── ORR Passenger Journeys ──────────────────────────────────────
-// Source: ORR Data Portal Table 1220
+function parseORRPunctuality(buf) {
+  const wb = XLSX.read(buf);
+  const rowsA = XLSX.utils.sheet_to_json(wb.Sheets["3103a"], { header: 1 }); // trains planned
+  const rowsB = XLSX.utils.sheet_to_json(wb.Sheets["3103b"], { header: 1 }); // PPM %
+  const headers = rowsA[3];
+
+  // Map each quarterly column to a financial year
+  const qCols = [];
+  for (let c = 4; c < headers.length; c++) {
+    const h = String(headers[c]);
+    const m = h.match(/(Apr|Jul|Oct|Jan) to (Jun|Sep|Dec|Mar) (\d{4})/);
+    if (!m) continue;
+    const month = m[1];
+    const yr = parseInt(m[3], 10);
+    let fy;
+    if (month === "Apr" || month === "Jul" || month === "Oct") {
+      fy = yr + "-" + String(yr + 1).slice(2);
+    } else {
+      fy = (yr - 1) + "-" + String(yr).slice(2);
+    }
+    qCols.push({ col: c, fy, year: parseInt(fy, 10) });
+  }
+
+  // Sum trains_planned * PPM across all operators for each FY
+  const fyData = {};
+  for (let r = 4; r < rowsA.length; r++) {
+    for (const { col, fy, year } of qCols) {
+      const planned = rowsA[r]?.[col];
+      const ppm = rowsB[r]?.[col];
+      if (typeof planned === "number" && typeof ppm === "number" && planned > 0) {
+        if (!fyData[fy]) fyData[fy] = { year, totalPlanned: 0, weightedPPM: 0 };
+        fyData[fy].totalPlanned += planned;
+        fyData[fy].weightedPPM += planned * (ppm / 100);
+      }
+    }
+  }
+
+  return Object.entries(fyData)
+    .map(([fy, d]) => ({
+      fy,
+      year: d.year,
+      ppm: Math.round((d.weightedPPM / d.totalPlanned) * 1000) / 10,
+    }))
+    .filter((r) => r.year <= 2024) // exclude partial current year
+    .sort((a, b) => a.year - b.year);
+}
+
+// ── ORR Passenger Journeys (Table 1220) ─────────────────────────
 const ORR_JOURNEYS_URL =
   "https://dataportal.orr.gov.uk/media/1652/table-1220-passenger-journeys.ods";
 
 function parseORRJourneys(buf) {
   const wb = XLSX.read(buf);
-  const sheetNames = wb.SheetNames;
-  console.log("  ORR Journeys sheets:", sheetNames.join(", "));
-
-  // Find the sheet with passenger journeys
-  let sheetName = sheetNames.find((s) => s.includes("1220")) || sheetNames[0];
+  let sheetName = wb.SheetNames.find((s) => s.includes("1220")) || wb.SheetNames[0];
   const rows = XLSX.utils.sheet_to_json(wb.Sheets[sheetName], { header: 1 });
 
   const series = [];
@@ -142,19 +167,13 @@ function parseORRJourneys(buf) {
     const row = rows[r];
     if (!row || !row[0]) continue;
     const label = String(row[0]).trim();
-    // Match "Apr YYYY to Mar YYYY" pattern
     const fyMatch = label.match(/^Apr (\d{4}) to Mar (\d{4})/);
     if (fyMatch) {
       const startYear = parseInt(fyMatch[1], 10);
       const fy = `${startYear}-${String(parseInt(fyMatch[2], 10)).slice(2)}`;
-      // Total journeys — look for a numeric value in millions
       for (let c = 1; c < row.length; c++) {
         if (typeof row[c] === "number" && row[c] > 100) {
-          series.push({
-            fy,
-            year: startYear,
-            journeysMn: Math.round(row[c] * 10) / 10,
-          });
+          series.push({ fy, year: startYear, journeysMn: Math.round(row[c] * 10) / 10 });
           break;
         }
       }
@@ -163,18 +182,13 @@ function parseORRJourneys(buf) {
   return series;
 }
 
-// ── DfT Road Traffic (billion vehicle miles) ─────────────────────
-// Source: DfT TRA0101 — Road traffic by vehicle type
+// ── DfT Road Traffic (TRA0101) ──────────────────────────────────
 const DFT_TRAFFIC_URL =
   "https://assets.publishing.service.gov.uk/media/684963fd3a2aa5ba84d1dede/tra0101-miles-by-vehicle-type.ods";
 
 function parseDfTTraffic(buf) {
   const wb = XLSX.read(buf);
-  const sheetNames = wb.SheetNames;
-  console.log("  DfT Traffic sheets:", sheetNames.join(", "));
-
-  // Find the TRA0101 sheet
-  let sheetName = sheetNames.find((s) => s.includes("TRA0101")) || sheetNames[0];
+  let sheetName = wb.SheetNames.find((s) => s.includes("TRA0101")) || wb.SheetNames[0];
   const rows = XLSX.utils.sheet_to_json(wb.Sheets[sheetName], { header: 1 });
 
   const series = [];
@@ -183,15 +197,11 @@ function parseDfTTraffic(buf) {
     if (!row) continue;
     const yr = row[0];
     if (typeof yr === "number" && yr >= 2000 && yr <= 2030) {
-      // Column layout from TRA0101:
-      // 0=Year, 1=Pedal cycles, 2=Motorcycles, 3=Cars&taxis, 4=Buses&coaches,
-      // 5=LCVs, 6=HGVs, 7=All HGVs, 8=Other, 9=All motor vehicles
       const entry = { year: yr };
       if (typeof row[3] === "number") entry.cars = Math.round(row[3] * 10) / 10;
       if (typeof row[5] === "number") entry.lcvs = Math.round(row[5] * 10) / 10;
       if (typeof row[7] === "number") entry.hgvs = Math.round(row[7] * 10) / 10;
       if (typeof row[4] === "number") entry.buses = Math.round(row[4] * 10) / 10;
-      // All motor vehicles — try col 9, fall back to last numeric
       let total = null;
       if (typeof row[9] === "number" && row[9] > 100) {
         total = Math.round(row[9] * 10) / 10;
@@ -212,9 +222,7 @@ function parseDfTTraffic(buf) {
   return series;
 }
 
-// ── DfT Road Condition ───────────────────────────────────────────
-// Source: DfT Road Conditions in England, Table RDC0120
-// "% of roads where maintenance should be considered"
+// ── DfT Road Condition (curated from RDC0120) ───────────────────
 const ROAD_CONDITION = [
   { year: 2010, aRoadsPoor: 6, bAndcPoor: 8, unclassifiedPoor: 14 },
   { year: 2011, aRoadsPoor: 5, bAndcPoor: 7, unclassifiedPoor: 15 },
@@ -240,12 +248,21 @@ async function main() {
   console.log(`  → Speeds: ${BROADBAND.speeds.length} years`);
   console.log(`  → Mobile 4G: ${BROADBAND.mobile4g.length} years`);
 
-  console.log(`\nRail punctuality: ${RAIL_PUNCTUALITY.length} years (curated from ORR)`);
+  // Download ORR punctuality (Table 3103)
+  let railPunctuality = [];
+  try {
+    console.log("\nDownloading ORR Table 3103 (historic PPM by operator)...");
+    const orrPpmBuf = await download(ORR_PPM_URL);
+    railPunctuality = parseORRPunctuality(orrPpmBuf);
+    console.log(`  → ${railPunctuality.length} financial years of PPM data (${railPunctuality[0]?.fy} to ${railPunctuality[railPunctuality.length - 1]?.fy})`);
+  } catch (err) {
+    console.warn("  Warning: Could not download ORR PPM:", err.message);
+  }
 
-  // Download ORR journeys
+  // Download ORR journeys (Table 1220)
   let railJourneys = [];
   try {
-    console.log("\nDownloading ORR passenger journeys (Table 1220)...");
+    console.log("\nDownloading ORR Table 1220 (passenger journeys)...");
     const orrBuf = await download(ORR_JOURNEYS_URL);
     railJourneys = parseORRJourneys(orrBuf);
     console.log(`  → ${railJourneys.length} years of journey data`);
@@ -253,10 +270,10 @@ async function main() {
     console.warn("  Warning: Could not download ORR journeys:", err.message);
   }
 
-  // Download DfT traffic data
+  // Download DfT traffic (TRA0101)
   let roadTraffic = [];
   try {
-    console.log("\nDownloading DfT road traffic (TRA0101)...");
+    console.log("\nDownloading DfT TRA0101 (road traffic by vehicle type)...");
     const dftBuf = await download(DFT_TRAFFIC_URL);
     roadTraffic = parseDfTTraffic(dftBuf);
     console.log(`  → ${roadTraffic.length} years of traffic data`);
@@ -275,9 +292,9 @@ async function main() {
           note: "FTTP, gigabit, speeds, and mobile coverage curated from annual and spring update reports.",
         },
         {
-          name: "ORR Data Portal - Passenger Journeys (Table 1220) & Rail Performance",
+          name: "ORR Data Portal - Table 3103 (PPM) & Table 1220 (Journeys)",
           url: "https://dataportal.orr.gov.uk/",
-          note: "Journeys downloaded from Table 1220 ODS. Punctuality (PPM, On Time) curated from ORR published statistics.",
+          note: "PPM computed as weighted average across all operators from Table 3103 quarterly data. Journeys from Table 1220.",
         },
         {
           name: "DfT Road Traffic (TRA0101) & Road Conditions (RDC0120)",
@@ -289,7 +306,7 @@ async function main() {
     },
     broadband: BROADBAND,
     rail: {
-      punctuality: RAIL_PUNCTUALITY,
+      punctuality: railPunctuality,
       journeys: railJourneys,
     },
     roads: {

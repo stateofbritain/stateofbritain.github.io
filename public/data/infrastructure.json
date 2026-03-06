@@ -7,9 +7,9 @@
         "note": "FTTP, gigabit, speeds, and mobile coverage curated from annual and spring update reports."
       },
       {
-        "name": "ORR Data Portal - Passenger Journeys (Table 1220) & Rail Performance",
+        "name": "ORR Data Portal - Table 3103 (PPM) & Table 1220 (Journeys)",
         "url": "https://dataportal.orr.gov.uk/",
-        "note": "Journeys downloaded from Table 1220 ODS. Punctuality (PPM, On Time) curated from ORR published statistics."
+        "note": "PPM computed as weighted average across all operators from Table 3103 quarterly data. Journeys from Table 1220."
       },
       {
         "name": "DfT Road Traffic (TRA0101) & Road Conditions (RDC0120)",
@@ -173,76 +173,144 @@
   "rail": {
     "punctuality": [
       {
+        "fy": "1997-98",
+        "year": 1997,
+        "ppm": 89.8
+      },
+      {
+        "fy": "1998-99",
+        "year": 1998,
+        "ppm": 87.9
+      },
+      {
+        "fy": "1999-00",
+        "year": 1999,
+        "ppm": 87.8
+      },
+      {
+        "fy": "2000-01",
+        "year": 2000,
+        "ppm": 79.1
+      },
+      {
+        "fy": "2001-02",
+        "year": 2001,
+        "ppm": 78
+      },
+      {
+        "fy": "2002-03",
+        "year": 2002,
+        "ppm": 79.2
+      },
+      {
+        "fy": "2003-04",
+        "year": 2003,
+        "ppm": 81.2
+      },
+      {
+        "fy": "2004-05",
+        "year": 2004,
+        "ppm": 83.7
+      },
+      {
+        "fy": "2005-06",
+        "year": 2005,
+        "ppm": 86.4
+      },
+      {
+        "fy": "2006-07",
+        "year": 2006,
+        "ppm": 88.1
+      },
+      {
+        "fy": "2007-08",
+        "year": 2007,
+        "ppm": 89.9
+      },
+      {
+        "fy": "2008-09",
+        "year": 2008,
+        "ppm": 90.6
+      },
+      {
+        "fy": "2009-10",
+        "year": 2009,
+        "ppm": 91.5
+      },
+      {
+        "fy": "2010-11",
+        "year": 2010,
+        "ppm": 90.8
+      },
+      {
+        "fy": "2011-12",
+        "year": 2011,
+        "ppm": 91.6
+      },
+      {
+        "fy": "2012-13",
+        "year": 2012,
+        "ppm": 90.9
+      },
+      {
         "fy": "2013-14",
         "year": 2013,
-        "ppm": 90.1,
-        "onTime": null
+        "ppm": 90
       },
       {
         "fy": "2014-15",
         "year": 2014,
-        "ppm": 89.7,
-        "onTime": null
+        "ppm": 89.7
       },
       {
         "fy": "2015-16",
         "year": 2015,
-        "ppm": 89.1,
-        "onTime": null
+        "ppm": 89.1
       },
       {
         "fy": "2016-17",
         "year": 2016,
-        "ppm": 87.8,
-        "onTime": null
+        "ppm": 87.7
       },
       {
         "fy": "2017-18",
         "year": 2017,
-        "ppm": 87.7,
-        "onTime": null
+        "ppm": 87.8
       },
       {
         "fy": "2018-19",
         "year": 2018,
-        "ppm": 86.4,
-        "onTime": 65.2
+        "ppm": 86.3
       },
       {
         "fy": "2019-20",
         "year": 2019,
-        "ppm": 87.8,
-        "onTime": 67.2
+        "ppm": 86.2
       },
       {
         "fy": "2020-21",
         "year": 2020,
-        "ppm": 93.9,
-        "onTime": 74
+        "ppm": 93.4
       },
       {
         "fy": "2021-22",
         "year": 2021,
-        "ppm": 88.4,
-        "onTime": 67
+        "ppm": 89.7
       },
       {
         "fy": "2022-23",
         "year": 2022,
-        "ppm": 85.9,
-        "onTime": 61.4
+        "ppm": 86.4
       },
       {
         "fy": "2023-24",
         "year": 2023,
-        "ppm": 87.8,
-        "onTime": 65.5
+        "ppm": 85.6
       },
       {
         "fy": "2024-25",
         "year": 2024,
-        "ppm": 88.6,
-        "onTime": 67.5
+        "ppm": 85.2
       }
     ],
     "journeys": [
