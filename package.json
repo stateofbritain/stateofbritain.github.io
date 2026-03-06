@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "fetch-data": "node scripts/fetch-energy.js && node scripts/fetch-nhs.js && node scripts/fetch-water.js && node scripts/fetch-environment.js && node scripts/fetch-cpih.js && node scripts/fetch-startups.js && node scripts/fetch-research.js && node scripts/fetch-productivity.js && node scripts/fetch-workforce.js"
+    "fetch-data": "node scripts/fetch-energy.js && node scripts/fetch-nhs.js && node scripts/fetch-water.js && node scripts/fetch-environment.js && node scripts/fetch-cpih.js && node scripts/fetch-startups.js && node scripts/fetch-research.js && node scripts/fetch-productivity.js && node scripts/fetch-workforce.js && node scripts/fetch-investment.js"
   },
   "dependencies": {
     "react": "^18.3.1",

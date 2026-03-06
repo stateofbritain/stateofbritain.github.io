@@ -1,0 +1,343 @@
+import { useState, useEffect, useMemo } from "react";
+import {
+  BarChart, Bar, LineChart, Line, AreaChart, Area, Cell,
+  XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
+  ReferenceLine, Legend,
+} from "recharts";
+import P from "../../theme/palette";
+import MetricCard from "../../components/MetricCard";
+import CustomTooltip from "../../components/CustomTooltip";
+import AnalysisBox from "../../components/AnalysisBox";
+
+const sectionHeading = {
+  fontFamily: "'Playfair Display', serif",
+  fontSize: "20px",
+  fontWeight: 600,
+  color: P.text,
+  margin: "0 0 6px",
+};
+
+const sectionNote = {
+  fontSize: "13px",
+  lineHeight: 1.7,
+  color: P.textMuted,
+  fontFamily: "'Playfair Display', serif",
+  margin: "0 0 18px",
+  maxWidth: 720,
+};
+
+const toggleBtn = (active) => ({
+  padding: "4px 12px",
+  border: `1px solid ${active ? P.teal : P.border}`,
+  borderRadius: 4,
+  background: active ? P.teal : "transparent",
+  color: active ? "#fff" : P.textMuted,
+  fontSize: "11px",
+  fontFamily: "'DM Mono', monospace",
+  cursor: "pointer",
+  transition: "all 0.15s",
+});
+
+const TS_LINES = [
+  { key: "KOR", label: "South Korea", color: "#6B8EC4" },
+  { key: "JPN", label: "Japan", color: P.navy },
+  { key: "FRA", label: "France", color: P.yellow },
+  { key: "USA", label: "United States", color: "#4A7A58" },
+  { key: "DEU", label: "Germany", color: P.sienna },
+  { key: "OECD", label: "OECD Average", color: P.grey },
+  { key: "GBR", label: "United Kingdom", color: P.teal },
+  { key: "POL", label: "Poland", color: P.red },
+];
+
+const ASSET_COLORS = {
+  intangibles: P.teal,
+  buildings: P.sienna,
+  plantMachinery: P.navy,
+  transport: "#6B8EC4",
+  other: P.grey,
+};
+
+export default function Investment() {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [ukView, setUkView] = useState("gfcf");
+  const [priceBase, setPriceBase] = useState("cp");
+  const [intlView, setIntlView] = useState("bar");
+
+  useEffect(() => {
+    fetch("/data/investment.json")
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
+      .then(setData)
+      .catch((err) => setError(err.message))
+      .finally(() => setLoading(false));
+  }, []);
+
+  const ukTrend = useMemo(() => {
+    if (!data?.ukTrend) return [];
+    return data.ukTrend.filter((r) => r.year >= 1997);
+  }, [data]);
+
+  const assetData = useMemo(() => {
+    if (!data?.assetBreakdown) return [];
+    return data.assetBreakdown.filter((r) => r.year >= 1997);
+  }, [data]);
+
+  const intlBar = useMemo(() => {
+    if (!data?.international) return [];
+    return data.international.map((r) => ({
+      ...r,
+      fill: r.countryCode === "GBR" ? P.teal : r.countryCode === "OECD" ? P.sienna : P.grey,
+    }));
+  }, [data]);
+
+  const tsSeries = useMemo(() => {
+    if (!data?.timeSeries) return [];
+    return data.timeSeries;
+  }, [data]);
+
+  if (loading) {
+    return (
+      <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
+        <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>Investment & Capital</h2>
+        <p style={{ fontSize: "12px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>Loading data...</p>
+      </div>
+    );
+  }
+
+  if (error || !data) {
+    return (
+      <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
+        <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>Investment & Capital</h2>
+        <p style={{ fontSize: "12px", color: P.red, fontFamily: "'DM Mono', monospace" }}>Failed to load data: {error ?? "No data"}</p>
+      </div>
+    );
+  }
+
+  const latest = ukTrend[ukTrend.length - 1];
+  const prev = ukTrend[ukTrend.length - 2];
+  const biGrowth = latest?.biCP && prev?.biCP
+    ? (((latest.biCP - prev.biCP) / prev.biCP) * 100).toFixed(1)
+    : null;
+  const ukOECD = data.international.find((r) => r.countryCode === "GBR");
+  const oecdAvg = data.international.find((r) => r.countryCode === "OECD");
+  const ukRank = data.international.filter((r) => r.countryCode !== "OECD").sort((a, b) => b.pctGDP - a.pctGDP).findIndex((r) => r.countryCode === "GBR") + 1;
+  const totalCountries = data.international.filter((r) => r.countryCode !== "OECD").length;
+
+  // Latest asset breakdown
+  const latestAsset = assetData[assetData.length - 1];
+
+  return (
+    <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
+      <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 6px" }}>
+        Investment & Capital
+      </h2>
+      <p style={{ fontSize: "13px", color: P.textMuted, margin: "0 0 24px", fontFamily: "'Playfair Display', serif", maxWidth: 720 }}>
+        Gross fixed capital formation (GFCF) — spending on buildings, machinery, transport,
+        and intellectual property that expands the economy's productive capacity.
+      </p>
+
+      {/* Metric cards */}
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 14, marginBottom: 32 }}>
+        <MetricCard
+          label="Total GFCF"
+          value={`£${(latest.gfcfCP / 1000).toFixed(0)}bn`}
+          sub={`${latest.year}, current prices SA`}
+        />
+        <MetricCard
+          label="Business investment"
+          value={`£${(latest.biCP / 1000).toFixed(0)}bn`}
+          sub={`${latest.biSharePct}% of GFCF${biGrowth ? ` · ${biGrowth > 0 ? "+" : ""}${biGrowth}% YoY` : ""}`}
+        />
+        <MetricCard
+          label="GFCF / GDP"
+          value={`${ukOECD?.pctGDP}%`}
+          sub={`${ukOECD?.year} · OECD avg ${oecdAvg?.pctGDP}%`}
+        />
+        <MetricCard
+          label="OECD rank"
+          value={`${ukRank}/${totalCountries}`}
+          sub="GFCF as % GDP"
+        />
+      </div>
+
+      {/* Section 1: UK Investment Trend */}
+      <section style={{ marginBottom: 48 }}>
+        <h3 style={sectionHeading}>UK Investment Trend</h3>
+        <p style={sectionNote}>
+          Total GFCF and business investment since 1997.
+          {priceBase === "cp"
+            ? " Current prices, seasonally adjusted."
+            : " Chained volume measure (2023 prices), seasonally adjusted."}
+        </p>
+        <div style={{ display: "flex", gap: 6, marginBottom: 14 }}>
+          <button style={toggleBtn(ukView === "gfcf")} onClick={() => setUkView("gfcf")}>GFCF + BI</button>
+          <button style={toggleBtn(ukView === "asset")} onClick={() => setUkView("asset")}>By asset type</button>
+          <span style={{ width: 12 }} />
+          <button style={toggleBtn(priceBase === "cp")} onClick={() => setPriceBase("cp")}>Current prices</button>
+          <button style={toggleBtn(priceBase === "cvm")} onClick={() => setPriceBase("cvm")}>Real (CVM)</button>
+        </div>
+
+        {ukView === "gfcf" ? (
+          <ResponsiveContainer width="100%" height={340}>
+            <LineChart data={ukTrend}>
+              <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
+              <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
+              <YAxis
+                tick={{ fontSize: 11, fill: P.textMuted }}
+                tickFormatter={(v) => `£${(v / 1000).toFixed(0)}bn`}
+              />
+              <Tooltip
+                content={
+                  <CustomTooltip
+                    formatter={(v) => `£${(v / 1000).toFixed(1)}bn`}
+                  />
+                }
+              />
+              <Line
+                type="monotone"
+                dataKey={priceBase === "cp" ? "gfcfCP" : "gfcfCVM"}
+                stroke={P.sienna}
+                strokeWidth={2}
+                dot={false}
+                name="Total GFCF"
+              />
+              <Line
+                type="monotone"
+                dataKey={priceBase === "cp" ? "biCP" : "biCVM"}
+                stroke={P.teal}
+                strokeWidth={2}
+                dot={false}
+                name="Business Investment"
+                connectNulls
+              />
+              <Legend wrapperStyle={{ fontSize: 11, fontFamily: "'DM Mono', monospace" }} />
+            </LineChart>
+          </ResponsiveContainer>
+        ) : (
+          <ResponsiveContainer width="100%" height={380}>
+            <AreaChart data={assetData}>
+              <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
+              <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
+              <YAxis
+                tick={{ fontSize: 11, fill: P.textMuted }}
+                tickFormatter={(v) => `£${(v / 1000).toFixed(0)}bn`}
+              />
+              <Tooltip
+                content={
+                  <CustomTooltip
+                    formatter={(v) => `£${(v / 1000).toFixed(1)}bn`}
+                  />
+                }
+              />
+              <Area type="monotone" dataKey="intangibles" stackId="a" fill={ASSET_COLORS.intangibles} stroke={ASSET_COLORS.intangibles} name="Intangibles (IP, software, R&D)" />
+              <Area type="monotone" dataKey="buildings" stackId="a" fill={ASSET_COLORS.buildings} stroke={ASSET_COLORS.buildings} name="Buildings & structures" />
+              <Area type="monotone" dataKey="plantMachinery" stackId="a" fill={ASSET_COLORS.plantMachinery} stroke={ASSET_COLORS.plantMachinery} name="Plant & machinery" />
+              <Area type="monotone" dataKey="transport" stackId="a" fill={ASSET_COLORS.transport} stroke={ASSET_COLORS.transport} name="Transport equipment" />
+              <Area type="monotone" dataKey="other" stackId="a" fill={ASSET_COLORS.other} stroke={ASSET_COLORS.other} name="Other (dwellings, transfers)" />
+              <Legend wrapperStyle={{ fontSize: 11, fontFamily: "'DM Mono', monospace" }} />
+            </AreaChart>
+          </ResponsiveContainer>
+        )}
+      </section>
+
+      {/* Section 2: International GFCF/GDP */}
+      <section style={{ marginBottom: 48 }}>
+        <h3 style={sectionHeading}>International Comparison — GFCF as % of GDP</h3>
+        <p style={sectionNote}>
+          Total gross fixed capital formation as a share of GDP, {ukOECD?.year}.
+          Covers {totalCountries} OECD countries.
+          The UK ranks {ukRank}th at {ukOECD?.pctGDP}%, compared to an OECD average of {oecdAvg?.pctGDP}%.
+        </p>
+        <div style={{ display: "flex", gap: 6, marginBottom: 14 }}>
+          <button style={toggleBtn(intlView === "bar")} onClick={() => setIntlView("bar")}>Country ranking</button>
+          <button style={toggleBtn(intlView === "ts")} onClick={() => setIntlView("ts")}>Trajectories</button>
+        </div>
+
+        {intlView === "bar" ? (
+          <ResponsiveContainer width="100%" height={Math.max(400, intlBar.length * 26)}>
+            <BarChart data={intlBar} layout="vertical" margin={{ left: 110, right: 30 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke={P.border} horizontal={false} />
+              <XAxis type="number" tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} />
+              <YAxis type="category" dataKey="country" tick={{ fontSize: 11, fill: P.textMuted }} width={105} />
+              <Tooltip content={<CustomTooltip formatter={(v) => `${v.toFixed(1)}%`} />} />
+              <Bar dataKey="pctGDP" name="GFCF / GDP" isAnimationActive={false}>
+                {intlBar.map((entry, i) => (
+                  <Cell key={i} fill={entry.fill} />
+                ))}
+              </Bar>
+              <ReferenceLine
+                x={oecdAvg?.pctGDP}
+                stroke={P.sienna}
+                strokeDasharray="4 4"
+                label={{ value: `OECD ${oecdAvg?.pctGDP}%`, fontSize: 10, fill: P.sienna, position: "top" }}
+              />
+            </BarChart>
+          </ResponsiveContainer>
+        ) : (
+          <>
+            <ResponsiveContainer width="100%" height={400}>
+              <LineChart data={tsSeries}>
+                <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
+                <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
+                <YAxis
+                  domain={[14, 34]}
+                  tick={{ fontSize: 11, fill: P.textMuted }}
+                  tickFormatter={(v) => `${v}%`}
+                />
+                <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}%`} />} />
+                {TS_LINES.map(({ key, label, color }) => (
+                  <Line
+                    key={key}
+                    type="monotone"
+                    dataKey={key}
+                    stroke={color}
+                    strokeWidth={key === "GBR" ? 3 : 1.5}
+                    dot={false}
+                    name={label}
+                    connectNulls
+                    strokeDasharray={key === "OECD" ? "4 4" : undefined}
+                  />
+                ))}
+              </LineChart>
+            </ResponsiveContainer>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "6px 16px", marginTop: 8 }}>
+              {TS_LINES.map(({ key, label, color }) => (
+                <span key={key} style={{ fontSize: 11, color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>
+                  <span style={{ display: "inline-block", width: 12, height: 3, background: color, marginRight: 4, verticalAlign: "middle" }} />
+                  {label}
+                </span>
+              ))}
+            </div>
+          </>
+        )}
+      </section>
+
+      {/* Context */}
+      <AnalysisBox>
+        UK total GFCF was £{(latest.gfcfCP / 1000).toFixed(0)}bn in {latest.year},
+        of which £{(latest.biCP / 1000).toFixed(0)}bn ({latest.biSharePct}%) was business investment
+        {latest.govCP ? ` and £${(latest.govCP / 1000).toFixed(0)}bn was government capital spending` : ""}.
+        {latestAsset && ` By asset type, intangibles (IP, software, R&D) accounted for £${(latestAsset.intangibles / 1000).toFixed(0)}bn (${((latestAsset.intangibles / latest.gfcfCP) * 100).toFixed(0)}% of GFCF), surpassing physical plant and machinery (£${(latestAsset.plantMachinery / 1000).toFixed(0)}bn).`}
+        {" "}At {ukOECD?.pctGDP}% of GDP, the UK's GFCF ranks {ukRank}th of {totalCountries} OECD
+        countries — {(oecdAvg?.pctGDP - ukOECD?.pctGDP).toFixed(1)} percentage points below
+        the OECD average of {oecdAvg?.pctGDP}%.
+      </AnalysisBox>
+
+      {/* Sources */}
+      <div style={{ marginTop: 24, fontSize: "11px", color: P.textLight, fontFamily: "'DM Mono', monospace", lineHeight: 1.8 }}>
+        <strong>Sources:</strong>{" "}
+        <a href="https://www.ons.gov.uk/economy/grossdomesticproductgdp/datasets/businessinvestment" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight }}>
+          ONS Business Investment (Feb 2026)
+        </a>
+        {" · "}
+        <a href="https://data-explorer.oecd.org/" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight }}>
+          OECD National Accounts — GFCF as % of GDP (2023)
+        </a>
+      </div>
+    </div>
+  );
+}
