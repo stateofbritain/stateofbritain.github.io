@@ -45,6 +45,7 @@ export default function Infrastructure() {
   const [bbView, setBbView] = useState("coverage");
   const [railView, setRailView] = useState("journeys");
   const [roadView, setRoadView] = useState("traffic");
+  const [netView, setNetView] = useState("change");
 
   useEffect(() => {
     fetch("/data/infrastructure.json")
@@ -81,6 +82,30 @@ export default function Infrastructure() {
   const roadTraffic = useMemo(() => {
     if (!data?.roads?.traffic) return [];
     return data.roads.traffic.filter((r) => r.year >= 2000);
+  }, [data]);
+
+  // Network length year-on-year change (km added/removed)
+  const networkChange = useMemo(() => {
+    if (!data?.roads?.length || !data?.rail?.infrastructure) return [];
+    const roadMap = Object.fromEntries(data.roads.length.map((r) => [r.year, r]));
+    const railMap = Object.fromEntries(data.rail.infrastructure.map((r) => [r.year, r]));
+    const years = [...new Set([...data.roads.length.map((r) => r.year), ...data.rail.infrastructure.map((r) => r.year)])]
+      .filter((y) => y >= 1991)
+      .sort();
+    return years.map((y) => {
+      const roadCurr = roadMap[y]?.allMajorKm;
+      const roadPrev = roadMap[y - 1]?.allMajorKm;
+      const railCurr = railMap[y]?.routeKm;
+      const railPrev = railMap[y - 1]?.routeKm;
+      return {
+        year: y,
+        roadChangeKm: roadCurr && roadPrev ? roadCurr - roadPrev : null,
+        railChangeKm: railCurr && railPrev ? railCurr - railPrev : null,
+        roadTotalKm: roadMap[y]?.allMajorKm ?? null,
+        railTotalKm: railMap[y]?.routeKm ?? null,
+        railElectKm: railMap[y]?.electRouteKm ?? null,
+      };
+    }).filter((r) => r.roadChangeKm !== null || r.railChangeKm !== null);
   }, [data]);
 
   if (loading) {
@@ -124,14 +149,141 @@ export default function Infrastructure() {
 
       {/* Metric cards */}
       <div style={{ display: "flex", flexWrap: "wrap", gap: 14, marginBottom: 32 }}>
-        <MetricCard label="FTTP coverage" value={`${latestFttp.pct}%`} sub={`${latestFttp.premises}m premises (${latestFttp.date})`} />
-        <MetricCard label="Gigabit-capable" value={`${latestGigabit.pct}%`} sub={latestGigabit.date} />
+        <MetricCard label="Road traffic" value={`${latestTraffic.totalBnMiles}bn mi`} sub={`${latestTraffic.year}`} />
         <MetricCard label="Rail journeys" value={`${(latestJourneys.journeysMn / 1000).toFixed(2)}bn`} sub={`${latestJourneys.fy} (${recoveryPct}% of pre-Covid)`} />
         <MetricCard label="Rail PPM" value={`${latestPunct.ppm}%`} sub={latestPunct.fy} />
-        <MetricCard label="Road traffic" value={`${latestTraffic.totalBnMiles}bn mi`} sub={`${latestTraffic.year}`} />
+        <MetricCard label="FTTP coverage" value={`${latestFttp.pct}%`} sub={`${latestFttp.premises}m premises (${latestFttp.date})`} />
+        <MetricCard label="Gigabit-capable" value={`${latestGigabit.pct}%`} sub={latestGigabit.date} />
       </div>
 
-      {/* Section 1: Broadband & Digital */}
+      {/* Section 1: Roads */}
+      <section style={{ marginBottom: 48 }}>
+        <h3 style={sectionHeading}>Road Network</h3>
+        <p style={sectionNote}>
+          {roadView === "traffic"
+            ? "Total road traffic in Great Britain (billion vehicle miles per year). LCV growth reflects e-commerce; car traffic has broadly plateaued since 2019."
+            : "Percentage of roads in England where maintenance should be considered, by road classification. Unclassified roads have deteriorated steadily since 2013."}
+        </p>
+        <div style={{ display: "flex", gap: 6, marginBottom: 14 }}>
+          <button style={toggleBtn(roadView === "traffic")} onClick={() => setRoadView("traffic")}>Traffic volume</button>
+          <button style={toggleBtn(roadView === "condition")} onClick={() => setRoadView("condition")}>Road condition</button>
+        </div>
+
+        {roadView === "traffic" && (
+          <ResponsiveContainer width="100%" height={340}>
+            <AreaChart data={roadTraffic}>
+              <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
+              <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}bn`} />
+              <Tooltip content={<CustomTooltip formatter={(v) => `${v}bn miles`} />} />
+              <Area type="monotone" dataKey="cars" stackId="1" stroke={P.teal} fill={P.teal} fillOpacity={0.4} name="Cars & taxis" />
+              <Area type="monotone" dataKey="lcvs" stackId="1" stroke={P.sienna} fill={P.sienna} fillOpacity={0.4} name="Light commercial" />
+              <Area type="monotone" dataKey="buses" stackId="1" stroke={P.yellow} fill={P.yellow} fillOpacity={0.4} name="Buses & coaches" />
+              <Area type="monotone" dataKey="hgvs" stackId="1" stroke={P.navy} fill={P.navy} fillOpacity={0.4} name="HGVs" />
+            </AreaChart>
+          </ResponsiveContainer>
+        )}
+
+        {roadView === "condition" && (
+          <ResponsiveContainer width="100%" height={340}>
+            <LineChart data={data.roads.condition}>
+              <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
+              <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} domain={[0, 25]} />
+              <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
+              <Line type="monotone" dataKey="aRoadsPoor" stroke={P.teal} strokeWidth={2} dot={{ r: 3 }} name="A roads" />
+              <Line type="monotone" dataKey="bAndcPoor" stroke={P.sienna} strokeWidth={2} dot={{ r: 3 }} name="B & C roads" />
+              <Line type="monotone" dataKey="unclassifiedPoor" stroke={P.red} strokeWidth={2} dot={{ r: 3 }} name="Unclassified" />
+            </LineChart>
+          </ResponsiveContainer>
+        )}
+      </section>
+
+      {/* Section 2: Network Length */}
+      {networkChange.length > 0 && (
+        <section style={{ marginBottom: 48 }}>
+          <h3 style={sectionHeading}>Network Length</h3>
+          <p style={sectionNote}>
+            {netView === "change"
+              ? "Year-on-year change in road (major roads, km) and rail (route-km) network length. Negative values indicate net closures or reclassification."
+              : "Total network length: major roads (motorways + A roads) and rail route-km open for traffic in Great Britain."}
+          </p>
+          <div style={{ display: "flex", gap: 6, marginBottom: 14 }}>
+            <button style={toggleBtn(netView === "change")} onClick={() => setNetView("change")}>Annual change (km)</button>
+            <button style={toggleBtn(netView === "total")} onClick={() => setNetView("total")}>Total network</button>
+          </div>
+
+          {netView === "change" && (
+            <ResponsiveContainer width="100%" height={340}>
+              <BarChart data={networkChange}>
+                <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
+                <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
+                <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v} km`} />
+                <Tooltip content={<CustomTooltip formatter={(v) => `${v} km`} />} />
+                <ReferenceLine y={0} stroke={P.textLight} />
+                <Bar dataKey="roadChangeKm" fill={P.teal} name="Major roads" isAnimationActive={false} />
+                <Bar dataKey="railChangeKm" fill={P.sienna} name="Rail route" isAnimationActive={false} />
+              </BarChart>
+            </ResponsiveContainer>
+          )}
+
+          {netView === "total" && (
+            <ResponsiveContainer width="100%" height={340}>
+              <LineChart data={networkChange}>
+                <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
+                <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
+                <YAxis yAxisId="road" tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} />
+                <YAxis yAxisId="rail" orientation="right" tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} />
+                <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toLocaleString()} km`} />} />
+                <Line yAxisId="road" type="monotone" dataKey="roadTotalKm" stroke={P.teal} strokeWidth={2} dot={false} name="Major roads (km)" />
+                <Line yAxisId="rail" type="monotone" dataKey="railTotalKm" stroke={P.sienna} strokeWidth={2} dot={false} name="Rail route (km)" />
+                <Line yAxisId="rail" type="monotone" dataKey="railElectKm" stroke={P.yellow} strokeWidth={2} dot={false} name="Electrified rail (km)" connectNulls />
+              </LineChart>
+            </ResponsiveContainer>
+          )}
+        </section>
+      )}
+
+      {/* Section 3: Rail */}
+      <section style={{ marginBottom: 48 }}>
+        <h3 style={sectionHeading}>Rail Network</h3>
+        <p style={sectionNote}>
+          {railView === "journeys"
+            ? "Annual passenger journeys in Great Britain (millions). Collapsed during Covid-19 (2020-21: 388m) and has recovered to 1,729m in 2024-25."
+            : "Public Performance Measure (PPM): weighted average across all operators. A train meets PPM if it arrives within 5 minutes (commuter) or 10 minutes (long-distance) of schedule."}
+        </p>
+        <div style={{ display: "flex", gap: 6, marginBottom: 14 }}>
+          <button style={toggleBtn(railView === "journeys")} onClick={() => setRailView("journeys")}>Passenger journeys</button>
+          <button style={toggleBtn(railView === "punctuality")} onClick={() => setRailView("punctuality")}>Punctuality</button>
+        </div>
+
+        {railView === "journeys" && (
+          <ResponsiveContainer width="100%" height={340}>
+            <AreaChart data={railJourneys}>
+              <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
+              <XAxis dataKey="fy" tick={{ fontSize: 10, fill: P.textMuted }} interval={2} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${(v / 1000).toFixed(1)}bn`} />
+              <Tooltip content={<CustomTooltip labelFormatter={(l) => `FY ${l}`} formatter={(v) => `${v.toLocaleString()}m`} />} />
+              <Area type="monotone" dataKey="journeysMn" stroke={P.teal} fill={P.teal} fillOpacity={0.3} name="Journeys (millions)" />
+            </AreaChart>
+          </ResponsiveContainer>
+        )}
+
+        {railView === "punctuality" && (
+          <ResponsiveContainer width="100%" height={340}>
+            <LineChart data={data.rail.punctuality}>
+              <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
+              <XAxis dataKey="fy" tick={{ fontSize: 10, fill: P.textMuted }} interval={2} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} domain={[70, 100]} />
+              <Tooltip content={<CustomTooltip labelFormatter={(l) => `FY ${l}`} formatter={(v) => `${v}%`} />} />
+              <Line type="monotone" dataKey="ppm" stroke={P.teal} strokeWidth={2} dot={false} name="PPM" />
+              <ReferenceLine y={92.5} stroke={P.textLight} strokeDasharray="4 4" label={{ value: "Historic target 92.5%", fontSize: 10, fill: P.textLight, position: "top" }} />
+            </LineChart>
+          </ResponsiveContainer>
+        )}
+      </section>
+
+      {/* Section 3: Broadband & Digital */}
       <section style={{ marginBottom: 48 }}>
         <h3 style={sectionHeading}>Broadband & Digital Connectivity</h3>
         <p style={sectionNote}>
@@ -186,99 +338,17 @@ export default function Infrastructure() {
         )}
       </section>
 
-      {/* Section 2: Rail */}
-      <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>Rail Network</h3>
-        <p style={sectionNote}>
-          {railView === "journeys"
-            ? "Annual passenger journeys in Great Britain (millions). Collapsed during Covid-19 (2020-21: 388m) and has recovered to 1,729m in 2024-25."
-            : "Public Performance Measure (PPM): weighted average across all operators. A train meets PPM if it arrives within 5 minutes (commuter) or 10 minutes (long-distance) of schedule."}
-        </p>
-        <div style={{ display: "flex", gap: 6, marginBottom: 14 }}>
-          <button style={toggleBtn(railView === "journeys")} onClick={() => setRailView("journeys")}>Passenger journeys</button>
-          <button style={toggleBtn(railView === "punctuality")} onClick={() => setRailView("punctuality")}>Punctuality</button>
-        </div>
-
-        {railView === "journeys" && (
-          <ResponsiveContainer width="100%" height={340}>
-            <AreaChart data={railJourneys}>
-              <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-              <XAxis dataKey="fy" tick={{ fontSize: 10, fill: P.textMuted }} interval={2} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${(v / 1000).toFixed(1)}bn`} />
-              <Tooltip content={<CustomTooltip labelFormatter={(l) => `FY ${l}`} formatter={(v) => `${v.toLocaleString()}m`} />} />
-              <Area type="monotone" dataKey="journeysMn" stroke={P.teal} fill={P.teal} fillOpacity={0.3} name="Journeys (millions)" />
-            </AreaChart>
-          </ResponsiveContainer>
-        )}
-
-        {railView === "punctuality" && (
-          <ResponsiveContainer width="100%" height={340}>
-            <LineChart data={data.rail.punctuality}>
-              <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-              <XAxis dataKey="fy" tick={{ fontSize: 10, fill: P.textMuted }} interval={2} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} domain={[70, 100]} />
-              <Tooltip content={<CustomTooltip labelFormatter={(l) => `FY ${l}`} formatter={(v) => `${v}%`} />} />
-              <Line type="monotone" dataKey="ppm" stroke={P.teal} strokeWidth={2} dot={false} name="PPM" />
-              <ReferenceLine y={92.5} stroke={P.textLight} strokeDasharray="4 4" label={{ value: "Historic target 92.5%", fontSize: 10, fill: P.textLight, position: "top" }} />
-            </LineChart>
-          </ResponsiveContainer>
-        )}
-      </section>
-
-      {/* Section 3: Roads */}
-      <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>Road Network</h3>
-        <p style={sectionNote}>
-          {roadView === "traffic"
-            ? "Total road traffic in Great Britain (billion vehicle miles per year). LCV growth reflects e-commerce; car traffic has broadly plateaued since 2019."
-            : "Percentage of roads in England where maintenance should be considered, by road classification. Unclassified roads have deteriorated steadily since 2013."}
-        </p>
-        <div style={{ display: "flex", gap: 6, marginBottom: 14 }}>
-          <button style={toggleBtn(roadView === "traffic")} onClick={() => setRoadView("traffic")}>Traffic volume</button>
-          <button style={toggleBtn(roadView === "condition")} onClick={() => setRoadView("condition")}>Road condition</button>
-        </div>
-
-        {roadView === "traffic" && (
-          <ResponsiveContainer width="100%" height={340}>
-            <AreaChart data={roadTraffic}>
-              <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-              <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}bn`} />
-              <Tooltip content={<CustomTooltip formatter={(v) => `${v}bn miles`} />} />
-              <Area type="monotone" dataKey="cars" stackId="1" stroke={P.teal} fill={P.teal} fillOpacity={0.4} name="Cars & taxis" />
-              <Area type="monotone" dataKey="lcvs" stackId="1" stroke={P.sienna} fill={P.sienna} fillOpacity={0.4} name="Light commercial" />
-              <Area type="monotone" dataKey="buses" stackId="1" stroke={P.yellow} fill={P.yellow} fillOpacity={0.4} name="Buses & coaches" />
-              <Area type="monotone" dataKey="hgvs" stackId="1" stroke={P.navy} fill={P.navy} fillOpacity={0.4} name="HGVs" />
-            </AreaChart>
-          </ResponsiveContainer>
-        )}
-
-        {roadView === "condition" && (
-          <ResponsiveContainer width="100%" height={340}>
-            <LineChart data={data.roads.condition}>
-              <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-              <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} domain={[0, 25]} />
-              <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
-              <Line type="monotone" dataKey="aRoadsPoor" stroke={P.teal} strokeWidth={2} dot={{ r: 3 }} name="A roads" />
-              <Line type="monotone" dataKey="bAndcPoor" stroke={P.sienna} strokeWidth={2} dot={{ r: 3 }} name="B & C roads" />
-              <Line type="monotone" dataKey="unclassifiedPoor" stroke={P.red} strokeWidth={2} dot={{ r: 3 }} name="Unclassified" />
-            </LineChart>
-          </ResponsiveContainer>
-        )}
-      </section>
-
       {/* Context */}
       <AnalysisBox>
-        UK full-fibre broadband coverage reached {latestFttp.pct}% of premises ({latestFttp.premises}m) by {latestFttp.date},
-        up from 6% in 2018. Gigabit-capable coverage stands at {latestGigabit.pct}%.
-        Median download speeds rose from 37 Mbit/s (2018) to {latestSpeed.medianDown} Mbit/s ({latestSpeed.year}).
+        Road traffic totalled {latestTraffic.totalBnMiles} billion vehicle miles in {latestTraffic.year}.
+        {" "}Unclassified road condition continues to deteriorate: {latestCondition.unclassifiedPoor}% now require maintenance
+        consideration, up from 14% in 2010.
         {" "}Rail passenger journeys reached {(latestJourneys.journeysMn / 1000).toFixed(2)} billion in {latestJourneys.fy},
         {recoveryPct && ` ${recoveryPct}% of the pre-pandemic peak.`}
         {" "}PPM punctuality was {latestPunct.ppm}% in {latestPunct.fy}.
-        {" "}Road traffic totalled {latestTraffic.totalBnMiles} billion vehicle miles in {latestTraffic.year}.
-        {" "}Unclassified road condition continues to deteriorate: {latestCondition.unclassifiedPoor}% now require maintenance
-        consideration, up from 14% in 2010.
+        {" "}UK full-fibre broadband coverage reached {latestFttp.pct}% of premises ({latestFttp.premises}m) by {latestFttp.date},
+        up from 6% in 2018. Gigabit-capable coverage stands at {latestGigabit.pct}%.
+        Median download speeds rose from 37 Mbit/s (2018) to {latestSpeed.medianDown} Mbit/s ({latestSpeed.year}).
       </AnalysisBox>
 
       {/* Sources */}
@@ -289,11 +359,11 @@ export default function Infrastructure() {
         </a>
         {" · "}
         <a href="https://dataportal.orr.gov.uk/" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight }}>
-          ORR Data Portal (Tables 3103, 1220)
+          ORR Data Portal (Tables 3103, 1220, 6320)
         </a>
         {" · "}
         <a href="https://www.gov.uk/government/statistical-data-sets/road-traffic-statistics-tra" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight }}>
-          DfT TRA0101 & RDC0120
+          DfT TRA0101, RDL0203 & RDC0120
         </a>
       </div>
     </div>

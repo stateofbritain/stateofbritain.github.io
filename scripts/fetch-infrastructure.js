@@ -21,6 +21,12 @@
  *  5. DfT Road Condition (curated from RDC0120)
  *     - % of roads where maintenance should be considered
  *
+ *  6. DfT RDL0203 (downloaded) — Road length by type (km)
+ *     - Total road network length, motorways, A roads, etc.
+ *
+ *  7. ORR Table 6320 (downloaded) — Rail infrastructure on mainline
+ *     - Route-km, electrified route-km, new electrification track-km
+ *
  * Outputs: public/data/infrastructure.json
  */
 import { writeFileSync } from "fs";
@@ -222,6 +228,60 @@ function parseDfTTraffic(buf) {
   return series;
 }
 
+// ── DfT RDL0203: Road length by type (km) ───────────────────────
+const DFT_ROAD_LENGTH_URL =
+  "https://assets.publishing.service.gov.uk/media/697b622d043a4ade0f7b4fcd/rdl0203.ods";
+
+function parseDfTRoadLength(buf) {
+  const wb = XLSX.read(buf);
+  const sheetName = wb.SheetNames.find((s) => s.includes("RDL")) || wb.SheetNames[0];
+  const rows = XLSX.utils.sheet_to_json(wb.Sheets[sheetName], { header: 1 });
+
+  // Col layout: 0=Year, 2=Total motorways (km), 5=Total A roads (km), 7=All major roads
+  const series = [];
+  for (let r = 5; r < rows.length; r++) {
+    const yr = rows[r]?.[0];
+    if (typeof yr !== "number" || yr < 1990) continue;
+    const motorways = typeof rows[r][3] === "number" ? Math.round(rows[r][3]) : null;
+    const aRoads = typeof rows[r][6] === "number" ? Math.round(rows[r][6]) : null;
+    const allMajor = typeof rows[r][7] === "number" ? Math.round(rows[r][7]) : null;
+    if (allMajor) {
+      series.push({ year: yr, motorwaysKm: motorways, aRoadsKm: aRoads, allMajorKm: allMajor });
+    }
+  }
+  return series;
+}
+
+// ── ORR Table 6320: Rail infrastructure on mainline ─────────────
+const ORR_INFRA_URL =
+  "https://dataportal.orr.gov.uk/media/1528/table-6320-infrastructure-on-the-mainline.ods";
+
+function parseORRInfrastructure(buf) {
+  const wb = XLSX.read(buf);
+  const sheetName = wb.SheetNames.find((s) => s.includes("6320")) || wb.SheetNames[0];
+  const rows = XLSX.utils.sheet_to_json(wb.Sheets[sheetName], { header: 1 });
+
+  const series = [];
+  for (let r = 5; r < rows.length; r++) {
+    const nation = rows[r]?.[0];
+    const period = String(rows[r]?.[1] || "");
+    if (nation !== "Great Britain") continue;
+    const m = period.match(/(\d{4})/);
+    if (!m) continue;
+    const yr = parseInt(m[1], 10);
+    if (yr < 1990) continue;
+
+    const routeKm = typeof rows[r][2] === "number" ? Math.round(rows[r][2]) : null;
+    const electRouteKm = typeof rows[r][3] === "number" ? Math.round(rows[r][3]) : null;
+    const newElectKm = typeof rows[r][6] === "number" ? Math.round(rows[r][6] * 10) / 10 : null;
+
+    if (routeKm) {
+      series.push({ year: yr, routeKm, electRouteKm, newElectKm });
+    }
+  }
+  return series;
+}
+
 // ── DfT Road Condition (curated from RDC0120) ───────────────────
 const ROAD_CONDITION = [
   { year: 2010, aRoadsPoor: 6, bAndcPoor: 8, unclassifiedPoor: 14 },
@@ -281,6 +341,28 @@ async function main() {
     console.warn("  Warning: Could not download DfT traffic:", err.message);
   }
 
+  // Download DfT road length (RDL0203)
+  let roadLength = [];
+  try {
+    console.log("\nDownloading DfT RDL0203 (road length by type)...");
+    const rdlBuf = await download(DFT_ROAD_LENGTH_URL);
+    roadLength = parseDfTRoadLength(rdlBuf);
+    console.log(`  → ${roadLength.length} years of road length data`);
+  } catch (err) {
+    console.warn("  Warning: Could not download DfT road length:", err.message);
+  }
+
+  // Download ORR infrastructure (Table 6320)
+  let railInfra = [];
+  try {
+    console.log("\nDownloading ORR Table 6320 (rail infrastructure)...");
+    const orrInfraBuf = await download(ORR_INFRA_URL);
+    railInfra = parseORRInfrastructure(orrInfraBuf);
+    console.log(`  → ${railInfra.length} years of rail infrastructure data`);
+  } catch (err) {
+    console.warn("  Warning: Could not download ORR infrastructure:", err.message);
+  }
+
   console.log(`\nRoad condition: ${ROAD_CONDITION.length} years (curated from DfT RDC0120)`);
 
   const output = {
@@ -292,14 +374,14 @@ async function main() {
           note: "FTTP, gigabit, speeds, and mobile coverage curated from annual and spring update reports.",
         },
         {
-          name: "ORR Data Portal - Table 3103 (PPM) & Table 1220 (Journeys)",
+          name: "ORR Data Portal - Tables 3103, 1220, 6320",
           url: "https://dataportal.orr.gov.uk/",
-          note: "PPM computed as weighted average across all operators from Table 3103 quarterly data. Journeys from Table 1220.",
+          note: "PPM from Table 3103, journeys from Table 1220, route/track length from Table 6320.",
         },
         {
-          name: "DfT Road Traffic (TRA0101) & Road Conditions (RDC0120)",
+          name: "DfT Road Traffic (TRA0101), Road Length (RDL0203) & Road Conditions (RDC0120)",
           url: "https://www.gov.uk/government/statistical-data-sets/road-traffic-statistics-tra",
-          note: "Traffic downloaded from TRA0101 ODS. Road condition curated from published tables.",
+          note: "Traffic from TRA0101, road length from RDL0203, road condition curated from published tables.",
         },
       ],
       generated: new Date().toISOString().slice(0, 10),
@@ -308,10 +390,12 @@ async function main() {
     rail: {
       punctuality: railPunctuality,
       journeys: railJourneys,
+      infrastructure: railInfra,
     },
     roads: {
       condition: ROAD_CONDITION,
       traffic: roadTraffic,
+      length: roadLength,
     },
   };
 

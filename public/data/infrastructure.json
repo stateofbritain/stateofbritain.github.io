@@ -7,14 +7,14 @@
         "note": "FTTP, gigabit, speeds, and mobile coverage curated from annual and spring update reports."
       },
       {
-        "name": "ORR Data Portal - Table 3103 (PPM) & Table 1220 (Journeys)",
+        "name": "ORR Data Portal - Tables 3103, 1220, 6320",
         "url": "https://dataportal.orr.gov.uk/",
-        "note": "PPM computed as weighted average across all operators from Table 3103 quarterly data. Journeys from Table 1220."
+        "note": "PPM from Table 3103, journeys from Table 1220, route/track length from Table 6320."
       },
       {
-        "name": "DfT Road Traffic (TRA0101) & Road Conditions (RDC0120)",
+        "name": "DfT Road Traffic (TRA0101), Road Length (RDL0203) & Road Conditions (RDC0120)",
         "url": "https://www.gov.uk/government/statistical-data-sets/road-traffic-statistics-tra",
-        "note": "Traffic downloaded from TRA0101 ODS. Road condition curated from published tables."
+        "note": "Traffic from TRA0101, road length from RDL0203, road condition curated from published tables."
       }
     ],
     "generated": "2026-03-06"
@@ -519,6 +519,224 @@
         "year": 2024,
         "journeysMn": 1728.7
       }
+    ],
+    "infrastructure": [
+      {
+        "year": 1990,
+        "routeKm": 16587,
+        "electRouteKm": 4546,
+        "newElectKm": null
+      },
+      {
+        "year": 1991,
+        "routeKm": 16584,
+        "electRouteKm": 4912,
+        "newElectKm": null
+      },
+      {
+        "year": 1992,
+        "routeKm": 16584,
+        "electRouteKm": 4886,
+        "newElectKm": null
+      },
+      {
+        "year": 1993,
+        "routeKm": 16528,
+        "electRouteKm": 4910,
+        "newElectKm": null
+      },
+      {
+        "year": 1994,
+        "routeKm": 16536,
+        "electRouteKm": 4968,
+        "newElectKm": null
+      },
+      {
+        "year": 1995,
+        "routeKm": 16542,
+        "electRouteKm": 4970,
+        "newElectKm": null
+      },
+      {
+        "year": 1996,
+        "routeKm": 16666,
+        "electRouteKm": 5163,
+        "newElectKm": 189
+      },
+      {
+        "year": 1997,
+        "routeKm": 16666,
+        "electRouteKm": 5176,
+        "newElectKm": 129
+      },
+      {
+        "year": 1998,
+        "routeKm": 16656,
+        "electRouteKm": 5166,
+        "newElectKm": 10
+      },
+      {
+        "year": 1999,
+        "routeKm": 16659,
+        "electRouteKm": 5166,
+        "newElectKm": 0
+      },
+      {
+        "year": 2000,
+        "routeKm": 16649,
+        "electRouteKm": 5167,
+        "newElectKm": 1
+      },
+      {
+        "year": 2001,
+        "routeKm": 16652,
+        "electRouteKm": 5167,
+        "newElectKm": 0
+      },
+      {
+        "year": 2002,
+        "routeKm": 16652,
+        "electRouteKm": 5167,
+        "newElectKm": 0
+      },
+      {
+        "year": 2003,
+        "routeKm": 16652,
+        "electRouteKm": 5167,
+        "newElectKm": 0
+      },
+      {
+        "year": 2004,
+        "routeKm": 16493,
+        "electRouteKm": 5200,
+        "newElectKm": 22
+      },
+      {
+        "year": 2005,
+        "routeKm": 16116,
+        "electRouteKm": 5200,
+        "newElectKm": 38
+      },
+      {
+        "year": 2006,
+        "routeKm": 15810,
+        "electRouteKm": 5205,
+        "newElectKm": 5
+      },
+      {
+        "year": 2007,
+        "routeKm": 15795,
+        "electRouteKm": 5250,
+        "newElectKm": 0
+      },
+      {
+        "year": 2008,
+        "routeKm": 15814,
+        "electRouteKm": 5250,
+        "newElectKm": 0
+      },
+      {
+        "year": 2009,
+        "routeKm": 15814,
+        "electRouteKm": 5250,
+        "newElectKm": 36
+      },
+      {
+        "year": 2010,
+        "routeKm": 15753,
+        "electRouteKm": 5239,
+        "newElectKm": 0
+      },
+      {
+        "year": 2011,
+        "routeKm": 15777,
+        "electRouteKm": 5262,
+        "newElectKm": 106
+      },
+      {
+        "year": 2012,
+        "routeKm": 15742,
+        "electRouteKm": 5261,
+        "newElectKm": 0
+      },
+      {
+        "year": 2013,
+        "routeKm": 15757,
+        "electRouteKm": 5265,
+        "newElectKm": 10
+      },
+      {
+        "year": 2014,
+        "routeKm": 15755,
+        "electRouteKm": 5268,
+        "newElectKm": 65
+      },
+      {
+        "year": 2015,
+        "routeKm": 15764,
+        "electRouteKm": 5272,
+        "newElectKm": 177
+      },
+      {
+        "year": 2016,
+        "routeKm": 15804,
+        "electRouteKm": 5331,
+        "newElectKm": 7
+      },
+      {
+        "year": 2017,
+        "routeKm": 15814,
+        "electRouteKm": 5374,
+        "newElectKm": 0
+      },
+      {
+        "year": 2018,
+        "routeKm": 15846,
+        "electRouteKm": 5483,
+        "newElectKm": 290.9
+      },
+      {
+        "year": 2019,
+        "routeKm": 15853,
+        "electRouteKm": 6012,
+        "newElectKm": 883
+      },
+      {
+        "year": 2020,
+        "routeKm": 15899,
+        "electRouteKm": 6049,
+        "newElectKm": 252
+      },
+      {
+        "year": 2021,
+        "routeKm": 15935,
+        "electRouteKm": 6045,
+        "newElectKm": 181.9
+      },
+      {
+        "year": 2022,
+        "routeKm": 15873,
+        "electRouteKm": 6042,
+        "newElectKm": 2
+      },
+      {
+        "year": 2023,
+        "routeKm": 15846,
+        "electRouteKm": 6065,
+        "newElectKm": 62.2
+      },
+      {
+        "year": 2024,
+        "routeKm": 15849,
+        "electRouteKm": 6130,
+        "newElectKm": 141.4
+      },
+      {
+        "year": 2025,
+        "routeKm": 15747,
+        "electRouteKm": 6200,
+        "newElectKm": 120.5
+      }
     ]
   },
   "roads": {
@@ -814,6 +1032,224 @@
         "hgvs": 2,
         "buses": 58.5,
         "totalBnMiles": 336.2
+      }
+    ],
+    "length": [
+      {
+        "year": 1990,
+        "motorwaysKm": 3070,
+        "aRoadsKm": 47823,
+        "allMajorKm": 50893
+      },
+      {
+        "year": 1991,
+        "motorwaysKm": 3102,
+        "aRoadsKm": 47903,
+        "allMajorKm": 51004
+      },
+      {
+        "year": 1992,
+        "motorwaysKm": 3133,
+        "aRoadsKm": 47936,
+        "allMajorKm": 51070
+      },
+      {
+        "year": 1993,
+        "motorwaysKm": 3211,
+        "aRoadsKm": 46121,
+        "allMajorKm": 49332
+      },
+      {
+        "year": 1994,
+        "motorwaysKm": 3242,
+        "aRoadsKm": 46147,
+        "allMajorKm": 49389
+      },
+      {
+        "year": 1995,
+        "motorwaysKm": 3269,
+        "aRoadsKm": 46303,
+        "allMajorKm": 49572
+      },
+      {
+        "year": 1996,
+        "motorwaysKm": 3298,
+        "aRoadsKm": 46192,
+        "allMajorKm": 49490
+      },
+      {
+        "year": 1997,
+        "motorwaysKm": 3378,
+        "aRoadsKm": 46357,
+        "allMajorKm": 49735
+      },
+      {
+        "year": 1998,
+        "motorwaysKm": 3421,
+        "aRoadsKm": 46395,
+        "allMajorKm": 49816
+      },
+      {
+        "year": 1999,
+        "motorwaysKm": 3449,
+        "aRoadsKm": 46569,
+        "allMajorKm": 50018
+      },
+      {
+        "year": 2000,
+        "motorwaysKm": 3467,
+        "aRoadsKm": 46607,
+        "allMajorKm": 50074
+      },
+      {
+        "year": 2001,
+        "motorwaysKm": 3476,
+        "aRoadsKm": 46654,
+        "allMajorKm": 50130
+      },
+      {
+        "year": 2002,
+        "motorwaysKm": 3478,
+        "aRoadsKm": 46674,
+        "allMajorKm": 50152
+      },
+      {
+        "year": 2003,
+        "motorwaysKm": 3478,
+        "aRoadsKm": 46653,
+        "allMajorKm": 50131
+      },
+      {
+        "year": 2004,
+        "motorwaysKm": 3523,
+        "aRoadsKm": 46669,
+        "allMajorKm": 50192
+      },
+      {
+        "year": 2005,
+        "motorwaysKm": 3518,
+        "aRoadsKm": 46727,
+        "allMajorKm": 50246
+      },
+      {
+        "year": 2006,
+        "motorwaysKm": 3555,
+        "aRoadsKm": 46735,
+        "allMajorKm": 50291
+      },
+      {
+        "year": 2007,
+        "motorwaysKm": 3559,
+        "aRoadsKm": 46743,
+        "allMajorKm": 50302
+      },
+      {
+        "year": 2008,
+        "motorwaysKm": 3559,
+        "aRoadsKm": 46691,
+        "allMajorKm": 50249
+      },
+      {
+        "year": 2009,
+        "motorwaysKm": 3560,
+        "aRoadsKm": 46770,
+        "allMajorKm": 50329
+      },
+      {
+        "year": 2010,
+        "motorwaysKm": 3558,
+        "aRoadsKm": 46707,
+        "allMajorKm": 50265
+      },
+      {
+        "year": 2011,
+        "motorwaysKm": 3570,
+        "aRoadsKm": 46734,
+        "allMajorKm": 50304
+      },
+      {
+        "year": 2012,
+        "motorwaysKm": 3617,
+        "aRoadsKm": 46742,
+        "allMajorKm": 50359
+      },
+      {
+        "year": 2013,
+        "motorwaysKm": 3641,
+        "aRoadsKm": 46749,
+        "allMajorKm": 50391
+      },
+      {
+        "year": 2014,
+        "motorwaysKm": 3645,
+        "aRoadsKm": 46785,
+        "allMajorKm": 50430
+      },
+      {
+        "year": 2015,
+        "motorwaysKm": 3654,
+        "aRoadsKm": 46776,
+        "allMajorKm": 50430
+      },
+      {
+        "year": 2016,
+        "motorwaysKm": 3649,
+        "aRoadsKm": 46815,
+        "allMajorKm": 50465
+      },
+      {
+        "year": 2017,
+        "motorwaysKm": 3688,
+        "aRoadsKm": 46896,
+        "allMajorKm": 50584
+      },
+      {
+        "year": 2018,
+        "motorwaysKm": 3723,
+        "aRoadsKm": 47380,
+        "allMajorKm": 51103
+      },
+      {
+        "year": 2019,
+        "motorwaysKm": 3733,
+        "aRoadsKm": 47459,
+        "allMajorKm": 51191
+      },
+      {
+        "year": 2020,
+        "motorwaysKm": 3735,
+        "aRoadsKm": 47511,
+        "allMajorKm": 51246
+      },
+      {
+        "year": 2021,
+        "motorwaysKm": 3736,
+        "aRoadsKm": 47536,
+        "allMajorKm": 51272
+      },
+      {
+        "year": 2022,
+        "motorwaysKm": 3744,
+        "aRoadsKm": 47591,
+        "allMajorKm": 51336
+      },
+      {
+        "year": 2023,
+        "motorwaysKm": 3749,
+        "aRoadsKm": 47611,
+        "allMajorKm": 51361
+      },
+      {
+        "year": 2024,
+        "motorwaysKm": 3750,
+        "aRoadsKm": 47665,
+        "allMajorKm": 51415
+      },
+      {
+        "year": 2025,
+        "motorwaysKm": 3751,
+        "aRoadsKm": 47783,
+        "allMajorKm": 51534
       }
     ]
   }
