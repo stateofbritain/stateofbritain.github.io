@@ -1,0 +1,22 @@
+{
+  "name": "state-of-britain",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "fetch-data": "node scripts/fetch-energy.js && node scripts/fetch-nhs.js && node scripts/fetch-water.js && node scripts/fetch-environment.js && node scripts/fetch-cpih.js && node scripts/fetch-startups.js && node scripts/fetch-research.js && node scripts/fetch-productivity.js"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "recharts": "^2.15.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^6.0.0",
+    "xlsx": "^0.18.5"
+  }
+}
