@@ -301,6 +301,27 @@ const ROAD_CONDITION = [
   { year: 2024, aRoadsPoor: 4, bAndcPoor: 7, unclassifiedPoor: 19 },
 ];
 
+// ── Pothole repairs (England, local authority managed roads) ─────
+// Source: DfT RDC0130 / Annual Local Authority Road Maintenance Survey (ALARM)
+// Potholes filled (millions) and estimated local authority road maintenance backlog (£bn)
+const POTHOLES = [
+  { year: 2010, filled: 1.6, backlogBn: 8.5 },
+  { year: 2011, filled: 2.0, backlogBn: 9.1 },
+  { year: 2012, filled: 1.9, backlogBn: 10.5 },
+  { year: 2013, filled: 1.7, backlogBn: 11.0 },
+  { year: 2014, filled: 2.4, backlogBn: 11.8 },
+  { year: 2015, filled: 1.8, backlogBn: 12.0 },
+  { year: 2016, filled: 1.7, backlogBn: 11.8 },
+  { year: 2017, filled: 1.6, backlogBn: 12.1 },
+  { year: 2018, filled: 1.9, backlogBn: 9.3 },
+  { year: 2019, filled: 1.7, backlogBn: 9.8 },
+  { year: 2020, filled: 1.4, backlogBn: 10.2 },
+  { year: 2021, filled: 1.5, backlogBn: 11.0 },
+  { year: 2022, filled: 1.6, backlogBn: 12.6 },
+  { year: 2023, filled: 2.0, backlogBn: 14.0 },
+  { year: 2024, filled: 2.1, backlogBn: 16.3 },
+];
+
 async function main() {
   console.log("Broadband data: curated from Ofcom Connected Nations reports");
   console.log(`  → FTTP: ${BROADBAND.fttp.length} data points (${BROADBAND.fttp[0].year}-${BROADBAND.fttp[BROADBAND.fttp.length - 1].year})`);
@@ -394,6 +415,7 @@ async function main() {
     },
     roads: {
       condition: ROAD_CONDITION,
+      potholes: POTHOLES,
       traffic: roadTraffic,
       length: roadLength,
     },

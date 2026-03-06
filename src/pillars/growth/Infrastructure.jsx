@@ -1,8 +1,9 @@
 import { useState, useEffect, useMemo } from "react";
 import {
   AreaChart, Area, BarChart, Bar, LineChart, Line,
+  ComposedChart,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-  ReferenceLine,
+  ReferenceLine, Legend,
 } from "recharts";
 import P from "../../theme/palette";
 import MetricCard from "../../components/MetricCard";
@@ -93,19 +94,20 @@ export default function Infrastructure() {
       .filter((y) => y >= 1991)
       .sort();
     return years.map((y) => {
+      const KM_TO_MI = 0.621371;
       const roadCurr = roadMap[y]?.allMajorKm;
       const roadPrev = roadMap[y - 1]?.allMajorKm;
       const railCurr = railMap[y]?.routeKm;
       const railPrev = railMap[y - 1]?.routeKm;
       return {
         year: y,
-        roadChangeKm: roadCurr && roadPrev ? roadCurr - roadPrev : null,
-        railChangeKm: railCurr && railPrev ? railCurr - railPrev : null,
-        roadTotalKm: roadMap[y]?.allMajorKm ?? null,
-        railTotalKm: railMap[y]?.routeKm ?? null,
-        railElectKm: railMap[y]?.electRouteKm ?? null,
+        roadChangeMi: roadCurr && roadPrev ? Math.round((roadCurr - roadPrev) * KM_TO_MI) : null,
+        railChangeMi: railCurr && railPrev ? Math.round((railCurr - railPrev) * KM_TO_MI) : null,
+        roadTotalMi: roadMap[y]?.allMajorKm ? Math.round(roadMap[y].allMajorKm * KM_TO_MI) : null,
+        railTotalMi: railMap[y]?.routeKm ? Math.round(railMap[y].routeKm * KM_TO_MI) : null,
+        railElectMi: railMap[y]?.electRouteKm ? Math.round(railMap[y].electRouteKm * KM_TO_MI) : null,
       };
-    }).filter((r) => r.roadChangeKm !== null || r.railChangeKm !== null);
+    }).filter((r) => r.roadChangeMi !== null || r.railChangeMi !== null);
   }, [data]);
 
   if (loading) {
@@ -162,11 +164,14 @@ export default function Infrastructure() {
         <p style={sectionNote}>
           {roadView === "traffic"
             ? "Total road traffic in Great Britain (billion vehicle miles per year). LCV growth reflects e-commerce; car traffic has broadly plateaued since 2019."
-            : "Percentage of roads in England where maintenance should be considered, by road classification. Unclassified roads have deteriorated steadily since 2013."}
+            : roadView === "condition"
+              ? "Percentage of roads in England where maintenance should be considered, by road classification. Unclassified roads have deteriorated steadily since 2013."
+              : "Potholes filled annually by English local authorities (millions) and the estimated maintenance backlog (£bn). Despite filling over 2m potholes a year, the backlog continues to grow."}
         </p>
         <div style={{ display: "flex", gap: 6, marginBottom: 14 }}>
           <button style={toggleBtn(roadView === "traffic")} onClick={() => setRoadView("traffic")}>Traffic volume</button>
           <button style={toggleBtn(roadView === "condition")} onClick={() => setRoadView("condition")}>Road condition</button>
+          <button style={toggleBtn(roadView === "potholes")} onClick={() => setRoadView("potholes")}>Potholes</button>
         </div>
 
         {roadView === "traffic" && (
@@ -197,6 +202,21 @@ export default function Infrastructure() {
             </LineChart>
           </ResponsiveContainer>
         )}
+
+        {roadView === "potholes" && data.roads.potholes && (
+          <ResponsiveContainer width="100%" height={340}>
+            <ComposedChart data={data.roads.potholes}>
+              <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
+              <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
+              <YAxis yAxisId="left" tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 3]} tickFormatter={(v) => `${v}m`} />
+              <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 20]} tickFormatter={(v) => `£${v}bn`} />
+              <Tooltip content={<CustomTooltip />} />
+              <Bar yAxisId="left" dataKey="filled" fill={P.sienna} fillOpacity={0.7} name="Potholes filled (millions)" radius={[3, 3, 0, 0]} />
+              <Line yAxisId="right" type="monotone" dataKey="backlogBn" stroke={P.red} strokeWidth={2.5} dot={{ r: 3, fill: P.red }} name="Maintenance backlog (£bn)" />
+              <Legend wrapperStyle={{ fontSize: 10, fontFamily: "'DM Mono', monospace" }} />
+            </ComposedChart>
+          </ResponsiveContainer>
+        )}
       </section>
 
       {/* Section 2: Network Length */}
@@ -205,8 +225,8 @@ export default function Infrastructure() {
           <h3 style={sectionHeading}>Network Length</h3>
           <p style={sectionNote}>
             {netView === "change"
-              ? "Year-on-year change in road (major roads, km) and rail (route-km) network length. Negative values indicate net closures or reclassification."
-              : "Total network length: major roads (motorways + A roads) and rail route-km open for traffic in Great Britain."}
+              ? "Year-on-year change in road (major roads) and rail network length in miles. Negative values indicate net closures or reclassification."
+              : "Total network length in miles: major roads (motorways + A roads) and rail route open for traffic in Great Britain."}
           </p>
           <div style={{ display: "flex", gap: 6, marginBottom: 14 }}>
             <button style={toggleBtn(netView === "change")} onClick={() => setNetView("change")}>Annual change (km)</button>
@@ -218,11 +238,11 @@ export default function Infrastructure() {
               <BarChart data={networkChange}>
                 <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
                 <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-                <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v} km`} />
-                <Tooltip content={<CustomTooltip formatter={(v) => `${v} km`} />} />
+                <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}`} />
+                <Tooltip content={<CustomTooltip formatter={(v) => `${v} mi`} />} />
                 <ReferenceLine y={0} stroke={P.textLight} />
-                <Bar dataKey="roadChangeKm" fill={P.teal} name="Major roads" isAnimationActive={false} />
-                <Bar dataKey="railChangeKm" fill={P.sienna} name="Rail route" isAnimationActive={false} />
+                <Bar dataKey="roadChangeMi" fill={P.teal} name="Major roads" isAnimationActive={false} />
+                <Bar dataKey="railChangeMi" fill={P.sienna} name="Rail route" isAnimationActive={false} />
               </BarChart>
             </ResponsiveContainer>
           )}
@@ -234,10 +254,10 @@ export default function Infrastructure() {
                 <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
                 <YAxis yAxisId="road" tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} />
                 <YAxis yAxisId="rail" orientation="right" tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} />
-                <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toLocaleString()} km`} />} />
-                <Line yAxisId="road" type="monotone" dataKey="roadTotalKm" stroke={P.teal} strokeWidth={2} dot={false} name="Major roads (km)" />
-                <Line yAxisId="rail" type="monotone" dataKey="railTotalKm" stroke={P.sienna} strokeWidth={2} dot={false} name="Rail route (km)" />
-                <Line yAxisId="rail" type="monotone" dataKey="railElectKm" stroke={P.yellow} strokeWidth={2} dot={false} name="Electrified rail (km)" connectNulls />
+                <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toLocaleString()} mi`} />} />
+                <Line yAxisId="road" type="monotone" dataKey="roadTotalMi" stroke={P.teal} strokeWidth={2} dot={false} name="Major roads (mi)" />
+                <Line yAxisId="rail" type="monotone" dataKey="railTotalMi" stroke={P.sienna} strokeWidth={2} dot={false} name="Rail route (mi)" />
+                <Line yAxisId="rail" type="monotone" dataKey="railElectMi" stroke={P.yellow} strokeWidth={2} dot={false} name="Electrified rail (mi)" connectNulls />
               </LineChart>
             </ResponsiveContainer>
           )}

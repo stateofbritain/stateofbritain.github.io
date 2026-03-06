@@ -92,17 +92,18 @@ export default function Immigration() {
           It has since fallen to 348k following visa tightening.
         </p>
         <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px" }}>
-          <ResponsiveContainer width="100%" height={340}>
-            <AreaChart data={data.netMigration}>
+          <ResponsiveContainer width="100%" height={380}>
+            <LineChart data={data.netMigration.map((d) => ({ ...d, emigrationNeg: -d.emigration }))}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[-100, 800]} tickFormatter={(v) => `${v}k`} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[-700, 1300]} tickFormatter={(v) => `${v}k`} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toLocaleString()}k`} />} />
               <ReferenceLine y={0} stroke={P.text} strokeWidth={1} />
-              <Area type="monotone" dataKey="immigration" stackId="pos" stroke={P.teal} fill={P.teal} fillOpacity={0.15} strokeWidth={1.5} name="Immigration" />
+              <Line type="monotone" dataKey="immigration" stroke={P.teal} strokeWidth={2} dot={{ r: 2, fill: P.teal }} name="Immigration" />
+              <Line type="monotone" dataKey="emigrationNeg" stroke={P.red} strokeWidth={2} dot={{ r: 2, fill: P.red }} name="Emigration" />
               <Line type="monotone" dataKey="net" stroke={P.navy} strokeWidth={2.5} dot={{ r: 2, fill: P.navy }} name="Net migration" />
               <Legend wrapperStyle={{ fontSize: 10, fontFamily: "'DM Mono', monospace" }} />
-            </AreaChart>
+            </LineChart>
           </ResponsiveContainer>
           <div style={{ marginTop: 6, fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
             SOURCE: ONS Long-term International Migration, year ending
