@@ -169,16 +169,22 @@ export default function Investment() {
         <h3 style={sectionHeading}>UK Investment Trend</h3>
         <p style={sectionNote}>
           Total GFCF and business investment since 1997.
-          {priceBase === "cp"
-            ? " Current prices, seasonally adjusted."
-            : " Chained volume measure (2023 prices), seasonally adjusted."}
+          {ukView === "asset"
+            ? " Current prices, seasonally adjusted. Asset breakdown by type."
+            : priceBase === "cp"
+              ? " Current prices, seasonally adjusted."
+              : " Chained volume measure (2023 prices), seasonally adjusted."}
         </p>
         <div style={{ display: "flex", gap: 6, marginBottom: 14 }}>
           <button style={toggleBtn(ukView === "gfcf")} onClick={() => setUkView("gfcf")}>GFCF + BI</button>
           <button style={toggleBtn(ukView === "asset")} onClick={() => setUkView("asset")}>By asset type</button>
-          <span style={{ width: 12 }} />
-          <button style={toggleBtn(priceBase === "cp")} onClick={() => setPriceBase("cp")}>Current prices</button>
-          <button style={toggleBtn(priceBase === "cvm")} onClick={() => setPriceBase("cvm")}>Real (CVM)</button>
+          {ukView === "gfcf" && (
+            <>
+              <span style={{ width: 12 }} />
+              <button style={toggleBtn(priceBase === "cp")} onClick={() => setPriceBase("cp")}>Current prices</button>
+              <button style={toggleBtn(priceBase === "cvm")} onClick={() => setPriceBase("cvm")}>Real (CVM)</button>
+            </>
+          )}
         </div>
 
         {ukView === "gfcf" ? (
