@@ -21,6 +21,7 @@ import ResearchFunding from "./pillars/growth/ResearchFunding";
 import Productivity from "./pillars/growth/Productivity";
 import ProductiveQuotient from "./pillars/growth/ProductiveQuotient";
 import Investment from "./pillars/growth/Investment";
+import Infrastructure from "./pillars/growth/Infrastructure";
 
 // Map of pillar/topic keys to their React components.
 // As pages are built, import and register them here.
@@ -39,6 +40,7 @@ const TOPIC_COMPONENTS = {
   "growth/productivity": Productivity,
   "growth/pq": ProductiveQuotient,
   "growth/investment": Investment,
+  "growth/infrastructure": Infrastructure,
 };
 
 function getTopicComponent(pillarKey, topicKey) {

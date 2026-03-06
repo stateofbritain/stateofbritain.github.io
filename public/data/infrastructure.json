@@ -1,0 +1,752 @@
+{
+  "meta": {
+    "sources": [
+      {
+        "name": "Ofcom Connected Nations 2018-2025",
+        "url": "https://www.ofcom.org.uk/research-and-data/telecoms-research/connected-nations",
+        "note": "FTTP, gigabit, speeds, and mobile coverage curated from annual and spring update reports."
+      },
+      {
+        "name": "ORR Data Portal - Passenger Journeys (Table 1220) & Rail Performance",
+        "url": "https://dataportal.orr.gov.uk/",
+        "note": "Journeys downloaded from Table 1220 ODS. Punctuality (PPM, On Time) curated from ORR published statistics."
+      },
+      {
+        "name": "DfT Road Traffic (TRA0101) & Road Conditions (RDC0120)",
+        "url": "https://www.gov.uk/government/statistical-data-sets/road-traffic-statistics-tra",
+        "note": "Traffic downloaded from TRA0101 ODS. Road condition curated from published tables."
+      }
+    ],
+    "generated": "2026-03-06"
+  },
+  "broadband": {
+    "fttp": [
+      {
+        "date": "Sep 2018",
+        "year": 2018,
+        "pct": 6,
+        "premises": 1.5
+      },
+      {
+        "date": "Sep 2019",
+        "year": 2019,
+        "pct": 10,
+        "premises": 3
+      },
+      {
+        "date": "Sep 2020",
+        "year": 2020,
+        "pct": 18,
+        "premises": 5.1
+      },
+      {
+        "date": "Sep 2021",
+        "year": 2021,
+        "pct": 28,
+        "premises": 8.2
+      },
+      {
+        "date": "Sep 2022",
+        "year": 2022,
+        "pct": 42,
+        "premises": 12.4
+      },
+      {
+        "date": "Sep 2023",
+        "year": 2023,
+        "pct": 57,
+        "premises": 17.1
+      },
+      {
+        "date": "Jul 2024",
+        "year": 2024,
+        "pct": 69,
+        "premises": 20.7
+      },
+      {
+        "date": "Jul 2025",
+        "year": 2025,
+        "pct": 78,
+        "premises": 23.7
+      }
+    ],
+    "gigabit": [
+      {
+        "date": "Sep 2019",
+        "year": 2019,
+        "pct": 10
+      },
+      {
+        "date": "Sep 2020",
+        "year": 2020,
+        "pct": 27
+      },
+      {
+        "date": "Sep 2021",
+        "year": 2021,
+        "pct": 47
+      },
+      {
+        "date": "Sep 2022",
+        "year": 2022,
+        "pct": 70
+      },
+      {
+        "date": "Sep 2023",
+        "year": 2023,
+        "pct": 78
+      },
+      {
+        "date": "Jul 2024",
+        "year": 2024,
+        "pct": 84
+      },
+      {
+        "date": "Jul 2025",
+        "year": 2025,
+        "pct": 87
+      }
+    ],
+    "speeds": [
+      {
+        "year": 2018,
+        "medianDown": 37,
+        "medianUp": 6
+      },
+      {
+        "year": 2019,
+        "medianDown": 42.1,
+        "medianUp": 9.3
+      },
+      {
+        "year": 2020,
+        "medianDown": 50,
+        "medianUp": 9.8
+      },
+      {
+        "year": 2021,
+        "medianDown": 50.4,
+        "medianUp": 9.8
+      },
+      {
+        "year": 2022,
+        "medianDown": 59.4,
+        "medianUp": 10.7
+      },
+      {
+        "year": 2023,
+        "medianDown": 69.4,
+        "medianUp": 18.4
+      }
+    ],
+    "mobile4g": [
+      {
+        "year": 2019,
+        "landmassPct": 91
+      },
+      {
+        "year": 2020,
+        "landmassPct": 92
+      },
+      {
+        "year": 2021,
+        "landmassPct": 92
+      },
+      {
+        "year": 2022,
+        "landmassPct": 93
+      },
+      {
+        "year": 2023,
+        "landmassPct": 95
+      },
+      {
+        "year": 2024,
+        "landmassPct": 96
+      },
+      {
+        "year": 2025,
+        "landmassPct": 96
+      }
+    ]
+  },
+  "rail": {
+    "punctuality": [
+      {
+        "fy": "2013-14",
+        "year": 2013,
+        "ppm": 90.1,
+        "onTime": null
+      },
+      {
+        "fy": "2014-15",
+        "year": 2014,
+        "ppm": 89.7,
+        "onTime": null
+      },
+      {
+        "fy": "2015-16",
+        "year": 2015,
+        "ppm": 89.1,
+        "onTime": null
+      },
+      {
+        "fy": "2016-17",
+        "year": 2016,
+        "ppm": 87.8,
+        "onTime": null
+      },
+      {
+        "fy": "2017-18",
+        "year": 2017,
+        "ppm": 87.7,
+        "onTime": null
+      },
+      {
+        "fy": "2018-19",
+        "year": 2018,
+        "ppm": 86.4,
+        "onTime": 65.2
+      },
+      {
+        "fy": "2019-20",
+        "year": 2019,
+        "ppm": 87.8,
+        "onTime": 67.2
+      },
+      {
+        "fy": "2020-21",
+        "year": 2020,
+        "ppm": 93.9,
+        "onTime": 74
+      },
+      {
+        "fy": "2021-22",
+        "year": 2021,
+        "ppm": 88.4,
+        "onTime": 67
+      },
+      {
+        "fy": "2022-23",
+        "year": 2022,
+        "ppm": 85.9,
+        "onTime": 61.4
+      },
+      {
+        "fy": "2023-24",
+        "year": 2023,
+        "ppm": 87.8,
+        "onTime": 65.5
+      },
+      {
+        "fy": "2024-25",
+        "year": 2024,
+        "ppm": 88.6,
+        "onTime": 67.5
+      }
+    ],
+    "journeys": [
+      {
+        "fy": "1984-85",
+        "year": 1984,
+        "journeysMn": 701
+      },
+      {
+        "fy": "1985-86",
+        "year": 1985,
+        "journeysMn": 686
+      },
+      {
+        "fy": "1986-87",
+        "year": 1986,
+        "journeysMn": 738
+      },
+      {
+        "fy": "1987-88",
+        "year": 1987,
+        "journeysMn": 798
+      },
+      {
+        "fy": "1988-89",
+        "year": 1988,
+        "journeysMn": 822
+      },
+      {
+        "fy": "1989-90",
+        "year": 1989,
+        "journeysMn": 812
+      },
+      {
+        "fy": "1990-91",
+        "year": 1990,
+        "journeysMn": 810
+      },
+      {
+        "fy": "1991-92",
+        "year": 1991,
+        "journeysMn": 792
+      },
+      {
+        "fy": "1992-93",
+        "year": 1992,
+        "journeysMn": 770
+      },
+      {
+        "fy": "1993-94",
+        "year": 1993,
+        "journeysMn": 740
+      },
+      {
+        "fy": "1994-95",
+        "year": 1994,
+        "journeysMn": 735.1
+      },
+      {
+        "fy": "1995-96",
+        "year": 1995,
+        "journeysMn": 761.2
+      },
+      {
+        "fy": "1996-97",
+        "year": 1996,
+        "journeysMn": 800.2
+      },
+      {
+        "fy": "1997-98",
+        "year": 1997,
+        "journeysMn": 845.7
+      },
+      {
+        "fy": "1998-99",
+        "year": 1998,
+        "journeysMn": 894.8
+      },
+      {
+        "fy": "1999-00",
+        "year": 1999,
+        "journeysMn": 935.4
+      },
+      {
+        "fy": "2000-01",
+        "year": 2000,
+        "journeysMn": 961.7
+      },
+      {
+        "fy": "2001-02",
+        "year": 2001,
+        "journeysMn": 964.4
+      },
+      {
+        "fy": "2002-03",
+        "year": 2002,
+        "journeysMn": 980.5
+      },
+      {
+        "fy": "2003-04",
+        "year": 2003,
+        "journeysMn": 1016.8
+      },
+      {
+        "fy": "2004-05",
+        "year": 2004,
+        "journeysMn": 1044.6
+      },
+      {
+        "fy": "2005-06",
+        "year": 2005,
+        "journeysMn": 1081.7
+      },
+      {
+        "fy": "2006-07",
+        "year": 2006,
+        "journeysMn": 1150.3
+      },
+      {
+        "fy": "2007-08",
+        "year": 2007,
+        "journeysMn": 1223.2
+      },
+      {
+        "fy": "2008-09",
+        "year": 2008,
+        "journeysMn": 1271.9
+      },
+      {
+        "fy": "2009-10",
+        "year": 2009,
+        "journeysMn": 1264.2
+      },
+      {
+        "fy": "2010-11",
+        "year": 2010,
+        "journeysMn": 1350.7
+      },
+      {
+        "fy": "2011-12",
+        "year": 2011,
+        "journeysMn": 1456.3
+      },
+      {
+        "fy": "2012-13",
+        "year": 2012,
+        "journeysMn": 1497.7
+      },
+      {
+        "fy": "2013-14",
+        "year": 2013,
+        "journeysMn": 1583.4
+      },
+      {
+        "fy": "2014-15",
+        "year": 2014,
+        "journeysMn": 1650.4
+      },
+      {
+        "fy": "2015-16",
+        "year": 2015,
+        "journeysMn": 1713.5
+      },
+      {
+        "fy": "2016-17",
+        "year": 2016,
+        "journeysMn": 1727.5
+      },
+      {
+        "fy": "2017-18",
+        "year": 2017,
+        "journeysMn": 1704
+      },
+      {
+        "fy": "2018-19",
+        "year": 2018,
+        "journeysMn": 1753
+      },
+      {
+        "fy": "2019-20",
+        "year": 2019,
+        "journeysMn": 1738.7
+      },
+      {
+        "fy": "2020-21",
+        "year": 2020,
+        "journeysMn": 387.9
+      },
+      {
+        "fy": "2021-22",
+        "year": 2021,
+        "journeysMn": 990.1
+      },
+      {
+        "fy": "2022-23",
+        "year": 2022,
+        "journeysMn": 1384.8
+      },
+      {
+        "fy": "2023-24",
+        "year": 2023,
+        "journeysMn": 1612
+      },
+      {
+        "fy": "2024-25",
+        "year": 2024,
+        "journeysMn": 1728.7
+      }
+    ]
+  },
+  "roads": {
+    "condition": [
+      {
+        "year": 2010,
+        "aRoadsPoor": 6,
+        "bAndcPoor": 8,
+        "unclassifiedPoor": 14
+      },
+      {
+        "year": 2011,
+        "aRoadsPoor": 5,
+        "bAndcPoor": 7,
+        "unclassifiedPoor": 15
+      },
+      {
+        "year": 2012,
+        "aRoadsPoor": 4,
+        "bAndcPoor": 6,
+        "unclassifiedPoor": 15
+      },
+      {
+        "year": 2013,
+        "aRoadsPoor": 3,
+        "bAndcPoor": 6,
+        "unclassifiedPoor": 16
+      },
+      {
+        "year": 2014,
+        "aRoadsPoor": 3,
+        "bAndcPoor": 6,
+        "unclassifiedPoor": 17
+      },
+      {
+        "year": 2015,
+        "aRoadsPoor": 3,
+        "bAndcPoor": 6,
+        "unclassifiedPoor": 16
+      },
+      {
+        "year": 2016,
+        "aRoadsPoor": 3,
+        "bAndcPoor": 6,
+        "unclassifiedPoor": 17
+      },
+      {
+        "year": 2017,
+        "aRoadsPoor": 4,
+        "bAndcPoor": 6,
+        "unclassifiedPoor": 17
+      },
+      {
+        "year": 2018,
+        "aRoadsPoor": 4,
+        "bAndcPoor": 6,
+        "unclassifiedPoor": 17
+      },
+      {
+        "year": 2019,
+        "aRoadsPoor": 4,
+        "bAndcPoor": 7,
+        "unclassifiedPoor": 17
+      },
+      {
+        "year": 2020,
+        "aRoadsPoor": 3,
+        "bAndcPoor": 6,
+        "unclassifiedPoor": 16
+      },
+      {
+        "year": 2021,
+        "aRoadsPoor": 3,
+        "bAndcPoor": 6,
+        "unclassifiedPoor": 16
+      },
+      {
+        "year": 2022,
+        "aRoadsPoor": 4,
+        "bAndcPoor": 7,
+        "unclassifiedPoor": 17
+      },
+      {
+        "year": 2023,
+        "aRoadsPoor": 4,
+        "bAndcPoor": 7,
+        "unclassifiedPoor": 18
+      },
+      {
+        "year": 2024,
+        "aRoadsPoor": 4,
+        "bAndcPoor": 7,
+        "unclassifiedPoor": 19
+      }
+    ],
+    "traffic": [
+      {
+        "year": 2000,
+        "cars": 233.5,
+        "lcvs": 17.5,
+        "hgvs": 3.2,
+        "buses": 32.4,
+        "totalBnMiles": 289.6
+      },
+      {
+        "year": 2001,
+        "cars": 236.7,
+        "lcvs": 17.4,
+        "hgvs": 3.2,
+        "buses": 33.2,
+        "totalBnMiles": 293.5
+      },
+      {
+        "year": 2002,
+        "cars": 242.4,
+        "lcvs": 17.6,
+        "hgvs": 3.2,
+        "buses": 34,
+        "totalBnMiles": 300.2
+      },
+      {
+        "year": 2003,
+        "cars": 242,
+        "lcvs": 17.7,
+        "hgvs": 3.3,
+        "buses": 35.7,
+        "totalBnMiles": 302
+      },
+      {
+        "year": 2004,
+        "cars": 243.9,
+        "lcvs": 18.2,
+        "hgvs": 3.2,
+        "buses": 37.3,
+        "totalBnMiles": 305.7
+      },
+      {
+        "year": 2005,
+        "cars": 243.1,
+        "lcvs": 18,
+        "hgvs": 3.1,
+        "buses": 38.3,
+        "totalBnMiles": 305.8
+      },
+      {
+        "year": 2006,
+        "cars": 246,
+        "lcvs": 18.1,
+        "hgvs": 3.3,
+        "buses": 39.9,
+        "totalBnMiles": 310.4
+      },
+      {
+        "year": 2007,
+        "cars": 246.5,
+        "lcvs": 18.2,
+        "hgvs": 3.3,
+        "buses": 41.9,
+        "totalBnMiles": 313.3
+      },
+      {
+        "year": 2008,
+        "cars": 244.8,
+        "lcvs": 17.8,
+        "hgvs": 3.1,
+        "buses": 41.6,
+        "totalBnMiles": 310.5
+      },
+      {
+        "year": 2009,
+        "cars": 243.9,
+        "lcvs": 16.4,
+        "hgvs": 3.1,
+        "buses": 40.7,
+        "totalBnMiles": 307.3
+      },
+      {
+        "year": 2010,
+        "cars": 239.6,
+        "lcvs": 16.4,
+        "hgvs": 3.1,
+        "buses": 41.2,
+        "totalBnMiles": 303.2
+      },
+      {
+        "year": 2011,
+        "cars": 241,
+        "lcvs": 16,
+        "hgvs": 2.9,
+        "buses": 41.6,
+        "totalBnMiles": 304.3
+      },
+      {
+        "year": 2012,
+        "cars": 240.9,
+        "lcvs": 15.6,
+        "hgvs": 2.9,
+        "buses": 42.5,
+        "totalBnMiles": 304.6
+      },
+      {
+        "year": 2013,
+        "cars": 241.3,
+        "lcvs": 15.8,
+        "hgvs": 2.8,
+        "buses": 43.2,
+        "totalBnMiles": 305.8
+      },
+      {
+        "year": 2014,
+        "cars": 246.9,
+        "lcvs": 16.2,
+        "hgvs": 2.8,
+        "buses": 45.8,
+        "totalBnMiles": 314.5
+      },
+      {
+        "year": 2015,
+        "cars": 250.3,
+        "lcvs": 16.8,
+        "hgvs": 2.7,
+        "buses": 47.8,
+        "totalBnMiles": 320.4
+      },
+      {
+        "year": 2016,
+        "cars": 254.8,
+        "lcvs": 16.9,
+        "hgvs": 2.6,
+        "buses": 50.8,
+        "totalBnMiles": 327.9
+      },
+      {
+        "year": 2017,
+        "cars": 257.9,
+        "lcvs": 17.1,
+        "hgvs": 2.5,
+        "buses": 52.2,
+        "totalBnMiles": 332.5
+      },
+      {
+        "year": 2018,
+        "cars": 259.1,
+        "lcvs": 17.2,
+        "hgvs": 2.4,
+        "buses": 52.8,
+        "totalBnMiles": 334.2
+      },
+      {
+        "year": 2019,
+        "cars": 262.9,
+        "lcvs": 17.2,
+        "hgvs": 2.4,
+        "buses": 53.5,
+        "totalBnMiles": 338.6
+      },
+      {
+        "year": 2020,
+        "cars": 197.3,
+        "lcvs": 16.2,
+        "hgvs": 1.6,
+        "buses": 48.6,
+        "totalBnMiles": 265.9
+      },
+      {
+        "year": 2021,
+        "cars": 221.4,
+        "lcvs": 17.5,
+        "hgvs": 1.8,
+        "buses": 54.4,
+        "totalBnMiles": 297.6
+      },
+      {
+        "year": 2022,
+        "cars": 244,
+        "lcvs": 17.4,
+        "hgvs": 2,
+        "buses": 57.5,
+        "totalBnMiles": 323.7
+      },
+      {
+        "year": 2023,
+        "cars": 251.3,
+        "lcvs": 16.9,
+        "hgvs": 1.9,
+        "buses": 57.8,
+        "totalBnMiles": 330.8
+      },
+      {
+        "year": 2024,
+        "cars": 256.1,
+        "lcvs": 16.6,
+        "hgvs": 2,
+        "buses": 58.5,
+        "totalBnMiles": 336.2
+      }
+    ]
+  }
+}
