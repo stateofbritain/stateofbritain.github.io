@@ -203,7 +203,9 @@ export default function Justice() {
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
               <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[60, 95]} tickFormatter={(v) => `${v}k`} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}k`} />} />
-              <Line type="monotone" dataKey="population" stroke={P.sienna} strokeWidth={2.5} dot={{ r: 2.5, fill: P.sienna }} name="Prison population (thousands)" />
+              <Line type="monotone" dataKey="capacity" stroke={P.red} strokeWidth={2} strokeDasharray="6 3" dot={false} name="Operational capacity" />
+              <Line type="monotone" dataKey="population" stroke={P.sienna} strokeWidth={2.5} dot={{ r: 2.5, fill: P.sienna }} name="Prison population" />
+              <Legend wrapperStyle={{ fontSize: 10, fontFamily: "'DM Mono', monospace" }} />
             </LineChart>
           </ResponsiveContainer>
           <div style={{ marginTop: 6, fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>

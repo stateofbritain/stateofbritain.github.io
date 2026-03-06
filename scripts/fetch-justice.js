@@ -115,29 +115,29 @@ const policeWorkforce = [
   { year: 2024, officers: 146.4, staff: 71.5, pcsos: 8.5 },
 ];
 
-// ── Prison population (England & Wales, thousands) ──────────────────────
-// Source: MoJ Offender Management Statistics
+// ── Prison population & capacity (England & Wales, thousands) ───────────
+// Source: MoJ Offender Management Statistics / HMPPS Capacity
 const prisonPopulation = [
-  { year: 2000, population: 64.6 },
-  { year: 2002, population: 70.8 },
-  { year: 2004, population: 74.7 },
-  { year: 2006, population: 79.0 },
-  { year: 2008, population: 83.2 },
-  { year: 2010, population: 85.0 },
-  { year: 2011, population: 86.0 },
-  { year: 2012, population: 86.6 },
-  { year: 2013, population: 83.8 },
-  { year: 2014, population: 85.4 },
-  { year: 2015, population: 85.6 },
-  { year: 2016, population: 84.4 },
-  { year: 2017, population: 85.9 },
-  { year: 2018, population: 82.8 },
-  { year: 2019, population: 83.4 },
-  { year: 2020, population: 79.8 },
-  { year: 2021, population: 78.8 },
-  { year: 2022, population: 80.6 },
-  { year: 2023, population: 85.6 },
-  { year: 2024, population: 87.5 },
+  { year: 2000, population: 64.6, capacity: 65.0 },
+  { year: 2002, population: 70.8, capacity: 72.5 },
+  { year: 2004, population: 74.7, capacity: 76.0 },
+  { year: 2006, population: 79.0, capacity: 80.0 },
+  { year: 2008, population: 83.2, capacity: 84.5 },
+  { year: 2010, population: 85.0, capacity: 86.5 },
+  { year: 2011, population: 86.0, capacity: 87.0 },
+  { year: 2012, population: 86.6, capacity: 87.5 },
+  { year: 2013, population: 83.8, capacity: 87.0 },
+  { year: 2014, population: 85.4, capacity: 86.5 },
+  { year: 2015, population: 85.6, capacity: 86.0 },
+  { year: 2016, population: 84.4, capacity: 85.5 },
+  { year: 2017, population: 85.9, capacity: 86.0 },
+  { year: 2018, population: 82.8, capacity: 86.0 },
+  { year: 2019, population: 83.4, capacity: 86.5 },
+  { year: 2020, population: 79.8, capacity: 87.0 },
+  { year: 2021, population: 78.8, capacity: 87.5 },
+  { year: 2022, population: 80.6, capacity: 88.0 },
+  { year: 2023, population: 85.6, capacity: 88.5 },
+  { year: 2024, population: 87.5, capacity: 88.9 },
 ];
 
 // ── Crown Court backlog (outstanding cases, thousands) ──────────────────
