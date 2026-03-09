@@ -330,7 +330,7 @@ export default function IndustrialProduction() {
                                       tick={{ fontSize: 9, fill: P.textMuted }}
                                       tickFormatter={(v) => v.toLocaleString()}
                                       width={45}
-                                      label={{ value: `Production (${p.unit})`, angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+                                      label={{ value: `Production (${p.unit})`, angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace", textAnchor: "middle" } }}
                                     />
                                     <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toLocaleString()} ${p.unit}`} />} />
                                     <Line
