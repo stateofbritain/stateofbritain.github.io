@@ -7,6 +7,7 @@ import {
 } from "recharts";
 import P from "../../theme/palette";
 import { generateShades } from "../../theme/shades";
+import useIsMobile from "../../hooks/useIsMobile";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
@@ -263,6 +264,7 @@ function DrillPie({ dept }) {
 }
 
 export default function Spending() {
+  const isMobile = useIsMobile();
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -439,7 +441,7 @@ export default function Spending() {
       </p>
 
       {/* Metric cards */}
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 14, marginBottom: 32 }}>
+      <div style={{ display: "flex", flexDirection: isMobile ? "column" : "row", flexWrap: "wrap", gap: 14, marginBottom: 32 }}>
         <MetricCard
           label="Total spending"
           value={fmt(latestOutturn.tme)}
@@ -641,7 +643,7 @@ export default function Spending() {
           All {sortedDepts.length} departmental groups. Click a department for time series and detail.
         </p>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 300px", gap: 20, alignItems: "start" }}>
+        <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 300px", gap: 20, alignItems: "start" }}>
           {/* Department bars */}
           <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "16px 14px 10px" }}>
             {sortedDepts.map((dept, idx) => {
