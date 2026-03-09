@@ -424,11 +424,12 @@ export default function Spending() {
   const renderActiveShape = (props) => {
     const { cx, cy, innerRadius, outerRadius, startAngle, endAngle, fill, payload } = props;
     const hasRing = payload?.hasSubRing;
-    const outer = hasRing ? 175 : outerRadius;
+    const outer = hasRing ? (isMobile ? 118 : 175) : outerRadius;
+    const bump = isMobile ? 3 : 6;
     return (
       <g>
-        <Sector cx={cx} cy={cy} innerRadius={innerRadius} outerRadius={outer + 6} startAngle={startAngle} endAngle={endAngle} fill={fill} />
-        <Sector cx={cx} cy={cy} innerRadius={outerRadius + 4} outerRadius={outerRadius + 7} startAngle={startAngle} endAngle={endAngle} fill={fill} opacity={0.3} />
+        <Sector cx={cx} cy={cy} innerRadius={innerRadius} outerRadius={outer + bump} startAngle={startAngle} endAngle={endAngle} fill={fill} />
+        <Sector cx={cx} cy={cy} innerRadius={outerRadius + 2} outerRadius={outerRadius + (isMobile ? 4 : 7)} startAngle={startAngle} endAngle={endAngle} fill={fill} opacity={0.3} />
       </g>
     );
   };
