@@ -168,7 +168,7 @@ function SubDeptPie({ breakdown, color }) {
   );
 }
 
-function DrillPie({ dept }) {
+function DrillPie({ dept, isMobile }) {
   const shades = generateShades(dept.color, dept.breakdown.length);
   const [hovered, setHovered] = useState(null);
   const [hoveredSlice, setHoveredSlice] = useState(null);
@@ -187,7 +187,7 @@ function DrillPie({ dept }) {
   return (
     <>
       <div style={{ position: "relative" }}>
-        <ResponsiveContainer width="100%" height={440}>
+        <ResponsiveContainer width="100%" height={isMobile ? 300 : 440}>
           <PieChart>
             <Pie
               data={dept.breakdown}
@@ -195,8 +195,8 @@ function DrillPie({ dept }) {
               nameKey="name"
               cx="50%"
               cy="50%"
-              innerRadius={95}
-              outerRadius={175}
+              innerRadius={isMobile ? 60 : 95}
+              outerRadius={isMobile ? 125 : 175}
               paddingAngle={1}
               activeIndex={hovered}
               activeShape={renderSlice}
@@ -494,7 +494,7 @@ export default function Spending() {
             /* ── Main TME pie ── */
             <>
               <div style={{ position: "relative" }}>
-                <ResponsiveContainer width="100%" height={440}>
+                <ResponsiveContainer width="100%" height={isMobile ? 300 : 440}>
                   <PieChart>
                     {/* Base pie: small depts extend to full rim, large depts stop at 175 */}
                     <Pie
@@ -503,8 +503,8 @@ export default function Spending() {
                       nameKey="name"
                       cx="50%"
                       cy="50%"
-                      innerRadius={95}
-                      outerRadius={192}
+                      innerRadius={isMobile ? 60 : 95}
+                      outerRadius={isMobile ? 130 : 192}
                       paddingAngle={0}
                       activeIndex={activeSlice}
                       activeShape={renderActiveShape}
@@ -534,8 +534,8 @@ export default function Spending() {
                       nameKey="name"
                       cx="50%"
                       cy="50%"
-                      innerRadius={178}
-                      outerRadius={192}
+                      innerRadius={isMobile ? 120 : 178}
+                      outerRadius={isMobile ? 130 : 192}
                       paddingAngle={0}
                       isAnimationActive={!hasAnimated.current}
                       onMouseEnter={(_, idx) => {
@@ -625,7 +625,7 @@ export default function Spending() {
             </>
           ) : (
             /* ── Drilled-down department pie ── */
-            <DrillPie dept={selectedPieDept} onBack={() => { setSelectedPieDept(null); setActiveSlice(null); setHoveredItem(null); }} />
+            <DrillPie dept={selectedPieDept} isMobile={isMobile} onBack={() => { setSelectedPieDept(null); setActiveSlice(null); setHoveredItem(null); }} />
           )}
 
           <div style={{ marginTop: 10, fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em", textAlign: "center" }}>
