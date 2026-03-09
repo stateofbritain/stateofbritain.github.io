@@ -926,11 +926,11 @@ export default function Spending() {
           <p style={sectionNote}>
             Where the money comes from. Major tax receipts, FY {latestOutturn.fy}.
           </p>
-          <ResponsiveContainer width="100%" height={Math.max(300, data.receiptTypes.length * 26)}>
-            <BarChart data={data.receiptTypes} layout="vertical" margin={{ left: 140, right: 30 }}>
+          <ResponsiveContainer width="100%" height={Math.max(300, data.receiptTypes.length * (isMobile ? 30 : 26))}>
+            <BarChart data={data.receiptTypes} layout="vertical" margin={{ left: isMobile ? 10 : 140, right: 20 }}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} horizontal={false} />
               <XAxis type="number" tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => `£${v}bn`} />
-              <YAxis type="category" dataKey="name" tick={{ fontSize: 11, fill: P.textMuted }} width={135} />
+              <YAxis type="category" dataKey="name" tick={{ fontSize: isMobile ? 9 : 11, fill: P.textMuted }} width={isMobile ? 90 : 135} />
               <Tooltip content={<CustomTooltip formatter={(v) => `£${v.toFixed(1)}bn`} />} />
               <Bar dataKey="value" fill={P.teal} name="Receipts" isAnimationActive={false} />
             </BarChart>
