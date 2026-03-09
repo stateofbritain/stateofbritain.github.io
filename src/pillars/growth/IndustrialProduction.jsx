@@ -316,27 +316,37 @@ export default function IndustrialProduction() {
                               borderBottom: `1px solid ${P.border}`,
                               background: "rgba(30,107,94,0.04)",
                             }}>
-                              <ResponsiveContainer width="100%" height={180}>
-                                <LineChart data={p.series}>
-                                  <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-                                  <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textMuted }} />
-                                  <YAxis
-                                    tick={{ fontSize: 9, fill: P.textMuted }}
-                                    tickFormatter={(v) => v.toLocaleString()}
-                                    width={45}
-                                  />
-                                  <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toLocaleString()} ${p.unit}`} />} />
-                                  <Line
-                                    type="monotone"
-                                    dataKey="value"
-                                    stroke={sc === P.yellow ? P.sienna : sc}
-                                    strokeWidth={2.5}
-                                    dot={{ r: 3, fill: sc === P.yellow ? P.sienna : sc }}
-                                    name={p.name}
-                                    isAnimationActive={false}
-                                  />
-                                </LineChart>
-                              </ResponsiveContainer>
+                              <div style={{
+                                background: P.bgCard,
+                                border: `1px solid ${P.borderStrong}`,
+                                borderRadius: 6,
+                                padding: "12px 10px",
+                              }}>
+                                <ResponsiveContainer width="100%" height={180}>
+                                  <LineChart data={p.series}>
+                                    <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
+                                    <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textMuted }} />
+                                    <YAxis
+                                      tick={{ fontSize: 9, fill: P.textMuted }}
+                                      tickFormatter={(v) => v.toLocaleString()}
+                                      width={45}
+                                    />
+                                    <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toLocaleString()} ${p.unit}`} />} />
+                                    <Line
+                                      type="monotone"
+                                      dataKey="value"
+                                      stroke={sc === P.yellow ? P.sienna : sc}
+                                      strokeWidth={2.5}
+                                      dot={{ r: 3, fill: sc === P.yellow ? P.sienna : sc }}
+                                      name={p.name}
+                                      isAnimationActive={false}
+                                    />
+                                  </LineChart>
+                                </ResponsiveContainer>
+                                <div style={{ marginTop: 4, fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>
+                                  {p.source}
+                                </div>
+                              </div>
                             </td>
                           </tr>
                         )}
