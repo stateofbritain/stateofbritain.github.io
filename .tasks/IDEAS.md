@@ -18,6 +18,14 @@ Add freely. Promote to TODO.md when ready to build._
 - **Planning permission pipeline** — DLUHC publishes planning stats. Time from application to decision. Refusal rates. Appeals. A bottleneck made visible.
 - **Regulatory burden index** — count of statutory instruments per year, pages of regulation. Not a judgement on whether regulation is good or bad — just the volume.
 
+## Energy Security (Energy tab)
+
+- **Gas storage days remaining** — UK has very limited gas storage (~4-5 days' demand vs ~90 days in Germany). Track Rough/other storage capacity, current fill levels, and days-of-demand equivalent. Source: DESNZ gas storage data, National Gas Transmission.
+- **Energy system model integration** — incorporate the existing energy system model to show supply/demand balance, import dependency, and vulnerability to disruption. Model already built — needs wiring into the dashboard.
+- **Import dependency by fuel** — what fraction of gas, oil, electricity is imported? How has this changed since North Sea peak? DUKES has this.
+- **Interconnector flows** — real-time or historical net electricity imports/exports via France, Belgium, Netherlands, Norway interconnectors. Elexon/BMRS data.
+- **Capacity margin** — gap between peak demand and available generation capacity. National Grid ESO publishes winter/summer outlooks.
+
 ## Growth Engine specifics
 
 - **Patent map** — IPO publishes patent data by applicant and classification. Show what Britain invents and where.

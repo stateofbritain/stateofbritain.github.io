@@ -1,7 +1,8 @@
 import { useState, useEffect, useMemo } from "react";
 import {
-  AreaChart, Area, LineChart, Line, BarChart, Bar,
+  AreaChart, Area, LineChart, Line, BarChart, Bar, ComposedChart, Cell,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
+  ReferenceLine, Legend as RLegend,
 } from "recharts";
 import P from "../../theme/palette";
 import MetricCard from "../../components/MetricCard";
@@ -48,6 +49,8 @@ export default function Energy() {
   const [error, setError] = useState(null);
   const [primaryView, setPrimaryView] = useState("mix");
   const [elecView, setElecView] = useState("generation");
+  const [securityView, setSecurityView] = useState("gasStorage");
+  const [securityView2, setSecurityView2] = useState("importsFuel");
 
   const elecPctData = useMemo(() => {
     if (!data?.electricity) return [];
@@ -237,13 +240,214 @@ export default function Energy() {
         <Legend items={ELEC_FUELS} />
       </div>
 
+      {/* ═══════════════════════════════════════════════════════════════
+          SECTION 3 — ENERGY SECURITY
+          ═══════════════════════════════════════════════════════════════ */}
+      {data.energySecurity && (() => {
+        const sec = data.energySecurity;
+        const snap = sec.snapshot;
+        const latestGas = sec.gasStorage[sec.gasStorage.length - 1];
+        return (
+          <div style={{ marginBottom: 40 }}>
+            <h3 style={sectionHeading}>Energy Security</h3>
+            <p style={sectionNote}>
+              Energy security depends on storage buffers, domestic production, and interconnection.
+              The UK has among the lowest gas storage in Europe — just {snap.gasStorageDays} days of
+              average demand — after the Rough storage field closed in 2017. The country has been a
+              net energy importer since the mid-2000s as North Sea output declined.
+            </p>
+
+            {/* Live storage fill gauge */}
+            {snap.liveFillPct != null && (
+              <div style={{
+                background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3,
+                padding: "14px 20px", marginBottom: 16, boxShadow: "0 1px 6px rgba(28,43,69,0.05)",
+                display: "flex", alignItems: "center", gap: 20, flexWrap: "wrap",
+              }}>
+                <div style={{ flex: "0 0 auto" }}>
+                  <span style={{ fontSize: "10px", color: P.textMuted, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.04em" }}>
+                    Live storage fill
+                  </span>
+                  <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.red, lineHeight: 1.2 }}>
+                    {snap.liveFillPct}%
+                  </div>
+                  <span style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>
+                    ≈ {snap.liveDaysOfDemand} days of demand
+                  </span>
+                </div>
+                <div style={{ flex: 1, minWidth: 200 }}>
+                  <div style={{
+                    height: 18, background: P.border, borderRadius: 9, overflow: "hidden", position: "relative",
+                  }}>
+                    <div style={{
+                      width: `${snap.liveFillPct}%`, height: "100%",
+                      background: snap.liveFillPct < 30 ? P.red : snap.liveFillPct < 60 ? P.yellow : P.teal,
+                      borderRadius: 9, transition: "width 0.3s",
+                    }} />
+                  </div>
+                  <div style={{ display: "flex", justifyContent: "space-between", marginTop: 4 }}>
+                    <span style={{ fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>0%</span>
+                    <span style={{ fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>
+                      {sec.liveFill?.gasInStorageBcm ?? "–"} / {latestGas.capacityBcm} bcm
+                    </span>
+                    <span style={{ fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>100%</span>
+                  </div>
+                </div>
+                <div style={{ flex: "0 0 auto", textAlign: "right" }}>
+                  <span style={{ fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>
+                    National Gas · {snap.liveFillAsOf}
+                  </span>
+                </div>
+              </div>
+            )}
+
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 12, marginBottom: 20 }}>
+              <MetricCard
+                label="Gas Storage Capacity"
+                value={`${snap.gasStorageDays} days`}
+                change={snap.liveFillPct != null
+                  ? `${snap.liveFillPct}% full → ${snap.liveDaysOfDemand} days held (${snap.liveFillAsOf})`
+                  : `${latestGas.capacityBcm} bcm capacity (${snap.gasStorageYear})`}
+                up={false}
+                color={P.red}
+                delay={0.1}
+              />
+              <MetricCard
+                label="Gas Import Dependency"
+                value={`${snap.gasImportPct}%`}
+                change={`of gas consumed (${snap.importsByFuelYear})`}
+                up={true}
+                color={P.sienna}
+                delay={0.18}
+              />
+              <MetricCard
+                label="Interconnector Capacity"
+                value={`${(snap.totalInterconnectorMw / 1000).toFixed(1)} GW`}
+                change={`${sec.interconnectors.length} links to ${[...new Set(sec.interconnectors.map(ic => ic.partner))].length} countries`}
+                up={false}
+                color={P.teal}
+                delay={0.26}
+              />
+              <MetricCard
+                label="Capacity Margin"
+                value={`${snap.capacityMarginPct}%`}
+                change={`de-rated, above peak demand (${snap.capacityMarginYear})`}
+                up={false}
+                color={P.navy}
+                delay={0.34}
+              />
+            </div>
+
+            <ChartCard
+              label={
+                securityView === "live30" ? "GB gas storage fill level — daily (National Gas)"
+                : securityView === "gasStorage" ? "UK gas storage — days of average demand"
+                : "Gas storage — international comparison (days of demand)"
+              }
+              yearRange={
+                securityView === "live30" ? (sec.liveFill ? `Last 30 days to ${sec.liveFill.asOf}` : "")
+                : securityView === "gasStorage" ? `2000–${snap.gasStorageYear}`
+                : (sec.gasStorageIntlAsOf || "Latest available")
+              }
+              views={[...(sec.liveFill ? ["live30"] : []), "gasStorage", "gasIntl"]}
+              viewLabels={{ live30: "Live (30 days)", gasStorage: "Gas Storage", gasIntl: "Intl Comparison" }}
+              activeView={securityView}
+              onViewChange={setSecurityView}
+            >
+              {securityView === "live30" && sec.liveFill?.history && (
+                <ResponsiveContainer width="100%" height={340}>
+                  <ComposedChart data={sec.liveFill.history} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
+                    <XAxis dataKey="date" tick={{ fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} interval={4} />
+                    <YAxis tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} unit="%" domain={[0, 100]} />
+                    <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}%`} />} />
+                    <Area type="monotone" dataKey="fillPct" name="Fill level" stroke={P.red} fill={P.red} fillOpacity={0.15} strokeWidth={2.5} dot={false} />
+                  </ComposedChart>
+                </ResponsiveContainer>
+              )}
+              {securityView === "gasStorage" && (
+                <GasStorageChart data={sec.gasStorage} />
+              )}
+              {securityView === "gasIntl" && (
+                <GasStorageIntlChart data={sec.gasStorageIntl} />
+              )}
+            </ChartCard>
+
+            <ChartCard
+              label={
+                securityView2 === "importsFuel"
+                  ? "Import dependency by fuel (% of consumption)"
+                  : "De-rated electricity capacity margin (% above peak demand)"
+              }
+              yearRange={
+                securityView2 === "importsFuel"
+                  ? `2000–${snap.importsByFuelYear}`
+                  : `2010–${snap.capacityMarginYear}`
+              }
+              views={["importsFuel", "capacity"]}
+              viewLabels={{ importsFuel: "Imports by Fuel", capacity: "Capacity Margin" }}
+              activeView={securityView2}
+              onViewChange={setSecurityView2}
+            >
+              {securityView2 === "importsFuel" && (
+                <ImportsByFuelChart data={sec.importsByFuel} />
+              )}
+              {securityView2 === "capacity" && (
+                <CapacityMarginChart data={sec.capacityMargin} />
+              )}
+              {securityView2 === "capacity" && (
+                <p style={{ fontSize: "11px", color: P.textLight, fontFamily: "'DM Mono', monospace", lineHeight: 1.7, margin: "12px 0 0", maxWidth: 680 }}>
+                  <strong>De-rated capacity margin</strong> measures how much spare generation capacity
+                  the grid has above expected peak demand, after adjusting ("de-rating") each power
+                  source for its realistic availability — e.g. wind is de-rated to ~8-10% of nameplate
+                  because it may not be blowing at peak, while gas plants are de-rated to ~90%.
+                  A margin below 5% signals elevated risk of supply shortfalls during cold, still
+                  winter evenings when demand peaks and wind output is low.
+                </p>
+              )}
+            </ChartCard>
+
+            {/* Interconnectors table */}
+            <div style={{ marginTop: 16, background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "16px 20px", boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
+              <span style={{ fontSize: "10px", color: P.textMuted, fontWeight: 400, letterSpacing: "0.04em", fontFamily: "'DM Mono', monospace" }}>
+                Electricity interconnectors &middot; {snap.totalInterconnectorMw.toLocaleString()} MW total
+              </span>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: 8, marginTop: 12 }}>
+                {sec.interconnectors.map((ic) => (
+                  <div key={ic.name} style={{
+                    display: "flex", justifyContent: "space-between", alignItems: "center",
+                    padding: "6px 10px", borderRadius: 3, background: "rgba(28,43,69,0.03)",
+                    fontSize: "11px", fontFamily: "'DM Mono', monospace",
+                  }}>
+                    <span style={{ color: P.text, fontWeight: 500 }}>
+                      {ic.name} <span style={{ color: P.textLight, fontWeight: 400 }}>→ {ic.partner}</span>
+                    </span>
+                    <span style={{ color: P.textMuted }}>
+                      {ic.capacityMw.toLocaleString()} MW <span style={{ color: P.textLight }}>({ic.yearOpened})</span>
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        );
+      })()}
+
       {/* Source */}
       <div style={{ fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em", marginBottom: 20 }}>
         ALL DATA:{" "}
         <a href="https://www.gov.uk/government/collections/digest-of-uk-energy-statistics-dukes" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
           DESNZ Digest of UK Energy Statistics (DUKES) 2025
         </a>
-        {" "}&middot; Tables 1.1.1, 1.1.2, 1.1.6, 5.1.3 &middot; Data: 1990&ndash;{latestMix.year}
+        {" "}&middot;{" "}
+        <a href="https://www.nationalgrideso.com/research-and-publications/electricity-capacity-report" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
+          National Grid ESO Capacity Report
+        </a>
+        {" "}&middot;{" "}
+        <a href="https://www.gie.eu/transparency/databases/storage-database/" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
+          Gas Infrastructure Europe (GIE)
+        </a>
+        {" "}&middot; Data: 1990&ndash;{latestMix.year}
       </div>
 
       <AnalysisBox color={P.navy} label="Context">
@@ -254,6 +458,20 @@ export default function Energy() {
         and nuclear {latestElec.totalNet > 0 ? ((latestElec.nuclear / latestElec.totalNet) * 100).toFixed(1) : "--"}%.
         {" "}Net import dependency: {latestImport.importDependency}%.
         {" "}Household energy spend: £{(latestSpend.domesticTotal / 1000).toFixed(1)}bn.
+        {data.energySecurity && (() => {
+          const snap = data.energySecurity.snapshot;
+          return (
+            <>
+              {" "}UK gas storage provides just {snap.gasStorageDays} days of average demand —
+              compared with 89 days in Germany and 103 in France.
+              {" "}Gas import dependency has risen from net exporter status in 2000 to {snap.gasImportPct}%,
+              oil from net exporter to {snap.oilImportPct}%.
+              {" "}Electricity interconnector capacity stands at {(snap.totalInterconnectorMw / 1000).toFixed(1)} GW
+              across {data.energySecurity.interconnectors.length} links. The de-rated capacity margin
+              is {snap.capacityMarginPct}% ({snap.capacityMarginYear}).
+            </>
+          );
+        })()}
       </AnalysisBox>
     </div>
   );
@@ -367,6 +585,77 @@ function ImportsChart({ data }) {
         <Tooltip content={<CustomTooltip />} />
         <Line type="monotone" dataKey="importDependency" name="Import Dependency" stroke={P.red} strokeWidth={2.5} dot={false} />
       </LineChart>
+    </ResponsiveContainer>
+  );
+}
+
+// ─── Energy Security Charts ──────────────────────────────────────────
+
+function GasStorageChart({ data }) {
+  return (
+    <ResponsiveContainer width="100%" height={340}>
+      <ComposedChart data={data} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
+        <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
+        <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
+        <YAxis yAxisId="days" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} label={{ value: "days", angle: -90, position: "insideLeft", fontSize: 9, fill: P.textLight }} />
+        <YAxis yAxisId="bcm" orientation="right" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} label={{ value: "bcm", angle: 90, position: "insideRight", fontSize: 9, fill: P.textLight }} />
+        <Tooltip content={<CustomTooltip />} />
+        <RLegend wrapperStyle={{ fontSize: 10, fontFamily: "'DM Mono', monospace" }} />
+        <Bar yAxisId="bcm" dataKey="capacityBcm" name="Storage capacity (bcm)" fill={P.grey} opacity={0.5} radius={[3, 3, 0, 0]} />
+        <Line yAxisId="days" type="monotone" dataKey="daysOfDemand" name="Days of demand" stroke={P.red} strokeWidth={2.5} dot={{ r: 4, fill: P.red }} />
+        <ReferenceLine yAxisId="days" y={89} stroke={P.textLight} strokeDasharray="4 4" label={{ value: "Germany (89 days)", fontSize: 9, fill: P.textLight, position: "top" }} />
+      </ComposedChart>
+    </ResponsiveContainer>
+  );
+}
+
+function GasStorageIntlChart({ data }) {
+  return (
+    <ResponsiveContainer width="100%" height={340}>
+      <BarChart data={data} margin={{ top: 5, right: 10, left: 10, bottom: 0 }} layout="vertical">
+        <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
+        <XAxis type="number" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} unit=" days" />
+        <YAxis type="category" dataKey="country" tick={{ fontSize: 11, fill: P.textMuted, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} width={90} />
+        <Tooltip content={<CustomTooltip formatter={(v) => `${v} days`} />} />
+        <Bar dataKey="daysOfDemand" name="Days of demand" radius={[0, 3, 3, 0]}>
+          {data.map((entry) => (
+            <Cell key={entry.country} fill={entry.country === "UK" ? P.red : P.grey} />
+          ))}
+        </Bar>
+      </BarChart>
+    </ResponsiveContainer>
+  );
+}
+
+function ImportsByFuelChart({ data }) {
+  return (
+    <ResponsiveContainer width="100%" height={340}>
+      <LineChart data={data} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
+        <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
+        <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
+        <YAxis tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} unit="%" />
+        <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
+        <RLegend wrapperStyle={{ fontSize: 10, fontFamily: "'DM Mono', monospace" }} />
+        <ReferenceLine y={0} stroke={P.textLight} />
+        <Line type="monotone" dataKey="gasPct" name="Natural gas" stroke={P.yellow} strokeWidth={2.5} dot={{ r: 3 }} />
+        <Line type="monotone" dataKey="oilPct" name="Oil" stroke={P.sienna} strokeWidth={2.5} dot={{ r: 3 }} />
+        <Line type="monotone" dataKey="elecPct" name="Electricity" stroke={P.teal} strokeWidth={2.5} dot={{ r: 3 }} />
+      </LineChart>
+    </ResponsiveContainer>
+  );
+}
+
+function CapacityMarginChart({ data }) {
+  return (
+    <ResponsiveContainer width="100%" height={340}>
+      <ComposedChart data={data} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
+        <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
+        <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
+        <YAxis tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} unit="%" domain={[0, 'auto']} />
+        <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
+        <Bar dataKey="marginPct" name="De-rated capacity margin" fill={P.navy} opacity={0.7} radius={[3, 3, 0, 0]} />
+        <ReferenceLine y={5} stroke={P.red} strokeDasharray="4 4" label={{ value: "5% threshold", fontSize: 9, fill: P.red, position: "top" }} />
+      </ComposedChart>
     </ResponsiveContainer>
   );
 }

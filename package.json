@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "fetch-data": "node scripts/fetch-energy.js && node scripts/fetch-nhs.js && node scripts/fetch-water.js && node scripts/fetch-environment.js && node scripts/fetch-cpih.js && node scripts/fetch-startups.js && node scripts/fetch-research.js && node scripts/fetch-productivity.js && node scripts/fetch-workforce.js && node scripts/fetch-investment.js && node scripts/fetch-obr.js && node scripts/fetch-infrastructure.js && node scripts/fetch-family.js && node scripts/fetch-education.js && node scripts/fetch-justice.js && node scripts/fetch-defence.js && node scripts/fetch-immigration.js"
+    "fetch-data": "node scripts/fetch-energy.js && node scripts/fetch-nhs.js && node scripts/fetch-water.js && node scripts/fetch-environment.js && node scripts/fetch-cpih.js && node scripts/fetch-startups.js && node scripts/fetch-research.js && node scripts/fetch-productivity.js && node scripts/fetch-workforce.js && node scripts/fetch-investment.js && node scripts/fetch-obr.js && node scripts/fetch-infrastructure.js && node scripts/fetch-family.js && node scripts/fetch-education.js && node scripts/fetch-justice.js && node scripts/fetch-defence.js && node scripts/fetch-immigration.js && node scripts/fetch-industrial.js"
   },
   "dependencies": {
     "react": "^18.3.1",

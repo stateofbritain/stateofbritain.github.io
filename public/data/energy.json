@@ -3,7 +3,7 @@
     "source": "Department for Energy Security and Net Zero (DESNZ)",
     "publication": "Digest of UK Energy Statistics (DUKES) 2025",
     "url": "https://www.gov.uk/government/collections/digest-of-uk-energy-statistics-dukes",
-    "fetched": "2026-03-05"
+    "fetched": "2026-03-09"
   },
   "energyMix": [
     {
@@ -1589,5 +1589,500 @@
       "consumption": 164365,
       "importDependency": 42.3
     }
-  ]
+  ],
+  "energySecurity": {
+    "snapshot": {
+      "gasStorageDays": 9.1,
+      "gasStorageYear": 2024,
+      "gasImportPct": 58,
+      "oilImportPct": 46,
+      "elecImportPct": 5,
+      "importsByFuelYear": 2024,
+      "totalInterconnectorMw": 9800,
+      "capacityMarginPct": 5.9,
+      "capacityMarginYear": 2024,
+      "liveFillPct": 48,
+      "liveDaysOfDemand": 4.4,
+      "liveFillAsOf": "2026-03-08"
+    },
+    "gasStorage": [
+      {
+        "year": 2000,
+        "capacityBcm": 3.9,
+        "consumptionBcm": 95.2,
+        "daysOfDemand": 14.9
+      },
+      {
+        "year": 2005,
+        "capacityBcm": 4.4,
+        "consumptionBcm": 95.8,
+        "daysOfDemand": 16.8
+      },
+      {
+        "year": 2010,
+        "capacityBcm": 4.6,
+        "consumptionBcm": 93.8,
+        "daysOfDemand": 17.9
+      },
+      {
+        "year": 2013,
+        "capacityBcm": 4.6,
+        "consumptionBcm": 82,
+        "daysOfDemand": 20.5
+      },
+      {
+        "year": 2015,
+        "capacityBcm": 4.6,
+        "consumptionBcm": 76.4,
+        "daysOfDemand": 22
+      },
+      {
+        "year": 2017,
+        "capacityBcm": 1.3,
+        "consumptionBcm": 80.2,
+        "daysOfDemand": 5.9
+      },
+      {
+        "year": 2018,
+        "capacityBcm": 1.3,
+        "consumptionBcm": 79,
+        "daysOfDemand": 6
+      },
+      {
+        "year": 2020,
+        "capacityBcm": 1.3,
+        "consumptionBcm": 72.1,
+        "daysOfDemand": 6.6
+      },
+      {
+        "year": 2022,
+        "capacityBcm": 1.7,
+        "consumptionBcm": 73.5,
+        "daysOfDemand": 8.4
+      },
+      {
+        "year": 2023,
+        "capacityBcm": 1.7,
+        "consumptionBcm": 69.8,
+        "daysOfDemand": 8.9
+      },
+      {
+        "year": 2024,
+        "capacityBcm": 1.7,
+        "consumptionBcm": 68.5,
+        "daysOfDemand": 9.1
+      }
+    ],
+    "gasStorageIntl": [
+      {
+        "country": "Austria",
+        "daysOfDemand": 117,
+        "asOf": "2024-25"
+      },
+      {
+        "country": "France",
+        "daysOfDemand": 103,
+        "asOf": "2024-25"
+      },
+      {
+        "country": "Germany",
+        "daysOfDemand": 89,
+        "asOf": "2024-25"
+      },
+      {
+        "country": "Italy",
+        "daysOfDemand": 80,
+        "asOf": "2024-25"
+      },
+      {
+        "country": "Netherlands",
+        "daysOfDemand": 45,
+        "asOf": "2024-25"
+      },
+      {
+        "country": "Spain",
+        "daysOfDemand": 42,
+        "asOf": "2024-25"
+      },
+      {
+        "country": "Poland",
+        "daysOfDemand": 35,
+        "asOf": "2024-25"
+      },
+      {
+        "country": "UK",
+        "daysOfDemand": 9,
+        "asOf": "2024-25"
+      }
+    ],
+    "gasStorageIntlAsOf": "Winter 2024/25",
+    "importsByFuel": [
+      {
+        "year": 2000,
+        "gasPct": -5,
+        "oilPct": -16,
+        "elecPct": 3
+      },
+      {
+        "year": 2004,
+        "gasPct": 2,
+        "oilPct": -8,
+        "elecPct": 3
+      },
+      {
+        "year": 2005,
+        "gasPct": 8,
+        "oilPct": -2,
+        "elecPct": 3
+      },
+      {
+        "year": 2006,
+        "gasPct": 15,
+        "oilPct": 3,
+        "elecPct": 2
+      },
+      {
+        "year": 2008,
+        "gasPct": 26,
+        "oilPct": 13,
+        "elecPct": 1
+      },
+      {
+        "year": 2010,
+        "gasPct": 45,
+        "oilPct": 30,
+        "elecPct": 2
+      },
+      {
+        "year": 2012,
+        "gasPct": 47,
+        "oilPct": 38,
+        "elecPct": 5
+      },
+      {
+        "year": 2014,
+        "gasPct": 50,
+        "oilPct": 40,
+        "elecPct": 6
+      },
+      {
+        "year": 2015,
+        "gasPct": 47,
+        "oilPct": 43,
+        "elecPct": 6
+      },
+      {
+        "year": 2017,
+        "gasPct": 49,
+        "oilPct": 44,
+        "elecPct": 5
+      },
+      {
+        "year": 2018,
+        "gasPct": 54,
+        "oilPct": 45,
+        "elecPct": 7
+      },
+      {
+        "year": 2020,
+        "gasPct": 56,
+        "oilPct": 44,
+        "elecPct": 8
+      },
+      {
+        "year": 2021,
+        "gasPct": 53,
+        "oilPct": 41,
+        "elecPct": 6
+      },
+      {
+        "year": 2022,
+        "gasPct": 52,
+        "oilPct": 37,
+        "elecPct": 6
+      },
+      {
+        "year": 2023,
+        "gasPct": 56,
+        "oilPct": 43,
+        "elecPct": 5
+      },
+      {
+        "year": 2024,
+        "gasPct": 58,
+        "oilPct": 46,
+        "elecPct": 5
+      }
+    ],
+    "interconnectors": [
+      {
+        "name": "IFA",
+        "partner": "France",
+        "capacityMw": 2000,
+        "yearOpened": 1986
+      },
+      {
+        "name": "Moyle",
+        "partner": "N. Ireland",
+        "capacityMw": 500,
+        "yearOpened": 2001
+      },
+      {
+        "name": "BritNed",
+        "partner": "Netherlands",
+        "capacityMw": 1000,
+        "yearOpened": 2011
+      },
+      {
+        "name": "EWIC",
+        "partner": "Ireland",
+        "capacityMw": 500,
+        "yearOpened": 2012
+      },
+      {
+        "name": "Nemo Link",
+        "partner": "Belgium",
+        "capacityMw": 1000,
+        "yearOpened": 2019
+      },
+      {
+        "name": "IFA2",
+        "partner": "France",
+        "capacityMw": 1000,
+        "yearOpened": 2021
+      },
+      {
+        "name": "NSL",
+        "partner": "Norway",
+        "capacityMw": 1400,
+        "yearOpened": 2021
+      },
+      {
+        "name": "ElecLink",
+        "partner": "France",
+        "capacityMw": 1000,
+        "yearOpened": 2022
+      },
+      {
+        "name": "Viking Link",
+        "partner": "Denmark",
+        "capacityMw": 1400,
+        "yearOpened": 2023
+      }
+    ],
+    "capacityMargin": [
+      {
+        "year": 2010,
+        "marginPct": 14
+      },
+      {
+        "year": 2012,
+        "marginPct": 9
+      },
+      {
+        "year": 2014,
+        "marginPct": 4.1
+      },
+      {
+        "year": 2015,
+        "marginPct": 5.1
+      },
+      {
+        "year": 2016,
+        "marginPct": 6.6
+      },
+      {
+        "year": 2017,
+        "marginPct": 7.3
+      },
+      {
+        "year": 2018,
+        "marginPct": 8.3
+      },
+      {
+        "year": 2019,
+        "marginPct": 7.4
+      },
+      {
+        "year": 2020,
+        "marginPct": 8.2
+      },
+      {
+        "year": 2021,
+        "marginPct": 4.2
+      },
+      {
+        "year": 2022,
+        "marginPct": 3.7
+      },
+      {
+        "year": 2023,
+        "marginPct": 7.4
+      },
+      {
+        "year": 2024,
+        "marginPct": 5.9
+      }
+    ],
+    "liveFill": {
+      "fillPct": 48,
+      "gasInStorageTwh": 7.2536,
+      "gasInStorageBcm": 0.688,
+      "workingVolumeTwh": 15.1,
+      "daysAtCurrentFill": 4.4,
+      "asOf": "2026-03-08",
+      "history": [
+        {
+          "date": "2026-02-07",
+          "fillPct": 54.8,
+          "gasInStorageTwh": 8.2821
+        },
+        {
+          "date": "2026-02-08",
+          "fillPct": 55.3,
+          "gasInStorageTwh": 8.3512
+        },
+        {
+          "date": "2026-02-09",
+          "fillPct": 56,
+          "gasInStorageTwh": 8.4573
+        },
+        {
+          "date": "2026-02-10",
+          "fillPct": 54.1,
+          "gasInStorageTwh": 8.1647
+        },
+        {
+          "date": "2026-02-11",
+          "fillPct": 52.9,
+          "gasInStorageTwh": 7.9823
+        },
+        {
+          "date": "2026-02-12",
+          "fillPct": 52,
+          "gasInStorageTwh": 7.846
+        },
+        {
+          "date": "2026-02-13",
+          "fillPct": 51.1,
+          "gasInStorageTwh": 7.7216
+        },
+        {
+          "date": "2026-02-14",
+          "fillPct": 46.9,
+          "gasInStorageTwh": 7.0844
+        },
+        {
+          "date": "2026-02-15",
+          "fillPct": 43.9,
+          "gasInStorageTwh": 6.6322
+        },
+        {
+          "date": "2026-02-16",
+          "fillPct": 43.7,
+          "gasInStorageTwh": 6.596
+        },
+        {
+          "date": "2026-02-17",
+          "fillPct": 41.9,
+          "gasInStorageTwh": 6.3292
+        },
+        {
+          "date": "2026-02-18",
+          "fillPct": 36.6,
+          "gasInStorageTwh": 5.5271
+        },
+        {
+          "date": "2026-02-19",
+          "fillPct": 33.8,
+          "gasInStorageTwh": 5.1025
+        },
+        {
+          "date": "2026-02-20",
+          "fillPct": 29.8,
+          "gasInStorageTwh": 4.5001
+        },
+        {
+          "date": "2026-02-21",
+          "fillPct": 28.7,
+          "gasInStorageTwh": 4.3331
+        },
+        {
+          "date": "2026-02-22",
+          "fillPct": 29.9,
+          "gasInStorageTwh": 4.5157
+        },
+        {
+          "date": "2026-02-23",
+          "fillPct": 32.5,
+          "gasInStorageTwh": 4.9025
+        },
+        {
+          "date": "2026-02-24",
+          "fillPct": 33.1,
+          "gasInStorageTwh": 4.9932
+        },
+        {
+          "date": "2026-02-25",
+          "fillPct": 34.3,
+          "gasInStorageTwh": 5.1764
+        },
+        {
+          "date": "2026-02-26",
+          "fillPct": 37.1,
+          "gasInStorageTwh": 5.5969
+        },
+        {
+          "date": "2026-02-27",
+          "fillPct": 40.3,
+          "gasInStorageTwh": 6.0891
+        },
+        {
+          "date": "2026-02-28",
+          "fillPct": 40.7,
+          "gasInStorageTwh": 6.1384
+        },
+        {
+          "date": "2026-03-01",
+          "fillPct": 40.9,
+          "gasInStorageTwh": 6.1808
+        },
+        {
+          "date": "2026-03-02",
+          "fillPct": 41.8,
+          "gasInStorageTwh": 6.3159
+        },
+        {
+          "date": "2026-03-03",
+          "fillPct": 42.8,
+          "gasInStorageTwh": 6.4639
+        },
+        {
+          "date": "2026-03-04",
+          "fillPct": 43.1,
+          "gasInStorageTwh": 6.5035
+        },
+        {
+          "date": "2026-03-05",
+          "fillPct": 44.6,
+          "gasInStorageTwh": 6.7408
+        },
+        {
+          "date": "2026-03-06",
+          "fillPct": 47.1,
+          "gasInStorageTwh": 7.1096
+        },
+        {
+          "date": "2026-03-07",
+          "fillPct": 46.4,
+          "gasInStorageTwh": 6.9998
+        },
+        {
+          "date": "2026-03-08",
+          "fillPct": 48,
+          "gasInStorageTwh": 7.2536
+        }
+      ]
+    }
+  }
 }
