@@ -316,53 +316,27 @@ export default function IndustrialProduction() {
                               borderBottom: `1px solid ${P.border}`,
                               background: "rgba(30,107,94,0.04)",
                             }}>
-                              <div style={{
-                                background: P.bgCard,
-                                border: `1px solid ${P.borderStrong}`,
-                                borderRadius: 6,
-                                padding: "12px 10px",
-                              }}>
-                                <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "14px", fontWeight: 600, color: P.text, marginBottom: 8 }}>
-                                  {p.name}
-                                </div>
-                                {/* Stacked detail rows */}
-                                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4px 12px", fontSize: "11px", fontFamily: "'DM Mono', monospace", marginBottom: 10 }}>
-                                  <span style={{ color: P.textMuted }}>Category</span>
-                                  <span style={{ color: P.text }}>{p.categoryLabel}</span>
-                                  <span style={{ color: P.textMuted }}>Latest</span>
-                                  <span style={{ color: P.text }}>{latest.value} {p.unit}</span>
-                                  <span style={{ color: P.textMuted }}>Peak</span>
-                                  <span style={{ color: P.text }}>{peak.value} {p.unit} ({peak.year})</span>
-                                  <span style={{ color: P.textMuted }}>Source</span>
-                                  <span style={{ color: P.textLight }}>{p.source}</span>
-                                </div>
-                                {p.note && (
-                                  <p style={{ fontSize: "10px", color: P.textLight, margin: "0 0 8px", fontFamily: "'DM Mono', monospace", lineHeight: 1.5 }}>
-                                    {p.note}
-                                  </p>
-                                )}
-                                <ResponsiveContainer width="100%" height={180}>
-                                  <LineChart data={p.series}>
-                                    <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-                                    <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textMuted }} />
-                                    <YAxis
-                                      tick={{ fontSize: 9, fill: P.textMuted }}
-                                      tickFormatter={(v) => v.toLocaleString()}
-                                      width={45}
-                                    />
-                                    <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toLocaleString()} ${p.unit}`} />} />
-                                    <Line
-                                      type="monotone"
-                                      dataKey="value"
-                                      stroke={sc === P.yellow ? P.sienna : sc}
-                                      strokeWidth={2.5}
-                                      dot={{ r: 3, fill: sc === P.yellow ? P.sienna : sc }}
-                                      name={p.name}
-                                      isAnimationActive={false}
-                                    />
-                                  </LineChart>
-                                </ResponsiveContainer>
-                              </div>
+                              <ResponsiveContainer width="100%" height={180}>
+                                <LineChart data={p.series}>
+                                  <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
+                                  <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textMuted }} />
+                                  <YAxis
+                                    tick={{ fontSize: 9, fill: P.textMuted }}
+                                    tickFormatter={(v) => v.toLocaleString()}
+                                    width={45}
+                                  />
+                                  <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toLocaleString()} ${p.unit}`} />} />
+                                  <Line
+                                    type="monotone"
+                                    dataKey="value"
+                                    stroke={sc === P.yellow ? P.sienna : sc}
+                                    strokeWidth={2.5}
+                                    dot={{ r: 3, fill: sc === P.yellow ? P.sienna : sc }}
+                                    name={p.name}
+                                    isAnimationActive={false}
+                                  />
+                                </LineChart>
+                              </ResponsiveContainer>
                             </td>
                           </tr>
                         )}
