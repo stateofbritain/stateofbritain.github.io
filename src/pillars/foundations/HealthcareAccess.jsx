@@ -172,7 +172,7 @@ function WaitlistChart({ data }) {
       <LineChart data={formatted} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
         <XAxis dataKey="period" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
-        <YAxis tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} unit="m" />
+        <YAxis tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} unit="m" label={{ value: "Waiting (millions)", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
         <Tooltip content={<CustomTooltip />} />
         <Line type="monotone" dataKey="waitingMillions" name="Waiting (millions)" stroke={P.red} strokeWidth={2.5} dot={false} />
       </LineChart>
@@ -186,7 +186,7 @@ function PerformanceChart({ data }) {
       <LineChart data={data} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
         <XAxis dataKey="period" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
-        <YAxis tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} unit="%" domain={[40, 100]} />
+        <YAxis tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} unit="%" domain={[40, 100]} label={{ value: "% within 18 weeks", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
         <Tooltip content={<CustomTooltip />} />
         <ReferenceLine y={92} stroke={P.teal} strokeDasharray="6 4" label={{ value: "92% target", position: "right", fontSize: 9, fill: P.teal, fontFamily: "'DM Mono', monospace" }} />
         <Line type="monotone" dataKey="pctWithin18" name="% within 18 weeks" stroke={P.navy} strokeWidth={2.5} dot={false} />
@@ -203,8 +203,8 @@ function AEChart({ data }) {
       <ComposedChart data={data} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
         <XAxis dataKey="period" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
-        <YAxis yAxisId="left" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} />
-        <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} unit="%" domain={[60, 85]} />
+        <YAxis yAxisId="left" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} label={{ value: "Attendances", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+        <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} unit="%" domain={[60, 85]} label={{ value: "% within 4 hours", angle: 90, position: "insideRight", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
         <Tooltip content={<CustomTooltip />} />
         <Bar yAxisId="left" dataKey="totalAttendances" name="Attendances" fill={P.grey} opacity={0.5} radius={[3, 3, 0, 0]} />
         <Line yAxisId="right" type="monotone" dataKey="pctWithin4Hours" name="% within 4 hours" stroke={P.teal} strokeWidth={2.5} dot />

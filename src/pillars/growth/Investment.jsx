@@ -195,6 +195,7 @@ export default function Investment() {
               <YAxis
                 tick={{ fontSize: 11, fill: P.textMuted }}
                 tickFormatter={(v) => `£${(v / 1000).toFixed(0)}bn`}
+                label={{ value: "£bn", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
               />
               <Tooltip
                 content={
@@ -231,6 +232,7 @@ export default function Investment() {
               <YAxis
                 tick={{ fontSize: 11, fill: P.textMuted }}
                 tickFormatter={(v) => `£${(v / 1000).toFixed(0)}bn`}
+                label={{ value: "£bn", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
               />
               <Tooltip
                 content={
@@ -267,7 +269,7 @@ export default function Investment() {
           <ResponsiveContainer width="100%" height={Math.max(400, intlBar.length * 26)}>
             <BarChart data={intlBar} layout="vertical" margin={{ left: 110, right: 30 }}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} horizontal={false} />
-              <XAxis type="number" tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} />
+              <XAxis type="number" tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} label={{ value: "% of GDP", position: "insideBottomRight", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <YAxis type="category" dataKey="country" tick={{ fontSize: 11, fill: P.textMuted }} width={105} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v.toFixed(1)}%`} />} />
               <Bar dataKey="pctGDP" name="GFCF / GDP" isAnimationActive={false}>
@@ -293,6 +295,7 @@ export default function Investment() {
                   domain={[14, 34]}
                   tick={{ fontSize: 11, fill: P.textMuted }}
                   tickFormatter={(v) => `${v}%`}
+                  label={{ value: "% of GDP", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
                 />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}%`} />} />
                 {TS_LINES.map(({ key, label, color }) => (

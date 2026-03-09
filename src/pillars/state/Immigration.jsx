@@ -96,7 +96,7 @@ export default function Immigration() {
             <LineChart data={data.netMigration.map((d) => ({ ...d, emigrationNeg: -d.emigration }))}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[-700, 1300]} tickFormatter={(v) => `${v}k`} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[-700, 1300]} tickFormatter={(v) => `${v}k`} label={{ value: "thousands", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toLocaleString()}k`} />} />
               <ReferenceLine y={0} stroke={P.text} strokeWidth={1} />
               <Line type="monotone" dataKey="immigration" stroke={P.teal} strokeWidth={2} dot={{ r: 2, fill: P.teal }} name="Immigration" />
@@ -172,7 +172,7 @@ export default function Immigration() {
             <BarChart data={data.asylum}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 80]} tickFormatter={(v) => `${v}k`} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 80]} tickFormatter={(v) => `${v}k`} label={{ value: "thousands", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}k`} />} />
               <Bar dataKey="applications" name="Applications" fill={P.navy} fillOpacity={0.6} radius={[3, 3, 0, 0]} />
               <Bar dataKey="grants" name="Grants" fill={P.teal} fillOpacity={0.8} radius={[3, 3, 0, 0]} />
@@ -198,7 +198,7 @@ export default function Immigration() {
             <BarChart data={data.popComponents}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[-100, 750]} tickFormatter={(v) => `${v}k`} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[-100, 750]} tickFormatter={(v) => `${v}k`} label={{ value: "thousands", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toLocaleString()}k`} />} />
               <ReferenceLine y={0} stroke={P.text} strokeWidth={1} />
               <Bar dataKey="naturalChange" name="Natural change (births - deaths)" fill={P.teal} fillOpacity={0.7} radius={[3, 3, 0, 0]} />
@@ -224,7 +224,7 @@ export default function Immigration() {
             <AreaChart data={data.populationSeries}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[54, 70]} tickFormatter={(v) => `${v}m`} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[54, 70]} tickFormatter={(v) => `${v}m`} label={{ value: "millions", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v}m`} />} />
               <Area type="monotone" dataKey="population" stroke={P.navy} fill={P.navy} fillOpacity={0.1} strokeWidth={2.5} name="Population (millions)" dot={{ r: 2.5, fill: P.navy }} />
             </AreaChart>
@@ -249,7 +249,7 @@ export default function Immigration() {
               <BarChart data={data.ageStructure}>
                 <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
                 <XAxis dataKey="group" tick={{ fontSize: 11, fill: P.textMuted }} />
-                <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 25]} tickFormatter={(v) => `${v}%`} />
+                <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 25]} tickFormatter={(v) => `${v}%`} label={{ value: "%", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
                 <Bar dataKey="pct" name="% of population" radius={[3, 3, 0, 0]}>
                   {data.ageStructure.map((_, i) => (
@@ -267,7 +267,7 @@ export default function Immigration() {
               <AreaChart data={data.dependencyRatio}>
                 <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
                 <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-                <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 60]} />
+                <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 60]} label={{ value: "ratio", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
                 <Tooltip content={<CustomTooltip />} />
                 <Area type="monotone" dataKey="old" stackId="1" stroke={P.sienna} fill={P.sienna} fillOpacity={0.5} name="Old-age (65+)" />
                 <Area type="monotone" dataKey="young" stackId="1" stroke={P.teal} fill={P.teal} fillOpacity={0.5} name="Youth (0-15)" />
@@ -293,7 +293,7 @@ export default function Immigration() {
             <AreaChart data={data.foreignBorn}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[8, 18]} tickFormatter={(v) => `${v}%`} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[8, 18]} tickFormatter={(v) => `${v}%`} label={{ value: "%", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
               <Area type="monotone" dataKey="pct" stroke={P.sienna} fill={P.sienna} fillOpacity={0.12} strokeWidth={2.5} name="Foreign-born %" dot={{ r: 2.5, fill: P.sienna }} />
             </AreaChart>

@@ -214,7 +214,7 @@ export default function Housing() {
             <BarChart data={quarterly} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
               <XAxis dataKey="month" tick={axisTick} axisLine={{ stroke: P.border }} tickLine={false} />
-              <YAxis tick={axisTick} axisLine={false} tickLine={false} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} />
+              <YAxis tick={axisTick} axisLine={false} tickLine={false} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} label={{ value: "Monthly sales", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip />} />
               <Bar dataKey="salesVolume" name="Sales Volume" fill={P.teal} opacity={0.7} radius={[2, 2, 0, 0]} />
             </BarChart>
@@ -222,7 +222,7 @@ export default function Housing() {
             <LineChart data={quarterly} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
               <XAxis dataKey="month" tick={axisTick} axisLine={{ stroke: P.border }} tickLine={false} />
-              <YAxis tick={axisTick} axisLine={false} tickLine={false} tickFormatter={(v) => `£${(v / 1000).toFixed(0)}k`} />
+              <YAxis tick={axisTick} axisLine={false} tickLine={false} tickFormatter={(v) => `£${(v / 1000).toFixed(0)}k`} label={{ value: "Average price", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip />} />
               <Line type="monotone" dataKey="averagePriceDetached" name="Detached" stroke={P.navy} strokeWidth={2} dot={false} />
               <Line type="monotone" dataKey="averagePriceSemiDetached" name="Semi-detached" stroke={P.teal} strokeWidth={2} dot={false} />
@@ -233,7 +233,7 @@ export default function Housing() {
             <LineChart data={quarterly} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
               <XAxis dataKey="month" tick={axisTick} axisLine={{ stroke: P.border }} tickLine={false} />
-              <YAxis tick={axisTick} axisLine={false} tickLine={false} tickFormatter={(v) => `£${(v / 1000).toFixed(0)}k`} />
+              <YAxis tick={axisTick} axisLine={false} tickLine={false} tickFormatter={(v) => `£${(v / 1000).toFixed(0)}k`} label={{ value: "Average price", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip />} />
               <Line type="monotone" dataKey="averagePrice" name="Average" stroke={P.yellow} strokeWidth={2.5} dot={false} />
               <Line type="monotone" dataKey="averagePriceDetached" name="Detached" stroke={P.navy} strokeWidth={1.5} dot={false} strokeDasharray="4 3" />

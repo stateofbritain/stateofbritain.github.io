@@ -223,6 +223,7 @@ export default function ProductiveQuotient() {
                   ]}
                   tick={{ fontSize: 11, fill: P.textMuted }}
                   tickFormatter={(v) => `${v}%`}
+                  label={{ value: "%", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
                 />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}%`} />} />
                 <Line
@@ -264,6 +265,7 @@ export default function ProductiveQuotient() {
             <YAxis
               tick={{ fontSize: 10, fill: P.textMuted }}
               tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v}
+              label={{ value: "FTE", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
             />
             <Tooltip
               content={

@@ -99,7 +99,7 @@ export default function Education() {
             <AreaChart data={data.perPupilSpending}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textMuted }} interval={2} angle={-30} textAnchor="end" height={50} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[5000, 7200]} tickFormatter={(v) => `£${(v / 1000).toFixed(1)}k`} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[5000, 7200]} tickFormatter={(v) => `£${(v / 1000).toFixed(1)}k`} label={{ value: "£ per pupil (real terms)", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `£${v?.toLocaleString()}`} />} />
               <ReferenceLine y={s.perPupilPeak} stroke={P.red} strokeDasharray="4 4" label={{ value: `Peak £${s.perPupilPeak.toLocaleString()}`, fontSize: 9, fill: P.red, position: "right" }} />
               <Area type="monotone" dataKey="value" stroke={P.teal} fill={P.teal} fillOpacity={0.12} strokeWidth={2.5} name="Per-pupil spending" dot={{ r: 2, fill: P.teal }} />
@@ -124,7 +124,7 @@ export default function Education() {
             <LineChart data={data.gcseResults}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[30, 65]} tickFormatter={(v) => `${v}%`} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[30, 65]} tickFormatter={(v) => `${v}%`} label={{ value: "% achieving 5+", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}%`} />} />
               <ReferenceLine x={2017} stroke={P.grey} strokeDasharray="4 4" label={{ value: "New grading", fontSize: 9, fill: P.grey, position: "top" }} />
               <Line type="monotone" dataKey="rate" stroke={P.navy} strokeWidth={2.5} dot={{ r: 2.5, fill: P.navy }} name="% achieving 5+ in E&M" connectNulls />
@@ -149,7 +149,7 @@ export default function Education() {
             <LineChart data={data.pisaScores}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[460, 520]} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[460, 520]} label={{ value: "PISA score", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => v?.toString()} />} />
               <Line type="monotone" dataKey="ukMaths" stroke={P.teal} strokeWidth={2.5} dot={{ r: 3, fill: P.teal }} name="UK Maths" />
               <Line type="monotone" dataKey="ukReading" stroke={P.navy} strokeWidth={2.5} dot={{ r: 3, fill: P.navy }} name="UK Reading" />
@@ -179,7 +179,7 @@ export default function Education() {
             <AreaChart data={data.heParticipation}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textMuted }} interval={2} angle={-30} textAnchor="end" height={50} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[30, 60]} tickFormatter={(v) => `${v}%`} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[30, 60]} tickFormatter={(v) => `${v}%`} label={{ value: "% entering HE by age 30", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
               <Area type="monotone" dataKey="rate" stroke={P.navy} fill={P.navy} fillOpacity={0.1} strokeWidth={2.5} name="HE entry rate" dot={{ r: 2.5, fill: P.navy }} />
             </AreaChart>
@@ -203,7 +203,7 @@ export default function Education() {
             <AreaChart data={data.degreeClassification}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textMuted }} interval={2} angle={-30} textAnchor="end" height={50} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 100]} tickFormatter={(v) => `${v}%`} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 100]} tickFormatter={(v) => `${v}%`} label={{ value: "% of graduates", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
               <Area type="monotone" dataKey="third" stackId="1" stroke={DEGREE_COLORS.third} fill={DEGREE_COLORS.third} fillOpacity={0.6} name="Third / Other" />
               <Area type="monotone" dataKey="twoTwo" stackId="1" stroke={DEGREE_COLORS.twoTwo} fill={DEGREE_COLORS.twoTwo} fillOpacity={0.6} name="2:2" />
@@ -231,8 +231,8 @@ export default function Education() {
             <LineChart data={data.teacherWorkforce}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis yAxisId="left" tick={{ fontSize: 11, fill: P.textMuted }} domain={[420, 480]} tickFormatter={(v) => `${v}k`} />
-              <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 11, fill: P.textMuted }} domain={[16, 19]} />
+              <YAxis yAxisId="left" tick={{ fontSize: 11, fill: P.textMuted }} domain={[420, 480]} tickFormatter={(v) => `${v}k`} label={{ value: "Teachers (000s FTE)", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 11, fill: P.textMuted }} domain={[16, 19]} label={{ value: "Pupil:teacher ratio", angle: 90, position: "insideRight", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip />} />
               <Line yAxisId="left" type="monotone" dataKey="teachers" stroke={P.teal} strokeWidth={2.5} dot={{ r: 2, fill: P.teal }} name="Teachers (000s)" />
               <Line yAxisId="right" type="monotone" dataKey="ratio" stroke={P.sienna} strokeWidth={2.5} dot={{ r: 2, fill: P.sienna }} name="Pupil:teacher ratio" />
@@ -256,7 +256,7 @@ export default function Education() {
           <ResponsiveContainer width="100%" height={320}>
             <BarChart data={data.intlSpending} layout="vertical">
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-              <XAxis type="number" tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 7]} tickFormatter={(v) => `${v}%`} />
+              <XAxis type="number" tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 7]} tickFormatter={(v) => `${v}%`} label={{ value: "% of GDP", position: "insideBottomRight", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <YAxis type="category" dataKey="country" tick={{ fontSize: 11, fill: P.textMuted }} width={80} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v}% GDP`} />} />
               <Bar dataKey="pct" name="% GDP" radius={[0, 3, 3, 0]}>

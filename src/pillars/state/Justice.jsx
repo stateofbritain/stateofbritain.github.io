@@ -97,7 +97,7 @@ export default function Justice() {
             <LineChart data={data.crimeSeries}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textMuted }} interval={3} angle={-30} textAnchor="end" height={50} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 13]} tickFormatter={(v) => `${v}m`} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 13]} tickFormatter={(v) => `${v}m`} label={{ value: "millions", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}m`} />} />
               <Line type="monotone" dataKey="csew" stroke={P.teal} strokeWidth={2.5} dot={{ r: 2, fill: P.teal }} name="CSEW estimate" connectNulls />
               <Line type="monotone" dataKey="recorded" stroke={P.navy} strokeWidth={2.5} dot={{ r: 2, fill: P.navy }} name="Police recorded" connectNulls />
@@ -150,7 +150,7 @@ export default function Justice() {
             <AreaChart data={data.policeWorkforce}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 250]} tickFormatter={(v) => `${v}k`} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 250]} tickFormatter={(v) => `${v}k`} label={{ value: "Police workforce", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}k`} />} />
               <Area type="monotone" dataKey="pcsos" stackId="1" stroke={P.grey} fill={P.grey} fillOpacity={0.5} name="PCSOs" />
               <Area type="monotone" dataKey="staff" stackId="1" stroke={P.teal} fill={P.teal} fillOpacity={0.5} name="Staff" />
@@ -177,7 +177,7 @@ export default function Justice() {
             <AreaChart data={data.chargeRate}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textMuted }} interval={1} angle={-30} textAnchor="end" height={50} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 20]} tickFormatter={(v) => `${v}%`} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 20]} tickFormatter={(v) => `${v}%`} label={{ value: "%", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
               <Area type="monotone" dataKey="rate" stroke={P.red} fill={P.red} fillOpacity={0.12} strokeWidth={2.5} name="Charge rate" dot={{ r: 2.5, fill: P.red }} />
             </AreaChart>
@@ -201,7 +201,7 @@ export default function Justice() {
             <LineChart data={data.prisonPopulation}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[60, 95]} tickFormatter={(v) => `${v}k`} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[60, 95]} tickFormatter={(v) => `${v}k`} label={{ value: "Prison population", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}k`} />} />
               <Line type="monotone" dataKey="capacity" stroke={P.red} strokeWidth={2} strokeDasharray="6 3" dot={false} name="Operational capacity" />
               <Line type="monotone" dataKey="population" stroke={P.sienna} strokeWidth={2.5} dot={{ r: 2.5, fill: P.sienna }} name="Prison population" />
@@ -227,7 +227,7 @@ export default function Justice() {
             <BarChart data={data.courtBacklog}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 80]} tickFormatter={(v) => `${v}k`} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 80]} tickFormatter={(v) => `${v}k`} label={{ value: "Outstanding cases", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}k cases`} />} />
               <Bar dataKey="outstanding" name="Outstanding cases (thousands)" fill={P.navy} fillOpacity={0.7} radius={[3, 3, 0, 0]} />
             </BarChart>

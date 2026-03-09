@@ -334,6 +334,23 @@ StateOfBritain/
 4. **Maslow framing for Foundations** — order sub-topics by how fundamental the need is. Housing before environment. Energy before connectivity.
 5. **No party politics** — show trends across governments, not within them. No election-cycle framing.
 6. **Complete picture** — show all the data on a topic, not a cherry-picked subset. If crime is down on one measure and up on another, show both.
+7. **Mobile-first layout** — all pages must work on mobile (≤767px). Use the `useIsMobile()` hook to adapt layouts: single-column stacking, reduced padding, smaller chart radii, touch-friendly tap targets. Charts wrap in white card containers. Test at 375px (iPhone SE) before shipping.
+8. **Open data API** — all datasets are served as static JSON at `/api/data/` with a discoverable manifest at `/api/index.json`. When adding or updating datasets, run `node scripts/build-api.js` to regenerate the API copies. Data from sources that do not permit bulk redistribution (e.g. World Steel Association, British Business Bank, NATO) must be excluded from the API output — the site may display such data with attribution, but `build-api.js` must strip it from the API layer. Only data licensed under OGL, CC BY, or equivalent open licences may be served via the API.
+
+---
+
+## Chart Formatting Standards
+
+Every Recharts chart should follow these conventions for consistency:
+
+1. **Y-axis labels** — every Y-axis must have a `label` prop describing what the axis measures (e.g. "£ per pupil (real terms)", "% of GDP", "Police workforce"). Use descriptive titles, not units alone — "Prison population" is better than "thousands". Standard style: `label={{ value: "...", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}`. Right-hand axes use `angle: 90, position: "insideRight"`.
+2. **Horizontal bar charts** — when `layout="vertical"`, the numeric axis is `<XAxis type="number">`. Add a label to it using `position: "insideBottomRight"` (e.g. "% of GDP", "Reported crimes").
+3. **Dual-axis charts** — label both left and right axes. Make sure labels describe the series, not just the unit (e.g. "Teachers (000s FTE)" left, "Pupil:teacher ratio" right).
+4. **Tick formatters** — use `tickFormatter` to add units to tick marks (e.g. `£12bn`, `45%`, `3.2k`). The axis label provides context; the ticks provide values.
+5. **Colour palette** — use `P.teal`, `P.navy`, `P.sienna`, `P.yellow`, `P.red`, `P.grey` from `palette.js`. Highlight the UK or key series with a primary colour; use muted colours for comparators. OECD average lines should be dashed (`strokeDasharray`).
+6. **White card containers** — wrap every chart in a card: `background: P.bgCard, border: 1px solid ${P.border}, borderRadius: 3, padding: "24px 20px 16px"`.
+7. **Source citations** — every chart card must end with a source line: `fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em"`.
+8. **Broad international comparisons** — when comparing the UK internationally, include a wide range of countries (high-performing small nations, emerging economies, OECD average), not just the G7.
 
 ---
 

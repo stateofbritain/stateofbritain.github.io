@@ -179,7 +179,7 @@ export default function Infrastructure() {
             <AreaChart data={roadTraffic}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}bn`} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}bn`} label={{ value: "Bn vehicle miles", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v}bn miles`} />} />
               <Area type="monotone" dataKey="cars" stackId="1" stroke={P.teal} fill={P.teal} fillOpacity={0.4} name="Cars & taxis" />
               <Area type="monotone" dataKey="lcvs" stackId="1" stroke={P.sienna} fill={P.sienna} fillOpacity={0.4} name="Light commercial" />
@@ -194,7 +194,7 @@ export default function Infrastructure() {
             <LineChart data={data.roads.condition}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} domain={[0, 25]} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} domain={[0, 25]} label={{ value: "% needing maintenance", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
               <Line type="monotone" dataKey="aRoadsPoor" stroke={P.teal} strokeWidth={2} dot={{ r: 3 }} name="A roads" />
               <Line type="monotone" dataKey="bAndcPoor" stroke={P.sienna} strokeWidth={2} dot={{ r: 3 }} name="B & C roads" />
@@ -208,8 +208,8 @@ export default function Infrastructure() {
             <ComposedChart data={data.roads.potholes}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis yAxisId="left" tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 3]} tickFormatter={(v) => `${v}m`} />
-              <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 20]} tickFormatter={(v) => `£${v}bn`} />
+              <YAxis yAxisId="left" tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 3]} tickFormatter={(v) => `${v}m`} label={{ value: "Potholes filled (m)", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 20]} tickFormatter={(v) => `£${v}bn`} label={{ value: "Backlog (£bn)", angle: 90, position: "insideRight", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip />} />
               <Bar yAxisId="left" dataKey="filled" fill={P.sienna} fillOpacity={0.7} name="Potholes filled (millions)" radius={[3, 3, 0, 0]} />
               <Line yAxisId="right" type="monotone" dataKey="backlogBn" stroke={P.red} strokeWidth={2.5} dot={{ r: 3, fill: P.red }} name="Maintenance backlog (£bn)" />
@@ -238,7 +238,7 @@ export default function Infrastructure() {
               <BarChart data={networkChange}>
                 <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
                 <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-                <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}`} />
+                <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}`} label={{ value: "Miles (annual change)", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${v} mi`} />} />
                 <ReferenceLine y={0} stroke={P.textLight} />
                 <Bar dataKey="roadChangeMi" fill={P.teal} name="Major roads" isAnimationActive={false} />
@@ -252,8 +252,8 @@ export default function Infrastructure() {
               <LineChart data={networkChange}>
                 <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
                 <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-                <YAxis yAxisId="road" tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} />
-                <YAxis yAxisId="rail" orientation="right" tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} />
+                <YAxis yAxisId="road" tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} label={{ value: "Major roads (miles)", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+                <YAxis yAxisId="rail" orientation="right" tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} label={{ value: "Rail route (miles)", angle: 90, position: "insideRight", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toLocaleString()} mi`} />} />
                 <Line yAxisId="road" type="monotone" dataKey="roadTotalMi" stroke={P.teal} strokeWidth={2} dot={false} name="Major roads (mi)" />
                 <Line yAxisId="rail" type="monotone" dataKey="railTotalMi" stroke={P.sienna} strokeWidth={2} dot={false} name="Rail route (mi)" />
@@ -282,7 +282,7 @@ export default function Infrastructure() {
             <AreaChart data={railJourneys}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="fy" tick={{ fontSize: 10, fill: P.textMuted }} interval={2} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${(v / 1000).toFixed(1)}bn`} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${(v / 1000).toFixed(1)}bn`} label={{ value: "Journeys (bn)", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip labelFormatter={(l) => `FY ${l}`} formatter={(v) => `${v.toLocaleString()}m`} />} />
               <Area type="monotone" dataKey="journeysMn" stroke={P.teal} fill={P.teal} fillOpacity={0.3} name="Journeys (millions)" />
             </AreaChart>
@@ -294,7 +294,7 @@ export default function Infrastructure() {
             <LineChart data={data.rail.punctuality}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="fy" tick={{ fontSize: 10, fill: P.textMuted }} interval={2} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} domain={[70, 100]} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} domain={[70, 100]} label={{ value: "% on time (PPM)", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip labelFormatter={(l) => `FY ${l}`} formatter={(v) => `${v}%`} />} />
               <Line type="monotone" dataKey="ppm" stroke={P.teal} strokeWidth={2} dot={false} name="PPM" />
               <ReferenceLine y={92.5} stroke={P.textLight} strokeDasharray="4 4" label={{ value: "Historic target 92.5%", fontSize: 10, fill: P.textLight, position: "top" }} />
@@ -324,7 +324,7 @@ export default function Infrastructure() {
             <AreaChart data={coverageSeries}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} domain={[0, 100]} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} domain={[0, 100]} label={{ value: "% of premises", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
               <Area type="monotone" dataKey="gigabit" stackId="1" stroke={P.grey} fill={P.grey} fillOpacity={0.3} name="Gigabit (non-FTTP)" />
               <Area type="monotone" dataKey="fttp" stackId="0" stroke={P.teal} fill={P.teal} fillOpacity={0.4} name="Full Fibre (FTTP)" />
@@ -337,7 +337,7 @@ export default function Infrastructure() {
             <LineChart data={data.broadband.speeds}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v} Mb/s`} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v} Mb/s`} label={{ value: "Mbit/s", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v} Mbit/s`} />} />
               <Line type="monotone" dataKey="medianDown" stroke={P.teal} strokeWidth={2} dot={{ r: 3 }} name="Download" />
               <Line type="monotone" dataKey="medianUp" stroke={P.sienna} strokeWidth={2} dot={{ r: 3 }} name="Upload" />
@@ -350,7 +350,7 @@ export default function Infrastructure() {
             <BarChart data={data.broadband.mobile4g}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} domain={[80, 100]} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} domain={[80, 100]} label={{ value: "% landmass", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
               <Bar dataKey="landmassPct" fill={P.teal} name="4G landmass coverage" isAnimationActive={false} />
             </BarChart>

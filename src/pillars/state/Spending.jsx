@@ -753,7 +753,7 @@ export default function Spending() {
                           >
                             <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
                             <XAxis dataKey="fy" tick={{ fontSize: 9, fill: P.textMuted }} />
-                            <YAxis tick={{ fontSize: 9, fill: P.textMuted }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}bn`} width={42} />
+                            <YAxis tick={{ fontSize: 9, fill: P.textMuted }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}bn`} width={42} label={{ value: "£bn", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
                             <Tooltip content={<CustomTooltip formatter={(v) => `£${v != null ? v.toLocaleString() : "—"}m`} />} />
                             <Line type="monotone" dataKey="value" stroke={dept.color} strokeWidth={2} dot={{ r: 2.5, fill: dept.color }} />
                           </LineChart>
@@ -893,7 +893,7 @@ export default function Spending() {
             <AreaChart data={trendData}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => trendView === "bn" ? `£${v}bn` : `${v}%`} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => trendView === "bn" ? `£${v}bn` : `${v}%`} label={{ value: trendView === "bn" ? "£bn" : "% of GDP", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => trendView === "bn" ? `£${v?.toFixed(1)}bn` : `${v?.toFixed(1)}%`} />} />
               <Area type="monotone" dataKey="tme" stroke={P.red} fill={P.red} fillOpacity={0.08} strokeWidth={2} name="Total spending" dot={false} />
               <Area type="monotone" dataKey="receipts" stroke={P.teal} fill={P.teal} fillOpacity={0.08} strokeWidth={2} name="Receipts" dot={false} />
@@ -914,7 +914,7 @@ export default function Spending() {
             <LineChart data={debtData}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} domain={[20, 110]} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} domain={[20, 110]} label={{ value: "% of GDP", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}% of GDP`} />} />
               <Line type="monotone" dataKey="debt" stroke={P.navy} strokeWidth={2.5} dot={false} name="Net debt / GDP" />
               <ReferenceLine y={100} stroke={P.red} strokeDasharray="4 4" label={{ value: "100%", fontSize: 10, fill: P.red }} />

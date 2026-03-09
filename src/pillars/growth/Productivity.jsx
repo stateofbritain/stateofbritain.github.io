@@ -181,6 +181,7 @@ export default function Productivity() {
             <YAxis
               tick={{ fontSize: 11, fill: P.textMuted }}
               tickFormatter={(v) => ukView === "level" ? `£${v}` : v}
+              label={{ value: ukView === "level" ? "£/hour" : "index", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
             />
             <Tooltip content={<CustomTooltip formatter={(v) => ukView === "level" ? `£${v.toFixed(2)}/hr` : v.toFixed(1)} />} />
             {ukView === "level" ? (
@@ -234,7 +235,7 @@ export default function Productivity() {
               <LineChart data={tsSeries}>
                 <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
                 <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-                <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `$${v}`} />
+                <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `$${v}`} label={{ value: "$/hour PPP", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
                 <Tooltip content={<CustomTooltip formatter={(v) => `$${v?.toFixed(1)}/hr`} />} />
                 {TS_LINES.map(({ key, label, color }) => (
                   <Line

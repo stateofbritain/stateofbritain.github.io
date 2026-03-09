@@ -102,7 +102,7 @@ export default function Defence() {
             <AreaChart data={data.spendingPctGdp}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[1.5, 4.2]} tickFormatter={(v) => `${v}%`} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[1.5, 4.2]} tickFormatter={(v) => `${v}%`} label={{ value: "% of GDP", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v}% GDP`} />} />
               <ReferenceLine y={2.0} stroke={P.grey} strokeDasharray="4 4" label={{ value: "NATO 2%", fontSize: 9, fill: P.grey, position: "right" }} />
               <ReferenceLine y={2.5} stroke={P.red} strokeDasharray="4 4" label={{ value: "New 2.5% target", fontSize: 9, fill: P.red, position: "right" }} />
@@ -128,7 +128,7 @@ export default function Defence() {
             <AreaChart data={data.spendingReal}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[35, 58]} tickFormatter={(v) => `£${v}bn`} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[35, 58]} tickFormatter={(v) => `£${v}bn`} label={{ value: "£bn", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `£${v}bn`} />} />
               <Area type="monotone" dataKey="value" stroke={P.teal} fill={P.teal} fillOpacity={0.12} strokeWidth={2.5} name="Real spending (£bn)" dot={{ r: 2, fill: P.teal }} />
             </AreaChart>
@@ -152,7 +152,7 @@ export default function Defence() {
             <AreaChart data={data.personnel}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 220]} tickFormatter={(v) => `${v}k`} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 220]} tickFormatter={(v) => `${v}k`} label={{ value: "thousands", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}k`} />} />
               <Area type="monotone" dataKey="raf" stackId="1" stroke={SERVICE_COLORS.raf} fill={SERVICE_COLORS.raf} fillOpacity={0.5} name="RAF" />
               <Area type="monotone" dataKey="navy" stackId="1" stroke={SERVICE_COLORS.navy} fill={SERVICE_COLORS.navy} fillOpacity={0.5} name="Royal Navy" />
@@ -179,7 +179,7 @@ export default function Defence() {
             <LineChart data={data.reserves}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[18, 34]} tickFormatter={(v) => `${v}k`} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[18, 34]} tickFormatter={(v) => `${v}k`} label={{ value: "thousands", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}k`} />} />
               <ReferenceLine y={30} stroke={P.grey} strokeDasharray="4 4" label={{ value: "30k target", fontSize: 9, fill: P.grey, position: "right" }} />
               <Line type="monotone" dataKey="strength" stroke={P.navy} strokeWidth={2.5} dot={{ r: 2.5, fill: P.navy }} name="Trained reserves (thousands)" />

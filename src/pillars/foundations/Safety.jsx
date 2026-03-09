@@ -185,7 +185,7 @@ export default function Safety() {
               margin={{ top: 5, right: 20, left: isMobile ? 10 : 120, bottom: 0 }}
             >
               <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" horizontal={false} />
-              <XAxis type="number" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} />
+              <XAxis type="number" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} label={{ value: "Reported crimes", position: "insideBottomRight", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <YAxis
                 type="category"
                 dataKey="category"

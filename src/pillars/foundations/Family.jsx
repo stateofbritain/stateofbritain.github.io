@@ -114,7 +114,7 @@ export default function Family() {
             <LineChart data={data.tfrByOrder}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 3.2]} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 3.2]} label={{ value: "children per woman", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => v?.toFixed(2)} />} />
               <ReferenceLine y={2.1} stroke={P.red} strokeDasharray="4 4" label={{ value: "Replacement (2.1)", fontSize: 9, fill: P.red, position: "right" }} />
               <Line type="monotone" dataKey="tfrTotal" stroke={P.text} strokeWidth={3} dot={false} name="Total TFR" connectNulls />
@@ -143,7 +143,7 @@ export default function Family() {
             <LineChart data={data.meanAgeByOrder}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[22, 35]} tickFormatter={(v) => `${v}`} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[22, 35]} tickFormatter={(v) => `${v}`} label={{ value: "age (years)", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)} years`} />} />
               <Line type="monotone" dataKey="age1" stroke={AGE_COLORS.age1} strokeWidth={2.5} dot={false} name="1st child" />
               <Line type="monotone" dataKey="age2" stroke={AGE_COLORS.age2} strokeWidth={2.5} dot={false} name="2nd child" />
@@ -170,7 +170,7 @@ export default function Family() {
             <AreaChart data={data.birthsSeries}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}k`} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}k`} label={{ value: "thousands", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toLocaleString()}k`} />} />
               <Area type="monotone" dataKey="births" stroke={P.teal} fill={P.teal} fillOpacity={0.12} strokeWidth={2.5} name="Live births (thousands)" dot={{ r: 2, fill: P.teal }} />
             </AreaChart>
@@ -193,7 +193,7 @@ export default function Family() {
             <AreaChart data={data.familyTypeSeries}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}m`} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}m`} label={{ value: "millions", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${(v / 1000).toFixed(1)}m`} />} />
               <Area type="monotone" dataKey="loneParent" stackId="1" stroke={FAMILY_COLORS.loneParent} fill={FAMILY_COLORS.loneParent} fillOpacity={0.5} name="Lone parent" />
               <Area type="monotone" dataKey="cohabiting" stackId="1" stroke={FAMILY_COLORS.cohabiting} fill={FAMILY_COLORS.cohabiting} fillOpacity={0.5} name="Cohabiting couple" />
@@ -219,7 +219,7 @@ export default function Family() {
             <LineChart data={data.householdSizeSeries}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[2.0, 3.2]} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[2.0, 3.2]} label={{ value: "persons", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(2)} persons`} />} />
               <Line type="monotone" dataKey="size" stroke={P.navy} strokeWidth={2.5} dot={{ r: 2.5, fill: P.navy }} name="Persons per household" />
             </LineChart>

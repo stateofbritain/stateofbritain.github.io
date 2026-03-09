@@ -5,6 +5,7 @@ import {
   Legend,
 } from "recharts";
 import P from "../../theme/palette";
+import useIsMobile from "../../hooks/useIsMobile";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
@@ -95,6 +96,7 @@ export default function IndustrialProduction() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [chartMode, setChartMode] = useState("indexed");
   const [expandedProduct, setExpandedProduct] = useState(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     fetch("/data/industrial.json")
@@ -240,147 +242,280 @@ export default function IndustrialProduction() {
             {" "}{snapshot.ceasedCount} products have ceased domestic production entirely;{" "}
             {decliningCount} are in significant decline from their peak.
           </p>
-          <div style={{ overflowX: "auto" }}>
-            <table style={{
-              width: "100%",
-              borderCollapse: "collapse",
-              fontSize: "12px",
-              fontFamily: "'DM Mono', monospace",
-            }}>
-              <thead>
-                <tr style={{ borderBottom: `2px solid ${P.borderStrong}` }}>
-                  {["Product", "Category", "Latest", "Unit", "Peak", "Peak Yr", "% of Peak", "Status"].map((h) => (
-                    <th key={h} style={{
-                      textAlign: h === "Product" || h === "Category" || h === "Status" ? "left" : "right",
-                      padding: "8px 10px",
-                      color: P.textMuted,
-                      fontWeight: 500,
-                      fontSize: "10px",
-                      textTransform: "uppercase",
-                      letterSpacing: "0.5px",
-                    }}>{h}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {allProducts.map((p, i) => {
-                  const peak = getPeak(p);
-                  const latest = getLatest(p);
-                  const pctOfPeak = peak.value > 0 ? Math.round((latest.value / peak.value) * 100) : 0;
-                  const sc = statusColour(p);
-                  const isExpanded = expandedProduct === p.id;
-                  return (
-                    <React.Fragment key={p.id}>
-                      <tr
-                        onClick={() => setExpandedProduct(isExpanded ? null : p.id)}
-                        style={{
-                          borderBottom: isExpanded ? "none" : `1px solid ${P.border}`,
-                          background: isExpanded ? "rgba(30,107,94,0.06)" : i % 2 === 0 ? "transparent" : "rgba(28,43,69,0.02)",
-                          cursor: "pointer",
-                          transition: "background 0.15s",
-                        }}
-                      >
-                        <td style={{ padding: "7px 10px", fontWeight: 500, color: P.text }}>
-                          <span style={{ marginRight: 6, fontSize: "9px", color: P.textLight }}>{isExpanded ? "▼" : "▶"}</span>
-                          {p.name}
-                          {p.note && (
-                            <span title={p.note} style={{ marginLeft: 4, cursor: "help", color: P.textLight }}>*</span>
-                          )}
-                        </td>
-                        <td style={{ padding: "7px 10px", color: P.textMuted }}>{p.categoryLabel}</td>
-                        <td style={{ padding: "7px 10px", textAlign: "right", color: P.text }}>{latest.value}</td>
-                        <td style={{ padding: "7px 10px", textAlign: "right", color: P.textMuted }}>{p.unit}</td>
-                        <td style={{ padding: "7px 10px", textAlign: "right", color: P.textMuted }}>{peak.value}</td>
-                        <td style={{ padding: "7px 10px", textAlign: "right", color: P.textMuted }}>{peak.year}</td>
-                        <td style={{ padding: "7px 10px", textAlign: "right" }}>
-                          <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", gap: 6 }}>
-                            <div style={{
-                              width: 60,
-                              height: 6,
-                              background: P.border,
-                              borderRadius: 3,
-                              overflow: "hidden",
-                            }}>
-                              <div style={{
-                                width: `${Math.min(pctOfPeak, 100)}%`,
-                                height: "100%",
-                                background: sc,
-                                borderRadius: 3,
-                              }} />
-                            </div>
-                            <span style={{ minWidth: 32, color: P.text }}>{pctOfPeak}%</span>
-                          </div>
-                        </td>
-                        <td style={{ padding: "7px 10px", textAlign: "left" }}>
-                          <span style={{
-                            display: "inline-block",
-                            padding: "2px 8px",
-                            borderRadius: 3,
-                            fontSize: "10px",
-                            fontWeight: 600,
-                            color: "#fff",
-                            background: sc,
-                          }}>
-                            {statusLabel(p)}
-                          </span>
-                        </td>
-                      </tr>
-                      {isExpanded && (
-                        <tr>
-                          <td colSpan={8} style={{
-                            padding: "12px 10px 20px",
-                            borderBottom: `1px solid ${P.border}`,
-                            background: "rgba(30,107,94,0.04)",
-                          }}>
-                            <div style={{
-                              background: P.bgCard,
-                              border: `1px solid ${P.borderStrong}`,
-                              borderRadius: 6,
-                              padding: "16px 20px",
-                            }}>
-                              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 4 }}>
-                                <span style={{ fontFamily: "'Playfair Display', serif", fontSize: "16px", fontWeight: 600, color: P.text }}>
-                                  {p.name}
-                                </span>
-                                <span style={{ fontSize: "11px", color: P.textMuted }}>
-                                  {p.source}
-                                </span>
+          {isMobile ? (
+            /* ─── Mobile: compact 3-column table + stacked detail card ─── */
+            <div>
+              <table style={{
+                width: "100%",
+                borderCollapse: "collapse",
+                fontSize: "12px",
+                fontFamily: "'DM Mono', monospace",
+              }}>
+                <thead>
+                  <tr style={{ borderBottom: `2px solid ${P.borderStrong}` }}>
+                    {["Product", "% of Peak", "Status"].map((h) => (
+                      <th key={h} style={{
+                        textAlign: h === "Product" || h === "Status" ? "left" : "right",
+                        padding: "8px 6px",
+                        color: P.textMuted,
+                        fontWeight: 500,
+                        fontSize: "10px",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.5px",
+                      }}>{h}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {allProducts.map((p, i) => {
+                    const peak = getPeak(p);
+                    const latest = getLatest(p);
+                    const pctOfPeak = peak.value > 0 ? Math.round((latest.value / peak.value) * 100) : 0;
+                    const sc = statusColour(p);
+                    const isExpanded = expandedProduct === p.id;
+                    return (
+                      <React.Fragment key={p.id}>
+                        <tr
+                          onClick={() => setExpandedProduct(isExpanded ? null : p.id)}
+                          style={{
+                            borderBottom: isExpanded ? "none" : `1px solid ${P.border}`,
+                            background: isExpanded ? "rgba(30,107,94,0.06)" : i % 2 === 0 ? "transparent" : "rgba(28,43,69,0.02)",
+                            cursor: "pointer",
+                          }}
+                        >
+                          <td style={{ padding: "7px 6px", fontWeight: 500, color: P.text, fontSize: "11px" }}>
+                            <span style={{ marginRight: 4, fontSize: "8px", color: P.textLight }}>{isExpanded ? "▼" : "▶"}</span>
+                            {p.name}
+                          </td>
+                          <td style={{ padding: "7px 6px", textAlign: "right" }}>
+                            <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", gap: 4 }}>
+                              <div style={{ width: 40, height: 5, background: P.border, borderRadius: 3, overflow: "hidden" }}>
+                                <div style={{ width: `${Math.min(pctOfPeak, 100)}%`, height: "100%", background: sc, borderRadius: 3 }} />
                               </div>
-                              {p.note && (
-                                <p style={{ fontSize: "11px", color: P.textLight, margin: "0 0 10px", fontFamily: "'DM Mono', monospace" }}>
-                                  {p.note}
-                                </p>
-                              )}
-                              <ResponsiveContainer width="100%" height={220}>
-                                <LineChart data={p.series}>
-                                  <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-                                  <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-                                  <YAxis
-                                    tick={{ fontSize: 11, fill: P.textMuted }}
-                                    tickFormatter={(v) => `${v.toLocaleString()} ${p.unit}`}
-                                  />
-                                  <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toLocaleString()} ${p.unit}`} />} />
-                                  <Line
-                                    type="monotone"
-                                    dataKey="value"
-                                    stroke={sc === P.yellow ? P.sienna : sc}
-                                    strokeWidth={2.5}
-                                    dot={{ r: 4, fill: sc === P.yellow ? P.sienna : sc }}
-                                    name={p.name}
-                                    isAnimationActive={false}
-                                  />
-                                </LineChart>
-                              </ResponsiveContainer>
+                              <span style={{ minWidth: 28, color: P.text, fontSize: "11px" }}>{pctOfPeak}%</span>
                             </div>
                           </td>
+                          <td style={{ padding: "7px 6px", textAlign: "left" }}>
+                            <span style={{
+                              display: "inline-block",
+                              padding: "2px 6px",
+                              borderRadius: 3,
+                              fontSize: "9px",
+                              fontWeight: 600,
+                              color: "#fff",
+                              background: sc,
+                            }}>
+                              {statusLabel(p)}
+                            </span>
+                          </td>
                         </tr>
-                      )}
-                    </React.Fragment>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
+                        {isExpanded && (
+                          <tr>
+                            <td colSpan={3} style={{
+                              padding: "8px 0 16px",
+                              borderBottom: `1px solid ${P.border}`,
+                              background: "rgba(30,107,94,0.04)",
+                            }}>
+                              <div style={{
+                                background: P.bgCard,
+                                border: `1px solid ${P.borderStrong}`,
+                                borderRadius: 6,
+                                padding: "12px 10px",
+                              }}>
+                                <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "14px", fontWeight: 600, color: P.text, marginBottom: 8 }}>
+                                  {p.name}
+                                </div>
+                                {/* Stacked detail rows */}
+                                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4px 12px", fontSize: "11px", fontFamily: "'DM Mono', monospace", marginBottom: 10 }}>
+                                  <span style={{ color: P.textMuted }}>Category</span>
+                                  <span style={{ color: P.text }}>{p.categoryLabel}</span>
+                                  <span style={{ color: P.textMuted }}>Latest</span>
+                                  <span style={{ color: P.text }}>{latest.value} {p.unit}</span>
+                                  <span style={{ color: P.textMuted }}>Peak</span>
+                                  <span style={{ color: P.text }}>{peak.value} {p.unit} ({peak.year})</span>
+                                  <span style={{ color: P.textMuted }}>Source</span>
+                                  <span style={{ color: P.textLight }}>{p.source}</span>
+                                </div>
+                                {p.note && (
+                                  <p style={{ fontSize: "10px", color: P.textLight, margin: "0 0 8px", fontFamily: "'DM Mono', monospace", lineHeight: 1.5 }}>
+                                    {p.note}
+                                  </p>
+                                )}
+                                <ResponsiveContainer width="100%" height={180}>
+                                  <LineChart data={p.series}>
+                                    <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
+                                    <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textMuted }} />
+                                    <YAxis
+                                      tick={{ fontSize: 9, fill: P.textMuted }}
+                                      tickFormatter={(v) => v.toLocaleString()}
+                                      width={45}
+                                    />
+                                    <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toLocaleString()} ${p.unit}`} />} />
+                                    <Line
+                                      type="monotone"
+                                      dataKey="value"
+                                      stroke={sc === P.yellow ? P.sienna : sc}
+                                      strokeWidth={2.5}
+                                      dot={{ r: 3, fill: sc === P.yellow ? P.sienna : sc }}
+                                      name={p.name}
+                                      isAnimationActive={false}
+                                    />
+                                  </LineChart>
+                                </ResponsiveContainer>
+                              </div>
+                            </td>
+                          </tr>
+                        )}
+                      </React.Fragment>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            /* ─── Desktop: full 8-column table ─── */
+            <div style={{ overflowX: "auto" }}>
+              <table style={{
+                width: "100%",
+                borderCollapse: "collapse",
+                fontSize: "12px",
+                fontFamily: "'DM Mono', monospace",
+              }}>
+                <thead>
+                  <tr style={{ borderBottom: `2px solid ${P.borderStrong}` }}>
+                    {["Product", "Category", "Latest", "Unit", "Peak", "Peak Yr", "% of Peak", "Status"].map((h) => (
+                      <th key={h} style={{
+                        textAlign: h === "Product" || h === "Category" || h === "Status" ? "left" : "right",
+                        padding: "8px 10px",
+                        color: P.textMuted,
+                        fontWeight: 500,
+                        fontSize: "10px",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.5px",
+                      }}>{h}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {allProducts.map((p, i) => {
+                    const peak = getPeak(p);
+                    const latest = getLatest(p);
+                    const pctOfPeak = peak.value > 0 ? Math.round((latest.value / peak.value) * 100) : 0;
+                    const sc = statusColour(p);
+                    const isExpanded = expandedProduct === p.id;
+                    return (
+                      <React.Fragment key={p.id}>
+                        <tr
+                          onClick={() => setExpandedProduct(isExpanded ? null : p.id)}
+                          style={{
+                            borderBottom: isExpanded ? "none" : `1px solid ${P.border}`,
+                            background: isExpanded ? "rgba(30,107,94,0.06)" : i % 2 === 0 ? "transparent" : "rgba(28,43,69,0.02)",
+                            cursor: "pointer",
+                            transition: "background 0.15s",
+                          }}
+                        >
+                          <td style={{ padding: "7px 10px", fontWeight: 500, color: P.text }}>
+                            <span style={{ marginRight: 6, fontSize: "9px", color: P.textLight }}>{isExpanded ? "▼" : "▶"}</span>
+                            {p.name}
+                            {p.note && (
+                              <span title={p.note} style={{ marginLeft: 4, cursor: "help", color: P.textLight }}>*</span>
+                            )}
+                          </td>
+                          <td style={{ padding: "7px 10px", color: P.textMuted }}>{p.categoryLabel}</td>
+                          <td style={{ padding: "7px 10px", textAlign: "right", color: P.text }}>{latest.value}</td>
+                          <td style={{ padding: "7px 10px", textAlign: "right", color: P.textMuted }}>{p.unit}</td>
+                          <td style={{ padding: "7px 10px", textAlign: "right", color: P.textMuted }}>{peak.value}</td>
+                          <td style={{ padding: "7px 10px", textAlign: "right", color: P.textMuted }}>{peak.year}</td>
+                          <td style={{ padding: "7px 10px", textAlign: "right" }}>
+                            <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", gap: 6 }}>
+                              <div style={{
+                                width: 60,
+                                height: 6,
+                                background: P.border,
+                                borderRadius: 3,
+                                overflow: "hidden",
+                              }}>
+                                <div style={{
+                                  width: `${Math.min(pctOfPeak, 100)}%`,
+                                  height: "100%",
+                                  background: sc,
+                                  borderRadius: 3,
+                                }} />
+                              </div>
+                              <span style={{ minWidth: 32, color: P.text }}>{pctOfPeak}%</span>
+                            </div>
+                          </td>
+                          <td style={{ padding: "7px 10px", textAlign: "left" }}>
+                            <span style={{
+                              display: "inline-block",
+                              padding: "2px 8px",
+                              borderRadius: 3,
+                              fontSize: "10px",
+                              fontWeight: 600,
+                              color: "#fff",
+                              background: sc,
+                            }}>
+                              {statusLabel(p)}
+                            </span>
+                          </td>
+                        </tr>
+                        {isExpanded && (
+                          <tr>
+                            <td colSpan={8} style={{
+                              padding: "12px 10px 20px",
+                              borderBottom: `1px solid ${P.border}`,
+                              background: "rgba(30,107,94,0.04)",
+                            }}>
+                              <div style={{
+                                background: P.bgCard,
+                                border: `1px solid ${P.borderStrong}`,
+                                borderRadius: 6,
+                                padding: "16px 20px",
+                              }}>
+                                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 4 }}>
+                                  <span style={{ fontFamily: "'Playfair Display', serif", fontSize: "16px", fontWeight: 600, color: P.text }}>
+                                    {p.name}
+                                  </span>
+                                  <span style={{ fontSize: "11px", color: P.textMuted }}>
+                                    {p.source}
+                                  </span>
+                                </div>
+                                {p.note && (
+                                  <p style={{ fontSize: "11px", color: P.textLight, margin: "0 0 10px", fontFamily: "'DM Mono', monospace" }}>
+                                    {p.note}
+                                  </p>
+                                )}
+                                <ResponsiveContainer width="100%" height={220}>
+                                  <LineChart data={p.series}>
+                                    <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
+                                    <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
+                                    <YAxis
+                                      tick={{ fontSize: 11, fill: P.textMuted }}
+                                      tickFormatter={(v) => `${v.toLocaleString()} ${p.unit}`}
+                                    />
+                                    <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toLocaleString()} ${p.unit}`} />} />
+                                    <Line
+                                      type="monotone"
+                                      dataKey="value"
+                                      stroke={sc === P.yellow ? P.sienna : sc}
+                                      strokeWidth={2.5}
+                                      dot={{ r: 4, fill: sc === P.yellow ? P.sienna : sc }}
+                                      name={p.name}
+                                      isAnimationActive={false}
+                                    />
+                                  </LineChart>
+                                </ResponsiveContainer>
+                              </div>
+                            </td>
+                          </tr>
+                        )}
+                      </React.Fragment>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          )}
         </section>
       )}
 

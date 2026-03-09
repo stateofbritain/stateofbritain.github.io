@@ -217,7 +217,7 @@ function PollutionChart({ data }) {
       <BarChart data={data} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
         <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
-        <YAxis tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} />
+        <YAxis tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} label={{ value: "Incidents", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
         <Tooltip content={<CustomTooltip />} />
         <Bar dataKey="total" name="All incidents (cat 1-3)" fill={P.red} opacity={0.7} radius={[3, 3, 0, 0]} />
         <Bar dataKey="serious" name="Serious (cat 1-2)" fill={P.navy} opacity={0.9} radius={[3, 3, 0, 0]} />
