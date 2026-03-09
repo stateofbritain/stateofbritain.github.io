@@ -200,8 +200,12 @@ function DrillPie({ dept, isMobile }) {
               paddingAngle={1}
               activeIndex={hovered}
               activeShape={renderSlice}
-              onMouseEnter={(_, idx) => { setHovered(idx); setHoveredSlice(dept.breakdown[idx]); }}
-              onMouseLeave={() => { setHovered(null); setHoveredSlice(null); }}
+              onMouseEnter={isMobile ? undefined : (_, idx) => { setHovered(idx); setHoveredSlice(dept.breakdown[idx]); }}
+              onMouseLeave={isMobile ? undefined : () => { setHovered(null); setHoveredSlice(null); }}
+              onClick={isMobile ? (_, idx) => {
+                if (hovered === idx) { setHovered(null); setHoveredSlice(null); }
+                else { setHovered(idx); setHoveredSlice(dept.breakdown[idx]); }
+              } : undefined}
               isAnimationActive={false}
               style={{ outline: "none" }}
             >
@@ -508,9 +512,24 @@ export default function Spending() {
                       paddingAngle={0}
                       activeIndex={activeSlice}
                       activeShape={renderActiveShape}
-                      onMouseEnter={(_, idx) => { setActiveSlice(idx); setHoveredItem(pieData[idx]); }}
-                      onMouseLeave={() => { setActiveSlice(null); setHoveredItem(null); }}
+                      onMouseEnter={isMobile ? undefined : (_, idx) => { setActiveSlice(idx); setHoveredItem(pieData[idx]); }}
+                      onMouseLeave={isMobile ? undefined : () => { setActiveSlice(null); setHoveredItem(null); }}
                       onClick={(_, idx) => {
+                        if (isMobile) {
+                          if (activeSlice === idx) {
+                            // Second tap — drill down
+                            const entry = pieData[idx];
+                            const match = sortedDepts.find(d => d.shortName === entry.name);
+                            const target = match?.breakdown ? match : entry.breakdown ? entry : null;
+                            if (target) { setSelectedPieDept(target); setActiveSlice(null); setHoveredItem(null); }
+                            else { setActiveSlice(null); setHoveredItem(null); }
+                          } else {
+                            // First tap — select
+                            setActiveSlice(idx);
+                            setHoveredItem(pieData[idx]);
+                          }
+                          return;
+                        }
                         const entry = pieData[idx];
                         const match = sortedDepts.find(d => d.shortName === entry.name);
                         const target = match?.breakdown ? match : entry.breakdown ? entry : null;
@@ -538,17 +557,23 @@ export default function Spending() {
                       outerRadius={isMobile ? 130 : 192}
                       paddingAngle={0}
                       isAnimationActive={!hasAnimated.current}
-                      onMouseEnter={(_, idx) => {
+                      onMouseEnter={isMobile ? undefined : (_, idx) => {
                         const item = outerRingData[idx];
                         if (item.color === "none") return;
                         setHoveredItem({ name: item.name, value: item.value, color: item.color, parent: item.parent });
                         const parentIdx = pieData.findIndex(d => d.name === item.parent);
                         setActiveSlice(parentIdx >= 0 ? parentIdx : null);
                       }}
-                      onMouseLeave={() => { setActiveSlice(null); setHoveredItem(null); }}
+                      onMouseLeave={isMobile ? undefined : () => { setActiveSlice(null); setHoveredItem(null); }}
                       onClick={(_, idx) => {
                         const item = outerRingData[idx];
                         if (item.color === "none") return;
+                        if (isMobile) {
+                          setHoveredItem({ name: item.name, value: item.value, color: item.color, parent: item.parent });
+                          const parentIdx = pieData.findIndex(d => d.name === item.parent);
+                          setActiveSlice(parentIdx >= 0 ? parentIdx : null);
+                          return;
+                        }
                         const match = sortedDepts.find(d => d.shortName === item.parent);
                         if (!match?.breakdown) return;
                         setSelectedPieDept(match);
