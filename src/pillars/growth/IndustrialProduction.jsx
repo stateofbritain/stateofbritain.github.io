@@ -322,7 +322,7 @@ export default function IndustrialProduction() {
                                 borderRadius: 6,
                                 padding: "12px 10px",
                               }}>
-                                <ResponsiveContainer width="100%" height={180}>
+                                <ResponsiveContainer width="100%" height={220}>
                                   <LineChart data={p.series}>
                                     <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
                                     <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textMuted }} />
@@ -330,7 +330,7 @@ export default function IndustrialProduction() {
                                       tick={{ fontSize: 9, fill: P.textMuted }}
                                       tickFormatter={(v) => v.toLocaleString()}
                                       width={45}
-                                      label={{ value: p.unit, angle: -90, position: "insideLeft", dy: 10, style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+                                      label={{ value: `Production (${p.unit})`, angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
                                     />
                                     <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toLocaleString()} ${p.unit}`} />} />
                                     <Line
