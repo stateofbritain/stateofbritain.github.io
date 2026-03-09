@@ -884,21 +884,23 @@ export default function Spending() {
           Public sector current receipts and total managed expenditure since 1990.
           The gap between the two lines is net borrowing. Dashed lines show OBR forecasts.
         </p>
-        <div style={{ display: "flex", gap: 6, marginBottom: 14 }}>
-          <button style={toggleBtn(trendView === "bn")} onClick={() => setTrendView("bn")}>£ billion</button>
-          <button style={toggleBtn(trendView === "pct")} onClick={() => setTrendView("pct")}>% of GDP</button>
+        <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px", boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
+          <div style={{ display: "flex", gap: 6, marginBottom: 14 }}>
+            <button style={toggleBtn(trendView === "bn")} onClick={() => setTrendView("bn")}>£ billion</button>
+            <button style={toggleBtn(trendView === "pct")} onClick={() => setTrendView("pct")}>% of GDP</button>
+          </div>
+          <ResponsiveContainer width="100%" height={360}>
+            <AreaChart data={trendData}>
+              <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
+              <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => trendView === "bn" ? `£${v}bn` : `${v}%`} />
+              <Tooltip content={<CustomTooltip formatter={(v) => trendView === "bn" ? `£${v?.toFixed(1)}bn` : `${v?.toFixed(1)}%`} />} />
+              <Area type="monotone" dataKey="tme" stroke={P.red} fill={P.red} fillOpacity={0.08} strokeWidth={2} name="Total spending" dot={false} />
+              <Area type="monotone" dataKey="receipts" stroke={P.teal} fill={P.teal} fillOpacity={0.08} strokeWidth={2} name="Receipts" dot={false} />
+              <Legend wrapperStyle={{ fontSize: 11, fontFamily: "'DM Mono', monospace" }} />
+            </AreaChart>
+          </ResponsiveContainer>
         </div>
-        <ResponsiveContainer width="100%" height={360}>
-          <AreaChart data={trendData}>
-            <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-            <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-            <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => trendView === "bn" ? `£${v}bn` : `${v}%`} />
-            <Tooltip content={<CustomTooltip formatter={(v) => trendView === "bn" ? `£${v?.toFixed(1)}bn` : `${v?.toFixed(1)}%`} />} />
-            <Area type="monotone" dataKey="tme" stroke={P.red} fill={P.red} fillOpacity={0.08} strokeWidth={2} name="Total spending" dot={false} />
-            <Area type="monotone" dataKey="receipts" stroke={P.teal} fill={P.teal} fillOpacity={0.08} strokeWidth={2} name="Receipts" dot={false} />
-            <Legend wrapperStyle={{ fontSize: 11, fontFamily: "'DM Mono', monospace" }} />
-          </AreaChart>
-        </ResponsiveContainer>
       </section>
 
       {/* Section 4: Debt */}
@@ -907,16 +909,18 @@ export default function Spending() {
         <p style={sectionNote}>
           Net debt as a share of GDP. Includes OBR forecasts to 2030-31.
         </p>
-        <ResponsiveContainer width="100%" height={300}>
-          <LineChart data={debtData}>
-            <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-            <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-            <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} domain={[20, 110]} />
-            <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}% of GDP`} />} />
-            <Line type="monotone" dataKey="debt" stroke={P.navy} strokeWidth={2.5} dot={false} name="Net debt / GDP" />
-            <ReferenceLine y={100} stroke={P.red} strokeDasharray="4 4" label={{ value: "100%", fontSize: 10, fill: P.red }} />
-          </LineChart>
-        </ResponsiveContainer>
+        <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px", boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
+          <ResponsiveContainer width="100%" height={300}>
+            <LineChart data={debtData}>
+              <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
+              <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} domain={[20, 110]} />
+              <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}% of GDP`} />} />
+              <Line type="monotone" dataKey="debt" stroke={P.navy} strokeWidth={2.5} dot={false} name="Net debt / GDP" />
+              <ReferenceLine y={100} stroke={P.red} strokeDasharray="4 4" label={{ value: "100%", fontSize: 10, fill: P.red }} />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
       </section>
 
       {/* Section 5: Receipts breakdown */}
@@ -926,15 +930,17 @@ export default function Spending() {
           <p style={sectionNote}>
             Where the money comes from. Major tax receipts, FY {latestOutturn.fy}.
           </p>
-          <ResponsiveContainer width="100%" height={Math.max(300, data.receiptTypes.length * (isMobile ? 30 : 26))}>
-            <BarChart data={data.receiptTypes} layout="vertical" margin={{ left: isMobile ? 10 : 140, right: 20 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke={P.border} horizontal={false} />
-              <XAxis type="number" tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => `£${v}bn`} />
-              <YAxis type="category" dataKey="name" tick={{ fontSize: isMobile ? 9 : 11, fill: P.textMuted }} width={isMobile ? 90 : 135} />
-              <Tooltip content={<CustomTooltip formatter={(v) => `£${v.toFixed(1)}bn`} />} />
-              <Bar dataKey="value" fill={P.teal} name="Receipts" isAnimationActive={false} />
-            </BarChart>
-          </ResponsiveContainer>
+          <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px", boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
+            <ResponsiveContainer width="100%" height={Math.max(300, data.receiptTypes.length * (isMobile ? 30 : 26))}>
+              <BarChart data={data.receiptTypes} layout="vertical" margin={{ left: isMobile ? 10 : 140, right: 20 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke={P.border} horizontal={false} />
+                <XAxis type="number" tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => `£${v}bn`} />
+                <YAxis type="category" dataKey="name" tick={{ fontSize: isMobile ? 9 : 11, fill: P.textMuted }} width={isMobile ? 90 : 135} />
+                <Tooltip content={<CustomTooltip formatter={(v) => `£${v.toFixed(1)}bn`} />} />
+                <Bar dataKey="value" fill={P.teal} name="Receipts" isAnimationActive={false} />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
         </section>
       )}
 
