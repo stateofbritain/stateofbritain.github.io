@@ -171,9 +171,9 @@ const chemicals = [
     id: "chlorine",
     name: "Chlorine",
     unit: "kt",
-    source: "CIA / PRODCOM",
-    sourceUrl: "https://www.cia.org.uk/",
-    note: null,
+    source: "CIA / Euro Chlor / PRODCOM",
+    sourceUrl: "https://www.eurochlor.org/production/",
+    note: "Runcorn MCP (450 kt/yr capacity, INEOS Inovyn / Vynova JV) is nearly all UK production. Vynova Runcorn entered administration Dec 2025 — future of 50% of capacity uncertain. 2024 estimated from European recovery (~+10% vs 2023).",
     ceased: false,
     series: [
       { year: 1970, value: 1100 },
@@ -185,15 +185,16 @@ const chemicals = [
       { year: 2015, value: 480 },
       { year: 2020, value: 410 },
       { year: 2023, value: 390 },
+      { year: 2024, value: 430 },
     ],
   },
   {
     id: "sodium_hydroxide",
     name: "Sodium hydroxide (caustic soda)",
     unit: "kt",
-    source: "CIA / PRODCOM",
-    sourceUrl: "https://www.cia.org.uk/",
-    note: "Co-produced with chlorine (chlor-alkali process)",
+    source: "CIA / Euro Chlor / PRODCOM",
+    sourceUrl: "https://www.eurochlor.org/production/",
+    note: "Co-produced with chlorine (chlor-alkali process). Capacity at risk following Vynova Runcorn administration (Dec 2025).",
     ceased: false,
     series: [
       { year: 1970, value: 1200 },
@@ -205,6 +206,7 @@ const chemicals = [
       { year: 2015, value: 520 },
       { year: 2020, value: 440 },
       { year: 2023, value: 420 },
+      { year: 2024, value: 460 },
     ],
   },
   {
@@ -213,7 +215,7 @@ const chemicals = [
     unit: "kt",
     source: "DESNZ / CF Fertilisers",
     sourceUrl: "https://www.gov.uk/government/collections/digest-of-uk-energy-statistics-dukes",
-    note: "Two UK plants (Billingham, Ince). CF Industries shut Ince in 2024.",
+    note: "Two UK plants (Billingham, Ince). CF Industries shut Ince permanently in 2024 — Billingham is now the sole UK ammonia plant. 2024 output estimated post-Ince closure.",
     ceased: false,
     series: [
       { year: 1970, value: 1600 },
@@ -225,6 +227,7 @@ const chemicals = [
       { year: 2015, value: 850 },
       { year: 2020, value: 650 },
       { year: 2023, value: 500 },
+      { year: 2024, value: 300 },
     ],
   },
   {
@@ -253,7 +256,7 @@ const chemicals = [
     unit: "kt",
     source: "BEIS / petrochemical sites",
     sourceUrl: "https://www.gov.uk/government/collections/digest-of-uk-energy-statistics-dukes",
-    note: "Grangemouth, Wilton, Fawley crackers",
+    note: "Wilton (Teesside), Fawley, Grangemouth crackers. INEOS Grangemouth refinery/petrochemical complex closing 2025 — will remove ~300 kt/yr ethylene capacity. 2025 estimated post-Grangemouth.",
     ceased: false,
     series: [
       { year: 1970, value: 1400 },
@@ -265,6 +268,7 @@ const chemicals = [
       { year: 2015, value: 1750 },
       { year: 2020, value: 1500 },
       { year: 2023, value: 1350 },
+      { year: 2025, value: 1050 },
     ],
   },
   {
@@ -273,7 +277,7 @@ const chemicals = [
     unit: "kt",
     source: "BEIS / petrochemical sites",
     sourceUrl: "https://www.gov.uk/government/collections/digest-of-uk-energy-statistics-dukes",
-    note: null,
+    note: "Co-produced with ethylene in steam crackers. Grangemouth closure (2025) will reduce output further.",
     ceased: false,
     series: [
       { year: 1980, value: 700 },
@@ -284,6 +288,7 @@ const chemicals = [
       { year: 2015, value: 780 },
       { year: 2020, value: 650 },
       { year: 2023, value: 580 },
+      { year: 2025, value: 450 },
     ],
   },
   {
@@ -475,7 +480,7 @@ const polymers = [
     unit: "kt",
     source: "INEOS / BPF",
     sourceUrl: "https://www.bpf.co.uk/",
-    note: "INEOS Runcorn is the main UK producer",
+    note: "INEOS Inovyn Runcorn is the main UK producer. Feedstock supply (VCM/EDC) at risk after Vynova Runcorn administration (Dec 2025).",
     ceased: false,
     series: [
       { year: 1980, value: 350 },
@@ -589,7 +594,7 @@ const intermediates = [
     unit: "kt",
     source: "AIC (Agricultural Industries Confederation)",
     sourceUrl: "https://www.agindustries.org.uk/",
-    note: "Domestic production only. UK was ~50% self-sufficient by 2020.",
+    note: "Domestic production only. CF Industries closed Ince ammonia/fertiliser plant in 2024 — Billingham is now the sole UK producer. UK self-sufficiency has fallen from ~50% to under 25%.",
     ceased: false,
     series: [
       { year: 1970, value: 900 },
@@ -601,6 +606,7 @@ const intermediates = [
       { year: 2015, value: 600 },
       { year: 2020, value: 480 },
       { year: 2023, value: 350 },
+      { year: 2024, value: 200 },
     ],
   },
   {

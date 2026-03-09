@@ -474,11 +474,15 @@ export default function IndustrialProduction() {
         ({snapshot.steelLatestYear}), just {snapshot.steelPctOfPeak}% of the {snapshot.steelPeakYear} peak
         of {snapshot.steelPeak} Mt. Cement production has halved from {snapshot.cementPeak} Mt
         ({snapshot.cementPeakYear}) to {snapshot.cementLatest} Mt. Primary aluminium production collapsed
-        from 370 kt to ~40 kt after Lynemouth and Anglesey smelter closures. Basic chemicals
-        (chlorine, ammonia, sulphuric acid) and petrochemicals (ethylene, propylene) have all
-        declined 50-70% from peak. The pattern is consistent: once a plant closes, it does not
-        reopen. Each closure removes not just output but the skilled workforce, supply chains,
-        and institutional knowledge needed to rebuild.
+        from 370 kt to ~40 kt after Lynemouth and Anglesey smelter closures.
+        {" "}The decline is accelerating. CF Industries permanently closed its Ince ammonia
+        and fertiliser plant in 2024, leaving Billingham as the sole UK ammonia producer.
+        INEOS Grangemouth — Scotland's only refinery and petrochemical complex — is closing
+        in 2025, removing ~300 kt/yr of ethylene capacity. Vynova Runcorn entered
+        administration in December 2025, putting half of UK chlor-alkali capacity at risk.
+        {" "}The pattern is consistent: once a plant closes, it does not reopen. Each closure
+        removes not just output but the skilled workforce, supply chains, and institutional
+        knowledge needed to rebuild.
       </AnalysisBox>
 
       {/* Sources */}
