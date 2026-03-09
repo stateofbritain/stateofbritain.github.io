@@ -76,10 +76,8 @@ export default function About() {
       <section style={{ marginBottom: 32 }}>
         <h3 style={h3Style}>Approach</h3>
         <p style={pStyle}>
-          Every number is traceable to a primary government or institutional source.
-          No editorial judgement is applied — trends are presented without characterising
-          them as good or bad. The site shows the complete picture on each topic, not a
-          cherry-picked subset.
+          The aim is to trace every number to a primary source, minimise editorial
+          judgement, and present as complete a picture as possible on each topic.
         </p>
       </section>
 
