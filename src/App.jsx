@@ -7,6 +7,7 @@ import PillarNav from "./components/PillarNav";
 import TopicSidebar from "./components/TopicSidebar";
 import Footer from "./components/Footer";
 import Landing from "./pillars/Landing";
+import DataPage from "./pillars/DataPage";
 import Placeholder from "./pillars/Placeholder";
 import Spending from "./pillars/state/Spending";
 import Housing from "./pillars/foundations/Housing";
@@ -99,7 +100,9 @@ export default function App() {
           isMobile={isMobile}
         />
 
-        {!activePillar ? (
+        {pillar === "data" ? (
+          <DataPage />
+        ) : !activePillar ? (
           <Landing
             onNavigate={(p) =>
               navigate(p, Object.keys(PILLARS[p].topics)[0])

@@ -1,0 +1,189 @@
+{
+  "name": "State of Britain Data API",
+  "description": "Open datasets on Britain's public services, economy, and society. All sourced from official UK government statistics.",
+  "homepage": "https://stateofbritain.github.io",
+  "license": "Open Government Licence v3.0",
+  "updated": "2026-03",
+  "datasets": [
+    {
+      "id": "spending",
+      "name": "Public Spending",
+      "description": "Total managed expenditure, receipts, borrowing, debt interest, debt/GDP, and departmental breakdown. Includes OBR forecasts.",
+      "url": "/data/spending.json",
+      "source": "OBR Public Finances Databank Feb 2026, HM Treasury PESA 2025",
+      "coverage": "1978–2030 (forecasts)",
+      "frequency": "annual (fiscal year)",
+      "pillar": "state"
+    },
+    {
+      "id": "nhs",
+      "name": "NHS Waiting Times & A&E",
+      "description": "Referral-to-treatment waiting times (median, % within 18 weeks, 52-week breaches), A&E attendances and emergency admissions.",
+      "url": "/data/nhs.json",
+      "source": "NHS England RTT Waiting Times, NHS England A&E Statistics",
+      "coverage": "2012–2026",
+      "frequency": "monthly",
+      "pillar": "foundations"
+    },
+    {
+      "id": "cpih",
+      "name": "Consumer Prices (CPIH)",
+      "description": "Consumer Prices Index including owner occupiers' housing costs, with sector breakdown (food, housing, transport, recreation).",
+      "url": "/data/cpih.json",
+      "source": "ONS CPIH (cpih01 v67)",
+      "coverage": "2010–present",
+      "frequency": "monthly",
+      "pillar": "foundations"
+    },
+    {
+      "id": "energy",
+      "name": "Energy Mix",
+      "description": "UK primary energy composition by fuel type: coal, petroleum, gas, nuclear, renewables, bioenergy, imports.",
+      "url": "/data/energy.json",
+      "source": "DESNZ Digest of UK Energy Statistics (DUKES) 2025",
+      "coverage": "1990–2024",
+      "frequency": "annual",
+      "pillar": "foundations"
+    },
+    {
+      "id": "water",
+      "name": "Water Company Performance",
+      "description": "Sewer collapses, water quality, internal flooding, storm overflows, pollution incidents, customer complaints.",
+      "url": "/data/water.json",
+      "source": "Ofwat Performance Report 2024–25, Environment Agency, EDM storm overflow returns",
+      "coverage": "2019–2024",
+      "frequency": "annual",
+      "pillar": "foundations"
+    },
+    {
+      "id": "environment",
+      "name": "Emissions & Air Quality",
+      "description": "GHG emissions by sector (MtCO2e), PM2.5, NO2, vehicle licensing and EV uptake.",
+      "url": "/data/environment.json",
+      "source": "DESNZ GHG Emissions Statistics 2024, DEFRA Air Quality, DfT Vehicle Licensing",
+      "coverage": "1990–2024",
+      "frequency": "annual",
+      "pillar": "foundations"
+    },
+    {
+      "id": "family",
+      "name": "Family & Fertility",
+      "description": "Total fertility rate by birth order, births, household composition, family formation trends.",
+      "url": "/data/family.json",
+      "source": "ONS Births in England & Wales 2024, ONS Families & Households, ONS Fertility Rates by Parity",
+      "coverage": "1960–2024",
+      "frequency": "annual",
+      "pillar": "foundations"
+    },
+    {
+      "id": "startups",
+      "name": "Business Demography & VC",
+      "description": "Business births, deaths, active firms, survival rates, high-growth firms, and equity funding into SMEs.",
+      "url": "/data/startups.json",
+      "source": "ONS Business Demography UK 2024, British Business Bank Small Business Equity Tracker 2016–2025",
+      "coverage": "2016–2024",
+      "frequency": "annual",
+      "pillar": "growth"
+    },
+    {
+      "id": "research",
+      "name": "R&D Spending",
+      "description": "Gross domestic expenditure on R&D by sector (government, UKRI, higher education, business, overseas).",
+      "url": "/data/research.json",
+      "source": "ONS UK GERD 2023, World Bank/OECD MSTI",
+      "coverage": "2018–2023",
+      "frequency": "annual",
+      "pillar": "growth"
+    },
+    {
+      "id": "productivity",
+      "name": "Productivity",
+      "description": "Output per hour worked (index and £/hour), sector breakdown, OECD international comparison.",
+      "url": "/data/productivity.json",
+      "source": "ONS Output per Hour Worked UK, OECD Productivity Database",
+      "coverage": "1971–2024",
+      "frequency": "annual",
+      "pillar": "growth"
+    },
+    {
+      "id": "investment",
+      "name": "Business Investment",
+      "description": "UK gross fixed capital formation in current prices and chained volume measure, with OECD comparison.",
+      "url": "/data/investment.json",
+      "source": "ONS Business Investment Q4 2024, OECD National Accounts",
+      "coverage": "1948–2024",
+      "frequency": "annual/quarterly",
+      "pillar": "growth"
+    },
+    {
+      "id": "infrastructure",
+      "name": "Infrastructure",
+      "description": "Broadband (FTTP rollout), rail (performance, journeys, track km), roads (traffic, length, condition, potholes).",
+      "url": "/data/infrastructure.json",
+      "source": "Ofcom Connected Nations, ORR Data Portal, DfT Road Traffic & Road Length",
+      "coverage": "2000–2025",
+      "frequency": "annual/quarterly",
+      "pillar": "growth"
+    },
+    {
+      "id": "industrial",
+      "name": "Industrial Production",
+      "description": "Production volumes by category (metals, chemicals, textiles, vehicles, etc.) with ceased production tracking.",
+      "url": "/data/industrial.json",
+      "source": "World Steel Association, ONS, national statistical offices",
+      "coverage": "1970–2023",
+      "frequency": "annual",
+      "pillar": "growth"
+    },
+    {
+      "id": "education",
+      "name": "Education",
+      "description": "Per-pupil spending, GCSE/A-level attainment, PISA scores, HE participation, teacher metrics.",
+      "url": "/data/education.json",
+      "source": "DfE, ONS, OECD PISA",
+      "coverage": "2003–2024",
+      "frequency": "annual",
+      "pillar": "growth"
+    },
+    {
+      "id": "justice",
+      "name": "Justice & Policing",
+      "description": "Recorded crime vs CSEW survey, police numbers, prison population/capacity, court backlog, charging rates.",
+      "url": "/data/justice.json",
+      "source": "ONS Crime Survey, HMIC, HM Courts & Tribunals",
+      "coverage": "2002–2024",
+      "frequency": "annual",
+      "pillar": "state"
+    },
+    {
+      "id": "defence",
+      "name": "Defence",
+      "description": "Defence spending (% GDP), armed forces personnel, reserve strength, NATO targets.",
+      "url": "/data/defence.json",
+      "source": "MOD Annual Report, NATO",
+      "coverage": "1990–2024",
+      "frequency": "annual",
+      "pillar": "state"
+    },
+    {
+      "id": "immigration",
+      "name": "Immigration & Demographics",
+      "description": "Net migration flows, asylum applications, foreign-born population, dependency ratio, population projections.",
+      "url": "/data/immigration.json",
+      "source": "ONS Migration Statistics, Home Office",
+      "coverage": "1991–2024",
+      "frequency": "annual",
+      "pillar": "state"
+    },
+    {
+      "id": "workforce",
+      "name": "Public Sector Workforce",
+      "description": "Workforce by area (NHS, schools, police, universities) with frontline vs back-office split.",
+      "url": "/data/workforce.json",
+      "source": "NHS Digital, DfE School Workforce Census, Home Office, HESA Staff Statistics",
+      "coverage": "2009–2025",
+      "frequency": "annual",
+      "pillar": "growth"
+    }
+  ]
+}

@@ -29,7 +29,19 @@ export default function Footer() {
           fontFamily: "'DM Mono', monospace",
         }}
       >
-        Personal project by Jack Aspinall &middot; Data sourced from official UK government statistics.
+        Personal project by Jack Aspinall &middot; Data sourced from official UK government statistics
+        &middot;{" "}
+        <a
+          href="/data"
+          onClick={(e) => {
+            e.preventDefault();
+            window.history.pushState(null, "", "/data");
+            window.dispatchEvent(new PopStateEvent("popstate"));
+          }}
+          style={{ color: P.textLight, textDecoration: "underline" }}
+        >
+          Data & API
+        </a>
       </div>
     </footer>
   );
