@@ -1,14 +1,16 @@
 import PILLARS, { PILLAR_KEYS } from "../pillars/config";
 import P from "../theme/palette";
 
-export default function PillarNav({ activePillar, onSelect }) {
+export default function PillarNav({ activePillar, onSelect, isMobile }) {
   return (
     <nav
+      className={isMobile ? "scroll-hide" : undefined}
       style={{
         display: "flex",
         gap: 0,
         marginBottom: 0,
         borderBottom: `1px solid ${P.border}`,
+        ...(isMobile && { overflowX: "auto" }),
       }}
     >
       <button
@@ -17,13 +19,14 @@ export default function PillarNav({ activePillar, onSelect }) {
           background: "none",
           border: "none",
           cursor: "pointer",
-          padding: "10px 18px 12px",
+          padding: isMobile ? "8px 12px 10px" : "10px 18px 12px",
           borderBottom: !activePillar
             ? `2px solid ${P.sienna}`
             : "2px solid transparent",
           transition: "all 0.2s",
           position: "relative",
           top: 1,
+          flexShrink: 0,
         }}
       >
         <span
@@ -34,6 +37,7 @@ export default function PillarNav({ activePillar, onSelect }) {
             letterSpacing: "0.06em",
             textTransform: "uppercase",
             fontFamily: "'DM Mono', monospace",
+            whiteSpace: "nowrap",
           }}
         >
           Overview
@@ -50,13 +54,14 @@ export default function PillarNav({ activePillar, onSelect }) {
               background: "none",
               border: "none",
               cursor: "pointer",
-              padding: "10px 18px 12px",
+              padding: isMobile ? "8px 12px 10px" : "10px 18px 12px",
               borderBottom: isActive
                 ? `2px solid ${pillar.color}`
                 : "2px solid transparent",
               transition: "all 0.2s",
               position: "relative",
               top: 1,
+              flexShrink: 0,
             }}
           >
             <span
@@ -68,6 +73,7 @@ export default function PillarNav({ activePillar, onSelect }) {
                 textTransform: "uppercase",
                 fontFamily: "'DM Mono', monospace",
                 transition: "color 0.2s",
+                whiteSpace: "nowrap",
               }}
             >
               {pillar.label}

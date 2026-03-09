@@ -1,10 +1,13 @@
 import P from "../theme/palette";
 import PILLARS, { PILLAR_KEYS } from "./config";
+import useIsMobile from "../hooks/useIsMobile";
 
 export default function Landing({ onNavigate }) {
+  const isMobile = useIsMobile();
+
   return (
     <div style={{ animation: "fadeSlideIn 0.4s ease both" }}>
-      <div style={{ marginBottom: 32 }}>
+      <div style={{ marginBottom: isMobile ? 20 : 32 }}>
         <h2
           style={{
             fontFamily: "'Playfair Display', serif",
@@ -20,7 +23,7 @@ export default function Landing({ onNavigate }) {
           style={{
             fontSize: "13px",
             color: P.textMuted,
-            maxWidth: 560,
+            ...(isMobile ? {} : { maxWidth: 560 }),
             lineHeight: 1.6,
             fontFamily: "'DM Mono', monospace",
             fontWeight: 300,
@@ -35,8 +38,10 @@ export default function Landing({ onNavigate }) {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-          gap: 20,
+          gridTemplateColumns: isMobile
+            ? "1fr"
+            : "repeat(auto-fit, minmax(300px, 1fr))",
+          gap: isMobile ? 14 : 20,
           marginBottom: 40,
         }}
       >
@@ -52,7 +57,7 @@ export default function Landing({ onNavigate }) {
                 border: `1px solid ${P.border}`,
                 borderTop: `3px solid ${pillar.color}`,
                 borderRadius: 3,
-                padding: "24px 24px 20px",
+                padding: isMobile ? "16px 16px 14px" : "24px 24px 20px",
                 cursor: "pointer",
                 transition: "box-shadow 0.2s, transform 0.2s",
                 boxShadow: "0 1px 6px rgba(28,43,69,0.05)",

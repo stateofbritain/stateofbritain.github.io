@@ -1,10 +1,13 @@
 import P from "../theme/palette";
+import useIsMobile from "../hooks/useIsMobile";
 
 export default function MetricCard({ label, value, change, up, color, delay = 0 }) {
+  const isMobile = useIsMobile();
+
   return (
     <div
       style={{
-        padding: "18px 20px",
+        padding: isMobile ? "14px 14px" : "18px 20px",
         background: P.bgCard,
         border: `1px solid ${P.border}`,
         borderLeft: `3px solid ${color}`,
@@ -27,7 +30,7 @@ export default function MetricCard({ label, value, change, up, color, delay = 0 
       </div>
       <div
         style={{
-          fontSize: "28px",
+          fontSize: isMobile ? "22px" : "28px",
           fontWeight: 600,
           fontFamily: "'Playfair Display', serif",
           color: P.text,

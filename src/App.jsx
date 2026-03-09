@@ -1,6 +1,7 @@
 import P from "./theme/palette";
 import PILLARS from "./pillars/config";
 import useHashRoute from "./hooks/useHashRoute";
+import useIsMobile from "./hooks/useIsMobile";
 import Header from "./components/Header";
 import PillarNav from "./components/PillarNav";
 import TopicSidebar from "./components/TopicSidebar";
@@ -61,6 +62,7 @@ function getTopicComponent(pillarKey, topicKey) {
 
 export default function App() {
   const { pillar, topic, navigate } = useHashRoute();
+  const isMobile = useIsMobile();
 
   const activePillar = pillar && PILLARS[pillar] ? pillar : null;
   const pillarConfig = activePillar ? PILLARS[activePillar] : null;
@@ -89,11 +91,12 @@ export default function App() {
         fontFamily: "'DM Mono', monospace",
       }}
     >
-      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 28px" }}>
-        <Header onHome={() => navigate(null)} />
+      <div style={{ maxWidth: 1280, margin: "0 auto", padding: isMobile ? "0 12px" : "0 28px" }}>
+        <Header onHome={() => navigate(null)} isMobile={isMobile} />
         <PillarNav
           activePillar={activePillar}
           onSelect={(p) => navigate(p, p ? Object.keys(PILLARS[p].topics)[0] : null)}
+          isMobile={isMobile}
         />
 
         {!activePillar ? (
@@ -106,9 +109,10 @@ export default function App() {
           <div
             style={{
               display: "flex",
+              flexDirection: isMobile ? "column" : "row",
               gap: 0,
-              marginTop: 20,
-              minHeight: 500,
+              marginTop: isMobile ? 10 : 20,
+              minHeight: isMobile ? "auto" : 500,
             }}
           >
             {Object.keys(pillarConfig.topics).length > 1 && (
@@ -117,9 +121,10 @@ export default function App() {
                 topics={pillarConfig.topics}
                 activeTopic={activeTopic}
                 onSelect={(t) => navigate(activePillar, t)}
+                isMobile={isMobile}
               />
             )}
-            <main style={{ flex: 1, paddingLeft: Object.keys(pillarConfig.topics).length > 1 ? 24 : 0 }}>
+            <main style={{ flex: 1, paddingLeft: isMobile ? 0 : (Object.keys(pillarConfig.topics).length > 1 ? 24 : 0) }}>
               {TopicComponent ? (
                 <TopicComponent />
               ) : (

@@ -1,6 +1,60 @@
 import P from "../theme/palette";
 
-export default function TopicSidebar({ pillar, topics, activeTopic, onSelect }) {
+export default function TopicSidebar({ pillar, topics, activeTopic, onSelect, isMobile }) {
+  if (isMobile) {
+    return (
+      <div
+        className="scroll-hide"
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          gap: 6,
+          overflowX: "auto",
+          paddingBottom: 10,
+          marginBottom: 10,
+          borderBottom: `1px solid ${P.border}`,
+        }}
+      >
+        {Object.entries(topics).map(([key, topic]) => {
+          const isActive = key === activeTopic;
+          return (
+            <button
+              key={key}
+              onClick={() => onSelect(key)}
+              style={{
+                background: isActive ? "rgba(28,43,69,0.07)" : "rgba(28,43,69,0.02)",
+                border: isActive ? `1.5px solid ${pillar.color}` : `1px solid ${P.border}`,
+                cursor: "pointer",
+                padding: "6px 12px",
+                display: "flex",
+                alignItems: "center",
+                gap: 5,
+                borderRadius: 20,
+                transition: "all 0.15s",
+                flexShrink: 0,
+                whiteSpace: "nowrap",
+              }}
+            >
+              <span style={{ fontSize: "12px", opacity: isActive ? 1 : 0.4 }}>
+                {topic.icon}
+              </span>
+              <span
+                style={{
+                  fontSize: "11px",
+                  fontWeight: isActive ? 500 : 400,
+                  color: isActive ? P.text : P.textMuted,
+                  fontFamily: "'DM Mono', monospace",
+                }}
+              >
+                {topic.label}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+    );
+  }
+
   return (
     <aside
       style={{

@@ -1,14 +1,15 @@
 import P from "../theme/palette";
 
-export default function Header({ onHome }) {
+export default function Header({ onHome, isMobile }) {
   return (
-    <header style={{ paddingTop: 44, paddingBottom: 20 }}>
+    <header style={{ paddingTop: isMobile ? 24 : 44, paddingBottom: 20 }}>
       <div
         style={{
           display: "flex",
-          alignItems: "baseline",
-          gap: 14,
+          alignItems: isMobile ? "flex-start" : "baseline",
+          gap: isMobile ? 6 : 14,
           flexWrap: "wrap",
+          flexDirection: isMobile ? "column" : "row",
         }}
       >
         <h1
@@ -33,8 +34,9 @@ export default function Header({ onHome }) {
             letterSpacing: "0.18em",
             color: P.sienna,
             fontWeight: 500,
-            borderLeft: `2px solid ${P.sienna}`,
-            paddingLeft: 10,
+            ...(isMobile
+              ? { paddingLeft: 0 }
+              : { borderLeft: `2px solid ${P.sienna}`, paddingLeft: 10 }),
             fontFamily: "'DM Mono', monospace",
           }}
         >
@@ -46,7 +48,7 @@ export default function Header({ onHome }) {
           fontSize: "13px",
           color: P.textMuted,
           marginTop: 8,
-          maxWidth: 580,
+          ...(isMobile ? {} : { maxWidth: 580 }),
           lineHeight: 1.6,
           fontFamily: "'DM Mono', monospace",
           fontWeight: 300,
