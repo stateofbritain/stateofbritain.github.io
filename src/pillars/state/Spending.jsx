@@ -779,7 +779,7 @@ export default function Spending() {
           </div>
 
           {/* Sidebar */}
-          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 16, minWidth: 0, width: "100%" }}>
             {/* Tax calculator */}
             <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderLeft: `3px solid ${P.sienna}`, borderRadius: 3, padding: "14px 16px" }}>
               <div style={{ fontSize: "9px", textTransform: "uppercase", letterSpacing: "0.15em", color: P.sienna, fontWeight: 500, marginBottom: 10, fontFamily: "'DM Mono', monospace" }}>
@@ -833,7 +833,7 @@ export default function Spending() {
                 const val = item.values[latestFy];
                 return (
                   <div key={item.name} style={{ display: "flex", justifyContent: "space-between", padding: "3px 0", borderBottom: `1px solid ${P.border}` }}>
-                    <span style={{ fontSize: "9px", color: P.textMuted, fontFamily: "'DM Mono', monospace", maxWidth: 170 }}>
+                    <span style={{ fontSize: "9px", color: P.textMuted, fontFamily: "'DM Mono', monospace", ...(!isMobile && { maxWidth: 170 }) }}>
                       {cleanName(item.name)}
                     </span>
                     <span style={{ fontSize: "9px", fontWeight: 500, color: val < 0 ? P.red : P.text, fontFamily: "'DM Mono', monospace" }}>
