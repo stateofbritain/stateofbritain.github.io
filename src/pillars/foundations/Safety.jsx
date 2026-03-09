@@ -6,6 +6,7 @@ import {
 import P from "../../theme/palette";
 import { getAvailableDates, getNationalSnapshot } from "../../api/police";
 import useDataset from "../../hooks/useDataset";
+import useIsMobile from "../../hooks/useIsMobile";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
@@ -38,6 +39,7 @@ function formatLabel(cat) {
 }
 
 export default function Safety() {
+  const isMobile = useIsMobile();
   const [chartView, setChartView] = useState("bar");
 
   // First get the latest available date
@@ -180,17 +182,17 @@ export default function Safety() {
             <BarChart
               data={topCategories}
               layout="vertical"
-              margin={{ top: 5, right: 20, left: 120, bottom: 0 }}
+              margin={{ top: 5, right: 20, left: isMobile ? 10 : 120, bottom: 0 }}
             >
               <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" horizontal={false} />
               <XAxis type="number" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} />
               <YAxis
                 type="category"
                 dataKey="category"
-                tick={{ fontSize: 10, fill: P.textMuted, fontFamily: "'DM Mono', monospace" }}
+                tick={{ fontSize: isMobile ? 9 : 10, fill: P.textMuted, fontFamily: "'DM Mono', monospace" }}
                 axisLine={false}
                 tickLine={false}
-                width={115}
+                width={isMobile ? 85 : 115}
               />
               <Tooltip content={<CustomTooltip />} />
               <Bar dataKey="count" name="Crimes" radius={[0, 3, 3, 0]}>
