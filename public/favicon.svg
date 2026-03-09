@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30">
+  <!--
+    Union Jack favicon — State of Britain
+    Construction-sheet-faithful rendering (1:2 proportions).
+    Navy #1C2B45, Red #A83428, white = transparent (via mask).
+    Stroke widths per spec: saltire white=6, red=4; cross white=10, red=6.
+  -->
+  <defs>
+    <clipPath id="f"><rect width="60" height="30"/></clipPath>
+    <clipPath id="s">
+      <path d="M0,0 V15 H60 V30 Z M0,30 H30 V0 H60 Z"/>
+    </clipPath>
+    <mask id="m" maskUnits="userSpaceOnUse" x="0" y="0" width="60" height="30">
+      <rect width="60" height="30" fill="white"/>
+      <path stroke="black" stroke-width="6" fill="none" d="M0,0 L60,30 M0,30 L60,0"/>
+      <g clip-path="url(#s)">
+        <path stroke="white" stroke-width="4" fill="none" d="M0,0 L60,30 M0,30 L60,0"/>
+      </g>
+      <path stroke="black" stroke-width="10" fill="none" d="M30,0 V30 M0,15 H60"/>
+      <path stroke="white" stroke-width="6" fill="none" d="M30,0 V30 M0,15 H60"/>
+    </mask>
+  </defs>
+  <g mask="url(#m)" clip-path="url(#f)">
+    <rect width="60" height="30" fill="#1C2B45"/>
+    <g clip-path="url(#s)">
+      <path stroke="#A83428" stroke-width="4" fill="none" d="M0,0 L60,30 M0,30 L60,0"/>
+    </g>
+    <path stroke="#A83428" stroke-width="6" fill="none" d="M30,0 V30 M0,15 H60"/>
+  </g>
+</svg>
