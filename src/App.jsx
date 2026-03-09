@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import P from "./theme/palette";
 import PILLARS from "./pillars/config";
 import useHashRoute from "./hooks/useHashRoute";
@@ -83,6 +84,15 @@ export default function App() {
     : null;
 
   const topicConfig = pillarConfig?.topics[activeTopic];
+
+  useEffect(() => {
+    const base = "State of Britain";
+    if (pillar === "data") document.title = `Data & API — ${base}`;
+    else if (pillar === "about") document.title = `About — ${base}`;
+    else if (topicConfig) document.title = `${topicConfig.label} — ${base}`;
+    else if (pillarConfig) document.title = `${pillarConfig.label} — ${base}`;
+    else document.title = base;
+  }, [pillar, pillarConfig, topicConfig]);
 
   return (
     <div
