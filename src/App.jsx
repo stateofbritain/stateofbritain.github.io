@@ -8,6 +8,7 @@ import TopicSidebar from "./components/TopicSidebar";
 import Footer from "./components/Footer";
 import Landing from "./pillars/Landing";
 import DataPage from "./pillars/DataPage";
+import About from "./pillars/About";
 import Placeholder from "./pillars/Placeholder";
 import Spending from "./pillars/state/Spending";
 import Housing from "./pillars/foundations/Housing";
@@ -102,6 +103,8 @@ export default function App() {
 
         {pillar === "data" ? (
           <DataPage />
+        ) : pillar === "about" ? (
+          <About />
         ) : !activePillar ? (
           <Landing
             onNavigate={(p) =>

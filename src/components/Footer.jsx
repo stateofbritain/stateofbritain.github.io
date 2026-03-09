@@ -42,6 +42,18 @@ export default function Footer() {
         >
           Data & API
         </a>
+        {" "}&middot;{" "}
+        <a
+          href="/about"
+          onClick={(e) => {
+            e.preventDefault();
+            window.history.pushState(null, "", "/about");
+            window.dispatchEvent(new PopStateEvent("popstate"));
+          }}
+          style={{ color: P.textLight, textDecoration: "underline" }}
+        >
+          About
+        </a>
       </div>
     </footer>
   );
