@@ -157,20 +157,12 @@ export default function Housing() {
             {chartView === "volume" && (
               <LegendDot color={P.teal} label="Monthly Sales Volume" />
             )}
-            {chartView === "ownership" && (
-              <>
-                {AGE_BANDS.map((b) => (
-                  <LegendDot key={b.key} color={b.color} label={b.label} />
-                ))}
-              </>
-            )}
           </div>
           <div style={{ display: "flex", gap: 0, border: `1px solid ${P.borderStrong}`, borderRadius: 3 }}>
             {[
               { key: "price", label: "Price" },
               { key: "type", label: "By Type" },
               { key: "volume", label: "Volume" },
-              { key: "ownership", label: "By Age" },
             ].map(({ key, label }) => (
               <button
                 key={key}
@@ -197,20 +189,7 @@ export default function Housing() {
         </div>
 
         <ResponsiveContainer width="100%" height={320}>
-          {chartView === "ownership" ? (
-            <LineChart data={OWNERSHIP_BY_AGE} margin={{ top: 5, right: 10, left: 10, bottom: 0 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-              <XAxis dataKey="year" tick={axisTick} axisLine={{ stroke: P.border }} tickLine={false} />
-              <YAxis
-                tick={axisTick} axisLine={false} tickLine={false} domain={[0, 100]}
-                label={{ value: "%", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
-              />
-              <Tooltip content={<CustomTooltip />} />
-              {AGE_BANDS.map((b) => (
-                <Line key={b.key} type="monotone" dataKey={b.key} name={`${b.label} yrs`} stroke={b.color} strokeWidth={2} dot={false} />
-              ))}
-            </LineChart>
-          ) : chartView === "volume" ? (
+          {chartView === "volume" ? (
             <BarChart data={quarterly} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
               <XAxis dataKey="month" tick={axisTick} axisLine={{ stroke: P.border }} tickLine={false} />
@@ -262,6 +241,48 @@ export default function Housing() {
           >
             English Housing Survey 2024-25 (DLUHC)
           </a>
+        </div>
+      </div>
+
+      {/* Home ownership by age */}
+      <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px", marginTop: 24 }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 8, marginBottom: 10 }}>
+          <div>
+            <div style={{ fontSize: "13px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>
+              Home Ownership by Age
+            </div>
+            <div style={{ fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>
+              % of households who are owner-occupiers, England
+            </div>
+          </div>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "4px 12px" }}>
+            {AGE_BANDS.map((b) => (
+              <LegendDot key={b.key} color={b.color} label={b.label} />
+            ))}
+          </div>
+        </div>
+
+        <ResponsiveContainer width="100%" height={280}>
+          <LineChart data={OWNERSHIP_BY_AGE} margin={{ top: 5, right: 10, left: 10, bottom: 0 }}>
+            <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
+            <XAxis dataKey="year" tick={axisTick} axisLine={{ stroke: P.border }} tickLine={false} />
+            <YAxis
+              tick={axisTick} axisLine={false} tickLine={false} domain={[0, 100]}
+              label={{ value: "% home ownership", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+            />
+            <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
+            {AGE_BANDS.map((b) => (
+              <Line key={b.key} type="monotone" dataKey={b.key} name={`${b.label} yrs`} stroke={b.color} strokeWidth={2} dot={false} />
+            ))}
+          </LineChart>
+        </ResponsiveContainer>
+
+        <div style={{ marginTop: 8, fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+          SOURCE:{" "}
+          <a href="https://www.gov.uk/government/collections/english-housing-survey" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
+            English Housing Survey Annex Table 1.4 (DLUHC)
+          </a>
+          {" "}&middot; 2003-04 to 2024-25
         </div>
       </div>
 

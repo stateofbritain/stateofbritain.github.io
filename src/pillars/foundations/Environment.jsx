@@ -17,7 +17,7 @@ const GHG_SECTORS = [
   { key: "agriculture", label: "Agriculture", color: "#4A7A58" },
   { key: "fuel", label: "Fuel Supply", color: P.grey },
   { key: "waste", label: "Waste", color: "#9B7EB0" },
-  { key: "lulucf", label: "LULUCF", color: P.teal },
+  { key: "lulucf", label: "Land Use Change", color: P.teal },
 ];
 
 const sectionHeading = {

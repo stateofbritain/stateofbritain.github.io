@@ -123,7 +123,7 @@ export default function ProductiveQuotient() {
   if (loading) {
     return (
       <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
-        <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>Productive Quotient</h2>
+        <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>Frontline Ratio</h2>
         <p style={{ fontSize: "12px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>Loading data...</p>
       </div>
     );
@@ -132,7 +132,7 @@ export default function ProductiveQuotient() {
   if (error || !data) {
     return (
       <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
-        <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>Productive Quotient</h2>
+        <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>Frontline Ratio</h2>
         <p style={{ fontSize: "12px", color: P.red, fontFamily: "'DM Mono', monospace" }}>Failed to load data: {error ?? "No data"}</p>
       </div>
     );
@@ -144,7 +144,7 @@ export default function ProductiveQuotient() {
   return (
     <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
       <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 6px" }}>
-        Productive Quotient
+        Frontline Ratio
       </h2>
       <p style={{ fontSize: "13px", color: P.textMuted, margin: "0 0 24px", fontFamily: "'Playfair Display', serif", maxWidth: 720 }}>
         What share of public service workforces is on the frontline?

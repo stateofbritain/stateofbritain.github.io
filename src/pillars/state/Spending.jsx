@@ -100,10 +100,31 @@ const pct = (v, total) => ((v / total) * 100).toFixed(1);
 
 // Show all departments individually in pie (no "Other" grouping)
 
-function SubDeptPie({ breakdown, color }) {
-  const shades = generateShades(color, breakdown.length);
+// Resolve breakdown for a fiscal year: supports both year-keyed objects and legacy arrays
+function resolveBreakdown(breakdown, fy) {
+  if (!breakdown) return null;
+  if (Array.isArray(breakdown)) return breakdown; // legacy flat array
+  // Year-keyed object: try exact year, then fall back to latest available
+  if (breakdown[fy]) return breakdown[fy];
+  const keys = Object.keys(breakdown).sort();
+  return breakdown[keys[keys.length - 1]] || null;
+}
+
+function SubDeptPie({ breakdown, color, scaleTo }) {
   const [hovered, setHovered] = useState(null);
-  const total = breakdown.reduce((s, d) => s + d.value, 0);
+  const rawTotal = breakdown.reduce((s, d) => s + d.value, 0);
+  const scale = scaleTo != null ? scaleTo / rawTotal : 1;
+  const all = scaleTo != null ? breakdown.map(d => ({ ...d, value: d.value * scale })) : breakdown;
+  const total = scaleTo != null ? scaleTo : rawTotal;
+
+  // Separate policy spending from accounting adjustments
+  const policy = all.filter(d => !d.accounting && d.value > 0);
+  const accounting = all.filter(d => d.accounting);
+  const negativePolicy = all.filter(d => !d.accounting && d.value < 0);
+  const hasAccounting = accounting.length > 0;
+  const policyTotal = policy.reduce((s, d) => s + d.value, 0);
+  const accountingTotal = accounting.reduce((s, d) => s + d.value, 0);
+  const shades = generateShades(color, policy.length);
 
   const renderSlice = (props) => {
     const { cx, cy, innerRadius, outerRadius, startAngle, endAngle, fill } = props;
@@ -114,65 +135,103 @@ function SubDeptPie({ breakdown, color }) {
   };
 
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap" }}>
-      <div style={{ width: 130, height: 130, flexShrink: 0 }}>
-        <ResponsiveContainer width="100%" height="100%">
-          <PieChart>
-            <Pie
-              data={breakdown}
-              dataKey="value"
-              nameKey="name"
-              cx="50%"
-              cy="50%"
-              innerRadius={28}
-              outerRadius={55}
-              paddingAngle={1}
-              activeIndex={hovered}
-              activeShape={renderSlice}
-              onMouseEnter={(_, idx) => setHovered(idx)}
+    <div>
+      {hasAccounting && (
+        <div style={{ fontSize: "9px", color: color, fontWeight: 600, fontFamily: "'DM Mono', monospace", marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.08em" }}>
+          Policy spending — {fmtM(policyTotal)}
+        </div>
+      )}
+      <div style={{ display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap" }}>
+        <div style={{ width: 130, height: 130, flexShrink: 0 }}>
+          <ResponsiveContainer width="100%" height="100%">
+            <PieChart>
+              <Pie
+                data={policy}
+                dataKey="value"
+                nameKey="name"
+                cx="50%"
+                cy="50%"
+                innerRadius={28}
+                outerRadius={55}
+                paddingAngle={1}
+                activeIndex={hovered != null && hovered < policy.length ? hovered : undefined}
+                activeShape={renderSlice}
+                onMouseEnter={(_, idx) => setHovered(idx)}
+                onMouseLeave={() => setHovered(null)}
+                isAnimationActive={false}
+                style={{ outline: "none" }}
+              >
+                {policy.map((_, idx) => (
+                  <Cell key={idx} fill={shades[idx]} stroke={P.bgCard} strokeWidth={1} />
+                ))}
+              </Pie>
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
+        <div style={{ flex: 1, minWidth: 160 }}>
+          {policy.map((item, idx) => (
+            <div
+              key={item.name}
+              onMouseEnter={() => setHovered(idx)}
               onMouseLeave={() => setHovered(null)}
-              style={{ outline: "none" }}
+              style={{
+                display: "flex", justifyContent: "space-between", alignItems: "center",
+                padding: "2px 4px", borderRadius: 2, cursor: "pointer",
+                background: hovered === idx ? "rgba(28,43,69,0.04)" : "transparent",
+                transition: "background 0.12s",
+                opacity: hovered != null && hovered !== idx ? 0.45 : 1,
+              }}
             >
-              {breakdown.map((_, idx) => (
-                <Cell key={idx} fill={shades[idx]} stroke={P.bgCard} strokeWidth={1} />
-              ))}
-            </Pie>
-          </PieChart>
-        </ResponsiveContainer>
-      </div>
-      <div style={{ flex: 1, minWidth: 160 }}>
-        {breakdown.map((item, idx) => (
-          <div
-            key={item.name}
-            onMouseEnter={() => setHovered(idx)}
-            onMouseLeave={() => setHovered(null)}
-            style={{
-              display: "flex", justifyContent: "space-between", alignItems: "center",
-              padding: "2px 4px", borderRadius: 2, cursor: "pointer",
-              background: hovered === idx ? "rgba(28,43,69,0.04)" : "transparent",
-              transition: "background 0.12s",
-              opacity: hovered != null && hovered !== idx ? 0.45 : 1,
-            }}
-          >
-            <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
-              <span style={{ width: 7, height: 7, borderRadius: 1, background: shades[idx], display: "inline-block", flexShrink: 0 }} />
-              <span style={{ fontSize: "9px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>{item.name}</span>
+              <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
+                <span style={{ width: 7, height: 7, borderRadius: 1, background: shades[idx], display: "inline-block", flexShrink: 0 }} />
+                <span style={{ fontSize: "9px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>{item.name}</span>
+              </div>
+              <span style={{ fontSize: "9px", fontWeight: 500, color: P.text, fontFamily: "'DM Mono', monospace", marginLeft: 8, whiteSpace: "nowrap" }}>
+                {fmtM(item.value)} <span style={{ color: P.textLight, fontWeight: 400 }}>({((item.value / policyTotal) * 100).toFixed(1)}%)</span>
+              </span>
             </div>
-            <span style={{ fontSize: "9px", fontWeight: 500, color: P.text, fontFamily: "'DM Mono', monospace", marginLeft: 8, whiteSpace: "nowrap" }}>
-              {fmtM(item.value)} <span style={{ color: P.textLight, fontWeight: 400 }}>({((item.value / total) * 100).toFixed(1)}%)</span>
-            </span>
-          </div>
-        ))}
+          ))}
+          {negativePolicy.map((item) => (
+            <div key={item.name} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "2px 4px" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
+                <span style={{ width: 7, height: 7, borderRadius: 1, background: P.textLight, display: "inline-block", flexShrink: 0 }} />
+                <span style={{ fontSize: "9px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>{item.name}</span>
+              </div>
+              <span style={{ fontSize: "9px", fontWeight: 500, color: "#c0392b", fontFamily: "'DM Mono', monospace", marginLeft: 8, whiteSpace: "nowrap" }}>
+                {fmtM(item.value)}
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
+      {hasAccounting && (
+        <div style={{ marginTop: 8, padding: "6px 8px", background: "rgba(28,43,69,0.03)", borderRadius: 3, borderLeft: `2px solid ${P.textLight}` }}>
+          <div style={{ fontSize: "8px", color: P.textLight, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 3 }}>
+            Accounting adjustments — {fmtM(accountingTotal)}
+          </div>
+          {accounting.map((item) => (
+            <div key={item.name} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "1px 0" }}>
+              <span style={{ fontSize: "8px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>{item.name}</span>
+              <span style={{ fontSize: "8px", fontWeight: 500, color: item.value < 0 ? "#c0392b" : P.textLight, fontFamily: "'DM Mono', monospace", marginLeft: 8, whiteSpace: "nowrap" }}>
+                {fmtM(item.value)}
+              </span>
+            </div>
+          ))}
+          <div style={{ fontSize: "7px", color: P.textLight, fontFamily: "'DM Mono', monospace", fontStyle: "italic", marginTop: 3 }}>
+            Non-cash provisions, fair value movements & write-offs — not actual spending
+          </div>
+        </div>
+      )}
     </div>
   );
 }
 
-function DrillPie({ dept, isMobile }) {
-  const shades = generateShades(dept.color, dept.breakdown.length);
+function DrillPie({ dept, isMobile, fy }) {
+  const breakdown = resolveBreakdown(dept.breakdown, fy);
+  const shades = generateShades(dept.color, breakdown.length);
   const [hovered, setHovered] = useState(null);
   const [hoveredSlice, setHoveredSlice] = useState(null);
-  const total = dept.breakdown.reduce((s, d) => s + d.value, 0);
+  const total = breakdown.reduce((s, d) => s + d.value, 0);
 
   const renderSlice = (props) => {
     const { cx, cy, innerRadius, outerRadius, startAngle, endAngle, fill } = props;
@@ -190,7 +249,7 @@ function DrillPie({ dept, isMobile }) {
         <ResponsiveContainer width="100%" height={isMobile ? 300 : 440}>
           <PieChart>
             <Pie
-              data={dept.breakdown}
+              data={breakdown}
               dataKey="value"
               nameKey="name"
               cx="50%"
@@ -200,16 +259,16 @@ function DrillPie({ dept, isMobile }) {
               paddingAngle={1}
               activeIndex={hovered}
               activeShape={renderSlice}
-              onMouseEnter={isMobile ? undefined : (_, idx) => { setHovered(idx); setHoveredSlice(dept.breakdown[idx]); }}
+              onMouseEnter={isMobile ? undefined : (_, idx) => { setHovered(idx); setHoveredSlice(breakdown[idx]); }}
               onMouseLeave={isMobile ? undefined : () => { setHovered(null); setHoveredSlice(null); }}
               onClick={isMobile ? (_, idx) => {
                 if (hovered === idx) { setHovered(null); setHoveredSlice(null); }
-                else { setHovered(idx); setHoveredSlice(dept.breakdown[idx]); }
+                else { setHovered(idx); setHoveredSlice(breakdown[idx]); }
               } : undefined}
               isAnimationActive={false}
               style={{ outline: "none" }}
             >
-              {dept.breakdown.map((_, idx) => (
+              {breakdown.map((_, idx) => (
                 <Cell key={idx} fill={shades[idx]} stroke={P.bgCard} strokeWidth={2} />
               ))}
             </Pie>
@@ -244,7 +303,7 @@ function DrillPie({ dept, isMobile }) {
 
       {/* Legend grid */}
       <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "4px 16px", marginTop: 8, padding: "0 20px" }}>
-        {dept.breakdown.map((item, idx) => (
+        {breakdown.map((item, idx) => (
           <div
             key={item.name}
             onMouseEnter={() => { setHovered(idx); setHoveredSlice(item); }}
@@ -279,6 +338,8 @@ export default function Spending() {
   const hasAnimated = useRef(false);
   const [trendView, setTrendView] = useState("bn");
   const [salary, setSalary] = useState(35000);
+  const [pieYear, setPieYear] = useState(null);
+  const [deptCardYear, setDeptCardYear] = useState({});
 
   useEffect(() => {
     fetch("/data/spending.json")
@@ -291,35 +352,80 @@ export default function Spending() {
       .finally(() => setLoading(false));
   }, []);
 
-  // All departments sorted by latest value
+  // Default pieYear to latest once data loads
+  const activePieYear = pieYear || data?.departments?.latestFy || "";
+
+  // Departments sorted by active pie year (for main pie chart)
+  // Uses policy spend (TME minus accounting adjustments) where available
+  const pieDepts = useMemo(() => {
+    if (!data?.departments?.items) return [];
+    return [...data.departments.items]
+      .map((d) => {
+        const cleaned = cleanName(d.name);
+        const tme = d.values[activePieYear] || 0;
+        // Compute policy spend: TME minus accounting-tagged items
+        let policySpend = tme;
+        const bk = d.breakdown && !Array.isArray(d.breakdown) ? d.breakdown[activePieYear] : null;
+        if (bk) {
+          const acctTotal = bk.filter(item => item.accounting).reduce((s, item) => s + item.value, 0);
+          if (acctTotal !== 0) policySpend = tme - acctTotal;
+        }
+        return {
+          ...d,
+          cleanName: cleaned,
+          shortName: SHORT_NAMES[cleaned] || cleaned,
+          tme,
+          latest: policySpend,
+          color: DEPT_COLORS[cleaned] || P.grey,
+        };
+      })
+      .sort((a, b) => b.latest - a.latest);
+  }, [data, activePieYear]);
+
+  // Departments sorted by latest FY (for department breakdown list — always latest)
+  // Uses policy spend (TME minus accounting adjustments) consistent with pie
   const sortedDepts = useMemo(() => {
     if (!data?.departments?.items) return [];
     const fy = data.departments.latestFy;
     return [...data.departments.items]
       .map((d) => {
         const cleaned = cleanName(d.name);
+        const tme = d.values[fy] || 0;
+        let policySpend = tme;
+        const bk = d.breakdown && !Array.isArray(d.breakdown) ? d.breakdown[fy] : null;
+        if (bk) {
+          const acctTotal = bk.filter(item => item.accounting).reduce((s, item) => s + item.value, 0);
+          if (acctTotal !== 0) policySpend = tme - acctTotal;
+        }
         return {
           ...d,
           cleanName: cleaned,
           shortName: SHORT_NAMES[cleaned] || cleaned,
-          latest: d.values[fy] || 0,
+          latest: policySpend,
+          tme,
           color: DEPT_COLORS[cleaned] || P.grey,
         };
       })
       .sort((a, b) => b.latest - a.latest);
   }, [data]);
 
-  // Build pie data: departments + debt interest (no non-departmental accounting items)
-  const { pieData, pieTotalM, outerRingData } = useMemo(() => {
-    if (!data?.departments) return { pieData: [], pieTotalM: 0, outerRingData: [] };
-    const fy = data.departments.latestFy;
+  // Build pie data: departments + debt interest, using policy spend (excl. accounting adjustments)
+  const { pieData, pieTotalM, outerRingData, accountingAdjTotal } = useMemo(() => {
+    if (!data?.departments) return { pieData: [], pieTotalM: 0, outerRingData: [], accountingAdjTotal: 0 };
+    const fy = activePieYear;
+
+    // Track total accounting adjustments excluded from pie
+    let acctAdj = 0;
+    for (const d of pieDepts) {
+      if (d.tme !== d.latest) acctAdj += d.tme - d.latest;
+    }
 
     // Group smallest departments (≤ Small and Independent Bodies threshold)
-    const smallBodies = sortedDepts.find((d) => d.cleanName === "Small and Independent Bodies");
+    const smallBodies = pieDepts.find((d) => d.cleanName === "Small and Independent Bodies");
     const threshold = smallBodies ? smallBodies.latest : 3000;
     const large = [];
     let smallTotal = 0;
-    for (const d of sortedDepts) {
+    for (const d of pieDepts) {
       if (d.latest > threshold) {
         large.push({ name: d.shortName, value: d.latest, color: d.color });
       } else if (d.latest > 0) {
@@ -336,19 +442,22 @@ export default function Spending() {
     );
     const diVal = debtInterest?.values[fy] || 0;
     if (diVal > 0) {
-      large.push({
+      const diEntry = {
         name: "Debt interest",
         value: diVal,
         color: DEPT_COLORS["Debt interest"],
         cleanName: "Debt Interest",
-        breakdown: [
+      };
+      if (fy === data.departments.latestFy) {
+        diEntry.breakdown = [
           { name: "Index-linked gilts", value: 38000 },
           { name: "Conventional gilts", value: 32000 },
           { name: "NS&I (savings products)", value: 7500 },
           { name: "Treasury bills", value: 4500 },
           { name: "Other debt interest", value: diVal - 82000 },
-        ],
-      });
+        ];
+      }
+      large.push(diEntry);
     }
 
     // Sort by value descending
@@ -356,17 +465,20 @@ export default function Spending() {
     const total = large.reduce((s, d) => s + d.value, 0);
 
     // Build outer ring: sub-categories only for slices >= Defence's size
-    const defenceVal = sortedDepts.find(d => d.cleanName === "Defence")?.latest || 0;
+    // Use only policy items (exclude accounting-tagged) for outer ring
+    const defenceVal = pieDepts.find(d => d.cleanName === "Defence")?.latest || 0;
     const outerRing = [];
     for (const entry of large) {
-      const dept = sortedDepts.find(d => d.shortName === entry.name);
-      const breakdown = dept?.breakdown || entry.breakdown;
+      const dept = pieDepts.find(d => d.shortName === entry.name);
+      const rawBk = dept?.breakdown || entry.breakdown;
+      const breakdown = resolveBreakdown(rawBk, fy);
       if (breakdown && entry.value >= defenceVal) {
         entry.hasSubRing = true;
-        const shades = generateShades(entry.color, breakdown.length);
-        const bkTotal = breakdown.reduce((s, d) => s + d.value, 0);
+        const policyBk = breakdown.filter(d => !d.accounting && d.value > 0);
+        const shades = generateShades(entry.color, policyBk.length);
+        const bkTotal = policyBk.reduce((s, d) => s + d.value, 0);
         const scale = entry.value / bkTotal;
-        breakdown.forEach((item, idx) => {
+        policyBk.forEach((item, idx) => {
           outerRing.push({ name: item.name, value: item.value * scale, color: shades[idx], parent: entry.name });
         });
       } else {
@@ -375,8 +487,34 @@ export default function Spending() {
       }
     }
 
-    return { pieData: large, pieTotalM: total, outerRingData: outerRing };
-  }, [data, sortedDepts]);
+    return { pieData: large, pieTotalM: total, outerRingData: outerRing, accountingAdjTotal: acctAdj };
+  }, [data, pieDepts, activePieYear]);
+
+  // Spend-by-year data for the clickable trend above the pie (policy spend, excl. accounting)
+  const spendByYear = useMemo(() => {
+    if (!data?.departments) return [];
+    return data.departments.fys.map((fy, i) => {
+      const deptSum = data.departments.deptTotal[fy] || 0;
+      const debtInterest = data.departments.otherItems.find(item =>
+        item.name.toLowerCase().includes("debt interest")
+      );
+      const diVal = debtInterest?.values[fy] || 0;
+      // Subtract accounting adjustments across all departments for this FY
+      let acctAdj = 0;
+      for (const dept of data.departments.items) {
+        const bk = dept.breakdown && !Array.isArray(dept.breakdown) ? dept.breakdown[fy] : null;
+        if (bk) {
+          acctAdj += bk.filter(d => d.accounting).reduce((s, d) => s + d.value, 0);
+        }
+      }
+      return {
+        fy,
+        fyShort: fy.slice(2, 4) + "/" + fy.slice(-2),
+        total: (deptSum - acctAdj + Math.max(diVal, 0)) / 1000,
+        type: data.departments.fyTypes[i],
+      };
+    });
+  }, [data]);
 
   const trendData = useMemo(() => {
     if (!data) return [];
@@ -475,7 +613,7 @@ export default function Spending() {
         <p style={sectionNote}>
           {selectedPieDept
             ? `${selectedPieDept.cleanName} sub-departmental breakdown, FY 2024-25.`
-            : `Government spending by department, FY ${latestFy}. Click a department to drill down.`}
+            : `Government spending by department. Click a year on the chart to explore, or click a department to drill down.`}
         </p>
 
         <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 12px 16px", position: "relative" }}>
@@ -520,7 +658,7 @@ export default function Spending() {
                           if (activeSlice === idx) {
                             // Second tap — drill down
                             const entry = pieData[idx];
-                            const match = sortedDepts.find(d => d.shortName === entry.name);
+                            const match = pieDepts.find(d => d.shortName === entry.name);
                             const target = match?.breakdown ? match : entry.breakdown ? entry : null;
                             if (target) { setSelectedPieDept(target); setActiveSlice(null); setHoveredItem(null); }
                             else { setActiveSlice(null); setHoveredItem(null); }
@@ -532,7 +670,7 @@ export default function Spending() {
                           return;
                         }
                         const entry = pieData[idx];
-                        const match = sortedDepts.find(d => d.shortName === entry.name);
+                        const match = pieDepts.find(d => d.shortName === entry.name);
                         const target = match?.breakdown ? match : entry.breakdown ? entry : null;
                         if (!target) return;
                         setSelectedPieDept(target);
@@ -575,7 +713,7 @@ export default function Spending() {
                           setActiveSlice(parentIdx >= 0 ? parentIdx : null);
                           return;
                         }
-                        const match = sortedDepts.find(d => d.shortName === item.parent);
+                        const match = pieDepts.find(d => d.shortName === item.parent);
                         if (!match?.breakdown) return;
                         setSelectedPieDept(match);
                         setActiveSlice(null);
@@ -614,7 +752,7 @@ export default function Spending() {
                         {fmtM(pieTotalM)}
                       </div>
                       <div style={{ fontSize: "10px", color: P.textLight, marginTop: 4, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.08em" }}>
-                        FY {latestFy}
+                        FY {activePieYear}
                       </div>
                     </>
                   )}
@@ -624,7 +762,7 @@ export default function Spending() {
               {/* Legend grid */}
               <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "4px 16px", marginTop: 8, padding: "0 20px" }}>
                 {pieData.map((item, idx) => {
-                  const deptMatch = sortedDepts.find(d => d.shortName === item.name && d.breakdown);
+                  const deptMatch = pieDepts.find(d => d.shortName === item.name && d.breakdown);
                   const hasDrill = !!(deptMatch || item.breakdown);
                   return (
                     <div
@@ -648,16 +786,53 @@ export default function Spending() {
                   );
                 })}
               </div>
+              {accountingAdjTotal !== 0 && (
+                <div style={{ marginTop: 8, padding: "6px 12px", background: "rgba(28,43,69,0.03)", borderRadius: 3, textAlign: "center" }}>
+                  <span style={{ fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>
+                    Excludes {fmtM(accountingAdjTotal)} in non-cash accounting adjustments (APF indemnity, nuclear provisions, CfD derivatives, loan write-offs)
+                  </span>
+                </div>
+              )}
+
+              {/* Spend-by-year trend — click to update pie */}
+              <div style={{ fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", marginTop: 14, marginBottom: 4, textAlign: "center" }}>
+                Policy spending by year (£bn) — click a point to update pie
+              </div>
+              <div style={{ height: isMobile ? 90 : 110, padding: "0 8px" }}>
+                <ResponsiveContainer width="100%" height="100%">
+                  <LineChart data={spendByYear} onClick={(e) => {
+                    if (e?.activePayload?.[0]) {
+                      const fy = e.activePayload[0].payload.fy;
+                      setPieYear(fy);
+                      setActiveSlice(null);
+                      setHoveredItem(null);
+                      setSelectedPieDept(null);
+                    }
+                  }}>
+                    <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
+                    <XAxis dataKey="fyShort" tick={{ fontSize: 10, fill: P.textMuted, fontFamily: "'DM Mono', monospace" }} />
+                    <YAxis tick={{ fontSize: 9, fill: P.textMuted }} tickFormatter={(v) => `£${v.toFixed(0)}bn`} width={52} domain={["auto", "auto"]} />
+                    <Tooltip content={<CustomTooltip formatter={(v) => `£${v?.toFixed(1)}bn`} />} />
+                    <Line type="monotone" dataKey="total" name="Policy spending" stroke={P.teal} strokeWidth={2} cursor="pointer"
+                      dot={(props) => {
+                        const isActive = spendByYear[props.index]?.fy === activePieYear;
+                        return <circle cx={props.cx} cy={props.cy} r={isActive ? 5 : 2.5} fill={P.teal} stroke={isActive ? P.bgCard : "none"} strokeWidth={isActive ? 2 : 0} style={{ cursor: "pointer" }} />;
+                      }}
+                      activeDot={{ r: 5, stroke: P.bgCard, strokeWidth: 2 }}
+                    />
+                  </LineChart>
+                </ResponsiveContainer>
+              </div>
             </>
           ) : (
             /* ── Drilled-down department pie ── */
-            <DrillPie dept={selectedPieDept} isMobile={isMobile} onBack={() => { setSelectedPieDept(null); setActiveSlice(null); setHoveredItem(null); }} />
+            <DrillPie dept={selectedPieDept} isMobile={isMobile} fy={activePieYear} onBack={() => { setSelectedPieDept(null); setActiveSlice(null); setHoveredItem(null); }} />
           )}
 
           <div style={{ marginTop: 10, fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em", textAlign: "center" }}>
             {selectedPieDept
               ? "SOURCE: Departmental Annual Report / Estimates 2024-25"
-              : <>SOURCE: HM Treasury PESA 2025, Table 1.12 &middot; FY {latestFy}</>}
+              : <>SOURCE: HM Treasury PESA 2025, Table 1.12 &middot; Policy spending, FY {activePieYear}</>}
           </div>
         </div>
       </section>
@@ -728,7 +903,32 @@ export default function Spending() {
                     </div>
                   </div>
 
-                  {isExpanded && (
+                  {isExpanded && (() => {
+                    const selFy = deptCardYear[dept.cleanName] || latestFy;
+                    const selVal = dept.values[selFy] || 0;
+                    const selBreakdown = resolveBreakdown(dept.breakdown, selFy);
+                    const hasYearData = dept.breakdown && !Array.isArray(dept.breakdown) && dept.breakdown[selFy];
+                    // Check if this department has any accounting-tagged items
+                    const hasAccountingItems = dept.breakdown && !Array.isArray(dept.breakdown) &&
+                      Object.values(dept.breakdown).some(items => items.some(d => d.accounting));
+                    const lineData = data.departments.fys.map((fy, i) => {
+                      const row = {
+                        fy: fy.slice(2, 4) + "/" + fy.slice(-2),
+                        fyFull: data.departments.fys[i],
+                        value: dept.values[fy],
+                        type: data.departments.fyTypes[i],
+                      };
+                      if (hasAccountingItems) {
+                        const bk = dept.breakdown[fy];
+                        if (bk) {
+                          const acctTotal = bk.filter(d => d.accounting).reduce((s, d) => s + d.value, 0);
+                          row.policy = (dept.values[fy] || 0) - acctTotal;
+                        }
+                      }
+                      return row;
+                    });
+                    const showDualLine = hasAccountingItems && lineData.some(d => d.policy != null);
+                    return (
                     <div style={{
                       margin: "0 8px 8px",
                       padding: "12px 14px",
@@ -740,49 +940,51 @@ export default function Spending() {
                         {dept.cleanName}
                       </div>
                       <div style={{ fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", marginBottom: 4 }}>
-                        TME trend (£m)
+                        {showDualLine ? (
+                          <>
+                            <span style={{ color: dept.color }}>━</span> Policy spending
+                            {" "}<span style={{ color: P.textLight }}>┈</span> Total TME (inc. accounting)
+                            {dept.breakdown ? " — click a point to see breakdown" : ""}
+                          </>
+                        ) : (
+                          <>TME trend (£m) {dept.breakdown ? "— click a point to see breakdown" : ""}</>
+                        )}
                       </div>
-                      <div style={{ height: 90, marginBottom: 10 }}>
+                      <div style={{ height: showDualLine ? 110 : 90, marginBottom: 10 }}>
                         <ResponsiveContainer width="100%" height="100%">
-                          <LineChart
-                            data={data.departments.fys.map((fy, i) => ({
-                              fy: fy.slice(0, 4),
-                              value: dept.values[fy],
-                              type: data.departments.fyTypes[i],
-                            }))}
-                          >
+                          <LineChart data={lineData} onClick={dept.breakdown ? (e) => {
+                            if (e?.activePayload?.[0]) {
+                              const fy = e.activePayload[0].payload.fyFull;
+                              setDeptCardYear(prev => ({ ...prev, [dept.cleanName]: fy }));
+                            }
+                          } : undefined}>
                             <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
                             <XAxis dataKey="fy" tick={{ fontSize: 9, fill: P.textMuted }} />
                             <YAxis tick={{ fontSize: 9, fill: P.textMuted }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}bn`} width={42} label={{ value: "£bn", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
                             <Tooltip content={<CustomTooltip formatter={(v) => `£${v != null ? v.toLocaleString() : "—"}m`} />} />
-                            <Line type="monotone" dataKey="value" stroke={dept.color} strokeWidth={2} dot={{ r: 2.5, fill: dept.color }} />
+                            {showDualLine && (
+                              <Line type="monotone" dataKey="value" name="Total TME" stroke={P.textLight} strokeWidth={1} strokeDasharray="4 3" dot={{ r: 1.5, fill: P.textLight }} activeDot={false} />
+                            )}
+                            <Line type="monotone" dataKey={showDualLine ? "policy" : "value"} name={showDualLine ? "Policy spending" : "TME"} stroke={dept.color} strokeWidth={2} cursor={dept.breakdown ? "pointer" : "default"}
+                              connectNulls
+                              dot={(props) => {
+                                const isSelected = dept.breakdown && lineData[props.index]?.fyFull === selFy;
+                                return <circle cx={props.cx} cy={props.cy} r={isSelected ? 5 : 2.5} fill={dept.color} stroke={isSelected ? P.bgCard : "none"} strokeWidth={isSelected ? 2 : 0} style={{ cursor: dept.breakdown ? "pointer" : "default" }} />;
+                              }} activeDot={dept.breakdown ? { r: 5, stroke: P.bgCard, strokeWidth: 2 } : { r: 3 }} />
+                            {showDualLine && <ReferenceLine y={0} stroke={P.border} strokeDasharray="2 2" />}
                           </LineChart>
                         </ResponsiveContainer>
                       </div>
-                      <div style={{ display: "flex", gap: 0, flexWrap: "wrap" }}>
-                        {data.departments.fys.map((fy, i) => {
-                          const val = dept.values[fy];
-                          const isLatest = fy === latestFy;
-                          return (
-                            <div key={fy} style={{
-                              flex: "1 1 70px", padding: "5px 6px", textAlign: "center",
-                              background: isLatest ? "rgba(28,43,69,0.04)" : "transparent", borderRadius: 2,
-                            }}>
-                              <div style={{ fontSize: "8px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>{fy}</div>
-                              <div style={{ fontSize: "10px", fontWeight: isLatest ? 600 : 400, color: P.text, fontFamily: "'DM Mono', monospace" }}>{fmtM(val)}</div>
-                              <div style={{ fontSize: "7px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>{data.departments.fyTypes[i]}</div>
-                            </div>
-                          );
-                        })}
-                      </div>
-                      {dept.breakdown ? (
-                        <div style={{ marginTop: 10 }}>
+                      {selBreakdown ? (
+                        <div style={{ marginTop: 4 }}>
                           <div style={{ fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", marginBottom: 6 }}>
-                            Sub-departmental breakdown (FY 2024-25, £m)
+                            Sub-departmental breakdown — FY {selFy} (£m{hasYearData ? "" : ", estimated proportions"})
                           </div>
-                          <SubDeptPie breakdown={dept.breakdown} color={dept.color} />
+                          <SubDeptPie breakdown={selBreakdown} color={dept.color} scaleTo={hasYearData ? undefined : selVal} />
                           <div style={{ marginTop: 6, fontSize: "8px", color: P.textLight, fontStyle: "italic", fontFamily: "'DM Mono', monospace" }}>
-                            Source: departmental Annual Report / Estimates 2024-25
+                            {hasYearData
+                              ? `Source: departmental Annual Report / Estimates ${selFy}`
+                              : "Source: departmental Annual Report / Estimates · proportions estimated from nearest year"}
                           </div>
                         </div>
                       ) : (
@@ -791,7 +993,8 @@ export default function Spending() {
                         </div>
                       )}
                     </div>
-                  )}
+                    );
+                  })()}
                 </div>
               );
             })}

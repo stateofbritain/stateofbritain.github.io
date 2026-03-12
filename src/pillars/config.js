@@ -39,7 +39,7 @@ const PILLARS = {
       infrastructure: { label: "Infrastructure",     icon: "≡" },
       investment:     { label: "Investment & Capital",  icon: "£" },
       productivity:   { label: "Productivity",         icon: "→" },
-      pq:             { label: "Productive Quotient",  icon: "◑" },
+      pq:             { label: "Frontline Ratio",  icon: "◑" },
       startups:       { label: "Startups & VC",       icon: "▲" },
       research:       { label: "Research Funding",     icon: "△" },
       spinouts:       { label: "University Spinouts",  icon: "◎" },
