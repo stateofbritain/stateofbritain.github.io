@@ -11,6 +11,7 @@ import useIsMobile from "../../hooks/useIsMobile";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
+import { track } from "../../analytics";
 
 const sectionHeading = {
   fontFamily: "'Playfair Display', serif",
@@ -660,7 +661,7 @@ export default function Spending() {
                             const entry = pieData[idx];
                             const match = pieDepts.find(d => d.shortName === entry.name);
                             const target = match?.breakdown ? match : entry.breakdown ? entry : null;
-                            if (target) { setSelectedPieDept(target); setActiveSlice(null); setHoveredItem(null); }
+                            if (target) { track("dept_drilldown", { department: entry.name }); setSelectedPieDept(target); setActiveSlice(null); setHoveredItem(null); }
                             else { setActiveSlice(null); setHoveredItem(null); }
                           } else {
                             // First tap — select
@@ -673,6 +674,7 @@ export default function Spending() {
                         const match = pieDepts.find(d => d.shortName === entry.name);
                         const target = match?.breakdown ? match : entry.breakdown ? entry : null;
                         if (!target) return;
+                        track("dept_drilldown", { department: entry.name });
                         setSelectedPieDept(target);
                         setActiveSlice(null);
                         setHoveredItem(null);
@@ -803,6 +805,7 @@ export default function Spending() {
                   <LineChart data={spendByYear} onClick={(e) => {
                     if (e?.activePayload?.[0]) {
                       const fy = e.activePayload[0].payload.fy;
+                      track("year_select", { year: fy, context: "spending_trend" });
                       setPieYear(fy);
                       setActiveSlice(null);
                       setHoveredItem(null);
@@ -857,7 +860,7 @@ export default function Spending() {
               return (
                 <div key={dept.cleanName}>
                   <div
-                    onClick={() => setExpandedDept(isExpanded ? null : idx)}
+                    onClick={() => { if (!isExpanded) track("dept_expand", { department: dept.cleanName }); setExpandedDept(isExpanded ? null : idx); }}
                     style={{
                       padding: "7px 8px",
                       marginBottom: 1,
@@ -955,6 +958,7 @@ export default function Spending() {
                           <LineChart data={lineData} onClick={dept.breakdown ? (e) => {
                             if (e?.activePayload?.[0]) {
                               const fy = e.activePayload[0].payload.fyFull;
+                              track("year_select", { year: fy, context: "dept_card", department: dept.cleanName });
                               setDeptCardYear(prev => ({ ...prev, [dept.cleanName]: fy }));
                             }
                           } : undefined}>
@@ -1089,8 +1093,8 @@ export default function Spending() {
         </p>
         <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px", boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
           <div style={{ display: "flex", gap: 6, marginBottom: 14 }}>
-            <button style={toggleBtn(trendView === "bn")} onClick={() => setTrendView("bn")}>£ billion</button>
-            <button style={toggleBtn(trendView === "pct")} onClick={() => setTrendView("pct")}>% of GDP</button>
+            <button style={toggleBtn(trendView === "bn")} onClick={() => { track("chart_toggle", { chart: "spending_trend", view: "bn" }); setTrendView("bn"); }}>£ billion</button>
+            <button style={toggleBtn(trendView === "pct")} onClick={() => { track("chart_toggle", { chart: "spending_trend", view: "pct" }); setTrendView("pct"); }}>% of GDP</button>
           </div>
           <ResponsiveContainer width="100%" height={360}>
             <AreaChart data={trendData}>

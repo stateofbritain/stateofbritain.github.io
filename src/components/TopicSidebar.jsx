@@ -1,4 +1,5 @@
 import P from "../theme/palette";
+import { track } from "../analytics";
 
 export default function TopicSidebar({ pillar, topics, activeTopic, onSelect, isMobile }) {
   if (isMobile) {
@@ -20,7 +21,7 @@ export default function TopicSidebar({ pillar, topics, activeTopic, onSelect, is
           return (
             <button
               key={key}
-              onClick={() => onSelect(key)}
+              onClick={() => { track("topic_select", { topic: topic.label }); onSelect(key); }}
               style={{
                 background: isActive ? "rgba(28,43,69,0.07)" : "rgba(28,43,69,0.02)",
                 border: isActive ? `1.5px solid ${pillar.color}` : `1px solid ${P.border}`,
@@ -71,7 +72,7 @@ export default function TopicSidebar({ pillar, topics, activeTopic, onSelect, is
         return (
           <button
             key={key}
-            onClick={() => onSelect(key)}
+            onClick={() => { track("topic_select", { topic: topic.label }); onSelect(key); }}
             style={{
               background: isActive ? "rgba(28,43,69,0.04)" : "transparent",
               border: "none",

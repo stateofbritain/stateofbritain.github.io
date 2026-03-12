@@ -1,5 +1,6 @@
 import PILLARS, { PILLAR_KEYS } from "../pillars/config";
 import P from "../theme/palette";
+import { track } from "../analytics";
 
 export default function PillarNav({ activePillar, onSelect, isMobile }) {
   return (
@@ -14,7 +15,7 @@ export default function PillarNav({ activePillar, onSelect, isMobile }) {
       }}
     >
       <button
-        onClick={() => onSelect(null)}
+        onClick={() => { track("pillar_select", { pillar: "overview" }); onSelect(null); }}
         style={{
           background: "none",
           border: "none",
@@ -49,7 +50,7 @@ export default function PillarNav({ activePillar, onSelect, isMobile }) {
         return (
           <button
             key={key}
-            onClick={() => onSelect(key)}
+            onClick={() => { track("pillar_select", { pillar: pillar.label }); onSelect(key); }}
             style={{
               background: "none",
               border: "none",
