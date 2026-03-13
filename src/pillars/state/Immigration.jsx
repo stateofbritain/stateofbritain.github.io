@@ -18,7 +18,7 @@ const sectionHeading = {
 };
 
 const sectionNote = {
-  fontSize: "13px",
+  fontSize: "14px",
   lineHeight: 1.7,
   color: P.textMuted,
   fontFamily: "'Playfair Display', serif",
@@ -49,7 +49,7 @@ export default function Immigration() {
     return (
       <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>Immigration</h2>
-        <p style={{ fontSize: "12px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>Loading immigration data...</p>
+        <p style={{ fontSize: "13px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>Loading immigration data...</p>
       </div>
     );
   }
@@ -58,7 +58,7 @@ export default function Immigration() {
     return (
       <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>Immigration</h2>
-        <p style={{ fontSize: "12px", color: P.red, fontFamily: "'DM Mono', monospace" }}>Failed to load data: {error ?? "No data"}</p>
+        <p style={{ fontSize: "13px", color: P.red, fontFamily: "'DM Mono', monospace" }}>Failed to load data: {error ?? "No data"}</p>
       </div>
     );
   }
@@ -70,7 +70,7 @@ export default function Immigration() {
       <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 6px" }}>
         Immigration
       </h2>
-      <p style={{ fontSize: "13px", color: P.textMuted, margin: "0 0 24px", fontFamily: "'Playfair Display', serif", maxWidth: 720 }}>
+      <p style={{ fontSize: "14px", color: P.textMuted, margin: "0 0 24px", fontFamily: "'Playfair Display', serif", maxWidth: 720 }}>
         Migration flows, visa types, asylum, population growth, and demographic change across the UK.
       </p>
 
@@ -96,16 +96,16 @@ export default function Immigration() {
             <LineChart data={data.netMigration.map((d) => ({ ...d, emigrationNeg: -d.emigration }))}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[-700, 1300]} tickFormatter={(v) => `${v}k`} label={{ value: "thousands", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[-700, 1300]} tickFormatter={(v) => `${v}k`} label={{ value: "thousands", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toLocaleString()}k`} />} />
               <ReferenceLine y={0} stroke={P.text} strokeWidth={1} />
               <Line type="monotone" dataKey="immigration" stroke={P.teal} strokeWidth={2} dot={{ r: 2, fill: P.teal }} name="Immigration" />
               <Line type="monotone" dataKey="emigrationNeg" stroke={P.red} strokeWidth={2} dot={{ r: 2, fill: P.red }} name="Emigration" />
               <Line type="monotone" dataKey="net" stroke={P.navy} strokeWidth={2.5} dot={{ r: 2, fill: P.navy }} name="Net migration" />
-              <Legend wrapperStyle={{ fontSize: 10, fontFamily: "'DM Mono', monospace" }} />
+              <Legend wrapperStyle={{ fontSize: 11, fontFamily: "'DM Mono', monospace" }} />
             </LineChart>
           </ResponsiveContainer>
-          <div style={{ marginTop: 6, fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+          <div style={{ marginTop: 6, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
             SOURCE: ONS Long-term International Migration, year ending
           </div>
         </div>
@@ -147,14 +147,14 @@ export default function Immigration() {
               {data.visaBreakdown.map((d, i) => (
                 <div key={d.type} style={{ display: "flex", alignItems: "center", gap: 8 }}>
                   <div style={{ width: 12, height: 12, borderRadius: 2, background: VISA_COLORS[i % VISA_COLORS.length] }} />
-                  <span style={{ fontSize: "12px", fontFamily: "'DM Mono', monospace", color: P.textMuted }}>
+                  <span style={{ fontSize: "13px", fontFamily: "'DM Mono', monospace", color: P.textMuted }}>
                     {d.type}: {d.value}k
                   </span>
                 </div>
               ))}
             </div>
           </div>
-          <div style={{ marginTop: 12, fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+          <div style={{ marginTop: 12, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
             SOURCE: Home Office Immigration Statistics, year ending June 2024
           </div>
         </div>
@@ -172,14 +172,14 @@ export default function Immigration() {
             <BarChart data={data.asylum}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 80]} tickFormatter={(v) => `${v}k`} label={{ value: "thousands", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 80]} tickFormatter={(v) => `${v}k`} label={{ value: "thousands", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}k`} />} />
               <Bar dataKey="applications" name="Applications" fill={P.navy} fillOpacity={0.6} radius={[3, 3, 0, 0]} />
               <Bar dataKey="grants" name="Grants" fill={P.teal} fillOpacity={0.8} radius={[3, 3, 0, 0]} />
-              <Legend wrapperStyle={{ fontSize: 10, fontFamily: "'DM Mono', monospace" }} />
+              <Legend wrapperStyle={{ fontSize: 11, fontFamily: "'DM Mono', monospace" }} />
             </BarChart>
           </ResponsiveContainer>
-          <div style={{ marginTop: 6, fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+          <div style={{ marginTop: 6, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
             SOURCE: Home Office Immigration Statistics
           </div>
         </div>
@@ -198,15 +198,15 @@ export default function Immigration() {
             <BarChart data={data.popComponents}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[-100, 750]} tickFormatter={(v) => `${v}k`} label={{ value: "thousands", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[-100, 750]} tickFormatter={(v) => `${v}k`} label={{ value: "thousands", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toLocaleString()}k`} />} />
               <ReferenceLine y={0} stroke={P.text} strokeWidth={1} />
               <Bar dataKey="naturalChange" name="Natural change (births - deaths)" fill={P.teal} fillOpacity={0.7} radius={[3, 3, 0, 0]} />
               <Bar dataKey="netMigration" name="Net migration" fill={P.navy} fillOpacity={0.7} radius={[3, 3, 0, 0]} />
-              <Legend wrapperStyle={{ fontSize: 10, fontFamily: "'DM Mono', monospace" }} />
+              <Legend wrapperStyle={{ fontSize: 11, fontFamily: "'DM Mono', monospace" }} />
             </BarChart>
           </ResponsiveContainer>
-          <div style={{ marginTop: 6, fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+          <div style={{ marginTop: 6, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
             SOURCE: ONS Components of Population Change, UK
           </div>
         </div>
@@ -224,12 +224,12 @@ export default function Immigration() {
             <AreaChart data={data.populationSeries}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[54, 70]} tickFormatter={(v) => `${v}m`} label={{ value: "millions", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[54, 70]} tickFormatter={(v) => `${v}m`} label={{ value: "millions", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v}m`} />} />
               <Area type="monotone" dataKey="population" stroke={P.navy} fill={P.navy} fillOpacity={0.1} strokeWidth={2.5} name="Population (millions)" dot={{ r: 2.5, fill: P.navy }} />
             </AreaChart>
           </ResponsiveContainer>
-          <div style={{ marginTop: 6, fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+          <div style={{ marginTop: 6, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
             SOURCE: ONS Population Estimates, UK
           </div>
         </div>
@@ -249,7 +249,7 @@ export default function Immigration() {
               <BarChart data={data.ageStructure}>
                 <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
                 <XAxis dataKey="group" tick={{ fontSize: 11, fill: P.textMuted }} />
-                <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 25]} tickFormatter={(v) => `${v}%`} label={{ value: "%", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+                <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 25]} tickFormatter={(v) => `${v}%`} label={{ value: "%", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
                 <Bar dataKey="pct" name="% of population" radius={[3, 3, 0, 0]}>
                   {data.ageStructure.map((_, i) => (
@@ -258,7 +258,7 @@ export default function Immigration() {
                 </Bar>
               </BarChart>
             </ResponsiveContainer>
-            <div style={{ marginTop: 6, fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+            <div style={{ marginTop: 6, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
               SOURCE: ONS Population Estimates by Age, mid-2023
             </div>
           </div>
@@ -267,14 +267,14 @@ export default function Immigration() {
               <AreaChart data={data.dependencyRatio}>
                 <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
                 <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-                <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 60]} label={{ value: "ratio", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+                <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 60]} label={{ value: "ratio", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
                 <Tooltip content={<CustomTooltip />} />
                 <Area type="monotone" dataKey="old" stackId="1" stroke={P.sienna} fill={P.sienna} fillOpacity={0.5} name="Old-age (65+)" />
                 <Area type="monotone" dataKey="young" stackId="1" stroke={P.teal} fill={P.teal} fillOpacity={0.5} name="Youth (0-15)" />
-                <Legend wrapperStyle={{ fontSize: 10, fontFamily: "'DM Mono', monospace" }} />
+                <Legend wrapperStyle={{ fontSize: 11, fontFamily: "'DM Mono', monospace" }} />
               </AreaChart>
             </ResponsiveContainer>
-            <div style={{ marginTop: 6, fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+            <div style={{ marginTop: 6, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
               SOURCE: ONS Dependency Ratio, per 100 working age
             </div>
           </div>
@@ -293,12 +293,12 @@ export default function Immigration() {
             <AreaChart data={data.foreignBorn}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[8, 18]} tickFormatter={(v) => `${v}%`} label={{ value: "%", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[8, 18]} tickFormatter={(v) => `${v}%`} label={{ value: "%", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
               <Area type="monotone" dataKey="pct" stroke={P.sienna} fill={P.sienna} fillOpacity={0.12} strokeWidth={2.5} name="Foreign-born %" dot={{ r: 2.5, fill: P.sienna }} />
             </AreaChart>
           </ResponsiveContainer>
-          <div style={{ marginTop: 6, fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+          <div style={{ marginTop: 6, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
             SOURCE: ONS Annual Population Survey / Labour Force Survey
           </div>
         </div>
@@ -319,7 +319,7 @@ export default function Immigration() {
       </AnalysisBox>
 
       {/* Sources */}
-      <div style={{ marginTop: 24, fontSize: "11px", color: P.textLight, fontFamily: "'DM Mono', monospace", lineHeight: 1.8 }}>
+      <div style={{ marginTop: 24, fontSize: "12px", color: P.textLight, fontFamily: "'DM Mono', monospace", lineHeight: 1.8 }}>
         <strong>Sources:</strong>{" "}
         {data.meta.sources.map((src, i) => (
           <span key={i}>

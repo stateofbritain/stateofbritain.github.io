@@ -1,7 +1,7 @@
 import { useState } from "react";
 import {
-  LineChart, Line, BarChart, Bar,
-  XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
+  LineChart, Line, BarChart, Bar, Area, ComposedChart,
+  XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine,
 } from "recharts";
 import P from "../../theme/palette";
 import { fetchHousePrices, toAnnual } from "../../api/landRegistry";
@@ -37,6 +37,40 @@ const OWNERSHIP_BY_AGE = [
   { year: "24-25", "16-24": 10.6, "25-34": 47.7, "35-44": 56.4, "45-54": 65.7, "55-64": 70.8, "65+": 78.9 },
 ];
 
+// ONS Housing Affordability in England and Wales
+// Median house price to median workplace-based annual earnings ratio
+// Source: ONS Table 5c, 1997–2024
+const AFFORDABILITY = [
+  { year: 1997, ratio: 3.54, price: 60000,  earnings: 16950 },
+  { year: 1998, ratio: 3.65, price: 62500,  earnings: 17120 },
+  { year: 1999, ratio: 3.88, price: 67000,  earnings: 17270 },
+  { year: 2000, ratio: 4.11, price: 72000,  earnings: 17520 },
+  { year: 2001, ratio: 4.39, price: 78000,  earnings: 17770 },
+  { year: 2002, ratio: 5.13, price: 94000,  earnings: 18330 },
+  { year: 2003, ratio: 5.88, price: 114000, earnings: 19390 },
+  { year: 2004, ratio: 6.57, price: 137000, earnings: 20850 },
+  { year: 2005, ratio: 6.82, price: 143000, earnings: 20970 },
+  { year: 2006, ratio: 7.15, price: 152000, earnings: 21260 },
+  { year: 2007, ratio: 7.25, price: 160000, earnings: 22070 },
+  { year: 2008, ratio: 6.97, price: 157000, earnings: 22530 },
+  { year: 2009, ratio: 6.28, price: 145000, earnings: 23100 },
+  { year: 2010, ratio: 6.69, price: 155000, earnings: 23170 },
+  { year: 2011, ratio: 6.58, price: 152500, earnings: 23170 },
+  { year: 2012, ratio: 6.59, price: 153000, earnings: 23220 },
+  { year: 2013, ratio: 6.76, price: 157500, earnings: 23300 },
+  { year: 2014, ratio: 7.09, price: 167000, earnings: 23560 },
+  { year: 2015, ratio: 7.52, price: 178000, earnings: 23660 },
+  { year: 2016, ratio: 7.72, price: 190000, earnings: 24600 },
+  { year: 2017, ratio: 7.91, price: 197000, earnings: 24900 },
+  { year: 2018, ratio: 8.04, price: 203000, earnings: 25250 },
+  { year: 2019, ratio: 7.83, price: 200000, earnings: 25550 },
+  { year: 2020, ratio: 7.69, price: 204000, earnings: 26530 },
+  { year: 2021, ratio: 8.96, price: 240000, earnings: 26780 },
+  { year: 2022, ratio: 8.28, price: 257500, earnings: 31100 },
+  { year: 2023, ratio: 8.26, price: 262500, earnings: 31800 },
+  { year: 2024, ratio: 7.54, price: 282500, earnings: 37470 },
+];
+
 const AGE_BANDS = [
   { key: "25-34", label: "25–34", color: P.sienna },
   { key: "35-44", label: "35–44", color: P.yellow },
@@ -62,7 +96,7 @@ export default function Housing() {
     return (
       <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>Housing</h2>
-        <p style={{ fontSize: "12px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>Loading Land Registry data...</p>
+        <p style={{ fontSize: "13px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>Loading Land Registry data...</p>
       </div>
     );
   }
@@ -71,7 +105,7 @@ export default function Housing() {
     return (
       <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>Housing</h2>
-        <p style={{ fontSize: "12px", color: P.red, fontFamily: "'DM Mono', monospace" }}>Failed to load data: {error}</p>
+        <p style={{ fontSize: "13px", color: P.red, fontFamily: "'DM Mono', monospace" }}>Failed to load data: {error}</p>
       </div>
     );
   }
@@ -96,7 +130,7 @@ export default function Housing() {
     <div style={{ animation: "fadeSlideIn 0.4s ease both" }}>
       <div style={{ display: "flex", alignItems: "baseline", gap: 14, marginBottom: 8, flexWrap: "wrap" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(26px, 4vw, 36px)", fontWeight: 600, color: P.text, margin: 0 }}>Housing</h2>
-        <span style={{ fontSize: "12px", color: P.textLight, fontStyle: "italic", fontFamily: "'Playfair Display', serif" }}>UK House Price Index</span>
+        <span style={{ fontSize: "13px", color: P.textLight, fontStyle: "italic", fontFamily: "'Playfair Display', serif" }}>UK House Price Index</span>
       </div>
 
       {/* Metrics */}
@@ -172,7 +206,7 @@ export default function Housing() {
                   border: "none",
                   color: chartView === key ? P.text : P.textLight,
                   padding: "4px 12px",
-                  fontSize: "9px",
+                  fontSize: "10px",
                   fontWeight: 500,
                   textTransform: "uppercase",
                   letterSpacing: "0.1em",
@@ -193,7 +227,7 @@ export default function Housing() {
             <BarChart data={quarterly} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
               <XAxis dataKey="month" tick={axisTick} axisLine={{ stroke: P.border }} tickLine={false} />
-              <YAxis tick={axisTick} axisLine={false} tickLine={false} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} label={{ value: "Monthly sales", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <YAxis tick={axisTick} axisLine={false} tickLine={false} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} label={{ value: "Monthly sales", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip />} />
               <Bar dataKey="salesVolume" name="Sales Volume" fill={P.teal} opacity={0.7} radius={[2, 2, 0, 0]} />
             </BarChart>
@@ -201,7 +235,7 @@ export default function Housing() {
             <LineChart data={quarterly} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
               <XAxis dataKey="month" tick={axisTick} axisLine={{ stroke: P.border }} tickLine={false} />
-              <YAxis tick={axisTick} axisLine={false} tickLine={false} tickFormatter={(v) => `£${(v / 1000).toFixed(0)}k`} label={{ value: "Average price", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <YAxis tick={axisTick} axisLine={false} tickLine={false} tickFormatter={(v) => `£${(v / 1000).toFixed(0)}k`} label={{ value: "Average price", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip />} />
               <Line type="monotone" dataKey="averagePriceDetached" name="Detached" stroke={P.navy} strokeWidth={2} dot={false} />
               <Line type="monotone" dataKey="averagePriceSemiDetached" name="Semi-detached" stroke={P.teal} strokeWidth={2} dot={false} />
@@ -212,7 +246,7 @@ export default function Housing() {
             <LineChart data={quarterly} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
               <XAxis dataKey="month" tick={axisTick} axisLine={{ stroke: P.border }} tickLine={false} />
-              <YAxis tick={axisTick} axisLine={false} tickLine={false} tickFormatter={(v) => `£${(v / 1000).toFixed(0)}k`} label={{ value: "Average price", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <YAxis tick={axisTick} axisLine={false} tickLine={false} tickFormatter={(v) => `£${(v / 1000).toFixed(0)}k`} label={{ value: "Average price", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip />} />
               <Line type="monotone" dataKey="averagePrice" name="Average" stroke={P.yellow} strokeWidth={2.5} dot={false} />
               <Line type="monotone" dataKey="averagePriceDetached" name="Detached" stroke={P.navy} strokeWidth={1.5} dot={false} strokeDasharray="4 3" />
@@ -221,7 +255,7 @@ export default function Housing() {
           )}
         </ResponsiveContainer>
 
-        <div style={{ marginTop: 8, fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+        <div style={{ marginTop: 8, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
           SOURCES:{" "}
           <a
             href="https://landregistry.data.gov.uk/app/ukhpi"
@@ -244,14 +278,80 @@ export default function Housing() {
         </div>
       </div>
 
+      {/* Affordability */}
+      <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px", marginTop: 24 }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 8, marginBottom: 10 }}>
+          <div>
+            <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>
+              Housing Affordability
+            </div>
+            <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>
+              Median house price ÷ median annual earnings, England &amp; Wales
+            </div>
+          </div>
+          <div style={{ display: "flex", gap: 12 }}>
+            <LegendDot color={P.sienna} label="Affordability Ratio" />
+            <LegendDot color="rgba(166,124,82,0.12)" label="Median Price / Earnings" />
+          </div>
+        </div>
+
+        <ResponsiveContainer width="100%" height={300}>
+          <ComposedChart data={AFFORDABILITY} margin={{ top: 5, right: 10, left: 10, bottom: 0 }}>
+            <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
+            <XAxis dataKey="year" tick={axisTick} axisLine={{ stroke: P.border }} tickLine={false} />
+            <YAxis
+              yAxisId="ratio"
+              tick={axisTick} axisLine={false} tickLine={false}
+              domain={[0, 10]}
+              label={{ value: "Price-to-earnings ratio", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+              tickFormatter={(v) => `${v}×`}
+            />
+            <YAxis
+              yAxisId="price"
+              orientation="right"
+              tick={axisTick} axisLine={false} tickLine={false}
+              domain={[0, 300000]}
+              tickFormatter={(v) => `£${(v / 1000).toFixed(0)}k`}
+              label={{ value: "£", angle: 90, position: "insideRight", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+            />
+            <Tooltip
+              content={({ active, payload, label }) => {
+                if (!active || !payload?.length) return null;
+                const d = payload[0]?.payload;
+                return (
+                  <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "8px 12px", fontSize: "12px", fontFamily: "'DM Mono', monospace", lineHeight: 1.7 }}>
+                    <div style={{ fontWeight: 600, marginBottom: 2 }}>{label}</div>
+                    <div style={{ color: P.sienna }}>Ratio: {d.ratio}×</div>
+                    <div style={{ color: P.textMuted }}>Median price: {formatPrice(d.price)}</div>
+                    <div style={{ color: P.textMuted }}>Median earnings: {formatPrice(d.earnings)}</div>
+                  </div>
+                );
+              }}
+            />
+            <Area yAxisId="price" type="monotone" dataKey="price" name="Median Price" fill="rgba(166,124,82,0.08)" stroke="rgba(166,124,82,0.25)" strokeWidth={1} dot={false} />
+            <Area yAxisId="price" type="monotone" dataKey="earnings" name="Median Earnings" fill="rgba(28,43,69,0.05)" stroke="rgba(28,43,69,0.15)" strokeWidth={1} dot={false} />
+            <Line yAxisId="ratio" type="monotone" dataKey="ratio" name="Affordability Ratio" stroke={P.sienna} strokeWidth={2.5} dot={false} />
+            <ReferenceLine yAxisId="ratio" y={AFFORDABILITY[0].ratio} stroke={P.sienna} strokeDasharray="4 3" strokeOpacity={0.4} />
+          </ComposedChart>
+        </ResponsiveContainer>
+
+        <div style={{ marginTop: 8, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+          SOURCE:{" "}
+          <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/housing/bulletins/housingaffordabilityinenglandandwales/latest" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
+            ONS Housing Affordability in England and Wales, Table 5c
+          </a>
+          {" "}&middot; Median workplace-based, 1997–2024
+        </div>
+      </div>
+
       {/* Home ownership by age */}
       <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px", marginTop: 24 }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 8, marginBottom: 10 }}>
           <div>
-            <div style={{ fontSize: "13px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>
+            <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>
               Home Ownership by Age
             </div>
-            <div style={{ fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>
+            <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>
               % of households who are owner-occupiers, England
             </div>
           </div>
@@ -268,7 +368,7 @@ export default function Housing() {
             <XAxis dataKey="year" tick={axisTick} axisLine={{ stroke: P.border }} tickLine={false} />
             <YAxis
               tick={axisTick} axisLine={false} tickLine={false} domain={[0, 100]}
-              label={{ value: "% home ownership", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+              label={{ value: "% home ownership", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
             />
             <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
             {AGE_BANDS.map((b) => (
@@ -277,7 +377,7 @@ export default function Housing() {
           </LineChart>
         </ResponsiveContainer>
 
-        <div style={{ marginTop: 8, fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+        <div style={{ marginTop: 8, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
           SOURCE:{" "}
           <a href="https://www.gov.uk/government/collections/english-housing-survey" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
             English Housing Survey Annex Table 1.4 (DLUHC)
@@ -292,6 +392,8 @@ export default function Housing() {
         Detached: {formatPrice(latest?.averagePriceDetached)}.
         Flat: {formatPrice(latest?.averagePriceFlat)}.
         Annual change: {latest?.annualChange >= 0 ? "+" : ""}{latest?.annualChange?.toFixed(1)}%.
+        {" "}The median house in England &amp; Wales cost {AFFORDABILITY[0].ratio}× median earnings in 1997;
+        by 2024 the ratio was {AFFORDABILITY[AFFORDABILITY.length - 1].ratio}×, peaking at {Math.max(...AFFORDABILITY.map(d => d.ratio)).toFixed(2)}× in 2021.
         {" "}Home ownership rate (EHS 2024-25): 25-34 year olds {OWNERSHIP_BY_AGE[OWNERSHIP_BY_AGE.length - 1]["25-34"]}%
         (down from {OWNERSHIP_BY_AGE[0]["25-34"]}% in 2003-04);
         35-44 year olds {OWNERSHIP_BY_AGE[OWNERSHIP_BY_AGE.length - 1]["35-44"]}%
@@ -302,7 +404,7 @@ export default function Housing() {
 }
 
 const axisTick = {
-  fontSize: 10,
+  fontSize: 11,
   fill: "#9B9285",
   fontFamily: "'DM Mono', monospace",
 };
@@ -311,7 +413,7 @@ function LegendDot({ color, label }) {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
       <span style={{ width: 14, height: 2.5, background: color, display: "inline-block", borderRadius: 1 }} />
-      <span style={{ fontSize: "10px", color: "#6B6458", fontWeight: 400, letterSpacing: "0.04em" }}>{label}</span>
+      <span style={{ fontSize: "11px", color: "#6B6458", fontWeight: 400, letterSpacing: "0.04em" }}>{label}</span>
     </div>
   );
 }

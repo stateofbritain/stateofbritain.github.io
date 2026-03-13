@@ -68,7 +68,7 @@ export default function Safety() {
     return (
       <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>Safety</h2>
-        <p style={{ fontSize: "12px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>Loading Police API data (10 city centres)...</p>
+        <p style={{ fontSize: "13px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>Loading Police API data (10 city centres)...</p>
       </div>
     );
   }
@@ -77,7 +77,7 @@ export default function Safety() {
     return (
       <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>Safety</h2>
-        <p style={{ fontSize: "12px", color: P.red, fontFamily: "'DM Mono', monospace" }}>Failed to load data: {error ?? "No data"}</p>
+        <p style={{ fontSize: "13px", color: P.red, fontFamily: "'DM Mono', monospace" }}>Failed to load data: {error ?? "No data"}</p>
       </div>
     );
   }
@@ -93,7 +93,7 @@ export default function Safety() {
     <div style={{ animation: "fadeSlideIn 0.4s ease both" }}>
       <div style={{ display: "flex", alignItems: "baseline", gap: 14, marginBottom: 8, flexWrap: "wrap" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(26px, 4vw, 36px)", fontWeight: 600, color: P.text, margin: 0 }}>Safety</h2>
-        <span style={{ fontSize: "12px", color: P.textLight, fontStyle: "italic", fontFamily: "'Playfair Display', serif" }}>
+        <span style={{ fontSize: "13px", color: P.textLight, fontStyle: "italic", fontFamily: "'Playfair Display', serif" }}>
           Street-level crime — {latestDate}
         </span>
       </div>
@@ -135,7 +135,7 @@ export default function Safety() {
 
       <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px", marginBottom: 24, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16, flexWrap: "wrap", gap: 10 }}>
-          <span style={{ fontSize: "10px", color: P.textMuted, fontWeight: 400, letterSpacing: "0.04em", fontFamily: "'DM Mono', monospace" }}>
+          <span style={{ fontSize: "11px", color: P.textMuted, fontWeight: 400, letterSpacing: "0.04em", fontFamily: "'DM Mono', monospace" }}>
             Crime by category — {latestDate}
           </span>
           <div style={{ display: "flex", gap: 0, border: `1px solid ${P.borderStrong}`, borderRadius: 3 }}>
@@ -147,7 +147,7 @@ export default function Safety() {
                   background: chartView === t ? "rgba(28,43,69,0.06)" : "transparent",
                   border: "none",
                   color: chartView === t ? P.text : P.textLight,
-                  padding: "4px 12px", fontSize: "9px", fontWeight: 500,
+                  padding: "4px 12px", fontSize: "10px", fontWeight: 500,
                   textTransform: "uppercase", letterSpacing: "0.1em",
                   cursor: "pointer", fontFamily: "'DM Mono', monospace",
                   transition: "all 0.15s", borderRadius: 2,
@@ -185,7 +185,7 @@ export default function Safety() {
               margin={{ top: 5, right: 20, left: isMobile ? 10 : 120, bottom: 0 }}
             >
               <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" horizontal={false} />
-              <XAxis type="number" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} label={{ value: "Reported crimes", position: "insideBottomRight", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <XAxis type="number" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} label={{ value: "Reported crimes", position: "insideBottomRight", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <YAxis
                 type="category"
                 dataKey="category"
@@ -204,7 +204,7 @@ export default function Safety() {
           )}
         </ResponsiveContainer>
 
-        <div style={{ marginTop: 8, fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+        <div style={{ marginTop: 8, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
           SOURCE:{" "}
           <a href="https://data.police.uk/" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
             data.police.uk

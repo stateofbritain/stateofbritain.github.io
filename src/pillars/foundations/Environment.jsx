@@ -29,7 +29,7 @@ const sectionHeading = {
 };
 
 const sectionNote = {
-  fontSize: "13px",
+  fontSize: "14px",
   lineHeight: 1.7,
   color: P.textMuted,
   fontFamily: "'Playfair Display', serif",
@@ -64,7 +64,7 @@ export default function Environment() {
     return (
       <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>Environment</h2>
-        <p style={{ fontSize: "12px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>Loading environment data...</p>
+        <p style={{ fontSize: "13px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>Loading environment data...</p>
       </div>
     );
   }
@@ -73,7 +73,7 @@ export default function Environment() {
     return (
       <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>Environment</h2>
-        <p style={{ fontSize: "12px", color: P.red, fontFamily: "'DM Mono', monospace" }}>Failed to load data: {error ?? "No data"}</p>
+        <p style={{ fontSize: "13px", color: P.red, fontFamily: "'DM Mono', monospace" }}>Failed to load data: {error ?? "No data"}</p>
       </div>
     );
   }
@@ -97,7 +97,7 @@ export default function Environment() {
     <div style={{ animation: "fadeSlideIn 0.4s ease both" }}>
       <div style={{ display: "flex", alignItems: "baseline", gap: 14, marginBottom: 8, flexWrap: "wrap" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(26px, 4vw, 36px)", fontWeight: 600, color: P.text, margin: 0 }}>Environment</h2>
-        <span style={{ fontSize: "12px", color: P.textLight, fontStyle: "italic", fontFamily: "'Playfair Display', serif" }}>
+        <span style={{ fontSize: "13px", color: P.textLight, fontStyle: "italic", fontFamily: "'Playfair Display', serif" }}>
           DESNZ &middot; DEFRA &middot; DfT
         </span>
       </div>
@@ -252,7 +252,7 @@ export default function Environment() {
       </div>
 
       {/* Source citations */}
-      <div style={{ fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em", marginBottom: 20 }}>
+      <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em", marginBottom: 20 }}>
         SOURCES:{" "}
         <a href="https://www.gov.uk/government/statistics/provisional-uk-greenhouse-gas-emissions-national-statistics-2024" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
           DESNZ Provisional GHG Emissions 2024
@@ -285,7 +285,7 @@ function ChartCard({ label, yearRange, views, viewLabels, activeView, onViewChan
   return (
     <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px", marginBottom: 16, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16, flexWrap: "wrap", gap: 10 }}>
-        <span style={{ fontSize: "10px", color: P.textMuted, fontWeight: 400, letterSpacing: "0.04em", fontFamily: "'DM Mono', monospace" }}>
+        <span style={{ fontSize: "11px", color: P.textMuted, fontWeight: 400, letterSpacing: "0.04em", fontFamily: "'DM Mono', monospace" }}>
           {label} &middot; {yearRange}
         </span>
         {views && onViewChange && (
@@ -298,7 +298,7 @@ function ChartCard({ label, yearRange, views, viewLabels, activeView, onViewChan
                   background: activeView === v ? "rgba(28,43,69,0.06)" : "transparent",
                   border: "none",
                   color: activeView === v ? P.text : P.textLight,
-                  padding: "4px 10px", fontSize: "9px", fontWeight: 500,
+                  padding: "4px 10px", fontSize: "10px", fontWeight: 500,
                   textTransform: "uppercase", letterSpacing: "0.1em",
                   cursor: "pointer", fontFamily: "'DM Mono', monospace",
                   transition: "all 0.15s", borderRadius: 2,
@@ -321,7 +321,7 @@ function Legend({ items }) {
       {items.map((item) => (
         <div key={item.key} style={{ display: "flex", alignItems: "center", gap: 5 }}>
           <span style={{ width: 14, height: 8, background: item.color, display: "inline-block", borderRadius: 1 }} />
-          <span style={{ fontSize: "10px", color: P.textMuted, fontWeight: 400, letterSpacing: "0.04em" }}>{item.label}</span>
+          <span style={{ fontSize: "11px", color: P.textMuted, fontWeight: 400, letterSpacing: "0.04em" }}>{item.label}</span>
         </div>
       ))}
     </div>
@@ -335,11 +335,11 @@ function GHGStackedChart({ data }) {
     <ResponsiveContainer width="100%" height={340}>
       <AreaChart data={data} margin={{ top: 5, right: 10, left: 10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
+        <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
         <YAxis
-          tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
+          tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false}
-          label={{ value: "MtCO2e", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+          label={{ value: "MtCO2e", angle: -90, position: "insideLeft", style: { fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
         />
         <Tooltip content={<CustomTooltip />} />
         {GHG_SECTORS.map((s) => (
@@ -355,11 +355,11 @@ function GHGTotalChart({ data }) {
     <ResponsiveContainer width="100%" height={340}>
       <LineChart data={data} margin={{ top: 5, right: 10, left: 10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} interval={4} />
+        <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} interval={4} />
         <YAxis
-          tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
+          tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false} domain={[0, 900]}
-          label={{ value: "MtCO2e", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+          label={{ value: "MtCO2e", angle: -90, position: "insideLeft", style: { fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
         />
         <Tooltip content={<CustomTooltip />} />
         <Line type="monotone" dataKey="total" name="Total GHG (MtCO2e)" stroke={P.teal} strokeWidth={2.5} dot={false} />
@@ -373,14 +373,14 @@ function PM25Chart({ data }) {
     <ResponsiveContainer width="100%" height={340}>
       <LineChart data={data} margin={{ top: 5, right: 10, left: 10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
+        <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
         <YAxis
-          tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
+          tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false} domain={[0, 16]}
-          label={{ value: "µg/m³", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+          label={{ value: "µg/m³", angle: -90, position: "insideLeft", style: { fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
         />
         <Tooltip content={<CustomTooltip />} />
-        <ReferenceLine y={5} stroke={P.red} strokeDasharray="6 3" label={{ value: "WHO guideline (5)", position: "right", style: { fontSize: 9, fill: P.red, fontFamily: "'DM Mono', monospace" } }} />
+        <ReferenceLine y={5} stroke={P.red} strokeDasharray="6 3" label={{ value: "WHO guideline (5)", position: "right", style: { fontSize: 10, fill: P.red, fontFamily: "'DM Mono', monospace" } }} />
         <Line type="monotone" dataKey="mean" name="PM2.5 (µg/m³)" stroke={P.sienna} strokeWidth={2.5} dot={{ r: 3, fill: P.sienna }} />
       </LineChart>
     </ResponsiveContainer>
@@ -392,14 +392,14 @@ function NO2Chart({ data }) {
     <ResponsiveContainer width="100%" height={340}>
       <LineChart data={data} margin={{ top: 5, right: 10, left: 10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} interval={4} />
+        <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} interval={4} />
         <YAxis
-          tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
+          tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false} domain={[0, 60]}
-          label={{ value: "µg/m³", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+          label={{ value: "µg/m³", angle: -90, position: "insideLeft", style: { fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
         />
         <Tooltip content={<CustomTooltip />} />
-        <ReferenceLine y={10} stroke={P.red} strokeDasharray="6 3" label={{ value: "WHO guideline (10)", position: "right", style: { fontSize: 9, fill: P.red, fontFamily: "'DM Mono', monospace" } }} />
+        <ReferenceLine y={10} stroke={P.red} strokeDasharray="6 3" label={{ value: "WHO guideline (10)", position: "right", style: { fontSize: 10, fill: P.red, fontFamily: "'DM Mono', monospace" } }} />
         <Line type="monotone" dataKey="mean" name="NO2 (µg/m³)" stroke={P.navy} strokeWidth={2.5} dot={false} />
       </LineChart>
     </ResponsiveContainer>
@@ -411,9 +411,9 @@ function ULEVChart({ data }) {
     <ResponsiveContainer width="100%" height={340}>
       <BarChart data={data} margin={{ top: 5, right: 10, left: 20, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
+        <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
         <YAxis
-          tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
+          tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false}
           tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v}
         />

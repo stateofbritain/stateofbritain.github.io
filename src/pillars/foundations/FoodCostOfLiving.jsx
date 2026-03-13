@@ -36,7 +36,7 @@ export default function FoodCostOfLiving() {
     return (
       <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>Food & Cost of Living</h2>
-        <p style={{ fontSize: "12px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>Loading CPIH data...</p>
+        <p style={{ fontSize: "13px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>Loading CPIH data...</p>
       </div>
     );
   }
@@ -45,7 +45,7 @@ export default function FoodCostOfLiving() {
     return (
       <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>Food & Cost of Living</h2>
-        <p style={{ fontSize: "12px", color: P.red, fontFamily: "'DM Mono', monospace" }}>Failed to load data: {error ?? "No data"}</p>
+        <p style={{ fontSize: "13px", color: P.red, fontFamily: "'DM Mono', monospace" }}>Failed to load data: {error ?? "No data"}</p>
       </div>
     );
   }
@@ -68,7 +68,7 @@ export default function FoodCostOfLiving() {
     <div style={{ animation: "fadeSlideIn 0.4s ease both" }}>
       <div style={{ display: "flex", alignItems: "baseline", gap: 14, marginBottom: 8, flexWrap: "wrap" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(26px, 4vw, 36px)", fontWeight: 600, color: P.text, margin: 0 }}>Food & Cost of Living</h2>
-        <span style={{ fontSize: "12px", color: P.textLight, fontStyle: "italic", fontFamily: "'Playfair Display', serif" }}>CPIH price indices (2015 = 100)</span>
+        <span style={{ fontSize: "13px", color: P.textLight, fontStyle: "italic", fontFamily: "'Playfair Display', serif" }}>CPIH price indices (2015 = 100)</span>
       </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 12, marginBottom: 28 }}>
@@ -90,7 +90,7 @@ export default function FoodCostOfLiving() {
           {AGGREGATES.map((agg) => (
             <div key={agg.id} style={{ display: "flex", alignItems: "center", gap: 5 }}>
               <span style={{ width: 14, height: 2.5, background: agg.color, display: "inline-block", borderRadius: 1 }} />
-              <span style={{ fontSize: "10px", color: P.textMuted, fontWeight: 400, letterSpacing: "0.04em" }}>{agg.label}</span>
+              <span style={{ fontSize: "11px", color: P.textMuted, fontWeight: 400, letterSpacing: "0.04em" }}>{agg.label}</span>
             </div>
           ))}
         </div>
@@ -100,15 +100,15 @@ export default function FoodCostOfLiving() {
             <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
             <XAxis
               dataKey="time"
-              tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
+              tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
               axisLine={{ stroke: P.border }}
               tickLine={false}
             />
             <YAxis
-              tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
+              tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
               axisLine={false}
               tickLine={false}
-              label={{ value: "Index (2015=100)", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+              label={{ value: "Index (2015=100)", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
             />
             <Tooltip content={<CustomTooltip />} />
             {AGGREGATES.map((agg) => (
@@ -126,7 +126,7 @@ export default function FoodCostOfLiving() {
           </LineChart>
         </ResponsiveContainer>
 
-        <div style={{ marginTop: 8, fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+        <div style={{ marginTop: 8, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
           SOURCE:{" "}
           <a href="https://www.ons.gov.uk/economy/inflationandpriceindices" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
             ONS Consumer Prices Index including owner occupiers' housing costs (CPIH)

@@ -27,7 +27,7 @@ const ELEC_FUELS = [
 ];
 
 const sectionNote = {
-  fontSize: "13px",
+  fontSize: "14px",
   lineHeight: 1.7,
   color: P.textMuted,
   fontFamily: "'Playfair Display', serif",
@@ -82,7 +82,7 @@ export default function Energy() {
     return (
       <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>Energy</h2>
-        <p style={{ fontSize: "12px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>Loading DESNZ energy data...</p>
+        <p style={{ fontSize: "13px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>Loading DESNZ energy data...</p>
       </div>
     );
   }
@@ -91,7 +91,7 @@ export default function Energy() {
     return (
       <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>Energy</h2>
-        <p style={{ fontSize: "12px", color: P.red, fontFamily: "'DM Mono', monospace" }}>Failed to load data: {error ?? "No data"}</p>
+        <p style={{ fontSize: "13px", color: P.red, fontFamily: "'DM Mono', monospace" }}>Failed to load data: {error ?? "No data"}</p>
       </div>
     );
   }
@@ -113,7 +113,7 @@ export default function Energy() {
     <div style={{ animation: "fadeSlideIn 0.4s ease both" }}>
       <div style={{ display: "flex", alignItems: "baseline", gap: 14, marginBottom: 8, flexWrap: "wrap" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(26px, 4vw, 36px)", fontWeight: 600, color: P.text, margin: 0 }}>Energy</h2>
-        <span style={{ fontSize: "12px", color: P.textLight, fontStyle: "italic", fontFamily: "'Playfair Display', serif" }}>
+        <span style={{ fontSize: "13px", color: P.textLight, fontStyle: "italic", fontFamily: "'Playfair Display', serif" }}>
           DUKES {latestMix.year}
         </span>
       </div>
@@ -265,13 +265,13 @@ export default function Energy() {
                 display: "flex", alignItems: "center", gap: 20, flexWrap: "wrap",
               }}>
                 <div style={{ flex: "0 0 auto" }}>
-                  <span style={{ fontSize: "10px", color: P.textMuted, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.04em" }}>
+                  <span style={{ fontSize: "11px", color: P.textMuted, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.04em" }}>
                     Live storage fill
                   </span>
                   <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.red, lineHeight: 1.2 }}>
                     {snap.liveFillPct}%
                   </div>
-                  <span style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>
+                  <span style={{ fontSize: "11px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>
                     ≈ {snap.liveDaysOfDemand} days of demand
                   </span>
                 </div>
@@ -286,15 +286,15 @@ export default function Energy() {
                     }} />
                   </div>
                   <div style={{ display: "flex", justifyContent: "space-between", marginTop: 4 }}>
-                    <span style={{ fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>0%</span>
-                    <span style={{ fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>
+                    <span style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>0%</span>
+                    <span style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>
                       {sec.liveFill?.gasInStorageBcm ?? "–"} / {latestGas.capacityBcm} bcm
                     </span>
-                    <span style={{ fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>100%</span>
+                    <span style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>100%</span>
                   </div>
                 </div>
                 <div style={{ flex: "0 0 auto", textAlign: "right" }}>
-                  <span style={{ fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>
+                  <span style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>
                     National Gas · {snap.liveFillAsOf}
                   </span>
                 </div>
@@ -358,8 +358,8 @@ export default function Energy() {
                 <ResponsiveContainer width="100%" height={340}>
                   <ComposedChart data={sec.liveFill.history} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
                     <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-                    <XAxis dataKey="date" tick={{ fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} interval={4} />
-                    <YAxis tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} unit="%" domain={[0, 100]} />
+                    <XAxis dataKey="date" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} interval={4} />
+                    <YAxis tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} unit="%" domain={[0, 100]} />
                     <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}%`} />} />
                     <Area type="monotone" dataKey="fillPct" name="Fill level" stroke={P.red} fill={P.red} fillOpacity={0.15} strokeWidth={2.5} dot={false} />
                   </ComposedChart>
@@ -396,7 +396,7 @@ export default function Energy() {
                 <CapacityMarginChart data={sec.capacityMargin} />
               )}
               {securityView2 === "capacity" && (
-                <p style={{ fontSize: "11px", color: P.textLight, fontFamily: "'DM Mono', monospace", lineHeight: 1.7, margin: "12px 0 0", maxWidth: 680 }}>
+                <p style={{ fontSize: "12px", color: P.textLight, fontFamily: "'DM Mono', monospace", lineHeight: 1.7, margin: "12px 0 0", maxWidth: 680 }}>
                   <strong>De-rated capacity margin</strong> measures how much spare generation capacity
                   the grid has above expected peak demand, after adjusting ("de-rating") each power
                   source for its realistic availability — e.g. wind is de-rated to ~8-10% of nameplate
@@ -409,7 +409,7 @@ export default function Energy() {
 
             {/* Interconnectors table */}
             <div style={{ marginTop: 16, background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "16px 20px", boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
-              <span style={{ fontSize: "10px", color: P.textMuted, fontWeight: 400, letterSpacing: "0.04em", fontFamily: "'DM Mono', monospace" }}>
+              <span style={{ fontSize: "11px", color: P.textMuted, fontWeight: 400, letterSpacing: "0.04em", fontFamily: "'DM Mono', monospace" }}>
                 Electricity interconnectors &middot; {snap.totalInterconnectorMw.toLocaleString()} MW total
               </span>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: 8, marginTop: 12 }}>
@@ -417,7 +417,7 @@ export default function Energy() {
                   <div key={ic.name} style={{
                     display: "flex", justifyContent: "space-between", alignItems: "center",
                     padding: "6px 10px", borderRadius: 3, background: "rgba(28,43,69,0.03)",
-                    fontSize: "11px", fontFamily: "'DM Mono', monospace",
+                    fontSize: "12px", fontFamily: "'DM Mono', monospace",
                   }}>
                     <span style={{ color: P.text, fontWeight: 500 }}>
                       {ic.name} <span style={{ color: P.textLight, fontWeight: 400 }}>→ {ic.partner}</span>
@@ -434,7 +434,7 @@ export default function Energy() {
       })()}
 
       {/* Source */}
-      <div style={{ fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em", marginBottom: 20 }}>
+      <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em", marginBottom: 20 }}>
         ALL DATA:{" "}
         <a href="https://www.gov.uk/government/collections/digest-of-uk-energy-statistics-dukes" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
           DESNZ Digest of UK Energy Statistics (DUKES) 2025
@@ -483,7 +483,7 @@ function ChartCard({ label, yearRange, views, viewLabels, activeView, onViewChan
   return (
     <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px", marginBottom: 16, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16, flexWrap: "wrap", gap: 10 }}>
-        <span style={{ fontSize: "10px", color: P.textMuted, fontWeight: 400, letterSpacing: "0.04em", fontFamily: "'DM Mono', monospace" }}>
+        <span style={{ fontSize: "11px", color: P.textMuted, fontWeight: 400, letterSpacing: "0.04em", fontFamily: "'DM Mono', monospace" }}>
           {label} &middot; {yearRange}
         </span>
         {views && onViewChange && (
@@ -496,7 +496,7 @@ function ChartCard({ label, yearRange, views, viewLabels, activeView, onViewChan
                   background: activeView === v ? "rgba(28,43,69,0.06)" : "transparent",
                   border: "none",
                   color: activeView === v ? P.text : P.textLight,
-                  padding: "4px 10px", fontSize: "9px", fontWeight: 500,
+                  padding: "4px 10px", fontSize: "10px", fontWeight: 500,
                   textTransform: "uppercase", letterSpacing: "0.1em",
                   cursor: "pointer", fontFamily: "'DM Mono', monospace",
                   transition: "all 0.15s", borderRadius: 2,
@@ -519,7 +519,7 @@ function Legend({ items }) {
       {items.map((item) => (
         <div key={item.key} style={{ display: "flex", alignItems: "center", gap: 5 }}>
           <span style={{ width: 14, height: 8, background: item.color, display: "inline-block", borderRadius: 1 }} />
-          <span style={{ fontSize: "10px", color: P.textMuted, fontWeight: 400, letterSpacing: "0.04em" }}>{item.label}</span>
+          <span style={{ fontSize: "11px", color: P.textMuted, fontWeight: 400, letterSpacing: "0.04em" }}>{item.label}</span>
         </div>
       ))}
     </div>
@@ -533,8 +533,8 @@ function MixChart({ data }) {
     <ResponsiveContainer width="100%" height={340}>
       <AreaChart data={data} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
-        <YAxis tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} unit="%" />
+        <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
+        <YAxis tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} unit="%" />
         <Tooltip content={<CustomTooltip />} />
         {MIX_FUELS.map((fuel) => (
           <Area key={fuel.key} type="monotone" dataKey={fuel.key} name={fuel.label} stackId="1" stroke={fuel.color} fill={fuel.color} fillOpacity={0.8} />
@@ -549,8 +549,8 @@ function ElectricityChart({ data }) {
     <ResponsiveContainer width="100%" height={340}>
       <AreaChart data={data} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
-        <YAxis tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} unit="%" />
+        <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
+        <YAxis tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} unit="%" />
         <Tooltip content={<CustomTooltip />} />
         {ELEC_FUELS.map((fuel) => (
           <Area key={fuel.key} type="monotone" dataKey={fuel.key} name={fuel.label} stackId="1" stroke={fuel.color} fill={fuel.color} fillOpacity={0.8} />
@@ -565,8 +565,8 @@ function SpendChart({ data }) {
     <ResponsiveContainer width="100%" height={340}>
       <BarChart data={data} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
-        <YAxis tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} unit="£m" />
+        <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
+        <YAxis tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} unit="£m" />
         <Tooltip content={<CustomTooltip />} />
         <Bar dataKey="domesticGas" name="Household Gas" stackId="dom" fill={P.yellow} opacity={0.85} />
         <Bar dataKey="domesticElectricity" name="Household Electricity" stackId="dom" fill={P.teal} opacity={0.85} radius={[3, 3, 0, 0]} />
@@ -580,8 +580,8 @@ function ImportsChart({ data }) {
     <ResponsiveContainer width="100%" height={340}>
       <LineChart data={data} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
-        <YAxis tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} unit="%" />
+        <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
+        <YAxis tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} unit="%" />
         <Tooltip content={<CustomTooltip />} />
         <Line type="monotone" dataKey="importDependency" name="Import Dependency" stroke={P.red} strokeWidth={2.5} dot={false} />
       </LineChart>
@@ -596,14 +596,14 @@ function GasStorageChart({ data }) {
     <ResponsiveContainer width="100%" height={340}>
       <ComposedChart data={data} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
-        <YAxis yAxisId="days" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} label={{ value: "days", angle: -90, position: "insideLeft", fontSize: 9, fill: P.textLight }} />
-        <YAxis yAxisId="bcm" orientation="right" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} label={{ value: "bcm", angle: 90, position: "insideRight", fontSize: 9, fill: P.textLight }} />
+        <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
+        <YAxis yAxisId="days" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} label={{ value: "days", angle: -90, position: "insideLeft", fontSize: 10, fill: P.textLight }} />
+        <YAxis yAxisId="bcm" orientation="right" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} label={{ value: "bcm", angle: 90, position: "insideRight", fontSize: 10, fill: P.textLight }} />
         <Tooltip content={<CustomTooltip />} />
-        <RLegend wrapperStyle={{ fontSize: 10, fontFamily: "'DM Mono', monospace" }} />
+        <RLegend wrapperStyle={{ fontSize: 11, fontFamily: "'DM Mono', monospace" }} />
         <Bar yAxisId="bcm" dataKey="capacityBcm" name="Storage capacity (bcm)" fill={P.grey} opacity={0.5} radius={[3, 3, 0, 0]} />
         <Line yAxisId="days" type="monotone" dataKey="daysOfDemand" name="Days of demand" stroke={P.red} strokeWidth={2.5} dot={{ r: 4, fill: P.red }} />
-        <ReferenceLine yAxisId="days" y={89} stroke={P.textLight} strokeDasharray="4 4" label={{ value: "Germany (89 days)", fontSize: 9, fill: P.textLight, position: "top" }} />
+        <ReferenceLine yAxisId="days" y={89} stroke={P.textLight} strokeDasharray="4 4" label={{ value: "Germany (89 days)", fontSize: 10, fill: P.textLight, position: "top" }} />
       </ComposedChart>
     </ResponsiveContainer>
   );
@@ -614,7 +614,7 @@ function GasStorageIntlChart({ data }) {
     <ResponsiveContainer width="100%" height={340}>
       <BarChart data={data} margin={{ top: 5, right: 10, left: 10, bottom: 0 }} layout="vertical">
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis type="number" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} unit=" days" />
+        <XAxis type="number" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} unit=" days" />
         <YAxis type="category" dataKey="country" tick={{ fontSize: 11, fill: P.textMuted, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} width={90} />
         <Tooltip content={<CustomTooltip formatter={(v) => `${v} days`} />} />
         <Bar dataKey="daysOfDemand" name="Days of demand" radius={[0, 3, 3, 0]}>
@@ -632,10 +632,10 @@ function ImportsByFuelChart({ data }) {
     <ResponsiveContainer width="100%" height={340}>
       <LineChart data={data} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
-        <YAxis tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} unit="%" />
+        <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
+        <YAxis tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} unit="%" />
         <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
-        <RLegend wrapperStyle={{ fontSize: 10, fontFamily: "'DM Mono', monospace" }} />
+        <RLegend wrapperStyle={{ fontSize: 11, fontFamily: "'DM Mono', monospace" }} />
         <ReferenceLine y={0} stroke={P.textLight} />
         <Line type="monotone" dataKey="gasPct" name="Natural gas" stroke={P.yellow} strokeWidth={2.5} dot={{ r: 3 }} />
         <Line type="monotone" dataKey="oilPct" name="Oil" stroke={P.sienna} strokeWidth={2.5} dot={{ r: 3 }} />
@@ -650,11 +650,11 @@ function CapacityMarginChart({ data }) {
     <ResponsiveContainer width="100%" height={340}>
       <ComposedChart data={data} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
-        <YAxis tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} unit="%" domain={[0, 'auto']} />
+        <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
+        <YAxis tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} unit="%" domain={[0, 'auto']} />
         <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
         <Bar dataKey="marginPct" name="De-rated capacity margin" fill={P.navy} opacity={0.7} radius={[3, 3, 0, 0]} />
-        <ReferenceLine y={5} stroke={P.red} strokeDasharray="4 4" label={{ value: "5% threshold", fontSize: 9, fill: P.red, position: "top" }} />
+        <ReferenceLine y={5} stroke={P.red} strokeDasharray="4 4" label={{ value: "5% threshold", fontSize: 10, fill: P.red, position: "top" }} />
       </ComposedChart>
     </ResponsiveContainer>
   );

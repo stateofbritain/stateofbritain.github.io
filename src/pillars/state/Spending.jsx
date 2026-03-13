@@ -22,7 +22,7 @@ const sectionHeading = {
 };
 
 const sectionNote = {
-  fontSize: "13px",
+  fontSize: "14px",
   lineHeight: 1.7,
   color: P.textMuted,
   fontFamily: "'Playfair Display', serif",
@@ -36,7 +36,7 @@ const toggleBtn = (active) => ({
   borderRadius: 4,
   background: active ? P.teal : "transparent",
   color: active ? "#fff" : P.textMuted,
-  fontSize: "11px",
+  fontSize: "12px",
   fontFamily: "'DM Mono', monospace",
   cursor: "pointer",
   transition: "all 0.15s",
@@ -138,7 +138,7 @@ function SubDeptPie({ breakdown, color, scaleTo }) {
   return (
     <div>
       {hasAccounting && (
-        <div style={{ fontSize: "9px", color: color, fontWeight: 600, fontFamily: "'DM Mono', monospace", marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.08em" }}>
+        <div style={{ fontSize: "10px", color: color, fontWeight: 600, fontFamily: "'DM Mono', monospace", marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.08em" }}>
           Policy spending — {fmtM(policyTotal)}
         </div>
       )}
@@ -185,9 +185,9 @@ function SubDeptPie({ breakdown, color, scaleTo }) {
             >
               <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
                 <span style={{ width: 7, height: 7, borderRadius: 1, background: shades[idx], display: "inline-block", flexShrink: 0 }} />
-                <span style={{ fontSize: "9px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>{item.name}</span>
+                <span style={{ fontSize: "10px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>{item.name}</span>
               </div>
-              <span style={{ fontSize: "9px", fontWeight: 500, color: P.text, fontFamily: "'DM Mono', monospace", marginLeft: 8, whiteSpace: "nowrap" }}>
+              <span style={{ fontSize: "10px", fontWeight: 500, color: P.text, fontFamily: "'DM Mono', monospace", marginLeft: 8, whiteSpace: "nowrap" }}>
                 {fmtM(item.value)} <span style={{ color: P.textLight, fontWeight: 400 }}>({((item.value / policyTotal) * 100).toFixed(1)}%)</span>
               </span>
             </div>
@@ -196,9 +196,9 @@ function SubDeptPie({ breakdown, color, scaleTo }) {
             <div key={item.name} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "2px 4px" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
                 <span style={{ width: 7, height: 7, borderRadius: 1, background: P.textLight, display: "inline-block", flexShrink: 0 }} />
-                <span style={{ fontSize: "9px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>{item.name}</span>
+                <span style={{ fontSize: "10px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>{item.name}</span>
               </div>
-              <span style={{ fontSize: "9px", fontWeight: 500, color: "#c0392b", fontFamily: "'DM Mono', monospace", marginLeft: 8, whiteSpace: "nowrap" }}>
+              <span style={{ fontSize: "10px", fontWeight: 500, color: "#c0392b", fontFamily: "'DM Mono', monospace", marginLeft: 8, whiteSpace: "nowrap" }}>
                 {fmtM(item.value)}
               </span>
             </div>
@@ -207,18 +207,18 @@ function SubDeptPie({ breakdown, color, scaleTo }) {
       </div>
       {hasAccounting && (
         <div style={{ marginTop: 8, padding: "6px 8px", background: "rgba(28,43,69,0.03)", borderRadius: 3, borderLeft: `2px solid ${P.textLight}` }}>
-          <div style={{ fontSize: "8px", color: P.textLight, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 3 }}>
+          <div style={{ fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 3 }}>
             Accounting adjustments — {fmtM(accountingTotal)}
           </div>
           {accounting.map((item) => (
             <div key={item.name} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "1px 0" }}>
-              <span style={{ fontSize: "8px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>{item.name}</span>
-              <span style={{ fontSize: "8px", fontWeight: 500, color: item.value < 0 ? "#c0392b" : P.textLight, fontFamily: "'DM Mono', monospace", marginLeft: 8, whiteSpace: "nowrap" }}>
+              <span style={{ fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>{item.name}</span>
+              <span style={{ fontSize: "9px", fontWeight: 500, color: item.value < 0 ? "#c0392b" : P.textLight, fontFamily: "'DM Mono', monospace", marginLeft: 8, whiteSpace: "nowrap" }}>
                 {fmtM(item.value)}
               </span>
             </div>
           ))}
-          <div style={{ fontSize: "7px", color: P.textLight, fontFamily: "'DM Mono', monospace", fontStyle: "italic", marginTop: 3 }}>
+          <div style={{ fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", fontStyle: "italic", marginTop: 3 }}>
             Non-cash provisions, fair value movements & write-offs — not actual spending
           </div>
         </div>
@@ -282,10 +282,10 @@ function DrillPie({ dept, isMobile, fy }) {
               <div style={{ fontSize: "24px", fontWeight: 600, fontFamily: "'Playfair Display', serif", color: P.text, lineHeight: 1.1 }}>
                 {fmtM(hoveredSlice.value)}
               </div>
-              <div style={{ fontSize: "11px", color: P.textMuted, marginTop: 4, fontFamily: "'DM Mono', monospace" }}>
+              <div style={{ fontSize: "12px", color: P.textMuted, marginTop: 4, fontFamily: "'DM Mono', monospace" }}>
                 {((hoveredSlice.value / total) * 100).toFixed(1)}%
               </div>
-              <div style={{ fontSize: "11px", color: shades[hovered], marginTop: 2, fontFamily: "'DM Mono', monospace", fontWeight: 500, lineHeight: 1.3 }}>
+              <div style={{ fontSize: "12px", color: shades[hovered], marginTop: 2, fontFamily: "'DM Mono', monospace", fontWeight: 500, lineHeight: 1.3 }}>
                 {hoveredSlice.name}
               </div>
             </>
@@ -294,7 +294,7 @@ function DrillPie({ dept, isMobile, fy }) {
               <div style={{ fontSize: "28px", fontWeight: 600, fontFamily: "'Playfair Display', serif", color: dept.color, lineHeight: 1.1 }}>
                 {fmtM(total)}
               </div>
-              <div style={{ fontSize: "10px", color: P.textLight, marginTop: 4, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+              <div style={{ fontSize: "11px", color: P.textLight, marginTop: 4, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.08em" }}>
                 {dept.cleanName}
               </div>
             </>
@@ -316,7 +316,7 @@ function DrillPie({ dept, isMobile, fy }) {
             }}
           >
             <span style={{ width: 8, height: 8, borderRadius: 2, background: shades[idx], display: "inline-block", flexShrink: 0 }} />
-            <span style={{ fontSize: "10px", color: hovered === idx ? P.text : P.textMuted, fontFamily: "'DM Mono', monospace", transition: "color 0.15s" }}>
+            <span style={{ fontSize: "11px", color: hovered === idx ? P.text : P.textMuted, fontFamily: "'DM Mono', monospace", transition: "color 0.15s" }}>
               {item.name} ({fmtM(item.value)})
             </span>
           </div>
@@ -532,7 +532,7 @@ export default function Spending() {
     return (
       <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text }}>Public Spending</h2>
-        <p style={{ fontSize: "12px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>Loading data...</p>
+        <p style={{ fontSize: "13px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>Loading data...</p>
       </div>
     );
   }
@@ -540,7 +540,7 @@ export default function Spending() {
     return (
       <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text }}>Public Spending</h2>
-        <p style={{ fontSize: "12px", color: P.red, fontFamily: "'DM Mono', monospace" }}>Failed to load data: {error ?? "No data"}</p>
+        <p style={{ fontSize: "13px", color: P.red, fontFamily: "'DM Mono', monospace" }}>Failed to load data: {error ?? "No data"}</p>
       </div>
     );
   }
@@ -578,7 +578,7 @@ export default function Spending() {
       <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 6px" }}>
         Public Spending
       </h2>
-      <p style={{ fontSize: "13px", color: P.textMuted, margin: "0 0 24px", fontFamily: "'Playfair Display', serif", maxWidth: 720 }}>
+      <p style={{ fontSize: "14px", color: P.textMuted, margin: "0 0 24px", fontFamily: "'Playfair Display', serif", maxWidth: 720 }}>
         Total managed expenditure by government department and fiscal trend.
         Departmental breakdown is FY {latestFy} outturn (PESA);
         aggregates are FY {latestOutturn.fy} outturn (OBR).
@@ -619,7 +619,7 @@ export default function Spending() {
 
         <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 12px 16px", position: "relative" }}>
           {/* Breadcrumb */}
-          <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 4, padding: "0 8px", fontSize: "11px", fontFamily: "'DM Mono', monospace" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 4, padding: "0 8px", fontSize: "12px", fontFamily: "'DM Mono', monospace" }}>
             <span
               onClick={() => { setSelectedPieDept(null); setActiveSlice(null); setHoveredItem(null); }}
               style={{ color: selectedPieDept ? P.teal : P.text, cursor: selectedPieDept ? "pointer" : "default", fontWeight: 500 }}
@@ -736,14 +736,14 @@ export default function Spending() {
                       <div style={{ fontSize: "24px", fontWeight: 600, fontFamily: "'Playfair Display', serif", color: P.text, lineHeight: 1.1 }}>
                         {fmtM(hoveredItem.value)}
                       </div>
-                      <div style={{ fontSize: "11px", color: P.textMuted, marginTop: 4, fontFamily: "'DM Mono', monospace" }}>
+                      <div style={{ fontSize: "12px", color: P.textMuted, marginTop: 4, fontFamily: "'DM Mono', monospace" }}>
                         {pct(hoveredItem.value, pieTotalM)}%
                       </div>
-                      <div style={{ fontSize: "11px", color: hoveredItem.color, marginTop: 2, fontFamily: "'DM Mono', monospace", fontWeight: 500, lineHeight: 1.3 }}>
+                      <div style={{ fontSize: "12px", color: hoveredItem.color, marginTop: 2, fontFamily: "'DM Mono', monospace", fontWeight: 500, lineHeight: 1.3 }}>
                         {hoveredItem.name}
                       </div>
                       {hoveredItem.parent && (
-                        <div style={{ fontSize: "9px", color: P.textLight, marginTop: 2, fontFamily: "'DM Mono', monospace" }}>
+                        <div style={{ fontSize: "10px", color: P.textLight, marginTop: 2, fontFamily: "'DM Mono', monospace" }}>
                           {hoveredItem.parent}
                         </div>
                       )}
@@ -753,7 +753,7 @@ export default function Spending() {
                       <div style={{ fontSize: "28px", fontWeight: 600, fontFamily: "'Playfair Display', serif", color: P.text, lineHeight: 1.1 }}>
                         {fmtM(pieTotalM)}
                       </div>
-                      <div style={{ fontSize: "10px", color: P.textLight, marginTop: 4, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+                      <div style={{ fontSize: "11px", color: P.textLight, marginTop: 4, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.08em" }}>
                         FY {activePieYear}
                       </div>
                     </>
@@ -781,7 +781,7 @@ export default function Spending() {
                       style={{ display: "flex", alignItems: "center", gap: 5, cursor: hasDrill ? "pointer" : "default", padding: "2px 0" }}
                     >
                       <span style={{ width: 8, height: 8, borderRadius: 2, background: item.color, display: "inline-block", flexShrink: 0 }} />
-                      <span style={{ fontSize: "10px", color: activeSlice === idx ? P.text : P.textMuted, fontFamily: "'DM Mono', monospace", transition: "color 0.15s" }}>
+                      <span style={{ fontSize: "11px", color: activeSlice === idx ? P.text : P.textMuted, fontFamily: "'DM Mono', monospace", transition: "color 0.15s" }}>
                         {item.name} ({fmtM(item.value)})
                       </span>
                     </div>
@@ -790,14 +790,14 @@ export default function Spending() {
               </div>
               {accountingAdjTotal !== 0 && (
                 <div style={{ marginTop: 8, padding: "6px 12px", background: "rgba(28,43,69,0.03)", borderRadius: 3, textAlign: "center" }}>
-                  <span style={{ fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>
+                  <span style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>
                     Excludes {fmtM(accountingAdjTotal)} in non-cash accounting adjustments (APF indemnity, nuclear provisions, CfD derivatives, loan write-offs)
                   </span>
                 </div>
               )}
 
               {/* Spend-by-year trend — click to update pie */}
-              <div style={{ fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", marginTop: 14, marginBottom: 4, textAlign: "center" }}>
+              <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", marginTop: 14, marginBottom: 4, textAlign: "center" }}>
                 Policy spending by year (£bn) — click a point to update pie
               </div>
               <div style={{ height: isMobile ? 90 : 110, padding: "0 8px" }}>
@@ -813,8 +813,8 @@ export default function Spending() {
                     }
                   }}>
                     <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-                    <XAxis dataKey="fyShort" tick={{ fontSize: 10, fill: P.textMuted, fontFamily: "'DM Mono', monospace" }} />
-                    <YAxis tick={{ fontSize: 9, fill: P.textMuted }} tickFormatter={(v) => `£${v.toFixed(0)}bn`} width={52} domain={["auto", "auto"]} />
+                    <XAxis dataKey="fyShort" tick={{ fontSize: 11, fill: P.textMuted, fontFamily: "'DM Mono', monospace" }} />
+                    <YAxis tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => `£${v.toFixed(0)}bn`} width={52} domain={["auto", "auto"]} />
                     <Tooltip content={<CustomTooltip formatter={(v) => `£${v?.toFixed(1)}bn`} />} />
                     <Line type="monotone" dataKey="total" name="Policy spending" stroke={P.teal} strokeWidth={2} cursor="pointer"
                       dot={(props) => {
@@ -832,7 +832,7 @@ export default function Spending() {
             <DrillPie dept={selectedPieDept} isMobile={isMobile} fy={activePieYear} onBack={() => { setSelectedPieDept(null); setActiveSlice(null); setHoveredItem(null); }} />
           )}
 
-          <div style={{ marginTop: 10, fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em", textAlign: "center" }}>
+          <div style={{ marginTop: 10, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em", textAlign: "center" }}>
             {selectedPieDept
               ? "SOURCE: Departmental Annual Report / Estimates 2024-25"
               : <>SOURCE: HM Treasury PESA 2025, Table 1.12 &middot; Policy spending, FY {activePieYear}</>}
@@ -876,7 +876,7 @@ export default function Spending() {
                       <div style={{ display: "flex", alignItems: "center", gap: 7 }}>
                         <span style={{ width: 8, height: 8, borderRadius: 2, background: dept.color, display: "inline-block", flexShrink: 0 }} />
                         <span style={{
-                          fontSize: "11px",
+                          fontSize: "12px",
                           color: isExpanded ? P.text : P.textMuted,
                           fontWeight: isExpanded ? 500 : 400,
                           fontFamily: "'DM Mono', monospace",
@@ -885,13 +885,13 @@ export default function Spending() {
                         </span>
                       </div>
                       <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                        <span style={{ fontSize: "11px", fontWeight: 500, color: P.text, fontFamily: "'DM Mono', monospace" }}>
+                        <span style={{ fontSize: "12px", fontWeight: 500, color: P.text, fontFamily: "'DM Mono', monospace" }}>
                           {fmtM(dept.latest)}
                         </span>
-                        <span style={{ fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", width: 36, textAlign: "right" }}>
+                        <span style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", width: 36, textAlign: "right" }}>
                           {share}%
                         </span>
-                        <span style={{ fontSize: "10px", color: P.textLight, transform: isExpanded ? "rotate(180deg)" : "rotate(0)", transition: "transform 0.2s" }}>
+                        <span style={{ fontSize: "11px", color: P.textLight, transform: isExpanded ? "rotate(180deg)" : "rotate(0)", transition: "transform 0.2s" }}>
                           ▾
                         </span>
                       </div>
@@ -939,10 +939,10 @@ export default function Spending() {
                       borderRadius: 3,
                       borderLeft: `3px solid ${dept.color}`,
                     }}>
-                      <div style={{ fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.12em", color: dept.color, fontWeight: 600, marginBottom: 8, fontFamily: "'DM Mono', monospace" }}>
+                      <div style={{ fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.12em", color: dept.color, fontWeight: 600, marginBottom: 8, fontFamily: "'DM Mono', monospace" }}>
                         {dept.cleanName}
                       </div>
-                      <div style={{ fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", marginBottom: 4 }}>
+                      <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", marginBottom: 4 }}>
                         {showDualLine ? (
                           <>
                             <span style={{ color: dept.color }}>━</span> Policy spending
@@ -963,8 +963,8 @@ export default function Spending() {
                             }
                           } : undefined}>
                             <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-                            <XAxis dataKey="fy" tick={{ fontSize: 9, fill: P.textMuted }} />
-                            <YAxis tick={{ fontSize: 9, fill: P.textMuted }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}bn`} width={42} label={{ value: "£bn", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+                            <XAxis dataKey="fy" tick={{ fontSize: 10, fill: P.textMuted }} />
+                            <YAxis tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}bn`} width={42} label={{ value: "£bn", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
                             <Tooltip content={<CustomTooltip formatter={(v) => `£${v != null ? v.toLocaleString() : "—"}m`} />} />
                             {showDualLine && (
                               <Line type="monotone" dataKey="value" name="Total TME" stroke={P.textLight} strokeWidth={1} strokeDasharray="4 3" dot={{ r: 1.5, fill: P.textLight }} activeDot={false} />
@@ -981,18 +981,18 @@ export default function Spending() {
                       </div>
                       {selBreakdown ? (
                         <div style={{ marginTop: 4 }}>
-                          <div style={{ fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", marginBottom: 6 }}>
+                          <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", marginBottom: 6 }}>
                             Sub-departmental breakdown — FY {selFy} (£m{hasYearData ? "" : ", estimated proportions"})
                           </div>
                           <SubDeptPie breakdown={selBreakdown} color={dept.color} scaleTo={hasYearData ? undefined : selVal} />
-                          <div style={{ marginTop: 6, fontSize: "8px", color: P.textLight, fontStyle: "italic", fontFamily: "'DM Mono', monospace" }}>
+                          <div style={{ marginTop: 6, fontSize: "9px", color: P.textLight, fontStyle: "italic", fontFamily: "'DM Mono', monospace" }}>
                             {hasYearData
                               ? `Source: departmental Annual Report / Estimates ${selFy}`
                               : "Source: departmental Annual Report / Estimates · proportions estimated from nearest year"}
                           </div>
                         </div>
                       ) : (
-                        <div style={{ marginTop: 8, fontSize: "9px", color: P.textLight, fontStyle: "italic", fontFamily: "'DM Mono', monospace" }}>
+                        <div style={{ marginTop: 8, fontSize: "10px", color: P.textLight, fontStyle: "italic", fontFamily: "'DM Mono', monospace" }}>
                           No sub-departmental breakdown available
                         </div>
                       )}
@@ -1005,8 +1005,8 @@ export default function Spending() {
 
             <div style={{ marginTop: 6, padding: "6px 8px", borderTop: `1px solid ${P.border}` }}>
               <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <span style={{ fontSize: "11px", fontWeight: 600, color: P.text, fontFamily: "'DM Mono', monospace" }}>Total departmental</span>
-                <span style={{ fontSize: "11px", fontWeight: 600, color: P.text, fontFamily: "'DM Mono', monospace" }}>{fmtM(data.departments.deptTotal[latestFy])}</span>
+                <span style={{ fontSize: "12px", fontWeight: 600, color: P.text, fontFamily: "'DM Mono', monospace" }}>Total departmental</span>
+                <span style={{ fontSize: "12px", fontWeight: 600, color: P.text, fontFamily: "'DM Mono', monospace" }}>{fmtM(data.departments.deptTotal[latestFy])}</span>
               </div>
             </div>
           </div>
@@ -1015,10 +1015,10 @@ export default function Spending() {
           <div style={{ display: "flex", flexDirection: "column", gap: 16, minWidth: 0, width: "100%" }}>
             {/* Tax calculator */}
             <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderLeft: `3px solid ${P.sienna}`, borderRadius: 3, padding: "14px 16px" }}>
-              <div style={{ fontSize: "9px", textTransform: "uppercase", letterSpacing: "0.15em", color: P.sienna, fontWeight: 500, marginBottom: 10, fontFamily: "'DM Mono', monospace" }}>
+              <div style={{ fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.15em", color: P.sienna, fontWeight: 500, marginBottom: 10, fontFamily: "'DM Mono', monospace" }}>
                 Your tax contribution
               </div>
-              <div style={{ fontSize: "11px", color: P.textMuted, marginBottom: 6, fontFamily: "'DM Mono', monospace" }}>Annual salary</div>
+              <div style={{ fontSize: "12px", color: P.textMuted, marginBottom: 6, fontFamily: "'DM Mono', monospace" }}>Annual salary</div>
               <input
                 type="range" min={15000} max={150000} step={1000} value={salary}
                 onChange={(e) => setSalary(Number(e.target.value))}
@@ -1028,11 +1028,11 @@ export default function Spending() {
                 <span style={{ fontSize: "17px", fontWeight: 600, fontFamily: "'Playfair Display', serif", color: P.text }}>
                   £{salary.toLocaleString()}
                 </span>
-                <span style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", alignSelf: "flex-end" }}>
+                <span style={{ fontSize: "11px", color: P.textLight, fontFamily: "'DM Mono', monospace", alignSelf: "flex-end" }}>
                   ≈ £{Math.round(taxPaid).toLocaleString()} tax/yr
                 </span>
               </div>
-              <div style={{ fontSize: "9px", textTransform: "uppercase", letterSpacing: "0.1em", color: P.textLight, fontWeight: 500, marginBottom: 6, fontFamily: "'DM Mono', monospace" }}>
+              <div style={{ fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.1em", color: P.textLight, fontWeight: 500, marginBottom: 6, fontFamily: "'DM Mono', monospace" }}>
                 Your money goes to
               </div>
               {pieData.filter((d) => d.value > 0).slice(0, 10).map((item) => {
@@ -1041,22 +1041,22 @@ export default function Spending() {
                   <div key={item.name} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "2px 0" }}>
                     <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
                       <span style={{ width: 6, height: 6, borderRadius: 1, background: item.color, display: "inline-block" }} />
-                      <span style={{ fontSize: "9px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>{item.name}</span>
+                      <span style={{ fontSize: "10px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>{item.name}</span>
                     </div>
-                    <span style={{ fontSize: "9px", fontWeight: 500, color: P.text, fontFamily: "'DM Mono', monospace" }}>
+                    <span style={{ fontSize: "10px", fontWeight: 500, color: P.text, fontFamily: "'DM Mono', monospace" }}>
                       £{Math.round(share).toLocaleString()}
                     </span>
                   </div>
                 );
               })}
-              <div style={{ marginTop: 6, fontSize: "8px", color: P.textLight, fontStyle: "italic", fontFamily: "'DM Mono', monospace", lineHeight: 1.5 }}>
+              <div style={{ marginTop: 6, fontSize: "9px", color: P.textLight, fontStyle: "italic", fontFamily: "'DM Mono', monospace", lineHeight: 1.5 }}>
                 Approximation based on income tax + NI. Excludes VAT, council tax, and other indirect taxes.
               </div>
             </div>
 
             {/* Non-departmental detail */}
             <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "14px 16px" }}>
-              <div style={{ fontSize: "9px", textTransform: "uppercase", letterSpacing: "0.15em", color: P.textLight, fontWeight: 500, marginBottom: 8, fontFamily: "'DM Mono', monospace" }}>
+              <div style={{ fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.15em", color: P.textLight, fontWeight: 500, marginBottom: 8, fontFamily: "'DM Mono', monospace" }}>
                 Non-departmental items
               </div>
               {data.departments.otherItems.filter((item) => {
@@ -1066,16 +1066,16 @@ export default function Spending() {
                 const val = item.values[latestFy];
                 return (
                   <div key={item.name} style={{ display: "flex", justifyContent: "space-between", padding: "3px 0", borderBottom: `1px solid ${P.border}` }}>
-                    <span style={{ fontSize: "9px", color: P.textMuted, fontFamily: "'DM Mono', monospace", ...(!isMobile && { maxWidth: 170 }) }}>
+                    <span style={{ fontSize: "10px", color: P.textMuted, fontFamily: "'DM Mono', monospace", ...(!isMobile && { maxWidth: 170 }) }}>
                       {cleanName(item.name)}
                     </span>
-                    <span style={{ fontSize: "9px", fontWeight: 500, color: val < 0 ? P.red : P.text, fontFamily: "'DM Mono', monospace" }}>
+                    <span style={{ fontSize: "10px", fontWeight: 500, color: val < 0 ? P.red : P.text, fontFamily: "'DM Mono', monospace" }}>
                       {fmtM(val)}
                     </span>
                   </div>
                 );
               })}
-              <div style={{ marginTop: 5, fontSize: "8px", color: P.textLight, fontFamily: "'DM Mono', monospace", lineHeight: 1.5 }}>
+              <div style={{ marginTop: 5, fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", lineHeight: 1.5 }}>
                 Accounting adjustments eliminate double-counting
                 between departmental budgets and TME.
               </div>
@@ -1100,7 +1100,7 @@ export default function Spending() {
             <AreaChart data={trendData}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => trendView === "bn" ? `£${v}bn` : `${v}%`} label={{ value: trendView === "bn" ? "£bn" : "% of GDP", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => trendView === "bn" ? `£${v}bn` : `${v}%`} label={{ value: trendView === "bn" ? "£bn" : "% of GDP", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => trendView === "bn" ? `£${v?.toFixed(1)}bn` : `${v?.toFixed(1)}%`} />} />
               <Area type="monotone" dataKey="tme" stroke={P.red} fill={P.red} fillOpacity={0.08} strokeWidth={2} name="Total spending" dot={false} />
               <Area type="monotone" dataKey="receipts" stroke={P.teal} fill={P.teal} fillOpacity={0.08} strokeWidth={2} name="Receipts" dot={false} />
@@ -1121,10 +1121,10 @@ export default function Spending() {
             <LineChart data={debtData}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} domain={[20, 110]} label={{ value: "% of GDP", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} domain={[20, 110]} label={{ value: "% of GDP", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}% of GDP`} />} />
               <Line type="monotone" dataKey="debt" stroke={P.navy} strokeWidth={2.5} dot={false} name="Net debt / GDP" />
-              <ReferenceLine y={100} stroke={P.red} strokeDasharray="4 4" label={{ value: "100%", fontSize: 10, fill: P.red }} />
+              <ReferenceLine y={100} stroke={P.red} strokeDasharray="4 4" label={{ value: "100%", fontSize: 11, fill: P.red }} />
             </LineChart>
           </ResponsiveContainer>
         </div>
@@ -1141,7 +1141,7 @@ export default function Spending() {
             <ResponsiveContainer width="100%" height={Math.max(300, data.receiptTypes.length * (isMobile ? 30 : 26))}>
               <BarChart data={data.receiptTypes} layout="vertical" margin={{ left: isMobile ? 10 : 140, right: 20 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke={P.border} horizontal={false} />
-                <XAxis type="number" tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => `£${v}bn`} />
+                <XAxis type="number" tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `£${v}bn`} />
                 <YAxis type="category" dataKey="name" tick={{ fontSize: isMobile ? 9 : 11, fill: P.textMuted }} width={isMobile ? 90 : 135} />
                 <Tooltip content={<CustomTooltip formatter={(v) => `£${v.toFixed(1)}bn`} />} />
                 <Bar dataKey="value" fill={P.teal} name="Receipts" isAnimationActive={false} />
@@ -1168,7 +1168,7 @@ export default function Spending() {
       </AnalysisBox>
 
       {/* Sources */}
-      <div style={{ marginTop: 24, fontSize: "11px", color: P.textLight, fontFamily: "'DM Mono', monospace", lineHeight: 1.8 }}>
+      <div style={{ marginTop: 24, fontSize: "12px", color: P.textLight, fontFamily: "'DM Mono', monospace", lineHeight: 1.8 }}>
         <strong>Sources:</strong>{" "}
         <a href="https://obr.uk/data/" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight }}>
           OBR Public Finances Databank (Feb 2026)

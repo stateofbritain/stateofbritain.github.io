@@ -44,7 +44,7 @@ export default function Water() {
     return (
       <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>Water</h2>
-        <p style={{ fontSize: "12px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>Loading water data...</p>
+        <p style={{ fontSize: "13px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>Loading water data...</p>
       </div>
     );
   }
@@ -53,7 +53,7 @@ export default function Water() {
     return (
       <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>Water</h2>
-        <p style={{ fontSize: "12px", color: P.red, fontFamily: "'DM Mono', monospace" }}>Failed to load data: {error ?? "No data"}</p>
+        <p style={{ fontSize: "13px", color: P.red, fontFamily: "'DM Mono', monospace" }}>Failed to load data: {error ?? "No data"}</p>
       </div>
     );
   }
@@ -66,7 +66,7 @@ export default function Water() {
     <div style={{ animation: "fadeSlideIn 0.4s ease both" }}>
       <div style={{ display: "flex", alignItems: "baseline", gap: 14, marginBottom: 8, flexWrap: "wrap" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(26px, 4vw, 36px)", fontWeight: 600, color: P.text, margin: 0 }}>Water</h2>
-        <span style={{ fontSize: "12px", color: P.textLight, fontStyle: "italic", fontFamily: "'Playfair Display', serif" }}>
+        <span style={{ fontSize: "13px", color: P.textLight, fontStyle: "italic", fontFamily: "'Playfair Display', serif" }}>
           Ofwat WCPR 2024-25 &middot; Environment Agency 2024
         </span>
       </div>
@@ -109,7 +109,7 @@ export default function Water() {
       {/* Chart area */}
       <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px", marginBottom: 24, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16, flexWrap: "wrap", gap: 10 }}>
-          <span style={{ fontSize: "10px", color: P.textMuted, fontWeight: 400, letterSpacing: "0.04em", fontFamily: "'DM Mono', monospace" }}>
+          <span style={{ fontSize: "11px", color: P.textMuted, fontWeight: 400, letterSpacing: "0.04em", fontFamily: "'DM Mono', monospace" }}>
             {VIEW_LABELS[view]}
           </span>
           <div style={{ display: "flex", gap: 0, border: `1px solid ${P.borderStrong}`, borderRadius: 3 }}>
@@ -121,7 +121,7 @@ export default function Water() {
                   background: view === v ? "rgba(28,43,69,0.06)" : "transparent",
                   border: "none",
                   color: view === v ? P.text : P.textLight,
-                  padding: "4px 10px", fontSize: "9px", fontWeight: 500,
+                  padding: "4px 10px", fontSize: "10px", fontWeight: 500,
                   textTransform: "uppercase", letterSpacing: "0.1em",
                   cursor: "pointer", fontFamily: "'DM Mono', monospace",
                   transition: "all 0.15s", borderRadius: 2,
@@ -137,7 +137,7 @@ export default function Water() {
         {view === "pollution" && <PollutionChart data={data.pollutionIncidents} />}
         {view === "overview" && <OverviewTable data={overviewData} />}
 
-        <div style={{ marginTop: 12, fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+        <div style={{ marginTop: 12, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
           SOURCES:{" "}
           <a href="https://www.ofwat.gov.uk/regulated-companies/company-obligations/outcomes/water-company-performance-report-2024-25/" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
             Ofwat WCPR 2024-25
@@ -155,7 +155,7 @@ export default function Water() {
 
       {/* Company categorisation */}
       <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "20px 24px", marginBottom: 24, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
-        <div style={{ fontSize: "10px", color: P.textMuted, fontWeight: 400, letterSpacing: "0.04em", fontFamily: "'DM Mono', monospace", marginBottom: 14 }}>
+        <div style={{ fontSize: "11px", color: P.textMuted, fontWeight: 400, letterSpacing: "0.04em", fontFamily: "'DM Mono', monospace", marginBottom: 14 }}>
           Ofwat company categorisation 2024-25
         </div>
         <div style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
@@ -181,11 +181,11 @@ export default function Water() {
 function CategoryGroup({ label, color, companies }) {
   return (
     <div style={{ flex: "1 1 200px" }}>
-      <div style={{ fontSize: "11px", fontWeight: 600, color, marginBottom: 6, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em", textTransform: "uppercase" }}>
+      <div style={{ fontSize: "12px", fontWeight: 600, color, marginBottom: 6, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em", textTransform: "uppercase" }}>
         {label}
       </div>
       {companies.map((c) => (
-        <div key={c} style={{ fontSize: "12px", color: P.textMuted, fontFamily: "'Playfair Display', serif", lineHeight: 1.8 }}>
+        <div key={c} style={{ fontSize: "13px", color: P.textMuted, fontFamily: "'Playfair Display', serif", lineHeight: 1.8 }}>
           {c}
         </div>
       ))}
@@ -198,11 +198,11 @@ function LeakageChart({ data }) {
     <ResponsiveContainer width="100%" height={340}>
       <LineChart data={data} margin={{ top: 5, right: 10, left: 10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="year" tick={{ fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} interval={2} />
+        <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} interval={2} />
         <YAxis
-          tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
+          tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false} domain={[2500, 5200]}
-          label={{ value: "Ml/d", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+          label={{ value: "Ml/d", angle: -90, position: "insideLeft", style: { fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
         />
         <Tooltip content={<CustomTooltip />} />
         <Line type="monotone" dataKey="value" name="Leakage (Ml/d)" stroke={P.teal} strokeWidth={2.5} dot={false} />
@@ -216,8 +216,8 @@ function PollutionChart({ data }) {
     <ResponsiveContainer width="100%" height={340}>
       <BarChart data={data} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
-        <YAxis tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} label={{ value: "Incidents", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+        <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
+        <YAxis tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} label={{ value: "Incidents", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
         <Tooltip content={<CustomTooltip />} />
         <Bar dataKey="total" name="All incidents (cat 1-3)" fill={P.red} opacity={0.7} radius={[3, 3, 0, 0]} />
         <Bar dataKey="serious" name="Serious (cat 1-2)" fill={P.navy} opacity={0.9} radius={[3, 3, 0, 0]} />
@@ -229,19 +229,19 @@ function PollutionChart({ data }) {
 function OverviewTable({ data }) {
   return (
     <div style={{ overflowX: "auto" }}>
-      <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "12px", fontFamily: "'DM Mono', monospace" }}>
+      <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "13px", fontFamily: "'DM Mono', monospace" }}>
         <thead>
           <tr style={{ borderBottom: `2px solid ${P.border}` }}>
-            <th style={{ textAlign: "left", padding: "8px 10px", color: P.textMuted, fontWeight: 500, fontSize: "10px", letterSpacing: "0.06em" }}>METRIC</th>
-            <th style={{ textAlign: "right", padding: "8px 10px", color: P.textMuted, fontWeight: 500, fontSize: "10px" }}>2019-20</th>
-            <th style={{ textAlign: "right", padding: "8px 10px", color: P.textMuted, fontWeight: 500, fontSize: "10px" }}>2024-25</th>
-            <th style={{ textAlign: "right", padding: "8px 10px", color: P.textMuted, fontWeight: 500, fontSize: "10px" }}>CHANGE</th>
+            <th style={{ textAlign: "left", padding: "8px 10px", color: P.textMuted, fontWeight: 500, fontSize: "11px", letterSpacing: "0.06em" }}>METRIC</th>
+            <th style={{ textAlign: "right", padding: "8px 10px", color: P.textMuted, fontWeight: 500, fontSize: "11px" }}>2019-20</th>
+            <th style={{ textAlign: "right", padding: "8px 10px", color: P.textMuted, fontWeight: 500, fontSize: "11px" }}>2024-25</th>
+            <th style={{ textAlign: "right", padding: "8px 10px", color: P.textMuted, fontWeight: 500, fontSize: "11px" }}>CHANGE</th>
           </tr>
         </thead>
         <tbody>
           {data.map((m, i) => (
             <tr key={i} style={{ borderBottom: `1px solid ${P.border}` }}>
-              <td style={{ padding: "8px 10px", color: P.text, fontFamily: "'Playfair Display', serif", fontSize: "13px" }}>{m.metric}</td>
+              <td style={{ padding: "8px 10px", color: P.text, fontFamily: "'Playfair Display', serif", fontSize: "14px" }}>{m.metric}</td>
               <td style={{ textAlign: "right", padding: "8px 10px", color: P.textMuted }}>{formatVal(m.baseline)}</td>
               <td style={{ textAlign: "right", padding: "8px 10px", color: P.text, fontWeight: 500 }}>{formatVal(m.latest)}</td>
               <td style={{ textAlign: "right", padding: "8px 10px", color: m.improved ? P.teal : P.red, fontWeight: 500 }}>

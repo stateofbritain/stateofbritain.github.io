@@ -13,7 +13,7 @@ export default function About() {
   };
 
   const pStyle = {
-    fontSize: "12px",
+    fontSize: "13px",
     color: P.textMuted,
     lineHeight: 1.7,
     fontFamily: "'DM Mono', monospace",
@@ -67,7 +67,7 @@ export default function About() {
       >
         About
       </h2>
-      <p style={{ ...pStyle, fontSize: "13px", ...(isMobile ? {} : { maxWidth: 620 }) }}>
+      <p style={{ ...pStyle, fontSize: "14px", ...(isMobile ? {} : { maxWidth: 620 }) }}>
         State of Britain is a personal project by Jack Aspinall. It presents
         objective data on Britain's public services, economy, and society —
         sourced from official UK government statistics.
@@ -89,14 +89,14 @@ export default function About() {
         </p>
         {sources.map((group) => (
           <div key={group.category} style={{ marginBottom: 16 }}>
-            <div style={{ fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.12em", color: P.sienna, fontWeight: 500, fontFamily: "'DM Mono', monospace", marginBottom: 6 }}>
+            <div style={{ fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.12em", color: P.sienna, fontWeight: 500, fontFamily: "'DM Mono', monospace", marginBottom: 6 }}>
               {group.category}
             </div>
             {group.items.map((item) => (
               <div
                 key={item}
                 style={{
-                  fontSize: "11px",
+                  fontSize: "12px",
                   color: P.textMuted,
                   fontFamily: "'DM Mono', monospace",
                   lineHeight: 1.6,
@@ -128,7 +128,7 @@ export default function About() {
             /data
           </a>
           . A machine-readable catalog is served at{" "}
-          <code style={{ fontSize: "11px", background: "rgba(28,43,69,0.04)", padding: "1px 4px", borderRadius: 2 }}>
+          <code style={{ fontSize: "12px", background: "rgba(28,43,69,0.04)", padding: "1px 4px", borderRadius: 2 }}>
             /api/index.json
           </code>
           . No authentication required.

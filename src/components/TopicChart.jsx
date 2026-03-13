@@ -16,7 +16,7 @@ import CustomTooltip from "./CustomTooltip";
 
 export default function TopicChart({ topicKey, chart, lines, chartType }) {
   const axisTickStyle = {
-    fontSize: 10,
+    fontSize: 11,
     fill: P.textLight,
     fontFamily: "'DM Mono', monospace",
   };

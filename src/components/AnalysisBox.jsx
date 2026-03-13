@@ -18,7 +18,7 @@ export default function AnalysisBox({ color, children, visible = true, label = "
     >
       <div
         style={{
-          fontSize: "9px",
+          fontSize: "11px",
           textTransform: "uppercase",
           letterSpacing: "0.15em",
           color,

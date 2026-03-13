@@ -20,7 +20,7 @@ const sectionHeading = {
 };
 
 const sectionNote = {
-  fontSize: "13px",
+  fontSize: "14px",
   lineHeight: 1.7,
   color: P.textMuted,
   fontFamily: "'Playfair Display', serif",
@@ -88,7 +88,7 @@ function InstrumentNode({ instrument, isSelected, onClick, isMobile }) {
           {instrument.short}
         </span>
         <span style={{
-          fontSize: "9px",
+          fontSize: "10px",
           color: col,
           fontFamily: "'DM Mono', monospace",
           textTransform: "uppercase",
@@ -118,17 +118,17 @@ function InstrumentDetail({ instrument }) {
         <h4 style={{ fontFamily: "'Playfair Display', serif", fontSize: "17px", fontWeight: 600, color: P.text, margin: 0 }}>
           {instrument.name}
         </h4>
-        <span style={{ fontSize: "9px", color: col, fontFamily: "'DM Mono', monospace", textTransform: "uppercase" }}>
+        <span style={{ fontSize: "10px", color: col, fontFamily: "'DM Mono', monospace", textTransform: "uppercase" }}>
           {TYPE_LABELS[instrument.type]} · {instrument.year}
         </span>
       </div>
-      <p style={{ fontSize: "12px", color: P.textMuted, fontFamily: "'Playfair Display', serif", lineHeight: 1.7, margin: "0 0 14px" }}>
+      <p style={{ fontSize: "13px", color: P.textMuted, fontFamily: "'Playfair Display', serif", lineHeight: 1.7, margin: "0 0 14px" }}>
         {instrument.summary}
       </p>
 
       {instrument.keyArticles?.length > 0 && (
         <div style={{ marginBottom: 14 }}>
-          <div style={{ fontSize: "9px", color: PURPLE, fontWeight: 600, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 6 }}>
+          <div style={{ fontSize: "10px", color: PURPLE, fontWeight: 600, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 6 }}>
             Key provisions
           </div>
           {instrument.keyArticles.map((art, i) => (
@@ -139,12 +139,12 @@ function InstrumentDetail({ instrument }) {
               borderRadius: 3,
             }}>
               <span style={{
-                fontSize: "10px", fontWeight: 600, color: col,
+                fontSize: "11px", fontWeight: 600, color: col,
                 fontFamily: "'DM Mono', monospace", flexShrink: 0, minWidth: 70,
               }}>
                 {art.ref}
               </span>
-              <span style={{ fontSize: "10px", color: P.text, fontFamily: "'DM Mono', monospace", lineHeight: 1.6 }}>
+              <span style={{ fontSize: "11px", color: P.text, fontFamily: "'DM Mono', monospace", lineHeight: 1.6 }}>
                 {art.text}
               </span>
             </div>
@@ -158,16 +158,16 @@ function InstrumentDetail({ instrument }) {
         borderLeft: `3px solid ${PURPLE}`,
         borderRadius: 3,
       }}>
-        <div style={{ fontSize: "9px", color: PURPLE, fontWeight: 600, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 4 }}>
+        <div style={{ fontSize: "10px", color: PURPLE, fontWeight: 600, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 4 }}>
           Constraint
         </div>
-        <div style={{ fontSize: "11px", color: P.text, fontFamily: "'Playfair Display', serif", lineHeight: 1.7 }}>
+        <div style={{ fontSize: "12px", color: P.text, fontFamily: "'Playfair Display', serif", lineHeight: 1.7 }}>
           {instrument.constraints}
         </div>
       </div>
 
       {instrument.legislationRef && (
-        <div style={{ marginTop: 10, fontSize: "9px", fontFamily: "'DM Mono', monospace" }}>
+        <div style={{ marginTop: 10, fontSize: "10px", fontFamily: "'DM Mono', monospace" }}>
           <a href={`https://www.legislation.gov.uk/${instrument.legislationRef}`} target="_blank" rel="noopener noreferrer" style={{ color: P.textLight }}>
             View on legislation.gov.uk →
           </a>
@@ -201,7 +201,7 @@ function KnotCard({ knot, isOpen, onToggle }) {
           <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif" }}>
             {knot.title}
           </div>
-          <div style={{ fontSize: "11px", color: P.textMuted, fontFamily: "'DM Mono', monospace", marginTop: 2 }}>
+          <div style={{ fontSize: "12px", color: P.textMuted, fontFamily: "'DM Mono', monospace", marginTop: 2 }}>
             {knot.question}
           </div>
         </div>
@@ -234,7 +234,7 @@ function KnotCard({ knot, isOpen, onToggle }) {
               </div>
               <div style={{ paddingBottom: 14 }}>
                 <span style={{
-                  fontSize: "9px", fontWeight: 600,
+                  fontSize: "10px", fontWeight: 600,
                   color: i === knot.chain.length - 1 ? PURPLE : P.textLight,
                   fontFamily: "'DM Mono', monospace",
                   textTransform: "uppercase", letterSpacing: "0.08em",
@@ -242,7 +242,7 @@ function KnotCard({ knot, isOpen, onToggle }) {
                   {step.step}
                 </span>
                 <div style={{
-                  fontSize: "11px", color: P.text,
+                  fontSize: "12px", color: P.text,
                   fontFamily: "'Playfair Display', serif",
                   lineHeight: 1.6, marginTop: 2,
                   fontWeight: i === knot.chain.length - 1 ? 600 : 400,
@@ -294,20 +294,20 @@ function ScenarioCard({ scenario, isOpen, onToggle }) {
               borderRadius: 3,
             }}>
               <span style={{
-                fontSize: "12px", flexShrink: 0,
+                fontSize: "13px", flexShrink: 0,
               }}>
                 {c.effect === "expanded" ? "+" : c.effect === "reduced" ? "−" : "○"}
               </span>
               <div>
                 <span style={{
-                  fontSize: "10px", fontWeight: 600,
+                  fontSize: "11px", fontWeight: 600,
                   color: EFFECT_COLORS[c.effect],
                   fontFamily: "'DM Mono', monospace",
                 }}>
                   {c.area}
                 </span>
                 <div style={{
-                  fontSize: "11px", color: P.text,
+                  fontSize: "12px", color: P.text,
                   fontFamily: "'Playfair Display', serif",
                   lineHeight: 1.6, marginTop: 2,
                 }}>
@@ -319,7 +319,7 @@ function ScenarioCard({ scenario, isOpen, onToggle }) {
           {scenario.source && (
             <div style={{
               marginTop: 10, padding: "6px 10px",
-              fontSize: "9px", color: P.textLight,
+              fontSize: "10px", color: P.textLight,
               fontFamily: "'DM Mono', monospace",
               borderTop: `1px solid ${P.border}`,
             }}>
@@ -362,7 +362,7 @@ export default function AsylumImmigration() {
     return (
       <div style={{ padding: "40px 0" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text }}>Asylum & Immigration</h2>
-        <p style={{ fontSize: "12px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>Loading framework data...</p>
+        <p style={{ fontSize: "13px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>Loading framework data...</p>
       </div>
     );
   }
@@ -371,7 +371,7 @@ export default function AsylumImmigration() {
     return (
       <div style={{ padding: "40px 0" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text }}>Asylum & Immigration</h2>
-        <p style={{ fontSize: "12px", color: P.red, fontFamily: "'DM Mono', monospace" }}>Failed to load: {error ?? "No data"}</p>
+        <p style={{ fontSize: "13px", color: P.red, fontFamily: "'DM Mono', monospace" }}>Failed to load: {error ?? "No data"}</p>
       </div>
     );
   }
@@ -456,28 +456,28 @@ export default function AsylumImmigration() {
         </p>
         <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: 20 }}>
           <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 4, padding: "16px 18px" }}>
-            <div style={{ fontSize: "10px", color: PURPLE, fontWeight: 600, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 8 }}>
+            <div style={{ fontSize: "11px", color: PURPLE, fontWeight: 600, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 8 }}>
               Channel crossings by year
             </div>
             <ResponsiveContainer width="100%" height={180}>
               <BarChart data={crossings}>
                 <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-                <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textMuted }} />
-                <YAxis tick={{ fontSize: 9, fill: P.textMuted }} tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v} width={32} />
+                <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
+                <YAxis tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v} width={32} />
                 <Tooltip content={<CustomTooltip formatter={(v) => v.toLocaleString()} />} />
                 <Bar dataKey="value" name="Crossings" fill={PURPLE} radius={[2, 2, 0, 0]} isAnimationActive={false} />
               </BarChart>
             </ResponsiveContainer>
           </div>
           <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 4, padding: "16px 18px" }}>
-            <div style={{ fontSize: "10px", color: P.sienna, fontWeight: 600, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 8 }}>
+            <div style={{ fontSize: "11px", color: P.sienna, fontWeight: 600, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 8 }}>
               Asylum backlog (cases pending)
             </div>
             <ResponsiveContainer width="100%" height={180}>
               <LineChart data={backlog}>
                 <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-                <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textMuted }} />
-                <YAxis tick={{ fontSize: 9, fill: P.textMuted }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} width={32} />
+                <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
+                <YAxis tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} width={32} />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${(v / 1000).toFixed(0)}k cases`} />} />
                 <Line type="monotone" dataKey="value" name="Backlog" stroke={P.sienna} strokeWidth={2.5} dot={{ r: 3 }} isAnimationActive={false} />
               </LineChart>
@@ -497,34 +497,34 @@ export default function AsylumImmigration() {
             }
             return (
               <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 4, padding: "16px 18px" }}>
-                <div style={{ fontSize: "10px", color: P.red || "#A83428", fontWeight: 600, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 8 }}>
+                <div style={{ fontSize: "11px", color: P.red || "#A83428", fontWeight: 600, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 8 }}>
                   FNOs in the community
                 </div>
                 <ResponsiveContainer width="100%" height={180}>
                   <LineChart data={fnoChart}>
                     <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-                    <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textMuted }} />
-                    <YAxis tick={{ fontSize: 9, fill: P.textMuted }} tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v} width={32} />
+                    <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
+                    <YAxis tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v} width={32} />
                     <Tooltip content={<CustomTooltip />} />
                     <Line type="monotone" dataKey="criteria" name="Criteria only" stroke={P.red || "#A83428"} strokeWidth={2.5} dot={{ r: 3 }} connectNulls={false} isAnimationActive={false} />
                     <Line type="monotone" dataKey="broader" name="Broader measure" stroke={P.red || "#A83428"} strokeWidth={2.5} strokeDasharray="6 3" dot={{ r: 3 }} connectNulls={false} isAnimationActive={false} />
                   </LineChart>
                 </ResponsiveContainer>
-                <div style={{ fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", marginTop: 6, lineHeight: 1.5 }}>
+                <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", marginTop: 6, lineHeight: 1.5 }}>
                   Solid: criteria cases only (12+ month sentence). Dashed: broader measure (criteria + non-criteria, from 2022). Source: Home Office Immigration Enforcement transparency data, Q2 snapshots.
                 </div>
               </div>
             );
           })()}
           <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 4, padding: "16px 18px" }}>
-            <div style={{ fontSize: "10px", color: P.textLight, fontWeight: 600, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 8 }}>
+            <div style={{ fontSize: "11px", color: P.textLight, fontWeight: 600, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 8 }}>
               Dublin III returns (actual)
             </div>
             <ResponsiveContainer width="100%" height={180}>
               <BarChart data={dublinReturns}>
                 <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-                <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textMuted }} />
-                <YAxis tick={{ fontSize: 9, fill: P.textMuted }} width={32} />
+                <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
+                <YAxis tick={{ fontSize: 10, fill: P.textMuted }} width={32} />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${v} people`} />} />
                 <Bar dataKey="value" name="Dublin returns" fill={P.textLight} radius={[2, 2, 0, 0]} isAnimationActive={false} />
               </BarChart>
@@ -560,7 +560,7 @@ export default function AsylumImmigration() {
                     color: viewMode === key ? "#fff" : P.textMuted,
                     border: `1px solid ${viewMode === key ? PURPLE : P.border}`,
                     padding: "5px 14px",
-                    fontSize: "10px",
+                    fontSize: "11px",
                     fontFamily: "'DM Mono', monospace",
                     fontWeight: 600,
                     cursor: "pointer",
@@ -588,7 +588,7 @@ export default function AsylumImmigration() {
                     <CartesianGrid strokeDasharray="3 3" stroke={P.border} horizontal={false} />
                     <XAxis
                       type="number"
-                      tick={{ fontSize: 9, fill: P.textMuted, fontFamily: "'DM Mono', monospace" }}
+                      tick={{ fontSize: 10, fill: P.textMuted, fontFamily: "'DM Mono', monospace" }}
                       tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v}
                     />
                     <YAxis
@@ -599,7 +599,7 @@ export default function AsylumImmigration() {
                     />
                     <Tooltip content={<CustomTooltip />} />
                     <Legend
-                      wrapperStyle={{ fontSize: "10px", fontFamily: "'DM Mono', monospace" }}
+                      wrapperStyle={{ fontSize: "11px", fontFamily: "'DM Mono', monospace" }}
                       iconSize={8}
                     />
                     <Bar dataKey="grants" name="Granted" stackId="a" fill="#4A7A58" isAnimationActive={false} />
@@ -608,7 +608,7 @@ export default function AsylumImmigration() {
                   </BarChart>
                 </ResponsiveContainer>
                 <div style={{
-                  marginTop: 10, fontSize: "9px", color: P.textLight,
+                  marginTop: 10, fontSize: "10px", color: P.textLight,
                   fontFamily: "'DM Mono', monospace", lineHeight: 1.6,
                 }}>
                   Source: {dbn.source}
@@ -625,7 +625,7 @@ export default function AsylumImmigration() {
                   display: "grid",
                   gridTemplateColumns: isMobile ? "1fr 50px" : "140px 1fr 70px 70px 70px 60px",
                   gap: 4, padding: "0 0 8px", borderBottom: `1px solid ${P.border}`,
-                  fontSize: "9px", fontWeight: 600, color: P.textLight,
+                  fontSize: "10px", fontWeight: 600, color: P.textLight,
                   fontFamily: "'DM Mono', monospace", textTransform: "uppercase",
                   letterSpacing: "0.06em",
                 }}>
@@ -648,7 +648,7 @@ export default function AsylumImmigration() {
                       alignItems: "center",
                     }}>
                       <span style={{
-                        fontSize: "11px", color: P.text,
+                        fontSize: "12px", color: P.text,
                         fontFamily: "'DM Mono', monospace", fontWeight: 500,
                       }}>
                         {row.nationality}
@@ -665,22 +665,22 @@ export default function AsylumImmigration() {
                         </div>
                       )}
                       {!isMobile && (
-                        <span style={{ fontSize: "10px", color: "#4A7A58", fontFamily: "'DM Mono', monospace", textAlign: "right" }}>
+                        <span style={{ fontSize: "11px", color: "#4A7A58", fontFamily: "'DM Mono', monospace", textAlign: "right" }}>
                           {row.grants.toLocaleString()}
                         </span>
                       )}
                       {!isMobile && (
-                        <span style={{ fontSize: "10px", color: P.red, fontFamily: "'DM Mono', monospace", textAlign: "right" }}>
+                        <span style={{ fontSize: "11px", color: P.red, fontFamily: "'DM Mono', monospace", textAlign: "right" }}>
                           {row.refusals.toLocaleString()}
                         </span>
                       )}
                       {!isMobile && (
-                        <span style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", textAlign: "right" }}>
+                        <span style={{ fontSize: "11px", color: P.textLight, fontFamily: "'DM Mono', monospace", textAlign: "right" }}>
                           {row.withdrawn.toLocaleString()}
                         </span>
                       )}
                       <span style={{
-                        fontSize: "11px", fontWeight: 600,
+                        fontSize: "12px", fontWeight: 600,
                         color: isHighGrant ? "#1E6B5E" : isLowGrant ? P.red : P.text,
                         fontFamily: "'DM Mono', monospace", textAlign: "right",
                       }}>
@@ -690,7 +690,7 @@ export default function AsylumImmigration() {
                   );
                 })}
                 <div style={{
-                  marginTop: 10, fontSize: "9px", color: P.textLight,
+                  marginTop: 10, fontSize: "10px", color: P.textLight,
                   fontFamily: "'DM Mono', monospace", lineHeight: 1.6,
                 }}>
                   Source: {dbn.source}
@@ -716,7 +716,7 @@ export default function AsylumImmigration() {
 
         {/* Layer: International */}
         <div style={{ marginBottom: 20 }}>
-          <div style={{ fontSize: "9px", color: TYPE_COLORS.international, fontWeight: 600, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 8 }}>
+          <div style={{ fontSize: "10px", color: TYPE_COLORS.international, fontWeight: 600, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 8 }}>
             International treaties
           </div>
           <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr 1fr", gap: 8 }}>
@@ -737,7 +737,7 @@ export default function AsylumImmigration() {
 
         {/* Layer: Bilateral */}
         <div style={{ marginBottom: 20 }}>
-          <div style={{ fontSize: "9px", color: TYPE_COLORS.bilateral, fontWeight: 600, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 8 }}>
+          <div style={{ fontSize: "10px", color: TYPE_COLORS.bilateral, fontWeight: 600, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 8 }}>
             Bilateral & EU framework
           </div>
           <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: 8 }}>
@@ -758,7 +758,7 @@ export default function AsylumImmigration() {
 
         {/* Layer: Domestic */}
         <div style={{ marginBottom: 20 }}>
-          <div style={{ fontSize: "9px", color: TYPE_COLORS.domestic, fontWeight: 600, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 8 }}>
+          <div style={{ fontSize: "10px", color: TYPE_COLORS.domestic, fontWeight: 600, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 8 }}>
             Domestic statutes
           </div>
           <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: 8 }}>
@@ -837,10 +837,10 @@ export default function AsylumImmigration() {
                 left: -19,
               }} />
               <div>
-                <span style={{ fontSize: "10px", fontWeight: 600, color: evt.year >= 2020 ? PURPLE : P.textLight, fontFamily: "'DM Mono', monospace" }}>
+                <span style={{ fontSize: "11px", fontWeight: 600, color: evt.year >= 2020 ? PURPLE : P.textLight, fontFamily: "'DM Mono', monospace" }}>
                   {evt.year}
                 </span>
-                <div style={{ fontSize: "11px", color: P.text, fontFamily: "'Playfair Display', serif", lineHeight: 1.6, marginTop: 1 }}>
+                <div style={{ fontSize: "12px", color: P.text, fontFamily: "'Playfair Display', serif", lineHeight: 1.6, marginTop: 1 }}>
                   {evt.event}
                 </div>
               </div>
@@ -1012,7 +1012,7 @@ export default function AsylumImmigration() {
       </section>
 
       {/* ── Sources ──────────────────────────────────────────────────── */}
-      <div style={{ marginTop: 24, fontSize: "11px", color: P.textLight, fontFamily: "'DM Mono', monospace", lineHeight: 1.8 }}>
+      <div style={{ marginTop: 24, fontSize: "12px", color: P.textLight, fontFamily: "'DM Mono', monospace", lineHeight: 1.8 }}>
         <strong>Sources:</strong>{" "}
         <a href="https://www.legislation.gov.uk/ukpga/1998/42" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight }}>Human Rights Act 1998</a>
         {" · "}

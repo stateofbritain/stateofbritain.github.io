@@ -57,7 +57,7 @@ const sectionHeading = {
 };
 
 const sectionNote = {
-  fontSize: "13px",
+  fontSize: "14px",
   lineHeight: 1.7,
   color: P.textMuted,
   fontFamily: "'Playfair Display', serif",
@@ -116,7 +116,7 @@ export default function ResearchFunding() {
     return (
       <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>Research Funding</h2>
-        <p style={{ fontSize: "12px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>Loading ONS GERD data...</p>
+        <p style={{ fontSize: "13px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>Loading ONS GERD data...</p>
       </div>
     );
   }
@@ -125,7 +125,7 @@ export default function ResearchFunding() {
     return (
       <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>Research Funding</h2>
-        <p style={{ fontSize: "12px", color: P.red, fontFamily: "'DM Mono', monospace" }}>Failed to load data: {error ?? "No data"}</p>
+        <p style={{ fontSize: "13px", color: P.red, fontFamily: "'DM Mono', monospace" }}>Failed to load data: {error ?? "No data"}</p>
       </div>
     );
   }
@@ -143,7 +143,7 @@ export default function ResearchFunding() {
     <div style={{ animation: "fadeSlideIn 0.4s ease both" }}>
       <div style={{ display: "flex", alignItems: "baseline", gap: 14, marginBottom: 8, flexWrap: "wrap" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(26px, 4vw, 36px)", fontWeight: 600, color: P.text, margin: 0 }}>Research Funding</h2>
-        <span style={{ fontSize: "12px", color: P.textLight, fontStyle: "italic", fontFamily: "'Playfair Display', serif" }}>
+        <span style={{ fontSize: "13px", color: P.textLight, fontStyle: "italic", fontFamily: "'Playfair Display', serif" }}>
           ONS GERD {latest.year}
         </span>
       </div>
@@ -335,7 +335,7 @@ export default function ResearchFunding() {
       </div>
 
       {/* Source */}
-      <div style={{ fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em", marginBottom: 20 }}>
+      <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em", marginBottom: 20 }}>
         R&D SPENDING:{" "}
         <a href="https://www.ons.gov.uk/economy/governmentpublicsectorandtaxes/researchanddevelopmentexpenditure/datasets/ukgrossdomesticexpenditureonresearchanddevelopment2021designatedasofficialstatistics" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
           ONS GERD Official Statistics 2023
@@ -376,7 +376,7 @@ function toggleStyle(active) {
     background: active ? "rgba(28,43,69,0.06)" : "transparent",
     border: `1px solid ${P.borderStrong}`,
     color: active ? P.text : P.textLight,
-    padding: "2px 8px", fontSize: "8px", fontWeight: 500,
+    padding: "2px 8px", fontSize: "9px", fontWeight: 500,
     textTransform: "uppercase", letterSpacing: "0.08em",
     cursor: "pointer", fontFamily: "'DM Mono', monospace",
     borderRadius: 2,
@@ -389,7 +389,7 @@ function ChartCard({ label, yearRange, views, viewLabels, activeView, onViewChan
   return (
     <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px", marginBottom: 16, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16, flexWrap: "wrap", gap: 10 }}>
-        <span style={{ fontSize: "10px", color: P.textMuted, fontWeight: 400, letterSpacing: "0.04em", fontFamily: "'DM Mono', monospace" }}>
+        <span style={{ fontSize: "11px", color: P.textMuted, fontWeight: 400, letterSpacing: "0.04em", fontFamily: "'DM Mono', monospace" }}>
           {label}{yearRange ? ` \u00b7 ${yearRange}` : ""}
         </span>
         {views && onViewChange && (
@@ -402,7 +402,7 @@ function ChartCard({ label, yearRange, views, viewLabels, activeView, onViewChan
                   background: activeView === v ? "rgba(28,43,69,0.06)" : "transparent",
                   border: "none",
                   color: activeView === v ? P.text : P.textLight,
-                  padding: "4px 10px", fontSize: "9px", fontWeight: 500,
+                  padding: "4px 10px", fontSize: "10px", fontWeight: 500,
                   textTransform: "uppercase", letterSpacing: "0.1em",
                   cursor: "pointer", fontFamily: "'DM Mono', monospace",
                   transition: "all 0.15s", borderRadius: 2,
@@ -425,7 +425,7 @@ function Legend({ items }) {
       {items.map((item) => (
         <div key={item.key} style={{ display: "flex", alignItems: "center", gap: 5 }}>
           <span style={{ width: 14, height: 8, background: item.color, display: "inline-block", borderRadius: 1 }} />
-          <span style={{ fontSize: "10px", color: P.textMuted, fontWeight: 400, letterSpacing: "0.04em" }}>{item.label}</span>
+          <span style={{ fontSize: "11px", color: P.textMuted, fontWeight: 400, letterSpacing: "0.04em" }}>{item.label}</span>
         </div>
       ))}
     </div>
@@ -439,12 +439,12 @@ function FundingStackedChart({ data }) {
     <ResponsiveContainer width="100%" height={320}>
       <AreaChart data={data} margin={{ top: 5, right: 10, left: 10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
+        <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
         <YAxis
-          tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
+          tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false}
           tickFormatter={(v) => `${(v / 1000).toFixed(0)}bn`}
-          label={{ value: "£m", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+          label={{ value: "£m", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
         />
         <Tooltip content={<CustomTooltip />} />
         {FUNDING_SERIES.map((s) => (
@@ -460,9 +460,9 @@ function PublicPrivateChart({ data }) {
     <ResponsiveContainer width="100%" height={320}>
       <BarChart data={data} margin={{ top: 5, right: 10, left: 10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
+        <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
         <YAxis
-          tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
+          tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false}
           tickFormatter={(v) => `${(v / 1000).toFixed(0)}bn`}
         />
@@ -481,14 +481,14 @@ function GDPChart({ data }) {
     <ResponsiveContainer width="100%" height={320}>
       <LineChart data={data} margin={{ top: 5, right: 10, left: 10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
+        <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
         <YAxis
-          tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
+          tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false}
           unit="%" domain={[2.4, 3.2]}
         />
         <Tooltip content={<CustomTooltip />} />
-        <ReferenceLine y={2.7} stroke={P.grey} strokeDasharray="6 4" strokeWidth={1.5} label={{ value: "OECD 2.7%", position: "right", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+        <ReferenceLine y={2.7} stroke={P.grey} strokeDasharray="6 4" strokeWidth={1.5} label={{ value: "OECD 2.7%", position: "right", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
         <Line type="monotone" dataKey="pctGDP" name="R&D as % of GDP" stroke={P.navy} strokeWidth={2.5} dot={{ r: 4 }} />
       </LineChart>
     </ResponsiveContainer>
@@ -508,12 +508,12 @@ function InternationalChart({ data }) {
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
         <XAxis
           type="number"
-          tick={{ fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
+          tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false} unit="%"
         />
         <YAxis
           type="category" dataKey="label" width={120}
-          tick={{ fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
+          tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false}
         />
         <Tooltip content={<CustomTooltip />} />
@@ -539,7 +539,7 @@ function RegionalChart({ data }) {
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
         <XAxis
           type="number"
-          tick={{ fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
+          tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false}
           tickFormatter={(v) => `${(v / 1000).toFixed(0)}bn`}
         />
@@ -567,7 +567,7 @@ function IncomePieChart() {
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
     return (
       <text x={x} y={y} fill="#fff" textAnchor="middle" dominantBaseline="central"
-        style={{ fontSize: 10, fontFamily: "'DM Mono', monospace", fontWeight: 600 }}>
+        style={{ fontSize: 11, fontFamily: "'DM Mono', monospace", fontWeight: 600 }}>
         {(percent * 100).toFixed(0)}%
       </text>
     );
@@ -608,13 +608,13 @@ function CostRecoveryChart() {
         <XAxis
           type="number"
           domain={[0, 100]}
-          tick={{ fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
+          tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false}
           unit="%"
         />
         <YAxis
           type="category" dataKey="sponsor" width={120}
-          tick={{ fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
+          tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false}
         />
         <Tooltip
@@ -622,7 +622,7 @@ function CostRecoveryChart() {
           contentStyle={{ fontSize: 11, fontFamily: "'DM Mono', monospace", background: P.bgCard, border: `1px solid ${P.border}` }}
         />
         <ReferenceLine x={80} stroke={P.sienna} strokeDasharray="6 4" strokeWidth={1.5}
-          label={{ value: "80% fEC rate", position: "top", style: { fontSize: 9, fill: P.sienna, fontFamily: "'DM Mono', monospace" } }}
+          label={{ value: "80% fEC rate", position: "top", style: { fontSize: 10, fill: P.sienna, fontFamily: "'DM Mono', monospace" } }}
         />
         <ReferenceLine x={100} stroke={P.textLight} strokeDasharray="3 3" strokeWidth={1}
           label={{ value: "Full cost", position: "top", style: { fontSize: 8, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}

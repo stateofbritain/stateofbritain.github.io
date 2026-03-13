@@ -18,7 +18,7 @@ const sectionHeading = {
 };
 
 const sectionNote = {
-  fontSize: "13px",
+  fontSize: "14px",
   lineHeight: 1.7,
   color: P.textMuted,
   fontFamily: "'Playfair Display', serif",
@@ -32,7 +32,7 @@ const toggleBtn = (active) => ({
   borderRadius: 4,
   background: active ? P.teal : "transparent",
   color: active ? "#fff" : P.textMuted,
-  fontSize: "11px",
+  fontSize: "12px",
   fontFamily: "'DM Mono', monospace",
   cursor: "pointer",
   transition: "all 0.15s",
@@ -100,7 +100,7 @@ export default function Productivity() {
     return (
       <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>Productivity</h2>
-        <p style={{ fontSize: "12px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>Loading data...</p>
+        <p style={{ fontSize: "13px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>Loading data...</p>
       </div>
     );
   }
@@ -109,7 +109,7 @@ export default function Productivity() {
     return (
       <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>Productivity</h2>
-        <p style={{ fontSize: "12px", color: P.red, fontFamily: "'DM Mono', monospace" }}>Failed to load data: {error ?? "No data"}</p>
+        <p style={{ fontSize: "13px", color: P.red, fontFamily: "'DM Mono', monospace" }}>Failed to load data: {error ?? "No data"}</p>
       </div>
     );
   }
@@ -148,7 +148,7 @@ export default function Productivity() {
       <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 6px" }}>
         Productivity
       </h2>
-      <p style={{ fontSize: "13px", color: P.textMuted, margin: "0 0 24px", fontFamily: "'Playfair Display', serif", maxWidth: 720 }}>
+      <p style={{ fontSize: "14px", color: P.textMuted, margin: "0 0 24px", fontFamily: "'Playfair Display', serif", maxWidth: 720 }}>
         Output per hour worked — the single most important determinant of living standards.
         Measures how efficiently the economy converts labour into goods and services.
       </p>
@@ -181,7 +181,7 @@ export default function Productivity() {
             <YAxis
               tick={{ fontSize: 11, fill: P.textMuted }}
               tickFormatter={(v) => ukView === "level" ? `£${v}` : v}
-              label={{ value: ukView === "level" ? "£/hour" : "index", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+              label={{ value: ukView === "level" ? "£/hour" : "index", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
             />
             <Tooltip content={<CustomTooltip formatter={(v) => ukView === "level" ? `£${v.toFixed(2)}/hr` : v.toFixed(1)} />} />
             {ukView === "level" ? (
@@ -189,7 +189,7 @@ export default function Productivity() {
             ) : (
               <>
                 <Line type="monotone" dataKey="index" stroke={P.teal} strokeWidth={2} dot={false} name="Index" />
-                <ReferenceLine y={100} stroke={P.textLight} strokeDasharray="4 4" label={{ value: "2023 = 100", fontSize: 10, fill: P.textLight }} />
+                <ReferenceLine y={100} stroke={P.textLight} strokeDasharray="4 4" label={{ value: "2023 = 100", fontSize: 11, fill: P.textLight }} />
               </>
             )}
           </LineChart>
@@ -213,7 +213,7 @@ export default function Productivity() {
           <ResponsiveContainer width="100%" height={Math.max(500, intlBar.length * 26)}>
             <BarChart data={intlBar} layout="vertical" margin={{ left: 110, right: 30 }}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} horizontal={false} />
-              <XAxis type="number" tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => `$${v}`} />
+              <XAxis type="number" tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `$${v}`} />
               <YAxis type="category" dataKey="country" tick={{ fontSize: 11, fill: P.textMuted }} width={105} />
               <Tooltip content={<CustomTooltip formatter={(v) => `$${v.toFixed(1)}/hr PPP`} />} />
               <Bar dataKey="usdPPP" name="GDP/hour (USD PPP)" isAnimationActive={false}>
@@ -225,7 +225,7 @@ export default function Productivity() {
                 x={oecdAvg?.usdPPP}
                 stroke={P.sienna}
                 strokeDasharray="4 4"
-                label={{ value: `OECD avg $${oecdAvg?.usdPPP}`, fontSize: 10, fill: P.sienna, position: "top" }}
+                label={{ value: `OECD avg $${oecdAvg?.usdPPP}`, fontSize: 11, fill: P.sienna, position: "top" }}
               />
             </BarChart>
           </ResponsiveContainer>
@@ -235,7 +235,7 @@ export default function Productivity() {
               <LineChart data={tsSeries}>
                 <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
                 <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-                <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `$${v}`} label={{ value: "$/hour PPP", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+                <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `$${v}`} label={{ value: "$/hour PPP", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
                 <Tooltip content={<CustomTooltip formatter={(v) => `$${v?.toFixed(1)}/hr`} />} />
                 {TS_LINES.map(({ key, label, color }) => (
                   <Line
@@ -281,7 +281,7 @@ export default function Productivity() {
             margin={{ left: 240, right: 30 }}
           >
             <CartesianGrid strokeDasharray="3 3" stroke={P.border} horizontal={false} />
-            <XAxis type="number" tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => `£${v}`} />
+            <XAxis type="number" tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `£${v}`} />
             <YAxis type="category" dataKey="sector" tick={{ fontSize: 11, fill: P.textMuted }} width={235} />
             <Tooltip content={<CustomTooltip formatter={(v) => `£${v.toFixed(2)}/hr`} />} />
             <Bar dataKey="gbpPerHour" fill={P.teal} name="£ per hour" isAnimationActive={false} />
@@ -289,7 +289,7 @@ export default function Productivity() {
               x={latestLevel.gbpPerHour}
               stroke={P.sienna}
               strokeDasharray="4 4"
-              label={{ value: `Whole economy £${latestLevel.gbpPerHour}`, fontSize: 10, fill: P.sienna, position: "top" }}
+              label={{ value: `Whole economy £${latestLevel.gbpPerHour}`, fontSize: 11, fill: P.sienna, position: "top" }}
             />
           </BarChart>
         </ResponsiveContainer>
@@ -307,7 +307,7 @@ export default function Productivity() {
       </AnalysisBox>
 
       {/* Sources */}
-      <div style={{ marginTop: 24, fontSize: "11px", color: P.textLight, fontFamily: "'DM Mono', monospace", lineHeight: 1.8 }}>
+      <div style={{ marginTop: 24, fontSize: "12px", color: P.textLight, fontFamily: "'DM Mono', monospace", lineHeight: 1.8 }}>
         <strong>Sources:</strong>{" "}
         <a href="https://www.ons.gov.uk/economy/economicoutputandproductivity/productivitymeasures/datasets/outputperhourworkeduk" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight }}>
           ONS Output per hour worked, UK (Feb 2026)

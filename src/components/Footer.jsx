@@ -14,7 +14,7 @@ export default function Footer() {
     >
       <div
         style={{
-          fontSize: "10px",
+          fontSize: "11px",
           color: P.textLight,
           fontFamily: "'DM Mono', monospace",
           letterSpacing: "0.06em",
@@ -24,7 +24,7 @@ export default function Footer() {
       </div>
       <div
         style={{
-          fontSize: "10px",
+          fontSize: "11px",
           color: P.textLight,
           fontFamily: "'DM Mono', monospace",
         }}

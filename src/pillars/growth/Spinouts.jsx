@@ -115,7 +115,7 @@ const sectionHeading = {
 };
 
 const sectionNote = {
-  fontSize: "13px",
+  fontSize: "14px",
   lineHeight: 1.7,
   color: P.textMuted,
   fontFamily: "'Playfair Display', serif",
@@ -142,7 +142,7 @@ export default function Spinouts() {
     <div style={{ animation: "fadeSlideIn 0.4s ease both" }}>
       <div style={{ display: "flex", alignItems: "baseline", gap: 14, marginBottom: 8, flexWrap: "wrap" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(26px, 4vw, 36px)", fontWeight: 600, color: P.text, margin: 0 }}>University Spinouts</h2>
-        <span style={{ fontSize: "12px", color: P.textLight, fontStyle: "italic", fontFamily: "'Playfair Display', serif" }}>
+        <span style={{ fontSize: "13px", color: P.textLight, fontStyle: "italic", fontFamily: "'Playfair Display', serif" }}>
           RAEng / Beauhurst &middot; Spotlight on Spinouts 2025
         </span>
       </div>
@@ -333,7 +333,7 @@ export default function Spinouts() {
       </div>
 
       {/* Source */}
-      <div style={{ fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em", marginBottom: 20 }}>
+      <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em", marginBottom: 20 }}>
         SOURCE:{" "}
         <a href="https://raeng.org.uk/policy-and-resources/research-and-innovation/accelerating-enterprise/" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
           RAEng / Beauhurst &mdash; Spotlight on Spinouts 2025
@@ -368,7 +368,7 @@ function ChartCard({ label, yearRange, views, viewLabels, activeView, onViewChan
   return (
     <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px", marginBottom: 16, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16, flexWrap: "wrap", gap: 10 }}>
-        <span style={{ fontSize: "10px", color: P.textMuted, fontWeight: 400, letterSpacing: "0.04em", fontFamily: "'DM Mono', monospace" }}>
+        <span style={{ fontSize: "11px", color: P.textMuted, fontWeight: 400, letterSpacing: "0.04em", fontFamily: "'DM Mono', monospace" }}>
           {label}{yearRange ? ` \u00b7 ${yearRange}` : ""}
         </span>
         {views && onViewChange && (
@@ -381,7 +381,7 @@ function ChartCard({ label, yearRange, views, viewLabels, activeView, onViewChan
                   background: activeView === v ? "rgba(28,43,69,0.06)" : "transparent",
                   border: "none",
                   color: activeView === v ? P.text : P.textLight,
-                  padding: "4px 10px", fontSize: "9px", fontWeight: 500,
+                  padding: "4px 10px", fontSize: "10px", fontWeight: 500,
                   textTransform: "uppercase", letterSpacing: "0.1em",
                   cursor: "pointer", fontFamily: "'DM Mono', monospace",
                   transition: "all 0.15s", borderRadius: 2,
@@ -407,12 +407,12 @@ function UniChart({ data }) {
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
         <XAxis
           type="number"
-          tick={{ fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
+          tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false}
         />
         <YAxis
           type="category" dataKey="name" width={110}
-          tick={{ fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
+          tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false}
         />
         <Tooltip content={<CustomTooltip />} />
@@ -427,11 +427,11 @@ function EquityChart({ data }) {
     <ResponsiveContainer width="100%" height={300}>
       <BarChart data={data} margin={{ top: 5, right: 10, left: 10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
+        <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
         <YAxis
-          tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
+          tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false}
-          label={{ value: "£m", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+          label={{ value: "£m", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
         />
         <Tooltip content={<CustomTooltip />} />
         <Bar dataKey="amount" name="Equity Investment (£m)" fill={P.sienna} opacity={0.85} radius={[3, 3, 0, 0]} />
@@ -445,11 +445,11 @@ function IUKChart({ data }) {
     <ResponsiveContainer width="100%" height={300}>
       <BarChart data={data} margin={{ top: 5, right: 10, left: 10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
+        <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
         <YAxis
-          tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
+          tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false}
-          label={{ value: "£m", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+          label={{ value: "£m", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
         />
         <Tooltip content={<CustomTooltip />} />
         <Bar dataKey="amount" name="IUK Grants (£m)" fill={P.teal} opacity={0.85} radius={[3, 3, 0, 0]} />
@@ -465,7 +465,7 @@ function InvestorChart({ data }) {
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
         <XAxis
           type="number"
-          tick={{ fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
+          tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false}
         />
         <YAxis
@@ -487,7 +487,7 @@ function SectorChart({ data }) {
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
         <XAxis
           type="number"
-          tick={{ fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
+          tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false}
         />
         <YAxis

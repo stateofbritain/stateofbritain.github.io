@@ -29,7 +29,7 @@ export default function Header({ onHome, isMobile }) {
         </h1>
         <span
           style={{
-            fontSize: "10px",
+            fontSize: "11px",
             textTransform: "uppercase",
             letterSpacing: "0.18em",
             color: P.sienna,
@@ -45,7 +45,7 @@ export default function Header({ onHome, isMobile }) {
       </div>
       <p
         style={{
-          fontSize: "13px",
+          fontSize: "14px",
           color: P.textMuted,
           marginTop: 8,
           ...(isMobile ? {} : { maxWidth: 580 }),

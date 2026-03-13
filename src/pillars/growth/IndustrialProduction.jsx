@@ -19,7 +19,7 @@ const sectionHeading = {
 };
 
 const sectionNote = {
-  fontSize: "13px",
+  fontSize: "14px",
   lineHeight: 1.7,
   color: P.textMuted,
   fontFamily: "'Playfair Display', serif",
@@ -33,7 +33,7 @@ const toggleBtn = (active) => ({
   borderRadius: 4,
   background: active ? P.sienna : "transparent",
   color: active ? "#fff" : P.textMuted,
-  fontSize: "11px",
+  fontSize: "12px",
   fontFamily: "'DM Mono', monospace",
   cursor: "pointer",
   transition: "all 0.15s",
@@ -168,7 +168,7 @@ export default function IndustrialProduction() {
     return (
       <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>Industrial Production</h2>
-        <p style={{ fontSize: "12px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>Loading data...</p>
+        <p style={{ fontSize: "13px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>Loading data...</p>
       </div>
     );
   }
@@ -177,7 +177,7 @@ export default function IndustrialProduction() {
     return (
       <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>Industrial Production</h2>
-        <p style={{ fontSize: "12px", color: P.red, fontFamily: "'DM Mono', monospace" }}>Failed to load data: {error ?? "No data"}</p>
+        <p style={{ fontSize: "13px", color: P.red, fontFamily: "'DM Mono', monospace" }}>Failed to load data: {error ?? "No data"}</p>
       </div>
     );
   }
@@ -248,7 +248,7 @@ export default function IndustrialProduction() {
               <table style={{
                 width: "100%",
                 borderCollapse: "collapse",
-                fontSize: "12px",
+                fontSize: "13px",
                 fontFamily: "'DM Mono', monospace",
               }}>
                 <thead>
@@ -259,7 +259,7 @@ export default function IndustrialProduction() {
                         padding: "8px 6px",
                         color: P.textMuted,
                         fontWeight: 500,
-                        fontSize: "10px",
+                        fontSize: "11px",
                         textTransform: "uppercase",
                         letterSpacing: "0.5px",
                       }}>{h}</th>
@@ -283,8 +283,8 @@ export default function IndustrialProduction() {
                             cursor: "pointer",
                           }}
                         >
-                          <td style={{ padding: "7px 6px", fontWeight: 500, color: P.text, fontSize: "11px" }}>
-                            <span style={{ marginRight: 4, fontSize: "8px", color: P.textLight }}>{isExpanded ? "▼" : "▶"}</span>
+                          <td style={{ padding: "7px 6px", fontWeight: 500, color: P.text, fontSize: "12px" }}>
+                            <span style={{ marginRight: 4, fontSize: "9px", color: P.textLight }}>{isExpanded ? "▼" : "▶"}</span>
                             {p.name}
                           </td>
                           <td style={{ padding: "7px 6px", textAlign: "right" }}>
@@ -292,7 +292,7 @@ export default function IndustrialProduction() {
                               <div style={{ width: 40, height: 5, background: P.border, borderRadius: 3, overflow: "hidden" }}>
                                 <div style={{ width: `${Math.min(pctOfPeak, 100)}%`, height: "100%", background: sc, borderRadius: 3 }} />
                               </div>
-                              <span style={{ minWidth: 28, color: P.text, fontSize: "11px" }}>{pctOfPeak}%</span>
+                              <span style={{ minWidth: 28, color: P.text, fontSize: "12px" }}>{pctOfPeak}%</span>
                             </div>
                           </td>
                           <td style={{ padding: "7px 6px", textAlign: "left" }}>
@@ -300,7 +300,7 @@ export default function IndustrialProduction() {
                               display: "inline-block",
                               padding: "2px 6px",
                               borderRadius: 3,
-                              fontSize: "9px",
+                              fontSize: "10px",
                               fontWeight: 600,
                               color: "#fff",
                               background: sc,
@@ -325,12 +325,12 @@ export default function IndustrialProduction() {
                                 <ResponsiveContainer width="100%" height={220}>
                                   <LineChart data={p.series}>
                                     <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-                                    <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textMuted }} />
+                                    <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
                                     <YAxis
-                                      tick={{ fontSize: 9, fill: P.textMuted }}
+                                      tick={{ fontSize: 10, fill: P.textMuted }}
                                       tickFormatter={(v) => v.toLocaleString()}
                                       width={45}
-                                      label={{ value: `Production (${p.unit})`, angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace", textAnchor: "middle" } }}
+                                      label={{ value: `Production (${p.unit})`, angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace", textAnchor: "middle" } }}
                                     />
                                     <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toLocaleString()} ${p.unit}`} />} />
                                     <Line
@@ -344,7 +344,7 @@ export default function IndustrialProduction() {
                                     />
                                   </LineChart>
                                 </ResponsiveContainer>
-                                <div style={{ marginTop: 4, fontSize: "9px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>
+                                <div style={{ marginTop: 4, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>
                                   {p.source}
                                 </div>
                               </div>
@@ -363,7 +363,7 @@ export default function IndustrialProduction() {
               <table style={{
                 width: "100%",
                 borderCollapse: "collapse",
-                fontSize: "12px",
+                fontSize: "13px",
                 fontFamily: "'DM Mono', monospace",
               }}>
                 <thead>
@@ -374,7 +374,7 @@ export default function IndustrialProduction() {
                         padding: "8px 10px",
                         color: P.textMuted,
                         fontWeight: 500,
-                        fontSize: "10px",
+                        fontSize: "11px",
                         textTransform: "uppercase",
                         letterSpacing: "0.5px",
                       }}>{h}</th>
@@ -400,7 +400,7 @@ export default function IndustrialProduction() {
                           }}
                         >
                           <td style={{ padding: "7px 10px", fontWeight: 500, color: P.text }}>
-                            <span style={{ marginRight: 6, fontSize: "9px", color: P.textLight }}>{isExpanded ? "▼" : "▶"}</span>
+                            <span style={{ marginRight: 6, fontSize: "10px", color: P.textLight }}>{isExpanded ? "▼" : "▶"}</span>
                             {p.name}
                             {p.note && (
                               <span title={p.note} style={{ marginLeft: 4, cursor: "help", color: P.textLight }}>*</span>
@@ -435,7 +435,7 @@ export default function IndustrialProduction() {
                               display: "inline-block",
                               padding: "2px 8px",
                               borderRadius: 3,
-                              fontSize: "10px",
+                              fontSize: "11px",
                               fontWeight: 600,
                               color: "#fff",
                               background: sc,
@@ -461,12 +461,12 @@ export default function IndustrialProduction() {
                                   <span style={{ fontFamily: "'Playfair Display', serif", fontSize: "16px", fontWeight: 600, color: P.text }}>
                                     {p.name}
                                   </span>
-                                  <span style={{ fontSize: "11px", color: P.textMuted }}>
+                                  <span style={{ fontSize: "12px", color: P.textMuted }}>
                                     {p.source}
                                   </span>
                                 </div>
                                 {p.note && (
-                                  <p style={{ fontSize: "11px", color: P.textLight, margin: "0 0 10px", fontFamily: "'DM Mono', monospace" }}>
+                                  <p style={{ fontSize: "12px", color: P.textLight, margin: "0 0 10px", fontFamily: "'DM Mono', monospace" }}>
                                     {p.note}
                                   </p>
                                 )}
@@ -530,7 +530,7 @@ export default function IndustrialProduction() {
             return (
               <div key={group.unit ?? "indexed"} style={{ marginBottom: chartGroups.length > 1 ? 28 : 0 }}>
                 {group.unit && chartGroups.length > 1 && (
-                  <p style={{ fontSize: "12px", fontFamily: "'DM Mono', monospace", color: P.textMuted, margin: "0 0 8px" }}>
+                  <p style={{ fontSize: "13px", fontFamily: "'DM Mono', monospace", color: P.textMuted, margin: "0 0 8px" }}>
                     {group.products.map((p) => p.name).join(", ")} ({group.unit})
                   </p>
                 )}
@@ -543,8 +543,8 @@ export default function IndustrialProduction() {
                       tickFormatter={chartMode === "indexed" ? (v) => `${v}` : (v) => v?.toLocaleString()}
                       domain={chartMode === "indexed" ? [0, 105] : undefined}
                       label={chartMode === "indexed"
-                        ? { value: "% of peak", angle: -90, position: "insideLeft", fontSize: 10, fill: P.textLight }
-                        : { value: group.unit, angle: -90, position: "insideLeft", fontSize: 10, fill: P.textLight }}
+                        ? { value: "% of peak", angle: -90, position: "insideLeft", fontSize: 11, fill: P.textLight }
+                        : { value: group.unit, angle: -90, position: "insideLeft", fontSize: 11, fill: P.textLight }}
                     />
                     <Tooltip
                       content={<CustomTooltip
@@ -553,7 +553,7 @@ export default function IndustrialProduction() {
                           : (v) => `${v?.toLocaleString()} ${group.unit ?? ""}`}
                       />}
                     />
-                    <Legend wrapperStyle={{ fontSize: 10, fontFamily: "'DM Mono', monospace" }} />
+                    <Legend wrapperStyle={{ fontSize: 11, fontFamily: "'DM Mono', monospace" }} />
                     {group.products.map((p, i) => (
                       <Line
                         key={p.id}
@@ -574,7 +574,7 @@ export default function IndustrialProduction() {
 
           {/* Notes for products with notes */}
           {activeProducts.filter((p) => p.note).length > 0 && (
-            <div style={{ marginTop: 12, fontSize: "11px", color: P.textLight, fontFamily: "'DM Mono', monospace", lineHeight: 1.8 }}>
+            <div style={{ marginTop: 12, fontSize: "12px", color: P.textLight, fontFamily: "'DM Mono', monospace", lineHeight: 1.8 }}>
               {activeProducts.filter((p) => p.note).map((p) => (
                 <div key={p.id}>
                   <strong>{p.name}:</strong> {p.note}
@@ -606,7 +606,7 @@ export default function IndustrialProduction() {
       </AnalysisBox>
 
       {/* Sources */}
-      <div style={{ marginTop: 24, fontSize: "11px", color: P.textLight, fontFamily: "'DM Mono', monospace", lineHeight: 1.8 }}>
+      <div style={{ marginTop: 24, fontSize: "12px", color: P.textLight, fontFamily: "'DM Mono', monospace", lineHeight: 1.8 }}>
         <strong>Sources:</strong>{" "}
         {data.meta.sources.map((s, i) => (
           <span key={s.name}>

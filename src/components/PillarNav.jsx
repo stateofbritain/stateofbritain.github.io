@@ -32,7 +32,7 @@ export default function PillarNav({ activePillar, onSelect, isMobile }) {
       >
         <span
           style={{
-            fontSize: "11px",
+            fontSize: "12px",
             fontWeight: !activePillar ? 500 : 400,
             color: !activePillar ? P.text : P.textLight,
             letterSpacing: "0.06em",
@@ -67,7 +67,7 @@ export default function PillarNav({ activePillar, onSelect, isMobile }) {
           >
             <span
               style={{
-                fontSize: "11px",
+                fontSize: "12px",
                 fontWeight: isActive ? 500 : 400,
                 color: isActive ? P.text : P.textLight,
                 letterSpacing: "0.06em",

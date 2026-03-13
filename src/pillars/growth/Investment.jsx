@@ -18,7 +18,7 @@ const sectionHeading = {
 };
 
 const sectionNote = {
-  fontSize: "13px",
+  fontSize: "14px",
   lineHeight: 1.7,
   color: P.textMuted,
   fontFamily: "'Playfair Display', serif",
@@ -32,7 +32,7 @@ const toggleBtn = (active) => ({
   borderRadius: 4,
   background: active ? P.teal : "transparent",
   color: active ? "#fff" : P.textMuted,
-  fontSize: "11px",
+  fontSize: "12px",
   fontFamily: "'DM Mono', monospace",
   cursor: "pointer",
   transition: "all 0.15s",
@@ -103,7 +103,7 @@ export default function Investment() {
     return (
       <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>Investment & Capital</h2>
-        <p style={{ fontSize: "12px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>Loading data...</p>
+        <p style={{ fontSize: "13px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>Loading data...</p>
       </div>
     );
   }
@@ -112,7 +112,7 @@ export default function Investment() {
     return (
       <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>Investment & Capital</h2>
-        <p style={{ fontSize: "12px", color: P.red, fontFamily: "'DM Mono', monospace" }}>Failed to load data: {error ?? "No data"}</p>
+        <p style={{ fontSize: "13px", color: P.red, fontFamily: "'DM Mono', monospace" }}>Failed to load data: {error ?? "No data"}</p>
       </div>
     );
   }
@@ -135,7 +135,7 @@ export default function Investment() {
       <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 6px" }}>
         Investment & Capital
       </h2>
-      <p style={{ fontSize: "13px", color: P.textMuted, margin: "0 0 24px", fontFamily: "'Playfair Display', serif", maxWidth: 720 }}>
+      <p style={{ fontSize: "14px", color: P.textMuted, margin: "0 0 24px", fontFamily: "'Playfair Display', serif", maxWidth: 720 }}>
         Gross fixed capital formation (GFCF) — spending on buildings, machinery, transport,
         and intellectual property that expands the economy's productive capacity.
       </p>
@@ -195,7 +195,7 @@ export default function Investment() {
               <YAxis
                 tick={{ fontSize: 11, fill: P.textMuted }}
                 tickFormatter={(v) => `£${(v / 1000).toFixed(0)}bn`}
-                label={{ value: "£bn", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+                label={{ value: "£bn", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
               />
               <Tooltip
                 content={
@@ -232,7 +232,7 @@ export default function Investment() {
               <YAxis
                 tick={{ fontSize: 11, fill: P.textMuted }}
                 tickFormatter={(v) => `£${(v / 1000).toFixed(0)}bn`}
-                label={{ value: "£bn", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+                label={{ value: "£bn", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
               />
               <Tooltip
                 content={
@@ -269,7 +269,7 @@ export default function Investment() {
           <ResponsiveContainer width="100%" height={Math.max(400, intlBar.length * 26)}>
             <BarChart data={intlBar} layout="vertical" margin={{ left: 110, right: 30 }}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} horizontal={false} />
-              <XAxis type="number" tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} label={{ value: "% of GDP", position: "insideBottomRight", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <XAxis type="number" tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} label={{ value: "% of GDP", position: "insideBottomRight", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <YAxis type="category" dataKey="country" tick={{ fontSize: 11, fill: P.textMuted }} width={105} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v.toFixed(1)}%`} />} />
               <Bar dataKey="pctGDP" name="GFCF / GDP" isAnimationActive={false}>
@@ -281,7 +281,7 @@ export default function Investment() {
                 x={oecdAvg?.pctGDP}
                 stroke={P.sienna}
                 strokeDasharray="4 4"
-                label={{ value: `OECD ${oecdAvg?.pctGDP}%`, fontSize: 10, fill: P.sienna, position: "top" }}
+                label={{ value: `OECD ${oecdAvg?.pctGDP}%`, fontSize: 11, fill: P.sienna, position: "top" }}
               />
             </BarChart>
           </ResponsiveContainer>
@@ -295,7 +295,7 @@ export default function Investment() {
                   domain={[14, 34]}
                   tick={{ fontSize: 11, fill: P.textMuted }}
                   tickFormatter={(v) => `${v}%`}
-                  label={{ value: "% of GDP", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+                  label={{ value: "% of GDP", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
                 />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}%`} />} />
                 {TS_LINES.map(({ key, label, color }) => (
@@ -337,7 +337,7 @@ export default function Investment() {
       </AnalysisBox>
 
       {/* Sources */}
-      <div style={{ marginTop: 24, fontSize: "11px", color: P.textLight, fontFamily: "'DM Mono', monospace", lineHeight: 1.8 }}>
+      <div style={{ marginTop: 24, fontSize: "12px", color: P.textLight, fontFamily: "'DM Mono', monospace", lineHeight: 1.8 }}>
         <strong>Sources:</strong>{" "}
         <a href="https://www.ons.gov.uk/economy/grossdomesticproductgdp/datasets/businessinvestment" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight }}>
           ONS Business Investment (Feb 2026)

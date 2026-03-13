@@ -18,7 +18,7 @@ export default function MetricCard({ label, value, change, up, color, delay = 0 
     >
       <div
         style={{
-          fontSize: "10px",
+          fontSize: "11px",
           textTransform: "uppercase",
           letterSpacing: "0.14em",
           color: P.textLight,
@@ -42,7 +42,7 @@ export default function MetricCard({ label, value, change, up, color, delay = 0 
       </div>
       <div
         style={{
-          fontSize: "11px",
+          fontSize: "12px",
           fontFamily: "'DM Mono', monospace",
           color: up ? P.red : P.teal,
           fontWeight: 500,

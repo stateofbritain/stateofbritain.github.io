@@ -28,7 +28,7 @@ export default function ChallengesOverview({ navigate }) {
         Policy Challenges
       </h2>
       <p style={{
-        fontSize: "13px",
+        fontSize: "14px",
         lineHeight: 1.7,
         color: P.textMuted,
         fontFamily: "'Playfair Display', serif",
@@ -43,7 +43,7 @@ export default function ChallengesOverview({ navigate }) {
         them would be.
       </p>
       <p style={{
-        fontSize: "13px",
+        fontSize: "14px",
         lineHeight: 1.7,
         color: P.textMuted,
         fontFamily: "'Playfair Display', serif",
@@ -103,7 +103,7 @@ export default function ChallengesOverview({ navigate }) {
                 </h3>
               </div>
               <p style={{
-                fontSize: "12px",
+                fontSize: "13px",
                 color: P.textMuted,
                 margin: 0,
                 lineHeight: 1.6,
@@ -116,7 +116,7 @@ export default function ChallengesOverview({ navigate }) {
                 <span style={{
                   display: "inline-block",
                   marginTop: 10,
-                  fontSize: "9px",
+                  fontSize: "10px",
                   color: P.textLight,
                   fontFamily: "'DM Mono', monospace",
                   textTransform: "uppercase",

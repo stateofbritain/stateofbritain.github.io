@@ -18,7 +18,7 @@ const sectionHeading = {
 };
 
 const sectionNote = {
-  fontSize: "13px",
+  fontSize: "14px",
   lineHeight: 1.7,
   color: P.textMuted,
   fontFamily: "'Playfair Display', serif",
@@ -32,7 +32,7 @@ const toggleBtn = (active) => ({
   borderRadius: 4,
   background: active ? P.teal : "transparent",
   color: active ? "#fff" : P.textMuted,
-  fontSize: "11px",
+  fontSize: "12px",
   fontFamily: "'DM Mono', monospace",
   cursor: "pointer",
   transition: "all 0.15s",
@@ -124,7 +124,7 @@ export default function ProductiveQuotient() {
     return (
       <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>Frontline Ratio</h2>
-        <p style={{ fontSize: "12px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>Loading data...</p>
+        <p style={{ fontSize: "13px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>Loading data...</p>
       </div>
     );
   }
@@ -133,7 +133,7 @@ export default function ProductiveQuotient() {
     return (
       <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>Frontline Ratio</h2>
-        <p style={{ fontSize: "12px", color: P.red, fontFamily: "'DM Mono', monospace" }}>Failed to load data: {error ?? "No data"}</p>
+        <p style={{ fontSize: "13px", color: P.red, fontFamily: "'DM Mono', monospace" }}>Failed to load data: {error ?? "No data"}</p>
       </div>
     );
   }
@@ -146,7 +146,7 @@ export default function ProductiveQuotient() {
       <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 6px" }}>
         Frontline Ratio
       </h2>
-      <p style={{ fontSize: "13px", color: P.textMuted, margin: "0 0 24px", fontFamily: "'Playfair Display', serif", maxWidth: 720 }}>
+      <p style={{ fontSize: "14px", color: P.textMuted, margin: "0 0 24px", fontFamily: "'Playfair Display', serif", maxWidth: 720 }}>
         What share of public service workforces is on the frontline?
         Compares the ratio of operational/frontline staff to back-office/support
         across four major services.
@@ -184,7 +184,7 @@ export default function ProductiveQuotient() {
           <ResponsiveContainer width="100%" height={220}>
             <BarChart data={comparisonData} layout="vertical" margin={{ left: 90, right: 30 }}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} horizontal={false} />
-              <XAxis type="number" domain={[0, 100]} tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} />
+              <XAxis type="number" domain={[0, 100]} tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} />
               <YAxis type="category" dataKey="service" tick={{ fontSize: 12, fill: P.textMuted }} width={85} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v.toFixed(1)}%`} />} />
               <Bar dataKey="frontlinePct" name="Frontline" stackId="a" isAnimationActive={false}>
@@ -223,7 +223,7 @@ export default function ProductiveQuotient() {
                   ]}
                   tick={{ fontSize: 11, fill: P.textMuted }}
                   tickFormatter={(v) => `${v}%`}
-                  label={{ value: "%", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+                  label={{ value: "%", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
                 />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}%`} />} />
                 <Line
@@ -263,9 +263,9 @@ export default function ProductiveQuotient() {
             <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
             <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
             <YAxis
-              tick={{ fontSize: 10, fill: P.textMuted }}
+              tick={{ fontSize: 11, fill: P.textMuted }}
               tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v}
-              label={{ value: "FTE", angle: -90, position: "insideLeft", style: { fontSize: 9, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+              label={{ value: "FTE", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
             />
             <Tooltip
               content={
@@ -329,7 +329,7 @@ export default function ProductiveQuotient() {
       </AnalysisBox>
 
       {/* Sources */}
-      <div style={{ marginTop: 24, fontSize: "11px", color: P.textLight, fontFamily: "'DM Mono', monospace", lineHeight: 1.8 }}>
+      <div style={{ marginTop: 24, fontSize: "12px", color: P.textLight, fontFamily: "'DM Mono', monospace", lineHeight: 1.8 }}>
         <strong>Sources:</strong>{" "}
         <a href="https://digital.nhs.uk/data-and-information/publications/statistical/nhs-workforce-statistics" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight }}>
           NHS Digital HCHS Workforce Statistics (Feb 2026)

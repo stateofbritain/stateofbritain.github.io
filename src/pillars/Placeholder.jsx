@@ -31,7 +31,7 @@ export default function Placeholder({ pillarColor, topicLabel }) {
       />
       <p
         style={{
-          fontSize: "13px",
+          fontSize: "14px",
           color: P.textMuted,
           fontFamily: "'DM Mono', monospace",
           fontWeight: 300,

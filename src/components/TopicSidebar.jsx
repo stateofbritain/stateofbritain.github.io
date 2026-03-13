@@ -36,12 +36,12 @@ export default function TopicSidebar({ pillar, topics, activeTopic, onSelect, is
                 whiteSpace: "nowrap",
               }}
             >
-              <span style={{ fontSize: "12px", opacity: isActive ? 1 : 0.4 }}>
+              <span style={{ fontSize: "13px", opacity: isActive ? 1 : 0.4 }}>
                 {topic.icon}
               </span>
               <span
                 style={{
-                  fontSize: "11px",
+                  fontSize: "12px",
                   fontWeight: isActive ? 500 : 400,
                   color: isActive ? P.text : P.textMuted,
                   fontFamily: "'DM Mono', monospace",
@@ -91,7 +91,7 @@ export default function TopicSidebar({ pillar, topics, activeTopic, onSelect, is
           >
             <span
               style={{
-                fontSize: "13px",
+                fontSize: "14px",
                 opacity: isActive ? 1 : 0.4,
                 transition: "opacity 0.2s",
                 width: 18,
@@ -102,7 +102,7 @@ export default function TopicSidebar({ pillar, topics, activeTopic, onSelect, is
             </span>
             <span
               style={{
-                fontSize: "11px",
+                fontSize: "12px",
                 fontWeight: isActive ? 500 : 400,
                 color: isActive ? P.text : P.textMuted,
                 fontFamily: "'DM Mono', monospace",

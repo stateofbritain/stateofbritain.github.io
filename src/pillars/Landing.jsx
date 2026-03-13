@@ -21,7 +21,7 @@ export default function Landing({ onNavigate }) {
         </h2>
         <p
           style={{
-            fontSize: "13px",
+            fontSize: "14px",
             color: P.textMuted,
             ...(isMobile ? {} : { maxWidth: 560 }),
             lineHeight: 1.6,
@@ -85,7 +85,7 @@ export default function Landing({ onNavigate }) {
               </h3>
               <p
                 style={{
-                  fontSize: "12px",
+                  fontSize: "13px",
                   color: P.textMuted,
                   margin: "0 0 16px",
                   lineHeight: 1.5,
@@ -106,7 +106,7 @@ export default function Landing({ onNavigate }) {
                   <span
                     key={t.label}
                     style={{
-                      fontSize: "10px",
+                      fontSize: "11px",
                       color: P.textLight,
                       background: "rgba(28,43,69,0.04)",
                       padding: "3px 8px",

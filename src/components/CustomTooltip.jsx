@@ -9,7 +9,7 @@ export default function CustomTooltip({ active, payload, label }) {
         border: "1px solid rgba(255,255,255,0.1)",
         padding: "10px 14px",
         fontFamily: "'DM Mono', monospace",
-        fontSize: "11px",
+        fontSize: "12px",
         color: "#e0ddd6",
         borderRadius: 3,
         boxShadow: "0 4px 16px rgba(28,43,69,0.25)",

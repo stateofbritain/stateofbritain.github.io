@@ -40,7 +40,7 @@ export default function DataPage() {
       </h2>
       <p
         style={{
-          fontSize: "13px",
+          fontSize: "14px",
           color: P.textMuted,
           lineHeight: 1.6,
           fontFamily: "'DM Mono', monospace",
@@ -61,13 +61,13 @@ export default function DataPage() {
           borderRadius: 3,
           padding: isMobile ? "14px 14px" : "16px 20px",
           marginBottom: 32,
-          fontSize: "12px",
+          fontSize: "13px",
           fontFamily: "'DM Mono', monospace",
           color: P.textMuted,
           lineHeight: 1.7,
         }}
       >
-        <div style={{ fontSize: "9px", textTransform: "uppercase", letterSpacing: "0.15em", color: P.teal, fontWeight: 500, marginBottom: 8 }}>
+        <div style={{ fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.15em", color: P.teal, fontWeight: 500, marginBottom: 8 }}>
           For AI agents & developers
         </div>
         <div>
@@ -80,7 +80,7 @@ export default function DataPage() {
             padding: "8px 12px",
             borderRadius: 3,
             margin: "6px 0",
-            fontSize: "11px",
+            fontSize: "12px",
             overflowX: "auto",
             whiteSpace: "nowrap",
           }}
@@ -122,13 +122,13 @@ export default function DataPage() {
                 >
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 12, flexWrap: "wrap" }}>
                     <div style={{ flex: 1, minWidth: 200 }}>
-                      <div style={{ fontSize: "13px", fontWeight: 500, color: P.text, fontFamily: "'DM Mono', monospace", marginBottom: 4 }}>
+                      <div style={{ fontSize: "14px", fontWeight: 500, color: P.text, fontFamily: "'DM Mono', monospace", marginBottom: 4 }}>
                         {ds.name}
                       </div>
-                      <div style={{ fontSize: "11px", color: P.textMuted, fontFamily: "'DM Mono', monospace", lineHeight: 1.5, marginBottom: 6 }}>
+                      <div style={{ fontSize: "12px", color: P.textMuted, fontFamily: "'DM Mono', monospace", lineHeight: 1.5, marginBottom: 6 }}>
                         {ds.description}
                       </div>
-                      <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", lineHeight: 1.6 }}>
+                      <div style={{ fontSize: "11px", color: P.textLight, fontFamily: "'DM Mono', monospace", lineHeight: 1.6 }}>
                         {ds.source} · {ds.coverage} · {ds.frequency}
                       </div>
                     </div>
@@ -137,7 +137,7 @@ export default function DataPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{
-                        fontSize: "10px",
+                        fontSize: "11px",
                         fontFamily: "'DM Mono', monospace",
                         color: P.teal,
                         textDecoration: "none",
@@ -159,7 +159,7 @@ export default function DataPage() {
         );
       })}
 
-      <div style={{ fontSize: "11px", color: P.textLight, fontFamily: "'DM Mono', monospace", lineHeight: 1.8, marginTop: 16 }}>
+      <div style={{ fontSize: "12px", color: P.textLight, fontFamily: "'DM Mono', monospace", lineHeight: 1.8, marginTop: 16 }}>
         <strong>Licence:</strong> Data derived from official UK government statistics published under the{" "}
         <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight }}>
           Open Government Licence v3.0
