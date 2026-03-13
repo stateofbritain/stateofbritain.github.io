@@ -32,6 +32,8 @@ import Education from "./pillars/growth/Education";
 import Justice from "./pillars/state/Justice";
 import Defence from "./pillars/state/Defence";
 import Immigration from "./pillars/state/Immigration";
+import ChallengesOverview from "./pillars/challenges/ChallengesOverview";
+import AsylumImmigration from "./pillars/challenges/AsylumImmigration";
 
 // Map of pillar/topic keys to their React components.
 // As pages are built, import and register them here.
@@ -57,6 +59,8 @@ const TOPIC_COMPONENTS = {
   "state/justice": Justice,
   "state/defence": Defence,
   "state/immigration": Immigration,
+  "challenges/overview": ChallengesOverview,
+  "challenges/asylum": AsylumImmigration,
 };
 
 function getTopicComponent(pillarKey, topicKey) {
@@ -142,7 +146,7 @@ export default function App() {
             )}
             <main style={{ flex: 1, paddingLeft: isMobile ? 0 : (Object.keys(pillarConfig.topics).length > 1 ? 24 : 0) }}>
               {TopicComponent ? (
-                <TopicComponent />
+                <TopicComponent navigate={navigate} />
               ) : (
                 <Placeholder
                   pillarColor={pillarConfig.color}

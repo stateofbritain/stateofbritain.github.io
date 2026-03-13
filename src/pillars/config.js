@@ -55,6 +55,16 @@ const PILLARS = {
       immigration: { label: "Immigration",         icon: "→" },
     },
   },
+  challenges: {
+    label: "Policy Challenges",
+    description: "Legal and regulatory frameworks on issues with significant public interest",
+    color: "#7B4B8A",
+    topics: {
+      overview: { label: "Overview",              icon: "◈" },
+      asylum:   { label: "Asylum & Immigration",  icon: "⊘" },
+      housebuilding: { label: "Housebuilding",      icon: "⌂" },
+    },
+  },
 };
 
 export const PILLAR_KEYS = Object.keys(PILLARS);
