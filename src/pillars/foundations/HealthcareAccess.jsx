@@ -122,7 +122,7 @@ export default function HealthcareAccess() {
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16, flexWrap: "wrap", gap: 10 }}>
           <span style={{ fontSize: "11px", color: P.textMuted, fontWeight: 400, letterSpacing: "0.04em", fontFamily: "'DM Mono', monospace" }}>
-            {VIEW_LABELS[view]} — {view === "ae" ? "quarterly 2025-26" : `${data.rtt[0]?.period} to ${s.rttPeriod}`}
+            {VIEW_LABELS[view]}, {view === "ae" ? "quarterly 2025-26" : `${data.rtt[0]?.period} to ${s.rttPeriod}`}
           </span>
           <div style={{ display: "flex", gap: 0, border: `1px solid ${P.borderStrong}`, borderRadius: 3 }}>
             {VIEWS.map((v) => (
@@ -169,7 +169,7 @@ export default function HealthcareAccess() {
           <p style={SECTION_NOTE}>
             Waiting list size by clinical specialty. Trauma & Orthopaedics (hip and knee replacements,
             fractures) is the largest single queue at 845k. Faded bars show the pre-Covid baseline
-            (January 2020) — every specialty has grown, with ENT (+84%), Gynaecology (+99%), and
+            (January 2020). Every specialty has grown, with ENT (+84%), Gynaecology (+99%), and
             Oral Surgery (+88%) seeing the largest proportional increases.
           </p>
           <div style={{ display: "flex", gap: 6, marginBottom: 14 }}>
@@ -229,6 +229,34 @@ export default function HealthcareAccess() {
         </section>
       )}
 
+      {/* Common operations: volume & wait */}
+      {data.byProcedure && (
+        <section style={{ marginBottom: 48 }}>
+          <h3 style={SECTION_HEADING}>How Long Do Common Operations Take to Get?</h3>
+          <p style={SECTION_NOTE}>
+            The chart above shows waiting lists by clinical specialty. This chart takes a different cut,
+            showing the 15 most common elective operations by the number actually performed in {data.byProcedure.period},
+            and the median number of days patients waited from referral to surgery. This is retrospective,
+            covering procedures already completed, not patients still in the queue.
+          </p>
+          <ShareableChart title="Common NHS Operations, Wait Times">
+          <div style={{ ...CHART_CARD, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
+            <div style={{ marginBottom: 10 }}>
+              <div style={CHART_TITLE}>Common Operations, Median Wait</div>
+              <div style={CHART_SUBTITLE}>Elective procedures performed in {data.byProcedure.period}, median days waited</div>
+            </div>
+            <ProcedureChart data={data.byProcedure.procedures} />
+            <div style={SOURCE_TEXT}>
+              SOURCE:{" "}
+              <a href="https://digital.nhs.uk/data-and-information/publications/statistical/hospital-admitted-patient-care-activity" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
+                NHS Digital Hospital Episode Statistics, Admitted Patient Care {data.byProcedure.period}
+              </a>
+            </div>
+          </div>
+          </ShareableChart>
+        </section>
+      )}
+
       <AnalysisBox color={P.navy} label="Context">
         NHS England RTT waiting list: {waitingMillions}m incomplete pathways ({s.rttPeriod}).
         {" "}{s.pctWithin18Weeks}% treated within 18 weeks (target: 92%).
@@ -240,7 +268,7 @@ export default function HealthcareAccess() {
             {" "}Largest queues by specialty: Trauma & Orthopaedics ({(data.bySpecialty.specialties[0].waiting / 1000).toFixed(0)}k),
             Ophthalmology ({(data.bySpecialty.specialties[1].waiting / 1000).toFixed(0)}k),
             ENT ({(data.bySpecialty.specialties[2].waiting / 1000).toFixed(0)}k).
-            {" "}Every named specialty has grown since Jan 2020 — Gynaecology (+99%),
+            {" "}Every named specialty has grown since Jan 2020. Gynaecology (+99%),
             Oral Surgery (+88%), and ENT (+84%) saw the steepest rises.
           </>
         )}
@@ -324,8 +352,8 @@ const SPECIALTY_EVERYDAY = {
 
 const SPECIALTY_GLOSS = {
   "Trauma & Orthopaedics": "Bones, joints & fractures",
-  "Ophthalmology": "Eyes — cataracts, glaucoma",
-  "ENT": "Ear, nose & throat — hearing, tonsils",
+  "Ophthalmology": "Eyes, cataracts, glaucoma",
+  "ENT": "Ear, nose & throat, hearing, tonsils",
   "Gynaecology": "Women's reproductive health",
   "Dermatology": "Skin conditions & cancer checks",
   "Urology": "Kidneys, bladder & prostate",
@@ -383,6 +411,41 @@ function SpecialtyChart({ data, labelMode }) {
         <Bar dataKey="waitingK" name="Current" radius={[0, 3, 3, 0]} barSize={10}>
           {formatted.map((d, i) => (
             <Cell key={i} fill={P.red} fillOpacity={d.waitingK > 300 ? 1 : 0.7} />
+          ))}
+        </Bar>
+      </BarChart>
+    </ResponsiveContainer>
+  );
+}
+
+function ProcedureChart({ data }) {
+  const sorted = [...data].sort((a, b) => b.medianWait - a.medianWait);
+
+  return (
+    <ResponsiveContainer width="100%" height={Math.max(400, sorted.length * 28 + 30)}>
+      <BarChart data={sorted} layout="vertical" margin={{ top: 0, right: 30, left: 10, bottom: 0 }}>
+        <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" horizontal={false} />
+        <XAxis type="number" tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} unit=" days" />
+        <YAxis type="category" dataKey="procedure" tick={{ fontSize: 11, fill: P.textMuted }} axisLine={false} tickLine={false} width={145} />
+        <Tooltip
+          content={({ active, payload }) => {
+            if (!active || !payload?.length) return null;
+            const d = payload[0]?.payload;
+            const waitMonths = (d.medianWait / 30.4).toFixed(1);
+            return (
+              <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "8px 12px", fontSize: "12px", fontFamily: "'DM Mono', monospace", lineHeight: 1.7 }}>
+                <div style={{ fontWeight: 600, marginBottom: 2 }}>{d.procedure}</div>
+                <div style={{ color: P.navy }}>Median wait: {d.medianWait} days ({waitMonths} months)</div>
+                <div style={{ color: P.textMuted }}>Mean wait: {d.meanWait} days</div>
+                <div style={{ color: P.textMuted }}>Procedures performed: {d.volume.toLocaleString()}</div>
+                <div style={{ color: P.textLight, fontSize: "10px", marginTop: 4 }}>OPCS: {d.code}</div>
+              </div>
+            );
+          }}
+        />
+        <Bar dataKey="medianWait" name="Median wait (days)" radius={[0, 3, 3, 0]} barSize={12}>
+          {sorted.map((d, i) => (
+            <Cell key={i} fill={d.medianWait > 100 ? P.red : d.medianWait > 60 ? P.sienna : P.teal} />
           ))}
         </Bar>
       </BarChart>

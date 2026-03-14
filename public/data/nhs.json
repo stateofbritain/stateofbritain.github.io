@@ -1245,6 +1245,28 @@
       { "specialty": "Cardiothoracic Surgery", "waiting": 9293, "pctWithin18": 71.2, "medianWeeks": 11, "over52weeks": 137, "preCovidWaiting": 8628 }
     ]
   },
+  "byProcedure": {
+    "period": "2023-24",
+    "source": "NHS Digital Hospital Episode Statistics, Admitted Patient Care",
+    "note": "Volumes and wait times for completed procedures, not current waiting list size",
+    "procedures": [
+      { "procedure": "Cataract surgery", "code": "C75", "volume": 533652, "medianWait": 37, "meanWait": 66 },
+      { "procedure": "Skin lesion removal", "code": "S06", "volume": 235855, "medianWait": 33, "meanWait": 75 },
+      { "procedure": "Tooth extraction", "code": "F09+F10", "volume": 118144, "medianWait": 77, "meanWait": 113 },
+      { "procedure": "Knee replacement", "code": "W40", "volume": 80458, "medianWait": 144, "meanWait": 196 },
+      { "procedure": "Hip replacement", "code": "W37-W95", "volume": 77175, "medianWait": 130, "meanWait": 176 },
+      { "procedure": "Joint injection", "code": "W90", "volume": 83243, "medianWait": 64, "meanWait": 123 },
+      { "procedure": "YAG laser (post-cataract)", "code": "C73", "volume": 64038, "medianWait": 32, "meanWait": 64 },
+      { "procedure": "Gallbladder removal", "code": "J18", "volume": 55611, "medianWait": 94, "meanWait": 147 },
+      { "procedure": "Hernia repair (groin)", "code": "T20", "volume": 51869, "medianWait": 100, "meanWait": 141 },
+      { "procedure": "Breast lump removal", "code": "B28", "volume": 42327, "medianWait": 22, "meanWait": 34 },
+      { "procedure": "Carpal tunnel release", "code": "A65", "volume": 37288, "medianWait": 72, "meanWait": 100 },
+      { "procedure": "Tonsillectomy", "code": "F34", "volume": 36977, "medianWait": 114, "meanWait": 138 },
+      { "procedure": "Nose surgery", "code": "E09", "volume": 27620, "medianWait": 44, "meanWait": 75 },
+      { "procedure": "Hysterectomy", "code": "Q07", "volume": 27274, "medianWait": 55, "meanWait": 68 },
+      { "procedure": "Knee arthroscopy", "code": "W82", "volume": 25237, "medianWait": 84, "meanWait": 118 }
+    ]
+  },
   "summary": {
     "totalWaiting": 7290880,
     "medianWait": 13.4,
