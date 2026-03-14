@@ -1221,6 +1221,30 @@
       "emergencyAdmissions": 401942
     }
   ],
+  "bySpecialty": {
+    "period": "2026-01",
+    "preCovidPeriod": "2020-01",
+    "specialties": [
+      { "specialty": "Trauma & Orthopaedics", "waiting": 845246, "pctWithin18": 57.6, "medianWeeks": 16, "over52weeks": 25055, "preCovidWaiting": 524763 },
+      { "specialty": "Ophthalmology", "waiting": 598650, "pctWithin18": 69.7, "medianWeeks": 12, "over52weeks": 5237, "preCovidWaiting": 441533 },
+      { "specialty": "ENT", "waiting": 589045, "pctWithin18": 53.3, "medianWeeks": 17, "over52weeks": 16122, "preCovidWaiting": 319396 },
+      { "specialty": "Gynaecology", "waiting": 566350, "pctWithin18": 56.8, "medianWeeks": 16, "over52weeks": 14735, "preCovidWaiting": 284667 },
+      { "specialty": "Dermatology", "waiting": 396831, "pctWithin18": 59.8, "medianWeeks": 15, "over52weeks": 6315, "preCovidWaiting": 222510 },
+      { "specialty": "Urology", "waiting": 390044, "pctWithin18": 62.8, "medianWeeks": 14, "over52weeks": 7858, "preCovidWaiting": 243941 },
+      { "specialty": "General Surgery", "waiting": 386565, "pctWithin18": 59.5, "medianWeeks": 15, "over52weeks": 8958, "preCovidWaiting": 325707 },
+      { "specialty": "Cardiology", "waiting": 385038, "pctWithin18": 63.9, "medianWeeks": 13, "over52weeks": 4595, "preCovidWaiting": 224292 },
+      { "specialty": "Gastroenterology", "waiting": 383697, "pctWithin18": 64.8, "medianWeeks": 13, "over52weeks": 4758, "preCovidWaiting": 229078 },
+      { "specialty": "Oral Surgery", "waiting": 318440, "pctWithin18": 52.4, "medianWeeks": 18, "over52weeks": 10023, "preCovidWaiting": 169007 },
+      { "specialty": "Neurology", "waiting": 219187, "pctWithin18": 57.0, "medianWeeks": 16, "over52weeks": 3721, "preCovidWaiting": 143705 },
+      { "specialty": "Respiratory Medicine", "waiting": 185422, "pctWithin18": 69.3, "medianWeeks": 12, "over52weeks": 1361, "preCovidWaiting": 113801 },
+      { "specialty": "Rheumatology", "waiting": 116258, "pctWithin18": 66.3, "medianWeeks": 13, "over52weeks": 859, "preCovidWaiting": 93000 },
+      { "specialty": "Plastic Surgery", "waiting": 104152, "pctWithin18": 54.2, "medianWeeks": 17, "over52weeks": 3432, "preCovidWaiting": 55317 },
+      { "specialty": "Neurosurgery", "waiting": 58192, "pctWithin18": 60.4, "medianWeeks": 15, "over52weeks": 1061, "preCovidWaiting": 35441 },
+      { "specialty": "General Medicine", "waiting": 37048, "pctWithin18": 66.9, "medianWeeks": 12, "over52weeks": 321, "preCovidWaiting": 43933 },
+      { "specialty": "Elderly Medicine", "waiting": 26371, "pctWithin18": 79.3, "medianWeeks": 9, "over52weeks": 143, "preCovidWaiting": 19207 },
+      { "specialty": "Cardiothoracic Surgery", "waiting": 9293, "pctWithin18": 71.2, "medianWeeks": 11, "over52weeks": 137, "preCovidWaiting": 8628 }
+    ]
+  },
   "summary": {
     "totalWaiting": 7290880,
     "medianWait": 13.4,

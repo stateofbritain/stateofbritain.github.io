@@ -74,7 +74,7 @@ function withShareHeight(el, h) {
   return el;
 }
 
-export default function ShareableChart({ title, children }) {
+export default function ShareableChart({ title, children, shareContent, shareHeight }) {
   const [busy, setBusy] = useState(false);
   const [hover, setHover] = useState(false);
   const [portal, setPortal] = useState(null);
@@ -201,9 +201,12 @@ export default function ShareableChart({ title, children }) {
     }
   }, [busy, title]);
 
+  const shareSource = shareContent
+    ? React.Children.only(shareContent)
+    : React.Children.only(children);
   const shareChildren = withShareHeight(
-    withNoAnimation(withShareCardStyle(React.Children.only(children))),
-    SHARE_CHART_H
+    withNoAnimation(withShareCardStyle(shareSource)),
+    shareHeight ?? SHARE_CHART_H
   );
 
   return (
