@@ -149,63 +149,69 @@ export default function Infrastructure() {
 
         {roadView === "traffic" && (
           <ShareableChart title="Road Traffic Volume">
-          <div style={{ marginBottom: 10 }}>
-            <div style={CHART_TITLE}>Road Traffic Volume</div>
-            <div style={CHART_SUBTITLE}>Billion vehicle miles, Great Britain</div>
+          <div>
+            <div style={{ marginBottom: 10 }}>
+              <div style={CHART_TITLE}>Road Traffic Volume</div>
+              <div style={CHART_SUBTITLE}>Billion vehicle miles, Great Britain</div>
+            </div>
+            <ResponsiveContainer width="100%" height={340}>
+              <AreaChart data={roadTraffic}>
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" tick={AXIS_TICK} />
+                <YAxis tick={AXIS_TICK} tickFormatter={(v) => `${v}bn`} label={yAxisLabel("Bn vehicle miles")} />
+                <Tooltip content={<CustomTooltip formatter={(v) => `${v}bn miles`} />} />
+                <Area type="monotone" dataKey="cars" stackId="1" stroke={P.teal} fill={P.teal} fillOpacity={0.4} name="Cars & taxis" />
+                <Area type="monotone" dataKey="lcvs" stackId="1" stroke={P.sienna} fill={P.sienna} fillOpacity={0.4} name="Light commercial" />
+                <Area type="monotone" dataKey="buses" stackId="1" stroke={P.yellow} fill={P.yellow} fillOpacity={0.4} name="Buses & coaches" />
+                <Area type="monotone" dataKey="hgvs" stackId="1" stroke={P.navy} fill={P.navy} fillOpacity={0.4} name="HGVs" />
+              </AreaChart>
+            </ResponsiveContainer>
           </div>
-          <ResponsiveContainer width="100%" height={340}>
-            <AreaChart data={roadTraffic}>
-              <CartesianGrid {...GRID_PROPS} />
-              <XAxis dataKey="year" tick={AXIS_TICK} />
-              <YAxis tick={AXIS_TICK} tickFormatter={(v) => `${v}bn`} label={yAxisLabel("Bn vehicle miles")} />
-              <Tooltip content={<CustomTooltip formatter={(v) => `${v}bn miles`} />} />
-              <Area type="monotone" dataKey="cars" stackId="1" stroke={P.teal} fill={P.teal} fillOpacity={0.4} name="Cars & taxis" />
-              <Area type="monotone" dataKey="lcvs" stackId="1" stroke={P.sienna} fill={P.sienna} fillOpacity={0.4} name="Light commercial" />
-              <Area type="monotone" dataKey="buses" stackId="1" stroke={P.yellow} fill={P.yellow} fillOpacity={0.4} name="Buses & coaches" />
-              <Area type="monotone" dataKey="hgvs" stackId="1" stroke={P.navy} fill={P.navy} fillOpacity={0.4} name="HGVs" />
-            </AreaChart>
-          </ResponsiveContainer>
           </ShareableChart>
         )}
 
         {roadView === "condition" && (
           <ShareableChart title="Road Condition">
-          <div style={{ marginBottom: 10 }}>
-            <div style={CHART_TITLE}>Road Condition</div>
-            <div style={CHART_SUBTITLE}>% of roads in need of maintenance, England</div>
+          <div>
+            <div style={{ marginBottom: 10 }}>
+              <div style={CHART_TITLE}>Road Condition</div>
+              <div style={CHART_SUBTITLE}>% of roads in need of maintenance, England</div>
+            </div>
+            <ResponsiveContainer width="100%" height={340}>
+              <LineChart data={data.roads.condition}>
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" tick={AXIS_TICK} />
+                <YAxis tick={AXIS_TICK} tickFormatter={(v) => `${v}%`} domain={[0, 25]} label={yAxisLabel("% needing maintenance")} />
+                <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
+                <Line type="monotone" dataKey="aRoadsPoor" stroke={P.teal} strokeWidth={2} dot={{ r: 3 }} name="A roads" />
+                <Line type="monotone" dataKey="bAndcPoor" stroke={P.sienna} strokeWidth={2} dot={{ r: 3 }} name="B & C roads" />
+                <Line type="monotone" dataKey="unclassifiedPoor" stroke={P.red} strokeWidth={2} dot={{ r: 3 }} name="Unclassified" />
+              </LineChart>
+            </ResponsiveContainer>
           </div>
-          <ResponsiveContainer width="100%" height={340}>
-            <LineChart data={data.roads.condition}>
-              <CartesianGrid {...GRID_PROPS} />
-              <XAxis dataKey="year" tick={AXIS_TICK} />
-              <YAxis tick={AXIS_TICK} tickFormatter={(v) => `${v}%`} domain={[0, 25]} label={yAxisLabel("% needing maintenance")} />
-              <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
-              <Line type="monotone" dataKey="aRoadsPoor" stroke={P.teal} strokeWidth={2} dot={{ r: 3 }} name="A roads" />
-              <Line type="monotone" dataKey="bAndcPoor" stroke={P.sienna} strokeWidth={2} dot={{ r: 3 }} name="B & C roads" />
-              <Line type="monotone" dataKey="unclassifiedPoor" stroke={P.red} strokeWidth={2} dot={{ r: 3 }} name="Unclassified" />
-            </LineChart>
-          </ResponsiveContainer>
           </ShareableChart>
         )}
 
         {roadView === "potholes" && data.roads.potholes && (
           <ShareableChart title="Potholes & Maintenance Backlog">
-          <div style={{ marginBottom: 10 }}>
-            <div style={CHART_TITLE}>Potholes & Maintenance Backlog</div>
-            <div style={CHART_SUBTITLE}>Local authority road repair backlog</div>
+          <div>
+            <div style={{ marginBottom: 10 }}>
+              <div style={CHART_TITLE}>Potholes & Maintenance Backlog</div>
+              <div style={CHART_SUBTITLE}>Local authority road repair backlog</div>
+            </div>
+            <ResponsiveContainer width="100%" height={340}>
+              <ComposedChart data={data.roads.potholes}>
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" tick={AXIS_TICK} />
+                <YAxis yAxisId="left" tick={AXIS_TICK} domain={[0, 3]} tickFormatter={(v) => `${v}m`} label={yAxisLabel("Potholes filled (m)")} />
+                <YAxis yAxisId="right" orientation="right" tick={AXIS_TICK} domain={[0, 20]} tickFormatter={(v) => `£${v}bn`} label={yAxisLabel("Backlog (£bn)", { angle: 90, position: "insideRight" })} />
+                <Tooltip content={<CustomTooltip />} />
+                <Bar yAxisId="left" dataKey="filled" fill={P.sienna} fillOpacity={0.7} name="Potholes filled (millions)" radius={[3, 3, 0, 0]} />
+                <Line yAxisId="right" type="monotone" dataKey="backlogBn" stroke={P.red} strokeWidth={2.5} dot={{ r: 3, fill: P.red }} name="Maintenance backlog (£bn)" />
+                <Legend wrapperStyle={{ fontSize: 11, fontFamily: "'DM Mono', monospace" }} />
+              </ComposedChart>
+            </ResponsiveContainer>
           </div>
-          <ResponsiveContainer width="100%" height={340}>
-            <ComposedChart data={data.roads.potholes}>
-              <CartesianGrid {...GRID_PROPS} />
-              <XAxis dataKey="year" tick={AXIS_TICK} />
-              <YAxis yAxisId="left" tick={AXIS_TICK} domain={[0, 3]} tickFormatter={(v) => `${v}m`} label={yAxisLabel("Potholes filled (m)")} />
-              <YAxis yAxisId="right" orientation="right" tick={AXIS_TICK} domain={[0, 20]} tickFormatter={(v) => `£${v}bn`} label={yAxisLabel("Backlog (£bn)", { angle: 90, position: "insideRight" })} />
-              <Tooltip content={<CustomTooltip />} />
-              <Bar yAxisId="left" dataKey="filled" fill={P.sienna} fillOpacity={0.7} name="Potholes filled (millions)" radius={[3, 3, 0, 0]} />
-              <Line yAxisId="right" type="monotone" dataKey="backlogBn" stroke={P.red} strokeWidth={2.5} dot={{ r: 3, fill: P.red }} name="Maintenance backlog (£bn)" />
-              <Legend wrapperStyle={{ fontSize: 11, fontFamily: "'DM Mono', monospace" }} />
-            </ComposedChart>
-          </ResponsiveContainer>
           </ShareableChart>
         )}
       </section>
@@ -226,42 +232,46 @@ export default function Infrastructure() {
 
           {netView === "change" && (
             <ShareableChart title="Network Length (Annual Change)">
-            <div style={{ marginBottom: 10 }}>
-              <div style={CHART_TITLE}>Network Length (Annual Change)</div>
-              <div style={CHART_SUBTITLE}>Year-on-year change in road network, England</div>
+            <div>
+              <div style={{ marginBottom: 10 }}>
+                <div style={CHART_TITLE}>Network Length (Annual Change)</div>
+                <div style={CHART_SUBTITLE}>Year-on-year change in road network, England</div>
+              </div>
+              <ResponsiveContainer width="100%" height={340}>
+                <BarChart data={networkChange}>
+                  <CartesianGrid {...GRID_PROPS} />
+                  <XAxis dataKey="year" tick={AXIS_TICK} />
+                  <YAxis tick={AXIS_TICK} tickFormatter={(v) => `${v}`} label={yAxisLabel("Miles (annual change)")} />
+                  <Tooltip content={<CustomTooltip formatter={(v) => `${v} mi`} />} />
+                  <ReferenceLine y={0} stroke={P.textLight} />
+                  <Bar dataKey="roadChangeMi" fill={P.teal} name="Major roads" isAnimationActive={false} />
+                  <Bar dataKey="railChangeMi" fill={P.sienna} name="Rail route" isAnimationActive={false} />
+                </BarChart>
+              </ResponsiveContainer>
             </div>
-            <ResponsiveContainer width="100%" height={340}>
-              <BarChart data={networkChange}>
-                <CartesianGrid {...GRID_PROPS} />
-                <XAxis dataKey="year" tick={AXIS_TICK} />
-                <YAxis tick={AXIS_TICK} tickFormatter={(v) => `${v}`} label={yAxisLabel("Miles (annual change)")} />
-                <Tooltip content={<CustomTooltip formatter={(v) => `${v} mi`} />} />
-                <ReferenceLine y={0} stroke={P.textLight} />
-                <Bar dataKey="roadChangeMi" fill={P.teal} name="Major roads" isAnimationActive={false} />
-                <Bar dataKey="railChangeMi" fill={P.sienna} name="Rail route" isAnimationActive={false} />
-              </BarChart>
-            </ResponsiveContainer>
             </ShareableChart>
           )}
 
           {netView === "total" && (
             <ShareableChart title="Total Network Length">
-            <div style={{ marginBottom: 10 }}>
-              <div style={CHART_TITLE}>Total Network Length</div>
-              <div style={CHART_SUBTITLE}>Total road network length, England (km)</div>
+            <div>
+              <div style={{ marginBottom: 10 }}>
+                <div style={CHART_TITLE}>Total Network Length</div>
+                <div style={CHART_SUBTITLE}>Total road network length, England (km)</div>
+              </div>
+              <ResponsiveContainer width="100%" height={340}>
+                <LineChart data={networkChange}>
+                  <CartesianGrid {...GRID_PROPS} />
+                  <XAxis dataKey="year" tick={AXIS_TICK} />
+                  <YAxis yAxisId="road" tick={AXIS_TICK} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} label={yAxisLabel("Major roads (miles)")} />
+                  <YAxis yAxisId="rail" orientation="right" tick={AXIS_TICK} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} label={yAxisLabel("Rail route (miles)", { angle: 90, position: "insideRight" })} />
+                  <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toLocaleString()} mi`} />} />
+                  <Line yAxisId="road" type="monotone" dataKey="roadTotalMi" stroke={P.teal} strokeWidth={2} dot={false} name="Major roads (mi)" />
+                  <Line yAxisId="rail" type="monotone" dataKey="railTotalMi" stroke={P.sienna} strokeWidth={2} dot={false} name="Rail route (mi)" />
+                  <Line yAxisId="rail" type="monotone" dataKey="railElectMi" stroke={P.yellow} strokeWidth={2} dot={false} name="Electrified rail (mi)" connectNulls />
+                </LineChart>
+              </ResponsiveContainer>
             </div>
-            <ResponsiveContainer width="100%" height={340}>
-              <LineChart data={networkChange}>
-                <CartesianGrid {...GRID_PROPS} />
-                <XAxis dataKey="year" tick={AXIS_TICK} />
-                <YAxis yAxisId="road" tick={AXIS_TICK} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} label={yAxisLabel("Major roads (miles)")} />
-                <YAxis yAxisId="rail" orientation="right" tick={AXIS_TICK} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} label={yAxisLabel("Rail route (miles)", { angle: 90, position: "insideRight" })} />
-                <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toLocaleString()} mi`} />} />
-                <Line yAxisId="road" type="monotone" dataKey="roadTotalMi" stroke={P.teal} strokeWidth={2} dot={false} name="Major roads (mi)" />
-                <Line yAxisId="rail" type="monotone" dataKey="railTotalMi" stroke={P.sienna} strokeWidth={2} dot={false} name="Rail route (mi)" />
-                <Line yAxisId="rail" type="monotone" dataKey="railElectMi" stroke={P.yellow} strokeWidth={2} dot={false} name="Electrified rail (mi)" connectNulls />
-              </LineChart>
-            </ResponsiveContainer>
             </ShareableChart>
           )}
         </section>
@@ -282,38 +292,42 @@ export default function Infrastructure() {
 
         {railView === "journeys" && (
           <ShareableChart title="Rail Passenger Journeys">
-          <div style={{ marginBottom: 10 }}>
-            <div style={CHART_TITLE}>Rail Passenger Journeys</div>
-            <div style={CHART_SUBTITLE}>Annual passenger journeys, Great Britain (billions)</div>
+          <div>
+            <div style={{ marginBottom: 10 }}>
+              <div style={CHART_TITLE}>Rail Passenger Journeys</div>
+              <div style={CHART_SUBTITLE}>Annual passenger journeys, Great Britain (billions)</div>
+            </div>
+            <ResponsiveContainer width="100%" height={340}>
+              <AreaChart data={railJourneys}>
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="fy" tick={AXIS_TICK} interval={2} />
+                <YAxis tick={AXIS_TICK} tickFormatter={(v) => `${(v / 1000).toFixed(1)}bn`} label={yAxisLabel("Passenger journeys (bn)")} />
+                <Tooltip content={<CustomTooltip labelFormatter={(l) => `FY ${l}`} formatter={(v) => `${v.toLocaleString()}m`} />} />
+                <Area type="monotone" dataKey="journeysMn" stroke={P.teal} fill={P.teal} fillOpacity={0.3} name="Journeys (millions)" />
+              </AreaChart>
+            </ResponsiveContainer>
           </div>
-          <ResponsiveContainer width="100%" height={340}>
-            <AreaChart data={railJourneys}>
-              <CartesianGrid {...GRID_PROPS} />
-              <XAxis dataKey="fy" tick={AXIS_TICK} interval={2} />
-              <YAxis tick={AXIS_TICK} tickFormatter={(v) => `${(v / 1000).toFixed(1)}bn`} label={yAxisLabel("Passenger journeys (bn)")} />
-              <Tooltip content={<CustomTooltip labelFormatter={(l) => `FY ${l}`} formatter={(v) => `${v.toLocaleString()}m`} />} />
-              <Area type="monotone" dataKey="journeysMn" stroke={P.teal} fill={P.teal} fillOpacity={0.3} name="Journeys (millions)" />
-            </AreaChart>
-          </ResponsiveContainer>
           </ShareableChart>
         )}
 
         {railView === "punctuality" && (
           <ShareableChart title="Rail Punctuality (PPM)">
-          <div style={{ marginBottom: 10 }}>
-            <div style={CHART_TITLE}>Rail Punctuality (PPM)</div>
-            <div style={CHART_SUBTITLE}>Public performance measure, Great Britain</div>
+          <div>
+            <div style={{ marginBottom: 10 }}>
+              <div style={CHART_TITLE}>Rail Punctuality (PPM)</div>
+              <div style={CHART_SUBTITLE}>Public performance measure, Great Britain</div>
+            </div>
+            <ResponsiveContainer width="100%" height={340}>
+              <LineChart data={data.rail.punctuality}>
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="fy" tick={AXIS_TICK} interval={2} />
+                <YAxis tick={AXIS_TICK} tickFormatter={(v) => `${v}%`} domain={[70, 100]} label={yAxisLabel("% on time (PPM)")} />
+                <Tooltip content={<CustomTooltip labelFormatter={(l) => `FY ${l}`} formatter={(v) => `${v}%`} />} />
+                <Line type="monotone" dataKey="ppm" stroke={P.teal} strokeWidth={2} dot={false} name="PPM" />
+                <ReferenceLine y={92.5} stroke={P.textLight} strokeDasharray="4 4" label={{ value: "Historic target 92.5%", fontSize: 11, fill: P.textLight, position: "top" }} />
+              </LineChart>
+            </ResponsiveContainer>
           </div>
-          <ResponsiveContainer width="100%" height={340}>
-            <LineChart data={data.rail.punctuality}>
-              <CartesianGrid {...GRID_PROPS} />
-              <XAxis dataKey="fy" tick={AXIS_TICK} interval={2} />
-              <YAxis tick={AXIS_TICK} tickFormatter={(v) => `${v}%`} domain={[70, 100]} label={yAxisLabel("% on time (PPM)")} />
-              <Tooltip content={<CustomTooltip labelFormatter={(l) => `FY ${l}`} formatter={(v) => `${v}%`} />} />
-              <Line type="monotone" dataKey="ppm" stroke={P.teal} strokeWidth={2} dot={false} name="PPM" />
-              <ReferenceLine y={92.5} stroke={P.textLight} strokeDasharray="4 4" label={{ value: "Historic target 92.5%", fontSize: 11, fill: P.textLight, position: "top" }} />
-            </LineChart>
-          </ResponsiveContainer>
           </ShareableChart>
         )}
       </section>
@@ -336,57 +350,63 @@ export default function Infrastructure() {
 
         {bbView === "coverage" && (
           <ShareableChart title="Broadband Coverage (FTTP & Gigabit)">
-          <div style={{ marginBottom: 10 }}>
-            <div style={CHART_TITLE}>Broadband Coverage (FTTP & Gigabit)</div>
-            <div style={CHART_SUBTITLE}>% of UK premises with full fibre / gigabit</div>
+          <div>
+            <div style={{ marginBottom: 10 }}>
+              <div style={CHART_TITLE}>Broadband Coverage (FTTP & Gigabit)</div>
+              <div style={CHART_SUBTITLE}>% of UK premises with full fibre / gigabit</div>
+            </div>
+            <ResponsiveContainer width="100%" height={340}>
+              <AreaChart data={coverageSeries}>
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" tick={AXIS_TICK} />
+                <YAxis tick={AXIS_TICK} tickFormatter={(v) => `${v}%`} domain={[0, 100]} label={yAxisLabel("Broadband coverage (% of premises)")} />
+                <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
+                <Area type="monotone" dataKey="gigabit" stackId="1" stroke={P.grey} fill={P.grey} fillOpacity={0.3} name="Gigabit (non-FTTP)" />
+                <Area type="monotone" dataKey="fttp" stackId="0" stroke={P.teal} fill={P.teal} fillOpacity={0.4} name="Full Fibre (FTTP)" />
+              </AreaChart>
+            </ResponsiveContainer>
           </div>
-          <ResponsiveContainer width="100%" height={340}>
-            <AreaChart data={coverageSeries}>
-              <CartesianGrid {...GRID_PROPS} />
-              <XAxis dataKey="year" tick={AXIS_TICK} />
-              <YAxis tick={AXIS_TICK} tickFormatter={(v) => `${v}%`} domain={[0, 100]} label={yAxisLabel("Broadband coverage (% of premises)")} />
-              <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
-              <Area type="monotone" dataKey="gigabit" stackId="1" stroke={P.grey} fill={P.grey} fillOpacity={0.3} name="Gigabit (non-FTTP)" />
-              <Area type="monotone" dataKey="fttp" stackId="0" stroke={P.teal} fill={P.teal} fillOpacity={0.4} name="Full Fibre (FTTP)" />
-            </AreaChart>
-          </ResponsiveContainer>
           </ShareableChart>
         )}
 
         {bbView === "speeds" && (
           <ShareableChart title="Broadband Speeds">
-          <div style={{ marginBottom: 10 }}>
-            <div style={CHART_TITLE}>Broadband Speeds</div>
-            <div style={CHART_SUBTITLE}>Average download speeds, UK (Mbit/s)</div>
+          <div>
+            <div style={{ marginBottom: 10 }}>
+              <div style={CHART_TITLE}>Broadband Speeds</div>
+              <div style={CHART_SUBTITLE}>Average download speeds, UK (Mbit/s)</div>
+            </div>
+            <ResponsiveContainer width="100%" height={340}>
+              <LineChart data={data.broadband.speeds}>
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" tick={AXIS_TICK} />
+                <YAxis tick={AXIS_TICK} tickFormatter={(v) => `${v} Mb/s`} label={yAxisLabel("Download speed (Mbit/s)")} />
+                <Tooltip content={<CustomTooltip formatter={(v) => `${v} Mbit/s`} />} />
+                <Line type="monotone" dataKey="medianDown" stroke={P.teal} strokeWidth={2} dot={{ r: 3 }} name="Download" />
+                <Line type="monotone" dataKey="medianUp" stroke={P.sienna} strokeWidth={2} dot={{ r: 3 }} name="Upload" />
+              </LineChart>
+            </ResponsiveContainer>
           </div>
-          <ResponsiveContainer width="100%" height={340}>
-            <LineChart data={data.broadband.speeds}>
-              <CartesianGrid {...GRID_PROPS} />
-              <XAxis dataKey="year" tick={AXIS_TICK} />
-              <YAxis tick={AXIS_TICK} tickFormatter={(v) => `${v} Mb/s`} label={yAxisLabel("Download speed (Mbit/s)")} />
-              <Tooltip content={<CustomTooltip formatter={(v) => `${v} Mbit/s`} />} />
-              <Line type="monotone" dataKey="medianDown" stroke={P.teal} strokeWidth={2} dot={{ r: 3 }} name="Download" />
-              <Line type="monotone" dataKey="medianUp" stroke={P.sienna} strokeWidth={2} dot={{ r: 3 }} name="Upload" />
-            </LineChart>
-          </ResponsiveContainer>
           </ShareableChart>
         )}
 
         {bbView === "mobile" && (
           <ShareableChart title="Mobile 4G Coverage">
-          <div style={{ marginBottom: 10 }}>
-            <div style={CHART_TITLE}>Mobile 4G Coverage</div>
-            <div style={CHART_SUBTITLE}>% geographic coverage by operator, UK</div>
+          <div>
+            <div style={{ marginBottom: 10 }}>
+              <div style={CHART_TITLE}>Mobile 4G Coverage</div>
+              <div style={CHART_SUBTITLE}>% geographic coverage by operator, UK</div>
+            </div>
+            <ResponsiveContainer width="100%" height={340}>
+              <BarChart data={data.broadband.mobile4g}>
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" tick={AXIS_TICK} />
+                <YAxis tick={AXIS_TICK} tickFormatter={(v) => `${v}%`} domain={[80, 100]} label={yAxisLabel("4G coverage (% of landmass)")} />
+                <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
+                <Bar dataKey="landmassPct" fill={P.teal} name="4G landmass coverage" isAnimationActive={false} />
+              </BarChart>
+            </ResponsiveContainer>
           </div>
-          <ResponsiveContainer width="100%" height={340}>
-            <BarChart data={data.broadband.mobile4g}>
-              <CartesianGrid {...GRID_PROPS} />
-              <XAxis dataKey="year" tick={AXIS_TICK} />
-              <YAxis tick={AXIS_TICK} tickFormatter={(v) => `${v}%`} domain={[80, 100]} label={yAxisLabel("4G coverage (% of landmass)")} />
-              <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
-              <Bar dataKey="landmassPct" fill={P.teal} name="4G landmass coverage" isAnimationActive={false} />
-            </BarChart>
-          </ResponsiveContainer>
           </ShareableChart>
         )}
       </section>
