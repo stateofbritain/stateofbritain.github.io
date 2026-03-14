@@ -8,6 +8,7 @@ import useIsMobile from "../../hooks/useIsMobile";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import { track } from "../../analytics";
+import ShareableChart from "../../components/ShareableChart";
 
 const PURPLE = "#7B4B8A";
 
@@ -455,9 +456,11 @@ export default function AsylumImmigration() {
           and Dublin III returns. Charts are on independent scales.
         </p>
         <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: 20 }}>
-          <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 4, padding: "16px 18px" }}>
-            <div style={{ fontSize: "11px", color: PURPLE, fontWeight: 600, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 8 }}>
-              Channel crossings by year
+          <ShareableChart title="Channel Crossings by Year">
+          <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 4, padding: "18px 18px 14px" }}>
+            <div style={{ marginBottom: 10 }}>
+              <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Channel Crossings</div>
+              <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Small boat arrivals by year</div>
             </div>
             <ResponsiveContainer width="100%" height={180}>
               <BarChart data={crossings}>
@@ -469,9 +472,12 @@ export default function AsylumImmigration() {
               </BarChart>
             </ResponsiveContainer>
           </div>
-          <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 4, padding: "16px 18px" }}>
-            <div style={{ fontSize: "11px", color: P.sienna, fontWeight: 600, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 8 }}>
-              Asylum backlog (cases pending)
+          </ShareableChart>
+          <ShareableChart title="Asylum Backlog (Cases Pending)">
+          <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 4, padding: "18px 18px 14px" }}>
+            <div style={{ marginBottom: 10 }}>
+              <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Asylum Backlog</div>
+              <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Cases pending initial decision</div>
             </div>
             <ResponsiveContainer width="100%" height={180}>
               <LineChart data={backlog}>
@@ -483,6 +489,7 @@ export default function AsylumImmigration() {
               </LineChart>
             </ResponsiveContainer>
           </div>
+          </ShareableChart>
           {(() => {
             const fnoChart = fnosInCommunity.map(d => ({
               year: d.year,
@@ -496,9 +503,11 @@ export default function AsylumImmigration() {
               if (idx !== -1) fnoChart[idx].broader = last.value;
             }
             return (
-              <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 4, padding: "16px 18px" }}>
-                <div style={{ fontSize: "11px", color: P.red || "#A83428", fontWeight: 600, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 8 }}>
-                  FNOs in the community
+              <ShareableChart title="Foreign National Offenders in the Community">
+              <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 4, padding: "18px 18px 14px" }}>
+                <div style={{ marginBottom: 10 }}>
+                  <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Foreign National Offenders</div>
+                  <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>FNOs living in the community, not removable</div>
                 </div>
                 <ResponsiveContainer width="100%" height={180}>
                   <LineChart data={fnoChart}>
@@ -514,11 +523,14 @@ export default function AsylumImmigration() {
                   Solid: criteria cases only (12+ month sentence). Dashed: broader measure (criteria + non-criteria, from 2022). Source: Home Office Immigration Enforcement transparency data, Q2 snapshots.
                 </div>
               </div>
+              </ShareableChart>
             );
           })()}
-          <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 4, padding: "16px 18px" }}>
-            <div style={{ fontSize: "11px", color: P.textLight, fontWeight: 600, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 8 }}>
-              Dublin III returns (actual)
+          <ShareableChart title="Dublin III Returns (Actual)">
+          <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 4, padding: "18px 18px 14px" }}>
+            <div style={{ marginBottom: 10 }}>
+              <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Dublin III Returns</div>
+              <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Actual transfers to EU member states</div>
             </div>
             <ResponsiveContainer width="100%" height={180}>
               <BarChart data={dublinReturns}>
@@ -530,6 +542,7 @@ export default function AsylumImmigration() {
               </BarChart>
             </ResponsiveContainer>
           </div>
+          </ShareableChart>
         </div>
       </section>
 
@@ -575,10 +588,15 @@ export default function AsylumImmigration() {
 
             {viewMode === "volume" ? (
               /* ── Stacked bar chart: raw numbers ── */
+              <ShareableChart title="Asylum Decisions by Nationality">
               <div style={{
                 background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 4,
-                padding: isMobile ? "14px 10px" : "18px 22px",
+                padding: isMobile ? "14px 10px" : "18px 22px 14px",
               }}>
+                <div style={{ marginBottom: 10 }}>
+                  <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Asylum Decisions by Nationality</div>
+                  <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Initial decisions, main applicants, by outcome</div>
+                </div>
                 <ResponsiveContainer width="100%" height={byTotal.length * 32 + 40}>
                   <BarChart
                     data={byTotal}
@@ -614,12 +632,18 @@ export default function AsylumImmigration() {
                   Source: {dbn.source}
                 </div>
               </div>
+              </ShareableChart>
             ) : (
               /* ── Grant rate table (existing) ── */
+              <ShareableChart title="Asylum Grant Rates by Nationality">
               <div style={{
                 background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 4,
-                padding: isMobile ? "14px 10px" : "18px 22px",
+                padding: isMobile ? "14px 10px" : "18px 22px 14px",
               }}>
+                <div style={{ marginBottom: 10 }}>
+                  <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Grant Rates by Nationality</div>
+                  <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Initial decision grant rate, main applicants</div>
+                </div>
                 {/* Header */}
                 <div style={{
                   display: "grid",
@@ -696,6 +720,7 @@ export default function AsylumImmigration() {
                   Source: {dbn.source}
                 </div>
               </div>
+              </ShareableChart>
             )}
           </section>
         );
@@ -928,11 +953,16 @@ export default function AsylumImmigration() {
           };
 
           return (
+            <ShareableChart title="Asylum & Immigration Legal Framework">
             <div style={{
               background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 4,
-              padding: isMobile ? "12px 4px" : "20px 22px",
+              padding: isMobile ? "12px 4px" : "18px 22px 14px",
               overflowX: "auto",
             }}>
+              <div style={{ marginBottom: 10, padding: isMobile ? "0 8px" : 0 }}>
+                <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Legal Framework</div>
+                <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>How international, domestic, and bilateral instruments connect</div>
+              </div>
               <svg width={W} height={SVG_H} style={{ display: "block", margin: "0 auto" }}>
                 {colLabels.map(c => (
                   <text key={c.label} x={c.x} y={14} textAnchor="middle" fill={c.color}
@@ -1007,6 +1037,7 @@ export default function AsylumImmigration() {
                 })}
               </svg>
             </div>
+            </ShareableChart>
           );
         })()}
       </section>

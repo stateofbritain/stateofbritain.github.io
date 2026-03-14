@@ -9,6 +9,7 @@ import P from "../../theme/palette";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
+import ShareableChart from "../../components/ShareableChart";
 
 const sectionHeading = {
   fontFamily: "'Playfair Display', serif",
@@ -175,11 +176,16 @@ export default function Infrastructure() {
         </div>
 
         {roadView === "traffic" && (
+          <ShareableChart title="Road Traffic Volume">
+          <div style={{ marginBottom: 10 }}>
+            <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Road Traffic Volume</div>
+            <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Billion vehicle miles, Great Britain</div>
+          </div>
           <ResponsiveContainer width="100%" height={340}>
             <AreaChart data={roadTraffic}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}bn`} label={{ value: "Bn vehicle miles", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}bn`} label={{ value: "Bn vehicle miles", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v}bn miles`} />} />
               <Area type="monotone" dataKey="cars" stackId="1" stroke={P.teal} fill={P.teal} fillOpacity={0.4} name="Cars & taxis" />
               <Area type="monotone" dataKey="lcvs" stackId="1" stroke={P.sienna} fill={P.sienna} fillOpacity={0.4} name="Light commercial" />
@@ -187,35 +193,48 @@ export default function Infrastructure() {
               <Area type="monotone" dataKey="hgvs" stackId="1" stroke={P.navy} fill={P.navy} fillOpacity={0.4} name="HGVs" />
             </AreaChart>
           </ResponsiveContainer>
+          </ShareableChart>
         )}
 
         {roadView === "condition" && (
+          <ShareableChart title="Road Condition">
+          <div style={{ marginBottom: 10 }}>
+            <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Road Condition</div>
+            <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>% of roads in need of maintenance, England</div>
+          </div>
           <ResponsiveContainer width="100%" height={340}>
             <LineChart data={data.roads.condition}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} domain={[0, 25]} label={{ value: "% needing maintenance", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} domain={[0, 25]} label={{ value: "% needing maintenance", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
               <Line type="monotone" dataKey="aRoadsPoor" stroke={P.teal} strokeWidth={2} dot={{ r: 3 }} name="A roads" />
               <Line type="monotone" dataKey="bAndcPoor" stroke={P.sienna} strokeWidth={2} dot={{ r: 3 }} name="B & C roads" />
               <Line type="monotone" dataKey="unclassifiedPoor" stroke={P.red} strokeWidth={2} dot={{ r: 3 }} name="Unclassified" />
             </LineChart>
           </ResponsiveContainer>
+          </ShareableChart>
         )}
 
         {roadView === "potholes" && data.roads.potholes && (
+          <ShareableChart title="Potholes & Maintenance Backlog">
+          <div style={{ marginBottom: 10 }}>
+            <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Potholes & Maintenance Backlog</div>
+            <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Local authority road repair backlog</div>
+          </div>
           <ResponsiveContainer width="100%" height={340}>
             <ComposedChart data={data.roads.potholes}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis yAxisId="left" tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 3]} tickFormatter={(v) => `${v}m`} label={{ value: "Potholes filled (m)", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
-              <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 20]} tickFormatter={(v) => `£${v}bn`} label={{ value: "Backlog (£bn)", angle: 90, position: "insideRight", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <YAxis yAxisId="left" tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 3]} tickFormatter={(v) => `${v}m`} label={{ value: "Potholes filled (m)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 20]} tickFormatter={(v) => `£${v}bn`} label={{ value: "Backlog (£bn)", angle: 90, position: "insideRight", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip />} />
               <Bar yAxisId="left" dataKey="filled" fill={P.sienna} fillOpacity={0.7} name="Potholes filled (millions)" radius={[3, 3, 0, 0]} />
               <Line yAxisId="right" type="monotone" dataKey="backlogBn" stroke={P.red} strokeWidth={2.5} dot={{ r: 3, fill: P.red }} name="Maintenance backlog (£bn)" />
               <Legend wrapperStyle={{ fontSize: 11, fontFamily: "'DM Mono', monospace" }} />
             </ComposedChart>
           </ResponsiveContainer>
+          </ShareableChart>
         )}
       </section>
 
@@ -234,32 +253,44 @@ export default function Infrastructure() {
           </div>
 
           {netView === "change" && (
+            <ShareableChart title="Network Length (Annual Change)">
+            <div style={{ marginBottom: 10 }}>
+              <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Network Length (Annual Change)</div>
+              <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Year-on-year change in road network, England</div>
+            </div>
             <ResponsiveContainer width="100%" height={340}>
               <BarChart data={networkChange}>
                 <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
                 <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-                <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}`} label={{ value: "Miles (annual change)", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+                <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}`} label={{ value: "Miles (annual change)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${v} mi`} />} />
                 <ReferenceLine y={0} stroke={P.textLight} />
                 <Bar dataKey="roadChangeMi" fill={P.teal} name="Major roads" isAnimationActive={false} />
                 <Bar dataKey="railChangeMi" fill={P.sienna} name="Rail route" isAnimationActive={false} />
               </BarChart>
             </ResponsiveContainer>
+            </ShareableChart>
           )}
 
           {netView === "total" && (
+            <ShareableChart title="Total Network Length">
+            <div style={{ marginBottom: 10 }}>
+              <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Total Network Length</div>
+              <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Total road network length, England (km)</div>
+            </div>
             <ResponsiveContainer width="100%" height={340}>
               <LineChart data={networkChange}>
                 <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
                 <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-                <YAxis yAxisId="road" tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} label={{ value: "Major roads (miles)", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
-                <YAxis yAxisId="rail" orientation="right" tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} label={{ value: "Rail route (miles)", angle: 90, position: "insideRight", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+                <YAxis yAxisId="road" tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} label={{ value: "Major roads (miles)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+                <YAxis yAxisId="rail" orientation="right" tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} label={{ value: "Rail route (miles)", angle: 90, position: "insideRight", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toLocaleString()} mi`} />} />
                 <Line yAxisId="road" type="monotone" dataKey="roadTotalMi" stroke={P.teal} strokeWidth={2} dot={false} name="Major roads (mi)" />
                 <Line yAxisId="rail" type="monotone" dataKey="railTotalMi" stroke={P.sienna} strokeWidth={2} dot={false} name="Rail route (mi)" />
                 <Line yAxisId="rail" type="monotone" dataKey="railElectMi" stroke={P.yellow} strokeWidth={2} dot={false} name="Electrified rail (mi)" connectNulls />
               </LineChart>
             </ResponsiveContainer>
+            </ShareableChart>
           )}
         </section>
       )}
@@ -278,28 +309,40 @@ export default function Infrastructure() {
         </div>
 
         {railView === "journeys" && (
+          <ShareableChart title="Rail Passenger Journeys">
+          <div style={{ marginBottom: 10 }}>
+            <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Rail Passenger Journeys</div>
+            <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Annual passenger journeys, Great Britain (billions)</div>
+          </div>
           <ResponsiveContainer width="100%" height={340}>
             <AreaChart data={railJourneys}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="fy" tick={{ fontSize: 11, fill: P.textMuted }} interval={2} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${(v / 1000).toFixed(1)}bn`} label={{ value: "Journeys (bn)", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${(v / 1000).toFixed(1)}bn`} label={{ value: "Passenger journeys (bn)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip labelFormatter={(l) => `FY ${l}`} formatter={(v) => `${v.toLocaleString()}m`} />} />
               <Area type="monotone" dataKey="journeysMn" stroke={P.teal} fill={P.teal} fillOpacity={0.3} name="Journeys (millions)" />
             </AreaChart>
           </ResponsiveContainer>
+          </ShareableChart>
         )}
 
         {railView === "punctuality" && (
+          <ShareableChart title="Rail Punctuality (PPM)">
+          <div style={{ marginBottom: 10 }}>
+            <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Rail Punctuality (PPM)</div>
+            <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Public performance measure, Great Britain</div>
+          </div>
           <ResponsiveContainer width="100%" height={340}>
             <LineChart data={data.rail.punctuality}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="fy" tick={{ fontSize: 11, fill: P.textMuted }} interval={2} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} domain={[70, 100]} label={{ value: "% on time (PPM)", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} domain={[70, 100]} label={{ value: "% on time (PPM)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip labelFormatter={(l) => `FY ${l}`} formatter={(v) => `${v}%`} />} />
               <Line type="monotone" dataKey="ppm" stroke={P.teal} strokeWidth={2} dot={false} name="PPM" />
               <ReferenceLine y={92.5} stroke={P.textLight} strokeDasharray="4 4" label={{ value: "Historic target 92.5%", fontSize: 11, fill: P.textLight, position: "top" }} />
             </LineChart>
           </ResponsiveContainer>
+          </ShareableChart>
         )}
       </section>
 
@@ -320,41 +363,59 @@ export default function Infrastructure() {
         </div>
 
         {bbView === "coverage" && (
+          <ShareableChart title="Broadband Coverage (FTTP & Gigabit)">
+          <div style={{ marginBottom: 10 }}>
+            <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Broadband Coverage (FTTP & Gigabit)</div>
+            <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>% of UK premises with full fibre / gigabit</div>
+          </div>
           <ResponsiveContainer width="100%" height={340}>
             <AreaChart data={coverageSeries}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} domain={[0, 100]} label={{ value: "% of premises", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} domain={[0, 100]} label={{ value: "Broadband coverage (% of premises)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
               <Area type="monotone" dataKey="gigabit" stackId="1" stroke={P.grey} fill={P.grey} fillOpacity={0.3} name="Gigabit (non-FTTP)" />
               <Area type="monotone" dataKey="fttp" stackId="0" stroke={P.teal} fill={P.teal} fillOpacity={0.4} name="Full Fibre (FTTP)" />
             </AreaChart>
           </ResponsiveContainer>
+          </ShareableChart>
         )}
 
         {bbView === "speeds" && (
+          <ShareableChart title="Broadband Speeds">
+          <div style={{ marginBottom: 10 }}>
+            <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Broadband Speeds</div>
+            <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Average download speeds, UK (Mbit/s)</div>
+          </div>
           <ResponsiveContainer width="100%" height={340}>
             <LineChart data={data.broadband.speeds}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v} Mb/s`} label={{ value: "Mbit/s", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v} Mb/s`} label={{ value: "Download speed (Mbit/s)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v} Mbit/s`} />} />
               <Line type="monotone" dataKey="medianDown" stroke={P.teal} strokeWidth={2} dot={{ r: 3 }} name="Download" />
               <Line type="monotone" dataKey="medianUp" stroke={P.sienna} strokeWidth={2} dot={{ r: 3 }} name="Upload" />
             </LineChart>
           </ResponsiveContainer>
+          </ShareableChart>
         )}
 
         {bbView === "mobile" && (
+          <ShareableChart title="Mobile 4G Coverage">
+          <div style={{ marginBottom: 10 }}>
+            <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Mobile 4G Coverage</div>
+            <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>% geographic coverage by operator, UK</div>
+          </div>
           <ResponsiveContainer width="100%" height={340}>
             <BarChart data={data.broadband.mobile4g}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} domain={[80, 100]} label={{ value: "% landmass", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} domain={[80, 100]} label={{ value: "4G coverage (% of landmass)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
               <Bar dataKey="landmassPct" fill={P.teal} name="4G landmass coverage" isAnimationActive={false} />
             </BarChart>
           </ResponsiveContainer>
+          </ShareableChart>
         )}
       </section>
 

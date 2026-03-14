@@ -12,6 +12,7 @@ import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import { track } from "../../analytics";
+import ShareableChart from "../../components/ShareableChart";
 
 const sectionHeading = {
   fontFamily: "'Playfair Display', serif",
@@ -617,7 +618,11 @@ export default function Spending() {
             : `Government spending by department. Click a year on the chart to explore, or click a department to drill down.`}
         </p>
 
-        <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 12px 16px", position: "relative" }}>
+        <ShareableChart title="Where the Money Goes"><div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 12px 14px", position: "relative" }}>
+          <div style={{ marginBottom: 10, padding: "0 8px" }}>
+            <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Where the Money Goes</div>
+            <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Government spending by department, FY {activePieYear}</div>
+          </div>
           {/* Breadcrumb */}
           <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 4, padding: "0 8px", fontSize: "12px", fontFamily: "'DM Mono', monospace" }}>
             <span
@@ -837,7 +842,7 @@ export default function Spending() {
               ? "SOURCE: Departmental Annual Report / Estimates 2024-25"
               : <>SOURCE: HM Treasury PESA 2025, Table 1.12 &middot; Policy spending, FY {activePieYear}</>}
           </div>
-        </div>
+        </div></ShareableChart>
       </section>
 
       {/* Section 2: Department detail list + tax calculator sidebar */}
@@ -849,7 +854,11 @@ export default function Spending() {
 
         <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 300px", gap: 20, alignItems: "start" }}>
           {/* Department bars */}
-          <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "16px 14px 10px" }}>
+          <ShareableChart title="Department Breakdown"><div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 14px 14px" }}>
+            <div style={{ marginBottom: 10 }}>
+              <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Department Breakdown</div>
+              <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>All departmental groups, FY {latestFy}</div>
+            </div>
             {sortedDepts.map((dept, idx) => {
               const isExpanded = expandedDept === idx;
               const maxVal = sortedDepts[0].latest;
@@ -964,7 +973,7 @@ export default function Spending() {
                           } : undefined}>
                             <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
                             <XAxis dataKey="fy" tick={{ fontSize: 10, fill: P.textMuted }} />
-                            <YAxis tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}bn`} width={42} label={{ value: "£bn", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+                            <YAxis tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}bn`} width={42} label={{ value: "£bn", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
                             <Tooltip content={<CustomTooltip formatter={(v) => `£${v != null ? v.toLocaleString() : "—"}m`} />} />
                             {showDualLine && (
                               <Line type="monotone" dataKey="value" name="Total TME" stroke={P.textLight} strokeWidth={1} strokeDasharray="4 3" dot={{ r: 1.5, fill: P.textLight }} activeDot={false} />
@@ -1009,7 +1018,7 @@ export default function Spending() {
                 <span style={{ fontSize: "12px", fontWeight: 600, color: P.text, fontFamily: "'DM Mono', monospace" }}>{fmtM(data.departments.deptTotal[latestFy])}</span>
               </div>
             </div>
-          </div>
+          </div></ShareableChart>
 
           {/* Sidebar */}
           <div style={{ display: "flex", flexDirection: "column", gap: 16, minWidth: 0, width: "100%" }}>
@@ -1091,7 +1100,11 @@ export default function Spending() {
           Public sector current receipts and total managed expenditure since 1990.
           The gap between the two lines is net borrowing. Dashed lines show OBR forecasts.
         </p>
-        <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px", boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
+        <ShareableChart title="Receipts vs Spending"><div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px", boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
+          <div style={{ marginBottom: 10 }}>
+            <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Receipts vs Spending</div>
+            <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Public sector receipts and total managed expenditure since 1990</div>
+          </div>
           <div style={{ display: "flex", gap: 6, marginBottom: 14 }}>
             <button style={toggleBtn(trendView === "bn")} onClick={() => { track("chart_toggle", { chart: "spending_trend", view: "bn" }); setTrendView("bn"); }}>£ billion</button>
             <button style={toggleBtn(trendView === "pct")} onClick={() => { track("chart_toggle", { chart: "spending_trend", view: "pct" }); setTrendView("pct"); }}>% of GDP</button>
@@ -1100,14 +1113,14 @@ export default function Spending() {
             <AreaChart data={trendData}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => trendView === "bn" ? `£${v}bn` : `${v}%`} label={{ value: trendView === "bn" ? "£bn" : "% of GDP", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => trendView === "bn" ? `£${v}bn` : `${v}%`} label={{ value: trendView === "bn" ? "£bn" : "% of GDP", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => trendView === "bn" ? `£${v?.toFixed(1)}bn` : `${v?.toFixed(1)}%`} />} />
               <Area type="monotone" dataKey="tme" stroke={P.red} fill={P.red} fillOpacity={0.08} strokeWidth={2} name="Total spending" dot={false} />
               <Area type="monotone" dataKey="receipts" stroke={P.teal} fill={P.teal} fillOpacity={0.08} strokeWidth={2} name="Receipts" dot={false} />
               <Legend wrapperStyle={{ fontSize: 11, fontFamily: "'DM Mono', monospace" }} />
             </AreaChart>
           </ResponsiveContainer>
-        </div>
+        </div></ShareableChart>
       </section>
 
       {/* Section 4: Debt */}
@@ -1116,18 +1129,22 @@ export default function Spending() {
         <p style={sectionNote}>
           Net debt as a share of GDP. Includes OBR forecasts to 2030-31.
         </p>
-        <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px", boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
+        <ShareableChart title="Public Sector Net Debt"><div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px", boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
+          <div style={{ marginBottom: 10 }}>
+            <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Public Sector Net Debt</div>
+            <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Net debt as % of GDP, including OBR forecasts</div>
+          </div>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={debtData}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} domain={[20, 110]} label={{ value: "% of GDP", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} domain={[20, 110]} label={{ value: "% of GDP", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}% of GDP`} />} />
               <Line type="monotone" dataKey="debt" stroke={P.navy} strokeWidth={2.5} dot={false} name="Net debt / GDP" />
               <ReferenceLine y={100} stroke={P.red} strokeDasharray="4 4" label={{ value: "100%", fontSize: 11, fill: P.red }} />
             </LineChart>
           </ResponsiveContainer>
-        </div>
+        </div></ShareableChart>
       </section>
 
       {/* Section 5: Receipts breakdown */}
@@ -1137,7 +1154,11 @@ export default function Spending() {
           <p style={sectionNote}>
             Where the money comes from. Major tax receipts, FY {latestOutturn.fy}.
           </p>
-          <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px", boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
+          <ShareableChart title="Tax Receipts Breakdown"><div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px", boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
+            <div style={{ marginBottom: 10 }}>
+              <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Tax Receipts Breakdown</div>
+              <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Major tax receipts by category, FY {latestOutturn.fy}</div>
+            </div>
             <ResponsiveContainer width="100%" height={Math.max(300, data.receiptTypes.length * (isMobile ? 30 : 26))}>
               <BarChart data={data.receiptTypes} layout="vertical" margin={{ left: isMobile ? 10 : 140, right: 20 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke={P.border} horizontal={false} />
@@ -1147,7 +1168,7 @@ export default function Spending() {
                 <Bar dataKey="value" fill={P.teal} name="Receipts" isAnimationActive={false} />
               </BarChart>
             </ResponsiveContainer>
-          </div>
+          </div></ShareableChart>
         </section>
       )}
 

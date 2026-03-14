@@ -9,6 +9,7 @@ import useIsMobile from "../../hooks/useIsMobile";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
+import ShareableChart from "../../components/ShareableChart";
 
 const sectionHeading = {
   fontFamily: "'Playfair Display', serif",
@@ -316,12 +317,17 @@ export default function IndustrialProduction() {
                               borderBottom: `1px solid ${P.border}`,
                               background: "rgba(30,107,94,0.04)",
                             }}>
+                              <ShareableChart title={`${p.name} — UK Production`}>
                               <div style={{
                                 background: P.bgCard,
                                 border: `1px solid ${P.borderStrong}`,
                                 borderRadius: 6,
                                 padding: "12px 10px",
                               }}>
+                                <div style={{ marginBottom: 10 }}>
+                                  <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>{p.name}</div>
+                                  <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>UK production ({p.unit})</div>
+                                </div>
                                 <ResponsiveContainer width="100%" height={220}>
                                   <LineChart data={p.series}>
                                     <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
@@ -348,6 +354,7 @@ export default function IndustrialProduction() {
                                   {p.source}
                                 </div>
                               </div>
+                              </ShareableChart>
                             </td>
                           </tr>
                         )}
@@ -451,19 +458,21 @@ export default function IndustrialProduction() {
                               borderBottom: `1px solid ${P.border}`,
                               background: "rgba(30,107,94,0.04)",
                             }}>
+                              <ShareableChart title={`${p.name} — UK Production`}>
                               <div style={{
                                 background: P.bgCard,
                                 border: `1px solid ${P.borderStrong}`,
                                 borderRadius: 6,
-                                padding: "16px 20px",
+                                padding: "18px 20px 14px",
                               }}>
-                                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 4 }}>
-                                  <span style={{ fontFamily: "'Playfair Display', serif", fontSize: "16px", fontWeight: 600, color: P.text }}>
-                                    {p.name}
-                                  </span>
-                                  <span style={{ fontSize: "12px", color: P.textMuted }}>
-                                    {p.source}
-                                  </span>
+                                <div style={{ marginBottom: 10 }}>
+                                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
+                                    <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>{p.name}</div>
+                                    <span style={{ fontSize: "10px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>
+                                      {p.source}
+                                    </span>
+                                  </div>
+                                  <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>UK production ({p.unit})</div>
                                 </div>
                                 {p.note && (
                                   <p style={{ fontSize: "12px", color: P.textLight, margin: "0 0 10px", fontFamily: "'DM Mono', monospace" }}>
@@ -477,6 +486,7 @@ export default function IndustrialProduction() {
                                     <YAxis
                                       tick={{ fontSize: 11, fill: P.textMuted }}
                                       tickFormatter={(v) => `${v.toLocaleString()} ${p.unit}`}
+                                      label={{ value: `Production (${p.unit})`, angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace", textAnchor: "middle" } }}
                                     />
                                     <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toLocaleString()} ${p.unit}`} />} />
                                     <Line
@@ -491,6 +501,7 @@ export default function IndustrialProduction() {
                                   </LineChart>
                                 </ResponsiveContainer>
                               </div>
+                              </ShareableChart>
                             </td>
                           </tr>
                         )}
@@ -528,7 +539,14 @@ export default function IndustrialProduction() {
             const colourOffset = chartMode === "indexed" ? 0
               : chartGroups.slice(0, gi).reduce((s, g) => s + g.products.length, 0);
             return (
-              <div key={group.unit ?? "indexed"} style={{ marginBottom: chartGroups.length > 1 ? 28 : 0 }}>
+              <ShareableChart key={group.unit ?? "indexed"} title={`${data.categories[activeCategory].label} — UK Industrial Production`}>
+              <div style={{ marginBottom: chartGroups.length > 1 ? 28 : 0 }}>
+                <div style={{ marginBottom: 10 }}>
+                  <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>{data.categories[activeCategory].label}</div>
+                  <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>
+                    {chartMode === "indexed" ? "Indexed to peak (100)" : `Absolute production (${group.unit ?? "mixed units"})`}
+                  </div>
+                </div>
                 {group.unit && chartGroups.length > 1 && (
                   <p style={{ fontSize: "13px", fontFamily: "'DM Mono', monospace", color: P.textMuted, margin: "0 0 8px" }}>
                     {group.products.map((p) => p.name).join(", ")} ({group.unit})
@@ -543,8 +561,8 @@ export default function IndustrialProduction() {
                       tickFormatter={chartMode === "indexed" ? (v) => `${v}` : (v) => v?.toLocaleString()}
                       domain={chartMode === "indexed" ? [0, 105] : undefined}
                       label={chartMode === "indexed"
-                        ? { value: "% of peak", angle: -90, position: "insideLeft", fontSize: 11, fill: P.textLight }
-                        : { value: group.unit, angle: -90, position: "insideLeft", fontSize: 11, fill: P.textLight }}
+                        ? { value: "Production (% of peak)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }
+                        : { value: `Production (${group.unit})`, angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
                     />
                     <Tooltip
                       content={<CustomTooltip
@@ -569,6 +587,7 @@ export default function IndustrialProduction() {
                   </LineChart>
                 </ResponsiveContainer>
               </div>
+              </ShareableChart>
             );
           })}
 

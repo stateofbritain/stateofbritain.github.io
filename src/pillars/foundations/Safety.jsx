@@ -10,6 +10,7 @@ import useIsMobile from "../../hooks/useIsMobile";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
+import ShareableChart from "../../components/ShareableChart";
 
 const CATEGORY_LABELS = {
   "anti-social-behaviour": "Anti-social behaviour",
@@ -133,7 +134,12 @@ export default function Safety() {
         />
       </div>
 
-      <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px", marginBottom: 24, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
+      <ShareableChart title="Street-Level Crime by Category">
+      <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px", marginBottom: 24, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
+        <div style={{ marginBottom: 10 }}>
+          <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Street-Level Crime by Category</div>
+          <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Reported crimes across 10 major city centres</div>
+        </div>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16, flexWrap: "wrap", gap: 10 }}>
           <span style={{ fontSize: "11px", color: P.textMuted, fontWeight: 400, letterSpacing: "0.04em", fontFamily: "'DM Mono', monospace" }}>
             Crime by category — {latestDate}
@@ -185,7 +191,7 @@ export default function Safety() {
               margin={{ top: 5, right: 20, left: isMobile ? 10 : 120, bottom: 0 }}
             >
               <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" horizontal={false} />
-              <XAxis type="number" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} label={{ value: "Reported crimes", position: "insideBottomRight", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <XAxis type="number" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} label={{ value: "Reported crimes", position: "insideBottomRight", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <YAxis
                 type="category"
                 dataKey="category"
@@ -212,6 +218,7 @@ export default function Safety() {
           {" "}&middot; Street-level crime data for {latestDate} &middot; Sample: 10 major city centres (not nationally comprehensive)
         </div>
       </div>
+      </ShareableChart>
 
       <AnalysisBox color={P.navy} label="Context">
         Street-level crime data for {latestDate}, sampled from {snapshot.cityCount} major city centres.

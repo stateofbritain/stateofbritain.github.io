@@ -7,6 +7,7 @@ import P from "../../theme/palette";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
+import ShareableChart from "../../components/ShareableChart";
 
 const VIEWS = ["leakage", "pollution", "overview"];
 const VIEW_LABELS = {
@@ -107,7 +108,12 @@ export default function Water() {
       </div>
 
       {/* Chart area */}
-      <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px", marginBottom: 24, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
+      <ShareableChart title="Water Sector Performance">
+      <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px", marginBottom: 24, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
+        <div style={{ marginBottom: 10 }}>
+          <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Water Sector Performance</div>
+          <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Leakage, pollution incidents &amp; sector overview</div>
+        </div>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16, flexWrap: "wrap", gap: 10 }}>
           <span style={{ fontSize: "11px", color: P.textMuted, fontWeight: 400, letterSpacing: "0.04em", fontFamily: "'DM Mono', monospace" }}>
             {VIEW_LABELS[view]}
@@ -152,11 +158,14 @@ export default function Water() {
           </a>
         </div>
       </div>
+      </ShareableChart>
 
       {/* Company categorisation */}
-      <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "20px 24px", marginBottom: 24, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
-        <div style={{ fontSize: "11px", color: P.textMuted, fontWeight: 400, letterSpacing: "0.04em", fontFamily: "'DM Mono', monospace", marginBottom: 14 }}>
-          Ofwat company categorisation 2024-25
+      <ShareableChart title="Ofwat Company Categorisation 2024-25">
+      <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px", marginBottom: 24, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
+        <div style={{ marginBottom: 10 }}>
+          <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Ofwat Company Categorisation</div>
+          <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Water company performance ratings, 2024-25</div>
         </div>
         <div style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
           <CategoryGroup label="Leading" color={P.teal} companies={cats.leading} />
@@ -164,6 +173,7 @@ export default function Water() {
           <CategoryGroup label="Lagging" color={P.red} companies={cats.lagging} />
         </div>
       </div>
+      </ShareableChart>
 
       <AnalysisBox color={P.navy} label="Context">
         Sector leakage: {latestLeakage.value.toLocaleString()} Ml/d (2024-25), down 43% since privatisation but
@@ -202,7 +212,7 @@ function LeakageChart({ data }) {
         <YAxis
           tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false} domain={[2500, 5200]}
-          label={{ value: "Ml/d", angle: -90, position: "insideLeft", style: { fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+          label={{ value: "Leakage (Ml/d)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
         />
         <Tooltip content={<CustomTooltip />} />
         <Line type="monotone" dataKey="value" name="Leakage (Ml/d)" stroke={P.teal} strokeWidth={2.5} dot={false} />
@@ -217,7 +227,7 @@ function PollutionChart({ data }) {
       <BarChart data={data} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
         <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
-        <YAxis tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} label={{ value: "Incidents", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+        <YAxis tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} label={{ value: "Pollution incidents", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
         <Tooltip content={<CustomTooltip />} />
         <Bar dataKey="total" name="All incidents (cat 1-3)" fill={P.red} opacity={0.7} radius={[3, 3, 0, 0]} />
         <Bar dataKey="serious" name="Serious (cat 1-2)" fill={P.navy} opacity={0.9} radius={[3, 3, 0, 0]} />

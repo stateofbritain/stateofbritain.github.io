@@ -7,6 +7,7 @@ import P from "../../theme/palette";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
+import ShareableChart from "../../components/ShareableChart";
 
 const FUNDING_SERIES = [
   { key: "business", label: "Business Enterprise", color: P.sienna },
@@ -387,6 +388,7 @@ function toggleStyle(active) {
 
 function ChartCard({ label, yearRange, views, viewLabels, activeView, onViewChange, children }) {
   return (
+    <ShareableChart title={label}>
     <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px", marginBottom: 16, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16, flexWrap: "wrap", gap: 10 }}>
         <span style={{ fontSize: "11px", color: P.textMuted, fontWeight: 400, letterSpacing: "0.04em", fontFamily: "'DM Mono', monospace" }}>
@@ -416,6 +418,7 @@ function ChartCard({ label, yearRange, views, viewLabels, activeView, onViewChan
       </div>
       {children}
     </div>
+    </ShareableChart>
   );
 }
 
@@ -444,7 +447,7 @@ function FundingStackedChart({ data }) {
           tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false}
           tickFormatter={(v) => `${(v / 1000).toFixed(0)}bn`}
-          label={{ value: "£m", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+          label={{ value: "R&D expenditure (£m)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
         />
         <Tooltip content={<CustomTooltip />} />
         {FUNDING_SERIES.map((s) => (
@@ -465,6 +468,7 @@ function PublicPrivateChart({ data }) {
           tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false}
           tickFormatter={(v) => `${(v / 1000).toFixed(0)}bn`}
+          label={{ value: "R&D funding (£m)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
         />
         <Tooltip content={<CustomTooltip />} />
         <Bar dataKey="public" name="Public (Gov + UKRI + HEFC)" stackId="1" fill={P.teal} opacity={0.85} />
@@ -486,9 +490,10 @@ function GDPChart({ data }) {
           tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false}
           unit="%" domain={[2.4, 3.2]}
+          label={{ value: "R&D spending (% of GDP)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
         />
         <Tooltip content={<CustomTooltip />} />
-        <ReferenceLine y={2.7} stroke={P.grey} strokeDasharray="6 4" strokeWidth={1.5} label={{ value: "OECD 2.7%", position: "right", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+        <ReferenceLine y={2.7} stroke={P.grey} strokeDasharray="6 4" strokeWidth={1.5} label={{ value: "OECD 2.7%", position: "right", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
         <Line type="monotone" dataKey="pctGDP" name="R&D as % of GDP" stroke={P.navy} strokeWidth={2.5} dot={{ r: 4 }} />
       </LineChart>
     </ResponsiveContainer>
@@ -510,6 +515,7 @@ function InternationalChart({ data }) {
           type="number"
           tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false} unit="%"
+          label={{ value: "R&D spending (% of GDP)", position: "insideBottomRight", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
         />
         <YAxis
           type="category" dataKey="label" width={120}
@@ -542,6 +548,7 @@ function RegionalChart({ data }) {
           tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false}
           tickFormatter={(v) => `${(v / 1000).toFixed(0)}bn`}
+          label={{ value: "R&D expenditure (£m)", position: "insideBottomRight", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
         />
         <YAxis
           type="category" dataKey="region" width={130}
@@ -611,6 +618,7 @@ function CostRecoveryChart() {
           tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false}
           unit="%"
+          label={{ value: "Cost recovery (% of fEC)", position: "insideBottomRight", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
         />
         <YAxis
           type="category" dataKey="sponsor" width={120}

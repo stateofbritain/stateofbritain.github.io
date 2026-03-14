@@ -8,6 +8,7 @@ import P from "../../theme/palette";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
+import ShareableChart from "../../components/ShareableChart";
 
 const sectionHeading = {
   fontFamily: "'Playfair Display', serif",
@@ -181,6 +182,12 @@ export default function ProductiveQuotient() {
         </div>
 
         {chartView === "comparison" ? (
+          <ShareableChart title="Frontline Ratio by Service">
+          <div>
+          <div style={{ marginBottom: 10 }}>
+            <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Frontline Ratio by Service</div>
+            <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Frontline staff as % of total workforce</div>
+          </div>
           <ResponsiveContainer width="100%" height={220}>
             <BarChart data={comparisonData} layout="vertical" margin={{ left: 90, right: 30 }}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} horizontal={false} />
@@ -199,8 +206,15 @@ export default function ProductiveQuotient() {
               </Bar>
             </BarChart>
           </ResponsiveContainer>
+          </div>
+          </ShareableChart>
         ) : (
-          <>
+          <ShareableChart title="Frontline Ratio Trend">
+          <div>
+            <div style={{ marginBottom: 10 }}>
+              <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Frontline Ratio Trend</div>
+              <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Change in frontline share over time</div>
+            </div>
             <div style={{ display: "flex", gap: 6, marginBottom: 14 }}>
               {SERVICES.map((svc) => (
                 <button
@@ -223,7 +237,7 @@ export default function ProductiveQuotient() {
                   ]}
                   tick={{ fontSize: 11, fill: P.textMuted }}
                   tickFormatter={(v) => `${v}%`}
-                  label={{ value: "%", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+                  label={{ value: "Frontline share (%)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
                 />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}%`} />} />
                 <Line
@@ -236,7 +250,8 @@ export default function ProductiveQuotient() {
                 />
               </LineChart>
             </ResponsiveContainer>
-          </>
+          </div>
+          </ShareableChart>
         )}
       </section>
 
@@ -258,6 +273,12 @@ export default function ProductiveQuotient() {
             </button>
           ))}
         </div>
+        <ShareableChart title="Workforce Composition">
+        <div>
+        <div style={{ marginBottom: 10 }}>
+          <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Workforce Composition</div>
+          <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Public sector workforce breakdown</div>
+        </div>
         <ResponsiveContainer width="100%" height={340}>
           <BarChart data={trendData}>
             <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
@@ -265,7 +286,7 @@ export default function ProductiveQuotient() {
             <YAxis
               tick={{ fontSize: 11, fill: P.textMuted }}
               tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v}
-              label={{ value: "FTE", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+              label={{ value: "Workforce (FTE)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
             />
             <Tooltip
               content={
@@ -283,6 +304,8 @@ export default function ProductiveQuotient() {
             />
           </BarChart>
         </ResponsiveContainer>
+        </div>
+        </ShareableChart>
       </section>
 
       {/* Section 3: Methodology */}

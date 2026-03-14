@@ -8,6 +8,7 @@ import P from "../../theme/palette";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
+import ShareableChart from "../../components/ShareableChart";
 
 const sectionHeading = {
   fontFamily: "'Playfair Display', serif",
@@ -174,6 +175,12 @@ export default function Productivity() {
           <button style={toggleBtn(ukView === "level")} onClick={() => setUkView("level")}>£ per hour</button>
           <button style={toggleBtn(ukView === "index")} onClick={() => setUkView("index")}>Index (2023=100)</button>
         </div>
+        <ShareableChart title="UK Output per Hour">
+        <div>
+        <div style={{ marginBottom: 10 }}>
+          <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>UK Output per Hour</div>
+          <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Index (2019 = 100), whole economy</div>
+        </div>
         <ResponsiveContainer width="100%" height={340}>
           <LineChart data={ukSeries}>
             <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
@@ -181,7 +188,7 @@ export default function Productivity() {
             <YAxis
               tick={{ fontSize: 11, fill: P.textMuted }}
               tickFormatter={(v) => ukView === "level" ? `£${v}` : v}
-              label={{ value: ukView === "level" ? "£/hour" : "index", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+              label={{ value: ukView === "level" ? "Output per hour (£)" : "Output per hour (index)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
             />
             <Tooltip content={<CustomTooltip formatter={(v) => ukView === "level" ? `£${v.toFixed(2)}/hr` : v.toFixed(1)} />} />
             {ukView === "level" ? (
@@ -194,6 +201,8 @@ export default function Productivity() {
             )}
           </LineChart>
         </ResponsiveContainer>
+        </div>
+        </ShareableChart>
       </section>
 
       {/* Section 2: International Comparison */}
@@ -210,6 +219,12 @@ export default function Productivity() {
         </div>
 
         {intlView === "bar" ? (
+          <ShareableChart title="International Productivity Comparison">
+          <div>
+          <div style={{ marginBottom: 10 }}>
+            <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>International Productivity</div>
+            <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>GDP per hour worked, indexed to UK = 100</div>
+          </div>
           <ResponsiveContainer width="100%" height={Math.max(500, intlBar.length * 26)}>
             <BarChart data={intlBar} layout="vertical" margin={{ left: 110, right: 30 }}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} horizontal={false} />
@@ -229,13 +244,20 @@ export default function Productivity() {
               />
             </BarChart>
           </ResponsiveContainer>
+          </div>
+          </ShareableChart>
         ) : (
-          <>
+          <ShareableChart title="Productivity Growth Trajectories">
+          <div>
+            <div style={{ marginBottom: 10 }}>
+              <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Productivity Growth Trajectories</div>
+              <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Annual growth in output per hour (%)</div>
+            </div>
             <ResponsiveContainer width="100%" height={400}>
               <LineChart data={tsSeries}>
                 <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
                 <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-                <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `$${v}`} label={{ value: "$/hour PPP", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+                <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `$${v}`} label={{ value: "Output per hour ($ PPP)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
                 <Tooltip content={<CustomTooltip formatter={(v) => `$${v?.toFixed(1)}/hr`} />} />
                 {TS_LINES.map(({ key, label, color }) => (
                   <Line
@@ -260,7 +282,8 @@ export default function Productivity() {
                 </span>
               ))}
             </div>
-          </>
+          </div>
+          </ShareableChart>
         )}
       </section>
 
@@ -271,6 +294,12 @@ export default function Productivity() {
           Output per hour worked by SIC 2007 industry section, {latestLevel.year}, current prices.
           Wide dispersion from capital-intensive sectors (mining, utilities) to labour-intensive services.
         </p>
+        <ShareableChart title="Productivity by Sector">
+        <div>
+        <div style={{ marginBottom: 10 }}>
+          <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Productivity by Sector</div>
+          <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Output per hour by industry, UK</div>
+        </div>
         <ResponsiveContainer width="100%" height={Math.max(400, data.sectorBreakdown.length * 30)}>
           <BarChart
             data={data.sectorBreakdown.map((s) => ({
@@ -293,6 +322,8 @@ export default function Productivity() {
             />
           </BarChart>
         </ResponsiveContainer>
+        </div>
+        </ShareableChart>
       </section>
 
       {/* Context */}

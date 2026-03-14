@@ -7,6 +7,7 @@ import P from "../../theme/palette";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
+import ShareableChart from "../../components/ShareableChart";
 
 const sectionHeading = {
   fontFamily: "'Playfair Display', serif",
@@ -296,6 +297,7 @@ function fmtM(n) {
 
 function ChartCard({ label, yearRange, views, viewLabels, activeView, onViewChange, children }) {
   return (
+    <ShareableChart title={label}>
     <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px", marginBottom: 16, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16, flexWrap: "wrap", gap: 10 }}>
         <span style={{ fontSize: "11px", color: P.textMuted, fontWeight: 400, letterSpacing: "0.04em", fontFamily: "'DM Mono', monospace" }}>
@@ -325,6 +327,7 @@ function ChartCard({ label, yearRange, views, viewLabels, activeView, onViewChan
       </div>
       {children}
     </div>
+    </ShareableChart>
   );
 }
 
@@ -353,7 +356,7 @@ function BirthDeathChart({ data }) {
           tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false}
           tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`}
-          label={{ value: "Enterprises", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+          label={{ value: "Enterprises", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
         />
         <Tooltip content={<CustomTooltip />} />
         <Bar dataKey="births" name="Births" fill={P.teal} opacity={0.85} />
@@ -373,7 +376,7 @@ function ActiveChart({ data }) {
           tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false}
           tickFormatter={(v) => `${(v / 1000000).toFixed(2)}m`}
-          label={{ value: "Active enterprises", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+          label={{ value: "Active enterprises", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
           domain={["dataMin - 50000", "dataMax + 50000"]}
         />
         <Tooltip content={<CustomTooltip />} />
@@ -393,7 +396,7 @@ function HighGrowthChart({ data }) {
           tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false}
           tickFormatter={(v) => `${(v / 1000).toFixed(1)}k`}
-          label={{ value: "High-growth firms", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+          label={{ value: "High-growth firms", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
         />
         <Tooltip content={<CustomTooltip />} />
         <Bar dataKey="count" name="High-Growth Enterprises" fill={P.sienna} opacity={0.85} radius={[3, 3, 0, 0]} />
@@ -414,6 +417,7 @@ function SurvivalChart({ data }) {
           tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false} unit="%"
           domain={[0, 100]}
+          label={{ value: "Survival rate (%)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
         />
         <Tooltip content={<CustomTooltip />} />
         <Bar dataKey="yr1" name="1-year" fill={P.navy} opacity={0.85} />
@@ -436,6 +440,7 @@ function SectorChart({ data }) {
           tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false}
           tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`}
+          label={{ value: "New businesses (count)", position: "insideBottomRight", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
         />
         <YAxis
           type="category" dataKey="sector" width={150}
@@ -458,7 +463,7 @@ function EquityChart({ data }) {
         <YAxis
           tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false}
-          label={{ value: "£bn", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+          label={{ value: "Equity investment (£bn)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
         />
         <Tooltip content={<CustomTooltip />} />
         <Bar dataKey="total" name="Equity Investment (£bn)" fill={P.sienna} opacity={0.85} radius={[3, 3, 0, 0]} />

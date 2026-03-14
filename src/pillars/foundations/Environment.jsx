@@ -8,6 +8,7 @@ import P from "../../theme/palette";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
+import ShareableChart from "../../components/ShareableChart";
 
 const GHG_SECTORS = [
   { key: "electricity", label: "Electricity Supply", color: P.yellow },
@@ -283,12 +284,14 @@ export default function Environment() {
 
 function ChartCard({ label, yearRange, views, viewLabels, activeView, onViewChange, children }) {
   return (
-    <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px", marginBottom: 16, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16, flexWrap: "wrap", gap: 10 }}>
-        <span style={{ fontSize: "11px", color: P.textMuted, fontWeight: 400, letterSpacing: "0.04em", fontFamily: "'DM Mono', monospace" }}>
-          {label} &middot; {yearRange}
-        </span>
-        {views && onViewChange && (
+    <ShareableChart title={label}>
+    <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px", marginBottom: 16, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
+      <div style={{ marginBottom: 10 }}>
+        <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>{label}</div>
+        <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>{yearRange}</div>
+      </div>
+      {views && onViewChange && (
+        <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 12 }}>
           <div style={{ display: "flex", gap: 0, border: `1px solid ${P.borderStrong}`, borderRadius: 3 }}>
             {views.map((v) => (
               <button
@@ -308,10 +311,11 @@ function ChartCard({ label, yearRange, views, viewLabels, activeView, onViewChan
               </button>
             ))}
           </div>
-        )}
-      </div>
+        </div>
+      )}
       {children}
     </div>
+    </ShareableChart>
   );
 }
 
@@ -339,7 +343,7 @@ function GHGStackedChart({ data }) {
         <YAxis
           tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false}
-          label={{ value: "MtCO2e", angle: -90, position: "insideLeft", style: { fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+          label={{ value: "Emissions (MtCO2e)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
         />
         <Tooltip content={<CustomTooltip />} />
         {GHG_SECTORS.map((s) => (
@@ -359,7 +363,7 @@ function GHGTotalChart({ data }) {
         <YAxis
           tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false} domain={[0, 900]}
-          label={{ value: "MtCO2e", angle: -90, position: "insideLeft", style: { fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+          label={{ value: "Total GHG emissions (MtCO2e)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
         />
         <Tooltip content={<CustomTooltip />} />
         <Line type="monotone" dataKey="total" name="Total GHG (MtCO2e)" stroke={P.teal} strokeWidth={2.5} dot={false} />
@@ -377,7 +381,7 @@ function PM25Chart({ data }) {
         <YAxis
           tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false} domain={[0, 16]}
-          label={{ value: "µg/m³", angle: -90, position: "insideLeft", style: { fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+          label={{ value: "PM2.5 concentration (µg/m³)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
         />
         <Tooltip content={<CustomTooltip />} />
         <ReferenceLine y={5} stroke={P.red} strokeDasharray="6 3" label={{ value: "WHO guideline (5)", position: "right", style: { fontSize: 10, fill: P.red, fontFamily: "'DM Mono', monospace" } }} />
@@ -396,7 +400,7 @@ function NO2Chart({ data }) {
         <YAxis
           tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false} domain={[0, 60]}
-          label={{ value: "µg/m³", angle: -90, position: "insideLeft", style: { fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+          label={{ value: "NO2 concentration (µg/m³)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
         />
         <Tooltip content={<CustomTooltip />} />
         <ReferenceLine y={10} stroke={P.red} strokeDasharray="6 3" label={{ value: "WHO guideline (10)", position: "right", style: { fontSize: 10, fill: P.red, fontFamily: "'DM Mono', monospace" } }} />
@@ -416,6 +420,7 @@ function ULEVChart({ data }) {
           tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
           axisLine={false} tickLine={false}
           tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v}
+          label={{ value: "New ULEV registrations", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
         />
         <Tooltip content={<CustomTooltip />} />
         <Bar dataKey="bev" name="Battery Electric" stackId="1" fill={P.navy} opacity={0.85} />

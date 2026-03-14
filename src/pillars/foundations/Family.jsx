@@ -8,6 +8,7 @@ import P from "../../theme/palette";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
+import ShareableChart from "../../components/ShareableChart";
 
 const sectionHeading = {
   fontFamily: "'Playfair Display', serif",
@@ -109,12 +110,17 @@ export default function Family() {
           The 1st-child rate — a proxy for the share of women who become mothers at all — has
           fallen from 0.93 to 0.55, the steepest decline. Rising childlessness is the primary driver.
         </p>
-        <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px" }}>
+        <ShareableChart title="Total Fertility Rate by Birth Order">
+        <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px" }}>
+          <div style={{ marginBottom: 10 }}>
+            <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Total Fertility Rate by Birth Order</div>
+            <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Children per woman, England & Wales, 1960–2022</div>
+          </div>
           <ResponsiveContainer width="100%" height={340}>
             <LineChart data={data.tfrByOrder}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 3.2]} label={{ value: "children per woman", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 3.2]} label={{ value: "Children per woman", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => v?.toFixed(2)} />} />
               <ReferenceLine y={2.1} stroke={P.red} strokeDasharray="4 4" label={{ value: "Replacement (2.1)", fontSize: 10, fill: P.red, position: "right" }} />
               <Line type="monotone" dataKey="tfrTotal" stroke={P.text} strokeWidth={3} dot={false} name="Total TFR" connectNulls />
@@ -129,6 +135,7 @@ export default function Family() {
             SOURCE: ONS Fertility Rates by Parity, England & Wales
           </div>
         </div>
+        </ShareableChart>
       </section>
 
       {/* Section 2: Mean age of mother by birth order */}
@@ -138,12 +145,17 @@ export default function Family() {
           Average age at which women have their first, second, and third child.
           First-time mothers are now over 5 years older than in 1970.
         </p>
-        <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px" }}>
+        <ShareableChart title="Mean Age of Mother at Birth">
+        <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px" }}>
+          <div style={{ marginBottom: 10 }}>
+            <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Mean Age of Mother at Birth</div>
+            <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>By birth order, England & Wales, 1970–2022</div>
+          </div>
           <ResponsiveContainer width="100%" height={320}>
             <LineChart data={data.meanAgeByOrder}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[22, 35]} tickFormatter={(v) => `${v}`} label={{ value: "age (years)", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[22, 35]} tickFormatter={(v) => `${v}`} label={{ value: "Age of mother (years)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)} years`} />} />
               <Line type="monotone" dataKey="age1" stroke={AGE_COLORS.age1} strokeWidth={2.5} dot={false} name="1st child" />
               <Line type="monotone" dataKey="age2" stroke={AGE_COLORS.age2} strokeWidth={2.5} dot={false} name="2nd child" />
@@ -156,6 +168,7 @@ export default function Family() {
             SOURCE: ONS Birth Characteristics, England & Wales
           </div>
         </div>
+        </ShareableChart>
       </section>
 
       {/* Section 3: Live births */}
@@ -165,12 +178,17 @@ export default function Family() {
           Annual live births in England and Wales. The 1964 baby boom peak of 876,000 compares
           with 595,000 in 2024 — a 32% decline despite a 20% larger population.
         </p>
-        <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px" }}>
+        <ShareableChart title="Live Births in England & Wales">
+        <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px" }}>
+          <div style={{ marginBottom: 10 }}>
+            <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Live Births</div>
+            <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Annual live births, England & Wales</div>
+          </div>
           <ResponsiveContainer width="100%" height={300}>
             <AreaChart data={data.birthsSeries}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}k`} label={{ value: "thousands", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}k`} label={{ value: "Live births (thousands)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toLocaleString()}k`} />} />
               <Area type="monotone" dataKey="births" stroke={P.teal} fill={P.teal} fillOpacity={0.12} strokeWidth={2.5} name="Live births (thousands)" dot={{ r: 2, fill: P.teal }} />
             </AreaChart>
@@ -179,6 +197,7 @@ export default function Family() {
             SOURCE: ONS Births in England and Wales
           </div>
         </div>
+        </ShareableChart>
       </section>
 
       {/* Section 4: Family types */}
@@ -188,12 +207,17 @@ export default function Family() {
           UK families by type. Married couples remain the majority but cohabiting families have
           grown 49% since 2004. Lone-parent families have also increased.
         </p>
-        <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px" }}>
+        <ShareableChart title="UK Family Structure by Type">
+        <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px" }}>
+          <div style={{ marginBottom: 10 }}>
+            <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Family Structure</div>
+            <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>UK families by type, thousands</div>
+          </div>
           <ResponsiveContainer width="100%" height={320}>
             <AreaChart data={data.familyTypeSeries}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}m`} label={{ value: "millions", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}m`} label={{ value: "Families (millions)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${(v / 1000).toFixed(1)}m`} />} />
               <Area type="monotone" dataKey="loneParent" stackId="1" stroke={FAMILY_COLORS.loneParent} fill={FAMILY_COLORS.loneParent} fillOpacity={0.5} name="Lone parent" />
               <Area type="monotone" dataKey="cohabiting" stackId="1" stroke={FAMILY_COLORS.cohabiting} fill={FAMILY_COLORS.cohabiting} fillOpacity={0.5} name="Cohabiting couple" />
@@ -205,6 +229,7 @@ export default function Family() {
             SOURCE: ONS Families and Households in the UK
           </div>
         </div>
+        </ShareableChart>
       </section>
 
       {/* Section 5: Household size */}
@@ -214,12 +239,17 @@ export default function Family() {
           Average number of people per household. The long-term decline from 3.1 in 1961 to 2.35 today
           reflects smaller families, more single-person households, and an ageing population.
         </p>
-        <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px" }}>
+        <ShareableChart title="Average Household Size">
+        <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px" }}>
+          <div style={{ marginBottom: 10 }}>
+            <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Average Household Size</div>
+            <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Persons per household, UK</div>
+          </div>
           <ResponsiveContainer width="100%" height={280}>
             <LineChart data={data.householdSizeSeries}>
               <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[2.0, 3.2]} label={{ value: "persons", angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[2.0, 3.2]} label={{ value: "Persons per household", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(2)} persons`} />} />
               <Line type="monotone" dataKey="size" stroke={P.navy} strokeWidth={2.5} dot={{ r: 2.5, fill: P.navy }} name="Persons per household" />
             </LineChart>
@@ -228,6 +258,7 @@ export default function Family() {
             SOURCE: ONS Families and Households in the UK
           </div>
         </div>
+        </ShareableChart>
       </section>
 
       {/* Context */}
