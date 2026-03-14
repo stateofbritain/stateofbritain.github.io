@@ -4,6 +4,10 @@ import {
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
 } from "recharts";
 import P from "../../theme/palette";
+import {
+  CHART_CARD, CHART_TITLE, CHART_SUBTITLE, SOURCE_TEXT,
+  AXIS_TICK_MONO, yAxisLabel,
+} from "../../theme/chartStyles";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
@@ -87,10 +91,10 @@ export default function FoodCostOfLiving() {
       </div>
 
       <ShareableChart title="CPIH Price Indices by Category">
-      <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px", marginBottom: 24, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
+      <div style={{ ...CHART_CARD, marginBottom: 24, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
         <div style={{ marginBottom: 10 }}>
-          <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>CPIH Price Indices by Category</div>
-          <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Consumer price inflation by category, UK</div>
+          <div style={CHART_TITLE}>CPIH Price Indices by Category</div>
+          <div style={CHART_SUBTITLE}>Consumer price inflation by category, UK</div>
         </div>
         <div style={{ display: "flex", gap: 14, marginBottom: 16, flexWrap: "wrap" }}>
           {AGGREGATES.map((agg) => (
@@ -106,15 +110,15 @@ export default function FoodCostOfLiving() {
             <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
             <XAxis
               dataKey="time"
-              tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
+              tick={AXIS_TICK_MONO}
               axisLine={{ stroke: P.border }}
               tickLine={false}
             />
             <YAxis
-              tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
+              tick={AXIS_TICK_MONO}
               axisLine={false}
               tickLine={false}
-              label={{ value: "Index (2015=100)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+              label={yAxisLabel("Index (2015=100)")}
             />
             <Tooltip content={<CustomTooltip />} />
             {AGGREGATES.map((agg) => (
@@ -132,7 +136,7 @@ export default function FoodCostOfLiving() {
           </LineChart>
         </ResponsiveContainer>
 
-        <div style={{ marginTop: 8, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+        <div style={SOURCE_TEXT}>
           SOURCE:{" "}
           <a href="https://www.ons.gov.uk/economy/inflationandpriceindices" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
             ONS Consumer Prices Index including owner occupiers' housing costs (CPIH)

@@ -4,6 +4,10 @@ import {
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine,
 } from "recharts";
 import P from "../../theme/palette";
+import {
+  CHART_CARD, CHART_TITLE, CHART_SUBTITLE, SOURCE_TEXT,
+  AXIS_TICK_MONO, yAxisLabel,
+} from "../../theme/chartStyles";
 import { fetchHousePrices, toAnnual } from "../../api/landRegistry";
 import useDataset from "../../hooks/useDataset";
 import MetricCard from "../../components/MetricCard";
@@ -172,13 +176,13 @@ export default function Housing() {
 
       {/* Chart */}
       <ShareableChart title="UK House Prices">
-      <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px", marginBottom: 24, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
+      <div style={{ ...CHART_CARD, marginBottom: 24, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 8, marginBottom: 10 }}>
           <div>
-            <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>
+            <div style={CHART_TITLE}>
               UK House Prices
             </div>
-            <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>
+            <div style={CHART_SUBTITLE}>
               UK House Price Index, average prices since 2010
             </div>
           </div>
@@ -236,16 +240,16 @@ export default function Housing() {
           {chartView === "volume" ? (
             <BarChart data={quarterly} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-              <XAxis dataKey="month" tick={axisTick} axisLine={{ stroke: P.border }} tickLine={false} />
-              <YAxis tick={axisTick} axisLine={false} tickLine={false} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} label={{ value: "Monthly sales", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <XAxis dataKey="month" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
+              <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} label={yAxisLabel("Monthly sales")} />
               <Tooltip content={<CustomTooltip />} />
               <Bar dataKey="salesVolume" name="Sales Volume" fill={P.teal} opacity={0.7} radius={[2, 2, 0, 0]} />
             </BarChart>
           ) : chartView === "type" ? (
             <LineChart data={quarterly} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-              <XAxis dataKey="month" tick={axisTick} axisLine={{ stroke: P.border }} tickLine={false} />
-              <YAxis tick={axisTick} axisLine={false} tickLine={false} tickFormatter={(v) => `£${(v / 1000).toFixed(0)}k`} label={{ value: "Average price (£)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <XAxis dataKey="month" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
+              <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} tickFormatter={(v) => `£${(v / 1000).toFixed(0)}k`} label={yAxisLabel("Average price (£)")} />
               <Tooltip content={<CustomTooltip />} />
               <Line type="monotone" dataKey="averagePriceDetached" name="Detached" stroke={P.navy} strokeWidth={2} dot={false} />
               <Line type="monotone" dataKey="averagePriceSemiDetached" name="Semi-detached" stroke={P.teal} strokeWidth={2} dot={false} />
@@ -255,8 +259,8 @@ export default function Housing() {
           ) : (
             <LineChart data={quarterly} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-              <XAxis dataKey="month" tick={axisTick} axisLine={{ stroke: P.border }} tickLine={false} />
-              <YAxis tick={axisTick} axisLine={false} tickLine={false} tickFormatter={(v) => `£${(v / 1000).toFixed(0)}k`} label={{ value: "Average price (£)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <XAxis dataKey="month" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
+              <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} tickFormatter={(v) => `£${(v / 1000).toFixed(0)}k`} label={yAxisLabel("Average price (£)")} />
               <Tooltip content={<CustomTooltip />} />
               <Line type="monotone" dataKey="averagePrice" name="Average" stroke={P.yellow} strokeWidth={2.5} dot={false} />
               <Line type="monotone" dataKey="averagePriceDetached" name="Detached" stroke={P.navy} strokeWidth={1.5} dot={false} strokeDasharray="4 3" />
@@ -265,7 +269,7 @@ export default function Housing() {
           )}
         </ResponsiveContainer>
 
-        <div style={{ marginTop: 8, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+        <div style={SOURCE_TEXT}>
           SOURCES:{" "}
           <a
             href="https://landregistry.data.gov.uk/app/ukhpi"
@@ -291,13 +295,13 @@ export default function Housing() {
 
       {/* Affordability */}
       <ShareableChart title="Housing Affordability">
-      <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px", marginTop: 24 }}>
+      <div style={{ ...CHART_CARD, marginTop: 24 }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 8, marginBottom: 10 }}>
           <div>
-            <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>
+            <div style={CHART_TITLE}>
               Housing Affordability
             </div>
-            <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>
+            <div style={CHART_SUBTITLE}>
               Median house price ÷ median annual earnings, England &amp; Wales
             </div>
           </div>
@@ -310,21 +314,21 @@ export default function Housing() {
         <ResponsiveContainer width="100%" height={300}>
           <ComposedChart data={AFFORDABILITY} margin={{ top: 5, right: 10, left: 10, bottom: 0 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-            <XAxis dataKey="year" tick={axisTick} axisLine={{ stroke: P.border }} tickLine={false} />
+            <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
             <YAxis
               yAxisId="ratio"
-              tick={axisTick} axisLine={false} tickLine={false}
+              tick={AXIS_TICK_MONO} axisLine={false} tickLine={false}
               domain={[0, 10]}
-              label={{ value: "Price-to-earnings ratio", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+              label={yAxisLabel("Price-to-earnings ratio")}
               tickFormatter={(v) => `${v}×`}
             />
             <YAxis
               yAxisId="price"
               orientation="right"
-              tick={axisTick} axisLine={false} tickLine={false}
+              tick={AXIS_TICK_MONO} axisLine={false} tickLine={false}
               domain={[0, 300000]}
               tickFormatter={(v) => `£${(v / 1000).toFixed(0)}k`}
-              label={{ value: "Median price / earnings (£)", angle: 90, position: "insideRight", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+              label={yAxisLabel("Median price / earnings (£)", { angle: 90, position: "insideRight" })}
             />
             <Tooltip
               content={({ active, payload, label }) => {
@@ -347,7 +351,7 @@ export default function Housing() {
           </ComposedChart>
         </ResponsiveContainer>
 
-        <div style={{ marginTop: 8, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+        <div style={SOURCE_TEXT}>
           SOURCE:{" "}
           <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/housing/bulletins/housingaffordabilityinenglandandwales/latest" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
             ONS Housing Affordability in England and Wales, Table 5c
@@ -359,13 +363,13 @@ export default function Housing() {
 
       {/* Home ownership by age */}
       <ShareableChart title="Home Ownership by Age">
-      <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px", marginTop: 24 }}>
+      <div style={{ ...CHART_CARD, marginTop: 24 }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 8, marginBottom: 10 }}>
           <div>
-            <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>
+            <div style={CHART_TITLE}>
               Home Ownership by Age
             </div>
-            <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>
+            <div style={CHART_SUBTITLE}>
               % of households who are owner-occupiers, England
             </div>
           </div>
@@ -379,10 +383,10 @@ export default function Housing() {
         <ResponsiveContainer width="100%" height={280}>
           <LineChart data={OWNERSHIP_BY_AGE} margin={{ top: 5, right: 10, left: 10, bottom: 0 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-            <XAxis dataKey="year" tick={axisTick} axisLine={{ stroke: P.border }} tickLine={false} />
+            <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
             <YAxis
-              tick={axisTick} axisLine={false} tickLine={false} domain={[0, 100]}
-              label={{ value: "% home ownership", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+              tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} domain={[0, 100]}
+              label={yAxisLabel("% home ownership")}
             />
             <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
             {AGE_BANDS.map((b) => (
@@ -391,7 +395,7 @@ export default function Housing() {
           </LineChart>
         </ResponsiveContainer>
 
-        <div style={{ marginTop: 8, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+        <div style={SOURCE_TEXT}>
           SOURCE:{" "}
           <a href="https://www.gov.uk/government/collections/english-housing-survey" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
             English Housing Survey Annex Table 1.4 (DLUHC)
@@ -417,12 +421,6 @@ export default function Housing() {
     </div>
   );
 }
-
-const axisTick = {
-  fontSize: 11,
-  fill: "#9B9285",
-  fontFamily: "'DM Mono', monospace",
-};
 
 function LegendDot({ color, label }) {
   return (

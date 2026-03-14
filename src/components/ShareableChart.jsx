@@ -95,15 +95,14 @@ export default function ShareableChart({ title, children }) {
 
       // Scale only HTML text for social readability (SVG ticks left to Recharts)
       // html2canvas scale:2 doubles everything, so set sizes at half the target:
-      //   heading 14px → 24px (outputs 48px), legend/source ≤11px → 16px (outputs 32px)
+      //   heading 14px → 24px (outputs 48px), sources 10px → 10px (outputs 20px)
       const chartArea = portal.querySelector("[data-share-chart]");
       if (chartArea) {
         // HTML: headings, legends, sources — scale up for readability
         chartArea.querySelectorAll("div, span, p, a, button").forEach((node) => {
           const fs = parseFloat(window.getComputedStyle(node).fontSize);
           if (!fs) return;
-          if (fs <= 10) node.style.fontSize = "10px";     // sources → 20px
-          else if (fs <= 11) node.style.fontSize = "15px"; // legends → 30px
+          if (fs <= 11) node.style.fontSize = `${fs}px`;  // sources/legends → unchanged, 2× scale handles it
           else if (fs <= 14) node.style.fontSize = "24px"; // card headings → 48px
           else node.style.fontSize = `${fs * 1.5}px`;
         });

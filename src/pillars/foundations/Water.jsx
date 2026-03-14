@@ -4,6 +4,10 @@ import {
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
 } from "recharts";
 import P from "../../theme/palette";
+import {
+  CHART_CARD, CHART_TITLE, CHART_SUBTITLE, SOURCE_TEXT,
+  AXIS_TICK_MONO, yAxisLabel,
+} from "../../theme/chartStyles";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
@@ -109,10 +113,10 @@ export default function Water() {
 
       {/* Chart area */}
       <ShareableChart title="Water Sector Performance">
-      <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px", marginBottom: 24, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
+      <div style={{ ...CHART_CARD, marginBottom: 24, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
         <div style={{ marginBottom: 10 }}>
-          <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Water Sector Performance</div>
-          <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Leakage, pollution incidents &amp; sector overview</div>
+          <div style={CHART_TITLE}>Water Sector Performance</div>
+          <div style={CHART_SUBTITLE}>Leakage, pollution incidents &amp; sector overview</div>
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16, flexWrap: "wrap", gap: 10 }}>
           <span style={{ fontSize: "11px", color: P.textMuted, fontWeight: 400, letterSpacing: "0.04em", fontFamily: "'DM Mono', monospace" }}>
@@ -143,7 +147,7 @@ export default function Water() {
         {view === "pollution" && <PollutionChart data={data.pollutionIncidents} />}
         {view === "overview" && <OverviewTable data={overviewData} />}
 
-        <div style={{ marginTop: 12, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+        <div style={{ ...SOURCE_TEXT, marginTop: 12 }}>
           SOURCES:{" "}
           <a href="https://www.ofwat.gov.uk/regulated-companies/company-obligations/outcomes/water-company-performance-report-2024-25/" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
             Ofwat WCPR 2024-25
@@ -162,10 +166,10 @@ export default function Water() {
 
       {/* Company categorisation */}
       <ShareableChart title="Ofwat Company Categorisation 2024-25">
-      <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px", marginBottom: 24, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
+      <div style={{ ...CHART_CARD, marginBottom: 24, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
         <div style={{ marginBottom: 10 }}>
-          <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Ofwat Company Categorisation</div>
-          <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Water company performance ratings, 2024-25</div>
+          <div style={CHART_TITLE}>Ofwat Company Categorisation</div>
+          <div style={CHART_SUBTITLE}>Water company performance ratings, 2024-25</div>
         </div>
         <div style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
           <CategoryGroup label="Leading" color={P.teal} companies={cats.leading} />
@@ -210,9 +214,9 @@ function LeakageChart({ data }) {
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
         <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} interval={2} />
         <YAxis
-          tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
+          tick={AXIS_TICK_MONO}
           axisLine={false} tickLine={false} domain={[2500, 5200]}
-          label={{ value: "Leakage (Ml/d)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+          label={yAxisLabel("Leakage (Ml/d)")}
         />
         <Tooltip content={<CustomTooltip />} />
         <Line type="monotone" dataKey="value" name="Leakage (Ml/d)" stroke={P.teal} strokeWidth={2.5} dot={false} />
@@ -226,8 +230,8 @@ function PollutionChart({ data }) {
     <ResponsiveContainer width="100%" height={340}>
       <BarChart data={data} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
-        <YAxis tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} label={{ value: "Pollution incidents", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+        <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
+        <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} label={yAxisLabel("Pollution incidents")} />
         <Tooltip content={<CustomTooltip />} />
         <Bar dataKey="total" name="All incidents (cat 1-3)" fill={P.red} opacity={0.7} radius={[3, 3, 0, 0]} />
         <Bar dataKey="serious" name="Serious (cat 1-2)" fill={P.navy} opacity={0.9} radius={[3, 3, 0, 0]} />

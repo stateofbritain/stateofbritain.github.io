@@ -5,39 +5,14 @@ import {
   ReferenceLine, Legend,
 } from "recharts";
 import P from "../../theme/palette";
+import {
+  SECTION_HEADING, SECTION_NOTE, CHART_TITLE, CHART_SUBTITLE,
+  AXIS_TICK, yAxisLabel, GRID_PROPS, toggleBtn,
+} from "../../theme/chartStyles";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
-
-const sectionHeading = {
-  fontFamily: "'Playfair Display', serif",
-  fontSize: "20px",
-  fontWeight: 600,
-  color: P.text,
-  margin: "0 0 6px",
-};
-
-const sectionNote = {
-  fontSize: "14px",
-  lineHeight: 1.7,
-  color: P.textMuted,
-  fontFamily: "'Playfair Display', serif",
-  margin: "0 0 18px",
-  maxWidth: 720,
-};
-
-const toggleBtn = (active) => ({
-  padding: "4px 12px",
-  border: `1px solid ${active ? P.teal : P.border}`,
-  borderRadius: 4,
-  background: active ? P.teal : "transparent",
-  color: active ? "#fff" : P.textMuted,
-  fontSize: "12px",
-  fontFamily: "'DM Mono', monospace",
-  cursor: "pointer",
-  transition: "all 0.15s",
-});
 
 const TS_LINES = [
   { key: "KOR", label: "South Korea", color: "#6B8EC4" },
@@ -167,8 +142,8 @@ export default function Investment() {
 
       {/* Section 1: UK Investment Trend */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>UK Investment Trend</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>UK Investment Trend</h3>
+        <p style={SECTION_NOTE}>
           Total GFCF and business investment since 1997.
           {ukView === "asset"
             ? " Current prices, seasonally adjusted. Asset breakdown by type."
@@ -192,17 +167,17 @@ export default function Investment() {
           <ShareableChart title="UK Investment Trend (GFCF)">
           <div>
           <div style={{ marginBottom: 10 }}>
-            <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>UK Investment Trend</div>
-            <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Gross fixed capital formation, real terms</div>
+            <div style={CHART_TITLE}>UK Investment Trend</div>
+            <div style={CHART_SUBTITLE}>Gross fixed capital formation, real terms</div>
           </div>
           <ResponsiveContainer width="100%" height={340}>
             <LineChart data={ukTrend}>
-              <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-              <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
+              <CartesianGrid {...GRID_PROPS} />
+              <XAxis dataKey="year" tick={AXIS_TICK} />
               <YAxis
-                tick={{ fontSize: 11, fill: P.textMuted }}
+                tick={AXIS_TICK}
                 tickFormatter={(v) => `£${(v / 1000).toFixed(0)}bn`}
-                label={{ value: "Investment (£bn)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+                label={yAxisLabel("Investment (£bn)")}
               />
               <Tooltip
                 content={
@@ -237,17 +212,17 @@ export default function Investment() {
           <ShareableChart title="UK Investment by Asset Type">
           <div>
           <div style={{ marginBottom: 10 }}>
-            <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Investment by Asset Type</div>
-            <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>GFCF breakdown by category, UK</div>
+            <div style={CHART_TITLE}>Investment by Asset Type</div>
+            <div style={CHART_SUBTITLE}>GFCF breakdown by category, UK</div>
           </div>
           <ResponsiveContainer width="100%" height={380}>
             <AreaChart data={assetData}>
-              <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-              <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
+              <CartesianGrid {...GRID_PROPS} />
+              <XAxis dataKey="year" tick={AXIS_TICK} />
               <YAxis
-                tick={{ fontSize: 11, fill: P.textMuted }}
+                tick={AXIS_TICK}
                 tickFormatter={(v) => `£${(v / 1000).toFixed(0)}bn`}
-                label={{ value: "Investment (£bn)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+                label={yAxisLabel("Investment (£bn)")}
               />
               <Tooltip
                 content={
@@ -271,8 +246,8 @@ export default function Investment() {
 
       {/* Section 2: International GFCF/GDP */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>International Comparison — GFCF as % of GDP</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>International Comparison — GFCF as % of GDP</h3>
+        <p style={SECTION_NOTE}>
           Total gross fixed capital formation as a share of GDP, {ukOECD?.year}.
           Covers {totalCountries} OECD countries.
           The UK ranks {ukRank}th at {ukOECD?.pctGDP}%, compared to an OECD average of {oecdAvg?.pctGDP}%.
@@ -286,14 +261,14 @@ export default function Investment() {
           <ShareableChart title="International GFCF as % of GDP">
           <div>
           <div style={{ marginBottom: 10 }}>
-            <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>International GFCF Comparison</div>
-            <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Gross fixed capital formation as % of GDP</div>
+            <div style={CHART_TITLE}>International GFCF Comparison</div>
+            <div style={CHART_SUBTITLE}>Gross fixed capital formation as % of GDP</div>
           </div>
           <ResponsiveContainer width="100%" height={Math.max(400, intlBar.length * 26)}>
             <BarChart data={intlBar} layout="vertical" margin={{ left: 110, right: 30 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke={P.border} horizontal={false} />
-              <XAxis type="number" tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} label={{ value: "% of GDP", position: "insideBottomRight", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
-              <YAxis type="category" dataKey="country" tick={{ fontSize: 11, fill: P.textMuted }} width={105} />
+              <CartesianGrid {...GRID_PROPS} horizontal={false} />
+              <XAxis type="number" tick={AXIS_TICK} tickFormatter={(v) => `${v}%`} label={{ value: "% of GDP", position: "insideBottomRight", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <YAxis type="category" dataKey="country" tick={AXIS_TICK} width={105} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v.toFixed(1)}%`} />} />
               <Bar dataKey="pctGDP" name="GFCF / GDP" isAnimationActive={false}>
                 {intlBar.map((entry, i) => (
@@ -314,18 +289,18 @@ export default function Investment() {
           <ShareableChart title="Investment Trajectories (% GDP)">
           <div>
             <div style={{ marginBottom: 10 }}>
-              <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Investment Trajectories</div>
-              <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>GFCF as % of GDP over time</div>
+              <div style={CHART_TITLE}>Investment Trajectories</div>
+              <div style={CHART_SUBTITLE}>GFCF as % of GDP over time</div>
             </div>
             <ResponsiveContainer width="100%" height={400}>
               <LineChart data={tsSeries}>
-                <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-                <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" tick={AXIS_TICK} />
                 <YAxis
                   domain={[14, 34]}
-                  tick={{ fontSize: 11, fill: P.textMuted }}
+                  tick={AXIS_TICK}
                   tickFormatter={(v) => `${v}%`}
-                  label={{ value: "% of GDP", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+                  label={yAxisLabel("% of GDP")}
                 />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}%`} />} />
                 {TS_LINES.map(({ key, label, color }) => (

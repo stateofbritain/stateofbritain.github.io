@@ -4,6 +4,10 @@ import {
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend,
 } from "recharts";
 import P from "../../theme/palette";
+import {
+  SECTION_HEADING, SECTION_NOTE, CHART_TITLE, CHART_SUBTITLE,
+  AXIS_TICK, GRID_PROPS,
+} from "../../theme/chartStyles";
 import useIsMobile from "../../hooks/useIsMobile";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
@@ -11,23 +15,6 @@ import { track } from "../../analytics";
 import ShareableChart from "../../components/ShareableChart";
 
 const PURPLE = "#7B4B8A";
-
-const sectionHeading = {
-  fontFamily: "'Playfair Display', serif",
-  fontSize: "20px",
-  fontWeight: 600,
-  color: P.text,
-  margin: "0 0 6px",
-};
-
-const sectionNote = {
-  fontSize: "14px",
-  lineHeight: 1.7,
-  color: P.textMuted,
-  fontFamily: "'Playfair Display', serif",
-  margin: "0 0 18px",
-  maxWidth: 720,
-};
 
 const TYPE_COLORS = {
   international: "#2E5B9E",
@@ -408,7 +395,7 @@ export default function AsylumImmigration() {
       <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 6px" }}>
         Asylum & Immigration
       </h2>
-      <p style={{ ...sectionNote, margin: "0 0 10px" }}>
+      <p style={{ ...SECTION_NOTE, margin: "0 0 10px" }}>
         Irregular migration to the UK across the English Channel is not a new problem.
         Before small boat crossings began in 2018, people arrived concealed in lorries
         and freight trains through the Channel Tunnel, a route that prompted the closure
@@ -416,7 +403,7 @@ export default function AsylumImmigration() {
         at Calais and Coquelles. The shift to small boats changed the mode of arrival,
         not the underlying dynamic.
       </p>
-      <p style={{ ...sectionNote, margin: "0 0 10px" }}>
+      <p style={{ ...SECTION_NOTE, margin: "0 0 10px" }}>
         Successive governments, Labour, Coalition, Conservative, and Labour again, have
         each attempted to reduce irregular crossings and accelerate asylum processing.
         The same legal framework also prevents the deportation of foreign nationals
@@ -425,7 +412,7 @@ export default function AsylumImmigration() {
         Convention rights. As of 2024, approximately 11,000 foreign national offenders
         cannot be removed from the UK.
       </p>
-      <p style={{ ...sectionNote, margin: "0 0 10px" }}>
+      <p style={{ ...SECTION_NOTE, margin: "0 0 10px" }}>
         Each government has encountered the same structural constraint: the UK's
         obligations under international treaties, bilateral agreements, and domestic
         statutes create interlocking legal commitments that limit the available policy
@@ -435,7 +422,7 @@ export default function AsylumImmigration() {
         and UK courts have interpreted its protections to cover refugees who transit
         through intermediate countries.
       </p>
-      <p style={{ ...sectionNote, margin: "0 0 24px" }}>
+      <p style={{ ...SECTION_NOTE, margin: "0 0 24px" }}>
         This page maps those instruments, their key provisions, and the trade-offs
         involved in changing them.
       </p>
@@ -450,8 +437,8 @@ export default function AsylumImmigration() {
 
       {/* ── Channel crossings + backlog charts ───────────────────────── */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>The Scale</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>The Scale</h3>
+        <p style={SECTION_NOTE}>
           Channel crossings, asylum backlog, foreign national offenders in the community,
           and Dublin III returns. Charts are on independent scales.
         </p>
@@ -459,13 +446,13 @@ export default function AsylumImmigration() {
           <ShareableChart title="Channel Crossings by Year">
           <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 4, padding: "18px 18px 14px" }}>
             <div style={{ marginBottom: 10 }}>
-              <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Channel Crossings</div>
-              <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Small boat arrivals by year</div>
+              <div style={CHART_TITLE}>Channel Crossings</div>
+              <div style={CHART_SUBTITLE}>Small boat arrivals by year</div>
             </div>
             <ResponsiveContainer width="100%" height={180}>
               <BarChart data={crossings}>
-                <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-                <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" tick={AXIS_TICK} />
                 <YAxis tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v} width={32} />
                 <Tooltip content={<CustomTooltip formatter={(v) => v.toLocaleString()} />} />
                 <Bar dataKey="value" name="Crossings" fill={PURPLE} radius={[2, 2, 0, 0]} isAnimationActive={false} />
@@ -476,13 +463,13 @@ export default function AsylumImmigration() {
           <ShareableChart title="Asylum Backlog (Cases Pending)">
           <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 4, padding: "18px 18px 14px" }}>
             <div style={{ marginBottom: 10 }}>
-              <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Asylum Backlog</div>
-              <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Cases pending initial decision</div>
+              <div style={CHART_TITLE}>Asylum Backlog</div>
+              <div style={CHART_SUBTITLE}>Cases pending initial decision</div>
             </div>
             <ResponsiveContainer width="100%" height={180}>
               <LineChart data={backlog}>
-                <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-                <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" tick={AXIS_TICK} />
                 <YAxis tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} width={32} />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${(v / 1000).toFixed(0)}k cases`} />} />
                 <Line type="monotone" dataKey="value" name="Backlog" stroke={P.sienna} strokeWidth={2.5} dot={{ r: 3 }} isAnimationActive={false} />
@@ -506,13 +493,13 @@ export default function AsylumImmigration() {
               <ShareableChart title="Foreign National Offenders in the Community">
               <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 4, padding: "18px 18px 14px" }}>
                 <div style={{ marginBottom: 10 }}>
-                  <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Foreign National Offenders</div>
-                  <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>FNOs living in the community, not removable</div>
+                  <div style={CHART_TITLE}>Foreign National Offenders</div>
+                  <div style={CHART_SUBTITLE}>FNOs living in the community, not removable</div>
                 </div>
                 <ResponsiveContainer width="100%" height={180}>
                   <LineChart data={fnoChart}>
-                    <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-                    <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
+                    <CartesianGrid {...GRID_PROPS} />
+                    <XAxis dataKey="year" tick={AXIS_TICK} />
                     <YAxis tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v} width={32} />
                     <Tooltip content={<CustomTooltip />} />
                     <Line type="monotone" dataKey="criteria" name="Criteria only" stroke={P.red || "#A83428"} strokeWidth={2.5} dot={{ r: 3 }} connectNulls={false} isAnimationActive={false} />
@@ -529,13 +516,13 @@ export default function AsylumImmigration() {
           <ShareableChart title="Dublin III Returns (Actual)">
           <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 4, padding: "18px 18px 14px" }}>
             <div style={{ marginBottom: 10 }}>
-              <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Dublin III Returns</div>
-              <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Actual transfers to EU member states</div>
+              <div style={CHART_TITLE}>Dublin III Returns</div>
+              <div style={CHART_SUBTITLE}>Actual transfers to EU member states</div>
             </div>
             <ResponsiveContainer width="100%" height={180}>
               <BarChart data={dublinReturns}>
-                <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-                <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" tick={AXIS_TICK} />
                 <YAxis tick={{ fontSize: 10, fill: P.textMuted }} width={32} />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${v} people`} />} />
                 <Bar dataKey="value" name="Dublin returns" fill={P.textLight} radius={[2, 2, 0, 0]} isAnimationActive={false} />
@@ -554,8 +541,8 @@ export default function AsylumImmigration() {
         const viewMode = decisionsView;
         return (
           <section style={{ marginBottom: 48 }}>
-            <h3 style={sectionHeading}>Initial Decisions by Nationality</h3>
-            <p style={sectionNote}>
+            <h3 style={SECTION_HEADING}>Initial Decisions by Nationality</h3>
+            <p style={SECTION_NOTE}>
               {viewMode === "volume"
                 ? "Total initial decisions by nationality, broken down by outcome. Countries with the highest claim volumes are not necessarily those with the highest grant rates."
                 : "Grant rates at initial decision vary from under 3% to over 98% depending on the applicant's country of origin. Grant rate is calculated as grants divided by decided cases (excluding withdrawn). Countries with the highest grant rates (Afghanistan, Eritrea, Sudan, Syria) are the same countries where ECHR Article 3 prevents deportation of refused claimants, because conditions in those countries engage the absolute prohibition on return to torture or inhuman treatment."
@@ -594,8 +581,8 @@ export default function AsylumImmigration() {
                 padding: isMobile ? "14px 10px" : "18px 22px 14px",
               }}>
                 <div style={{ marginBottom: 10 }}>
-                  <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Asylum Decisions by Nationality</div>
-                  <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Initial decisions, main applicants, by outcome</div>
+                  <div style={CHART_TITLE}>Asylum Decisions by Nationality</div>
+                  <div style={CHART_SUBTITLE}>Initial decisions, main applicants, by outcome</div>
                 </div>
                 <ResponsiveContainer width="100%" height={byTotal.length * 32 + 40}>
                   <BarChart
@@ -603,7 +590,7 @@ export default function AsylumImmigration() {
                     layout="vertical"
                     margin={{ top: 4, right: 10, bottom: 4, left: isMobile ? 70 : 100 }}
                   >
-                    <CartesianGrid strokeDasharray="3 3" stroke={P.border} horizontal={false} />
+                    <CartesianGrid {...GRID_PROPS} horizontal={false} />
                     <XAxis
                       type="number"
                       tick={{ fontSize: 10, fill: P.textMuted, fontFamily: "'DM Mono', monospace" }}
@@ -641,8 +628,8 @@ export default function AsylumImmigration() {
                 padding: isMobile ? "14px 10px" : "18px 22px 14px",
               }}>
                 <div style={{ marginBottom: 10 }}>
-                  <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Grant Rates by Nationality</div>
-                  <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Initial decision grant rate, main applicants</div>
+                  <div style={CHART_TITLE}>Grant Rates by Nationality</div>
+                  <div style={CHART_SUBTITLE}>Initial decision grant rate, main applicants</div>
                 </div>
                 {/* Header */}
                 <div style={{
@@ -728,8 +715,8 @@ export default function AsylumImmigration() {
 
       {/* ── Legal Framework ──────────────────────────────────────────── */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>The Legal Framework</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>The Legal Framework</h3>
+        <p style={SECTION_NOTE}>
           How the instruments connect. Click any instrument below to see its key provisions
           and how it constrains policy.
           Colour indicates type: <span style={{ color: TYPE_COLORS.international, fontWeight: 600 }}>international treaty</span>,{" "}
@@ -808,8 +795,8 @@ export default function AsylumImmigration() {
 
       {/* ── The Knots ────────────────────────────────────────────────── */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>Dependencies</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Dependencies</h3>
+        <p style={SECTION_NOTE}>
           Six areas where legal instruments interact to constrain policy options.
           Each traces a dependency chain showing how provisions in one instrument
           affect the scope of action under another.
@@ -826,8 +813,8 @@ export default function AsylumImmigration() {
 
       {/* ── What If scenarios ────────────────────────────────────────── */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>Scenarios</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Scenarios</h3>
+        <p style={SECTION_NOTE}>
           Structured trade-off analysis for potential changes to the framework.
           Blue marks expanded government scope, orange marks reduced capability, grey marks uncertain outcomes.
         </p>
@@ -843,8 +830,8 @@ export default function AsylumImmigration() {
 
       {/* ── Timeline ─────────────────────────────────────────────────── */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>Timeline</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Timeline</h3>
+        <p style={SECTION_NOTE}>
           How the legal framework evolved, from the post-war conventions to the
           post-Brexit scramble.
         </p>
@@ -876,8 +863,8 @@ export default function AsylumImmigration() {
 
       {/* ── Wiring diagram ── */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>How the Instruments Connect</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>How the Instruments Connect</h3>
+        <p style={SECTION_NOTE}>
           International treaties on the left, domestic statutes in the centre, bilateral
           and EU instruments on the right. Lines show legal dependencies between instruments.
           Click any node to highlight its connections.
@@ -960,8 +947,8 @@ export default function AsylumImmigration() {
               overflowX: "auto",
             }}>
               <div style={{ marginBottom: 10, padding: isMobile ? "0 8px" : 0 }}>
-                <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Legal Framework</div>
-                <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>How international, domestic, and bilateral instruments connect</div>
+                <div style={CHART_TITLE}>Legal Framework</div>
+                <div style={CHART_SUBTITLE}>How international, domestic, and bilateral instruments connect</div>
               </div>
               <svg width={W} height={SVG_H} style={{ display: "block", margin: "0 auto" }}>
                 {colLabels.map(c => (

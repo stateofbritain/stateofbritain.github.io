@@ -4,27 +4,11 @@ import {
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
 } from "recharts";
 import P from "../../theme/palette";
+import { SECTION_HEADING, SECTION_NOTE, SOURCE_TEXT } from "../../theme/chartStyles";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
-
-const sectionHeading = {
-  fontFamily: "'Playfair Display', serif",
-  fontSize: "20px",
-  fontWeight: 600,
-  color: P.text,
-  margin: "0 0 6px",
-};
-
-const sectionNote = {
-  fontSize: "14px",
-  lineHeight: 1.7,
-  color: P.textMuted,
-  fontFamily: "'Playfair Display', serif",
-  margin: "0 0 18px",
-  maxWidth: 720,
-};
 
 export default function Startups() {
   const [data, setData] = useState(null);
@@ -91,8 +75,8 @@ export default function Startups() {
 
       {/* ═══════════ SECTION 1 — BUSINESS DEMOGRAPHY ═══════════ */}
       <div style={{ marginBottom: 40 }}>
-        <h3 style={sectionHeading}>Business Demography</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Business Demography</h3>
+        <p style={SECTION_NOTE}>
           Business births and deaths measure the creation and closure of VAT/PAYE-registered enterprises.
           A healthy economy needs high birth rates, but also high survival rates among new firms.
           "High-growth" enterprises are those with 10+ employees that grew employment by 20%+ per year
@@ -157,8 +141,8 @@ export default function Startups() {
 
       {/* ═══════════ SECTION 2 — SURVIVAL & SECTORS ═══════════ */}
       <div style={{ marginBottom: 40 }}>
-        <h3 style={sectionHeading}>Survival & Sector Breakdown</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Survival & Sector Breakdown</h3>
+        <p style={SECTION_NOTE}>
           Five-year survival rates show what fraction of a birth cohort are still active after
           one to five years. The sector breakdown shows which industries produce the most new
           enterprises.
@@ -211,8 +195,8 @@ export default function Startups() {
 
       {/* ═══════════ SECTION 3 — EQUITY INVESTMENT ═══════════ */}
       <div style={{ marginBottom: 16 }}>
-        <h3 style={sectionHeading}>Equity Investment</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Equity Investment</h3>
+        <p style={SECTION_NOTE}>
           UK equity investment covers venture capital, growth equity and other announced equity deals
           into UK-based SMEs. The UK is the largest VC market in Europe. UK VC represented
           0.68% of GDP over 2022–2024 (BBB SBET 2025).
@@ -254,7 +238,7 @@ export default function Startups() {
       </div>
 
       {/* Source */}
-      <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em", marginBottom: 20 }}>
+      <div style={{ ...SOURCE_TEXT, marginBottom: 20 }}>
         BUSINESS DEMOGRAPHY:{" "}
         <a href="https://www.ons.gov.uk/businessindustryandtrade/business/activitysizeandlocation/datasets/businessdemographyreferencetable" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
           ONS Business Demography, UK 2024

@@ -5,6 +5,7 @@ import {
   ReferenceLine, Legend as RLegend,
 } from "recharts";
 import P from "../../theme/palette";
+import { SECTION_HEADING, SECTION_NOTE, AXIS_TICK_MONO, yAxisLabel } from "../../theme/chartStyles";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
@@ -27,22 +28,6 @@ const ELEC_FUELS = [
   { key: "renewables", label: "Renewables", color: P.teal },
 ];
 
-const sectionNote = {
-  fontSize: "14px",
-  lineHeight: 1.7,
-  color: P.textMuted,
-  fontFamily: "'Playfair Display', serif",
-  margin: "0 0 18px",
-  maxWidth: 720,
-};
-
-const sectionHeading = {
-  fontFamily: "'Playfair Display', serif",
-  fontSize: "20px",
-  fontWeight: 600,
-  color: P.text,
-  margin: "0 0 6px",
-};
 
 export default function Energy() {
   const [data, setData] = useState(null);
@@ -123,8 +108,8 @@ export default function Energy() {
           SECTION 1 — PRIMARY ENERGY
           ═══════════════════════════════════════════════════════════════ */}
       <div style={{ marginBottom: 40 }}>
-        <h3 style={sectionHeading}>Primary Energy</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Primary Energy</h3>
+        <p style={SECTION_NOTE}>
           Primary energy is the total energy consumed across the whole economy — heating, transport,
           industry and electricity generation combined. It is measured before conversion losses,
           so includes fuel burned in power stations as well as petrol in cars and gas in boilers.
@@ -187,8 +172,8 @@ export default function Energy() {
           SECTION 2 — ELECTRICITY
           ═══════════════════════════════════════════════════════════════ */}
       <div style={{ marginBottom: 16 }}>
-        <h3 style={sectionHeading}>Electricity Generation</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Electricity Generation</h3>
+        <p style={SECTION_NOTE}>
           Electricity is a subset of primary energy — roughly a quarter of total consumption goes
           to generating it. The electricity mix looks very different from the primary energy mix
           because transport and industrial fuel use (the main drivers of fossil fuel dominance)
@@ -250,8 +235,8 @@ export default function Energy() {
         const latestGas = sec.gasStorage[sec.gasStorage.length - 1];
         return (
           <div style={{ marginBottom: 40 }}>
-            <h3 style={sectionHeading}>Energy Security</h3>
-            <p style={sectionNote}>
+            <h3 style={SECTION_HEADING}>Energy Security</h3>
+            <p style={SECTION_NOTE}>
               Energy security depends on storage buffers, domestic production, and interconnection.
               The UK has among the lowest gas storage in Europe — just {snap.gasStorageDays} days of
               average demand — after the Rough storage field closed in 2017. The country has been a
@@ -360,7 +345,7 @@ export default function Energy() {
                   <ComposedChart data={sec.liveFill.history} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
                     <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
                     <XAxis dataKey="date" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} interval={4} />
-                    <YAxis tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} unit="%" domain={[0, 100]} label={{ value: "Storage fill level (%)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+                    <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} unit="%" domain={[0, 100]} label={yAxisLabel("Storage fill level (%)")} />
                     <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}%`} />} />
                     <Area type="monotone" dataKey="fillPct" name="Fill level" stroke={P.red} fill={P.red} fillOpacity={0.15} strokeWidth={2.5} dot={false} />
                   </ComposedChart>
@@ -536,8 +521,8 @@ function MixChart({ data }) {
     <ResponsiveContainer width="100%" height={340}>
       <AreaChart data={data} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
-        <YAxis tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} unit="%" label={{ value: "Share of primary energy (%)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+        <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
+        <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} unit="%" label={yAxisLabel("Share of primary energy (%)")} />
         <Tooltip content={<CustomTooltip />} />
         {MIX_FUELS.map((fuel) => (
           <Area key={fuel.key} type="monotone" dataKey={fuel.key} name={fuel.label} stackId="1" stroke={fuel.color} fill={fuel.color} fillOpacity={0.8} />
@@ -552,8 +537,8 @@ function ElectricityChart({ data }) {
     <ResponsiveContainer width="100%" height={340}>
       <AreaChart data={data} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
-        <YAxis tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} unit="%" label={{ value: "Share of generation (%)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+        <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
+        <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} unit="%" label={yAxisLabel("Share of generation (%)")} />
         <Tooltip content={<CustomTooltip />} />
         {ELEC_FUELS.map((fuel) => (
           <Area key={fuel.key} type="monotone" dataKey={fuel.key} name={fuel.label} stackId="1" stroke={fuel.color} fill={fuel.color} fillOpacity={0.8} />
@@ -568,8 +553,8 @@ function SpendChart({ data }) {
     <ResponsiveContainer width="100%" height={340}>
       <BarChart data={data} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
-        <YAxis tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} unit="£m" label={{ value: "Household energy spend (£m)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+        <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
+        <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} unit="£m" label={yAxisLabel("Household energy spend (£m)")} />
         <Tooltip content={<CustomTooltip />} />
         <Bar dataKey="domesticGas" name="Household Gas" stackId="dom" fill={P.yellow} opacity={0.85} />
         <Bar dataKey="domesticElectricity" name="Household Electricity" stackId="dom" fill={P.teal} opacity={0.85} radius={[3, 3, 0, 0]} />
@@ -583,8 +568,8 @@ function ImportsChart({ data }) {
     <ResponsiveContainer width="100%" height={340}>
       <LineChart data={data} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
-        <YAxis tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} unit="%" label={{ value: "Net import dependency (%)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+        <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
+        <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} unit="%" label={yAxisLabel("Net import dependency (%)")} />
         <Tooltip content={<CustomTooltip />} />
         <Line type="monotone" dataKey="importDependency" name="Import Dependency" stroke={P.red} strokeWidth={2.5} dot={false} />
       </LineChart>
@@ -599,9 +584,9 @@ function GasStorageChart({ data }) {
     <ResponsiveContainer width="100%" height={340}>
       <ComposedChart data={data} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
-        <YAxis yAxisId="days" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} label={{ value: "Days of demand", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
-        <YAxis yAxisId="bcm" orientation="right" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} label={{ value: "Storage capacity (bcm)", angle: 90, position: "insideRight", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+        <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
+        <YAxis yAxisId="days" tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} label={yAxisLabel("Days of demand")} />
+        <YAxis yAxisId="bcm" orientation="right" tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} label={yAxisLabel("Storage capacity (bcm)", { angle: 90, position: "insideRight" })} />
         <Tooltip content={<CustomTooltip />} />
         <RLegend wrapperStyle={{ fontSize: 11, fontFamily: "'DM Mono', monospace" }} />
         <Bar yAxisId="bcm" dataKey="capacityBcm" name="Storage capacity (bcm)" fill={P.grey} opacity={0.5} radius={[3, 3, 0, 0]} />
@@ -617,7 +602,7 @@ function GasStorageIntlChart({ data }) {
     <ResponsiveContainer width="100%" height={340}>
       <BarChart data={data} margin={{ top: 5, right: 10, left: 10, bottom: 0 }} layout="vertical">
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis type="number" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} unit=" days" />
+        <XAxis type="number" tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} unit=" days" />
         <YAxis type="category" dataKey="country" tick={{ fontSize: 11, fill: P.textMuted, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} width={90} />
         <Tooltip content={<CustomTooltip formatter={(v) => `${v} days`} />} />
         <Bar dataKey="daysOfDemand" name="Days of demand" radius={[0, 3, 3, 0]}>
@@ -635,8 +620,8 @@ function ImportsByFuelChart({ data }) {
     <ResponsiveContainer width="100%" height={340}>
       <LineChart data={data} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
-        <YAxis tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} unit="%" label={{ value: "Import dependency (%)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+        <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
+        <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} unit="%" label={yAxisLabel("Import dependency (%)")} />
         <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
         <RLegend wrapperStyle={{ fontSize: 11, fontFamily: "'DM Mono', monospace" }} />
         <ReferenceLine y={0} stroke={P.textLight} />
@@ -653,8 +638,8 @@ function CapacityMarginChart({ data }) {
     <ResponsiveContainer width="100%" height={340}>
       <ComposedChart data={data} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
-        <YAxis tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} unit="%" domain={[0, 'auto']} label={{ value: "Capacity margin (%)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+        <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
+        <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} unit="%" domain={[0, 'auto']} label={yAxisLabel("Capacity margin (%)")} />
         <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
         <Bar dataKey="marginPct" name="De-rated capacity margin" fill={P.navy} opacity={0.7} radius={[3, 3, 0, 0]} />
         <ReferenceLine y={5} stroke={P.red} strokeDasharray="4 4" label={{ value: "5% threshold", fontSize: 10, fill: P.red, position: "top" }} />

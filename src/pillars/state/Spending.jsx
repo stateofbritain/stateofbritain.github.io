@@ -6,6 +6,7 @@ import {
   ReferenceLine, Legend,
 } from "recharts";
 import P from "../../theme/palette";
+import { SECTION_HEADING, SECTION_NOTE, AXIS_TICK, AXIS_TICK_MONO, yAxisLabel, GRID_PROPS, toggleBtn } from "../../theme/chartStyles";
 import { generateShades } from "../../theme/shades";
 import useIsMobile from "../../hooks/useIsMobile";
 import MetricCard from "../../components/MetricCard";
@@ -13,35 +14,6 @@ import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import { track } from "../../analytics";
 import ShareableChart from "../../components/ShareableChart";
-
-const sectionHeading = {
-  fontFamily: "'Playfair Display', serif",
-  fontSize: "20px",
-  fontWeight: 600,
-  color: P.text,
-  margin: "0 0 6px",
-};
-
-const sectionNote = {
-  fontSize: "14px",
-  lineHeight: 1.7,
-  color: P.textMuted,
-  fontFamily: "'Playfair Display', serif",
-  margin: "0 0 18px",
-  maxWidth: 720,
-};
-
-const toggleBtn = (active) => ({
-  padding: "4px 12px",
-  border: `1px solid ${active ? P.teal : P.border}`,
-  borderRadius: 4,
-  background: active ? P.teal : "transparent",
-  color: active ? "#fff" : P.textMuted,
-  fontSize: "12px",
-  fontFamily: "'DM Mono', monospace",
-  cursor: "pointer",
-  transition: "all 0.15s",
-});
 
 function cleanName(name) {
   return name.replace(/\s*\(\d+\)\s*$/, "").replace(/\s+$/, "");
@@ -611,8 +583,8 @@ export default function Spending() {
 
       {/* Section 1: Pie chart — full width */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>Where the Money Goes</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Where the Money Goes</h3>
+        <p style={SECTION_NOTE}>
           {selectedPieDept
             ? `${selectedPieDept.cleanName} sub-departmental breakdown, FY 2024-25.`
             : `Government spending by department. Click a year on the chart to explore, or click a department to drill down.`}
@@ -817,9 +789,9 @@ export default function Spending() {
                       setSelectedPieDept(null);
                     }
                   }}>
-                    <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-                    <XAxis dataKey="fyShort" tick={{ fontSize: 11, fill: P.textMuted, fontFamily: "'DM Mono', monospace" }} />
-                    <YAxis tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => `£${v.toFixed(0)}bn`} width={52} domain={["auto", "auto"]} />
+                    <CartesianGrid {...GRID_PROPS} />
+                    <XAxis dataKey="fyShort" tick={AXIS_TICK_MONO} />
+                    <YAxis tick={AXIS_TICK} tickFormatter={(v) => `£${v.toFixed(0)}bn`} width={52} domain={["auto", "auto"]} />
                     <Tooltip content={<CustomTooltip formatter={(v) => `£${v?.toFixed(1)}bn`} />} />
                     <Line type="monotone" dataKey="total" name="Policy spending" stroke={P.teal} strokeWidth={2} cursor="pointer"
                       dot={(props) => {
@@ -847,8 +819,8 @@ export default function Spending() {
 
       {/* Section 2: Department detail list + tax calculator sidebar */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>Department Breakdown</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Department Breakdown</h3>
+        <p style={SECTION_NOTE}>
           All {sortedDepts.length} departmental groups. Click a department for time series and detail.
         </p>
 
@@ -971,9 +943,9 @@ export default function Spending() {
                               setDeptCardYear(prev => ({ ...prev, [dept.cleanName]: fy }));
                             }
                           } : undefined}>
-                            <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-                            <XAxis dataKey="fy" tick={{ fontSize: 10, fill: P.textMuted }} />
-                            <YAxis tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}bn`} width={42} label={{ value: "£bn", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+                            <CartesianGrid {...GRID_PROPS} />
+                            <XAxis dataKey="fy" tick={AXIS_TICK} />
+                            <YAxis tick={AXIS_TICK} tickFormatter={(v) => `${(v / 1000).toFixed(0)}bn`} width={42} label={yAxisLabel("£bn")} />
                             <Tooltip content={<CustomTooltip formatter={(v) => `£${v != null ? v.toLocaleString() : "—"}m`} />} />
                             {showDualLine && (
                               <Line type="monotone" dataKey="value" name="Total TME" stroke={P.textLight} strokeWidth={1} strokeDasharray="4 3" dot={{ r: 1.5, fill: P.textLight }} activeDot={false} />
@@ -1095,8 +1067,8 @@ export default function Spending() {
 
       {/* Section 3: Fiscal trend */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>Receipts vs Spending</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Receipts vs Spending</h3>
+        <p style={SECTION_NOTE}>
           Public sector current receipts and total managed expenditure since 1990.
           The gap between the two lines is net borrowing. Dashed lines show OBR forecasts.
         </p>
@@ -1111,9 +1083,9 @@ export default function Spending() {
           </div>
           <ResponsiveContainer width="100%" height={360}>
             <AreaChart data={trendData}>
-              <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-              <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => trendView === "bn" ? `£${v}bn` : `${v}%`} label={{ value: trendView === "bn" ? "£bn" : "% of GDP", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <CartesianGrid {...GRID_PROPS} />
+              <XAxis dataKey="year" tick={AXIS_TICK} />
+              <YAxis tick={AXIS_TICK} tickFormatter={(v) => trendView === "bn" ? `£${v}bn` : `${v}%`} label={yAxisLabel(trendView === "bn" ? "£bn" : "% of GDP")} />
               <Tooltip content={<CustomTooltip formatter={(v) => trendView === "bn" ? `£${v?.toFixed(1)}bn` : `${v?.toFixed(1)}%`} />} />
               <Area type="monotone" dataKey="tme" stroke={P.red} fill={P.red} fillOpacity={0.08} strokeWidth={2} name="Total spending" dot={false} />
               <Area type="monotone" dataKey="receipts" stroke={P.teal} fill={P.teal} fillOpacity={0.08} strokeWidth={2} name="Receipts" dot={false} />
@@ -1125,8 +1097,8 @@ export default function Spending() {
 
       {/* Section 4: Debt */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>Public Sector Net Debt</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Public Sector Net Debt</h3>
+        <p style={SECTION_NOTE}>
           Net debt as a share of GDP. Includes OBR forecasts to 2030-31.
         </p>
         <ShareableChart title="Public Sector Net Debt"><div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px", boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
@@ -1136,9 +1108,9 @@ export default function Spending() {
           </div>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={debtData}>
-              <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-              <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} domain={[20, 110]} label={{ value: "% of GDP", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <CartesianGrid {...GRID_PROPS} />
+              <XAxis dataKey="year" tick={AXIS_TICK} />
+              <YAxis tick={AXIS_TICK} tickFormatter={(v) => `${v}%`} domain={[20, 110]} label={yAxisLabel("% of GDP")} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}% of GDP`} />} />
               <Line type="monotone" dataKey="debt" stroke={P.navy} strokeWidth={2.5} dot={false} name="Net debt / GDP" />
               <ReferenceLine y={100} stroke={P.red} strokeDasharray="4 4" label={{ value: "100%", fontSize: 11, fill: P.red }} />
@@ -1150,8 +1122,8 @@ export default function Spending() {
       {/* Section 5: Receipts breakdown */}
       {data.receiptTypes?.length > 0 && (
         <section style={{ marginBottom: 48 }}>
-          <h3 style={sectionHeading}>Tax Receipts Breakdown</h3>
-          <p style={sectionNote}>
+          <h3 style={SECTION_HEADING}>Tax Receipts Breakdown</h3>
+          <p style={SECTION_NOTE}>
             Where the money comes from. Major tax receipts, FY {latestOutturn.fy}.
           </p>
           <ShareableChart title="Tax Receipts Breakdown"><div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px", boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
@@ -1161,8 +1133,8 @@ export default function Spending() {
             </div>
             <ResponsiveContainer width="100%" height={Math.max(300, data.receiptTypes.length * (isMobile ? 30 : 26))}>
               <BarChart data={data.receiptTypes} layout="vertical" margin={{ left: isMobile ? 10 : 140, right: 20 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke={P.border} horizontal={false} />
-                <XAxis type="number" tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `£${v}bn`} />
+                <CartesianGrid {...GRID_PROPS} horizontal={false} />
+                <XAxis type="number" tick={AXIS_TICK} tickFormatter={(v) => `£${v}bn`} />
                 <YAxis type="category" dataKey="name" tick={{ fontSize: isMobile ? 9 : 11, fill: P.textMuted }} width={isMobile ? 90 : 135} />
                 <Tooltip content={<CustomTooltip formatter={(v) => `£${v.toFixed(1)}bn`} />} />
                 <Bar dataKey="value" fill={P.teal} name="Receipts" isAnimationActive={false} />

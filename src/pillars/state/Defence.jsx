@@ -5,27 +5,14 @@ import {
   ReferenceLine, Legend, Cell, PieChart, Pie,
 } from "recharts";
 import P from "../../theme/palette";
+import {
+  SECTION_HEADING, SECTION_NOTE, SOURCE_TEXT,
+  AXIS_TICK, yAxisLabel, GRID_PROPS,
+} from "../../theme/chartStyles";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
-
-const sectionHeading = {
-  fontFamily: "'Playfair Display', serif",
-  fontSize: "20px",
-  fontWeight: 600,
-  color: P.text,
-  margin: "0 0 6px",
-};
-
-const sectionNote = {
-  fontSize: "14px",
-  lineHeight: 1.7,
-  color: P.textMuted,
-  fontFamily: "'Playfair Display', serif",
-  margin: "0 0 18px",
-  maxWidth: 720,
-};
 
 const SERVICE_COLORS = {
   army: P.sienna,
@@ -92,8 +79,8 @@ export default function Defence() {
 
       {/* Section 1: Spending % GDP */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>Defence Spending (% GDP)</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Defence Spending (% GDP)</h3>
+        <p style={SECTION_NOTE}>
           UK defence spending fell from 3.8% of GDP at the end of the Cold War to a low of 2.0%
           in 2015-16. The NATO 2% guideline — now raised to 2.5% following the Ukraine war —
           has only recently been met consistently.
@@ -102,16 +89,16 @@ export default function Defence() {
         <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px" }}>
           <ResponsiveContainer width="100%" height={320}>
             <AreaChart data={data.spendingPctGdp}>
-              <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-              <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[1.5, 4.2]} tickFormatter={(v) => `${v}%`} label={{ value: "% of GDP", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <CartesianGrid {...GRID_PROPS} />
+              <XAxis dataKey="year" tick={AXIS_TICK} />
+              <YAxis tick={AXIS_TICK} domain={[1.5, 4.2]} tickFormatter={(v) => `${v}%`} label={yAxisLabel("% of GDP")} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v}% GDP`} />} />
               <ReferenceLine y={2.0} stroke={P.grey} strokeDasharray="4 4" label={{ value: "NATO 2%", fontSize: 10, fill: P.grey, position: "right" }} />
               <ReferenceLine y={2.5} stroke={P.red} strokeDasharray="4 4" label={{ value: "New 2.5% target", fontSize: 10, fill: P.red, position: "right" }} />
               <Area type="monotone" dataKey="pct" stroke={P.navy} fill={P.navy} fillOpacity={0.12} strokeWidth={2.5} name="% GDP" dot={{ r: 2, fill: P.navy }} />
             </AreaChart>
           </ResponsiveContainer>
-          <div style={{ marginTop: 6, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+          <div style={SOURCE_TEXT}>
             SOURCE: NATO Defence Expenditure · MoD UK Defence Statistics
           </div>
         </div>
@@ -120,8 +107,8 @@ export default function Defence() {
 
       {/* Section 2: Real spending */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>Defence Spending (Real Terms)</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Defence Spending (Real Terms)</h3>
+        <p style={SECTION_NOTE}>
           In 2023-24 prices, defence spending fell from £46bn in 2009 to £38bn by 2016 before
           recovering. Recent increases — driven by the Ukraine response — have pushed spending
           to £54bn, but this includes one-off military aid.
@@ -130,14 +117,14 @@ export default function Defence() {
         <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px" }}>
           <ResponsiveContainer width="100%" height={280}>
             <AreaChart data={data.spendingReal}>
-              <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-              <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[35, 58]} tickFormatter={(v) => `£${v}bn`} label={{ value: "£bn", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <CartesianGrid {...GRID_PROPS} />
+              <XAxis dataKey="year" tick={AXIS_TICK} />
+              <YAxis tick={AXIS_TICK} domain={[35, 58]} tickFormatter={(v) => `£${v}bn`} label={yAxisLabel("£bn")} />
               <Tooltip content={<CustomTooltip formatter={(v) => `£${v}bn`} />} />
               <Area type="monotone" dataKey="value" stroke={P.teal} fill={P.teal} fillOpacity={0.12} strokeWidth={2.5} name="Real spending (£bn)" dot={{ r: 2, fill: P.teal }} />
             </AreaChart>
           </ResponsiveContainer>
-          <div style={{ marginTop: 6, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+          <div style={SOURCE_TEXT}>
             SOURCE: MoD Annual Report, 2023-24 prices
           </div>
         </div>
@@ -146,8 +133,8 @@ export default function Defence() {
 
       {/* Section 3: Personnel */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>Armed Forces Personnel</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Armed Forces Personnel</h3>
+        <p style={SECTION_NOTE}>
           UK regular forces have shrunk from 208k in 2000 to {s.totalPersonnel}k — a {s.personnelDecline}% reduction.
           The Army has been cut hardest, from 110k to 72.5k. All three services are below
           their target manning levels.
@@ -156,9 +143,9 @@ export default function Defence() {
         <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px" }}>
           <ResponsiveContainer width="100%" height={320}>
             <AreaChart data={data.personnel}>
-              <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-              <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 220]} tickFormatter={(v) => `${v}k`} label={{ value: "thousands", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <CartesianGrid {...GRID_PROPS} />
+              <XAxis dataKey="year" tick={AXIS_TICK} />
+              <YAxis tick={AXIS_TICK} domain={[0, 220]} tickFormatter={(v) => `${v}k`} label={yAxisLabel("thousands")} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}k`} />} />
               <Area type="monotone" dataKey="raf" stackId="1" stroke={SERVICE_COLORS.raf} fill={SERVICE_COLORS.raf} fillOpacity={0.5} name="RAF" />
               <Area type="monotone" dataKey="navy" stackId="1" stroke={SERVICE_COLORS.navy} fill={SERVICE_COLORS.navy} fillOpacity={0.5} name="Royal Navy" />
@@ -166,7 +153,7 @@ export default function Defence() {
               <Legend wrapperStyle={{ fontSize: 11, fontFamily: "'DM Mono', monospace" }} />
             </AreaChart>
           </ResponsiveContainer>
-          <div style={{ marginTop: 6, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+          <div style={SOURCE_TEXT}>
             SOURCE: MoD UK Armed Forces Quarterly Service Personnel Statistics
           </div>
         </div>
@@ -175,8 +162,8 @@ export default function Defence() {
 
       {/* Section 4: Reserves */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>Reserve Forces</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Reserve Forces</h3>
+        <p style={SECTION_NOTE}>
           Trained reserve strength peaked at 30.7k in 2022 but has since declined to {s.reserveStrength}k.
           The 2013 "Future Reserves" plan aimed for 30k trained reservists to offset regular cuts,
           a target that was briefly met before recruitment faltered.
@@ -185,15 +172,15 @@ export default function Defence() {
         <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px" }}>
           <ResponsiveContainer width="100%" height={260}>
             <LineChart data={data.reserves}>
-              <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-              <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[18, 34]} tickFormatter={(v) => `${v}k`} label={{ value: "thousands", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <CartesianGrid {...GRID_PROPS} />
+              <XAxis dataKey="year" tick={AXIS_TICK} />
+              <YAxis tick={AXIS_TICK} domain={[18, 34]} tickFormatter={(v) => `${v}k`} label={yAxisLabel("thousands")} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}k`} />} />
               <ReferenceLine y={30} stroke={P.grey} strokeDasharray="4 4" label={{ value: "30k target", fontSize: 10, fill: P.grey, position: "right" }} />
               <Line type="monotone" dataKey="strength" stroke={P.navy} strokeWidth={2.5} dot={{ r: 2.5, fill: P.navy }} name="Trained reserves (thousands)" />
             </LineChart>
           </ResponsiveContainer>
-          <div style={{ marginTop: 6, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+          <div style={SOURCE_TEXT}>
             SOURCE: MoD UK Armed Forces Quarterly Service Personnel Statistics
           </div>
         </div>
@@ -202,8 +189,8 @@ export default function Defence() {
 
       {/* Section 5: Equipment plan */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>Equipment Plan (10-Year)</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Equipment Plan (10-Year)</h3>
+        <p style={SECTION_NOTE}>
           The MoD's equipment plan covers £60bn over 10 years. Submarines and the nuclear
           deterrent represent the single largest commitment, reflecting the Dreadnought programme.
         </p>
@@ -211,9 +198,9 @@ export default function Defence() {
         <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px" }}>
           <ResponsiveContainer width="100%" height={340}>
             <BarChart data={data.equipmentPlan} layout="vertical">
-              <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-              <XAxis type="number" tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `£${v}bn`} />
-              <YAxis type="category" dataKey="category" tick={{ fontSize: 11, fill: P.textMuted }} width={150} />
+              <CartesianGrid {...GRID_PROPS} />
+              <XAxis type="number" tick={AXIS_TICK} tickFormatter={(v) => `£${v}bn`} />
+              <YAxis type="category" dataKey="category" tick={AXIS_TICK} width={150} />
               <Tooltip content={<CustomTooltip formatter={(v) => `£${v}bn`} />} />
               <Bar dataKey="value" name="10-year spend (£bn)" radius={[0, 3, 3, 0]}>
                 {data.equipmentPlan.map((_, i) => (
@@ -222,7 +209,7 @@ export default function Defence() {
               </Bar>
             </BarChart>
           </ResponsiveContainer>
-          <div style={{ marginTop: 6, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+          <div style={SOURCE_TEXT}>
             SOURCE: MoD Equipment Plan 2024
           </div>
         </div>
@@ -231,8 +218,8 @@ export default function Defence() {
 
       {/* Section 6: NATO comparison */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>NATO Spending Comparison</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>NATO Spending Comparison</h3>
+        <p style={SECTION_NOTE}>
           Defence spending as a share of GDP across NATO allies. Poland leads at 3.9%
           following its rapid build-up. Several major allies remain below the 2% guideline.
         </p>
@@ -240,9 +227,9 @@ export default function Defence() {
         <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px" }}>
           <ResponsiveContainer width="100%" height={340}>
             <BarChart data={data.intlComparison} layout="vertical">
-              <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-              <XAxis type="number" tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 4.5]} tickFormatter={(v) => `${v}%`} />
-              <YAxis type="category" dataKey="country" tick={{ fontSize: 11, fill: P.textMuted }} width={70} />
+              <CartesianGrid {...GRID_PROPS} />
+              <XAxis type="number" tick={AXIS_TICK} domain={[0, 4.5]} tickFormatter={(v) => `${v}%`} />
+              <YAxis type="category" dataKey="country" tick={AXIS_TICK} width={70} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v}% GDP`} />} />
               <ReferenceLine x={2.0} stroke={P.grey} strokeDasharray="4 4" />
               <Bar dataKey="pct" name="% GDP" radius={[0, 3, 3, 0]}>
@@ -252,7 +239,7 @@ export default function Defence() {
               </Bar>
             </BarChart>
           </ResponsiveContainer>
-          <div style={{ marginTop: 6, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+          <div style={SOURCE_TEXT}>
             SOURCE: NATO Defence Expenditure 2024 estimates
           </div>
         </div>

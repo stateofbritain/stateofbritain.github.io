@@ -4,6 +4,7 @@ import {
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
 } from "recharts";
 import P from "../../theme/palette";
+import { SECTION_HEADING, SECTION_NOTE, SOURCE_TEXT } from "../../theme/chartStyles";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
@@ -47,23 +48,6 @@ const INCOME_PIE = [
 const TRAC_TOTALS = {
   income: 10440, fec: 15807, deficit: 5367, recovery: 66.0,
   qrGrant: 2103, sustainabilityPct: 7.6,
-};
-
-const sectionHeading = {
-  fontFamily: "'Playfair Display', serif",
-  fontSize: "20px",
-  fontWeight: 600,
-  color: P.text,
-  margin: "0 0 6px",
-};
-
-const sectionNote = {
-  fontSize: "14px",
-  lineHeight: 1.7,
-  color: P.textMuted,
-  fontFamily: "'Playfair Display', serif",
-  margin: "0 0 18px",
-  maxWidth: 720,
 };
 
 export default function ResearchFunding() {
@@ -151,8 +135,8 @@ export default function ResearchFunding() {
 
       {/* ═══════════ SECTION 1 — R&D SPENDING ═══════════ */}
       <div style={{ marginBottom: 40 }}>
-        <h3 style={sectionHeading}>UK R&D Expenditure</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>UK R&D Expenditure</h3>
+        <p style={SECTION_NOTE}>
           Gross Domestic Expenditure on R&D (GERD) measures all R&D performed in the UK, funded
           by business, government, higher education, charities and overseas sources. The ONS
           revised its methodology in 2021 to address undercoverage of small business R&D,
@@ -234,8 +218,8 @@ export default function ResearchFunding() {
 
       {/* ═══════════ SECTION 2 — INTERNATIONAL COMPARISON ═══════════ */}
       <div style={{ marginBottom: 40 }}>
-        <h3 style={sectionHeading}>International Comparison</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>International Comparison</h3>
+        <p style={SECTION_NOTE}>
           The UK spends 2.64% of GDP on R&D, slightly below the OECD average of 2.7%.
           Among G7 nations, the US (3.59%) and Japan (3.41%) lead, while France (2.23%)
           and Italy (1.39%) spend less. Israel (6.02%) and South Korea (5.21%) are global
@@ -249,8 +233,8 @@ export default function ResearchFunding() {
 
       {/* ═══════════ SECTION 3 — REGIONAL ═══════════ */}
       <div style={{ marginBottom: 16 }}>
-        <h3 style={sectionHeading}>Regional R&D (2023)</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Regional R&D (2023)</h3>
+        <p style={SECTION_NOTE}>
           R&D spending is highly concentrated in the "golden triangle" of London, the South East,
           and the East of England, which together account for {regionData.length > 0 ?
             `£${((regionData.filter(r =>
@@ -266,8 +250,8 @@ export default function ResearchFunding() {
 
       {/* ═══════════ SECTION 4 — RESEARCH COST RECOVERY ═══════════ */}
       <div style={{ marginBottom: 40 }}>
-        <h3 style={sectionHeading}>University Research Cost Recovery</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>University Research Cost Recovery</h3>
+        <p style={SECTION_NOTE}>
           University research is costed using the Transparent Approach to Costing (TRAC).
           Full economic costs include directly incurred costs (research staff, consumables, equipment),
           directly allocated costs (investigators&rsquo; time, technicians), indirect costs (central services,
@@ -336,7 +320,7 @@ export default function ResearchFunding() {
       </div>
 
       {/* Source */}
-      <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em", marginBottom: 20 }}>
+      <div style={{ ...SOURCE_TEXT, marginBottom: 20 }}>
         R&D SPENDING:{" "}
         <a href="https://www.ons.gov.uk/economy/governmentpublicsectorandtaxes/researchanddevelopmentexpenditure/datasets/ukgrossdomesticexpenditureonresearchanddevelopment2021designatedasofficialstatistics" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
           ONS GERD Official Statistics 2023

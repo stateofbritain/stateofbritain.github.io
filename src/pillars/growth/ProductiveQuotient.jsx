@@ -5,39 +5,14 @@ import {
   ReferenceLine, Legend,
 } from "recharts";
 import P from "../../theme/palette";
+import {
+  SECTION_HEADING, SECTION_NOTE, CHART_TITLE, CHART_SUBTITLE,
+  AXIS_TICK, yAxisLabel, GRID_PROPS, toggleBtn,
+} from "../../theme/chartStyles";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
-
-const sectionHeading = {
-  fontFamily: "'Playfair Display', serif",
-  fontSize: "20px",
-  fontWeight: 600,
-  color: P.text,
-  margin: "0 0 6px",
-};
-
-const sectionNote = {
-  fontSize: "14px",
-  lineHeight: 1.7,
-  color: P.textMuted,
-  fontFamily: "'Playfair Display', serif",
-  margin: "0 0 18px",
-  maxWidth: 720,
-};
-
-const toggleBtn = (active) => ({
-  padding: "4px 12px",
-  border: `1px solid ${active ? P.teal : P.border}`,
-  borderRadius: 4,
-  background: active ? P.teal : "transparent",
-  color: active ? "#fff" : P.textMuted,
-  fontSize: "12px",
-  fontFamily: "'DM Mono', monospace",
-  cursor: "pointer",
-  transition: "all 0.15s",
-});
 
 const SERVICES = [
   {
@@ -171,8 +146,8 @@ export default function ProductiveQuotient() {
 
       {/* Section 1: Cross-service comparison */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>Frontline Ratio by Service</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Frontline Ratio by Service</h3>
+        <p style={SECTION_NOTE}>
           Share of each workforce classified as frontline/operational (dark) vs
           back-office/support (light). Definitions vary by service — see methodology below.
         </p>
@@ -185,13 +160,13 @@ export default function ProductiveQuotient() {
           <ShareableChart title="Frontline Ratio by Service">
           <div>
           <div style={{ marginBottom: 10 }}>
-            <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Frontline Ratio by Service</div>
-            <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Frontline staff as % of total workforce</div>
+            <div style={CHART_TITLE}>Frontline Ratio by Service</div>
+            <div style={CHART_SUBTITLE}>Frontline staff as % of total workforce</div>
           </div>
           <ResponsiveContainer width="100%" height={220}>
             <BarChart data={comparisonData} layout="vertical" margin={{ left: 90, right: 30 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke={P.border} horizontal={false} />
-              <XAxis type="number" domain={[0, 100]} tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} />
+              <CartesianGrid {...GRID_PROPS} horizontal={false} />
+              <XAxis type="number" domain={[0, 100]} tick={AXIS_TICK} tickFormatter={(v) => `${v}%`} />
               <YAxis type="category" dataKey="service" tick={{ fontSize: 12, fill: P.textMuted }} width={85} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v.toFixed(1)}%`} />} />
               <Bar dataKey="frontlinePct" name="Frontline" stackId="a" isAnimationActive={false}>
@@ -212,8 +187,8 @@ export default function ProductiveQuotient() {
           <ShareableChart title="Frontline Ratio Trend">
           <div>
             <div style={{ marginBottom: 10 }}>
-              <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Frontline Ratio Trend</div>
-              <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Change in frontline share over time</div>
+              <div style={CHART_TITLE}>Frontline Ratio Trend</div>
+              <div style={CHART_SUBTITLE}>Change in frontline share over time</div>
             </div>
             <div style={{ display: "flex", gap: 6, marginBottom: 14 }}>
               {SERVICES.map((svc) => (
@@ -228,16 +203,16 @@ export default function ProductiveQuotient() {
             </div>
             <ResponsiveContainer width="100%" height={320}>
               <LineChart data={trendData}>
-                <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-                <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" tick={AXIS_TICK} />
                 <YAxis
                   domain={[
                     Math.max(0, Math.floor((Math.min(...trendData.map((d) => d.frontlinePct)) - 5) / 5) * 5),
                     100,
                   ]}
-                  tick={{ fontSize: 11, fill: P.textMuted }}
+                  tick={AXIS_TICK}
                   tickFormatter={(v) => `${v}%`}
-                  label={{ value: "Frontline share (%)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+                  label={yAxisLabel("Frontline share (%)")}
                 />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}%`} />} />
                 <Line
@@ -257,8 +232,8 @@ export default function ProductiveQuotient() {
 
       {/* Section 2: Workforce composition detail */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>Workforce Composition</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Workforce Composition</h3>
+        <p style={SECTION_NOTE}>
           Absolute FTE numbers over time, showing how each workforce has grown and how the
           balance between frontline and support has shifted.
         </p>
@@ -276,17 +251,17 @@ export default function ProductiveQuotient() {
         <ShareableChart title="Workforce Composition">
         <div>
         <div style={{ marginBottom: 10 }}>
-          <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Workforce Composition</div>
-          <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Public sector workforce breakdown</div>
+          <div style={CHART_TITLE}>Workforce Composition</div>
+          <div style={CHART_SUBTITLE}>Public sector workforce breakdown</div>
         </div>
         <ResponsiveContainer width="100%" height={340}>
           <BarChart data={trendData}>
-            <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-            <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
+            <CartesianGrid {...GRID_PROPS} />
+            <XAxis dataKey="year" tick={AXIS_TICK} />
             <YAxis
-              tick={{ fontSize: 11, fill: P.textMuted }}
+              tick={AXIS_TICK}
               tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v}
-              label={{ value: "Workforce (FTE)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+              label={yAxisLabel("Workforce (FTE)")}
             />
             <Tooltip
               content={
@@ -310,8 +285,8 @@ export default function ProductiveQuotient() {
 
       {/* Section 3: Methodology */}
       <section style={{ marginBottom: 32 }}>
-        <h3 style={sectionHeading}>Methodology</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Methodology</h3>
+        <p style={SECTION_NOTE}>
           "Frontline" and "back office" are simplified categories applied to official workforce taxonomies.
           The boundaries are debatable — for instance, teaching assistants directly support learning
           (counted as frontline here), while some NHS infrastructure roles (IT, procurement) are

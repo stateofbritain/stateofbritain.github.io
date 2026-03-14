@@ -5,6 +5,10 @@ import {
   ReferenceLine,
 } from "recharts";
 import P from "../../theme/palette";
+import {
+  CHART_CARD, CHART_TITLE, CHART_SUBTITLE, SOURCE_TEXT,
+  AXIS_TICK_MONO, yAxisLabel,
+} from "../../theme/chartStyles";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
@@ -110,10 +114,10 @@ export default function HealthcareAccess() {
 
       {/* Chart area */}
       <ShareableChart title="NHS Waiting Times & A&E Performance">
-      <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px", marginBottom: 24, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
+      <div style={{ ...CHART_CARD, marginBottom: 24, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
         <div style={{ marginBottom: 10 }}>
-          <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>NHS Waiting Times &amp; A&amp;E</div>
-          <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>RTT pathways &amp; emergency department performance, England</div>
+          <div style={CHART_TITLE}>NHS Waiting Times &amp; A&amp;E</div>
+          <div style={CHART_SUBTITLE}>RTT pathways &amp; emergency department performance, England</div>
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16, flexWrap: "wrap", gap: 10 }}>
           <span style={{ fontSize: "11px", color: P.textMuted, fontWeight: 400, letterSpacing: "0.04em", fontFamily: "'DM Mono', monospace" }}>
@@ -144,7 +148,7 @@ export default function HealthcareAccess() {
         {view === "performance" && <PerformanceChart data={chartData} />}
         {view === "ae" && <AEChart data={data.ae} />}
 
-        <div style={{ marginTop: 8, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+        <div style={SOURCE_TEXT}>
           SOURCE:{" "}
           <a href="https://www.england.nhs.uk/statistics/statistical-work-areas/rtt-waiting-times/" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
             NHS England RTT Waiting Times
@@ -178,8 +182,8 @@ function WaitlistChart({ data }) {
     <ResponsiveContainer width="100%" height={340}>
       <LineChart data={formatted} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="period" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
-        <YAxis tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} unit="m" label={{ value: "Waiting (millions)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+        <XAxis dataKey="period" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
+        <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} unit="m" label={yAxisLabel("Waiting (millions)")} />
         <Tooltip content={<CustomTooltip />} />
         <Line type="monotone" dataKey="waitingMillions" name="Waiting (millions)" stroke={P.red} strokeWidth={2.5} dot={false} />
       </LineChart>
@@ -192,8 +196,8 @@ function PerformanceChart({ data }) {
     <ResponsiveContainer width="100%" height={340}>
       <LineChart data={data} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="period" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
-        <YAxis tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} unit="%" domain={[40, 100]} label={{ value: "% within 18 weeks", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+        <XAxis dataKey="period" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
+        <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} unit="%" domain={[40, 100]} label={yAxisLabel("% within 18 weeks")} />
         <Tooltip content={<CustomTooltip />} />
         <ReferenceLine y={92} stroke={P.teal} strokeDasharray="6 4" label={{ value: "92% target", position: "right", fontSize: 10, fill: P.teal, fontFamily: "'DM Mono', monospace" }} />
         <Line type="monotone" dataKey="pctWithin18" name="% within 18 weeks" stroke={P.navy} strokeWidth={2.5} dot={false} />
@@ -209,9 +213,9 @@ function AEChart({ data }) {
     <ResponsiveContainer width="100%" height={340}>
       <ComposedChart data={data} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="period" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
-        <YAxis yAxisId="left" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} label={{ value: "Attendances", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
-        <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} unit="%" domain={[60, 85]} label={{ value: "% within 4 hours", angle: 90, position: "insideRight", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+        <XAxis dataKey="period" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
+        <YAxis yAxisId="left" tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} label={yAxisLabel("Attendances")} />
+        <YAxis yAxisId="right" orientation="right" tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} unit="%" domain={[60, 85]} label={yAxisLabel("% within 4 hours", { angle: 90, position: "insideRight" })} />
         <Tooltip content={<CustomTooltip />} />
         <Bar yAxisId="left" dataKey="totalAttendances" name="Attendances" fill={P.grey} opacity={0.5} radius={[3, 3, 0, 0]} />
         <Line yAxisId="right" type="monotone" dataKey="pctWithin4Hours" name="% within 4 hours" stroke={P.teal} strokeWidth={2.5} dot />

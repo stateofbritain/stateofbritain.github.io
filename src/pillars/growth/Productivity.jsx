@@ -5,39 +5,14 @@ import {
   ReferenceLine,
 } from "recharts";
 import P from "../../theme/palette";
+import {
+  SECTION_HEADING, SECTION_NOTE, CHART_TITLE, CHART_SUBTITLE,
+  AXIS_TICK, yAxisLabel, GRID_PROPS, toggleBtn,
+} from "../../theme/chartStyles";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
-
-const sectionHeading = {
-  fontFamily: "'Playfair Display', serif",
-  fontSize: "20px",
-  fontWeight: 600,
-  color: P.text,
-  margin: "0 0 6px",
-};
-
-const sectionNote = {
-  fontSize: "14px",
-  lineHeight: 1.7,
-  color: P.textMuted,
-  fontFamily: "'Playfair Display', serif",
-  margin: "0 0 18px",
-  maxWidth: 720,
-};
-
-const toggleBtn = (active) => ({
-  padding: "4px 12px",
-  border: `1px solid ${active ? P.teal : P.border}`,
-  borderRadius: 4,
-  background: active ? P.teal : "transparent",
-  color: active ? "#fff" : P.textMuted,
-  fontSize: "12px",
-  fontFamily: "'DM Mono', monospace",
-  cursor: "pointer",
-  transition: "all 0.15s",
-});
 
 const TS_LINES = [
   { key: "USA", label: "United States", color: "#4A7A58" },
@@ -164,8 +139,8 @@ export default function Productivity() {
 
       {/* Section 1: UK Trend */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>UK Output per Hour</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>UK Output per Hour</h3>
+        <p style={SECTION_NOTE}>
           Annual output per hour worked for the whole UK economy.
           {ukView === "level"
             ? " Measured in current-price £ per hour."
@@ -178,17 +153,17 @@ export default function Productivity() {
         <ShareableChart title="UK Output per Hour">
         <div>
         <div style={{ marginBottom: 10 }}>
-          <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>UK Output per Hour</div>
-          <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Index (2019 = 100), whole economy</div>
+          <div style={CHART_TITLE}>UK Output per Hour</div>
+          <div style={CHART_SUBTITLE}>Index (2019 = 100), whole economy</div>
         </div>
         <ResponsiveContainer width="100%" height={340}>
           <LineChart data={ukSeries}>
-            <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-            <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
+            <CartesianGrid {...GRID_PROPS} />
+            <XAxis dataKey="year" tick={AXIS_TICK} />
             <YAxis
-              tick={{ fontSize: 11, fill: P.textMuted }}
+              tick={AXIS_TICK}
               tickFormatter={(v) => ukView === "level" ? `£${v}` : v}
-              label={{ value: ukView === "level" ? "Output per hour (£)" : "Output per hour (index)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+              label={yAxisLabel(ukView === "level" ? "Output per hour (£)" : "Output per hour (index)")}
             />
             <Tooltip content={<CustomTooltip formatter={(v) => ukView === "level" ? `£${v.toFixed(2)}/hr` : v.toFixed(1)} />} />
             {ukView === "level" ? (
@@ -207,8 +182,8 @@ export default function Productivity() {
 
       {/* Section 2: International Comparison */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>International Comparison</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>International Comparison</h3>
+        <p style={SECTION_NOTE}>
           GDP per hour worked in USD at current purchasing power parities (PPPs), 2023.
           Covers {totalCountries} OECD countries. Ireland excluded from chart (${data.international.find((r) => r.countryCode === "IRL")?.usdPPP}/hr
           — inflated by multinational profit-shifting).
@@ -222,14 +197,14 @@ export default function Productivity() {
           <ShareableChart title="International Productivity Comparison">
           <div>
           <div style={{ marginBottom: 10 }}>
-            <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>International Productivity</div>
-            <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>GDP per hour worked, indexed to UK = 100</div>
+            <div style={CHART_TITLE}>International Productivity</div>
+            <div style={CHART_SUBTITLE}>GDP per hour worked, indexed to UK = 100</div>
           </div>
           <ResponsiveContainer width="100%" height={Math.max(500, intlBar.length * 26)}>
             <BarChart data={intlBar} layout="vertical" margin={{ left: 110, right: 30 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke={P.border} horizontal={false} />
-              <XAxis type="number" tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `$${v}`} />
-              <YAxis type="category" dataKey="country" tick={{ fontSize: 11, fill: P.textMuted }} width={105} />
+              <CartesianGrid {...GRID_PROPS} horizontal={false} />
+              <XAxis type="number" tick={AXIS_TICK} tickFormatter={(v) => `$${v}`} />
+              <YAxis type="category" dataKey="country" tick={AXIS_TICK} width={105} />
               <Tooltip content={<CustomTooltip formatter={(v) => `$${v.toFixed(1)}/hr PPP`} />} />
               <Bar dataKey="usdPPP" name="GDP/hour (USD PPP)" isAnimationActive={false}>
                 {intlBar.map((entry, i) => (
@@ -250,14 +225,14 @@ export default function Productivity() {
           <ShareableChart title="Productivity Growth Trajectories">
           <div>
             <div style={{ marginBottom: 10 }}>
-              <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Productivity Growth Trajectories</div>
-              <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Annual growth in output per hour (%)</div>
+              <div style={CHART_TITLE}>Productivity Growth Trajectories</div>
+              <div style={CHART_SUBTITLE}>Annual growth in output per hour (%)</div>
             </div>
             <ResponsiveContainer width="100%" height={400}>
               <LineChart data={tsSeries}>
-                <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-                <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-                <YAxis tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `$${v}`} label={{ value: "Output per hour ($ PPP)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" tick={AXIS_TICK} />
+                <YAxis tick={AXIS_TICK} tickFormatter={(v) => `$${v}`} label={yAxisLabel("Output per hour ($ PPP)")} />
                 <Tooltip content={<CustomTooltip formatter={(v) => `$${v?.toFixed(1)}/hr`} />} />
                 {TS_LINES.map(({ key, label, color }) => (
                   <Line
@@ -289,16 +264,16 @@ export default function Productivity() {
 
       {/* Section 3: Sector breakdown */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>Sector Breakdown</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Sector Breakdown</h3>
+        <p style={SECTION_NOTE}>
           Output per hour worked by SIC 2007 industry section, {latestLevel.year}, current prices.
           Wide dispersion from capital-intensive sectors (mining, utilities) to labour-intensive services.
         </p>
         <ShareableChart title="Productivity by Sector">
         <div>
         <div style={{ marginBottom: 10 }}>
-          <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Productivity by Sector</div>
-          <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Output per hour by industry, UK</div>
+          <div style={CHART_TITLE}>Productivity by Sector</div>
+          <div style={CHART_SUBTITLE}>Output per hour by industry, UK</div>
         </div>
         <ResponsiveContainer width="100%" height={Math.max(400, data.sectorBreakdown.length * 30)}>
           <BarChart
@@ -309,9 +284,9 @@ export default function Productivity() {
             layout="vertical"
             margin={{ left: 240, right: 30 }}
           >
-            <CartesianGrid strokeDasharray="3 3" stroke={P.border} horizontal={false} />
-            <XAxis type="number" tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `£${v}`} />
-            <YAxis type="category" dataKey="sector" tick={{ fontSize: 11, fill: P.textMuted }} width={235} />
+            <CartesianGrid {...GRID_PROPS} horizontal={false} />
+            <XAxis type="number" tick={AXIS_TICK} tickFormatter={(v) => `£${v}`} />
+            <YAxis type="category" dataKey="sector" tick={AXIS_TICK} width={235} />
             <Tooltip content={<CustomTooltip formatter={(v) => `£${v.toFixed(2)}/hr`} />} />
             <Bar dataKey="gbpPerHour" fill={P.teal} name="£ per hour" isAnimationActive={false} />
             <ReferenceLine

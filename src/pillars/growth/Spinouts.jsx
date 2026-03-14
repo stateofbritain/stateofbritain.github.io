@@ -4,6 +4,7 @@ import {
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
 } from "recharts";
 import P from "../../theme/palette";
+import { SECTION_HEADING, SECTION_NOTE, SOURCE_TEXT } from "../../theme/chartStyles";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
@@ -107,23 +108,6 @@ const TOP_INVESTORS = [
   { name: "Cambridge Angels", deals: 80, value: null },
 ];
 
-const sectionHeading = {
-  fontFamily: "'Playfair Display', serif",
-  fontSize: "20px",
-  fontWeight: 600,
-  color: P.text,
-  margin: "0 0 6px",
-};
-
-const sectionNote = {
-  fontSize: "14px",
-  lineHeight: 1.7,
-  color: P.textMuted,
-  fontFamily: "'Playfair Display', serif",
-  margin: "0 0 18px",
-  maxWidth: 720,
-};
-
 export default function Spinouts() {
   const [investView, setInvestView] = useState("equity");
   const [sectorView, setSectorView] = useState("traditional");
@@ -150,8 +134,8 @@ export default function Spinouts() {
 
       {/* ═══════════ SECTION 1 — OVERVIEW ═══════════ */}
       <div style={{ marginBottom: 40 }}>
-        <h3 style={sectionHeading}>Population & Pipeline</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Population & Pipeline</h3>
+        <p style={SECTION_NOTE}>
           University spinouts are companies formed to commercialise research from UK universities.
           Beauhurst tracks 2,064 spinouts created since 2011, of which 1,337 are active
           (excluding "zombie" companies with no signs of activity). The Golden Triangle
@@ -235,8 +219,8 @@ export default function Spinouts() {
 
       {/* ═══════════ SECTION 2 — INVESTMENT ═══════════ */}
       <div style={{ marginBottom: 40 }}>
-        <h3 style={sectionHeading}>Investment into Spinouts</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Investment into Spinouts</h3>
+        <p style={SECTION_NOTE}>
           University spinouts raised £17.0bn across 3,788 equity deals between 2015 and 2024.
           Innovate UK awarded £814m in grants to spinouts over the same period. Parkwalk Advisors
           is the most active investor by deal count (325 deals, £1.84bn), while Oxford Science
@@ -297,8 +281,8 @@ export default function Spinouts() {
 
       {/* ═══════════ SECTION 3 — SECTORS ═══════════ */}
       <div style={{ marginBottom: 16 }}>
-        <h3 style={sectionHeading}>Sectors & Emerging Technologies</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Sectors & Emerging Technologies</h3>
+        <p style={SECTION_NOTE}>
           Life sciences and deep tech dominate the spinout landscape. Pharmaceuticals is the
           largest sector (399 spinouts), followed by data & analytics (282) and electronics
           hardware (269). Among emerging technology tags, AI leads with 214 spinouts, followed
@@ -319,14 +303,14 @@ export default function Spinouts() {
 
       {/* ═══════════ REGIONAL ═══════════ */}
       <div style={{ marginBottom: 16 }}>
-        <h3 style={sectionHeading}>Regional Distribution</h3>
+        <h3 style={SECTION_HEADING}>Regional Distribution</h3>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: 12, marginBottom: 20 }}>
           <MetricCard label="England" value="1,635" change="79.2%" up={false} color={P.navy} delay={0.1} />
           <MetricCard label="Scotland" value="243" change="11.8%" up={false} color={P.teal} delay={0.18} />
           <MetricCard label="Wales" value="105" change="5.1%" up={false} color={P.red} delay={0.26} />
           <MetricCard label="Northern Ireland" value="81" change="3.9%" up={false} color={P.yellow} delay={0.34} />
         </div>
-        <p style={sectionNote}>
+        <p style={SECTION_NOTE}>
           The Golden Triangle (Oxford, Cambridge, London) produces 571 spinouts — 27.7% of the total
           population — with Oxford leading at 225. All-male founding teams account for 75.5% of spinouts;
           all-female founding teams account for 7.4%.
@@ -334,7 +318,7 @@ export default function Spinouts() {
       </div>
 
       {/* Source */}
-      <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em", marginBottom: 20 }}>
+      <div style={{ ...SOURCE_TEXT, marginBottom: 20 }}>
         SOURCE:{" "}
         <a href="https://raeng.org.uk/policy-and-resources/research-and-innovation/accelerating-enterprise/" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
           RAEng / Beauhurst &mdash; Spotlight on Spinouts 2025

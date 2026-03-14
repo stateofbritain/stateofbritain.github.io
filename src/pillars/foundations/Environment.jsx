@@ -5,6 +5,10 @@ import {
   ReferenceLine,
 } from "recharts";
 import P from "../../theme/palette";
+import {
+  SECTION_HEADING, SECTION_NOTE, CHART_CARD, CHART_TITLE, CHART_SUBTITLE,
+  SOURCE_TEXT, AXIS_TICK_MONO, yAxisLabel, GRID_PROPS,
+} from "../../theme/chartStyles";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
@@ -20,23 +24,6 @@ const GHG_SECTORS = [
   { key: "waste", label: "Waste", color: "#9B7EB0" },
   { key: "lulucf", label: "Land Use Change", color: P.teal },
 ];
-
-const sectionHeading = {
-  fontFamily: "'Playfair Display', serif",
-  fontSize: "20px",
-  fontWeight: 600,
-  color: P.text,
-  margin: "0 0 6px",
-};
-
-const sectionNote = {
-  fontSize: "14px",
-  lineHeight: 1.7,
-  color: P.textMuted,
-  fontFamily: "'Playfair Display', serif",
-  margin: "0 0 18px",
-  maxWidth: 720,
-};
 
 export default function Environment() {
   const [data, setData] = useState(null);
@@ -105,8 +92,8 @@ export default function Environment() {
 
       {/* ═══ SECTION 1 — GREENHOUSE GAS EMISSIONS ═══ */}
       <div style={{ marginBottom: 40 }}>
-        <h3 style={sectionHeading}>Greenhouse Gas Emissions</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Greenhouse Gas Emissions</h3>
+        <p style={SECTION_NOTE}>
           Territorial greenhouse gas emissions — all gases weighted by global warming potential
           (CO2 equivalent). Covers electricity, transport, buildings, industry, agriculture,
           waste and land use. 2024 figures are provisional estimates based on energy statistics.
@@ -164,8 +151,8 @@ export default function Environment() {
 
       {/* ═══ SECTION 2 — AIR QUALITY ═══ */}
       <div style={{ marginBottom: 40 }}>
-        <h3 style={sectionHeading}>Air Quality</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Air Quality</h3>
+        <p style={SECTION_NOTE}>
           Annual mean concentrations at urban background monitoring sites. PM2.5 (fine particulate
           matter) data available from 2009; NO2 (nitrogen dioxide) from 1990. The WHO guideline
           for PM2.5 annual mean is 5 &#181;g/m&#179;.
@@ -205,8 +192,8 @@ export default function Environment() {
 
       {/* ═══ SECTION 3 — EV UPTAKE ═══ */}
       <div style={{ marginBottom: 16 }}>
-        <h3 style={sectionHeading}>Ultra Low Emission Vehicles</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Ultra Low Emission Vehicles</h3>
+        <p style={SECTION_NOTE}>
           New ULEV registrations per year. Includes battery electric (BEV), plug-in hybrid (PHEV),
           and other ultra low emission vehicles (range-extended, fuel cell). UK data from 2015.
         </p>
@@ -253,7 +240,7 @@ export default function Environment() {
       </div>
 
       {/* Source citations */}
-      <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em", marginBottom: 20 }}>
+      <div style={{ ...SOURCE_TEXT, marginBottom: 20 }}>
         SOURCES:{" "}
         <a href="https://www.gov.uk/government/statistics/provisional-uk-greenhouse-gas-emissions-national-statistics-2024" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
           DESNZ Provisional GHG Emissions 2024
@@ -285,10 +272,10 @@ export default function Environment() {
 function ChartCard({ label, yearRange, views, viewLabels, activeView, onViewChange, children }) {
   return (
     <ShareableChart title={label}>
-    <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px", marginBottom: 16, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
+    <div style={{ ...CHART_CARD, marginBottom: 16, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
       <div style={{ marginBottom: 10 }}>
-        <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>{label}</div>
-        <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>{yearRange}</div>
+        <div style={CHART_TITLE}>{label}</div>
+        <div style={CHART_SUBTITLE}>{yearRange}</div>
       </div>
       {views && onViewChange && (
         <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 12 }}>
@@ -339,11 +326,11 @@ function GHGStackedChart({ data }) {
     <ResponsiveContainer width="100%" height={340}>
       <AreaChart data={data} margin={{ top: 5, right: 10, left: 10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
+        <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
         <YAxis
-          tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
+          tick={AXIS_TICK_MONO}
           axisLine={false} tickLine={false}
-          label={{ value: "Emissions (MtCO2e)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+          label={yAxisLabel("Emissions (MtCO2e)")}
         />
         <Tooltip content={<CustomTooltip />} />
         {GHG_SECTORS.map((s) => (
@@ -359,11 +346,11 @@ function GHGTotalChart({ data }) {
     <ResponsiveContainer width="100%" height={340}>
       <LineChart data={data} margin={{ top: 5, right: 10, left: 10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} interval={4} />
+        <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} interval={4} />
         <YAxis
-          tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
+          tick={AXIS_TICK_MONO}
           axisLine={false} tickLine={false} domain={[0, 900]}
-          label={{ value: "Total GHG emissions (MtCO2e)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+          label={yAxisLabel("Total GHG emissions (MtCO2e)")}
         />
         <Tooltip content={<CustomTooltip />} />
         <Line type="monotone" dataKey="total" name="Total GHG (MtCO2e)" stroke={P.teal} strokeWidth={2.5} dot={false} />
@@ -377,11 +364,11 @@ function PM25Chart({ data }) {
     <ResponsiveContainer width="100%" height={340}>
       <LineChart data={data} margin={{ top: 5, right: 10, left: 10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
+        <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
         <YAxis
-          tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
+          tick={AXIS_TICK_MONO}
           axisLine={false} tickLine={false} domain={[0, 16]}
-          label={{ value: "PM2.5 concentration (µg/m³)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+          label={yAxisLabel("PM2.5 concentration (µg/m³)")}
         />
         <Tooltip content={<CustomTooltip />} />
         <ReferenceLine y={5} stroke={P.red} strokeDasharray="6 3" label={{ value: "WHO guideline (5)", position: "right", style: { fontSize: 10, fill: P.red, fontFamily: "'DM Mono', monospace" } }} />
@@ -396,11 +383,11 @@ function NO2Chart({ data }) {
     <ResponsiveContainer width="100%" height={340}>
       <LineChart data={data} margin={{ top: 5, right: 10, left: 10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} interval={4} />
+        <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} interval={4} />
         <YAxis
-          tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
+          tick={AXIS_TICK_MONO}
           axisLine={false} tickLine={false} domain={[0, 60]}
-          label={{ value: "NO2 concentration (µg/m³)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+          label={yAxisLabel("NO2 concentration (µg/m³)")}
         />
         <Tooltip content={<CustomTooltip />} />
         <ReferenceLine y={10} stroke={P.red} strokeDasharray="6 3" label={{ value: "WHO guideline (10)", position: "right", style: { fontSize: 10, fill: P.red, fontFamily: "'DM Mono', monospace" } }} />
@@ -415,12 +402,12 @@ function ULEVChart({ data }) {
     <ResponsiveContainer width="100%" height={340}>
       <BarChart data={data} margin={{ top: 5, right: 10, left: 20, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
+        <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
         <YAxis
-          tick={{ fontSize: 11, fill: P.textLight, fontFamily: "'DM Mono', monospace" }}
+          tick={AXIS_TICK_MONO}
           axisLine={false} tickLine={false}
           tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v}
-          label={{ value: "New ULEV registrations", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+          label={yAxisLabel("New ULEV registrations")}
         />
         <Tooltip content={<CustomTooltip />} />
         <Bar dataKey="bev" name="Battery Electric" stackId="1" fill={P.navy} opacity={0.85} />

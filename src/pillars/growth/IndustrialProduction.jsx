@@ -5,28 +5,15 @@ import {
   Legend,
 } from "recharts";
 import P from "../../theme/palette";
+import {
+  SECTION_HEADING, SECTION_NOTE, CHART_TITLE, CHART_SUBTITLE,
+  AXIS_TICK, yAxisLabel, GRID_PROPS,
+} from "../../theme/chartStyles";
 import useIsMobile from "../../hooks/useIsMobile";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
-
-const sectionHeading = {
-  fontFamily: "'Playfair Display', serif",
-  fontSize: "20px",
-  fontWeight: 600,
-  color: P.text,
-  margin: "0 0 6px",
-};
-
-const sectionNote = {
-  fontSize: "14px",
-  lineHeight: 1.7,
-  color: P.textMuted,
-  fontFamily: "'Playfair Display', serif",
-  margin: "0 0 18px",
-  maxWidth: 720,
-};
 
 const toggleBtn = (active) => ({
   padding: "4px 12px",
@@ -191,7 +178,7 @@ export default function IndustrialProduction() {
       <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 6px" }}>
         Industrial Production
       </h2>
-      <p style={sectionNote}>
+      <p style={SECTION_NOTE}>
         Domestic production of core industrial materials in physical units (tonnes/year).
         Once a smelter, kiln, or reactor closes it rarely reopens — disruption propagates up
         the value chain. Owning the production base is the foundation of industrial resilience.
@@ -237,8 +224,8 @@ export default function IndustrialProduction() {
       {/* ALL view — Summary Table */}
       {activeCategory === "all" && (
         <section style={{ marginBottom: 48 }}>
-          <h3 style={sectionHeading}>All Products</h3>
-          <p style={sectionNote}>
+          <h3 style={SECTION_HEADING}>All Products</h3>
+          <p style={SECTION_NOTE}>
             {snapshot.totalProducts} core industrial materials tracked across {Object.keys(data.categories).length} categories.
             {" "}{snapshot.ceasedCount} products have ceased domestic production entirely;{" "}
             {decliningCount} are in significant decline from their peak.
@@ -325,18 +312,18 @@ export default function IndustrialProduction() {
                                 padding: "12px 10px",
                               }}>
                                 <div style={{ marginBottom: 10 }}>
-                                  <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>{p.name}</div>
-                                  <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>UK production ({p.unit})</div>
+                                  <div style={CHART_TITLE}>{p.name}</div>
+                                  <div style={CHART_SUBTITLE}>UK production ({p.unit})</div>
                                 </div>
                                 <ResponsiveContainer width="100%" height={220}>
                                   <LineChart data={p.series}>
-                                    <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-                                    <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
+                                    <CartesianGrid {...GRID_PROPS} />
+                                    <XAxis dataKey="year" tick={AXIS_TICK} />
                                     <YAxis
                                       tick={{ fontSize: 10, fill: P.textMuted }}
                                       tickFormatter={(v) => v.toLocaleString()}
                                       width={45}
-                                      label={{ value: `Production (${p.unit})`, angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace", textAnchor: "middle" } }}
+                                      label={yAxisLabel(`Production (${p.unit})`)}
                                     />
                                     <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toLocaleString()} ${p.unit}`} />} />
                                     <Line
@@ -467,12 +454,12 @@ export default function IndustrialProduction() {
                               }}>
                                 <div style={{ marginBottom: 10 }}>
                                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
-                                    <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>{p.name}</div>
+                                    <div style={CHART_TITLE}>{p.name}</div>
                                     <span style={{ fontSize: "10px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>
                                       {p.source}
                                     </span>
                                   </div>
-                                  <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>UK production ({p.unit})</div>
+                                  <div style={CHART_SUBTITLE}>UK production ({p.unit})</div>
                                 </div>
                                 {p.note && (
                                   <p style={{ fontSize: "12px", color: P.textLight, margin: "0 0 10px", fontFamily: "'DM Mono', monospace" }}>
@@ -481,12 +468,12 @@ export default function IndustrialProduction() {
                                 )}
                                 <ResponsiveContainer width="100%" height={220}>
                                   <LineChart data={p.series}>
-                                    <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-                                    <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
+                                    <CartesianGrid {...GRID_PROPS} />
+                                    <XAxis dataKey="year" tick={AXIS_TICK} />
                                     <YAxis
-                                      tick={{ fontSize: 11, fill: P.textMuted }}
+                                      tick={AXIS_TICK}
                                       tickFormatter={(v) => `${v.toLocaleString()} ${p.unit}`}
-                                      label={{ value: `Production (${p.unit})`, angle: -90, position: "insideLeft", style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace", textAnchor: "middle" } }}
+                                      label={yAxisLabel(`Production (${p.unit})`)}
                                     />
                                     <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toLocaleString()} ${p.unit}`} />} />
                                     <Line
@@ -518,8 +505,8 @@ export default function IndustrialProduction() {
       {/* Category view — Charts */}
       {activeCategory !== "all" && data.categories[activeCategory] && (
         <section style={{ marginBottom: 48 }}>
-          <h3 style={sectionHeading}>{data.categories[activeCategory].label}</h3>
-          <p style={sectionNote}>
+          <h3 style={SECTION_HEADING}>{data.categories[activeCategory].label}</h3>
+          <p style={SECTION_NOTE}>
             {chartMode === "indexed"
               ? "Each product normalised to 100 at its peak year, revealing the pattern of decline across different scales."
               : "Absolute production values. Products with different units are shown on separate charts."}
@@ -542,8 +529,8 @@ export default function IndustrialProduction() {
               <ShareableChart key={group.unit ?? "indexed"} title={`${data.categories[activeCategory].label} — UK Industrial Production`}>
               <div style={{ marginBottom: chartGroups.length > 1 ? 28 : 0 }}>
                 <div style={{ marginBottom: 10 }}>
-                  <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>{data.categories[activeCategory].label}</div>
-                  <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>
+                  <div style={CHART_TITLE}>{data.categories[activeCategory].label}</div>
+                  <div style={CHART_SUBTITLE}>
                     {chartMode === "indexed" ? "Indexed to peak (100)" : `Absolute production (${group.unit ?? "mixed units"})`}
                   </div>
                 </div>
@@ -554,15 +541,15 @@ export default function IndustrialProduction() {
                 )}
                 <ResponsiveContainer width="100%" height={380}>
                   <LineChart data={rows}>
-                    <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-                    <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
+                    <CartesianGrid {...GRID_PROPS} />
+                    <XAxis dataKey="year" tick={AXIS_TICK} />
                     <YAxis
-                      tick={{ fontSize: 11, fill: P.textMuted }}
+                      tick={AXIS_TICK}
                       tickFormatter={chartMode === "indexed" ? (v) => `${v}` : (v) => v?.toLocaleString()}
                       domain={chartMode === "indexed" ? [0, 105] : undefined}
                       label={chartMode === "indexed"
-                        ? { value: "Production (% of peak)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }
-                        : { value: `Production (${group.unit})`, angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }}
+                        ? yAxisLabel("Production (% of peak)")
+                        : yAxisLabel(`Production (${group.unit})`)}
                     />
                     <Tooltip
                       content={<CustomTooltip

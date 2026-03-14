@@ -1,31 +1,15 @@
 import { useState, useEffect } from "react";
 import {
   LineChart, Line, AreaChart, Area, BarChart, Bar,
-  XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
+  XAxis, YAxis, CartesianGrid, Tooltip,
   ReferenceLine, Legend, Cell,
 } from "recharts";
 import P from "../../theme/palette";
+import { SECTION_HEADING, SECTION_NOTE, AXIS_TICK, yAxisLabel, GRID_PROPS } from "../../theme/chartStyles";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
-import ShareableChart from "../../components/ShareableChart";
-
-const sectionHeading = {
-  fontFamily: "'Playfair Display', serif",
-  fontSize: "20px",
-  fontWeight: 600,
-  color: P.text,
-  margin: "0 0 6px",
-};
-
-const sectionNote = {
-  fontSize: "14px",
-  lineHeight: 1.7,
-  color: P.textMuted,
-  fontFamily: "'Playfair Display', serif",
-  margin: "0 0 18px",
-  maxWidth: 720,
-};
+import ChartCard from "../../components/ChartCard";
 
 const DEGREE_COLORS = {
   first: P.teal,
@@ -89,85 +73,72 @@ export default function Education() {
 
       {/* Section 1: Per-pupil spending */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>Per-Pupil Spending (Real Terms)</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Per-Pupil Spending (Real Terms)</h3>
+        <p style={SECTION_NOTE}>
           Spending per pupil in England's state schools, adjusted for inflation to 2023-24 prices.
           After rising steadily through the 2000s, real-terms funding fell 9% between 2009-10
           and 2018-19 — the longest squeeze since the 1970s. Recovery has only partially restored levels.
         </p>
-        <ShareableChart title="Per-Pupil Spending (Real Terms)">
-        <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px" }}>
-          <div style={{ marginBottom: 10 }}>
-            <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Per-Pupil Spending</div>
-            <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>England state schools, real terms (2023-24 prices)</div>
-          </div>
-          <ResponsiveContainer width="100%" height={320}>
+        <ChartCard
+          title="Per-Pupil Spending"
+          subtitle="England state schools, real terms (2023-24 prices)"
+          source="SOURCE: IFS Annual Report on Education Spending in England 2024"
+          height={320}
+        >
             <AreaChart data={data.perPupilSpending}>
-              <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-              <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} interval={2} angle={-30} textAnchor="end" height={50} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[5000, 7200]} tickFormatter={(v) => `£${(v / 1000).toFixed(1)}k`} label={{ value: "£ per pupil (real terms)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <CartesianGrid {...GRID_PROPS} />
+              <XAxis dataKey="year" tick={AXIS_TICK} interval={2} angle={-30} textAnchor="end" height={50} />
+              <YAxis tick={AXIS_TICK} domain={[5000, 7200]} tickFormatter={(v) => `£${(v / 1000).toFixed(1)}k`} label={yAxisLabel("£ per pupil (real terms)")} />
               <Tooltip content={<CustomTooltip formatter={(v) => `£${v?.toLocaleString()}`} />} />
               <ReferenceLine y={s.perPupilPeak} stroke={P.red} strokeDasharray="4 4" label={{ value: `Peak £${s.perPupilPeak.toLocaleString()}`, fontSize: 10, fill: P.red, position: "right" }} />
               <Area type="monotone" dataKey="value" stroke={P.teal} fill={P.teal} fillOpacity={0.12} strokeWidth={2.5} name="Per-pupil spending" dot={{ r: 2, fill: P.teal }} />
             </AreaChart>
-          </ResponsiveContainer>
-          <div style={{ marginTop: 6, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
-            SOURCE: IFS Annual Report on Education Spending in England 2024
-          </div>
-        </div>
-        </ShareableChart>
+        </ChartCard>
       </section>
 
       {/* Section 2: GCSE results */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>GCSE Results: English & Maths</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>GCSE Results: English & Maths</h3>
+        <p style={SECTION_NOTE}>
           Share of pupils in England achieving a strong pass (grade 5+) in both English and Maths.
           The 2017 switch to the new 9-1 grading scale makes direct pre/post comparison difficult.
           COVID-era teacher assessments (2020-21) inflated results, which have since normalised.
         </p>
-        <ShareableChart title="GCSE Results: English & Maths">
-        <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px" }}>
-          <div style={{ marginBottom: 10 }}>
-            <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>GCSE Results: English &amp; Maths</div>
-            <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>% achieving grade 5+ in both, England</div>
-          </div>
-          <ResponsiveContainer width="100%" height={300}>
+        <ChartCard
+          title="GCSE Results: English &amp; Maths"
+          subtitle="% achieving grade 5+ in both, England"
+          source="SOURCE: DfE KS4 Performance Tables, England"
+          height={300}
+        >
             <LineChart data={data.gcseResults}>
-              <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-              <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[30, 65]} tickFormatter={(v) => `${v}%`} label={{ value: "Achieving grade 5+ (%)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <CartesianGrid {...GRID_PROPS} />
+              <XAxis dataKey="year" tick={AXIS_TICK} />
+              <YAxis tick={AXIS_TICK} domain={[30, 65]} tickFormatter={(v) => `${v}%`} label={yAxisLabel("Achieving grade 5+ (%)")} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}%`} />} />
               <ReferenceLine x={2017} stroke={P.grey} strokeDasharray="4 4" label={{ value: "New grading", fontSize: 10, fill: P.grey, position: "top" }} />
               <Line type="monotone" dataKey="rate" stroke={P.navy} strokeWidth={2.5} dot={{ r: 2.5, fill: P.navy }} name="% achieving 5+ in E&M" connectNulls />
             </LineChart>
-          </ResponsiveContainer>
-          <div style={{ marginTop: 6, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
-            SOURCE: DfE KS4 Performance Tables, England
-          </div>
-        </div>
-        </ShareableChart>
+        </ChartCard>
       </section>
 
       {/* Section 3: PISA scores */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>PISA International Benchmarks</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>PISA International Benchmarks</h3>
+        <p style={SECTION_NOTE}>
           The UK's PISA scores in maths, reading, and science compared with the OECD average.
           While the OECD average has declined — particularly in maths — the UK has held
           broadly steady, widening the gap above average.
         </p>
-        <ShareableChart title="PISA International Benchmarks">
-        <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px" }}>
-          <div style={{ marginBottom: 10 }}>
-            <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>PISA International Benchmarks</div>
-            <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>UK scores vs OECD average</div>
-          </div>
-          <ResponsiveContainer width="100%" height={340}>
+        <ChartCard
+          title="PISA International Benchmarks"
+          subtitle="UK scores vs OECD average"
+          source={<>SOURCE: OECD PISA 2022 Results &middot; Solid = UK, dashed = OECD average</>}
+          height={340}
+        >
             <LineChart data={data.pisaScores}>
-              <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-              <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[460, 520]} label={{ value: "PISA score", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <CartesianGrid {...GRID_PROPS} />
+              <XAxis dataKey="year" tick={AXIS_TICK} />
+              <YAxis tick={AXIS_TICK} domain={[460, 520]} label={yAxisLabel("PISA score")} />
               <Tooltip content={<CustomTooltip formatter={(v) => v?.toString()} />} />
               <Line type="monotone" dataKey="ukMaths" stroke={P.teal} strokeWidth={2.5} dot={{ r: 3, fill: P.teal }} name="UK Maths" />
               <Line type="monotone" dataKey="ukReading" stroke={P.navy} strokeWidth={2.5} dot={{ r: 3, fill: P.navy }} name="UK Reading" />
@@ -177,63 +148,51 @@ export default function Education() {
               <Line type="monotone" dataKey="oecdScience" stroke={P.sienna} strokeWidth={1.5} dot={false} strokeDasharray="5 3" name="OECD Science" />
               <Legend wrapperStyle={{ fontSize: 11, fontFamily: "'DM Mono', monospace" }} />
             </LineChart>
-          </ResponsiveContainer>
-          <div style={{ marginTop: 6, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
-            SOURCE: OECD PISA 2022 Results · Solid = UK, dashed = OECD average
-          </div>
-        </div>
-        </ShareableChart>
+        </ChartCard>
       </section>
 
       {/* Section 4: HE participation */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>Higher Education Participation</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Higher Education Participation</h3>
+        <p style={SECTION_NOTE}>
           The share of young people in England entering higher education by age 30 (HEIPR).
           Participation rose from 38% in 2006-07 to 55% in 2020-21, dipping to 52%
           post-COVID as the labour market tightened and cost-of-living rose.
         </p>
-        <ShareableChart title="Higher Education Participation">
-        <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px" }}>
-          <div style={{ marginBottom: 10 }}>
-            <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Higher Education Participation</div>
-            <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>% entering HE by age 30, England (HEIPR)</div>
-          </div>
-          <ResponsiveContainer width="100%" height={280}>
+        <ChartCard
+          title="Higher Education Participation"
+          subtitle="% entering HE by age 30, England (HEIPR)"
+          source="SOURCE: DfE Participation Rates in Higher Education, England"
+          height={280}
+        >
             <AreaChart data={data.heParticipation}>
-              <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-              <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} interval={2} angle={-30} textAnchor="end" height={50} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[30, 60]} tickFormatter={(v) => `${v}%`} label={{ value: "% entering HE by age 30", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <CartesianGrid {...GRID_PROPS} />
+              <XAxis dataKey="year" tick={AXIS_TICK} interval={2} angle={-30} textAnchor="end" height={50} />
+              <YAxis tick={AXIS_TICK} domain={[30, 60]} tickFormatter={(v) => `${v}%`} label={yAxisLabel("% entering HE by age 30")} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
               <Area type="monotone" dataKey="rate" stroke={P.navy} fill={P.navy} fillOpacity={0.1} strokeWidth={2.5} name="HE entry rate" dot={{ r: 2.5, fill: P.navy }} />
             </AreaChart>
-          </ResponsiveContainer>
-          <div style={{ marginTop: 6, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
-            SOURCE: DfE Participation Rates in Higher Education, England
-          </div>
-        </div>
-        </ShareableChart>
+        </ChartCard>
       </section>
 
       {/* Section 5: Degree classification inflation */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>Degree Classification</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Degree Classification</h3>
+        <p style={SECTION_NOTE}>
           Distribution of UK first-degree classifications. First-class honours doubled from
           15% in 2010-11 to 36% in 2020-21, a trend widely attributed to grade inflation
           rather than improved student performance. Post-COVID adjustments have partially corrected this.
         </p>
-        <ShareableChart title="Degree Classification">
-        <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px" }}>
-          <div style={{ marginBottom: 10 }}>
-            <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Degree Classification</div>
-            <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Distribution of first-degree honours, UK</div>
-          </div>
-          <ResponsiveContainer width="100%" height={320}>
+        <ChartCard
+          title="Degree Classification"
+          subtitle="Distribution of first-degree honours, UK"
+          source="SOURCE: HESA Student Statistics, UK"
+          height={320}
+        >
             <AreaChart data={data.degreeClassification}>
-              <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-              <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} interval={2} angle={-30} textAnchor="end" height={50} />
-              <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 100]} tickFormatter={(v) => `${v}%`} label={{ value: "% of graduates", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <CartesianGrid {...GRID_PROPS} />
+              <XAxis dataKey="year" tick={AXIS_TICK} interval={2} angle={-30} textAnchor="end" height={50} />
+              <YAxis tick={AXIS_TICK} domain={[0, 100]} tickFormatter={(v) => `${v}%`} label={yAxisLabel("% of graduates")} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
               <Area type="monotone" dataKey="third" stackId="1" stroke={DEGREE_COLORS.third} fill={DEGREE_COLORS.third} fillOpacity={0.6} name="Third / Other" />
               <Area type="monotone" dataKey="twoTwo" stackId="1" stroke={DEGREE_COLORS.twoTwo} fill={DEGREE_COLORS.twoTwo} fillOpacity={0.6} name="2:2" />
@@ -241,65 +200,53 @@ export default function Education() {
               <Area type="monotone" dataKey="first" stackId="1" stroke={DEGREE_COLORS.first} fill={DEGREE_COLORS.first} fillOpacity={0.6} name="First" />
               <Legend wrapperStyle={{ fontSize: 11, fontFamily: "'DM Mono', monospace" }} />
             </AreaChart>
-          </ResponsiveContainer>
-          <div style={{ marginTop: 6, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
-            SOURCE: HESA Student Statistics, UK
-          </div>
-        </div>
-        </ShareableChart>
+        </ChartCard>
       </section>
 
       {/* Section 6: Teacher workforce */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>Teacher Workforce</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Teacher Workforce</h3>
+        <p style={SECTION_NOTE}>
           Full-time equivalent teachers in England's state schools (thousands) and the
           pupil-to-teacher ratio. Teacher numbers have plateaued while vacancy rates
           have risen, reflecting recruitment and retention challenges.
         </p>
-        <ShareableChart title="Teacher Workforce">
-        <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px" }}>
-          <div style={{ marginBottom: 10 }}>
-            <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Teacher Workforce</div>
-            <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>FTE teachers &amp; pupil-to-teacher ratio, England</div>
-          </div>
-          <ResponsiveContainer width="100%" height={300}>
+        <ChartCard
+          title="Teacher Workforce"
+          subtitle="FTE teachers &amp; pupil-to-teacher ratio, England"
+          source="SOURCE: DfE School Workforce Census, England"
+          height={300}
+        >
             <LineChart data={data.teacherWorkforce}>
-              <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-              <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-              <YAxis yAxisId="left" tick={{ fontSize: 11, fill: P.textMuted }} domain={[420, 480]} tickFormatter={(v) => `${v}k`} label={{ value: "Teachers (000s FTE)", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
-              <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 11, fill: P.textMuted }} domain={[16, 19]} label={{ value: "Pupil:teacher ratio", angle: 90, position: "insideRight", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+              <CartesianGrid {...GRID_PROPS} />
+              <XAxis dataKey="year" tick={AXIS_TICK} />
+              <YAxis yAxisId="left" tick={AXIS_TICK} domain={[420, 480]} tickFormatter={(v) => `${v}k`} label={yAxisLabel("Teachers (000s FTE)")} />
+              <YAxis yAxisId="right" orientation="right" tick={AXIS_TICK} domain={[16, 19]} label={yAxisLabel("Pupil:teacher ratio", { angle: 90, position: "insideRight" })} />
               <Tooltip content={<CustomTooltip />} />
               <Line yAxisId="left" type="monotone" dataKey="teachers" stroke={P.teal} strokeWidth={2.5} dot={{ r: 2, fill: P.teal }} name="Teachers (000s)" />
               <Line yAxisId="right" type="monotone" dataKey="ratio" stroke={P.sienna} strokeWidth={2.5} dot={{ r: 2, fill: P.sienna }} name="Pupil:teacher ratio" />
               <Legend wrapperStyle={{ fontSize: 11, fontFamily: "'DM Mono', monospace" }} />
             </LineChart>
-          </ResponsiveContainer>
-          <div style={{ marginTop: 6, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
-            SOURCE: DfE School Workforce Census, England
-          </div>
-        </div>
-        </ShareableChart>
+        </ChartCard>
       </section>
 
       {/* Section 7: International spending comparison */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>Education Spending (% GDP)</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Education Spending (% GDP)</h3>
+        <p style={SECTION_NOTE}>
           Total public spending on education as a share of GDP. The UK spends 4.3%,
           below the OECD average of 4.9% and well behind Scandinavian countries.
         </p>
-        <ShareableChart title="Education Spending (% GDP)">
-        <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px" }}>
-          <div style={{ marginBottom: 10 }}>
-            <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Education Spending (% GDP)</div>
-            <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Total public spending on education, OECD comparison</div>
-          </div>
-          <ResponsiveContainer width="100%" height={320}>
+        <ChartCard
+          title="Education Spending (% GDP)"
+          subtitle="Total public spending on education, OECD comparison"
+          source="SOURCE: OECD Education at a Glance 2024, 2021 data"
+          height={320}
+        >
             <BarChart data={data.intlSpending} layout="vertical">
-              <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-              <XAxis type="number" tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 7]} tickFormatter={(v) => `${v}%`} label={{ value: "% of GDP", position: "insideBottomRight", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
-              <YAxis type="category" dataKey="country" tick={{ fontSize: 11, fill: P.textMuted }} width={80} />
+              <CartesianGrid {...GRID_PROPS} />
+              <XAxis type="number" tick={AXIS_TICK} domain={[0, 7]} tickFormatter={(v) => `${v}%`} label={yAxisLabel("% of GDP", { angle: 0, position: "insideBottomRight" })} />
+              <YAxis type="category" dataKey="country" tick={AXIS_TICK} width={80} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v}% GDP`} />} />
               <Bar dataKey="pct" name="% GDP" radius={[0, 3, 3, 0]}>
                 {data.intlSpending.map((d, i) => (
@@ -307,12 +254,7 @@ export default function Education() {
                 ))}
               </Bar>
             </BarChart>
-          </ResponsiveContainer>
-          <div style={{ marginTop: 6, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
-            SOURCE: OECD Education at a Glance 2024, 2021 data
-          </div>
-        </div>
-        </ShareableChart>
+        </ChartCard>
       </section>
 
       {/* Analysis */}

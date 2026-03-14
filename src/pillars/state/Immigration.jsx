@@ -5,27 +5,14 @@ import {
   ReferenceLine, Legend, Cell, PieChart, Pie,
 } from "recharts";
 import P from "../../theme/palette";
+import {
+  SECTION_HEADING, SECTION_NOTE, CHART_CARD, CHART_TITLE, CHART_SUBTITLE,
+  SOURCE_TEXT, AXIS_TICK, yAxisLabel, GRID_PROPS,
+} from "../../theme/chartStyles";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
-
-const sectionHeading = {
-  fontFamily: "'Playfair Display', serif",
-  fontSize: "20px",
-  fontWeight: 600,
-  color: P.text,
-  margin: "0 0 6px",
-};
-
-const sectionNote = {
-  fontSize: "14px",
-  lineHeight: 1.7,
-  color: P.textMuted,
-  fontFamily: "'Playfair Display', serif",
-  margin: "0 0 18px",
-  maxWidth: 720,
-};
 
 const VISA_COLORS = [P.teal, P.navy, P.sienna, P.red, P.grey];
 const AGE_COLORS = [P.teal, P.navy, P.sienna, "#4A7A58", P.grey, P.red];
@@ -85,24 +72,24 @@ export default function Immigration() {
 
       {/* Section 1: Net migration */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>Net Migration</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Net Migration</h3>
+        <p style={SECTION_NOTE}>
           UK net migration was near zero in the early 1990s, rose through EU enlargement in 2004,
           and spiked to a record 710k in 2022 as post-COVID visa liberalisation — especially for
           health & care workers and students — coincided with Ukraine and Hong Kong schemes.
           It has since fallen to 348k following visa tightening.
         </p>
         <ShareableChart title="UK Net Migration">
-          <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px" }}>
+          <div style={CHART_CARD}>
             <div style={{ marginBottom: 10 }}>
-              <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>UK Net Migration</div>
-              <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Net long-term international migration, thousands</div>
+              <div style={CHART_TITLE}>UK Net Migration</div>
+              <div style={CHART_SUBTITLE}>Net long-term international migration, thousands</div>
             </div>
             <ResponsiveContainer width="100%" height={380}>
               <LineChart data={data.netMigration.map((d) => ({ ...d, emigrationNeg: -d.emigration }))}>
-                <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-                <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-                <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[-700, 1300]} tickFormatter={(v) => `${v}k`} label={{ value: "thousands", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" tick={AXIS_TICK} />
+                <YAxis tick={AXIS_TICK} domain={[-700, 1300]} tickFormatter={(v) => `${v}k`} label={yAxisLabel("thousands")} />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toLocaleString()}k`} />} />
                 <ReferenceLine y={0} stroke={P.text} strokeWidth={1} />
                 <Line type="monotone" dataKey="immigration" stroke={P.teal} strokeWidth={2} dot={{ r: 2, fill: P.teal }} name="Immigration" />
@@ -111,7 +98,7 @@ export default function Immigration() {
                 <Legend wrapperStyle={{ fontSize: 11, fontFamily: "'DM Mono', monospace" }} />
               </LineChart>
             </ResponsiveContainer>
-            <div style={{ marginTop: 6, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+            <div style={SOURCE_TEXT}>
               SOURCE: ONS Long-term International Migration, year ending
             </div>
           </div>
@@ -120,18 +107,18 @@ export default function Immigration() {
 
       {/* Section 2: Visa breakdown */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>Migration by Visa Type</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Migration by Visa Type</h3>
+        <p style={SECTION_NOTE}>
           Non-EU/EEA migration by reason, year ending June 2024.
           Study visas are the largest category (418k), followed by work (277k).
           The 2024 restrictions on dependants and the care worker route are expected
           to reduce these numbers significantly.
         </p>
         <ShareableChart title="Migration by Visa Type">
-          <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px" }}>
+          <div style={CHART_CARD}>
             <div style={{ marginBottom: 10 }}>
-              <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Migration by Visa Type</div>
-              <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Long-term immigration by visa category</div>
+              <div style={CHART_TITLE}>Migration by Visa Type</div>
+              <div style={CHART_SUBTITLE}>Long-term immigration by visa category</div>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 32, flexWrap: "wrap" }}>
               <ResponsiveContainer width={200} height={200}>
@@ -166,7 +153,7 @@ export default function Immigration() {
                 ))}
               </div>
             </div>
-            <div style={{ marginTop: 12, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+            <div style={{ ...SOURCE_TEXT, marginTop: 12 }}>
               SOURCE: Home Office Immigration Statistics, year ending June 2024
             </div>
           </div>
@@ -175,29 +162,29 @@ export default function Immigration() {
 
       {/* Section 3: Asylum */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>Asylum Applications</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Asylum Applications</h3>
+        <p style={SECTION_NOTE}>
           Asylum applications peaked at 75k in 2022, driven by small boat Channel crossings.
           The grant rate has historically been low, creating a large backlog of people awaiting decisions.
         </p>
         <ShareableChart title="Asylum Applications">
-          <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px" }}>
+          <div style={CHART_CARD}>
             <div style={{ marginBottom: 10 }}>
-              <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Asylum Applications</div>
-              <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Asylum applications received, UK</div>
+              <div style={CHART_TITLE}>Asylum Applications</div>
+              <div style={CHART_SUBTITLE}>Asylum applications received, UK</div>
             </div>
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={data.asylum}>
-                <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-                <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-                <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 80]} tickFormatter={(v) => `${v}k`} label={{ value: "thousands", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" tick={AXIS_TICK} />
+                <YAxis tick={AXIS_TICK} domain={[0, 80]} tickFormatter={(v) => `${v}k`} label={yAxisLabel("thousands")} />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}k`} />} />
                 <Bar dataKey="applications" name="Applications" fill={P.navy} fillOpacity={0.6} radius={[3, 3, 0, 0]} />
                 <Bar dataKey="grants" name="Grants" fill={P.teal} fillOpacity={0.8} radius={[3, 3, 0, 0]} />
                 <Legend wrapperStyle={{ fontSize: 11, fontFamily: "'DM Mono', monospace" }} />
               </BarChart>
             </ResponsiveContainer>
-            <div style={{ marginTop: 6, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+            <div style={SOURCE_TEXT}>
               SOURCE: Home Office Immigration Statistics
             </div>
           </div>
@@ -206,23 +193,23 @@ export default function Immigration() {
 
       {/* Section 4: Population growth components */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>Drivers of Population Growth</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Drivers of Population Growth</h3>
+        <p style={SECTION_NOTE}>
           Since 2020, deaths have exceeded births — the UK's natural population change turned
           negative for the first time since WWII. All population growth is now driven by
           net migration.
         </p>
         <ShareableChart title="Drivers of Population Growth">
-          <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px" }}>
+          <div style={CHART_CARD}>
             <div style={{ marginBottom: 10 }}>
-              <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Drivers of Population Growth</div>
-              <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Natural change vs net migration</div>
+              <div style={CHART_TITLE}>Drivers of Population Growth</div>
+              <div style={CHART_SUBTITLE}>Natural change vs net migration</div>
             </div>
             <ResponsiveContainer width="100%" height={320}>
               <BarChart data={data.popComponents}>
-                <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-                <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-                <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[-100, 750]} tickFormatter={(v) => `${v}k`} label={{ value: "thousands", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" tick={AXIS_TICK} />
+                <YAxis tick={AXIS_TICK} domain={[-100, 750]} tickFormatter={(v) => `${v}k`} label={yAxisLabel("thousands")} />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toLocaleString()}k`} />} />
                 <ReferenceLine y={0} stroke={P.text} strokeWidth={1} />
                 <Bar dataKey="naturalChange" name="Natural change (births - deaths)" fill={P.teal} fillOpacity={0.7} radius={[3, 3, 0, 0]} />
@@ -230,7 +217,7 @@ export default function Immigration() {
                 <Legend wrapperStyle={{ fontSize: 11, fontFamily: "'DM Mono', monospace" }} />
               </BarChart>
             </ResponsiveContainer>
-            <div style={{ marginTop: 6, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+            <div style={SOURCE_TEXT}>
               SOURCE: ONS Components of Population Change, UK
             </div>
           </div>
@@ -239,27 +226,27 @@ export default function Immigration() {
 
       {/* Section 5: Population */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>UK Population</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>UK Population</h3>
+        <p style={SECTION_NOTE}>
           The UK population has grown from 55.9m in 1971 to {s.population}m, an increase of 22%.
           Growth was slow (0.1% p.a.) until the late 1990s, then accelerated with rising net migration.
         </p>
         <ShareableChart title="UK Population">
-          <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px" }}>
+          <div style={CHART_CARD}>
             <div style={{ marginBottom: 10 }}>
-              <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>UK Population</div>
-              <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Total UK population estimate (millions)</div>
+              <div style={CHART_TITLE}>UK Population</div>
+              <div style={CHART_SUBTITLE}>Total UK population estimate (millions)</div>
             </div>
             <ResponsiveContainer width="100%" height={280}>
               <AreaChart data={data.populationSeries}>
-                <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-                <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-                <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[54, 70]} tickFormatter={(v) => `${v}m`} label={{ value: "millions", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" tick={AXIS_TICK} />
+                <YAxis tick={AXIS_TICK} domain={[54, 70]} tickFormatter={(v) => `${v}m`} label={yAxisLabel("millions")} />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${v}m`} />} />
                 <Area type="monotone" dataKey="population" stroke={P.navy} fill={P.navy} fillOpacity={0.1} strokeWidth={2.5} name="Population (millions)" dot={{ r: 2.5, fill: P.navy }} />
               </AreaChart>
             </ResponsiveContainer>
-            <div style={{ marginTop: 6, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+            <div style={SOURCE_TEXT}>
               SOURCE: ONS Population Estimates, UK
             </div>
           </div>
@@ -268,24 +255,24 @@ export default function Immigration() {
 
       {/* Section 6: Age structure */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>Age Structure</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Age Structure</h3>
+        <p style={SECTION_NOTE}>
           The UK's age profile, mid-2023. Over 25% of the population is 60+, and the
           dependency ratio (dependants per 100 working-age) has risen from 52 in 2001
           to {s.dependencyRatio} — driven almost entirely by population ageing.
         </p>
         <div style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
           <ShareableChart title="UK Age Structure">
-            <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px", flex: "1 1 300px" }}>
+            <div style={{ ...CHART_CARD, flex: "1 1 300px" }}>
               <div style={{ marginBottom: 10 }}>
-                <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>UK Age Structure</div>
-                <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Population by age group over time</div>
+                <div style={CHART_TITLE}>UK Age Structure</div>
+                <div style={CHART_SUBTITLE}>Population by age group over time</div>
               </div>
               <ResponsiveContainer width="100%" height={280}>
                 <BarChart data={data.ageStructure}>
-                  <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-                  <XAxis dataKey="group" tick={{ fontSize: 11, fill: P.textMuted }} />
-                  <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 25]} tickFormatter={(v) => `${v}%`} label={{ value: "%", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+                  <CartesianGrid {...GRID_PROPS} />
+                  <XAxis dataKey="group" tick={AXIS_TICK} />
+                  <YAxis tick={AXIS_TICK} domain={[0, 25]} tickFormatter={(v) => `${v}%`} label={yAxisLabel("%")} />
                   <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
                   <Bar dataKey="pct" name="% of population" radius={[3, 3, 0, 0]}>
                     {data.ageStructure.map((_, i) => (
@@ -294,29 +281,29 @@ export default function Immigration() {
                   </Bar>
                 </BarChart>
               </ResponsiveContainer>
-              <div style={{ marginTop: 6, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+              <div style={SOURCE_TEXT}>
                 SOURCE: ONS Population Estimates by Age, mid-2023
               </div>
             </div>
           </ShareableChart>
           <ShareableChart title="Dependency Ratio">
-            <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px", flex: "1 1 300px" }}>
+            <div style={{ ...CHART_CARD, flex: "1 1 300px" }}>
               <div style={{ marginBottom: 10 }}>
-                <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Dependency Ratio</div>
-                <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Dependants per 1,000 working-age population</div>
+                <div style={CHART_TITLE}>Dependency Ratio</div>
+                <div style={CHART_SUBTITLE}>Dependants per 1,000 working-age population</div>
               </div>
               <ResponsiveContainer width="100%" height={280}>
                 <AreaChart data={data.dependencyRatio}>
-                  <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-                  <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-                  <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 60]} label={{ value: "ratio", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+                  <CartesianGrid {...GRID_PROPS} />
+                  <XAxis dataKey="year" tick={AXIS_TICK} />
+                  <YAxis tick={AXIS_TICK} domain={[0, 60]} label={yAxisLabel("ratio")} />
                   <Tooltip content={<CustomTooltip />} />
                   <Area type="monotone" dataKey="old" stackId="1" stroke={P.sienna} fill={P.sienna} fillOpacity={0.5} name="Old-age (65+)" />
                   <Area type="monotone" dataKey="young" stackId="1" stroke={P.teal} fill={P.teal} fillOpacity={0.5} name="Youth (0-15)" />
                   <Legend wrapperStyle={{ fontSize: 11, fontFamily: "'DM Mono', monospace" }} />
                 </AreaChart>
               </ResponsiveContainer>
-              <div style={{ marginTop: 6, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+              <div style={SOURCE_TEXT}>
                 SOURCE: ONS Dependency Ratio, per 100 working age
               </div>
             </div>
@@ -326,27 +313,27 @@ export default function Immigration() {
 
       {/* Section 7: Foreign-born share */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>Foreign-Born Population</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Foreign-Born Population</h3>
+        <p style={SECTION_NOTE}>
           The share of UK residents born abroad has risen from 9.3% in 2004 to {s.foreignBornPct}%,
           reflecting two decades of sustained high net migration.
         </p>
         <ShareableChart title="Foreign-Born Population">
-          <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px" }}>
+          <div style={CHART_CARD}>
             <div style={{ marginBottom: 10 }}>
-              <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Foreign-Born Population</div>
-              <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>% of population born abroad, UK</div>
+              <div style={CHART_TITLE}>Foreign-Born Population</div>
+              <div style={CHART_SUBTITLE}>% of population born abroad, UK</div>
             </div>
             <ResponsiveContainer width="100%" height={260}>
               <AreaChart data={data.foreignBorn}>
-                <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-                <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-                <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[8, 18]} tickFormatter={(v) => `${v}%`} label={{ value: "%", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" tick={AXIS_TICK} />
+                <YAxis tick={AXIS_TICK} domain={[8, 18]} tickFormatter={(v) => `${v}%`} label={yAxisLabel("%")} />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
                 <Area type="monotone" dataKey="pct" stroke={P.sienna} fill={P.sienna} fillOpacity={0.12} strokeWidth={2.5} name="Foreign-born %" dot={{ r: 2.5, fill: P.sienna }} />
               </AreaChart>
             </ResponsiveContainer>
-            <div style={{ marginTop: 6, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+            <div style={SOURCE_TEXT}>
               SOURCE: ONS Annual Population Survey / Labour Force Survey
             </div>
           </div>

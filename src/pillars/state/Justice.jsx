@@ -5,27 +5,14 @@ import {
   Legend, Cell,
 } from "recharts";
 import P from "../../theme/palette";
+import {
+  SECTION_HEADING, SECTION_NOTE, CHART_CARD, CHART_TITLE, CHART_SUBTITLE,
+  SOURCE_TEXT, AXIS_TICK, yAxisLabel, GRID_PROPS,
+} from "../../theme/chartStyles";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
-
-const sectionHeading = {
-  fontFamily: "'Playfair Display', serif",
-  fontSize: "20px",
-  fontWeight: 600,
-  color: P.text,
-  margin: "0 0 6px",
-};
-
-const sectionNote = {
-  fontSize: "14px",
-  lineHeight: 1.7,
-  color: P.textMuted,
-  fontFamily: "'Playfair Display', serif",
-  margin: "0 0 18px",
-  maxWidth: 720,
-};
 
 const BREAKDOWN_COLORS = [
   P.red, P.navy, P.teal, P.sienna, P.yellow, P.grey,
@@ -87,30 +74,30 @@ export default function Justice() {
 
       {/* Section 1: Crime trends */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>Crime Trends</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Crime Trends</h3>
+        <p style={SECTION_NOTE}>
           Two measures of crime tell different stories. The Crime Survey (CSEW) — which captures
           unreported crime — shows a sustained decline from 11.7m incidents in 2002-03 to 4.3m.
           Police recorded crime fell to a trough in 2012-13, then rose as recording practices improved.
         </p>
         <ShareableChart title="Crime Trends">
-          <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px" }}>
+          <div style={CHART_CARD}>
             <div style={{ marginBottom: 10 }}>
-              <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Crime Trends</div>
-              <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Police-recorded crime &amp; CSEW estimates, England &amp; Wales</div>
+              <div style={CHART_TITLE}>Crime Trends</div>
+              <div style={CHART_SUBTITLE}>Police-recorded crime &amp; CSEW estimates, England &amp; Wales</div>
             </div>
             <ResponsiveContainer width="100%" height={320}>
               <LineChart data={data.crimeSeries}>
-                <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-                <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} interval={3} angle={-30} textAnchor="end" height={50} />
-                <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 13]} tickFormatter={(v) => `${v}m`} label={{ value: "millions", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" tick={AXIS_TICK} interval={3} angle={-30} textAnchor="end" height={50} />
+                <YAxis tick={AXIS_TICK} domain={[0, 13]} tickFormatter={(v) => `${v}m`} label={yAxisLabel("millions")} />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}m`} />} />
                 <Line type="monotone" dataKey="csew" stroke={P.teal} strokeWidth={2.5} dot={{ r: 2, fill: P.teal }} name="CSEW estimate" connectNulls />
                 <Line type="monotone" dataKey="recorded" stroke={P.navy} strokeWidth={2.5} dot={{ r: 2, fill: P.navy }} name="Police recorded" connectNulls />
                 <Legend wrapperStyle={{ fontSize: 11, fontFamily: "'DM Mono', monospace" }} />
               </LineChart>
             </ResponsiveContainer>
-            <div style={{ marginTop: 6, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+            <div style={SOURCE_TEXT}>
               SOURCE: ONS Crime in England and Wales
             </div>
           </div>
@@ -119,22 +106,22 @@ export default function Justice() {
 
       {/* Section 2: Crime breakdown */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>Recorded Crime by Type</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Recorded Crime by Type</h3>
+        <p style={SECTION_NOTE}>
           Police recorded crime by offence group, 2023-24. Violence against the person accounts
           for 38% of all recorded crime, though many incidents are relatively minor.
         </p>
         <ShareableChart title="Recorded Crime by Type">
-          <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px" }}>
+          <div style={CHART_CARD}>
             <div style={{ marginBottom: 10 }}>
-              <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Recorded Crime by Type</div>
-              <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Police-recorded offences by category</div>
+              <div style={CHART_TITLE}>Recorded Crime by Type</div>
+              <div style={CHART_SUBTITLE}>Police-recorded offences by category</div>
             </div>
             <ResponsiveContainer width="100%" height={360}>
               <BarChart data={data.crimeBreakdown} layout="vertical">
-                <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-                <XAxis type="number" tick={{ fontSize: 11, fill: P.textMuted }} tickFormatter={(v) => `${v}k`} />
-                <YAxis type="category" dataKey="category" tick={{ fontSize: 11, fill: P.textMuted }} width={160} />
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis type="number" tick={AXIS_TICK} tickFormatter={(v) => `${v}k`} />
+                <YAxis type="category" dataKey="category" tick={AXIS_TICK} width={160} />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toLocaleString()}k`} />} />
                 <Bar dataKey="value" name="Offences (thousands)" radius={[0, 3, 3, 0]}>
                   {data.crimeBreakdown.map((_, i) => (
@@ -143,7 +130,7 @@ export default function Justice() {
                 </Bar>
               </BarChart>
             </ResponsiveContainer>
-            <div style={{ marginTop: 6, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+            <div style={SOURCE_TEXT}>
               SOURCE: ONS Police Recorded Crime, year ending March 2024
             </div>
           </div>
@@ -152,23 +139,23 @@ export default function Justice() {
 
       {/* Section 3: Police workforce */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>Police Workforce</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Police Workforce</h3>
+        <p style={SECTION_NOTE}>
           Police officer numbers in England & Wales fell by 21,000 (15%) between 2009 and 2017
           under austerity cuts. The "20,000 uplift" programme restored numbers by 2023, but
           officers are now declining again as funding pressures return.
         </p>
         <ShareableChart title="Police Workforce">
-          <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px" }}>
+          <div style={CHART_CARD}>
             <div style={{ marginBottom: 10 }}>
-              <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Police Workforce</div>
-              <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Full-time equivalent officers, England &amp; Wales</div>
+              <div style={CHART_TITLE}>Police Workforce</div>
+              <div style={CHART_SUBTITLE}>Full-time equivalent officers, England &amp; Wales</div>
             </div>
             <ResponsiveContainer width="100%" height={320}>
               <AreaChart data={data.policeWorkforce}>
-                <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-                <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-                <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 250]} tickFormatter={(v) => `${v}k`} label={{ value: "Police workforce", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" tick={AXIS_TICK} />
+                <YAxis tick={AXIS_TICK} domain={[0, 250]} tickFormatter={(v) => `${v}k`} label={yAxisLabel("Police workforce")} />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}k`} />} />
                 <Area type="monotone" dataKey="pcsos" stackId="1" stroke={P.grey} fill={P.grey} fillOpacity={0.5} name="PCSOs" />
                 <Area type="monotone" dataKey="staff" stackId="1" stroke={P.teal} fill={P.teal} fillOpacity={0.5} name="Staff" />
@@ -176,7 +163,7 @@ export default function Justice() {
                 <Legend wrapperStyle={{ fontSize: 11, fontFamily: "'DM Mono', monospace" }} />
               </AreaChart>
             </ResponsiveContainer>
-            <div style={{ marginTop: 6, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+            <div style={SOURCE_TEXT}>
               SOURCE: Home Office Police Workforce Statistics, England & Wales
             </div>
           </div>
@@ -185,28 +172,28 @@ export default function Justice() {
 
       {/* Section 4: Charge rate */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>Charge Rate</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Charge Rate</h3>
+        <p style={SECTION_NOTE}>
           The proportion of recorded crimes resulting in a charge or summons has collapsed
           from 16% in 2014-15 to just {s.chargeRate}% in {s.chargeRateYear}. The vast majority
           of reported crimes now result in no suspect being charged.
         </p>
         <ShareableChart title="Charge Rate">
-          <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px" }}>
+          <div style={CHART_CARD}>
             <div style={{ marginBottom: 10 }}>
-              <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Charge Rate</div>
-              <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>% of recorded crimes resulting in charge</div>
+              <div style={CHART_TITLE}>Charge Rate</div>
+              <div style={CHART_SUBTITLE}>% of recorded crimes resulting in charge</div>
             </div>
             <ResponsiveContainer width="100%" height={280}>
               <AreaChart data={data.chargeRate}>
-                <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-                <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} interval={1} angle={-30} textAnchor="end" height={50} />
-                <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 20]} tickFormatter={(v) => `${v}%`} label={{ value: "%", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" tick={AXIS_TICK} interval={1} angle={-30} textAnchor="end" height={50} />
+                <YAxis tick={AXIS_TICK} domain={[0, 20]} tickFormatter={(v) => `${v}%`} label={yAxisLabel("%")} />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
                 <Area type="monotone" dataKey="rate" stroke={P.red} fill={P.red} fillOpacity={0.12} strokeWidth={2.5} name="Charge rate" dot={{ r: 2.5, fill: P.red }} />
               </AreaChart>
             </ResponsiveContainer>
-            <div style={{ marginTop: 6, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+            <div style={SOURCE_TEXT}>
               SOURCE: Home Office Crime Outcomes in England and Wales
             </div>
           </div>
@@ -215,30 +202,30 @@ export default function Justice() {
 
       {/* Section 5: Prison population */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>Prison Population</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Prison Population</h3>
+        <p style={SECTION_NOTE}>
           The prison population in England & Wales has risen 35% since 2000, reaching {s.prisonPop}k
           against an operational capacity of {s.prisonCapacity}k. Prisons are effectively full,
           forcing early-release schemes.
         </p>
         <ShareableChart title="Prison Population">
-          <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px" }}>
+          <div style={CHART_CARD}>
             <div style={{ marginBottom: 10 }}>
-              <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Prison Population</div>
-              <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Prison population, England &amp; Wales</div>
+              <div style={CHART_TITLE}>Prison Population</div>
+              <div style={CHART_SUBTITLE}>Prison population, England &amp; Wales</div>
             </div>
             <ResponsiveContainer width="100%" height={280}>
               <LineChart data={data.prisonPopulation}>
-                <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-                <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-                <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[60, 95]} tickFormatter={(v) => `${v}k`} label={{ value: "Prison population", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" tick={AXIS_TICK} />
+                <YAxis tick={AXIS_TICK} domain={[60, 95]} tickFormatter={(v) => `${v}k`} label={yAxisLabel("Prison population")} />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}k`} />} />
                 <Line type="monotone" dataKey="capacity" stroke={P.red} strokeWidth={2} strokeDasharray="6 3" dot={false} name="Operational capacity" />
                 <Line type="monotone" dataKey="population" stroke={P.sienna} strokeWidth={2.5} dot={{ r: 2.5, fill: P.sienna }} name="Prison population" />
                 <Legend wrapperStyle={{ fontSize: 11, fontFamily: "'DM Mono', monospace" }} />
               </LineChart>
             </ResponsiveContainer>
-            <div style={{ marginTop: 6, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+            <div style={SOURCE_TEXT}>
               SOURCE: MoJ Offender Management Statistics, England & Wales
             </div>
           </div>
@@ -247,28 +234,28 @@ export default function Justice() {
 
       {/* Section 6: Court backlog */}
       <section style={{ marginBottom: 48 }}>
-        <h3 style={sectionHeading}>Crown Court Backlog</h3>
-        <p style={sectionNote}>
+        <h3 style={SECTION_HEADING}>Crown Court Backlog</h3>
+        <p style={SECTION_NOTE}>
           Outstanding Crown Court cases have nearly doubled since 2019, from 39k to {s.courtBacklog}k.
           COVID closures triggered the surge, but structural under-investment in court capacity
           means the backlog continues to grow.
         </p>
         <ShareableChart title="Crown Court Backlog">
-          <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "18px 20px 14px" }}>
+          <div style={CHART_CARD}>
             <div style={{ marginBottom: 10 }}>
-              <div style={{ fontSize: "14px", fontWeight: 600, color: P.text, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Crown Court Backlog</div>
-              <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>Outstanding cases in Crown Courts</div>
+              <div style={CHART_TITLE}>Crown Court Backlog</div>
+              <div style={CHART_SUBTITLE}>Outstanding cases in Crown Courts</div>
             </div>
             <ResponsiveContainer width="100%" height={260}>
               <BarChart data={data.courtBacklog}>
-                <CartesianGrid strokeDasharray="3 3" stroke={P.border} />
-                <XAxis dataKey="year" tick={{ fontSize: 11, fill: P.textMuted }} />
-                <YAxis tick={{ fontSize: 11, fill: P.textMuted }} domain={[0, 80]} tickFormatter={(v) => `${v}k`} label={{ value: "Outstanding cases", angle: -90, position: "insideLeft", style: { textAnchor: "middle", fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" } }} />
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" tick={AXIS_TICK} />
+                <YAxis tick={AXIS_TICK} domain={[0, 80]} tickFormatter={(v) => `${v}k`} label={yAxisLabel("Outstanding cases")} />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}k cases`} />} />
                 <Bar dataKey="outstanding" name="Outstanding cases (thousands)" fill={P.navy} fillOpacity={0.7} radius={[3, 3, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
-            <div style={{ marginTop: 6, fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em" }}>
+            <div style={SOURCE_TEXT}>
               SOURCE: MoJ Criminal Court Statistics Quarterly
             </div>
           </div>
