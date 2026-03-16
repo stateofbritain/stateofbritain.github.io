@@ -9,6 +9,7 @@ import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
+import { fetchDataset } from "../../hooks/useDataset";
 
 export default function Startups() {
   const [data, setData] = useState(null);
@@ -24,11 +25,7 @@ export default function Startups() {
   }, [data]);
 
   useEffect(() => {
-    fetch("/data/startups.json")
-      .then((res) => {
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return res.json();
-      })
+    fetchDataset("startups.json")
       .then(setData)
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));

@@ -1,228 +1,253 @@
 {
-  "meta": {
-    "sources": [
-      {
-        "name": "ONS Business Demography, UK 2024",
-        "url": "https://www.ons.gov.uk/businessindustryandtrade/business/activitysizeandlocation/datasets/businessdemographyreferencetable",
-        "tables": "1.1a-d, 2.1a-d, 3.1a-d (UK totals), 1.2 (births by SIC), 4.1 (survival), 7.2 (high-growth)"
-      },
-      {
-        "name": "British Business Bank Small Business Equity Tracker (editions 2016–2025)",
-        "url": "https://www.british-business-bank.co.uk/about-research-and-publications/small-business-equity-tracker-2025",
-        "note": "UK announced equity deals into SMEs from Beauhurst data"
-      }
-    ],
-    "generated": "2026-03-06"
-  },
-  "demography": [
+  "$schema": "sob-dataset-v1",
+  "id": "startups",
+  "pillar": "growth",
+  "topic": "startups",
+  "generated": "2026-03-06",
+  "sources": [
     {
-      "year": 2019,
-      "births": 363825,
-      "deaths": 303495,
-      "active": 2889115
+      "id": "ons-business-demography-uk-2024",
+      "name": "ONS Business Demography, UK 2024",
+      "url": "https://www.ons.gov.uk/businessindustryandtrade/business/activitysizeandlocation/datasets/businessdemographyreferencetable"
     },
     {
-      "year": 2020,
-      "births": 333020,
-      "deaths": 300475,
-      "active": 2897115
-    },
-    {
-      "year": 2021,
-      "births": 363995,
-      "deaths": 328495,
-      "active": 2939675
-    },
-    {
-      "year": 2022,
-      "births": 336925,
-      "deaths": 348675,
-      "active": 2924685
-    },
-    {
-      "year": 2023,
-      "births": 316025,
-      "deaths": 309680,
-      "active": 2870295
-    },
-    {
-      "year": 2024,
-      "births": 317440,
-      "deaths": 280370,
-      "active": 2859535
+      "id": "british-business-bank-small-business-equ",
+      "name": "British Business Bank Small Business Equity Tracker (editions 2016–2025)",
+      "url": "https://www.british-business-bank.co.uk/about-research-and-publications/small-business-equity-tracker-2025",
+      "note": "UK announced equity deals into SMEs from Beauhurst data"
     }
   ],
-  "survival": [
-    {
-      "cohort": 2019,
-      "yr1": 94.6,
-      "yr2": 74.7,
-      "yr3": 55.9,
-      "yr4": 45,
-      "yr5": 38.4
+  "series": {
+    "demography": {
+      "sourceId": "ons-business-demography-uk-2024",
+      "timeField": "year",
+      "data": [
+        {
+          "year": 2019,
+          "births": 363825,
+          "deaths": 303495,
+          "active": 2889115
+        },
+        {
+          "year": 2020,
+          "births": 333020,
+          "deaths": 300475,
+          "active": 2897115
+        },
+        {
+          "year": 2021,
+          "births": 363995,
+          "deaths": 328495,
+          "active": 2939675
+        },
+        {
+          "year": 2022,
+          "births": 336925,
+          "deaths": 348675,
+          "active": 2924685
+        },
+        {
+          "year": 2023,
+          "births": 316025,
+          "deaths": 309680,
+          "active": 2870295
+        },
+        {
+          "year": 2024,
+          "births": 317440,
+          "deaths": 280370,
+          "active": 2859535
+        }
+      ]
     },
-    {
-      "cohort": 2020,
-      "yr1": 92.9,
-      "yr2": 71.3,
-      "yr3": 53,
-      "yr4": 44
+    "survival": {
+      "sourceId": "ons-business-demography-uk-2024",
+      "timeField": "cohort",
+      "data": [
+        {
+          "cohort": 2019,
+          "yr1": 94.6,
+          "yr2": 74.7,
+          "yr3": 55.9,
+          "yr4": 45,
+          "yr5": 38.4
+        },
+        {
+          "cohort": 2020,
+          "yr1": 92.9,
+          "yr2": 71.3,
+          "yr3": 53,
+          "yr4": 44
+        },
+        {
+          "cohort": 2021,
+          "yr1": 93.4,
+          "yr2": 70.4,
+          "yr3": 53.5
+        },
+        {
+          "cohort": 2022,
+          "yr1": 92.3,
+          "yr2": 68.9
+        },
+        {
+          "cohort": 2023,
+          "yr1": 93.4
+        }
+      ]
     },
-    {
-      "cohort": 2021,
-      "yr1": 93.4,
-      "yr2": 70.4,
-      "yr3": 53.5
+    "sectorBreakdown": {
+      "sourceId": "ons-business-demography-uk-2024",
+      "timeField": "sector",
+      "data": [
+        {
+          "sector": "Food and beverage service activities",
+          "births": 28220
+        },
+        {
+          "sector": "Retail trade, except of motor vehicles and motorcycles",
+          "births": 27380
+        },
+        {
+          "sector": "Specialised construction activities",
+          "births": 26500
+        },
+        {
+          "sector": "Office administrative, office support and other business support activities",
+          "births": 23285
+        },
+        {
+          "sector": "Activities of head offices; management consultancy activities",
+          "births": 20265
+        },
+        {
+          "sector": "Construction of buildings",
+          "births": 15390
+        },
+        {
+          "sector": "Computer programming, consultancy and related activities",
+          "births": 14540
+        },
+        {
+          "sector": "Real estate activities",
+          "births": 13385
+        },
+        {
+          "sector": "Other professional, scientific and technical activities",
+          "births": 12570
+        },
+        {
+          "sector": "Other personal service activities",
+          "births": 10680
+        },
+        {
+          "sector": "Land transport and transport via pipelines",
+          "births": 9965
+        },
+        {
+          "sector": "Wholesale trade, except of motor vehicles and motorcycles",
+          "births": 9685
+        },
+        {
+          "sector": "Postal and courier activities",
+          "births": 8865
+        },
+        {
+          "sector": "Human health activities",
+          "births": 8500
+        },
+        {
+          "sector": "Wholesale and retail trade and repair of motor vehicles and motorcycles",
+          "births": 8190
+        },
+        {
+          "sector": "Other",
+          "births": 78655
+        }
+      ]
     },
-    {
-      "cohort": 2022,
-      "yr1": 92.3,
-      "yr2": 68.9
+    "highGrowth": {
+      "sourceId": "ons-business-demography-uk-2024",
+      "timeField": "year",
+      "data": [
+        {
+          "year": 2019,
+          "count": 12560
+        },
+        {
+          "year": 2020,
+          "count": 12045
+        },
+        {
+          "year": 2021,
+          "count": 10695
+        },
+        {
+          "year": 2022,
+          "count": 11480
+        },
+        {
+          "year": 2023,
+          "count": 13750
+        },
+        {
+          "year": 2024,
+          "count": 14330
+        }
+      ]
     },
-    {
-      "cohort": 2023,
-      "yr1": 93.4
+    "equity": {
+      "sourceId": "ons-business-demography-uk-2024",
+      "timeField": "year",
+      "data": [
+        {
+          "year": 2015,
+          "total": 3.5,
+          "deals": 1270
+        },
+        {
+          "year": 2016,
+          "total": 3.4,
+          "deals": 1041
+        },
+        {
+          "year": 2017,
+          "total": 6.4
+        },
+        {
+          "year": 2018,
+          "total": 6.7
+        },
+        {
+          "year": 2019,
+          "total": 8.5,
+          "deals": 1832
+        },
+        {
+          "year": 2020,
+          "total": 8.8
+        },
+        {
+          "year": 2021,
+          "total": 18.1,
+          "deals": 2616
+        },
+        {
+          "year": 2022,
+          "total": 16.7,
+          "deals": 2702
+        },
+        {
+          "year": 2023,
+          "total": 8.7,
+          "deals": 2152
+        },
+        {
+          "year": 2024,
+          "total": 10.8,
+          "deals": 2048
+        }
+      ]
     }
-  ],
-  "sectorBreakdown": [
-    {
-      "sector": "Food and beverage service activities",
-      "births": 28220
-    },
-    {
-      "sector": "Retail trade, except of motor vehicles and motorcycles",
-      "births": 27380
-    },
-    {
-      "sector": "Specialised construction activities",
-      "births": 26500
-    },
-    {
-      "sector": "Office administrative, office support and other business support activities",
-      "births": 23285
-    },
-    {
-      "sector": "Activities of head offices; management consultancy activities",
-      "births": 20265
-    },
-    {
-      "sector": "Construction of buildings",
-      "births": 15390
-    },
-    {
-      "sector": "Computer programming, consultancy and related activities",
-      "births": 14540
-    },
-    {
-      "sector": "Real estate activities",
-      "births": 13385
-    },
-    {
-      "sector": "Other professional, scientific and technical activities",
-      "births": 12570
-    },
-    {
-      "sector": "Other personal service activities",
-      "births": 10680
-    },
-    {
-      "sector": "Land transport and transport via pipelines",
-      "births": 9965
-    },
-    {
-      "sector": "Wholesale trade, except of motor vehicles and motorcycles",
-      "births": 9685
-    },
-    {
-      "sector": "Postal and courier activities",
-      "births": 8865
-    },
-    {
-      "sector": "Human health activities",
-      "births": 8500
-    },
-    {
-      "sector": "Wholesale and retail trade and repair of motor vehicles and motorcycles",
-      "births": 8190
-    },
-    {
-      "sector": "Other",
-      "births": 78655
-    }
-  ],
-  "highGrowth": [
-    {
-      "year": 2019,
-      "count": 12560
-    },
-    {
-      "year": 2020,
-      "count": 12045
-    },
-    {
-      "year": 2021,
-      "count": 10695
-    },
-    {
-      "year": 2022,
-      "count": 11480
-    },
-    {
-      "year": 2023,
-      "count": 13750
-    },
-    {
-      "year": 2024,
-      "count": 14330
-    }
-  ],
-  "equity": [
-    {
-      "year": 2015,
-      "total": 3.5,
-      "deals": 1270
-    },
-    {
-      "year": 2016,
-      "total": 3.4,
-      "deals": 1041
-    },
-    {
-      "year": 2017,
-      "total": 6.4
-    },
-    {
-      "year": 2018,
-      "total": 6.7
-    },
-    {
-      "year": 2019,
-      "total": 8.5,
-      "deals": 1832
-    },
-    {
-      "year": 2020,
-      "total": 8.8
-    },
-    {
-      "year": 2021,
-      "total": 18.1,
-      "deals": 2616
-    },
-    {
-      "year": 2022,
-      "total": 16.7,
-      "deals": 2702
-    },
-    {
-      "year": 2023,
-      "total": 8.7,
-      "deals": 2152
-    },
-    {
-      "year": 2024,
-      "total": 10.8,
-      "deals": 2048
-    }
-  ]
+  }
 }

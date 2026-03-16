@@ -9,6 +9,7 @@ import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
+import { fetchDataset } from "../../hooks/useDataset";
 
 const FUNDING_SERIES = [
   { key: "business", label: "Business Enterprise", color: P.sienna },
@@ -59,11 +60,7 @@ export default function ResearchFunding() {
   const [costView, setCostView] = useState("income");
 
   useEffect(() => {
-    fetch("/data/research.json")
-      .then((res) => {
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return res.json();
-      })
+    fetchDataset("research.json")
       .then(setData)
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));

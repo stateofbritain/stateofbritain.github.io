@@ -12,6 +12,7 @@ import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
+import { fetchDataset } from "../../hooks/useDataset";
 
 const AGGREGATES = [
   { id: "CP00", label: "Overall CPIH", color: P.navy },
@@ -27,11 +28,7 @@ export default function FoodCostOfLiving() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("/data/cpih.json")
-      .then((res) => {
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return res.json();
-      })
+    fetchDataset("cpih.json")
       .then(setData)
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));

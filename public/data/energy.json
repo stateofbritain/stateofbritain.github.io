@@ -1,2088 +1,2119 @@
 {
-  "meta": {
-    "source": "Department for Energy Security and Net Zero (DESNZ)",
-    "publication": "Digest of UK Energy Statistics (DUKES) 2025",
-    "url": "https://www.gov.uk/government/collections/digest-of-uk-energy-statistics-dukes",
-    "fetched": "2026-03-09"
-  },
-  "energyMix": [
+  "$schema": "sob-dataset-v1",
+  "id": "energy",
+  "pillar": "foundations",
+  "topic": "energy",
+  "generated": "2026-03-16",
+  "sources": [
     {
-      "year": 1990,
-      "coal": 31.3,
-      "petroleum": 36.1,
-      "gas": 24,
-      "nuclear": 7.6,
-      "renewables": 0.2,
-      "imports": 0.5,
-      "bioenergy": 0.3
-    },
-    {
-      "year": 1991,
-      "coal": 30.6,
-      "petroleum": 35.1,
-      "gas": 25.2,
-      "nuclear": 7.9,
-      "renewables": 0.2,
-      "imports": 0.6,
-      "bioenergy": 0.3
-    },
-    {
-      "year": 1992,
-      "coal": 29.1,
-      "petroleum": 35.8,
-      "gas": 25.4,
-      "nuclear": 8.5,
-      "renewables": 0.2,
-      "imports": 0.7,
-      "bioenergy": 0.4
-    },
-    {
-      "year": 1993,
-      "coal": 24.9,
-      "petroleum": 35.4,
-      "gas": 28.5,
-      "nuclear": 9.8,
-      "renewables": 0.2,
-      "imports": 0.7,
-      "bioenergy": 0.5
-    },
-    {
-      "year": 1994,
-      "coal": 23.6,
-      "petroleum": 35.3,
-      "gas": 29.8,
-      "nuclear": 9.8,
-      "renewables": 0.2,
-      "imports": 0.7,
-      "bioenergy": 0.7
-    },
-    {
-      "year": 1995,
-      "coal": 22.4,
-      "petroleum": 34.5,
-      "gas": 31.7,
-      "nuclear": 9.7,
-      "renewables": 0.2,
-      "imports": 0.6,
-      "bioenergy": 0.8
-    },
-    {
-      "year": 1996,
-      "coal": 19.9,
-      "petroleum": 33.8,
-      "gas": 35.2,
-      "nuclear": 9.6,
-      "renewables": 0.2,
-      "imports": 0.6,
-      "bioenergy": 0.8
-    },
-    {
-      "year": 1997,
-      "coal": 18,
-      "petroleum": 33.3,
-      "gas": 36.8,
-      "nuclear": 10.2,
-      "renewables": 0.2,
-      "imports": 0.6,
-      "bioenergy": 0.8
-    },
-    {
-      "year": 1998,
-      "coal": 17.8,
-      "petroleum": 32.7,
-      "gas": 37.8,
-      "nuclear": 10.2,
-      "renewables": 0.2,
-      "imports": 0.5,
-      "bioenergy": 0.9
-    },
-    {
-      "year": 1999,
-      "coal": 15.6,
-      "petroleum": 33,
-      "gas": 40,
-      "nuclear": 9.7,
-      "renewables": 0.2,
-      "imports": 0.5,
-      "bioenergy": 1
-    },
-    {
-      "year": 2000,
-      "coal": 16.4,
-      "petroleum": 32.7,
-      "gas": 40.8,
-      "nuclear": 8.4,
-      "renewables": 0.2,
-      "imports": 0.5,
-      "bioenergy": 1
-    },
-    {
-      "year": 2001,
-      "coal": 17.2,
-      "petroleum": 32,
-      "gas": 40.4,
-      "nuclear": 8.8,
-      "renewables": 0.2,
-      "imports": 0.4,
-      "bioenergy": 1.1
-    },
-    {
-      "year": 2002,
-      "coal": 16.4,
-      "petroleum": 32,
-      "gas": 41.1,
-      "nuclear": 8.8,
-      "renewables": 0.2,
-      "imports": 0.3,
-      "bioenergy": 1.2
-    },
-    {
-      "year": 2003,
-      "coal": 17.5,
-      "petroleum": 31.5,
-      "gas": 40.8,
-      "nuclear": 8.6,
-      "renewables": 0.2,
-      "imports": 0.1,
-      "bioenergy": 1.3
-    },
-    {
-      "year": 2004,
-      "coal": 16.7,
-      "petroleum": 32.1,
-      "gas": 41.4,
-      "nuclear": 7.8,
-      "renewables": 0.3,
-      "imports": 0.3,
-      "bioenergy": 1.5
-    },
-    {
-      "year": 2005,
-      "coal": 16.9,
-      "petroleum": 33.1,
-      "gas": 39.9,
-      "nuclear": 7.8,
-      "renewables": 0.3,
-      "imports": 0.3,
-      "bioenergy": 1.8
-    },
-    {
-      "year": 2006,
-      "coal": 18.6,
-      "petroleum": 33.2,
-      "gas": 38.4,
-      "nuclear": 7.4,
-      "renewables": 0.3,
-      "imports": 0.3,
-      "bioenergy": 1.9
-    },
-    {
-      "year": 2007,
-      "coal": 18,
-      "petroleum": 33.5,
-      "gas": 39.7,
-      "nuclear": 6.2,
-      "renewables": 0.4,
-      "imports": 0.2,
-      "bioenergy": 2.1
-    },
-    {
-      "year": 2008,
-      "coal": 16.9,
-      "petroleum": 33,
-      "gas": 41.3,
-      "nuclear": 5.3,
-      "renewables": 0.5,
-      "imports": 0.4,
-      "bioenergy": 2.7
-    },
-    {
-      "year": 2009,
-      "coal": 14.7,
-      "petroleum": 33.5,
-      "gas": 40.7,
-      "nuclear": 7.2,
-      "renewables": 0.6,
-      "imports": 0.1,
-      "bioenergy": 3.2
-    },
-    {
-      "year": 2010,
-      "coal": 14.8,
-      "petroleum": 32.3,
-      "gas": 42.5,
-      "nuclear": 6.3,
-      "renewables": 0.5,
-      "imports": 0.1,
-      "bioenergy": 3.4
-    },
-    {
-      "year": 2011,
-      "coal": 15.8,
-      "petroleum": 33.5,
-      "gas": 38,
-      "nuclear": 7.7,
-      "renewables": 0.9,
-      "imports": 0.3,
-      "bioenergy": 3.8
-    },
-    {
-      "year": 2012,
-      "coal": 19.6,
-      "petroleum": 32.5,
-      "gas": 35.1,
-      "nuclear": 7.3,
-      "renewables": 1.1,
-      "imports": 0.5,
-      "bioenergy": 3.9
-    },
-    {
-      "year": 2013,
-      "coal": 18.8,
-      "petroleum": 32.3,
-      "gas": 35,
-      "nuclear": 7.4,
-      "renewables": 1.5,
-      "imports": 0.6,
-      "bioenergy": 4.4
-    },
-    {
-      "year": 2014,
-      "coal": 16.2,
-      "petroleum": 34.4,
-      "gas": 34,
-      "nuclear": 7.1,
-      "renewables": 1.9,
-      "imports": 0.9,
-      "bioenergy": 5.5
-    },
-    {
-      "year": 2015,
-      "coal": 12.9,
-      "petroleum": 34.5,
-      "gas": 35,
-      "nuclear": 8,
-      "renewables": 2.4,
-      "imports": 0.9,
-      "bioenergy": 6.4
-    },
-    {
-      "year": 2016,
-      "coal": 6.6,
-      "petroleum": 35.8,
-      "gas": 39.3,
-      "nuclear": 8.1,
-      "renewables": 2.4,
-      "imports": 0.8,
-      "bioenergy": 7.1
-    },
-    {
-      "year": 2017,
-      "coal": 5.4,
-      "petroleum": 36.6,
-      "gas": 38.9,
-      "nuclear": 7.9,
-      "renewables": 3,
-      "imports": 0.7,
-      "bioenergy": 7.5
-    },
-    {
-      "year": 2018,
-      "coal": 4.6,
-      "petroleum": 36.1,
-      "gas": 39.2,
-      "nuclear": 7.4,
-      "renewables": 3.4,
-      "imports": 0.9,
-      "bioenergy": 8.5
-    },
-    {
-      "year": 2019,
-      "coal": 3.3,
-      "petroleum": 36.5,
-      "gas": 39.5,
-      "nuclear": 6.6,
-      "renewables": 3.8,
-      "imports": 1,
-      "bioenergy": 9.2
-    },
-    {
-      "year": 2020,
-      "coal": 3.4,
-      "petroleum": 31.5,
-      "gas": 42.1,
-      "nuclear": 6.5,
-      "renewables": 5,
-      "imports": 0.9,
-      "bioenergy": 10.6
-    },
-    {
-      "year": 2021,
-      "coal": 3.3,
-      "petroleum": 31.9,
-      "gas": 42.7,
-      "nuclear": 5.8,
-      "renewables": 4.2,
-      "imports": 1.2,
-      "bioenergy": 10.8
-    },
-    {
-      "year": 2022,
-      "coal": 3.1,
-      "petroleum": 35.5,
-      "gas": 39.7,
-      "nuclear": 6.1,
-      "renewables": 5.1,
-      "imports": -0.3,
-      "bioenergy": 10.9
-    },
-    {
-      "year": 2023,
-      "coal": 2.7,
-      "petroleum": 37.4,
-      "gas": 36.5,
-      "nuclear": 5.4,
-      "renewables": 5.4,
-      "imports": 1.3,
-      "bioenergy": 11.4
-    },
-    {
-      "year": 2024,
-      "coal": 1.5,
-      "petroleum": 38,
-      "gas": 35.7,
-      "nuclear": 5.4,
-      "renewables": 5.4,
-      "imports": 1.8,
-      "bioenergy": 12.3
+      "id": "energy-source",
+      "name": "energy data"
     }
   ],
-  "fuelConsumption": [
-    {
-      "year": 1990,
-      "coal": 66.9,
-      "petroleum": 77.16,
-      "gas": 51.17,
-      "nuclear": 16.26,
-      "renewables": 0.45,
-      "imports": 1.03,
-      "bioenergy": 0.65,
-      "total": 213.62
-    },
-    {
-      "year": 1991,
-      "coal": 67.1,
-      "petroleum": 77.14,
-      "gas": 55.36,
-      "nuclear": 17.43,
-      "renewables": 0.4,
-      "imports": 1.41,
-      "bioenergy": 0.7,
-      "total": 219.54
-    },
-    {
-      "year": 1992,
-      "coal": 63,
-      "petroleum": 77.49,
-      "gas": 55.07,
-      "nuclear": 18.45,
-      "renewables": 0.47,
-      "imports": 1.44,
-      "bioenergy": 0.82,
-      "total": 216.74
-    },
-    {
-      "year": 1993,
-      "coal": 55,
-      "petroleum": 78.13,
-      "gas": 62.95,
-      "nuclear": 21.58,
-      "renewables": 0.47,
-      "imports": 1.44,
-      "bioenergy": 1.17,
-      "total": 220.73
-    },
-    {
-      "year": 1994,
-      "coal": 51.3,
-      "petroleum": 76.67,
-      "gas": 64.86,
-      "nuclear": 21.2,
-      "renewables": 0.39,
-      "imports": 1.45,
-      "bioenergy": 1.61,
-      "total": 217.47
-    },
-    {
-      "year": 1995,
-      "coal": 48.9,
-      "petroleum": 75.42,
-      "gas": 69.22,
-      "nuclear": 21.25,
-      "renewables": 0.47,
-      "imports": 1.4,
-      "bioenergy": 1.72,
-      "total": 218.39
-    },
-    {
-      "year": 1996,
-      "coal": 45.74,
-      "petroleum": 77.82,
-      "gas": 80.98,
-      "nuclear": 22.06,
-      "renewables": 0.33,
-      "imports": 1.44,
-      "bioenergy": 1.77,
-      "total": 229.99
-    },
-    {
-      "year": 1997,
-      "coal": 40.79,
-      "petroleum": 75.48,
-      "gas": 83.53,
-      "nuclear": 23.12,
-      "renewables": 0.42,
-      "imports": 1.43,
-      "bioenergy": 1.91,
-      "total": 226.81
-    },
-    {
-      "year": 1998,
-      "coal": 40.97,
-      "petroleum": 75.36,
-      "gas": 87.32,
-      "nuclear": 23.44,
-      "renewables": 0.52,
-      "imports": 1.07,
-      "bioenergy": 2.08,
-      "total": 230.74
-    },
-    {
-      "year": 1999,
-      "coal": 35.99,
-      "petroleum": 76.43,
-      "gas": 92.51,
-      "nuclear": 22.41,
-      "renewables": 0.53,
-      "imports": 1.22,
-      "bioenergy": 2.23,
-      "total": 231.33
-    },
-    {
-      "year": 2000,
-      "coal": 38.54,
-      "petroleum": 76.72,
-      "gas": 95.87,
-      "nuclear": 19.63,
-      "renewables": 0.52,
-      "imports": 1.22,
-      "bioenergy": 2.31,
-      "total": 234.81
-    },
-    {
-      "year": 2001,
-      "coal": 40.78,
-      "petroleum": 75.86,
-      "gas": 95.56,
-      "nuclear": 20.8,
-      "renewables": 0.43,
-      "imports": 0.89,
-      "bioenergy": 2.53,
-      "total": 236.85
-    },
-    {
-      "year": 2002,
-      "coal": 37.7,
-      "petroleum": 73.48,
-      "gas": 94.33,
-      "nuclear": 20.1,
-      "renewables": 0.52,
-      "imports": 0.72,
-      "bioenergy": 2.75,
-      "total": 229.6
-    },
-    {
-      "year": 2003,
-      "coal": 40.48,
-      "petroleum": 73.02,
-      "gas": 94.64,
-      "nuclear": 20.04,
-      "renewables": 0.39,
-      "imports": 0.19,
-      "bioenergy": 3.12,
-      "total": 231.87
-    },
-    {
-      "year": 2004,
-      "coal": 39.07,
-      "petroleum": 75.06,
-      "gas": 96.64,
-      "nuclear": 18.16,
-      "renewables": 0.58,
-      "imports": 0.64,
-      "bioenergy": 3.48,
-      "total": 233.63
-    },
-    {
-      "year": 2005,
-      "coal": 39.86,
-      "petroleum": 78.22,
-      "gas": 94.29,
-      "nuclear": 18.37,
-      "renewables": 0.67,
-      "imports": 0.72,
-      "bioenergy": 4.17,
-      "total": 236.29
-    },
-    {
-      "year": 2006,
-      "coal": 43.36,
-      "petroleum": 77.37,
-      "gas": 89.39,
-      "nuclear": 17.13,
-      "renewables": 0.76,
-      "imports": 0.65,
-      "bioenergy": 4.42,
-      "total": 233.07
-    },
-    {
-      "year": 2007,
-      "coal": 40.96,
-      "petroleum": 76.31,
-      "gas": 90.19,
-      "nuclear": 14.04,
-      "renewables": 0.89,
-      "imports": 0.45,
-      "bioenergy": 4.65,
-      "total": 227.49
-    },
-    {
-      "year": 2008,
-      "coal": 38.16,
-      "petroleum": 74.38,
-      "gas": 93.11,
-      "nuclear": 11.91,
-      "renewables": 1.06,
-      "imports": 0.95,
-      "bioenergy": 6.1,
-      "total": 225.65
-    },
-    {
-      "year": 2009,
-      "coal": 31.2,
-      "petroleum": 71.01,
-      "gas": 86.19,
-      "nuclear": 15.23,
-      "renewables": 1.25,
-      "imports": 0.25,
-      "bioenergy": 6.7,
-      "total": 211.82
-    },
-    {
-      "year": 2010,
-      "coal": 32.62,
-      "petroleum": 70.95,
-      "gas": 93.55,
-      "nuclear": 13.93,
-      "renewables": 1.2,
-      "imports": 0.23,
-      "bioenergy": 7.55,
-      "total": 220.02
-    },
-    {
-      "year": 2011,
-      "coal": 32.25,
-      "petroleum": 68.47,
-      "gas": 77.65,
-      "nuclear": 15.63,
-      "renewables": 1.88,
-      "imports": 0.53,
-      "bioenergy": 7.82,
-      "total": 204.22
-    },
-    {
-      "year": 2012,
-      "coal": 40.92,
-      "petroleum": 67.82,
-      "gas": 73.27,
-      "nuclear": 15.21,
-      "renewables": 2.28,
-      "imports": 1.02,
-      "bioenergy": 8.1,
-      "total": 208.62
-    },
-    {
-      "year": 2013,
-      "coal": 39.04,
-      "petroleum": 66.99,
-      "gas": 72.61,
-      "nuclear": 15.44,
-      "renewables": 3.02,
-      "imports": 1.24,
-      "bioenergy": 9.1,
-      "total": 207.45
-    },
-    {
-      "year": 2014,
-      "coal": 31.51,
-      "petroleum": 66.8,
-      "gas": 66.13,
-      "nuclear": 13.85,
-      "renewables": 3.6,
-      "imports": 1.76,
-      "bioenergy": 10.71,
-      "total": 194.37
-    },
-    {
-      "year": 2015,
-      "coal": 25.12,
-      "petroleum": 67.09,
-      "gas": 68.11,
-      "nuclear": 15.48,
-      "renewables": 4.65,
-      "imports": 1.81,
-      "bioenergy": 12.44,
-      "total": 194.71
-    },
-    {
-      "year": 2016,
-      "coal": 12.71,
-      "petroleum": 68.53,
-      "gas": 75.18,
-      "nuclear": 15.41,
-      "renewables": 4.55,
-      "imports": 1.53,
-      "bioenergy": 13.5,
-      "total": 191.41
-    },
-    {
-      "year": 2017,
-      "coal": 10.31,
-      "petroleum": 69.79,
-      "gas": 74.22,
-      "nuclear": 15.12,
-      "renewables": 5.76,
-      "imports": 1.27,
-      "bioenergy": 14.23,
-      "total": 190.7
-    },
-    {
-      "year": 2018,
-      "coal": 8.68,
-      "petroleum": 68.86,
-      "gas": 74.74,
-      "nuclear": 14.06,
-      "renewables": 6.45,
-      "imports": 1.64,
-      "bioenergy": 16.1,
-      "total": 190.53
-    },
-    {
-      "year": 2019,
-      "coal": 6.12,
-      "petroleum": 67.15,
-      "gas": 72.62,
-      "nuclear": 12.09,
-      "renewables": 7.07,
-      "imports": 1.82,
-      "bioenergy": 17,
-      "total": 183.87
-    },
-    {
-      "year": 2020,
-      "coal": 5.57,
-      "petroleum": 51.81,
-      "gas": 69.4,
-      "nuclear": 10.71,
-      "renewables": 8.17,
-      "imports": 1.54,
-      "bioenergy": 17.49,
-      "total": 164.69
-    },
-    {
-      "year": 2021,
-      "coal": 5.7,
-      "petroleum": 54.44,
-      "gas": 72.91,
-      "nuclear": 9.95,
-      "renewables": 7.09,
-      "imports": 2.12,
-      "bioenergy": 18.45,
-      "total": 170.65
-    },
-    {
-      "year": 2022,
-      "coal": 5.23,
-      "petroleum": 59.64,
-      "gas": 66.73,
-      "nuclear": 10.29,
-      "renewables": 8.54,
-      "imports": -0.46,
-      "bioenergy": 18.25,
-      "total": 168.22
-    },
-    {
-      "year": 2023,
-      "coal": 4.49,
-      "petroleum": 61.18,
-      "gas": 59.83,
-      "nuclear": 8.79,
-      "renewables": 8.79,
-      "imports": 2.05,
-      "bioenergy": 18.63,
-      "total": 163.77
-    },
-    {
-      "year": 2024,
-      "coal": 2.53,
-      "petroleum": 62.48,
-      "gas": 58.59,
-      "nuclear": 8.82,
-      "renewables": 8.9,
-      "imports": 2.87,
-      "bioenergy": 20.18,
-      "total": 164.37
-    }
-  ],
-  "electricity": [
-    {
-      "year": 1990,
-      "convThermal": 234093,
-      "ccgt": 280,
-      "nuclear": 58664,
-      "renewables": 5199,
-      "pumpedStorage": 1892,
-      "battery": 0,
-      "totalNet": 297502
-    },
-    {
-      "year": 1991,
-      "convThermal": 233316,
-      "ccgt": 607,
-      "nuclear": 62761,
-      "renewables": 4615,
-      "pumpedStorage": 1465,
-      "battery": 0,
-      "totalNet": 300655
-    },
-    {
-      "year": 1992,
-      "convThermal": 221232,
-      "ccgt": 3358,
-      "nuclear": 69135,
-      "renewables": 5444,
-      "pumpedStorage": 1635,
-      "battery": 0,
-      "totalNet": 298547
-    },
-    {
-      "year": 1993,
-      "convThermal": 193752,
-      "ccgt": 23195,
-      "nuclear": 80979,
-      "renewables": 4502,
-      "pumpedStorage": 1388,
-      "battery": 0,
-      "totalNet": 301868
-    },
-    {
-      "year": 1994,
-      "convThermal": 184677,
-      "ccgt": 37553,
-      "nuclear": 79962,
-      "renewables": 5378,
-      "pumpedStorage": 1417,
-      "battery": 0,
-      "totalNet": 306936
-    },
-    {
-      "year": 1995,
-      "convThermal": 183175,
-      "ccgt": 49458,
-      "nuclear": 80598,
-      "renewables": 5176,
-      "pumpedStorage": 1502,
-      "battery": 0,
-      "totalNet": 317627
-    },
-    {
-      "year": 1996,
-      "convThermal": 174664,
-      "ccgt": 68962,
-      "nuclear": 85820,
-      "renewables": 3833,
-      "pumpedStorage": 1507,
-      "battery": 0,
-      "totalNet": 332356
-    },
-    {
-      "year": 1997,
-      "convThermal": 147665,
-      "ccgt": 90874,
-      "nuclear": 89341,
-      "renewables": 4788,
-      "pumpedStorage": 1439,
-      "battery": 0,
-      "totalNet": 331630
-    },
-    {
-      "year": 1998,
-      "convThermal": 149001,
-      "ccgt": 98162,
-      "nuclear": 90590,
-      "renewables": 5971,
-      "pumpedStorage": 1569,
-      "battery": 0,
-      "totalNet": 342699
-    },
-    {
-      "year": 1999,
-      "convThermal": 135263,
-      "ccgt": 119553,
-      "nuclear": 87672,
-      "renewables": 6154,
-      "pumpedStorage": 2804,
-      "battery": 0,
-      "totalNet": 347672
-    },
-    {
-      "year": 2000,
-      "convThermal": 147394,
-      "ccgt": 126428,
-      "nuclear": 78334,
-      "renewables": 6006,
-      "pumpedStorage": 2603,
-      "battery": 0,
-      "totalNet": 357266
-    },
-    {
-      "year": 2001,
-      "convThermal": 147185,
-      "ccgt": 129875,
-      "nuclear": 82985,
-      "renewables": 4997,
-      "pumpedStorage": 2340,
-      "battery": 0,
-      "totalNet": 364173
-    },
-    {
-      "year": 2002,
-      "convThermal": 148511,
-      "ccgt": 131935,
-      "nuclear": 81090,
-      "renewables": 6022,
-      "pumpedStorage": 2562,
-      "battery": 0,
-      "totalNet": 366657
-    },
-    {
-      "year": 2003,
-      "convThermal": 162138,
-      "ccgt": 128882,
-      "nuclear": 81911,
-      "renewables": 4500,
-      "pumpedStorage": 2641,
-      "battery": 0,
-      "totalNet": 376528
-    },
-    {
-      "year": 2004,
-      "convThermal": 153653,
-      "ccgt": 140243,
-      "nuclear": 73682,
-      "renewables": 6760,
-      "pumpedStorage": 2559,
-      "battery": 0,
-      "totalNet": 373399
-    },
-    {
-      "year": 2005,
-      "convThermal": 155493,
-      "ccgt": 139382,
-      "nuclear": 75173,
-      "renewables": 7662,
-      "pumpedStorage": 2776,
-      "battery": 0,
-      "totalNet": 376780
-    },
-    {
-      "year": 2006,
-      "convThermal": 170464,
-      "ccgt": 126554,
-      "nuclear": 69237,
-      "renewables": 8802,
-      "pumpedStorage": 3722,
-      "battery": 0,
-      "totalNet": 373861
-    },
-    {
-      "year": 2007,
-      "convThermal": 158594,
-      "ccgt": 149127,
-      "nuclear": 57249,
-      "renewables": 10320,
-      "pumpedStorage": 3846,
-      "battery": 0,
-      "totalNet": 374064
-    },
-    {
-      "year": 2008,
-      "convThermal": 140185,
-      "ccgt": 168364,
-      "nuclear": 47673,
-      "renewables": 12255,
-      "pumpedStorage": 4075,
-      "battery": 0,
-      "totalNet": 367180
-    },
-    {
-      "year": 2009,
-      "convThermal": 120053,
-      "ccgt": 159159,
-      "nuclear": 62762,
-      "renewables": 14503,
-      "pumpedStorage": 3672,
-      "battery": 0,
-      "totalNet": 355306
-    },
-    {
-      "year": 2010,
-      "convThermal": 175718,
-      "ccgt": 116754,
-      "nuclear": 56442,
-      "renewables": 13894,
-      "pumpedStorage": 3139,
-      "battery": 0,
-      "totalNet": 361734
-    },
-    {
-      "year": 2011,
-      "convThermal": 145261,
-      "ccgt": 118857,
-      "nuclear": 62655,
-      "renewables": 21862,
-      "pumpedStorage": 2895,
-      "battery": 0,
-      "totalNet": 347688
-    },
-    {
-      "year": 2012,
-      "convThermal": 159183,
-      "ccgt": 93311,
-      "nuclear": 63949,
-      "renewables": 26491,
-      "pumpedStorage": 2956,
-      "battery": 0,
-      "totalNet": 341912
-    },
-    {
-      "year": 2013,
-      "convThermal": 146777,
-      "ccgt": 91552,
-      "nuclear": 64133,
-      "renewables": 35079,
-      "pumpedStorage": 2894,
-      "battery": 0,
-      "totalNet": 336504
-    },
-    {
-      "year": 2014,
-      "convThermal": 124642,
-      "ccgt": 94351,
-      "nuclear": 57903,
-      "renewables": 41847,
-      "pumpedStorage": 2873,
-      "battery": 0,
-      "totalNet": 317732
-    },
-    {
-      "year": 2015,
-      "convThermal": 107477,
-      "ccgt": 94066,
-      "nuclear": 63895,
-      "renewables": 54056,
-      "pumpedStorage": 2730,
-      "battery": 0,
-      "totalNet": 318513
-    },
-    {
-      "year": 2016,
-      "convThermal": 65613,
-      "ccgt": 137312,
-      "nuclear": 65149,
-      "renewables": 52874,
-      "pumpedStorage": 2949,
-      "battery": 0,
-      "totalNet": 319882
-    },
-    {
-      "year": 2017,
-      "convThermal": 60935,
-      "ccgt": 128123,
-      "nuclear": 63887,
-      "renewables": 66920,
-      "pumpedStorage": 2862,
-      "battery": 0,
-      "totalNet": 318868
-    },
-    {
-      "year": 2018,
-      "convThermal": 58100,
-      "ccgt": 123898,
-      "nuclear": 59098,
-      "renewables": 74967,
-      "pumpedStorage": 2490,
-      "battery": 36,
-      "totalNet": 315186
-    },
-    {
-      "year": 2019,
-      "convThermal": 55511,
-      "ccgt": 122141,
-      "nuclear": 51032,
-      "renewables": 82132,
-      "pumpedStorage": 1750,
-      "battery": 82,
-      "totalNet": 310260
-    },
-    {
-      "year": 2020,
-      "convThermal": 53385,
-      "ccgt": 103061,
-      "nuclear": 46076,
-      "renewables": 94557,
-      "pumpedStorage": 1565,
-      "battery": 113,
-      "totalNet": 296649
-    },
-    {
-      "year": 2021,
-      "convThermal": 55730,
-      "ccgt": 114283,
-      "nuclear": 41990,
-      "renewables": 81979,
-      "pumpedStorage": 1891,
-      "battery": 94,
-      "totalNet": 293412
-    },
-    {
-      "year": 2022,
-      "convThermal": 51266,
-      "ccgt": 117495,
-      "nuclear": 43523,
-      "renewables": 98758,
-      "pumpedStorage": 1988,
-      "battery": 195,
-      "totalNet": 310347
-    },
-    {
-      "year": 2023,
-      "convThermal": 47756,
-      "ccgt": 93628,
-      "nuclear": 37297,
-      "renewables": 101685,
-      "pumpedStorage": 1821,
-      "battery": 1020,
-      "totalNet": 279583
-    },
-    {
-      "year": 2024,
-      "convThermal": 51468,
-      "ccgt": 78716,
-      "nuclear": 37340,
-      "renewables": 102861,
-      "pumpedStorage": 2057,
-      "battery": 1811,
-      "totalNet": 269389
-    }
-  ],
-  "expenditure": [
-    {
-      "year": 1990,
-      "domesticGas": 4865,
-      "domesticElectricity": 6255,
-      "domesticTotal": 12305,
-      "industryTotal": 7075,
-      "allTotal": 46155
-    },
-    {
-      "year": 1991,
-      "domesticGas": 5775,
-      "domesticElectricity": 7105,
-      "domesticTotal": 14135,
-      "industryTotal": 7050,
-      "allTotal": 49440
-    },
-    {
-      "year": 1992,
-      "domesticGas": 5685,
-      "domesticElectricity": 7460,
-      "domesticTotal": 14315,
-      "industryTotal": 6715,
-      "allTotal": 50320
-    },
-    {
-      "year": 1993,
-      "domesticGas": 5705,
-      "domesticElectricity": 7590,
-      "domesticTotal": 14540,
-      "industryTotal": 6490,
-      "allTotal": 52205
-    },
-    {
-      "year": 1994,
-      "domesticGas": 6020,
-      "domesticElectricity": 7870,
-      "domesticTotal": 15030,
-      "industryTotal": 6380,
-      "allTotal": 53190
-    },
-    {
-      "year": 1995,
-      "domesticGas": 6010,
-      "domesticElectricity": 8060,
-      "domesticTotal": 15155,
-      "industryTotal": 6420,
-      "allTotal": 53915
-    },
-    {
-      "year": 1996,
-      "domesticGas": 6510,
-      "domesticElectricity": 8380,
-      "domesticTotal": 16165,
-      "industryTotal": 6210,
-      "allTotal": 57020
-    },
-    {
-      "year": 1997,
-      "domesticGas": 6125,
-      "domesticElectricity": 7965,
-      "domesticTotal": 15210,
-      "industryTotal": 5950,
-      "allTotal": 58120
-    },
-    {
-      "year": 1998,
-      "domesticGas": 6015,
-      "domesticElectricity": 7595,
-      "domesticTotal": 14630,
-      "industryTotal": 5825,
-      "allTotal": 57940
-    },
-    {
-      "year": 1999,
-      "domesticGas": 5610,
-      "domesticElectricity": 7600,
-      "domesticTotal": 14255,
-      "industryTotal": 6080,
-      "allTotal": 64795
-    },
-    {
-      "year": 2000,
-      "domesticGas": 5485,
-      "domesticElectricity": 7475,
-      "domesticTotal": 14200,
-      "industryTotal": 6330,
-      "allTotal": 65425
-    },
-    {
-      "year": 2001,
-      "domesticGas": 5735,
-      "domesticElectricity": 7540,
-      "domesticTotal": 14560,
-      "industryTotal": 6485,
-      "allTotal": 63905
-    },
-    {
-      "year": 2002,
-      "domesticGas": 6090,
-      "domesticElectricity": 7510,
-      "domesticTotal": 14745,
-      "industryTotal": 5970,
-      "allTotal": 62280
-    },
-    {
-      "year": 2003,
-      "domesticGas": 6260,
-      "domesticElectricity": 7660,
-      "domesticTotal": 15000,
-      "industryTotal": 6110,
-      "allTotal": 64345
-    },
-    {
-      "year": 2004,
-      "domesticGas": 6900,
-      "domesticElectricity": 8895,
-      "domesticTotal": 16925,
-      "industryTotal": 6835,
-      "allTotal": 76070
-    },
-    {
-      "year": 2005,
-      "domesticGas": 8215,
-      "domesticElectricity": 9665,
-      "domesticTotal": 19195,
-      "industryTotal": 10025,
-      "allTotal": 86125
-    },
-    {
-      "year": 2006,
-      "domesticGas": 10100,
-      "domesticElectricity": 11340,
-      "domesticTotal": 22970,
-      "industryTotal": 12810,
-      "allTotal": 98070
-    },
-    {
-      "year": 2007,
-      "domesticGas": 9950,
-      "domesticElectricity": 12540,
-      "domesticTotal": 23935,
-      "industryTotal": 12365,
-      "allTotal": 100625
-    },
-    {
-      "year": 2008,
-      "domesticGas": 12070,
-      "domesticElectricity": 14245,
-      "domesticTotal": 28375,
-      "industryTotal": 14255,
-      "allTotal": 117430
-    },
-    {
-      "year": 2009,
-      "domesticGas": 12605,
-      "domesticElectricity": 14535,
-      "domesticTotal": 28810,
-      "industryTotal": 12250,
-      "allTotal": 106600
-    },
-    {
-      "year": 2010,
-      "domesticGas": 14290,
-      "domesticElectricity": 14565,
-      "domesticTotal": 30870,
-      "industryTotal": 11335,
-      "allTotal": 100885
-    },
-    {
-      "year": 2011,
-      "domesticGas": 12870,
-      "domesticElectricity": 14765,
-      "domesticTotal": 29730,
-      "industryTotal": 12500,
-      "allTotal": 109470
-    },
-    {
-      "year": 2012,
-      "domesticGas": 15600,
-      "domesticElectricity": 15970,
-      "domesticTotal": 33885,
-      "industryTotal": 12765,
-      "allTotal": 117230
-    },
-    {
-      "year": 2013,
-      "domesticGas": 16665,
-      "domesticElectricity": 16850,
-      "domesticTotal": 35920,
-      "industryTotal": 13350,
-      "allTotal": 121060
-    },
-    {
-      "year": 2014,
-      "domesticGas": 14575,
-      "domesticElectricity": 16770,
-      "domesticTotal": 33310,
-      "industryTotal": 12100,
-      "allTotal": 114655
-    },
-    {
-      "year": 2015,
-      "domesticGas": 14460,
-      "domesticElectricity": 16410,
-      "domesticTotal": 32580,
-      "industryTotal": 10735,
-      "allTotal": 103855
-    },
-    {
-      "year": 2016,
-      "domesticGas": 13405,
-      "domesticElectricity": 16145,
-      "domesticTotal": 31185,
-      "industryTotal": 9775,
-      "allTotal": 100785
-    },
-    {
-      "year": 2017,
-      "domesticGas": 12815,
-      "domesticElectricity": 16630,
-      "domesticTotal": 31330,
-      "industryTotal": 10785,
-      "allTotal": 108045
-    },
-    {
-      "year": 2018,
-      "domesticGas": 13370,
-      "domesticElectricity": 17935,
-      "domesticTotal": 33530,
-      "industryTotal": 12200,
-      "allTotal": 118420
-    },
-    {
-      "year": 2019,
-      "domesticGas": 13385,
-      "domesticElectricity": 19220,
-      "domesticTotal": 34780,
-      "industryTotal": 12230,
-      "allTotal": 118690
-    },
-    {
-      "year": 2020,
-      "domesticGas": 13065,
-      "domesticElectricity": 20070,
-      "domesticTotal": 34955,
-      "industryTotal": 10135,
-      "allTotal": 101610
-    },
-    {
-      "year": 2021,
-      "domesticGas": 13330,
-      "domesticElectricity": 22015,
-      "domesticTotal": 37625,
-      "industryTotal": 13710,
-      "allTotal": 119075
-    },
-    {
-      "year": 2022,
-      "domesticGas": 22240,
-      "domesticElectricity": 30140,
-      "domesticTotal": 55455,
-      "industryTotal": 20180,
-      "allTotal": 169215
-    },
-    {
-      "year": 2023,
-      "domesticGas": 24020,
-      "domesticElectricity": 32485,
-      "domesticTotal": 59360,
-      "industryTotal": 20065,
-      "allTotal": 174715
-    },
-    {
-      "year": 2024,
-      "domesticGas": 18670,
-      "domesticElectricity": 29175,
-      "domesticTotal": 50510,
-      "industryTotal": 16580,
-      "allTotal": 156455
-    }
-  ],
-  "importDependency": [
-    {
-      "year": 1990,
-      "production": 219446,
-      "consumption": 213687,
-      "importDependency": -2.7
-    },
-    {
-      "year": 1991,
-      "production": 226669,
-      "consumption": 219505,
-      "importDependency": -3.3
-    },
-    {
-      "year": 1992,
-      "production": 226547,
-      "consumption": 216815,
-      "importDependency": -4.5
-    },
-    {
-      "year": 1993,
-      "production": 234882,
-      "consumption": 220564,
-      "importDependency": -6.5
-    },
-    {
-      "year": 1994,
-      "production": 256559,
-      "consumption": 217491,
-      "importDependency": -18
-    },
-    {
-      "year": 1995,
-      "production": 269738,
-      "consumption": 218421,
-      "importDependency": -23.5
-    },
-    {
-      "year": 1996,
-      "production": 281559,
-      "consumption": 229988,
-      "importDependency": -22.4
-    },
-    {
-      "year": 1997,
-      "production": 282082,
-      "consumption": 226814,
-      "importDependency": -24.4
-    },
-    {
-      "year": 1998,
-      "production": 287233,
-      "consumption": 230743,
-      "importDependency": -24.5
-    },
-    {
-      "year": 1999,
-      "production": 297655,
-      "consumption": 231328,
-      "importDependency": -28.7
-    },
-    {
-      "year": 2000,
-      "production": 288690,
-      "consumption": 234807,
-      "importDependency": -22.9
-    },
-    {
-      "year": 2001,
-      "production": 277426,
-      "consumption": 236855,
-      "importDependency": -17.1
-    },
-    {
-      "year": 2002,
-      "production": 272864,
-      "consumption": 229605,
-      "importDependency": -18.8
-    },
-    {
-      "year": 2003,
-      "production": 260310,
-      "consumption": 231867,
-      "importDependency": -12.3
-    },
-    {
-      "year": 2004,
-      "production": 238378,
-      "consumption": 233633,
-      "importDependency": -2
-    },
-    {
-      "year": 2005,
-      "production": 216541,
-      "consumption": 236290,
-      "importDependency": 8.4
-    },
-    {
-      "year": 2006,
-      "production": 197246,
-      "consumption": 233073,
-      "importDependency": 15.4
-    },
-    {
-      "year": 2007,
-      "production": 185970,
-      "consumption": 227492,
-      "importDependency": 18.3
-    },
-    {
-      "year": 2008,
-      "production": 177631,
-      "consumption": 225655,
-      "importDependency": 21.3
-    },
-    {
-      "year": 2009,
-      "production": 166172,
-      "consumption": 211820,
-      "importDependency": 21.6
-    },
-    {
-      "year": 2010,
-      "production": 156664,
-      "consumption": 220022,
-      "importDependency": 28.8
-    },
-    {
-      "year": 2011,
-      "production": 136115,
-      "consumption": 204222,
-      "importDependency": 33.3
-    },
-    {
-      "year": 2012,
-      "production": 120950,
-      "consumption": 208615,
-      "importDependency": 42
-    },
-    {
-      "year": 2013,
-      "production": 113383,
-      "consumption": 207449,
-      "importDependency": 45.3
-    },
-    {
-      "year": 2014,
-      "production": 112079,
-      "consumption": 194371,
-      "importDependency": 42.3
-    },
-    {
-      "year": 2015,
-      "production": 122998,
-      "consumption": 194707,
-      "importDependency": 36.8
-    },
-    {
-      "year": 2016,
-      "production": 124697,
-      "consumption": 191408,
-      "importDependency": 34.9
-    },
-    {
-      "year": 2017,
-      "production": 125171,
-      "consumption": 190696,
-      "importDependency": 34.4
-    },
-    {
-      "year": 2018,
-      "production": 129169,
-      "consumption": 190527,
-      "importDependency": 32.2
-    },
-    {
-      "year": 2019,
-      "production": 127693,
-      "consumption": 183866,
-      "importDependency": 30.6
-    },
-    {
-      "year": 2020,
-      "production": 123637,
-      "consumption": 164694,
-      "importDependency": 24.9
-    },
-    {
-      "year": 2021,
-      "production": 106985,
-      "consumption": 170653,
-      "importDependency": 37.3
-    },
-    {
-      "year": 2022,
-      "production": 110807,
-      "consumption": 168217,
-      "importDependency": 34.1
-    },
-    {
-      "year": 2023,
-      "production": 101421,
-      "consumption": 163769,
-      "importDependency": 38.1
-    },
-    {
-      "year": 2024,
-      "production": 94847,
-      "consumption": 164365,
-      "importDependency": 42.3
-    }
-  ],
-  "energySecurity": {
-    "snapshot": {
-      "gasStorageDays": 9.1,
-      "gasStorageYear": 2024,
-      "gasImportPct": 58,
-      "oilImportPct": 46,
-      "elecImportPct": 5,
-      "importsByFuelYear": 2024,
-      "totalInterconnectorMw": 9800,
-      "capacityMarginPct": 5.9,
-      "capacityMarginYear": 2024,
-      "liveFillPct": 48,
-      "liveDaysOfDemand": 4.4,
-      "liveFillAsOf": "2026-03-08"
-    },
-    "gasStorage": [
-      {
-        "year": 2000,
-        "capacityBcm": 3.9,
-        "consumptionBcm": 95.2,
-        "daysOfDemand": 14.9
-      },
-      {
-        "year": 2005,
-        "capacityBcm": 4.4,
-        "consumptionBcm": 95.8,
-        "daysOfDemand": 16.8
-      },
-      {
-        "year": 2010,
-        "capacityBcm": 4.6,
-        "consumptionBcm": 93.8,
-        "daysOfDemand": 17.9
-      },
-      {
-        "year": 2013,
-        "capacityBcm": 4.6,
-        "consumptionBcm": 82,
-        "daysOfDemand": 20.5
-      },
-      {
-        "year": 2015,
-        "capacityBcm": 4.6,
-        "consumptionBcm": 76.4,
-        "daysOfDemand": 22
-      },
-      {
-        "year": 2017,
-        "capacityBcm": 1.3,
-        "consumptionBcm": 80.2,
-        "daysOfDemand": 5.9
-      },
-      {
-        "year": 2018,
-        "capacityBcm": 1.3,
-        "consumptionBcm": 79,
-        "daysOfDemand": 6
-      },
-      {
-        "year": 2020,
-        "capacityBcm": 1.3,
-        "consumptionBcm": 72.1,
-        "daysOfDemand": 6.6
-      },
-      {
-        "year": 2022,
-        "capacityBcm": 1.7,
-        "consumptionBcm": 73.5,
-        "daysOfDemand": 8.4
-      },
-      {
-        "year": 2023,
-        "capacityBcm": 1.7,
-        "consumptionBcm": 69.8,
-        "daysOfDemand": 8.9
-      },
-      {
-        "year": 2024,
-        "capacityBcm": 1.7,
-        "consumptionBcm": 68.5,
-        "daysOfDemand": 9.1
-      }
-    ],
-    "gasStorageIntl": [
-      {
-        "country": "Austria",
-        "daysOfDemand": 117,
-        "asOf": "2024-25"
-      },
-      {
-        "country": "France",
-        "daysOfDemand": 103,
-        "asOf": "2024-25"
-      },
-      {
-        "country": "Germany",
-        "daysOfDemand": 89,
-        "asOf": "2024-25"
-      },
-      {
-        "country": "Italy",
-        "daysOfDemand": 80,
-        "asOf": "2024-25"
-      },
-      {
-        "country": "Netherlands",
-        "daysOfDemand": 45,
-        "asOf": "2024-25"
-      },
-      {
-        "country": "Spain",
-        "daysOfDemand": 42,
-        "asOf": "2024-25"
-      },
-      {
-        "country": "Poland",
-        "daysOfDemand": 35,
-        "asOf": "2024-25"
-      },
-      {
-        "country": "UK",
-        "daysOfDemand": 9,
-        "asOf": "2024-25"
-      }
-    ],
-    "gasStorageIntlAsOf": "Winter 2024/25",
-    "importsByFuel": [
-      {
-        "year": 2000,
-        "gasPct": -5,
-        "oilPct": -16,
-        "elecPct": 3
-      },
-      {
-        "year": 2004,
-        "gasPct": 2,
-        "oilPct": -8,
-        "elecPct": 3
-      },
-      {
-        "year": 2005,
-        "gasPct": 8,
-        "oilPct": -2,
-        "elecPct": 3
-      },
-      {
-        "year": 2006,
-        "gasPct": 15,
-        "oilPct": 3,
-        "elecPct": 2
-      },
-      {
-        "year": 2008,
-        "gasPct": 26,
-        "oilPct": 13,
-        "elecPct": 1
-      },
-      {
-        "year": 2010,
-        "gasPct": 45,
-        "oilPct": 30,
-        "elecPct": 2
-      },
-      {
-        "year": 2012,
-        "gasPct": 47,
-        "oilPct": 38,
-        "elecPct": 5
-      },
-      {
-        "year": 2014,
-        "gasPct": 50,
-        "oilPct": 40,
-        "elecPct": 6
-      },
-      {
-        "year": 2015,
-        "gasPct": 47,
-        "oilPct": 43,
-        "elecPct": 6
-      },
-      {
-        "year": 2017,
-        "gasPct": 49,
-        "oilPct": 44,
-        "elecPct": 5
-      },
-      {
-        "year": 2018,
-        "gasPct": 54,
-        "oilPct": 45,
-        "elecPct": 7
-      },
-      {
-        "year": 2020,
-        "gasPct": 56,
-        "oilPct": 44,
-        "elecPct": 8
-      },
-      {
-        "year": 2021,
-        "gasPct": 53,
-        "oilPct": 41,
-        "elecPct": 6
-      },
-      {
-        "year": 2022,
-        "gasPct": 52,
-        "oilPct": 37,
-        "elecPct": 6
-      },
-      {
-        "year": 2023,
-        "gasPct": 56,
-        "oilPct": 43,
-        "elecPct": 5
-      },
-      {
-        "year": 2024,
-        "gasPct": 58,
-        "oilPct": 46,
-        "elecPct": 5
-      }
-    ],
-    "interconnectors": [
-      {
-        "name": "IFA",
-        "partner": "France",
-        "capacityMw": 2000,
-        "yearOpened": 1986
-      },
-      {
-        "name": "Moyle",
-        "partner": "N. Ireland",
-        "capacityMw": 500,
-        "yearOpened": 2001
-      },
-      {
-        "name": "BritNed",
-        "partner": "Netherlands",
-        "capacityMw": 1000,
-        "yearOpened": 2011
-      },
-      {
-        "name": "EWIC",
-        "partner": "Ireland",
-        "capacityMw": 500,
-        "yearOpened": 2012
-      },
-      {
-        "name": "Nemo Link",
-        "partner": "Belgium",
-        "capacityMw": 1000,
-        "yearOpened": 2019
-      },
-      {
-        "name": "IFA2",
-        "partner": "France",
-        "capacityMw": 1000,
-        "yearOpened": 2021
-      },
-      {
-        "name": "NSL",
-        "partner": "Norway",
-        "capacityMw": 1400,
-        "yearOpened": 2021
-      },
-      {
-        "name": "ElecLink",
-        "partner": "France",
-        "capacityMw": 1000,
-        "yearOpened": 2022
-      },
-      {
-        "name": "Viking Link",
-        "partner": "Denmark",
-        "capacityMw": 1400,
-        "yearOpened": 2023
-      }
-    ],
-    "capacityMargin": [
-      {
-        "year": 2010,
-        "marginPct": 14
-      },
-      {
-        "year": 2012,
-        "marginPct": 9
-      },
-      {
-        "year": 2014,
-        "marginPct": 4.1
-      },
-      {
-        "year": 2015,
-        "marginPct": 5.1
-      },
-      {
-        "year": 2016,
-        "marginPct": 6.6
-      },
-      {
-        "year": 2017,
-        "marginPct": 7.3
-      },
-      {
-        "year": 2018,
-        "marginPct": 8.3
-      },
-      {
-        "year": 2019,
-        "marginPct": 7.4
-      },
-      {
-        "year": 2020,
-        "marginPct": 8.2
-      },
-      {
-        "year": 2021,
-        "marginPct": 4.2
-      },
-      {
-        "year": 2022,
-        "marginPct": 3.7
-      },
-      {
-        "year": 2023,
-        "marginPct": 7.4
-      },
-      {
-        "year": 2024,
-        "marginPct": 5.9
-      }
-    ],
-    "liveFill": {
-      "fillPct": 48,
-      "gasInStorageTwh": 7.2536,
-      "gasInStorageBcm": 0.688,
-      "workingVolumeTwh": 15.1,
-      "daysAtCurrentFill": 4.4,
-      "asOf": "2026-03-08",
-      "history": [
+  "series": {
+    "energyMix": {
+      "sourceId": "energy-source",
+      "timeField": "year",
+      "data": [
         {
-          "date": "2026-02-07",
-          "fillPct": 54.8,
-          "gasInStorageTwh": 8.2821
+          "year": 1990,
+          "coal": 31.3,
+          "petroleum": 36.1,
+          "gas": 24,
+          "nuclear": 7.6,
+          "renewables": 0.2,
+          "imports": 0.5,
+          "bioenergy": 0.3
         },
         {
-          "date": "2026-02-08",
-          "fillPct": 55.3,
-          "gasInStorageTwh": 8.3512
+          "year": 1991,
+          "coal": 30.6,
+          "petroleum": 35.1,
+          "gas": 25.2,
+          "nuclear": 7.9,
+          "renewables": 0.2,
+          "imports": 0.6,
+          "bioenergy": 0.3
         },
         {
-          "date": "2026-02-09",
-          "fillPct": 56,
-          "gasInStorageTwh": 8.4573
+          "year": 1992,
+          "coal": 29.1,
+          "petroleum": 35.8,
+          "gas": 25.4,
+          "nuclear": 8.5,
+          "renewables": 0.2,
+          "imports": 0.7,
+          "bioenergy": 0.4
         },
         {
-          "date": "2026-02-10",
-          "fillPct": 54.1,
-          "gasInStorageTwh": 8.1647
+          "year": 1993,
+          "coal": 24.9,
+          "petroleum": 35.4,
+          "gas": 28.5,
+          "nuclear": 9.8,
+          "renewables": 0.2,
+          "imports": 0.7,
+          "bioenergy": 0.5
         },
         {
-          "date": "2026-02-11",
-          "fillPct": 52.9,
-          "gasInStorageTwh": 7.9823
+          "year": 1994,
+          "coal": 23.6,
+          "petroleum": 35.3,
+          "gas": 29.8,
+          "nuclear": 9.8,
+          "renewables": 0.2,
+          "imports": 0.7,
+          "bioenergy": 0.7
         },
         {
-          "date": "2026-02-12",
-          "fillPct": 52,
-          "gasInStorageTwh": 7.846
+          "year": 1995,
+          "coal": 22.4,
+          "petroleum": 34.5,
+          "gas": 31.7,
+          "nuclear": 9.7,
+          "renewables": 0.2,
+          "imports": 0.6,
+          "bioenergy": 0.8
         },
         {
-          "date": "2026-02-13",
-          "fillPct": 51.1,
-          "gasInStorageTwh": 7.7216
+          "year": 1996,
+          "coal": 19.9,
+          "petroleum": 33.8,
+          "gas": 35.2,
+          "nuclear": 9.6,
+          "renewables": 0.2,
+          "imports": 0.6,
+          "bioenergy": 0.8
         },
         {
-          "date": "2026-02-14",
-          "fillPct": 46.9,
-          "gasInStorageTwh": 7.0844
+          "year": 1997,
+          "coal": 18,
+          "petroleum": 33.3,
+          "gas": 36.8,
+          "nuclear": 10.2,
+          "renewables": 0.2,
+          "imports": 0.6,
+          "bioenergy": 0.8
         },
         {
-          "date": "2026-02-15",
-          "fillPct": 43.9,
-          "gasInStorageTwh": 6.6322
+          "year": 1998,
+          "coal": 17.8,
+          "petroleum": 32.7,
+          "gas": 37.8,
+          "nuclear": 10.2,
+          "renewables": 0.2,
+          "imports": 0.5,
+          "bioenergy": 0.9
         },
         {
-          "date": "2026-02-16",
-          "fillPct": 43.7,
-          "gasInStorageTwh": 6.596
+          "year": 1999,
+          "coal": 15.6,
+          "petroleum": 33,
+          "gas": 40,
+          "nuclear": 9.7,
+          "renewables": 0.2,
+          "imports": 0.5,
+          "bioenergy": 1
         },
         {
-          "date": "2026-02-17",
-          "fillPct": 41.9,
-          "gasInStorageTwh": 6.3292
+          "year": 2000,
+          "coal": 16.4,
+          "petroleum": 32.7,
+          "gas": 40.8,
+          "nuclear": 8.4,
+          "renewables": 0.2,
+          "imports": 0.5,
+          "bioenergy": 1
         },
         {
-          "date": "2026-02-18",
-          "fillPct": 36.6,
-          "gasInStorageTwh": 5.5271
+          "year": 2001,
+          "coal": 17.2,
+          "petroleum": 32,
+          "gas": 40.4,
+          "nuclear": 8.8,
+          "renewables": 0.2,
+          "imports": 0.4,
+          "bioenergy": 1.1
         },
         {
-          "date": "2026-02-19",
-          "fillPct": 33.8,
-          "gasInStorageTwh": 5.1025
+          "year": 2002,
+          "coal": 16.4,
+          "petroleum": 32,
+          "gas": 41.1,
+          "nuclear": 8.8,
+          "renewables": 0.2,
+          "imports": 0.3,
+          "bioenergy": 1.2
         },
         {
-          "date": "2026-02-20",
-          "fillPct": 29.8,
-          "gasInStorageTwh": 4.5001
+          "year": 2003,
+          "coal": 17.5,
+          "petroleum": 31.5,
+          "gas": 40.8,
+          "nuclear": 8.6,
+          "renewables": 0.2,
+          "imports": 0.1,
+          "bioenergy": 1.3
         },
         {
-          "date": "2026-02-21",
-          "fillPct": 28.7,
-          "gasInStorageTwh": 4.3331
+          "year": 2004,
+          "coal": 16.7,
+          "petroleum": 32.1,
+          "gas": 41.4,
+          "nuclear": 7.8,
+          "renewables": 0.3,
+          "imports": 0.3,
+          "bioenergy": 1.5
         },
         {
-          "date": "2026-02-22",
-          "fillPct": 29.9,
-          "gasInStorageTwh": 4.5157
+          "year": 2005,
+          "coal": 16.9,
+          "petroleum": 33.1,
+          "gas": 39.9,
+          "nuclear": 7.8,
+          "renewables": 0.3,
+          "imports": 0.3,
+          "bioenergy": 1.8
         },
         {
-          "date": "2026-02-23",
-          "fillPct": 32.5,
-          "gasInStorageTwh": 4.9025
+          "year": 2006,
+          "coal": 18.6,
+          "petroleum": 33.2,
+          "gas": 38.4,
+          "nuclear": 7.4,
+          "renewables": 0.3,
+          "imports": 0.3,
+          "bioenergy": 1.9
         },
         {
-          "date": "2026-02-24",
-          "fillPct": 33.1,
-          "gasInStorageTwh": 4.9932
+          "year": 2007,
+          "coal": 18,
+          "petroleum": 33.5,
+          "gas": 39.7,
+          "nuclear": 6.2,
+          "renewables": 0.4,
+          "imports": 0.2,
+          "bioenergy": 2.1
         },
         {
-          "date": "2026-02-25",
-          "fillPct": 34.3,
-          "gasInStorageTwh": 5.1764
+          "year": 2008,
+          "coal": 16.9,
+          "petroleum": 33,
+          "gas": 41.3,
+          "nuclear": 5.3,
+          "renewables": 0.5,
+          "imports": 0.4,
+          "bioenergy": 2.7
         },
         {
-          "date": "2026-02-26",
-          "fillPct": 37.1,
-          "gasInStorageTwh": 5.5969
+          "year": 2009,
+          "coal": 14.7,
+          "petroleum": 33.5,
+          "gas": 40.7,
+          "nuclear": 7.2,
+          "renewables": 0.6,
+          "imports": 0.1,
+          "bioenergy": 3.2
         },
         {
-          "date": "2026-02-27",
-          "fillPct": 40.3,
-          "gasInStorageTwh": 6.0891
+          "year": 2010,
+          "coal": 14.8,
+          "petroleum": 32.3,
+          "gas": 42.5,
+          "nuclear": 6.3,
+          "renewables": 0.5,
+          "imports": 0.1,
+          "bioenergy": 3.4
         },
         {
-          "date": "2026-02-28",
-          "fillPct": 40.7,
-          "gasInStorageTwh": 6.1384
+          "year": 2011,
+          "coal": 15.8,
+          "petroleum": 33.5,
+          "gas": 38,
+          "nuclear": 7.7,
+          "renewables": 0.9,
+          "imports": 0.3,
+          "bioenergy": 3.8
         },
         {
-          "date": "2026-03-01",
-          "fillPct": 40.9,
-          "gasInStorageTwh": 6.1808
+          "year": 2012,
+          "coal": 19.6,
+          "petroleum": 32.5,
+          "gas": 35.1,
+          "nuclear": 7.3,
+          "renewables": 1.1,
+          "imports": 0.5,
+          "bioenergy": 3.9
         },
         {
-          "date": "2026-03-02",
-          "fillPct": 41.8,
-          "gasInStorageTwh": 6.3159
+          "year": 2013,
+          "coal": 18.8,
+          "petroleum": 32.3,
+          "gas": 35,
+          "nuclear": 7.4,
+          "renewables": 1.5,
+          "imports": 0.6,
+          "bioenergy": 4.4
         },
         {
-          "date": "2026-03-03",
-          "fillPct": 42.8,
-          "gasInStorageTwh": 6.4639
+          "year": 2014,
+          "coal": 16.2,
+          "petroleum": 34.4,
+          "gas": 34,
+          "nuclear": 7.1,
+          "renewables": 1.9,
+          "imports": 0.9,
+          "bioenergy": 5.5
         },
         {
-          "date": "2026-03-04",
-          "fillPct": 43.1,
-          "gasInStorageTwh": 6.5035
+          "year": 2015,
+          "coal": 12.9,
+          "petroleum": 34.5,
+          "gas": 35,
+          "nuclear": 8,
+          "renewables": 2.4,
+          "imports": 0.9,
+          "bioenergy": 6.4
         },
         {
-          "date": "2026-03-05",
-          "fillPct": 44.6,
-          "gasInStorageTwh": 6.7408
+          "year": 2016,
+          "coal": 6.6,
+          "petroleum": 35.8,
+          "gas": 39.3,
+          "nuclear": 8.1,
+          "renewables": 2.4,
+          "imports": 0.8,
+          "bioenergy": 7.1
         },
         {
-          "date": "2026-03-06",
-          "fillPct": 47.1,
-          "gasInStorageTwh": 7.1096
+          "year": 2017,
+          "coal": 5.4,
+          "petroleum": 36.6,
+          "gas": 38.9,
+          "nuclear": 7.9,
+          "renewables": 3,
+          "imports": 0.7,
+          "bioenergy": 7.5
         },
         {
-          "date": "2026-03-07",
-          "fillPct": 46.4,
-          "gasInStorageTwh": 6.9998
+          "year": 2018,
+          "coal": 4.6,
+          "petroleum": 36.1,
+          "gas": 39.2,
+          "nuclear": 7.4,
+          "renewables": 3.4,
+          "imports": 0.9,
+          "bioenergy": 8.5
         },
         {
-          "date": "2026-03-08",
-          "fillPct": 48,
-          "gasInStorageTwh": 7.2536
+          "year": 2019,
+          "coal": 3.3,
+          "petroleum": 36.5,
+          "gas": 39.5,
+          "nuclear": 6.6,
+          "renewables": 3.8,
+          "imports": 1,
+          "bioenergy": 9.2
+        },
+        {
+          "year": 2020,
+          "coal": 3.4,
+          "petroleum": 31.5,
+          "gas": 42.1,
+          "nuclear": 6.5,
+          "renewables": 5,
+          "imports": 0.9,
+          "bioenergy": 10.6
+        },
+        {
+          "year": 2021,
+          "coal": 3.3,
+          "petroleum": 31.9,
+          "gas": 42.7,
+          "nuclear": 5.8,
+          "renewables": 4.2,
+          "imports": 1.2,
+          "bioenergy": 10.8
+        },
+        {
+          "year": 2022,
+          "coal": 3.1,
+          "petroleum": 35.5,
+          "gas": 39.7,
+          "nuclear": 6.1,
+          "renewables": 5.1,
+          "imports": -0.3,
+          "bioenergy": 10.9
+        },
+        {
+          "year": 2023,
+          "coal": 2.7,
+          "petroleum": 37.4,
+          "gas": 36.5,
+          "nuclear": 5.4,
+          "renewables": 5.4,
+          "imports": 1.3,
+          "bioenergy": 11.4
+        },
+        {
+          "year": 2024,
+          "coal": 1.5,
+          "petroleum": 38,
+          "gas": 35.7,
+          "nuclear": 5.4,
+          "renewables": 5.4,
+          "imports": 1.8,
+          "bioenergy": 12.3
         }
       ]
+    },
+    "fuelConsumption": {
+      "sourceId": "energy-source",
+      "timeField": "year",
+      "data": [
+        {
+          "year": 1990,
+          "coal": 66.9,
+          "petroleum": 77.16,
+          "gas": 51.17,
+          "nuclear": 16.26,
+          "renewables": 0.45,
+          "imports": 1.03,
+          "bioenergy": 0.65,
+          "total": 213.62
+        },
+        {
+          "year": 1991,
+          "coal": 67.1,
+          "petroleum": 77.14,
+          "gas": 55.36,
+          "nuclear": 17.43,
+          "renewables": 0.4,
+          "imports": 1.41,
+          "bioenergy": 0.7,
+          "total": 219.54
+        },
+        {
+          "year": 1992,
+          "coal": 63,
+          "petroleum": 77.49,
+          "gas": 55.07,
+          "nuclear": 18.45,
+          "renewables": 0.47,
+          "imports": 1.44,
+          "bioenergy": 0.82,
+          "total": 216.74
+        },
+        {
+          "year": 1993,
+          "coal": 55,
+          "petroleum": 78.13,
+          "gas": 62.95,
+          "nuclear": 21.58,
+          "renewables": 0.47,
+          "imports": 1.44,
+          "bioenergy": 1.17,
+          "total": 220.73
+        },
+        {
+          "year": 1994,
+          "coal": 51.3,
+          "petroleum": 76.67,
+          "gas": 64.86,
+          "nuclear": 21.2,
+          "renewables": 0.39,
+          "imports": 1.45,
+          "bioenergy": 1.61,
+          "total": 217.47
+        },
+        {
+          "year": 1995,
+          "coal": 48.9,
+          "petroleum": 75.42,
+          "gas": 69.22,
+          "nuclear": 21.25,
+          "renewables": 0.47,
+          "imports": 1.4,
+          "bioenergy": 1.72,
+          "total": 218.39
+        },
+        {
+          "year": 1996,
+          "coal": 45.74,
+          "petroleum": 77.82,
+          "gas": 80.98,
+          "nuclear": 22.06,
+          "renewables": 0.33,
+          "imports": 1.44,
+          "bioenergy": 1.77,
+          "total": 229.99
+        },
+        {
+          "year": 1997,
+          "coal": 40.79,
+          "petroleum": 75.48,
+          "gas": 83.53,
+          "nuclear": 23.12,
+          "renewables": 0.42,
+          "imports": 1.43,
+          "bioenergy": 1.91,
+          "total": 226.81
+        },
+        {
+          "year": 1998,
+          "coal": 40.97,
+          "petroleum": 75.36,
+          "gas": 87.32,
+          "nuclear": 23.44,
+          "renewables": 0.52,
+          "imports": 1.07,
+          "bioenergy": 2.08,
+          "total": 230.74
+        },
+        {
+          "year": 1999,
+          "coal": 35.99,
+          "petroleum": 76.43,
+          "gas": 92.51,
+          "nuclear": 22.41,
+          "renewables": 0.53,
+          "imports": 1.22,
+          "bioenergy": 2.23,
+          "total": 231.33
+        },
+        {
+          "year": 2000,
+          "coal": 38.54,
+          "petroleum": 76.72,
+          "gas": 95.87,
+          "nuclear": 19.63,
+          "renewables": 0.52,
+          "imports": 1.22,
+          "bioenergy": 2.31,
+          "total": 234.81
+        },
+        {
+          "year": 2001,
+          "coal": 40.78,
+          "petroleum": 75.86,
+          "gas": 95.56,
+          "nuclear": 20.8,
+          "renewables": 0.43,
+          "imports": 0.89,
+          "bioenergy": 2.53,
+          "total": 236.85
+        },
+        {
+          "year": 2002,
+          "coal": 37.7,
+          "petroleum": 73.48,
+          "gas": 94.33,
+          "nuclear": 20.1,
+          "renewables": 0.52,
+          "imports": 0.72,
+          "bioenergy": 2.75,
+          "total": 229.6
+        },
+        {
+          "year": 2003,
+          "coal": 40.48,
+          "petroleum": 73.02,
+          "gas": 94.64,
+          "nuclear": 20.04,
+          "renewables": 0.39,
+          "imports": 0.19,
+          "bioenergy": 3.12,
+          "total": 231.87
+        },
+        {
+          "year": 2004,
+          "coal": 39.07,
+          "petroleum": 75.06,
+          "gas": 96.64,
+          "nuclear": 18.16,
+          "renewables": 0.58,
+          "imports": 0.64,
+          "bioenergy": 3.48,
+          "total": 233.63
+        },
+        {
+          "year": 2005,
+          "coal": 39.86,
+          "petroleum": 78.22,
+          "gas": 94.29,
+          "nuclear": 18.37,
+          "renewables": 0.67,
+          "imports": 0.72,
+          "bioenergy": 4.17,
+          "total": 236.29
+        },
+        {
+          "year": 2006,
+          "coal": 43.36,
+          "petroleum": 77.37,
+          "gas": 89.39,
+          "nuclear": 17.13,
+          "renewables": 0.76,
+          "imports": 0.65,
+          "bioenergy": 4.42,
+          "total": 233.07
+        },
+        {
+          "year": 2007,
+          "coal": 40.96,
+          "petroleum": 76.31,
+          "gas": 90.19,
+          "nuclear": 14.04,
+          "renewables": 0.89,
+          "imports": 0.45,
+          "bioenergy": 4.65,
+          "total": 227.49
+        },
+        {
+          "year": 2008,
+          "coal": 38.16,
+          "petroleum": 74.38,
+          "gas": 93.11,
+          "nuclear": 11.91,
+          "renewables": 1.06,
+          "imports": 0.95,
+          "bioenergy": 6.1,
+          "total": 225.65
+        },
+        {
+          "year": 2009,
+          "coal": 31.2,
+          "petroleum": 71.01,
+          "gas": 86.19,
+          "nuclear": 15.23,
+          "renewables": 1.25,
+          "imports": 0.25,
+          "bioenergy": 6.7,
+          "total": 211.82
+        },
+        {
+          "year": 2010,
+          "coal": 32.62,
+          "petroleum": 70.95,
+          "gas": 93.55,
+          "nuclear": 13.93,
+          "renewables": 1.2,
+          "imports": 0.23,
+          "bioenergy": 7.55,
+          "total": 220.02
+        },
+        {
+          "year": 2011,
+          "coal": 32.25,
+          "petroleum": 68.47,
+          "gas": 77.65,
+          "nuclear": 15.63,
+          "renewables": 1.88,
+          "imports": 0.53,
+          "bioenergy": 7.82,
+          "total": 204.22
+        },
+        {
+          "year": 2012,
+          "coal": 40.92,
+          "petroleum": 67.82,
+          "gas": 73.27,
+          "nuclear": 15.21,
+          "renewables": 2.28,
+          "imports": 1.02,
+          "bioenergy": 8.1,
+          "total": 208.62
+        },
+        {
+          "year": 2013,
+          "coal": 39.04,
+          "petroleum": 66.99,
+          "gas": 72.61,
+          "nuclear": 15.44,
+          "renewables": 3.02,
+          "imports": 1.24,
+          "bioenergy": 9.1,
+          "total": 207.45
+        },
+        {
+          "year": 2014,
+          "coal": 31.51,
+          "petroleum": 66.8,
+          "gas": 66.13,
+          "nuclear": 13.85,
+          "renewables": 3.6,
+          "imports": 1.76,
+          "bioenergy": 10.71,
+          "total": 194.37
+        },
+        {
+          "year": 2015,
+          "coal": 25.12,
+          "petroleum": 67.09,
+          "gas": 68.11,
+          "nuclear": 15.48,
+          "renewables": 4.65,
+          "imports": 1.81,
+          "bioenergy": 12.44,
+          "total": 194.71
+        },
+        {
+          "year": 2016,
+          "coal": 12.71,
+          "petroleum": 68.53,
+          "gas": 75.18,
+          "nuclear": 15.41,
+          "renewables": 4.55,
+          "imports": 1.53,
+          "bioenergy": 13.5,
+          "total": 191.41
+        },
+        {
+          "year": 2017,
+          "coal": 10.31,
+          "petroleum": 69.79,
+          "gas": 74.22,
+          "nuclear": 15.12,
+          "renewables": 5.76,
+          "imports": 1.27,
+          "bioenergy": 14.23,
+          "total": 190.7
+        },
+        {
+          "year": 2018,
+          "coal": 8.68,
+          "petroleum": 68.86,
+          "gas": 74.74,
+          "nuclear": 14.06,
+          "renewables": 6.45,
+          "imports": 1.64,
+          "bioenergy": 16.1,
+          "total": 190.53
+        },
+        {
+          "year": 2019,
+          "coal": 6.12,
+          "petroleum": 67.15,
+          "gas": 72.62,
+          "nuclear": 12.09,
+          "renewables": 7.07,
+          "imports": 1.82,
+          "bioenergy": 17,
+          "total": 183.87
+        },
+        {
+          "year": 2020,
+          "coal": 5.57,
+          "petroleum": 51.81,
+          "gas": 69.4,
+          "nuclear": 10.71,
+          "renewables": 8.17,
+          "imports": 1.54,
+          "bioenergy": 17.49,
+          "total": 164.69
+        },
+        {
+          "year": 2021,
+          "coal": 5.7,
+          "petroleum": 54.44,
+          "gas": 72.91,
+          "nuclear": 9.95,
+          "renewables": 7.09,
+          "imports": 2.12,
+          "bioenergy": 18.45,
+          "total": 170.65
+        },
+        {
+          "year": 2022,
+          "coal": 5.23,
+          "petroleum": 59.64,
+          "gas": 66.73,
+          "nuclear": 10.29,
+          "renewables": 8.54,
+          "imports": -0.46,
+          "bioenergy": 18.25,
+          "total": 168.22
+        },
+        {
+          "year": 2023,
+          "coal": 4.49,
+          "petroleum": 61.18,
+          "gas": 59.83,
+          "nuclear": 8.79,
+          "renewables": 8.79,
+          "imports": 2.05,
+          "bioenergy": 18.63,
+          "total": 163.77
+        },
+        {
+          "year": 2024,
+          "coal": 2.53,
+          "petroleum": 62.48,
+          "gas": 58.59,
+          "nuclear": 8.82,
+          "renewables": 8.9,
+          "imports": 2.87,
+          "bioenergy": 20.18,
+          "total": 164.37
+        }
+      ]
+    },
+    "electricity": {
+      "sourceId": "energy-source",
+      "timeField": "year",
+      "data": [
+        {
+          "year": 1990,
+          "convThermal": 234093,
+          "ccgt": 280,
+          "nuclear": 58664,
+          "renewables": 5199,
+          "pumpedStorage": 1892,
+          "battery": 0,
+          "totalNet": 297502
+        },
+        {
+          "year": 1991,
+          "convThermal": 233316,
+          "ccgt": 607,
+          "nuclear": 62761,
+          "renewables": 4615,
+          "pumpedStorage": 1465,
+          "battery": 0,
+          "totalNet": 300655
+        },
+        {
+          "year": 1992,
+          "convThermal": 221232,
+          "ccgt": 3358,
+          "nuclear": 69135,
+          "renewables": 5444,
+          "pumpedStorage": 1635,
+          "battery": 0,
+          "totalNet": 298547
+        },
+        {
+          "year": 1993,
+          "convThermal": 193752,
+          "ccgt": 23195,
+          "nuclear": 80979,
+          "renewables": 4502,
+          "pumpedStorage": 1388,
+          "battery": 0,
+          "totalNet": 301868
+        },
+        {
+          "year": 1994,
+          "convThermal": 184677,
+          "ccgt": 37553,
+          "nuclear": 79962,
+          "renewables": 5378,
+          "pumpedStorage": 1417,
+          "battery": 0,
+          "totalNet": 306936
+        },
+        {
+          "year": 1995,
+          "convThermal": 183175,
+          "ccgt": 49458,
+          "nuclear": 80598,
+          "renewables": 5176,
+          "pumpedStorage": 1502,
+          "battery": 0,
+          "totalNet": 317627
+        },
+        {
+          "year": 1996,
+          "convThermal": 174664,
+          "ccgt": 68962,
+          "nuclear": 85820,
+          "renewables": 3833,
+          "pumpedStorage": 1507,
+          "battery": 0,
+          "totalNet": 332356
+        },
+        {
+          "year": 1997,
+          "convThermal": 147665,
+          "ccgt": 90874,
+          "nuclear": 89341,
+          "renewables": 4788,
+          "pumpedStorage": 1439,
+          "battery": 0,
+          "totalNet": 331630
+        },
+        {
+          "year": 1998,
+          "convThermal": 149001,
+          "ccgt": 98162,
+          "nuclear": 90590,
+          "renewables": 5971,
+          "pumpedStorage": 1569,
+          "battery": 0,
+          "totalNet": 342699
+        },
+        {
+          "year": 1999,
+          "convThermal": 135263,
+          "ccgt": 119553,
+          "nuclear": 87672,
+          "renewables": 6154,
+          "pumpedStorage": 2804,
+          "battery": 0,
+          "totalNet": 347672
+        },
+        {
+          "year": 2000,
+          "convThermal": 147394,
+          "ccgt": 126428,
+          "nuclear": 78334,
+          "renewables": 6006,
+          "pumpedStorage": 2603,
+          "battery": 0,
+          "totalNet": 357266
+        },
+        {
+          "year": 2001,
+          "convThermal": 147185,
+          "ccgt": 129875,
+          "nuclear": 82985,
+          "renewables": 4997,
+          "pumpedStorage": 2340,
+          "battery": 0,
+          "totalNet": 364173
+        },
+        {
+          "year": 2002,
+          "convThermal": 148511,
+          "ccgt": 131935,
+          "nuclear": 81090,
+          "renewables": 6022,
+          "pumpedStorage": 2562,
+          "battery": 0,
+          "totalNet": 366657
+        },
+        {
+          "year": 2003,
+          "convThermal": 162138,
+          "ccgt": 128882,
+          "nuclear": 81911,
+          "renewables": 4500,
+          "pumpedStorage": 2641,
+          "battery": 0,
+          "totalNet": 376528
+        },
+        {
+          "year": 2004,
+          "convThermal": 153653,
+          "ccgt": 140243,
+          "nuclear": 73682,
+          "renewables": 6760,
+          "pumpedStorage": 2559,
+          "battery": 0,
+          "totalNet": 373399
+        },
+        {
+          "year": 2005,
+          "convThermal": 155493,
+          "ccgt": 139382,
+          "nuclear": 75173,
+          "renewables": 7662,
+          "pumpedStorage": 2776,
+          "battery": 0,
+          "totalNet": 376780
+        },
+        {
+          "year": 2006,
+          "convThermal": 170464,
+          "ccgt": 126554,
+          "nuclear": 69237,
+          "renewables": 8802,
+          "pumpedStorage": 3722,
+          "battery": 0,
+          "totalNet": 373861
+        },
+        {
+          "year": 2007,
+          "convThermal": 158594,
+          "ccgt": 149127,
+          "nuclear": 57249,
+          "renewables": 10320,
+          "pumpedStorage": 3846,
+          "battery": 0,
+          "totalNet": 374064
+        },
+        {
+          "year": 2008,
+          "convThermal": 140185,
+          "ccgt": 168364,
+          "nuclear": 47673,
+          "renewables": 12255,
+          "pumpedStorage": 4075,
+          "battery": 0,
+          "totalNet": 367180
+        },
+        {
+          "year": 2009,
+          "convThermal": 120053,
+          "ccgt": 159159,
+          "nuclear": 62762,
+          "renewables": 14503,
+          "pumpedStorage": 3672,
+          "battery": 0,
+          "totalNet": 355306
+        },
+        {
+          "year": 2010,
+          "convThermal": 175718,
+          "ccgt": 116754,
+          "nuclear": 56442,
+          "renewables": 13894,
+          "pumpedStorage": 3139,
+          "battery": 0,
+          "totalNet": 361734
+        },
+        {
+          "year": 2011,
+          "convThermal": 145261,
+          "ccgt": 118857,
+          "nuclear": 62655,
+          "renewables": 21862,
+          "pumpedStorage": 2895,
+          "battery": 0,
+          "totalNet": 347688
+        },
+        {
+          "year": 2012,
+          "convThermal": 159183,
+          "ccgt": 93311,
+          "nuclear": 63949,
+          "renewables": 26491,
+          "pumpedStorage": 2956,
+          "battery": 0,
+          "totalNet": 341912
+        },
+        {
+          "year": 2013,
+          "convThermal": 146777,
+          "ccgt": 91552,
+          "nuclear": 64133,
+          "renewables": 35079,
+          "pumpedStorage": 2894,
+          "battery": 0,
+          "totalNet": 336504
+        },
+        {
+          "year": 2014,
+          "convThermal": 124642,
+          "ccgt": 94351,
+          "nuclear": 57903,
+          "renewables": 41847,
+          "pumpedStorage": 2873,
+          "battery": 0,
+          "totalNet": 317732
+        },
+        {
+          "year": 2015,
+          "convThermal": 107477,
+          "ccgt": 94066,
+          "nuclear": 63895,
+          "renewables": 54056,
+          "pumpedStorage": 2730,
+          "battery": 0,
+          "totalNet": 318513
+        },
+        {
+          "year": 2016,
+          "convThermal": 65613,
+          "ccgt": 137312,
+          "nuclear": 65149,
+          "renewables": 52874,
+          "pumpedStorage": 2949,
+          "battery": 0,
+          "totalNet": 319882
+        },
+        {
+          "year": 2017,
+          "convThermal": 60935,
+          "ccgt": 128123,
+          "nuclear": 63887,
+          "renewables": 66920,
+          "pumpedStorage": 2862,
+          "battery": 0,
+          "totalNet": 318868
+        },
+        {
+          "year": 2018,
+          "convThermal": 58100,
+          "ccgt": 123898,
+          "nuclear": 59098,
+          "renewables": 74967,
+          "pumpedStorage": 2490,
+          "battery": 36,
+          "totalNet": 315186
+        },
+        {
+          "year": 2019,
+          "convThermal": 55511,
+          "ccgt": 122141,
+          "nuclear": 51032,
+          "renewables": 82132,
+          "pumpedStorage": 1750,
+          "battery": 82,
+          "totalNet": 310260
+        },
+        {
+          "year": 2020,
+          "convThermal": 53385,
+          "ccgt": 103061,
+          "nuclear": 46076,
+          "renewables": 94557,
+          "pumpedStorage": 1565,
+          "battery": 113,
+          "totalNet": 296649
+        },
+        {
+          "year": 2021,
+          "convThermal": 55730,
+          "ccgt": 114283,
+          "nuclear": 41990,
+          "renewables": 81979,
+          "pumpedStorage": 1891,
+          "battery": 94,
+          "totalNet": 293412
+        },
+        {
+          "year": 2022,
+          "convThermal": 51266,
+          "ccgt": 117495,
+          "nuclear": 43523,
+          "renewables": 98758,
+          "pumpedStorage": 1988,
+          "battery": 195,
+          "totalNet": 310347
+        },
+        {
+          "year": 2023,
+          "convThermal": 47756,
+          "ccgt": 93628,
+          "nuclear": 37297,
+          "renewables": 101685,
+          "pumpedStorage": 1821,
+          "battery": 1020,
+          "totalNet": 279583
+        },
+        {
+          "year": 2024,
+          "convThermal": 51468,
+          "ccgt": 78716,
+          "nuclear": 37340,
+          "renewables": 102861,
+          "pumpedStorage": 2057,
+          "battery": 1811,
+          "totalNet": 269389
+        }
+      ]
+    },
+    "expenditure": {
+      "sourceId": "energy-source",
+      "timeField": "year",
+      "data": [
+        {
+          "year": 1990,
+          "domesticGas": 4865,
+          "domesticElectricity": 6255,
+          "domesticTotal": 12305,
+          "industryTotal": 7075,
+          "allTotal": 46155
+        },
+        {
+          "year": 1991,
+          "domesticGas": 5775,
+          "domesticElectricity": 7105,
+          "domesticTotal": 14135,
+          "industryTotal": 7050,
+          "allTotal": 49440
+        },
+        {
+          "year": 1992,
+          "domesticGas": 5685,
+          "domesticElectricity": 7460,
+          "domesticTotal": 14315,
+          "industryTotal": 6715,
+          "allTotal": 50320
+        },
+        {
+          "year": 1993,
+          "domesticGas": 5705,
+          "domesticElectricity": 7590,
+          "domesticTotal": 14540,
+          "industryTotal": 6490,
+          "allTotal": 52205
+        },
+        {
+          "year": 1994,
+          "domesticGas": 6020,
+          "domesticElectricity": 7870,
+          "domesticTotal": 15030,
+          "industryTotal": 6380,
+          "allTotal": 53190
+        },
+        {
+          "year": 1995,
+          "domesticGas": 6010,
+          "domesticElectricity": 8060,
+          "domesticTotal": 15155,
+          "industryTotal": 6420,
+          "allTotal": 53915
+        },
+        {
+          "year": 1996,
+          "domesticGas": 6510,
+          "domesticElectricity": 8380,
+          "domesticTotal": 16165,
+          "industryTotal": 6210,
+          "allTotal": 57020
+        },
+        {
+          "year": 1997,
+          "domesticGas": 6125,
+          "domesticElectricity": 7965,
+          "domesticTotal": 15210,
+          "industryTotal": 5950,
+          "allTotal": 58120
+        },
+        {
+          "year": 1998,
+          "domesticGas": 6015,
+          "domesticElectricity": 7595,
+          "domesticTotal": 14630,
+          "industryTotal": 5825,
+          "allTotal": 57940
+        },
+        {
+          "year": 1999,
+          "domesticGas": 5610,
+          "domesticElectricity": 7600,
+          "domesticTotal": 14255,
+          "industryTotal": 6080,
+          "allTotal": 64795
+        },
+        {
+          "year": 2000,
+          "domesticGas": 5485,
+          "domesticElectricity": 7475,
+          "domesticTotal": 14200,
+          "industryTotal": 6330,
+          "allTotal": 65425
+        },
+        {
+          "year": 2001,
+          "domesticGas": 5735,
+          "domesticElectricity": 7540,
+          "domesticTotal": 14560,
+          "industryTotal": 6485,
+          "allTotal": 63905
+        },
+        {
+          "year": 2002,
+          "domesticGas": 6090,
+          "domesticElectricity": 7510,
+          "domesticTotal": 14745,
+          "industryTotal": 5970,
+          "allTotal": 62280
+        },
+        {
+          "year": 2003,
+          "domesticGas": 6260,
+          "domesticElectricity": 7660,
+          "domesticTotal": 15000,
+          "industryTotal": 6110,
+          "allTotal": 64345
+        },
+        {
+          "year": 2004,
+          "domesticGas": 6900,
+          "domesticElectricity": 8895,
+          "domesticTotal": 16925,
+          "industryTotal": 6835,
+          "allTotal": 76070
+        },
+        {
+          "year": 2005,
+          "domesticGas": 8215,
+          "domesticElectricity": 9665,
+          "domesticTotal": 19195,
+          "industryTotal": 10025,
+          "allTotal": 86125
+        },
+        {
+          "year": 2006,
+          "domesticGas": 10100,
+          "domesticElectricity": 11340,
+          "domesticTotal": 22970,
+          "industryTotal": 12810,
+          "allTotal": 98070
+        },
+        {
+          "year": 2007,
+          "domesticGas": 9950,
+          "domesticElectricity": 12540,
+          "domesticTotal": 23935,
+          "industryTotal": 12365,
+          "allTotal": 100625
+        },
+        {
+          "year": 2008,
+          "domesticGas": 12070,
+          "domesticElectricity": 14245,
+          "domesticTotal": 28375,
+          "industryTotal": 14255,
+          "allTotal": 117430
+        },
+        {
+          "year": 2009,
+          "domesticGas": 12605,
+          "domesticElectricity": 14535,
+          "domesticTotal": 28810,
+          "industryTotal": 12250,
+          "allTotal": 106600
+        },
+        {
+          "year": 2010,
+          "domesticGas": 14290,
+          "domesticElectricity": 14565,
+          "domesticTotal": 30870,
+          "industryTotal": 11335,
+          "allTotal": 100885
+        },
+        {
+          "year": 2011,
+          "domesticGas": 12870,
+          "domesticElectricity": 14765,
+          "domesticTotal": 29730,
+          "industryTotal": 12500,
+          "allTotal": 109470
+        },
+        {
+          "year": 2012,
+          "domesticGas": 15600,
+          "domesticElectricity": 15970,
+          "domesticTotal": 33885,
+          "industryTotal": 12765,
+          "allTotal": 117230
+        },
+        {
+          "year": 2013,
+          "domesticGas": 16665,
+          "domesticElectricity": 16850,
+          "domesticTotal": 35920,
+          "industryTotal": 13350,
+          "allTotal": 121060
+        },
+        {
+          "year": 2014,
+          "domesticGas": 14575,
+          "domesticElectricity": 16770,
+          "domesticTotal": 33310,
+          "industryTotal": 12100,
+          "allTotal": 114655
+        },
+        {
+          "year": 2015,
+          "domesticGas": 14460,
+          "domesticElectricity": 16410,
+          "domesticTotal": 32580,
+          "industryTotal": 10735,
+          "allTotal": 103855
+        },
+        {
+          "year": 2016,
+          "domesticGas": 13405,
+          "domesticElectricity": 16145,
+          "domesticTotal": 31185,
+          "industryTotal": 9775,
+          "allTotal": 100785
+        },
+        {
+          "year": 2017,
+          "domesticGas": 12815,
+          "domesticElectricity": 16630,
+          "domesticTotal": 31330,
+          "industryTotal": 10785,
+          "allTotal": 108045
+        },
+        {
+          "year": 2018,
+          "domesticGas": 13370,
+          "domesticElectricity": 17935,
+          "domesticTotal": 33530,
+          "industryTotal": 12200,
+          "allTotal": 118420
+        },
+        {
+          "year": 2019,
+          "domesticGas": 13385,
+          "domesticElectricity": 19220,
+          "domesticTotal": 34780,
+          "industryTotal": 12230,
+          "allTotal": 118690
+        },
+        {
+          "year": 2020,
+          "domesticGas": 13065,
+          "domesticElectricity": 20070,
+          "domesticTotal": 34955,
+          "industryTotal": 10135,
+          "allTotal": 101610
+        },
+        {
+          "year": 2021,
+          "domesticGas": 13330,
+          "domesticElectricity": 22015,
+          "domesticTotal": 37625,
+          "industryTotal": 13710,
+          "allTotal": 119075
+        },
+        {
+          "year": 2022,
+          "domesticGas": 22240,
+          "domesticElectricity": 30140,
+          "domesticTotal": 55455,
+          "industryTotal": 20180,
+          "allTotal": 169215
+        },
+        {
+          "year": 2023,
+          "domesticGas": 24020,
+          "domesticElectricity": 32485,
+          "domesticTotal": 59360,
+          "industryTotal": 20065,
+          "allTotal": 174715
+        },
+        {
+          "year": 2024,
+          "domesticGas": 18670,
+          "domesticElectricity": 29175,
+          "domesticTotal": 50510,
+          "industryTotal": 16580,
+          "allTotal": 156455
+        }
+      ]
+    },
+    "importDependency": {
+      "sourceId": "energy-source",
+      "timeField": "year",
+      "data": [
+        {
+          "year": 1990,
+          "production": 219446,
+          "consumption": 213687,
+          "importDependency": -2.7
+        },
+        {
+          "year": 1991,
+          "production": 226669,
+          "consumption": 219505,
+          "importDependency": -3.3
+        },
+        {
+          "year": 1992,
+          "production": 226547,
+          "consumption": 216815,
+          "importDependency": -4.5
+        },
+        {
+          "year": 1993,
+          "production": 234882,
+          "consumption": 220564,
+          "importDependency": -6.5
+        },
+        {
+          "year": 1994,
+          "production": 256559,
+          "consumption": 217491,
+          "importDependency": -18
+        },
+        {
+          "year": 1995,
+          "production": 269738,
+          "consumption": 218421,
+          "importDependency": -23.5
+        },
+        {
+          "year": 1996,
+          "production": 281559,
+          "consumption": 229988,
+          "importDependency": -22.4
+        },
+        {
+          "year": 1997,
+          "production": 282082,
+          "consumption": 226814,
+          "importDependency": -24.4
+        },
+        {
+          "year": 1998,
+          "production": 287233,
+          "consumption": 230743,
+          "importDependency": -24.5
+        },
+        {
+          "year": 1999,
+          "production": 297655,
+          "consumption": 231328,
+          "importDependency": -28.7
+        },
+        {
+          "year": 2000,
+          "production": 288690,
+          "consumption": 234807,
+          "importDependency": -22.9
+        },
+        {
+          "year": 2001,
+          "production": 277426,
+          "consumption": 236855,
+          "importDependency": -17.1
+        },
+        {
+          "year": 2002,
+          "production": 272864,
+          "consumption": 229605,
+          "importDependency": -18.8
+        },
+        {
+          "year": 2003,
+          "production": 260310,
+          "consumption": 231867,
+          "importDependency": -12.3
+        },
+        {
+          "year": 2004,
+          "production": 238378,
+          "consumption": 233633,
+          "importDependency": -2
+        },
+        {
+          "year": 2005,
+          "production": 216541,
+          "consumption": 236290,
+          "importDependency": 8.4
+        },
+        {
+          "year": 2006,
+          "production": 197246,
+          "consumption": 233073,
+          "importDependency": 15.4
+        },
+        {
+          "year": 2007,
+          "production": 185970,
+          "consumption": 227492,
+          "importDependency": 18.3
+        },
+        {
+          "year": 2008,
+          "production": 177631,
+          "consumption": 225655,
+          "importDependency": 21.3
+        },
+        {
+          "year": 2009,
+          "production": 166172,
+          "consumption": 211820,
+          "importDependency": 21.6
+        },
+        {
+          "year": 2010,
+          "production": 156664,
+          "consumption": 220022,
+          "importDependency": 28.8
+        },
+        {
+          "year": 2011,
+          "production": 136115,
+          "consumption": 204222,
+          "importDependency": 33.3
+        },
+        {
+          "year": 2012,
+          "production": 120950,
+          "consumption": 208615,
+          "importDependency": 42
+        },
+        {
+          "year": 2013,
+          "production": 113383,
+          "consumption": 207449,
+          "importDependency": 45.3
+        },
+        {
+          "year": 2014,
+          "production": 112079,
+          "consumption": 194371,
+          "importDependency": 42.3
+        },
+        {
+          "year": 2015,
+          "production": 122998,
+          "consumption": 194707,
+          "importDependency": 36.8
+        },
+        {
+          "year": 2016,
+          "production": 124697,
+          "consumption": 191408,
+          "importDependency": 34.9
+        },
+        {
+          "year": 2017,
+          "production": 125171,
+          "consumption": 190696,
+          "importDependency": 34.4
+        },
+        {
+          "year": 2018,
+          "production": 129169,
+          "consumption": 190527,
+          "importDependency": 32.2
+        },
+        {
+          "year": 2019,
+          "production": 127693,
+          "consumption": 183866,
+          "importDependency": 30.6
+        },
+        {
+          "year": 2020,
+          "production": 123637,
+          "consumption": 164694,
+          "importDependency": 24.9
+        },
+        {
+          "year": 2021,
+          "production": 106985,
+          "consumption": 170653,
+          "importDependency": 37.3
+        },
+        {
+          "year": 2022,
+          "production": 110807,
+          "consumption": 168217,
+          "importDependency": 34.1
+        },
+        {
+          "year": 2023,
+          "production": 101421,
+          "consumption": 163769,
+          "importDependency": 38.1
+        },
+        {
+          "year": 2024,
+          "production": 94847,
+          "consumption": 164365,
+          "importDependency": 42.3
+        }
+      ]
+    },
+    "energySecurity": {
+      "sourceId": "energy-source",
+      "timeField": "year",
+      "data": {
+        "snapshot": {
+          "gasStorageDays": 9.1,
+          "gasStorageYear": 2024,
+          "gasImportPct": 58,
+          "oilImportPct": 46,
+          "elecImportPct": 5,
+          "importsByFuelYear": 2024,
+          "totalInterconnectorMw": 9800,
+          "capacityMarginPct": 5.9,
+          "capacityMarginYear": 2024,
+          "liveFillPct": 48,
+          "liveDaysOfDemand": 4.4,
+          "liveFillAsOf": "2026-03-08"
+        },
+        "gasStorage": [
+          {
+            "year": 2000,
+            "capacityBcm": 3.9,
+            "consumptionBcm": 95.2,
+            "daysOfDemand": 14.9
+          },
+          {
+            "year": 2005,
+            "capacityBcm": 4.4,
+            "consumptionBcm": 95.8,
+            "daysOfDemand": 16.8
+          },
+          {
+            "year": 2010,
+            "capacityBcm": 4.6,
+            "consumptionBcm": 93.8,
+            "daysOfDemand": 17.9
+          },
+          {
+            "year": 2013,
+            "capacityBcm": 4.6,
+            "consumptionBcm": 82,
+            "daysOfDemand": 20.5
+          },
+          {
+            "year": 2015,
+            "capacityBcm": 4.6,
+            "consumptionBcm": 76.4,
+            "daysOfDemand": 22
+          },
+          {
+            "year": 2017,
+            "capacityBcm": 1.3,
+            "consumptionBcm": 80.2,
+            "daysOfDemand": 5.9
+          },
+          {
+            "year": 2018,
+            "capacityBcm": 1.3,
+            "consumptionBcm": 79,
+            "daysOfDemand": 6
+          },
+          {
+            "year": 2020,
+            "capacityBcm": 1.3,
+            "consumptionBcm": 72.1,
+            "daysOfDemand": 6.6
+          },
+          {
+            "year": 2022,
+            "capacityBcm": 1.7,
+            "consumptionBcm": 73.5,
+            "daysOfDemand": 8.4
+          },
+          {
+            "year": 2023,
+            "capacityBcm": 1.7,
+            "consumptionBcm": 69.8,
+            "daysOfDemand": 8.9
+          },
+          {
+            "year": 2024,
+            "capacityBcm": 1.7,
+            "consumptionBcm": 68.5,
+            "daysOfDemand": 9.1
+          }
+        ],
+        "gasStorageIntl": [
+          {
+            "country": "Austria",
+            "daysOfDemand": 117,
+            "asOf": "2024-25"
+          },
+          {
+            "country": "France",
+            "daysOfDemand": 103,
+            "asOf": "2024-25"
+          },
+          {
+            "country": "Germany",
+            "daysOfDemand": 89,
+            "asOf": "2024-25"
+          },
+          {
+            "country": "Italy",
+            "daysOfDemand": 80,
+            "asOf": "2024-25"
+          },
+          {
+            "country": "Netherlands",
+            "daysOfDemand": 45,
+            "asOf": "2024-25"
+          },
+          {
+            "country": "Spain",
+            "daysOfDemand": 42,
+            "asOf": "2024-25"
+          },
+          {
+            "country": "Poland",
+            "daysOfDemand": 35,
+            "asOf": "2024-25"
+          },
+          {
+            "country": "UK",
+            "daysOfDemand": 9,
+            "asOf": "2024-25"
+          }
+        ],
+        "gasStorageIntlAsOf": "Winter 2024/25",
+        "importsByFuel": [
+          {
+            "year": 2000,
+            "gasPct": -5,
+            "oilPct": -16,
+            "elecPct": 3
+          },
+          {
+            "year": 2004,
+            "gasPct": 2,
+            "oilPct": -8,
+            "elecPct": 3
+          },
+          {
+            "year": 2005,
+            "gasPct": 8,
+            "oilPct": -2,
+            "elecPct": 3
+          },
+          {
+            "year": 2006,
+            "gasPct": 15,
+            "oilPct": 3,
+            "elecPct": 2
+          },
+          {
+            "year": 2008,
+            "gasPct": 26,
+            "oilPct": 13,
+            "elecPct": 1
+          },
+          {
+            "year": 2010,
+            "gasPct": 45,
+            "oilPct": 30,
+            "elecPct": 2
+          },
+          {
+            "year": 2012,
+            "gasPct": 47,
+            "oilPct": 38,
+            "elecPct": 5
+          },
+          {
+            "year": 2014,
+            "gasPct": 50,
+            "oilPct": 40,
+            "elecPct": 6
+          },
+          {
+            "year": 2015,
+            "gasPct": 47,
+            "oilPct": 43,
+            "elecPct": 6
+          },
+          {
+            "year": 2017,
+            "gasPct": 49,
+            "oilPct": 44,
+            "elecPct": 5
+          },
+          {
+            "year": 2018,
+            "gasPct": 54,
+            "oilPct": 45,
+            "elecPct": 7
+          },
+          {
+            "year": 2020,
+            "gasPct": 56,
+            "oilPct": 44,
+            "elecPct": 8
+          },
+          {
+            "year": 2021,
+            "gasPct": 53,
+            "oilPct": 41,
+            "elecPct": 6
+          },
+          {
+            "year": 2022,
+            "gasPct": 52,
+            "oilPct": 37,
+            "elecPct": 6
+          },
+          {
+            "year": 2023,
+            "gasPct": 56,
+            "oilPct": 43,
+            "elecPct": 5
+          },
+          {
+            "year": 2024,
+            "gasPct": 58,
+            "oilPct": 46,
+            "elecPct": 5
+          }
+        ],
+        "interconnectors": [
+          {
+            "name": "IFA",
+            "partner": "France",
+            "capacityMw": 2000,
+            "yearOpened": 1986
+          },
+          {
+            "name": "Moyle",
+            "partner": "N. Ireland",
+            "capacityMw": 500,
+            "yearOpened": 2001
+          },
+          {
+            "name": "BritNed",
+            "partner": "Netherlands",
+            "capacityMw": 1000,
+            "yearOpened": 2011
+          },
+          {
+            "name": "EWIC",
+            "partner": "Ireland",
+            "capacityMw": 500,
+            "yearOpened": 2012
+          },
+          {
+            "name": "Nemo Link",
+            "partner": "Belgium",
+            "capacityMw": 1000,
+            "yearOpened": 2019
+          },
+          {
+            "name": "IFA2",
+            "partner": "France",
+            "capacityMw": 1000,
+            "yearOpened": 2021
+          },
+          {
+            "name": "NSL",
+            "partner": "Norway",
+            "capacityMw": 1400,
+            "yearOpened": 2021
+          },
+          {
+            "name": "ElecLink",
+            "partner": "France",
+            "capacityMw": 1000,
+            "yearOpened": 2022
+          },
+          {
+            "name": "Viking Link",
+            "partner": "Denmark",
+            "capacityMw": 1400,
+            "yearOpened": 2023
+          }
+        ],
+        "capacityMargin": [
+          {
+            "year": 2010,
+            "marginPct": 14
+          },
+          {
+            "year": 2012,
+            "marginPct": 9
+          },
+          {
+            "year": 2014,
+            "marginPct": 4.1
+          },
+          {
+            "year": 2015,
+            "marginPct": 5.1
+          },
+          {
+            "year": 2016,
+            "marginPct": 6.6
+          },
+          {
+            "year": 2017,
+            "marginPct": 7.3
+          },
+          {
+            "year": 2018,
+            "marginPct": 8.3
+          },
+          {
+            "year": 2019,
+            "marginPct": 7.4
+          },
+          {
+            "year": 2020,
+            "marginPct": 8.2
+          },
+          {
+            "year": 2021,
+            "marginPct": 4.2
+          },
+          {
+            "year": 2022,
+            "marginPct": 3.7
+          },
+          {
+            "year": 2023,
+            "marginPct": 7.4
+          },
+          {
+            "year": 2024,
+            "marginPct": 5.9
+          }
+        ],
+        "liveFill": {
+          "fillPct": 48,
+          "gasInStorageTwh": 7.2536,
+          "gasInStorageBcm": 0.688,
+          "workingVolumeTwh": 15.1,
+          "daysAtCurrentFill": 4.4,
+          "asOf": "2026-03-08",
+          "history": [
+            {
+              "date": "2026-02-07",
+              "fillPct": 54.8,
+              "gasInStorageTwh": 8.2821
+            },
+            {
+              "date": "2026-02-08",
+              "fillPct": 55.3,
+              "gasInStorageTwh": 8.3512
+            },
+            {
+              "date": "2026-02-09",
+              "fillPct": 56,
+              "gasInStorageTwh": 8.4573
+            },
+            {
+              "date": "2026-02-10",
+              "fillPct": 54.1,
+              "gasInStorageTwh": 8.1647
+            },
+            {
+              "date": "2026-02-11",
+              "fillPct": 52.9,
+              "gasInStorageTwh": 7.9823
+            },
+            {
+              "date": "2026-02-12",
+              "fillPct": 52,
+              "gasInStorageTwh": 7.846
+            },
+            {
+              "date": "2026-02-13",
+              "fillPct": 51.1,
+              "gasInStorageTwh": 7.7216
+            },
+            {
+              "date": "2026-02-14",
+              "fillPct": 46.9,
+              "gasInStorageTwh": 7.0844
+            },
+            {
+              "date": "2026-02-15",
+              "fillPct": 43.9,
+              "gasInStorageTwh": 6.6322
+            },
+            {
+              "date": "2026-02-16",
+              "fillPct": 43.7,
+              "gasInStorageTwh": 6.596
+            },
+            {
+              "date": "2026-02-17",
+              "fillPct": 41.9,
+              "gasInStorageTwh": 6.3292
+            },
+            {
+              "date": "2026-02-18",
+              "fillPct": 36.6,
+              "gasInStorageTwh": 5.5271
+            },
+            {
+              "date": "2026-02-19",
+              "fillPct": 33.8,
+              "gasInStorageTwh": 5.1025
+            },
+            {
+              "date": "2026-02-20",
+              "fillPct": 29.8,
+              "gasInStorageTwh": 4.5001
+            },
+            {
+              "date": "2026-02-21",
+              "fillPct": 28.7,
+              "gasInStorageTwh": 4.3331
+            },
+            {
+              "date": "2026-02-22",
+              "fillPct": 29.9,
+              "gasInStorageTwh": 4.5157
+            },
+            {
+              "date": "2026-02-23",
+              "fillPct": 32.5,
+              "gasInStorageTwh": 4.9025
+            },
+            {
+              "date": "2026-02-24",
+              "fillPct": 33.1,
+              "gasInStorageTwh": 4.9932
+            },
+            {
+              "date": "2026-02-25",
+              "fillPct": 34.3,
+              "gasInStorageTwh": 5.1764
+            },
+            {
+              "date": "2026-02-26",
+              "fillPct": 37.1,
+              "gasInStorageTwh": 5.5969
+            },
+            {
+              "date": "2026-02-27",
+              "fillPct": 40.3,
+              "gasInStorageTwh": 6.0891
+            },
+            {
+              "date": "2026-02-28",
+              "fillPct": 40.7,
+              "gasInStorageTwh": 6.1384
+            },
+            {
+              "date": "2026-03-01",
+              "fillPct": 40.9,
+              "gasInStorageTwh": 6.1808
+            },
+            {
+              "date": "2026-03-02",
+              "fillPct": 41.8,
+              "gasInStorageTwh": 6.3159
+            },
+            {
+              "date": "2026-03-03",
+              "fillPct": 42.8,
+              "gasInStorageTwh": 6.4639
+            },
+            {
+              "date": "2026-03-04",
+              "fillPct": 43.1,
+              "gasInStorageTwh": 6.5035
+            },
+            {
+              "date": "2026-03-05",
+              "fillPct": 44.6,
+              "gasInStorageTwh": 6.7408
+            },
+            {
+              "date": "2026-03-06",
+              "fillPct": 47.1,
+              "gasInStorageTwh": 7.1096
+            },
+            {
+              "date": "2026-03-07",
+              "fillPct": 46.4,
+              "gasInStorageTwh": 6.9998
+            },
+            {
+              "date": "2026-03-08",
+              "fillPct": 48,
+              "gasInStorageTwh": 7.2536
+            }
+          ]
+        }
+      }
     }
   }
 }

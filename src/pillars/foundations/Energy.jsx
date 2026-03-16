@@ -10,6 +10,7 @@ import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
+import { fetchDataset } from "../../hooks/useDataset";
 
 const MIX_FUELS = [
   { key: "coal", label: "Coal", color: "#4A4A4A" },
@@ -54,11 +55,7 @@ export default function Energy() {
   }, [data]);
 
   useEffect(() => {
-    fetch("/data/energy.json")
-      .then((res) => {
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return res.json();
-      })
+    fetchDataset("energy.json")
       .then(setData)
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));

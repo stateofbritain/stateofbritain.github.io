@@ -1,0 +1,163 @@
+# ─── State of Britain: Dataset Enrichment ────────────────────────────
+# Manual summaries, tags, and series-level metadata for the catalog.
+# Used by scripts/generate-catalog.js to produce data/catalog.json.
+# This file is NOT served to the browser.
+
+family:
+  title: "Family, Fertility & Households"
+  geography: "England & Wales"
+  summary: "Birth rates, fertility by parity, mean age of motherhood, family structure, and household composition. Covers 1960 to present."
+  tags: [fertility, births, TFR, households, family structure, demographics]
+  series:
+    tfrByOrder:
+      title: "Total Fertility Rate by Birth Order"
+      summary: "UK TFR fell from 2.72 in 1960 to 1.41 in 2024, now 33% below replacement. Rising childlessness is the primary driver."
+      unit: "children per woman"
+    meanAgeByOrder:
+      title: "Mean Age of Mother by Birth Order"
+      summary: "Mean age at first birth rose from 24.4 in 1960 to 29.5 in 2022, a shift of over 5 years."
+      unit: "years"
+    birthsSeries:
+      title: "Live Births"
+      summary: "Annual live births in England & Wales. Peaked at 876k in 1964, now around 595k."
+      unit: "thousands"
+    familyTypeSeries:
+      title: "Family Type"
+      summary: "Breakdown of families by type: married couples, cohabiting couples, and lone parents."
+      unit: "thousands"
+    householdSizeSeries:
+      title: "Average Household Size"
+      summary: "Average number of people per household. Fell from 3.09 in 1961 to 2.35 in 2024."
+      unit: "persons"
+
+education:
+  title: "Education & Skills"
+  geography: "England"
+  summary: "Per-pupil spending, GCSE results, PISA scores, HE participation, teacher workforce, and degree classification trends."
+  tags: [education, schools, GCSE, PISA, universities, teachers, spending]
+  series:
+    perPupilSpending:
+      title: "Per-Pupil Spending (real terms)"
+      summary: "Real per-pupil spending peaked at £6,720 in 2009-10, fell 6% to £6,310 by 2023-24."
+      unit: "£ (real terms)"
+    gcseResults:
+      title: "GCSE Grade 5+ in English & Maths"
+      summary: "Share of students achieving grade 5+ in English and Maths. Grading changed from A*-G to 9-1 in 2017."
+      unit: "%"
+    pisaScores:
+      title: "PISA International Scores"
+      summary: "UK PISA scores in maths (489), reading (494), and science (503) as of 2022."
+      unit: "score"
+    heParticipation:
+      title: "Higher Education Participation"
+      summary: "HE participation rate reached 52% in 2022-23."
+      unit: "%"
+    teacherWorkforce:
+      title: "Teacher Workforce"
+      summary: "Number of teachers and pupil-teacher ratios in state schools."
+      unit: "thousands"
+
+defence:
+  title: "Defence & Security"
+  geography: "United Kingdom"
+  summary: "Defence spending as % of GDP, personnel strength, reserves, equipment plans, and NATO comparisons."
+  tags: [defence, military, NATO, spending, armed forces]
+  series:
+    spendingPctGdp:
+      title: "Defence Spending as % of GDP"
+      summary: "UK defence spending fell from 3.8% GDP in 1990 to 2.3% in 2024, above NATO's 2% target."
+      unit: "% GDP"
+    personnel:
+      title: "Armed Forces Personnel"
+      summary: "Total trained personnel declined 38% from 207.7k in 2000 to 129.2k in 2024."
+      unit: "thousands"
+
+startups:
+  title: "Business Startups & Entrepreneurship"
+  geography: "United Kingdom"
+  summary: "Business births and deaths, survival rates, sector breakdown, high-growth firms, and equity investment."
+  tags: [startups, business, entrepreneurship, SMEs, venture capital]
+
+research:
+  title: "Research & Development"
+  geography: "United Kingdom"
+  summary: "R&D spending by sector (government, business, higher education), as % of GDP, and international comparison."
+  tags: [R&D, research, science, innovation, universities]
+
+productivity:
+  title: "Productivity"
+  geography: "United Kingdom"
+  summary: "Output per hour worked (index and level), sector breakdown, and international comparison."
+  tags: [productivity, output, efficiency, GDP per hour]
+
+investment:
+  title: "Investment"
+  geography: "United Kingdom"
+  summary: "UK gross fixed capital formation trend, asset breakdown, and international comparison."
+  tags: [investment, capital, GFCF, infrastructure]
+
+immigration:
+  title: "Immigration & Demographics"
+  geography: "United Kingdom"
+  summary: "Net migration, visa breakdown, asylum applications, population projections, age structure, and dependency ratios."
+  tags: [immigration, migration, population, demographics, asylum, visas]
+
+justice:
+  title: "Justice & Crime"
+  geography: "England & Wales"
+  summary: "Crime trends, police workforce, prison population, court backlog, and charge rates."
+  tags: [crime, justice, police, prisons, courts]
+
+infrastructure:
+  title: "Infrastructure"
+  geography: "United Kingdom"
+  summary: "Broadband (FTTP, gigabit coverage), rail (punctuality, journeys), and road (traffic, condition) metrics."
+  tags: [infrastructure, broadband, rail, roads, transport, digital]
+
+energy:
+  title: "Energy"
+  geography: "United Kingdom"
+  summary: "Energy mix, fuel consumption, electricity generation, household expenditure, import dependency, and storage."
+  tags: [energy, electricity, renewables, gas, oil, nuclear]
+
+water:
+  title: "Water Industry"
+  geography: "England & Wales"
+  summary: "Water company performance, leakage rates, pollution incidents, and storm overflow events."
+  tags: [water, utilities, pollution, sewage, leakage]
+
+nhs:
+  title: "NHS Healthcare"
+  geography: "England"
+  summary: "NHS referral-to-treatment waiting times, A&E performance, waiting lists by specialty and procedure."
+  tags: [NHS, healthcare, waiting times, hospitals, A&E]
+
+cpih:
+  title: "Consumer Prices (CPIH)"
+  geography: "United Kingdom"
+  summary: "Consumer Prices Index including owner-occupier housing costs, broken down by category."
+  tags: [inflation, prices, CPIH, cost of living, CPI]
+
+spending:
+  title: "Government Spending"
+  geography: "United Kingdom"
+  summary: "Total managed expenditure, spending as % of GDP, tax receipts, departmental spending trends, and debt."
+  tags: [spending, tax, budget, fiscal, debt, GDP]
+
+industrial:
+  title: "Industrial Strategy"
+  geography: "United Kingdom"
+  summary: "Industrial output by sector, manufacturing trends, and structural economic composition."
+  tags: [industry, manufacturing, sectors, industrial strategy]
+
+environment:
+  title: "Environment & Air Quality"
+  geography: "United Kingdom"
+  summary: "Greenhouse gas emissions, PM2.5 and NO2 air quality, and ultra-low emission vehicle uptake."
+  tags: [environment, emissions, air quality, climate, EVs, pollution]
+
+workforce:
+  title: "Public Sector Workforce"
+  geography: "United Kingdom"
+  summary: "Workforce size and trends in NHS, education, police, and university sectors."
+  tags: [workforce, public sector, NHS staff, teachers, police, employment]

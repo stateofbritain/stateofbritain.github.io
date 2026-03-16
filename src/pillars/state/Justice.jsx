@@ -13,6 +13,7 @@ import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
+import { fetchDataset } from "../../hooks/useDataset";
 
 const BREAKDOWN_COLORS = [
   P.red, P.navy, P.teal, P.sienna, P.yellow, P.grey,
@@ -25,11 +26,7 @@ export default function Justice() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("/data/justice.json")
-      .then((res) => {
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return res.json();
-      })
+    fetchDataset("justice.json")
       .then(setData)
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));

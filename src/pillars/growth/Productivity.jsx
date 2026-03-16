@@ -13,6 +13,7 @@ import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
+import { fetchDataset } from "../../hooks/useDataset";
 
 const TS_LINES = [
   { key: "USA", label: "United States", color: "#4A7A58" },
@@ -33,11 +34,7 @@ export default function Productivity() {
   const [intlView, setIntlView] = useState("bar");
 
   useEffect(() => {
-    fetch("/data/productivity.json")
-      .then((res) => {
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return res.json();
-      })
+    fetchDataset("productivity.json")
       .then(setData)
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));

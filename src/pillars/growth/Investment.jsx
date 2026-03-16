@@ -13,6 +13,7 @@ import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
+import { fetchDataset } from "../../hooks/useDataset";
 
 const TS_LINES = [
   { key: "KOR", label: "South Korea", color: "#6B8EC4" },
@@ -42,11 +43,7 @@ export default function Investment() {
   const [intlView, setIntlView] = useState("bar");
 
   useEffect(() => {
-    fetch("/data/investment.json")
-      .then((res) => {
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return res.json();
-      })
+    fetchDataset("investment.json")
       .then(setData)
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));

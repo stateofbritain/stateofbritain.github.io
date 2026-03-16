@@ -13,6 +13,7 @@ import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
+import { fetchDataset } from "../../hooks/useDataset";
 
 const PARITY_COLORS = {
   tfr1: P.teal,
@@ -40,11 +41,7 @@ export default function Family() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("/data/family.json")
-      .then((res) => {
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return res.json();
-      })
+    fetchDataset("family.json")
       .then(setData)
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));

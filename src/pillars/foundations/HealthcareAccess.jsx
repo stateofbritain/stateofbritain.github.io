@@ -13,6 +13,7 @@ import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
+import { fetchDataset } from "../../hooks/useDataset";
 
 const VIEWS = ["waitlist", "performance", "ae"];
 const VIEW_LABELS = {
@@ -36,11 +37,7 @@ export default function HealthcareAccess() {
   }, [data]);
 
   useEffect(() => {
-    fetch("/data/nhs.json")
-      .then((res) => {
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return res.json();
-      })
+    fetchDataset("nhs.json")
       .then(setData)
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));

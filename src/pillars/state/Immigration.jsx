@@ -13,6 +13,7 @@ import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
+import { fetchDataset } from "../../hooks/useDataset";
 
 const VISA_COLORS = [P.teal, P.navy, P.sienna, P.red, P.grey];
 const AGE_COLORS = [P.teal, P.navy, P.sienna, "#4A7A58", P.grey, P.red];
@@ -23,11 +24,7 @@ export default function Immigration() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("/data/immigration.json")
-      .then((res) => {
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return res.json();
-      })
+    fetchDataset("immigration.json")
       .then(setData)
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));

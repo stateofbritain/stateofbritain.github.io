@@ -14,6 +14,7 @@ import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import { track } from "../../analytics";
 import ShareableChart from "../../components/ShareableChart";
+import { fetchDataset } from "../../hooks/useDataset";
 
 function cleanName(name) {
   return name.replace(/\s*\(\d+\)\s*$/, "").replace(/\s+$/, "");
@@ -316,11 +317,7 @@ export default function Spending() {
   const [deptCardYear, setDeptCardYear] = useState({});
 
   useEffect(() => {
-    fetch("/data/spending.json")
-      .then((res) => {
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return res.json();
-      })
+    fetchDataset("spending.json")
       .then(setData)
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));

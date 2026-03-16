@@ -1,0 +1,2246 @@
+{
+  "$schema": "sob-catalog-v1",
+  "generated": "2026-03-16",
+  "datasets": [
+    {
+      "id": "cpih",
+      "title": "Consumer Prices (CPIH)",
+      "pillar": "state",
+      "geography": "United Kingdom",
+      "summary": "Consumer Prices Index including owner-occupier housing costs, broken down by category.",
+      "tags": [
+        "inflation",
+        "prices",
+        "CPIH",
+        "cost of living",
+        "CPI"
+      ],
+      "dataFile": "/data/cpih.json",
+      "series": {
+        "aggregates": {
+          "title": "aggregates",
+          "fields": {
+            "label": {
+              "label": "label"
+            }
+          },
+          "timeRange": {
+            "start": "CP00",
+            "end": "CP09"
+          }
+        },
+        "series": {
+          "title": "series",
+          "fields": {
+            "label": {
+              "label": "label"
+            },
+            "CP09": {
+              "label": "CP09"
+            },
+            "CP01": {
+              "label": "CP01"
+            },
+            "CP04": {
+              "label": "CP04"
+            },
+            "CP07": {
+              "label": "CP07"
+            },
+            "CP00": {
+              "label": "CP00"
+            }
+          },
+          "timeRange": {
+            "start": "2010-01",
+            "end": "2026-01"
+          }
+        }
+      }
+    },
+    {
+      "id": "defence",
+      "title": "Defence & Security",
+      "pillar": "state",
+      "geography": "United Kingdom",
+      "summary": "Defence spending as % of GDP, personnel strength, reserves, equipment plans, and NATO comparisons.",
+      "tags": [
+        "defence",
+        "military",
+        "NATO",
+        "spending",
+        "armed forces"
+      ],
+      "dataFile": "/data/defence.json",
+      "series": {
+        "spendingPctGdp": {
+          "title": "Defence Spending as % of GDP",
+          "summary": "UK defence spending fell from 3.8% GDP in 1990 to 2.3% in 2024, above NATO's 2% target.",
+          "unit": "% GDP",
+          "fields": {
+            "pct": {
+              "label": "pct"
+            }
+          },
+          "timeRange": {
+            "start": 1990,
+            "end": 2024
+          }
+        },
+        "spendingReal": {
+          "title": "spendingReal",
+          "fields": {
+            "value": {
+              "label": "value"
+            }
+          },
+          "timeRange": {
+            "start": 2000,
+            "end": 2024
+          }
+        },
+        "personnel": {
+          "title": "Armed Forces Personnel",
+          "summary": "Total trained personnel declined 38% from 207.7k in 2000 to 129.2k in 2024.",
+          "unit": "thousands",
+          "fields": {
+            "army": {
+              "label": "army"
+            },
+            "navy": {
+              "label": "navy"
+            },
+            "raf": {
+              "label": "raf"
+            }
+          },
+          "timeRange": {
+            "start": 2000,
+            "end": 2024
+          }
+        },
+        "intlComparison": {
+          "title": "intlComparison",
+          "fields": {
+            "pct": {
+              "label": "pct"
+            }
+          },
+          "timeRange": {
+            "start": "USA",
+            "end": "Spain"
+          }
+        },
+        "equipmentPlan": {
+          "title": "equipmentPlan",
+          "fields": {
+            "value": {
+              "label": "value"
+            }
+          },
+          "timeRange": {
+            "start": "Submarines & nuclear",
+            "end": "Air support"
+          }
+        },
+        "reserves": {
+          "title": "reserves",
+          "fields": {
+            "strength": {
+              "label": "strength"
+            }
+          },
+          "timeRange": {
+            "start": 2012,
+            "end": 2024
+          }
+        }
+      }
+    },
+    {
+      "id": "education",
+      "title": "Education & Skills",
+      "pillar": "growth",
+      "geography": "England",
+      "summary": "Per-pupil spending, GCSE results, PISA scores, HE participation, teacher workforce, and degree classification trends.",
+      "tags": [
+        "education",
+        "schools",
+        "GCSE",
+        "PISA",
+        "universities",
+        "teachers",
+        "spending"
+      ],
+      "dataFile": "/data/education.json",
+      "series": {
+        "perPupilSpending": {
+          "title": "Per-Pupil Spending (real terms)",
+          "summary": "Real per-pupil spending peaked at £6,720 in 2009-10, fell 6% to £6,310 by 2023-24.",
+          "unit": "£ (real terms)",
+          "fields": {
+            "value": {
+              "label": "value"
+            }
+          },
+          "timeRange": {
+            "start": "2003-04",
+            "end": "2023-24"
+          }
+        },
+        "gcseResults": {
+          "title": "GCSE Grade 5+ in English & Maths",
+          "summary": "Share of students achieving grade 5+ in English and Maths. Grading changed from A*-G to 9-1 in 2017.",
+          "unit": "%",
+          "fields": {
+            "rate": {
+              "label": "rate"
+            },
+            "measure": {
+              "label": "measure"
+            }
+          },
+          "timeRange": {
+            "start": 2005,
+            "end": 2024
+          }
+        },
+        "pisaScores": {
+          "title": "PISA International Scores",
+          "summary": "UK PISA scores in maths (489), reading (494), and science (503) as of 2022.",
+          "unit": "score",
+          "fields": {
+            "ukMaths": {
+              "label": "ukMaths"
+            },
+            "ukReading": {
+              "label": "ukReading"
+            },
+            "ukScience": {
+              "label": "ukScience"
+            },
+            "oecdMaths": {
+              "label": "oecdMaths"
+            },
+            "oecdReading": {
+              "label": "oecdReading"
+            },
+            "oecdScience": {
+              "label": "oecdScience"
+            }
+          },
+          "timeRange": {
+            "start": 2006,
+            "end": 2022
+          }
+        },
+        "heParticipation": {
+          "title": "Higher Education Participation",
+          "summary": "HE participation rate reached 52% in 2022-23.",
+          "unit": "%",
+          "fields": {
+            "rate": {
+              "label": "rate"
+            }
+          },
+          "timeRange": {
+            "start": "2006-07",
+            "end": "2022-23"
+          }
+        },
+        "teacherWorkforce": {
+          "title": "Teacher Workforce",
+          "summary": "Number of teachers and pupil-teacher ratios in state schools.",
+          "unit": "thousands",
+          "fields": {
+            "teachers": {
+              "label": "teachers"
+            },
+            "ratio": {
+              "label": "ratio"
+            },
+            "vacancyRate": {
+              "label": "vacancyRate"
+            }
+          },
+          "timeRange": {
+            "start": 2010,
+            "end": 2024
+          }
+        },
+        "intlSpending": {
+          "title": "intlSpending",
+          "fields": {
+            "pct": {
+              "label": "pct"
+            }
+          },
+          "timeRange": {
+            "start": "Norway",
+            "end": "Japan"
+          }
+        },
+        "degreeClassification": {
+          "title": "degreeClassification",
+          "fields": {
+            "first": {
+              "label": "first"
+            },
+            "twoOne": {
+              "label": "twoOne"
+            },
+            "twoTwo": {
+              "label": "twoTwo"
+            },
+            "third": {
+              "label": "third"
+            }
+          },
+          "timeRange": {
+            "start": "2010-11",
+            "end": "2022-23"
+          }
+        }
+      }
+    },
+    {
+      "id": "energy",
+      "title": "Energy",
+      "pillar": "foundations",
+      "geography": "United Kingdom",
+      "summary": "Energy mix, fuel consumption, electricity generation, household expenditure, import dependency, and storage.",
+      "tags": [
+        "energy",
+        "electricity",
+        "renewables",
+        "gas",
+        "oil",
+        "nuclear"
+      ],
+      "dataFile": "/data/energy.json",
+      "series": {
+        "energyMix": {
+          "title": "energyMix",
+          "fields": {
+            "coal": {
+              "label": "coal"
+            },
+            "petroleum": {
+              "label": "petroleum"
+            },
+            "gas": {
+              "label": "gas"
+            },
+            "nuclear": {
+              "label": "nuclear"
+            },
+            "renewables": {
+              "label": "renewables"
+            },
+            "imports": {
+              "label": "imports"
+            },
+            "bioenergy": {
+              "label": "bioenergy"
+            }
+          },
+          "timeRange": {
+            "start": 1990,
+            "end": 2024
+          }
+        },
+        "fuelConsumption": {
+          "title": "fuelConsumption",
+          "fields": {
+            "coal": {
+              "label": "coal"
+            },
+            "petroleum": {
+              "label": "petroleum"
+            },
+            "gas": {
+              "label": "gas"
+            },
+            "nuclear": {
+              "label": "nuclear"
+            },
+            "renewables": {
+              "label": "renewables"
+            },
+            "imports": {
+              "label": "imports"
+            },
+            "bioenergy": {
+              "label": "bioenergy"
+            },
+            "total": {
+              "label": "total"
+            }
+          },
+          "timeRange": {
+            "start": 1990,
+            "end": 2024
+          }
+        },
+        "electricity": {
+          "title": "electricity",
+          "fields": {
+            "convThermal": {
+              "label": "convThermal"
+            },
+            "ccgt": {
+              "label": "ccgt"
+            },
+            "nuclear": {
+              "label": "nuclear"
+            },
+            "renewables": {
+              "label": "renewables"
+            },
+            "pumpedStorage": {
+              "label": "pumpedStorage"
+            },
+            "battery": {
+              "label": "battery"
+            },
+            "totalNet": {
+              "label": "totalNet"
+            }
+          },
+          "timeRange": {
+            "start": 1990,
+            "end": 2024
+          }
+        },
+        "expenditure": {
+          "title": "expenditure",
+          "fields": {
+            "domesticGas": {
+              "label": "domesticGas"
+            },
+            "domesticElectricity": {
+              "label": "domesticElectricity"
+            },
+            "domesticTotal": {
+              "label": "domesticTotal"
+            },
+            "industryTotal": {
+              "label": "industryTotal"
+            },
+            "allTotal": {
+              "label": "allTotal"
+            }
+          },
+          "timeRange": {
+            "start": 1990,
+            "end": 2024
+          }
+        },
+        "importDependency": {
+          "title": "importDependency",
+          "fields": {
+            "production": {
+              "label": "production"
+            },
+            "consumption": {
+              "label": "consumption"
+            },
+            "importDependency": {
+              "label": "importDependency"
+            }
+          },
+          "timeRange": {
+            "start": 1990,
+            "end": 2024
+          }
+        },
+        "energySecurity": {
+          "title": "energySecurity",
+          "fields": {}
+        }
+      }
+    },
+    {
+      "id": "environment",
+      "title": "Environment & Air Quality",
+      "pillar": "foundations",
+      "geography": "United Kingdom",
+      "summary": "Greenhouse gas emissions, PM2.5 and NO2 air quality, and ultra-low emission vehicle uptake.",
+      "tags": [
+        "environment",
+        "emissions",
+        "air quality",
+        "climate",
+        "EVs",
+        "pollution"
+      ],
+      "dataFile": "/data/environment.json",
+      "series": {
+        "ghgEmissions": {
+          "title": "ghgEmissions",
+          "fields": {
+            "electricity": {
+              "label": "electricity"
+            },
+            "fuel": {
+              "label": "fuel"
+            },
+            "transport": {
+              "label": "transport"
+            },
+            "buildings": {
+              "label": "buildings"
+            },
+            "industry": {
+              "label": "industry"
+            },
+            "agriculture": {
+              "label": "agriculture"
+            },
+            "waste": {
+              "label": "waste"
+            },
+            "lulucf": {
+              "label": "lulucf"
+            },
+            "total": {
+              "label": "total"
+            }
+          },
+          "timeRange": {
+            "start": 1990,
+            "end": 2024
+          }
+        },
+        "pm25": {
+          "title": "pm25",
+          "fields": {
+            "mean": {
+              "label": "mean"
+            }
+          },
+          "timeRange": {
+            "start": 2009,
+            "end": 2024
+          }
+        },
+        "no2": {
+          "title": "no2",
+          "fields": {
+            "mean": {
+              "label": "mean"
+            }
+          },
+          "timeRange": {
+            "start": 1990,
+            "end": 2024
+          }
+        },
+        "ulevRegistrations": {
+          "title": "ulevRegistrations",
+          "fields": {
+            "bev": {
+              "label": "bev"
+            },
+            "phev": {
+              "label": "phev"
+            },
+            "other": {
+              "label": "other"
+            },
+            "total": {
+              "label": "total"
+            }
+          },
+          "timeRange": {
+            "start": 2015,
+            "end": 2024
+          }
+        }
+      }
+    },
+    {
+      "id": "family",
+      "title": "Family, Fertility & Households",
+      "pillar": "foundations",
+      "geography": "England & Wales",
+      "summary": "Birth rates, fertility by parity, mean age of motherhood, family structure, and household composition. Covers 1960 to present.",
+      "tags": [
+        "fertility",
+        "births",
+        "TFR",
+        "households",
+        "family structure",
+        "demographics"
+      ],
+      "dataFile": "/data/family.json",
+      "series": {
+        "tfrByOrder": {
+          "title": "Total Fertility Rate by Birth Order",
+          "summary": "UK TFR fell from 2.72 in 1960 to 1.41 in 2024, now 33% below replacement. Rising childlessness is the primary driver.",
+          "unit": "children per woman",
+          "fields": {
+            "tfrTotal": {
+              "label": "tfrTotal"
+            },
+            "tfr1": {
+              "label": "tfr1"
+            },
+            "tfr2": {
+              "label": "tfr2"
+            },
+            "tfr3": {
+              "label": "tfr3"
+            },
+            "tfr4": {
+              "label": "tfr4"
+            }
+          },
+          "timeRange": {
+            "start": 1960,
+            "end": 2024
+          }
+        },
+        "meanAgeByOrder": {
+          "title": "Mean Age of Mother by Birth Order",
+          "summary": "Mean age at first birth rose from 24.4 in 1960 to 29.5 in 2022, a shift of over 5 years.",
+          "unit": "years",
+          "fields": {
+            "ageAll": {
+              "label": "ageAll"
+            },
+            "age1": {
+              "label": "age1"
+            },
+            "age2": {
+              "label": "age2"
+            },
+            "age3": {
+              "label": "age3"
+            }
+          },
+          "timeRange": {
+            "start": 1960,
+            "end": 2022
+          }
+        },
+        "birthsSeries": {
+          "title": "Live Births",
+          "summary": "Annual live births in England & Wales. Peaked at 876k in 1964, now around 595k.",
+          "unit": "thousands",
+          "fields": {
+            "births": {
+              "label": "births"
+            }
+          },
+          "timeRange": {
+            "start": 1960,
+            "end": 2024
+          }
+        },
+        "familyTypeSeries": {
+          "title": "Family Type",
+          "summary": "Breakdown of families by type: married couples, cohabiting couples, and lone parents.",
+          "unit": "thousands",
+          "fields": {
+            "married": {
+              "label": "married"
+            },
+            "cohabiting": {
+              "label": "cohabiting"
+            },
+            "loneParent": {
+              "label": "loneParent"
+            }
+          },
+          "timeRange": {
+            "start": 2004,
+            "end": 2024
+          }
+        },
+        "householdSizeSeries": {
+          "title": "Average Household Size",
+          "summary": "Average number of people per household. Fell from 3.09 in 1961 to 2.35 in 2024.",
+          "unit": "persons",
+          "fields": {
+            "size": {
+              "label": "size"
+            }
+          },
+          "timeRange": {
+            "start": 1961,
+            "end": 2024
+          }
+        }
+      }
+    },
+    {
+      "id": "immigration",
+      "title": "Immigration & Demographics",
+      "pillar": "state",
+      "geography": "United Kingdom",
+      "summary": "Net migration, visa breakdown, asylum applications, population projections, age structure, and dependency ratios.",
+      "tags": [
+        "immigration",
+        "migration",
+        "population",
+        "demographics",
+        "asylum",
+        "visas"
+      ],
+      "dataFile": "/data/immigration.json",
+      "series": {
+        "netMigration": {
+          "title": "netMigration",
+          "fields": {
+            "immigration": {
+              "label": "immigration"
+            },
+            "emigration": {
+              "label": "emigration"
+            },
+            "net": {
+              "label": "net"
+            }
+          },
+          "timeRange": {
+            "start": 1991,
+            "end": 2024
+          }
+        },
+        "visaBreakdown": {
+          "title": "visaBreakdown",
+          "fields": {
+            "value": {
+              "label": "value"
+            }
+          },
+          "timeRange": {
+            "start": "Work",
+            "end": "Other"
+          }
+        },
+        "asylum": {
+          "title": "asylum",
+          "fields": {
+            "applications": {
+              "label": "applications"
+            },
+            "grants": {
+              "label": "grants"
+            }
+          },
+          "timeRange": {
+            "start": 2001,
+            "end": 2024
+          }
+        },
+        "populationSeries": {
+          "title": "populationSeries",
+          "fields": {
+            "population": {
+              "label": "population"
+            }
+          },
+          "timeRange": {
+            "start": 1971,
+            "end": 2024
+          }
+        },
+        "popComponents": {
+          "title": "popComponents",
+          "fields": {
+            "naturalChange": {
+              "label": "naturalChange"
+            },
+            "netMigration": {
+              "label": "netMigration"
+            }
+          },
+          "timeRange": {
+            "start": 2001,
+            "end": 2023
+          }
+        },
+        "ageStructure": {
+          "title": "ageStructure",
+          "fields": {
+            "pct": {
+              "label": "pct"
+            }
+          },
+          "timeRange": {
+            "start": "0-14",
+            "end": "75+"
+          }
+        },
+        "dependencyRatio": {
+          "title": "dependencyRatio",
+          "fields": {
+            "ratio": {
+              "label": "ratio"
+            },
+            "old": {
+              "label": "old"
+            },
+            "young": {
+              "label": "young"
+            }
+          },
+          "timeRange": {
+            "start": 1981,
+            "end": 2024
+          }
+        },
+        "foreignBorn": {
+          "title": "foreignBorn",
+          "fields": {
+            "pct": {
+              "label": "pct"
+            }
+          },
+          "timeRange": {
+            "start": 2004,
+            "end": 2024
+          }
+        }
+      }
+    },
+    {
+      "id": "industrial",
+      "title": "Industrial Strategy",
+      "pillar": "growth",
+      "geography": "United Kingdom",
+      "summary": "Industrial output by sector, manufacturing trends, and structural economic composition.",
+      "tags": [
+        "industry",
+        "manufacturing",
+        "sectors",
+        "industrial strategy"
+      ],
+      "dataFile": "/data/industrial.json",
+      "series": {
+        "categories": {
+          "title": "categories",
+          "fields": {}
+        }
+      }
+    },
+    {
+      "id": "infrastructure",
+      "title": "Infrastructure",
+      "pillar": "growth",
+      "geography": "United Kingdom",
+      "summary": "Broadband (FTTP, gigabit coverage), rail (punctuality, journeys), and road (traffic, condition) metrics.",
+      "tags": [
+        "infrastructure",
+        "broadband",
+        "rail",
+        "roads",
+        "transport",
+        "digital"
+      ],
+      "dataFile": "/data/infrastructure.json",
+      "series": {
+        "broadband.fttp": {
+          "title": "broadband.fttp",
+          "fields": {
+            "date": {
+              "label": "date"
+            },
+            "pct": {
+              "label": "pct"
+            },
+            "premises": {
+              "label": "premises"
+            }
+          },
+          "timeRange": {
+            "start": 2018,
+            "end": 2025
+          }
+        },
+        "broadband.gigabit": {
+          "title": "broadband.gigabit",
+          "fields": {
+            "date": {
+              "label": "date"
+            },
+            "pct": {
+              "label": "pct"
+            }
+          },
+          "timeRange": {
+            "start": 2019,
+            "end": 2025
+          }
+        },
+        "broadband.speeds": {
+          "title": "broadband.speeds",
+          "fields": {
+            "medianDown": {
+              "label": "medianDown"
+            },
+            "medianUp": {
+              "label": "medianUp"
+            }
+          },
+          "timeRange": {
+            "start": 2018,
+            "end": 2023
+          }
+        },
+        "broadband.mobile4g": {
+          "title": "broadband.mobile4g",
+          "fields": {
+            "landmassPct": {
+              "label": "landmassPct"
+            }
+          },
+          "timeRange": {
+            "start": 2019,
+            "end": 2025
+          }
+        },
+        "rail.punctuality": {
+          "title": "rail.punctuality",
+          "fields": {
+            "fy": {
+              "label": "fy"
+            },
+            "ppm": {
+              "label": "ppm"
+            }
+          },
+          "timeRange": {
+            "start": 1997,
+            "end": 2024
+          }
+        },
+        "rail.journeys": {
+          "title": "rail.journeys",
+          "fields": {
+            "fy": {
+              "label": "fy"
+            },
+            "journeysMn": {
+              "label": "journeysMn"
+            }
+          },
+          "timeRange": {
+            "start": 1984,
+            "end": 2024
+          }
+        },
+        "rail.infrastructure": {
+          "title": "rail.infrastructure",
+          "fields": {
+            "routeKm": {
+              "label": "routeKm"
+            },
+            "electRouteKm": {
+              "label": "electRouteKm"
+            },
+            "newElectKm": {
+              "label": "newElectKm"
+            }
+          },
+          "timeRange": {
+            "start": 1990,
+            "end": 2025
+          }
+        },
+        "roads.condition": {
+          "title": "roads.condition",
+          "fields": {
+            "aRoadsPoor": {
+              "label": "aRoadsPoor"
+            },
+            "bAndcPoor": {
+              "label": "bAndcPoor"
+            },
+            "unclassifiedPoor": {
+              "label": "unclassifiedPoor"
+            }
+          },
+          "timeRange": {
+            "start": 2010,
+            "end": 2024
+          }
+        },
+        "roads.potholes": {
+          "title": "roads.potholes",
+          "fields": {
+            "filled": {
+              "label": "filled"
+            },
+            "backlogBn": {
+              "label": "backlogBn"
+            }
+          },
+          "timeRange": {
+            "start": 2010,
+            "end": 2024
+          }
+        },
+        "roads.traffic": {
+          "title": "roads.traffic",
+          "fields": {
+            "cars": {
+              "label": "cars"
+            },
+            "lcvs": {
+              "label": "lcvs"
+            },
+            "hgvs": {
+              "label": "hgvs"
+            },
+            "buses": {
+              "label": "buses"
+            },
+            "totalBnMiles": {
+              "label": "totalBnMiles"
+            }
+          },
+          "timeRange": {
+            "start": 2000,
+            "end": 2024
+          }
+        },
+        "roads.length": {
+          "title": "roads.length",
+          "fields": {
+            "motorwaysKm": {
+              "label": "motorwaysKm"
+            },
+            "aRoadsKm": {
+              "label": "aRoadsKm"
+            },
+            "allMajorKm": {
+              "label": "allMajorKm"
+            }
+          },
+          "timeRange": {
+            "start": 1990,
+            "end": 2025
+          }
+        }
+      }
+    },
+    {
+      "id": "investment",
+      "title": "Investment",
+      "pillar": "growth",
+      "geography": "United Kingdom",
+      "summary": "UK gross fixed capital formation trend, asset breakdown, and international comparison.",
+      "tags": [
+        "investment",
+        "capital",
+        "GFCF",
+        "infrastructure"
+      ],
+      "dataFile": "/data/investment.json",
+      "series": {
+        "ukTrend": {
+          "title": "ukTrend",
+          "fields": {
+            "gfcfCP": {
+              "label": "gfcfCP"
+            },
+            "gfcfCVM": {
+              "label": "gfcfCVM"
+            }
+          },
+          "timeRange": {
+            "start": 1948,
+            "end": 2025
+          }
+        },
+        "assetBreakdown": {
+          "title": "assetBreakdown",
+          "fields": {
+            "intangibles": {
+              "label": "intangibles"
+            },
+            "plantMachinery": {
+              "label": "plantMachinery"
+            },
+            "transport": {
+              "label": "transport"
+            },
+            "buildings": {
+              "label": "buildings"
+            },
+            "other": {
+              "label": "other"
+            }
+          },
+          "timeRange": {
+            "start": 1997,
+            "end": 2025
+          }
+        },
+        "international": {
+          "title": "international",
+          "fields": {
+            "countryCode": {
+              "label": "countryCode"
+            },
+            "country": {
+              "label": "country"
+            },
+            "pctGDP": {
+              "label": "pctGDP"
+            }
+          },
+          "timeRange": {
+            "start": 2023,
+            "end": 2023
+          }
+        },
+        "timeSeries": {
+          "title": "timeSeries",
+          "fields": {
+            "USA": {
+              "label": "USA"
+            },
+            "GBR": {
+              "label": "GBR"
+            },
+            "POL": {
+              "label": "POL"
+            },
+            "KOR": {
+              "label": "KOR"
+            },
+            "JPN": {
+              "label": "JPN"
+            },
+            "DEU": {
+              "label": "DEU"
+            },
+            "FRA": {
+              "label": "FRA"
+            },
+            "OECD": {
+              "label": "OECD"
+            }
+          },
+          "timeRange": {
+            "start": 2000,
+            "end": 2023
+          }
+        }
+      }
+    },
+    {
+      "id": "justice",
+      "title": "Justice & Crime",
+      "pillar": "state",
+      "geography": "England & Wales",
+      "summary": "Crime trends, police workforce, prison population, court backlog, and charge rates.",
+      "tags": [
+        "crime",
+        "justice",
+        "police",
+        "prisons",
+        "courts"
+      ],
+      "dataFile": "/data/justice.json",
+      "series": {
+        "crimeSeries": {
+          "title": "crimeSeries",
+          "fields": {
+            "recorded": {
+              "label": "recorded"
+            },
+            "csew": {
+              "label": "csew"
+            }
+          },
+          "timeRange": {
+            "start": "2002-03",
+            "end": "2023-24"
+          }
+        },
+        "crimeBreakdown": {
+          "title": "crimeBreakdown",
+          "fields": {
+            "value": {
+              "label": "value"
+            }
+          },
+          "timeRange": {
+            "start": "Violence against the person",
+            "end": "Other"
+          }
+        },
+        "policeWorkforce": {
+          "title": "policeWorkforce",
+          "fields": {
+            "officers": {
+              "label": "officers"
+            },
+            "staff": {
+              "label": "staff"
+            },
+            "pcsos": {
+              "label": "pcsos"
+            }
+          },
+          "timeRange": {
+            "start": 2003,
+            "end": 2024
+          }
+        },
+        "prisonPopulation": {
+          "title": "prisonPopulation",
+          "fields": {
+            "population": {
+              "label": "population"
+            },
+            "capacity": {
+              "label": "capacity"
+            }
+          },
+          "timeRange": {
+            "start": 2000,
+            "end": 2024
+          }
+        },
+        "courtBacklog": {
+          "title": "courtBacklog",
+          "fields": {
+            "outstanding": {
+              "label": "outstanding"
+            }
+          },
+          "timeRange": {
+            "start": 2019,
+            "end": 2024
+          }
+        },
+        "chargeRate": {
+          "title": "chargeRate",
+          "fields": {
+            "rate": {
+              "label": "rate"
+            }
+          },
+          "timeRange": {
+            "start": "2014-15",
+            "end": "2023-24"
+          }
+        }
+      }
+    },
+    {
+      "id": "nhs",
+      "title": "NHS Healthcare",
+      "pillar": "foundations",
+      "geography": "England",
+      "summary": "NHS referral-to-treatment waiting times, A&E performance, waiting lists by specialty and procedure.",
+      "tags": [
+        "NHS",
+        "healthcare",
+        "waiting times",
+        "hospitals",
+        "A&E"
+      ],
+      "dataFile": "/data/nhs.json",
+      "series": {
+        "rtt": {
+          "title": "rtt",
+          "fields": {
+            "medianWait": {
+              "label": "medianWait"
+            },
+            "pctWithin18": {
+              "label": "pctWithin18"
+            },
+            "over52weeks": {
+              "label": "over52weeks"
+            },
+            "totalWaiting": {
+              "label": "totalWaiting"
+            }
+          },
+          "timeRange": {
+            "start": "2012-01",
+            "end": "2025-12"
+          }
+        },
+        "ae": {
+          "title": "ae",
+          "fields": {
+            "totalAttendances": {
+              "label": "totalAttendances"
+            },
+            "within4Hours": {
+              "label": "within4Hours"
+            },
+            "over4Hours": {
+              "label": "over4Hours"
+            },
+            "pctWithin4Hours": {
+              "label": "pctWithin4Hours"
+            },
+            "pctWithin4HoursType1": {
+              "label": "pctWithin4HoursType1"
+            },
+            "emergencyAdmissions": {
+              "label": "emergencyAdmissions"
+            }
+          },
+          "timeRange": {
+            "start": "2025-04",
+            "end": "2026-01"
+          }
+        },
+        "bySpecialty": {
+          "title": "bySpecialty",
+          "fields": {}
+        },
+        "byProcedure": {
+          "title": "byProcedure",
+          "fields": {}
+        },
+        "summary": {
+          "title": "summary",
+          "fields": {}
+        }
+      }
+    },
+    {
+      "id": "productivity",
+      "title": "Productivity",
+      "pillar": "growth",
+      "geography": "United Kingdom",
+      "summary": "Output per hour worked (index and level), sector breakdown, and international comparison.",
+      "tags": [
+        "productivity",
+        "output",
+        "efficiency",
+        "GDP per hour"
+      ],
+      "dataFile": "/data/productivity.json",
+      "series": {
+        "indexSeries": {
+          "title": "indexSeries",
+          "fields": {
+            "index": {
+              "label": "index"
+            }
+          },
+          "timeRange": {
+            "start": 1971,
+            "end": 2024
+          }
+        },
+        "levelSeries": {
+          "title": "levelSeries",
+          "fields": {
+            "gbpPerHour": {
+              "label": "gbpPerHour"
+            }
+          },
+          "timeRange": {
+            "start": 1971,
+            "end": 2024
+          }
+        },
+        "sectorBreakdown": {
+          "title": "sectorBreakdown",
+          "fields": {
+            "gbpPerHour": {
+              "label": "gbpPerHour"
+            }
+          },
+          "timeRange": {
+            "start": "Mining and quarrying",
+            "end": "Accommodation and food service activities"
+          }
+        },
+        "international": {
+          "title": "international",
+          "fields": {
+            "countryCode": {
+              "label": "countryCode"
+            },
+            "country": {
+              "label": "country"
+            },
+            "usdPPP": {
+              "label": "usdPPP"
+            }
+          },
+          "timeRange": {
+            "start": 2023,
+            "end": 2023
+          }
+        },
+        "timeSeries": {
+          "title": "timeSeries",
+          "fields": {
+            "DEU": {
+              "label": "DEU"
+            },
+            "FRA": {
+              "label": "FRA"
+            },
+            "IRL": {
+              "label": "IRL"
+            },
+            "GBR": {
+              "label": "GBR"
+            },
+            "POL": {
+              "label": "POL"
+            },
+            "USA": {
+              "label": "USA"
+            },
+            "OECD": {
+              "label": "OECD"
+            },
+            "JPN": {
+              "label": "JPN"
+            }
+          },
+          "timeRange": {
+            "start": 2000,
+            "end": 2023
+          }
+        }
+      }
+    },
+    {
+      "id": "research",
+      "title": "Research & Development",
+      "pillar": "growth",
+      "geography": "United Kingdom",
+      "summary": "R&D spending by sector (government, business, higher education), as % of GDP, and international comparison.",
+      "tags": [
+        "R&D",
+        "research",
+        "science",
+        "innovation",
+        "universities"
+      ],
+      "dataFile": "/data/research.json",
+      "series": {
+        "bySector": {
+          "title": "bySector",
+          "fields": {
+            "total": {
+              "label": "total"
+            },
+            "government": {
+              "label": "government"
+            },
+            "ukri": {
+              "label": "ukri"
+            },
+            "hefce": {
+              "label": "hefce"
+            },
+            "higherEducation": {
+              "label": "higherEducation"
+            },
+            "business": {
+              "label": "business"
+            },
+            "privateNonProfit": {
+              "label": "privateNonProfit"
+            },
+            "overseas": {
+              "label": "overseas"
+            }
+          },
+          "timeRange": {
+            "start": 2018,
+            "end": 2023
+          }
+        },
+        "bySectorReal": {
+          "title": "bySectorReal",
+          "fields": {
+            "total": {
+              "label": "total"
+            },
+            "government": {
+              "label": "government"
+            },
+            "ukri": {
+              "label": "ukri"
+            },
+            "hefce": {
+              "label": "hefce"
+            },
+            "higherEducation": {
+              "label": "higherEducation"
+            },
+            "business": {
+              "label": "business"
+            },
+            "privateNonProfit": {
+              "label": "privateNonProfit"
+            },
+            "overseas": {
+              "label": "overseas"
+            }
+          },
+          "timeRange": {
+            "start": 2018,
+            "end": 2023
+          }
+        },
+        "gdpPct": {
+          "title": "gdpPct",
+          "fields": {
+            "total": {
+              "label": "total"
+            },
+            "pctGDP": {
+              "label": "pctGDP"
+            }
+          },
+          "timeRange": {
+            "start": 2018,
+            "end": 2023
+          }
+        },
+        "regions": {
+          "title": "regions",
+          "fields": {
+            "govUkri": {
+              "label": "govUkri"
+            },
+            "he": {
+              "label": "he"
+            },
+            "business": {
+              "label": "business"
+            },
+            "pnp": {
+              "label": "pnp"
+            },
+            "total": {
+              "label": "total"
+            }
+          },
+          "timeRange": {
+            "start": "United Kingdom",
+            "end": "Northern Ireland"
+          }
+        },
+        "international": {
+          "title": "international",
+          "fields": {
+            "country": {
+              "label": "country"
+            },
+            "pctGDP": {
+              "label": "pctGDP"
+            }
+          },
+          "timeRange": {
+            "start": 2022,
+            "end": 2022
+          }
+        }
+      }
+    },
+    {
+      "id": "spending",
+      "title": "Government Spending",
+      "pillar": "state",
+      "geography": "United Kingdom",
+      "summary": "Total managed expenditure, spending as % of GDP, tax receipts, departmental spending trends, and debt.",
+      "tags": [
+        "spending",
+        "tax",
+        "budget",
+        "fiscal",
+        "debt",
+        "GDP"
+      ],
+      "dataFile": "/data/spending.json",
+      "series": {
+        "aggregates": {
+          "title": "aggregates",
+          "fields": {
+            "fy": {
+              "label": "fy"
+            },
+            "receipts": {
+              "label": "receipts"
+            },
+            "tme": {
+              "label": "tme"
+            },
+            "borrowing": {
+              "label": "borrowing"
+            },
+            "debtInterest": {
+              "label": "debtInterest"
+            },
+            "debt": {
+              "label": "debt"
+            },
+            "gdp": {
+              "label": "gdp"
+            },
+            "forecast": {
+              "label": "forecast"
+            }
+          },
+          "timeRange": {
+            "start": 1978,
+            "end": 2030
+          }
+        },
+        "pctGDP": {
+          "title": "pctGDP",
+          "fields": {
+            "fy": {
+              "label": "fy"
+            },
+            "receipts": {
+              "label": "receipts"
+            },
+            "tme": {
+              "label": "tme"
+            },
+            "borrowing": {
+              "label": "borrowing"
+            },
+            "debtInterest": {
+              "label": "debtInterest"
+            },
+            "debt": {
+              "label": "debt"
+            },
+            "forecast": {
+              "label": "forecast"
+            }
+          },
+          "timeRange": {
+            "start": 1978,
+            "end": 2030
+          }
+        },
+        "receiptTypes": {
+          "title": "receiptTypes",
+          "fields": {
+            "value": {
+              "label": "value"
+            }
+          },
+          "timeRange": {
+            "start": "Income tax (PAYE)",
+            "end": "Air passenger duty"
+          }
+        },
+        "departments": {
+          "title": "departments",
+          "fields": {}
+        }
+      }
+    },
+    {
+      "id": "startups",
+      "title": "Business Startups & Entrepreneurship",
+      "pillar": "growth",
+      "geography": "United Kingdom",
+      "summary": "Business births and deaths, survival rates, sector breakdown, high-growth firms, and equity investment.",
+      "tags": [
+        "startups",
+        "business",
+        "entrepreneurship",
+        "SMEs",
+        "venture capital"
+      ],
+      "dataFile": "/data/startups.json",
+      "series": {
+        "demography": {
+          "title": "demography",
+          "fields": {
+            "births": {
+              "label": "births"
+            },
+            "deaths": {
+              "label": "deaths"
+            },
+            "active": {
+              "label": "active"
+            }
+          },
+          "timeRange": {
+            "start": 2019,
+            "end": 2024
+          }
+        },
+        "survival": {
+          "title": "survival",
+          "fields": {
+            "yr1": {
+              "label": "yr1"
+            },
+            "yr2": {
+              "label": "yr2"
+            },
+            "yr3": {
+              "label": "yr3"
+            },
+            "yr4": {
+              "label": "yr4"
+            },
+            "yr5": {
+              "label": "yr5"
+            }
+          },
+          "timeRange": {
+            "start": 2019,
+            "end": 2023
+          }
+        },
+        "sectorBreakdown": {
+          "title": "sectorBreakdown",
+          "fields": {
+            "births": {
+              "label": "births"
+            }
+          },
+          "timeRange": {
+            "start": "Food and beverage service activities",
+            "end": "Other"
+          }
+        },
+        "highGrowth": {
+          "title": "highGrowth",
+          "fields": {
+            "count": {
+              "label": "count"
+            }
+          },
+          "timeRange": {
+            "start": 2019,
+            "end": 2024
+          }
+        },
+        "equity": {
+          "title": "equity",
+          "fields": {
+            "total": {
+              "label": "total"
+            },
+            "deals": {
+              "label": "deals"
+            }
+          },
+          "timeRange": {
+            "start": 2015,
+            "end": 2024
+          }
+        }
+      }
+    },
+    {
+      "id": "water",
+      "title": "Water Industry",
+      "pillar": "foundations",
+      "geography": "England & Wales",
+      "summary": "Water company performance, leakage rates, pollution incidents, and storm overflow events.",
+      "tags": [
+        "water",
+        "utilities",
+        "pollution",
+        "sewage",
+        "leakage"
+      ],
+      "dataFile": "/data/water.json",
+      "series": {
+        "sectorPerformance": {
+          "title": "sectorPerformance",
+          "fields": {}
+        },
+        "leakage": {
+          "title": "leakage",
+          "fields": {
+            "value": {
+              "label": "value"
+            }
+          },
+          "timeRange": {
+            "start": "1992-93",
+            "end": "2024-25"
+          }
+        },
+        "pollutionIncidents": {
+          "title": "pollutionIncidents",
+          "fields": {
+            "total": {
+              "label": "total"
+            },
+            "serious": {
+              "label": "serious"
+            }
+          },
+          "timeRange": {
+            "start": 2016,
+            "end": 2024
+          }
+        },
+        "stormOverflows": {
+          "title": "stormOverflows",
+          "fields": {}
+        },
+        "companyCategories": {
+          "title": "companyCategories",
+          "fields": {}
+        },
+        "companyLeakage": {
+          "title": "companyLeakage",
+          "fields": {
+            "baseline": {
+              "label": "baseline"
+            },
+            "latest": {
+              "label": "latest"
+            },
+            "commitment": {
+              "label": "commitment"
+            }
+          },
+          "timeRange": {
+            "start": "Thames Water",
+            "end": "Wessex Water"
+          }
+        }
+      }
+    },
+    {
+      "id": "workforce",
+      "title": "Public Sector Workforce",
+      "pillar": "foundations",
+      "geography": "United Kingdom",
+      "summary": "Workforce size and trends in NHS, education, police, and university sectors.",
+      "tags": [
+        "workforce",
+        "public sector",
+        "NHS staff",
+        "teachers",
+        "police",
+        "employment"
+      ],
+      "dataFile": "/data/workforce.json",
+      "series": {
+        "nhs": {
+          "title": "nhs",
+          "fields": {
+            "total": {
+              "label": "total"
+            },
+            "frontline": {
+              "label": "frontline"
+            },
+            "backOffice": {
+              "label": "backOffice"
+            },
+            "frontlinePct": {
+              "label": "frontlinePct"
+            }
+          },
+          "timeRange": {
+            "start": 2009,
+            "end": 2025
+          }
+        },
+        "education": {
+          "title": "education",
+          "fields": {
+            "total": {
+              "label": "total"
+            },
+            "teachers": {
+              "label": "teachers"
+            },
+            "teachingAssistants": {
+              "label": "teachingAssistants"
+            },
+            "frontline": {
+              "label": "frontline"
+            },
+            "backOffice": {
+              "label": "backOffice"
+            },
+            "frontlinePct": {
+              "label": "frontlinePct"
+            }
+          },
+          "timeRange": {
+            "start": 2012,
+            "end": 2025
+          }
+        },
+        "police": {
+          "title": "police",
+          "fields": {
+            "total": {
+              "label": "total"
+            },
+            "officers": {
+              "label": "officers"
+            },
+            "pcso": {
+              "label": "pcso"
+            },
+            "frontline": {
+              "label": "frontline"
+            },
+            "backOffice": {
+              "label": "backOffice"
+            },
+            "frontlinePct": {
+              "label": "frontlinePct"
+            }
+          },
+          "timeRange": {
+            "start": 2007,
+            "end": 2025
+          }
+        },
+        "universities": {
+          "title": "universities",
+          "fields": {
+            "academic": {
+              "label": "academic"
+            },
+            "professional": {
+              "label": "professional"
+            },
+            "total": {
+              "label": "total"
+            },
+            "frontline": {
+              "label": "frontline"
+            },
+            "backOffice": {
+              "label": "backOffice"
+            },
+            "frontlinePct": {
+              "label": "frontlinePct"
+            }
+          },
+          "timeRange": {
+            "start": 2015,
+            "end": 2023
+          }
+        }
+      }
+    }
+  ],
+  "index": {
+    "byPillar": {
+      "state": [
+        "cpih",
+        "defence",
+        "immigration",
+        "justice",
+        "spending"
+      ],
+      "growth": [
+        "education",
+        "industrial",
+        "infrastructure",
+        "investment",
+        "productivity",
+        "research",
+        "startups"
+      ],
+      "foundations": [
+        "energy",
+        "environment",
+        "family",
+        "nhs",
+        "water",
+        "workforce"
+      ]
+    },
+    "byTag": {
+      "inflation": [
+        "cpih"
+      ],
+      "prices": [
+        "cpih"
+      ],
+      "CPIH": [
+        "cpih"
+      ],
+      "cost of living": [
+        "cpih"
+      ],
+      "CPI": [
+        "cpih"
+      ],
+      "defence": [
+        "defence"
+      ],
+      "military": [
+        "defence"
+      ],
+      "NATO": [
+        "defence"
+      ],
+      "spending": [
+        "defence",
+        "education",
+        "spending"
+      ],
+      "armed forces": [
+        "defence"
+      ],
+      "education": [
+        "education"
+      ],
+      "schools": [
+        "education"
+      ],
+      "GCSE": [
+        "education"
+      ],
+      "PISA": [
+        "education"
+      ],
+      "universities": [
+        "education",
+        "research"
+      ],
+      "teachers": [
+        "education",
+        "workforce"
+      ],
+      "energy": [
+        "energy"
+      ],
+      "electricity": [
+        "energy"
+      ],
+      "renewables": [
+        "energy"
+      ],
+      "gas": [
+        "energy"
+      ],
+      "oil": [
+        "energy"
+      ],
+      "nuclear": [
+        "energy"
+      ],
+      "environment": [
+        "environment"
+      ],
+      "emissions": [
+        "environment"
+      ],
+      "air quality": [
+        "environment"
+      ],
+      "climate": [
+        "environment"
+      ],
+      "EVs": [
+        "environment"
+      ],
+      "pollution": [
+        "environment",
+        "water"
+      ],
+      "fertility": [
+        "family"
+      ],
+      "births": [
+        "family"
+      ],
+      "TFR": [
+        "family"
+      ],
+      "households": [
+        "family"
+      ],
+      "family structure": [
+        "family"
+      ],
+      "demographics": [
+        "family",
+        "immigration"
+      ],
+      "immigration": [
+        "immigration"
+      ],
+      "migration": [
+        "immigration"
+      ],
+      "population": [
+        "immigration"
+      ],
+      "asylum": [
+        "immigration"
+      ],
+      "visas": [
+        "immigration"
+      ],
+      "industry": [
+        "industrial"
+      ],
+      "manufacturing": [
+        "industrial"
+      ],
+      "sectors": [
+        "industrial"
+      ],
+      "industrial strategy": [
+        "industrial"
+      ],
+      "infrastructure": [
+        "infrastructure",
+        "investment"
+      ],
+      "broadband": [
+        "infrastructure"
+      ],
+      "rail": [
+        "infrastructure"
+      ],
+      "roads": [
+        "infrastructure"
+      ],
+      "transport": [
+        "infrastructure"
+      ],
+      "digital": [
+        "infrastructure"
+      ],
+      "investment": [
+        "investment"
+      ],
+      "capital": [
+        "investment"
+      ],
+      "GFCF": [
+        "investment"
+      ],
+      "crime": [
+        "justice"
+      ],
+      "justice": [
+        "justice"
+      ],
+      "police": [
+        "justice",
+        "workforce"
+      ],
+      "prisons": [
+        "justice"
+      ],
+      "courts": [
+        "justice"
+      ],
+      "NHS": [
+        "nhs"
+      ],
+      "healthcare": [
+        "nhs"
+      ],
+      "waiting times": [
+        "nhs"
+      ],
+      "hospitals": [
+        "nhs"
+      ],
+      "A&E": [
+        "nhs"
+      ],
+      "productivity": [
+        "productivity"
+      ],
+      "output": [
+        "productivity"
+      ],
+      "efficiency": [
+        "productivity"
+      ],
+      "GDP per hour": [
+        "productivity"
+      ],
+      "R&D": [
+        "research"
+      ],
+      "research": [
+        "research"
+      ],
+      "science": [
+        "research"
+      ],
+      "innovation": [
+        "research"
+      ],
+      "tax": [
+        "spending"
+      ],
+      "budget": [
+        "spending"
+      ],
+      "fiscal": [
+        "spending"
+      ],
+      "debt": [
+        "spending"
+      ],
+      "GDP": [
+        "spending"
+      ],
+      "startups": [
+        "startups"
+      ],
+      "business": [
+        "startups"
+      ],
+      "entrepreneurship": [
+        "startups"
+      ],
+      "SMEs": [
+        "startups"
+      ],
+      "venture capital": [
+        "startups"
+      ],
+      "water": [
+        "water"
+      ],
+      "utilities": [
+        "water"
+      ],
+      "sewage": [
+        "water"
+      ],
+      "leakage": [
+        "water"
+      ],
+      "workforce": [
+        "workforce"
+      ],
+      "public sector": [
+        "workforce"
+      ],
+      "NHS staff": [
+        "workforce"
+      ],
+      "employment": [
+        "workforce"
+      ]
+    }
+  }
+}

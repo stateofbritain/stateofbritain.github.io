@@ -10,6 +10,7 @@ import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ChartCard from "../../components/ChartCard";
+import { fetchDataset } from "../../hooks/useDataset";
 
 const DEGREE_COLORS = {
   first: P.teal,
@@ -24,11 +25,7 @@ export default function Education() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("/data/education.json")
-      .then((res) => {
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return res.json();
-      })
+    fetchDataset("education.json")
       .then(setData)
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));

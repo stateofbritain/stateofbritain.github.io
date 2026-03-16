@@ -13,6 +13,7 @@ import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
+import { fetchDataset } from "../../hooks/useDataset";
 
 const GHG_SECTORS = [
   { key: "electricity", label: "Electricity Supply", color: P.yellow },
@@ -38,11 +39,7 @@ export default function Environment() {
   }, [data]);
 
   useEffect(() => {
-    fetch("/data/environment.json")
-      .then((res) => {
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return res.json();
-      })
+    fetchDataset("environment.json")
       .then(setData)
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));

@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "sob-dataset-v1",
+  "title": "State of Britain Dataset v1",
+  "description": "Standard schema for all public data files in the State of Britain project.",
+  "type": "object",
+  "required": ["$schema", "id", "pillar", "topic", "generated", "sources"],
+  "properties": {
+    "$schema": {
+      "const": "sob-dataset-v1"
+    },
+    "id": {
+      "type": "string",
+      "description": "Unique dataset identifier matching the filename (without .json)"
+    },
+    "pillar": {
+      "type": "string",
+      "enum": ["foundations", "growth", "state", "challenges"],
+      "description": "Which site pillar this dataset belongs to"
+    },
+    "topic": {
+      "type": "string",
+      "description": "Topic slug, e.g. 'family', 'education', 'broadband.fttp'"
+    },
+    "generated": {
+      "type": "string",
+      "format": "date",
+      "description": "ISO date when this file was last generated"
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/source"
+      }
+    },
+    "snapshot": {
+      "type": "object",
+      "description": "Key headline metrics as structured values",
+      "additionalProperties": {
+        "$ref": "#/$defs/snapshotValue"
+      }
+    },
+    "series": {
+      "type": "object",
+      "description": "Named data series, keyed by seriesId",
+      "additionalProperties": {
+        "$ref": "#/$defs/series"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "source": {
+      "type": "object",
+      "required": ["id", "name"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Short source identifier, e.g. 'ons-births-2024'"
+        },
+        "name": {
+          "type": "string",
+          "description": "Human-readable source name"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "publisher": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "snapshotValue": {
+      "type": "object",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "description": "The metric value (number or string)"
+        },
+        "year": {
+          "description": "Year or period label for this value"
+        },
+        "sourceId": {
+          "type": "string",
+          "description": "References a source.id"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "peak": {
+          "description": "Historical peak value"
+        },
+        "peakYear": {
+          "description": "Year of historical peak"
+        },
+        "change": {
+          "type": "number",
+          "description": "Percentage change from peak or baseline"
+        }
+      },
+      "additionalProperties": true
+    },
+    "methodologyBreak": {
+      "type": "object",
+      "required": ["at", "label"],
+      "properties": {
+        "at": {
+          "description": "X-axis value where the break occurs (year or date)"
+        },
+        "label": {
+          "type": "string",
+          "description": "Short annotation shown on chart"
+        },
+        "description": {
+          "type": "string",
+          "description": "Full explanation of the methodology change"
+        },
+        "severity": {
+          "type": "string",
+          "enum": ["major", "minor"],
+          "default": "minor"
+        }
+      },
+      "additionalProperties": false
+    },
+    "series": {
+      "type": "object",
+      "required": ["sourceId", "timeField", "data"],
+      "properties": {
+        "sourceId": {
+          "type": "string",
+          "description": "References a source.id"
+        },
+        "timeField": {
+          "type": "string",
+          "description": "Which field in data[] is the time axis, e.g. 'year'"
+        },
+        "methodologyBreaks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/methodologyBreak"
+          }
+        },
+        "data": {
+          "oneOf": [
+            { "type": "array", "items": { "type": "object" } },
+            { "type": "object", "description": "Mixed nested object preserved for backward compat" }
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

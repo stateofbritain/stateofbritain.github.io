@@ -13,6 +13,7 @@ import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
+import { fetchDataset } from "../../hooks/useDataset";
 
 const SERVICES = [
   {
@@ -57,11 +58,7 @@ export default function ProductiveQuotient() {
   const [trendService, setTrendService] = useState("nhs");
 
   useEffect(() => {
-    fetch("/data/workforce.json")
-      .then((res) => {
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return res.json();
-      })
+    fetchDataset("workforce.json")
       .then(setData)
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));

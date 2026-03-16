@@ -14,6 +14,7 @@ import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
+import { fetchDataset } from "../../hooks/useDataset";
 
 const toggleBtn = (active) => ({
   padding: "4px 12px",
@@ -87,11 +88,7 @@ export default function IndustrialProduction() {
   const isMobile = useIsMobile();
 
   useEffect(() => {
-    fetch("/data/industrial.json")
-      .then((res) => {
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return res.json();
-      })
+    fetchDataset("industrial.json")
       .then(setData)
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));

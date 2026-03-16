@@ -1,1280 +1,1538 @@
 {
-  "meta": {
-    "sources": [
-      {
-        "name": "NHS England RTT Waiting Times",
-        "url": "https://www.england.nhs.uk/statistics/statistical-work-areas/rtt-waiting-times/"
-      },
-      {
-        "name": "NHS England A&E Attendances and Emergency Admissions",
-        "url": "https://www.england.nhs.uk/statistics/statistical-work-areas/ae-waiting-times-and-activity/"
+  "$schema": "sob-dataset-v1",
+  "id": "nhs",
+  "pillar": "foundations",
+  "topic": "nhs",
+  "generated": "2026-03-16",
+  "sources": [
+    {
+      "id": "nhs-england-rtt-waiting-times",
+      "name": "NHS England RTT Waiting Times",
+      "url": "https://www.england.nhs.uk/statistics/statistical-work-areas/rtt-waiting-times/"
+    },
+    {
+      "id": "nhs-england-a-e-attendances-and-emergenc",
+      "name": "NHS England A&E Attendances and Emergency Admissions",
+      "url": "https://www.england.nhs.uk/statistics/statistical-work-areas/ae-waiting-times-and-activity/"
+    }
+  ],
+  "series": {
+    "rtt": {
+      "sourceId": "nhs-england-rtt-waiting-times",
+      "timeField": "period",
+      "methodologyBreaks": [
+        {
+          "at": "2020-03",
+          "label": "COVID impact",
+          "description": "Elective care suspended during COVID-19 pandemic",
+          "severity": "major"
+        }
+      ],
+      "data": [
+        {
+          "period": "2012-01",
+          "medianWait": 5.9,
+          "pctWithin18": 92.1,
+          "over52weeks": 6142,
+          "totalWaiting": 2388599
+        },
+        {
+          "period": "2012-02",
+          "medianWait": 5.2,
+          "pctWithin18": 92.5,
+          "over52weeks": 5897,
+          "totalWaiting": 2411155
+        },
+        {
+          "period": "2012-03",
+          "medianWait": 5.2,
+          "pctWithin18": 93.2,
+          "over52weeks": 5393,
+          "totalWaiting": 2443952
+        },
+        {
+          "period": "2012-04",
+          "medianWait": 5.5,
+          "pctWithin18": 94,
+          "over52weeks": 4457,
+          "totalWaiting": 2510647
+        },
+        {
+          "period": "2012-05",
+          "medianWait": 5.3,
+          "pctWithin18": 94.3,
+          "over52weeks": 3552,
+          "totalWaiting": 2586681
+        },
+        {
+          "period": "2012-06",
+          "medianWait": 5.7,
+          "pctWithin18": 94.1,
+          "over52weeks": 3503,
+          "totalWaiting": 2642912
+        },
+        {
+          "period": "2012-07",
+          "medianWait": 5.5,
+          "pctWithin18": 94,
+          "over52weeks": 2959,
+          "totalWaiting": 2681884
+        },
+        {
+          "period": "2012-08",
+          "medianWait": 5.8,
+          "pctWithin18": 94,
+          "over52weeks": 2352,
+          "totalWaiting": 2680458
+        },
+        {
+          "period": "2012-09",
+          "medianWait": 5.8,
+          "pctWithin18": 93.8,
+          "over52weeks": 1868,
+          "totalWaiting": 2684993
+        },
+        {
+          "period": "2012-10",
+          "medianWait": 5.3,
+          "pctWithin18": 94.2,
+          "over52weeks": 1580,
+          "totalWaiting": 2697102
+        },
+        {
+          "period": "2012-11",
+          "medianWait": 5.4,
+          "pctWithin18": 94.2,
+          "over52weeks": 1446,
+          "totalWaiting": 2651013
+        },
+        {
+          "period": "2012-12",
+          "medianWait": 6.1,
+          "pctWithin18": 93.9,
+          "over52weeks": 1384,
+          "totalWaiting": 2625402
+        },
+        {
+          "period": "2013-01",
+          "medianWait": 6,
+          "pctWithin18": 93.8,
+          "over52weeks": 1141,
+          "totalWaiting": 2597806
+        },
+        {
+          "period": "2013-02",
+          "medianWait": 5.1,
+          "pctWithin18": 93.7,
+          "over52weeks": 962,
+          "totalWaiting": 2632269
+        },
+        {
+          "period": "2013-03",
+          "medianWait": 5.5,
+          "pctWithin18": 94.2,
+          "over52weeks": 474,
+          "totalWaiting": 2677497
+        },
+        {
+          "period": "2013-04",
+          "medianWait": 5.6,
+          "pctWithin18": 94.5,
+          "over52weeks": 391,
+          "totalWaiting": 2748808
+        },
+        {
+          "period": "2013-05",
+          "medianWait": 5.6,
+          "pctWithin18": 94.8,
+          "over52weeks": 434,
+          "totalWaiting": 2847373
+        },
+        {
+          "period": "2013-06",
+          "medianWait": 5.7,
+          "pctWithin18": 94.6,
+          "over52weeks": 295,
+          "totalWaiting": 2879204
+        },
+        {
+          "period": "2013-07",
+          "medianWait": 5.6,
+          "pctWithin18": 94.4,
+          "over52weeks": 368,
+          "totalWaiting": 2906489
+        },
+        {
+          "period": "2013-08",
+          "medianWait": 6.2,
+          "pctWithin18": 94.2,
+          "over52weeks": 350,
+          "totalWaiting": 2936981
+        },
+        {
+          "period": "2013-09",
+          "medianWait": 6,
+          "pctWithin18": 94.1,
+          "over52weeks": 409,
+          "totalWaiting": 2918177
+        },
+        {
+          "period": "2013-10",
+          "medianWait": 5.6,
+          "pctWithin18": 94.1,
+          "over52weeks": 461,
+          "totalWaiting": 2951496
+        },
+        {
+          "period": "2013-11",
+          "medianWait": 5.7,
+          "pctWithin18": 93.9,
+          "over52weeks": 418,
+          "totalWaiting": 2918382
+        },
+        {
+          "period": "2013-12",
+          "medianWait": 6.3,
+          "pctWithin18": 93.5,
+          "over52weeks": 520,
+          "totalWaiting": 2940064
+        },
+        {
+          "period": "2014-01",
+          "medianWait": 6.2,
+          "pctWithin18": 93.4,
+          "over52weeks": 634,
+          "totalWaiting": 2965239
+        },
+        {
+          "period": "2014-02",
+          "medianWait": 5.4,
+          "pctWithin18": 93.3,
+          "over52weeks": 743,
+          "totalWaiting": 3012253
+        },
+        {
+          "period": "2014-03",
+          "medianWait": 5.5,
+          "pctWithin18": 93.6,
+          "over52weeks": 692,
+          "totalWaiting": 3052280
+        },
+        {
+          "period": "2014-04",
+          "medianWait": 5.9,
+          "pctWithin18": 93.6,
+          "over52weeks": 720,
+          "totalWaiting": 3119809
+        },
+        {
+          "period": "2014-05",
+          "medianWait": 6.2,
+          "pctWithin18": 93.6,
+          "over52weeks": 776,
+          "totalWaiting": 3196627
+        },
+        {
+          "period": "2014-06",
+          "medianWait": 5.8,
+          "pctWithin18": 93.6,
+          "over52weeks": 776,
+          "totalWaiting": 3220933
+        },
+        {
+          "period": "2014-07",
+          "medianWait": 5.9,
+          "pctWithin18": 93.2,
+          "over52weeks": 730,
+          "totalWaiting": 3228040
+        },
+        {
+          "period": "2014-08",
+          "medianWait": 6.4,
+          "pctWithin18": 93,
+          "over52weeks": 688,
+          "totalWaiting": 3248315
+        },
+        {
+          "period": "2014-09",
+          "medianWait": 6.2,
+          "pctWithin18": 93.1,
+          "over52weeks": 646,
+          "totalWaiting": 3224605
+        },
+        {
+          "period": "2014-10",
+          "medianWait": 5.8,
+          "pctWithin18": 92.9,
+          "over52weeks": 665,
+          "totalWaiting": 3239274
+        },
+        {
+          "period": "2014-11",
+          "medianWait": 5.8,
+          "pctWithin18": 93,
+          "over52weeks": 646,
+          "totalWaiting": 3223626
+        },
+        {
+          "period": "2014-12",
+          "medianWait": 6.5,
+          "pctWithin18": 92.6,
+          "over52weeks": 684,
+          "totalWaiting": 3174814
+        },
+        {
+          "period": "2015-01",
+          "medianWait": 6.7,
+          "pctWithin18": 92.3,
+          "over52weeks": 725,
+          "totalWaiting": 3141683
+        },
+        {
+          "period": "2015-02",
+          "medianWait": 5.6,
+          "pctWithin18": 92.8,
+          "over52weeks": 727,
+          "totalWaiting": 3145851
+        },
+        {
+          "period": "2015-03",
+          "medianWait": 5.6,
+          "pctWithin18": 92.9,
+          "over52weeks": 751,
+          "totalWaiting": 3209293
+        },
+        {
+          "period": "2015-04",
+          "medianWait": 5.9,
+          "pctWithin18": 93,
+          "over52weeks": 713,
+          "totalWaiting": 3285295
+        },
+        {
+          "period": "2015-05",
+          "medianWait": 6,
+          "pctWithin18": 93.2,
+          "over52weeks": 752,
+          "totalWaiting": 3392565
+        },
+        {
+          "period": "2015-06",
+          "medianWait": 6,
+          "pctWithin18": 93,
+          "over52weeks": 868,
+          "totalWaiting": 3409991
+        },
+        {
+          "period": "2015-07",
+          "medianWait": 6,
+          "pctWithin18": 92.6,
+          "over52weeks": 903,
+          "totalWaiting": 3472440
+        },
+        {
+          "period": "2015-08",
+          "medianWait": 6.5,
+          "pctWithin18": 92.4,
+          "over52weeks": 855,
+          "totalWaiting": 3512477
+        },
+        {
+          "period": "2015-09",
+          "medianWait": 6.5,
+          "pctWithin18": 92.3,
+          "over52weeks": 872,
+          "totalWaiting": 3491314
+        },
+        {
+          "period": "2015-10",
+          "medianWait": 6.2,
+          "pctWithin18": 91.9,
+          "over52weeks": 987,
+          "totalWaiting": 3532814
+        },
+        {
+          "period": "2015-11",
+          "medianWait": 6.1,
+          "pctWithin18": 92,
+          "over52weeks": 954,
+          "totalWaiting": 3525414
+        },
+        {
+          "period": "2015-12",
+          "medianWait": 6.7,
+          "pctWithin18": 91.4,
+          "over52weeks": 934,
+          "totalWaiting": 3529514
+        },
+        {
+          "period": "2016-01",
+          "medianWait": 6.8,
+          "pctWithin18": 91.5,
+          "over52weeks": 904,
+          "totalWaiting": 3524702
+        },
+        {
+          "period": "2016-02",
+          "medianWait": 5.9,
+          "pctWithin18": 91.7,
+          "over52weeks": 868,
+          "totalWaiting": 3579523
+        },
+        {
+          "period": "2016-03",
+          "medianWait": 6.4,
+          "pctWithin18": 91.1,
+          "over52weeks": 1024,
+          "totalWaiting": 3675298
+        },
+        {
+          "period": "2016-04",
+          "medianWait": 6.6,
+          "pctWithin18": 91.2,
+          "over52weeks": 1039,
+          "totalWaiting": 3786160
+        },
+        {
+          "period": "2016-05",
+          "medianWait": 6.4,
+          "pctWithin18": 91.4,
+          "over52weeks": 1162,
+          "totalWaiting": 3841761
+        },
+        {
+          "period": "2016-06",
+          "medianWait": 6.5,
+          "pctWithin18": 91.1,
+          "over52weeks": 1099,
+          "totalWaiting": 3847673
+        },
+        {
+          "period": "2016-07",
+          "medianWait": 6.6,
+          "pctWithin18": 90.9,
+          "over52weeks": 1234,
+          "totalWaiting": 3884464
+        },
+        {
+          "period": "2016-08",
+          "medianWait": 7,
+          "pctWithin18": 90.5,
+          "over52weeks": 1219,
+          "totalWaiting": 3911383
+        },
+        {
+          "period": "2016-09",
+          "medianWait": 6.9,
+          "pctWithin18": 90.2,
+          "over52weeks": 1342,
+          "totalWaiting": 3922359
+        },
+        {
+          "period": "2016-10",
+          "medianWait": 6.5,
+          "pctWithin18": 90.3,
+          "over52weeks": 1576,
+          "totalWaiting": 3903768
+        },
+        {
+          "period": "2016-11",
+          "medianWait": 6.5,
+          "pctWithin18": 90.3,
+          "over52weeks": 1382,
+          "totalWaiting": 3858276
+        },
+        {
+          "period": "2016-12",
+          "medianWait": 7.2,
+          "pctWithin18": 89.5,
+          "over52weeks": 1377,
+          "totalWaiting": 3833822
+        },
+        {
+          "period": "2017-01",
+          "medianWait": 7.2,
+          "pctWithin18": 89.8,
+          "over52weeks": 1495,
+          "totalWaiting": 3792730
+        },
+        {
+          "period": "2017-02",
+          "medianWait": 6.2,
+          "pctWithin18": 89.8,
+          "over52weeks": 1676,
+          "totalWaiting": 3826696
+        },
+        {
+          "period": "2017-03",
+          "medianWait": 6.2,
+          "pctWithin18": 90.1,
+          "over52weeks": 1621,
+          "totalWaiting": 3897530
+        },
+        {
+          "period": "2017-04",
+          "medianWait": 6.8,
+          "pctWithin18": 89.8,
+          "over52weeks": 1661,
+          "totalWaiting": 3945154
+        },
+        {
+          "period": "2017-05",
+          "medianWait": 7.1,
+          "pctWithin18": 90.3,
+          "over52weeks": 1744,
+          "totalWaiting": 3973736
+        },
+        {
+          "period": "2017-06",
+          "medianWait": 6.6,
+          "pctWithin18": 90.1,
+          "over52weeks": 1743,
+          "totalWaiting": 4012911
+        },
+        {
+          "period": "2017-07",
+          "medianWait": 6.6,
+          "pctWithin18": 89.7,
+          "over52weeks": 1843,
+          "totalWaiting": 4030998
+        },
+        {
+          "period": "2017-08",
+          "medianWait": 7.1,
+          "pctWithin18": 89.3,
+          "over52weeks": 1935,
+          "totalWaiting": 4066143
+        },
+        {
+          "period": "2017-09",
+          "medianWait": 7.2,
+          "pctWithin18": 89,
+          "over52weeks": 1980,
+          "totalWaiting": 4071101
+        },
+        {
+          "period": "2017-10",
+          "medianWait": 6.7,
+          "pctWithin18": 89.1,
+          "over52weeks": 1728,
+          "totalWaiting": 4065855
+        },
+        {
+          "period": "2017-11",
+          "medianWait": 6.6,
+          "pctWithin18": 89.2,
+          "over52weeks": 1671,
+          "totalWaiting": 4020625
+        },
+        {
+          "period": "2017-12",
+          "medianWait": 7.4,
+          "pctWithin18": 88.1,
+          "over52weeks": 1842,
+          "totalWaiting": 3995928
+        },
+        {
+          "period": "2018-01",
+          "medianWait": 7.6,
+          "pctWithin18": 87.9,
+          "over52weeks": 2119,
+          "totalWaiting": 3983956
+        },
+        {
+          "period": "2018-02",
+          "medianWait": 6.6,
+          "pctWithin18": 87.6,
+          "over52weeks": 2485,
+          "totalWaiting": 4014118
+        },
+        {
+          "period": "2018-03",
+          "medianWait": 6.9,
+          "pctWithin18": 87,
+          "over52weeks": 3006,
+          "totalWaiting": 4102999
+        },
+        {
+          "period": "2018-04",
+          "medianWait": 6.9,
+          "pctWithin18": 87.4,
+          "over52weeks": 3044,
+          "totalWaiting": 4194514
+        },
+        {
+          "period": "2018-05",
+          "medianWait": 6.9,
+          "pctWithin18": 88,
+          "over52weeks": 3264,
+          "totalWaiting": 4277422
+        },
+        {
+          "period": "2018-06",
+          "medianWait": 7,
+          "pctWithin18": 87.7,
+          "over52weeks": 3680,
+          "totalWaiting": 4309865
+        },
+        {
+          "period": "2018-07",
+          "medianWait": 7,
+          "pctWithin18": 87.6,
+          "over52weeks": 3628,
+          "totalWaiting": 4322746
+        },
+        {
+          "period": "2018-08",
+          "medianWait": 7.5,
+          "pctWithin18": 87.1,
+          "over52weeks": 3569,
+          "totalWaiting": 4350817
+        },
+        {
+          "period": "2018-09",
+          "medianWait": 7.6,
+          "pctWithin18": 86.6,
+          "over52weeks": 3321,
+          "totalWaiting": 4322186
+        },
+        {
+          "period": "2018-10",
+          "medianWait": 7,
+          "pctWithin18": 87,
+          "over52weeks": 2978,
+          "totalWaiting": 4340067
+        },
+        {
+          "period": "2018-11",
+          "medianWait": 6.9,
+          "pctWithin18": 87.2,
+          "over52weeks": 2594,
+          "totalWaiting": 4307771
+        },
+        {
+          "period": "2018-12",
+          "medianWait": 7.6,
+          "pctWithin18": 86.5,
+          "over52weeks": 2400,
+          "totalWaiting": 4284808
+        },
+        {
+          "period": "2019-01",
+          "medianWait": 7.8,
+          "pctWithin18": 86.6,
+          "over52weeks": 2328,
+          "totalWaiting": 4268656
+        },
+        {
+          "period": "2019-02",
+          "medianWait": 6.7,
+          "pctWithin18": 86.6,
+          "over52weeks": 2188,
+          "totalWaiting": 4306057
+        },
+        {
+          "period": "2019-03",
+          "medianWait": 6.9,
+          "pctWithin18": 86.3,
+          "over52weeks": 1377,
+          "totalWaiting": 4345467
+        },
+        {
+          "period": "2019-04",
+          "medianWait": 7.2,
+          "pctWithin18": 86.2,
+          "over52weeks": 1270,
+          "totalWaiting": 4409624
+        },
+        {
+          "period": "2019-05",
+          "medianWait": 7.7,
+          "pctWithin18": 86.5,
+          "over52weeks": 1255,
+          "totalWaiting": 4497746
+        },
+        {
+          "period": "2019-06",
+          "medianWait": 7.5,
+          "pctWithin18": 86,
+          "over52weeks": 1312,
+          "totalWaiting": 4507299
+        },
+        {
+          "period": "2019-07",
+          "medianWait": 7.3,
+          "pctWithin18": 85.5,
+          "over52weeks": 1264,
+          "totalWaiting": 4522895
+        },
+        {
+          "period": "2019-08",
+          "medianWait": 8,
+          "pctWithin18": 84.7,
+          "over52weeks": 1468,
+          "totalWaiting": 4558291
+        },
+        {
+          "period": "2019-09",
+          "medianWait": 8,
+          "pctWithin18": 84.5,
+          "over52weeks": 1537,
+          "totalWaiting": 4567210
+        },
+        {
+          "period": "2019-10",
+          "medianWait": 7.6,
+          "pctWithin18": 84.4,
+          "over52weeks": 1553,
+          "totalWaiting": 4595183
+        },
+        {
+          "period": "2019-11",
+          "medianWait": 7.7,
+          "pctWithin18": 84.1,
+          "over52weeks": 1630,
+          "totalWaiting": 4563805
+        },
+        {
+          "period": "2019-12",
+          "medianWait": 8.3,
+          "pctWithin18": 83.4,
+          "over52weeks": 1699,
+          "totalWaiting": 4565238
+        },
+        {
+          "period": "2020-01",
+          "medianWait": 8.4,
+          "pctWithin18": 83.2,
+          "over52weeks": 1875,
+          "totalWaiting": 4566021
+        },
+        {
+          "period": "2020-02",
+          "medianWait": 7.5,
+          "pctWithin18": 82.9,
+          "over52weeks": 1845,
+          "totalWaiting": 4573675
+        },
+        {
+          "period": "2020-03",
+          "medianWait": 8.9,
+          "pctWithin18": 79.5,
+          "over52weeks": 3329,
+          "totalWaiting": 4386297
+        },
+        {
+          "period": "2020-04",
+          "medianWait": 12.2,
+          "pctWithin18": 71.4,
+          "over52weeks": 11255,
+          "totalWaiting": 4051288
+        },
+        {
+          "period": "2020-05",
+          "medianWait": 15.3,
+          "pctWithin18": 62.6,
+          "over52weeks": 26793,
+          "totalWaiting": 3950230
+        },
+        {
+          "period": "2020-06",
+          "medianWait": 17.6,
+          "pctWithin18": 52.7,
+          "over52weeks": 50615,
+          "totalWaiting": 3964304
+        },
+        {
+          "period": "2020-07",
+          "medianWait": 19.6,
+          "pctWithin18": 47.3,
+          "over52weeks": 83290,
+          "totalWaiting": 4121693
+        },
+        {
+          "period": "2020-08",
+          "medianWait": 14.8,
+          "pctWithin18": 53.9,
+          "over52weeks": 111093,
+          "totalWaiting": 4286068
+        },
+        {
+          "period": "2020-09",
+          "medianWait": 12,
+          "pctWithin18": 60.8,
+          "over52weeks": 139612,
+          "totalWaiting": 4420837
+        },
+        {
+          "period": "2020-10",
+          "medianWait": 11.1,
+          "pctWithin18": 65.6,
+          "over52weeks": 167134,
+          "totalWaiting": 4514810
+        },
+        {
+          "period": "2020-11",
+          "medianWait": 10.4,
+          "pctWithin18": 68.3,
+          "over52weeks": 192236,
+          "totalWaiting": 4526665
+        },
+        {
+          "period": "2020-12",
+          "medianWait": 11.2,
+          "pctWithin18": 67.9,
+          "over52weeks": 224272,
+          "totalWaiting": 4587286
+        },
+        {
+          "period": "2021-01",
+          "medianWait": 12.1,
+          "pctWithin18": 66.3,
+          "over52weeks": 304111,
+          "totalWaiting": 4658628
+        },
+        {
+          "period": "2021-02",
+          "medianWait": 12.6,
+          "pctWithin18": 64.6,
+          "over52weeks": 387952,
+          "totalWaiting": 4764301
+        },
+        {
+          "period": "2021-03",
+          "medianWait": 11.6,
+          "pctWithin18": 64.4,
+          "over52weeks": 436127,
+          "totalWaiting": 4950297
+        },
+        {
+          "period": "2021-04",
+          "medianWait": 11,
+          "pctWithin18": 64.6,
+          "over52weeks": 385379,
+          "totalWaiting": 5123717
+        },
+        {
+          "period": "2021-05",
+          "medianWait": 10.8,
+          "pctWithin18": 67.4,
+          "over52weeks": 336779,
+          "totalWaiting": 5305425
+        },
+        {
+          "period": "2021-06",
+          "medianWait": 10.5,
+          "pctWithin18": 68.7,
+          "over52weeks": 304823,
+          "totalWaiting": 5453486
+        },
+        {
+          "period": "2021-07",
+          "medianWait": 10.9,
+          "pctWithin18": 68.3,
+          "over52weeks": 293102,
+          "totalWaiting": 5607574
+        },
+        {
+          "period": "2021-08",
+          "medianWait": 11.5,
+          "pctWithin18": 67.6,
+          "over52weeks": 295362,
+          "totalWaiting": 5740749
+        },
+        {
+          "period": "2021-09",
+          "medianWait": 11.9,
+          "pctWithin18": 66.4,
+          "over52weeks": 304498,
+          "totalWaiting": 5860046
+        },
+        {
+          "period": "2021-10",
+          "medianWait": 12,
+          "pctWithin18": 65.6,
+          "over52weeks": 312852,
+          "totalWaiting": 5977537
+        },
+        {
+          "period": "2021-11",
+          "medianWait": 11.5,
+          "pctWithin18": 65.5,
+          "over52weeks": 307214,
+          "totalWaiting": 6001676
+        },
+        {
+          "period": "2021-12",
+          "medianWait": 12.5,
+          "pctWithin18": 63.9,
+          "over52weeks": 310943,
+          "totalWaiting": 6071293
+        },
+        {
+          "period": "2022-01",
+          "medianWait": 13.1,
+          "pctWithin18": 62.4,
+          "over52weeks": 317491,
+          "totalWaiting": 6127993
+        },
+        {
+          "period": "2022-02",
+          "medianWait": 13.2,
+          "pctWithin18": 62.2,
+          "over52weeks": 306479,
+          "totalWaiting": 6211131
+        },
+        {
+          "period": "2022-03",
+          "medianWait": 12.2,
+          "pctWithin18": 62.2,
+          "over52weeks": 310067,
+          "totalWaiting": 6365772
+        },
+        {
+          "period": "2022-04",
+          "medianWait": 12.6,
+          "pctWithin18": 61.7,
+          "over52weeks": 324422,
+          "totalWaiting": 6527149
+        },
+        {
+          "period": "2022-05",
+          "medianWait": 12.7,
+          "pctWithin18": 63.6,
+          "over52weeks": 333303,
+          "totalWaiting": 6668099
+        },
+        {
+          "period": "2022-06",
+          "medianWait": 13.3,
+          "pctWithin18": 62.3,
+          "over52weeks": 357761,
+          "totalWaiting": 6790084
+        },
+        {
+          "period": "2022-07",
+          "medianWait": 13.3,
+          "pctWithin18": 61.1,
+          "over52weeks": 381384,
+          "totalWaiting": 6937525
+        },
+        {
+          "period": "2022-08",
+          "medianWait": 13.8,
+          "pctWithin18": 60.8,
+          "over52weeks": 390852,
+          "totalWaiting": 7072791
+        },
+        {
+          "period": "2022-09",
+          "medianWait": 14,
+          "pctWithin18": 59.4,
+          "over52weeks": 405209,
+          "totalWaiting": 7141950
+        },
+        {
+          "period": "2022-10",
+          "medianWait": 13.9,
+          "pctWithin18": 59.7,
+          "over52weeks": 411274,
+          "totalWaiting": 7214182
+        },
+        {
+          "period": "2022-11",
+          "medianWait": 13.6,
+          "pctWithin18": 59.6,
+          "over52weeks": 406799,
+          "totalWaiting": 7187948
+        },
+        {
+          "period": "2022-12",
+          "medianWait": 14.4,
+          "pctWithin18": 57.6,
+          "over52weeks": 405930,
+          "totalWaiting": 7200033
+        },
+        {
+          "period": "2023-01",
+          "medianWait": 14.6,
+          "pctWithin18": 58.3,
+          "over52weeks": 379145,
+          "totalWaiting": 7213120
+        },
+        {
+          "period": "2023-02",
+          "medianWait": 14.5,
+          "pctWithin18": 58.5,
+          "over52weeks": 362434,
+          "totalWaiting": 7217871
+        },
+        {
+          "period": "2023-03",
+          "medianWait": 14.1,
+          "pctWithin18": 58.6,
+          "over52weeks": 359078,
+          "totalWaiting": 7331186
+        },
+        {
+          "period": "2023-04",
+          "medianWait": 13.8,
+          "pctWithin18": 58.3,
+          "over52weeks": 371111,
+          "totalWaiting": 7415352
+        },
+        {
+          "period": "2023-05",
+          "medianWait": 14.1,
+          "pctWithin18": 59.5,
+          "over52weeks": 385027,
+          "totalWaiting": 7475194
+        },
+        {
+          "period": "2023-06",
+          "medianWait": 14.3,
+          "pctWithin18": 59.2,
+          "over52weeks": 383083,
+          "totalWaiting": 7574649
+        },
+        {
+          "period": "2023-07",
+          "medianWait": 14.1,
+          "pctWithin18": 58.6,
+          "over52weeks": 388505,
+          "totalWaiting": 7674305
+        },
+        {
+          "period": "2023-08",
+          "medianWait": 14.5,
+          "pctWithin18": 58,
+          "over52weeks": 395170,
+          "totalWaiting": 7745784
+        },
+        {
+          "period": "2023-09",
+          "medianWait": 14.7,
+          "pctWithin18": 57.6,
+          "over52weeks": 391107,
+          "totalWaiting": 7768573
+        },
+        {
+          "period": "2023-10",
+          "medianWait": 14.6,
+          "pctWithin18": 58.2,
+          "over52weeks": 377315,
+          "totalWaiting": 7703867
+        },
+        {
+          "period": "2023-11",
+          "medianWait": 14.4,
+          "pctWithin18": 58.3,
+          "over52weeks": 355712,
+          "totalWaiting": 7613842
+        },
+        {
+          "period": "2023-12",
+          "medianWait": 15,
+          "pctWithin18": 56.6,
+          "over52weeks": 338070,
+          "totalWaiting": 7607585
+        },
+        {
+          "period": "2024-01",
+          "medianWait": 15,
+          "pctWithin18": 57,
+          "over52weeks": 321394,
+          "totalWaiting": 7575914
+        },
+        {
+          "period": "2024-03",
+          "medianWait": 14.9,
+          "pctWithin18": 57.2,
+          "over52weeks": 309299,
+          "totalWaiting": 7538830
+        },
+        {
+          "period": "2024-04",
+          "medianWait": 13.9,
+          "pctWithin18": 58.2,
+          "over52weeks": 302589,
+          "totalWaiting": 7570371
+        },
+        {
+          "period": "2024-05",
+          "medianWait": 14.2,
+          "pctWithin18": 59.1,
+          "over52weeks": 307500,
+          "totalWaiting": 7601650
+        },
+        {
+          "period": "2024-06",
+          "medianWait": 14.3,
+          "pctWithin18": 58.9,
+          "over52weeks": 302693,
+          "totalWaiting": 7621297
+        },
+        {
+          "period": "2024-07",
+          "medianWait": 14,
+          "pctWithin18": 58.8,
+          "over52weeks": 290326,
+          "totalWaiting": 7623081
+        },
+        {
+          "period": "2024-08",
+          "medianWait": 14.6,
+          "pctWithin18": 58.3,
+          "over52weeks": 282664,
+          "totalWaiting": 7641774
+        },
+        {
+          "period": "2024-09",
+          "medianWait": 14.4,
+          "pctWithin18": 58.5,
+          "over52weeks": 249024,
+          "totalWaiting": 7571549
+        },
+        {
+          "period": "2024-10",
+          "medianWait": 14.2,
+          "pctWithin18": 58.9,
+          "over52weeks": 234914,
+          "totalWaiting": 7541371
+        },
+        {
+          "period": "2024-11",
+          "medianWait": 14,
+          "pctWithin18": 59.2,
+          "over52weeks": 221567,
+          "totalWaiting": 7479867
+        },
+        {
+          "period": "2024-12",
+          "medianWait": 14.2,
+          "pctWithin18": 58.9,
+          "over52weeks": 200402,
+          "totalWaiting": 7463085
+        },
+        {
+          "period": "2025-01",
+          "medianWait": 14.4,
+          "pctWithin18": 58.9,
+          "over52weeks": 198828,
+          "totalWaiting": 7427669
+        },
+        {
+          "period": "2025-02",
+          "medianWait": 14.2,
+          "pctWithin18": 59.2,
+          "over52weeks": 193525,
+          "totalWaiting": 7401153
+        },
+        {
+          "period": "2025-03",
+          "medianWait": 13.8,
+          "pctWithin18": 59.8,
+          "over52weeks": 180243,
+          "totalWaiting": 7418598
+        },
+        {
+          "period": "2025-04",
+          "medianWait": 13.3,
+          "pctWithin18": 59.7,
+          "over52weeks": 190023,
+          "totalWaiting": 7389065
+        },
+        {
+          "period": "2025-05",
+          "medianWait": 13.6,
+          "pctWithin18": 60.9,
+          "over52weeks": 196839,
+          "totalWaiting": 7355950
+        },
+        {
+          "period": "2025-06",
+          "medianWait": 13.4,
+          "pctWithin18": 61.5,
+          "over52weeks": 191755,
+          "totalWaiting": 7367836
+        },
+        {
+          "period": "2025-07",
+          "medianWait": 13.1,
+          "pctWithin18": 61.3,
+          "over52weeks": 191213,
+          "totalWaiting": 7390279
+        },
+        {
+          "period": "2025-08",
+          "medianWait": 13.5,
+          "pctWithin18": 61,
+          "over52weeks": 190499,
+          "totalWaiting": 7403612
+        },
+        {
+          "period": "2025-09",
+          "medianWait": 13.4,
+          "pctWithin18": 61.8,
+          "over52weeks": 180329,
+          "totalWaiting": 7388149
+        },
+        {
+          "period": "2025-10",
+          "medianWait": 13.3,
+          "pctWithin18": 61.8,
+          "over52weeks": 172556,
+          "totalWaiting": 7395445
+        },
+        {
+          "period": "2025-11",
+          "medianWait": 12.9,
+          "pctWithin18": 61.8,
+          "over52weeks": 156483,
+          "totalWaiting": 7308928
+        },
+        {
+          "period": "2025-12",
+          "medianWait": 13.4,
+          "pctWithin18": 61.5,
+          "over52weeks": 140508,
+          "totalWaiting": 7290880
+        }
+      ]
+    },
+    "ae": {
+      "sourceId": "nhs-england-rtt-waiting-times",
+      "timeField": "period",
+      "methodologyBreaks": [
+        {
+          "at": "2020-03",
+          "label": "COVID impact",
+          "description": "A&E attendance patterns disrupted by pandemic",
+          "severity": "major"
+        }
+      ],
+      "data": [
+        {
+          "period": "2025-04",
+          "totalAttendances": 2297421,
+          "within4Hours": 1718099,
+          "over4Hours": 579322,
+          "pctWithin4Hours": 74.8,
+          "pctWithin4HoursType1": 60.2,
+          "emergencyAdmissions": 396292
+        },
+        {
+          "period": "2025-07",
+          "totalAttendances": 2408866,
+          "within4Hours": 1840562,
+          "over4Hours": 568304,
+          "pctWithin4Hours": 76.4,
+          "pctWithin4HoursType1": 63.1,
+          "emergencyAdmissions": 419451
+        },
+        {
+          "period": "2025-10",
+          "totalAttendances": 2397701,
+          "within4Hours": 1777827,
+          "over4Hours": 619874,
+          "pctWithin4Hours": 74.1,
+          "pctWithin4HoursType1": 60.1,
+          "emergencyAdmissions": 413710
+        },
+        {
+          "period": "2026-01",
+          "totalAttendances": 2320266,
+          "within4Hours": 1681284,
+          "over4Hours": 638982,
+          "pctWithin4Hours": 72.5,
+          "pctWithin4HoursType1": 57.3,
+          "emergencyAdmissions": 401942
+        }
+      ]
+    },
+    "bySpecialty": {
+      "sourceId": "nhs-england-rtt-waiting-times",
+      "timeField": "year",
+      "data": {
+        "period": "2026-01",
+        "preCovidPeriod": "2020-01",
+        "specialties": [
+          {
+            "specialty": "Trauma & Orthopaedics",
+            "waiting": 845246,
+            "pctWithin18": 57.6,
+            "medianWeeks": 16,
+            "over52weeks": 25055,
+            "preCovidWaiting": 524763
+          },
+          {
+            "specialty": "Ophthalmology",
+            "waiting": 598650,
+            "pctWithin18": 69.7,
+            "medianWeeks": 12,
+            "over52weeks": 5237,
+            "preCovidWaiting": 441533
+          },
+          {
+            "specialty": "ENT",
+            "waiting": 589045,
+            "pctWithin18": 53.3,
+            "medianWeeks": 17,
+            "over52weeks": 16122,
+            "preCovidWaiting": 319396
+          },
+          {
+            "specialty": "Gynaecology",
+            "waiting": 566350,
+            "pctWithin18": 56.8,
+            "medianWeeks": 16,
+            "over52weeks": 14735,
+            "preCovidWaiting": 284667
+          },
+          {
+            "specialty": "Dermatology",
+            "waiting": 396831,
+            "pctWithin18": 59.8,
+            "medianWeeks": 15,
+            "over52weeks": 6315,
+            "preCovidWaiting": 222510
+          },
+          {
+            "specialty": "Urology",
+            "waiting": 390044,
+            "pctWithin18": 62.8,
+            "medianWeeks": 14,
+            "over52weeks": 7858,
+            "preCovidWaiting": 243941
+          },
+          {
+            "specialty": "General Surgery",
+            "waiting": 386565,
+            "pctWithin18": 59.5,
+            "medianWeeks": 15,
+            "over52weeks": 8958,
+            "preCovidWaiting": 325707
+          },
+          {
+            "specialty": "Cardiology",
+            "waiting": 385038,
+            "pctWithin18": 63.9,
+            "medianWeeks": 13,
+            "over52weeks": 4595,
+            "preCovidWaiting": 224292
+          },
+          {
+            "specialty": "Gastroenterology",
+            "waiting": 383697,
+            "pctWithin18": 64.8,
+            "medianWeeks": 13,
+            "over52weeks": 4758,
+            "preCovidWaiting": 229078
+          },
+          {
+            "specialty": "Oral Surgery",
+            "waiting": 318440,
+            "pctWithin18": 52.4,
+            "medianWeeks": 18,
+            "over52weeks": 10023,
+            "preCovidWaiting": 169007
+          },
+          {
+            "specialty": "Neurology",
+            "waiting": 219187,
+            "pctWithin18": 57,
+            "medianWeeks": 16,
+            "over52weeks": 3721,
+            "preCovidWaiting": 143705
+          },
+          {
+            "specialty": "Respiratory Medicine",
+            "waiting": 185422,
+            "pctWithin18": 69.3,
+            "medianWeeks": 12,
+            "over52weeks": 1361,
+            "preCovidWaiting": 113801
+          },
+          {
+            "specialty": "Rheumatology",
+            "waiting": 116258,
+            "pctWithin18": 66.3,
+            "medianWeeks": 13,
+            "over52weeks": 859,
+            "preCovidWaiting": 93000
+          },
+          {
+            "specialty": "Plastic Surgery",
+            "waiting": 104152,
+            "pctWithin18": 54.2,
+            "medianWeeks": 17,
+            "over52weeks": 3432,
+            "preCovidWaiting": 55317
+          },
+          {
+            "specialty": "Neurosurgery",
+            "waiting": 58192,
+            "pctWithin18": 60.4,
+            "medianWeeks": 15,
+            "over52weeks": 1061,
+            "preCovidWaiting": 35441
+          },
+          {
+            "specialty": "General Medicine",
+            "waiting": 37048,
+            "pctWithin18": 66.9,
+            "medianWeeks": 12,
+            "over52weeks": 321,
+            "preCovidWaiting": 43933
+          },
+          {
+            "specialty": "Elderly Medicine",
+            "waiting": 26371,
+            "pctWithin18": 79.3,
+            "medianWeeks": 9,
+            "over52weeks": 143,
+            "preCovidWaiting": 19207
+          },
+          {
+            "specialty": "Cardiothoracic Surgery",
+            "waiting": 9293,
+            "pctWithin18": 71.2,
+            "medianWeeks": 11,
+            "over52weeks": 137,
+            "preCovidWaiting": 8628
+          }
+        ]
       }
-    ],
-    "fetched": "2026-03-05"
-  },
-  "rtt": [
-    {
-      "period": "2012-01",
-      "medianWait": 5.9,
-      "pctWithin18": 92.1,
-      "over52weeks": 6142,
-      "totalWaiting": 2388599
     },
-    {
-      "period": "2012-02",
-      "medianWait": 5.2,
-      "pctWithin18": 92.5,
-      "over52weeks": 5897,
-      "totalWaiting": 2411155
-    },
-    {
-      "period": "2012-03",
-      "medianWait": 5.2,
-      "pctWithin18": 93.2,
-      "over52weeks": 5393,
-      "totalWaiting": 2443952
-    },
-    {
-      "period": "2012-04",
-      "medianWait": 5.5,
-      "pctWithin18": 94,
-      "over52weeks": 4457,
-      "totalWaiting": 2510647
-    },
-    {
-      "period": "2012-05",
-      "medianWait": 5.3,
-      "pctWithin18": 94.3,
-      "over52weeks": 3552,
-      "totalWaiting": 2586681
-    },
-    {
-      "period": "2012-06",
-      "medianWait": 5.7,
-      "pctWithin18": 94.1,
-      "over52weeks": 3503,
-      "totalWaiting": 2642912
-    },
-    {
-      "period": "2012-07",
-      "medianWait": 5.5,
-      "pctWithin18": 94,
-      "over52weeks": 2959,
-      "totalWaiting": 2681884
-    },
-    {
-      "period": "2012-08",
-      "medianWait": 5.8,
-      "pctWithin18": 94,
-      "over52weeks": 2352,
-      "totalWaiting": 2680458
-    },
-    {
-      "period": "2012-09",
-      "medianWait": 5.8,
-      "pctWithin18": 93.8,
-      "over52weeks": 1868,
-      "totalWaiting": 2684993
-    },
-    {
-      "period": "2012-10",
-      "medianWait": 5.3,
-      "pctWithin18": 94.2,
-      "over52weeks": 1580,
-      "totalWaiting": 2697102
-    },
-    {
-      "period": "2012-11",
-      "medianWait": 5.4,
-      "pctWithin18": 94.2,
-      "over52weeks": 1446,
-      "totalWaiting": 2651013
-    },
-    {
-      "period": "2012-12",
-      "medianWait": 6.1,
-      "pctWithin18": 93.9,
-      "over52weeks": 1384,
-      "totalWaiting": 2625402
-    },
-    {
-      "period": "2013-01",
-      "medianWait": 6,
-      "pctWithin18": 93.8,
-      "over52weeks": 1141,
-      "totalWaiting": 2597806
-    },
-    {
-      "period": "2013-02",
-      "medianWait": 5.1,
-      "pctWithin18": 93.7,
-      "over52weeks": 962,
-      "totalWaiting": 2632269
-    },
-    {
-      "period": "2013-03",
-      "medianWait": 5.5,
-      "pctWithin18": 94.2,
-      "over52weeks": 474,
-      "totalWaiting": 2677497
-    },
-    {
-      "period": "2013-04",
-      "medianWait": 5.6,
-      "pctWithin18": 94.5,
-      "over52weeks": 391,
-      "totalWaiting": 2748808
-    },
-    {
-      "period": "2013-05",
-      "medianWait": 5.6,
-      "pctWithin18": 94.8,
-      "over52weeks": 434,
-      "totalWaiting": 2847373
-    },
-    {
-      "period": "2013-06",
-      "medianWait": 5.7,
-      "pctWithin18": 94.6,
-      "over52weeks": 295,
-      "totalWaiting": 2879204
-    },
-    {
-      "period": "2013-07",
-      "medianWait": 5.6,
-      "pctWithin18": 94.4,
-      "over52weeks": 368,
-      "totalWaiting": 2906489
-    },
-    {
-      "period": "2013-08",
-      "medianWait": 6.2,
-      "pctWithin18": 94.2,
-      "over52weeks": 350,
-      "totalWaiting": 2936981
-    },
-    {
-      "period": "2013-09",
-      "medianWait": 6,
-      "pctWithin18": 94.1,
-      "over52weeks": 409,
-      "totalWaiting": 2918177
-    },
-    {
-      "period": "2013-10",
-      "medianWait": 5.6,
-      "pctWithin18": 94.1,
-      "over52weeks": 461,
-      "totalWaiting": 2951496
-    },
-    {
-      "period": "2013-11",
-      "medianWait": 5.7,
-      "pctWithin18": 93.9,
-      "over52weeks": 418,
-      "totalWaiting": 2918382
-    },
-    {
-      "period": "2013-12",
-      "medianWait": 6.3,
-      "pctWithin18": 93.5,
-      "over52weeks": 520,
-      "totalWaiting": 2940064
-    },
-    {
-      "period": "2014-01",
-      "medianWait": 6.2,
-      "pctWithin18": 93.4,
-      "over52weeks": 634,
-      "totalWaiting": 2965239
-    },
-    {
-      "period": "2014-02",
-      "medianWait": 5.4,
-      "pctWithin18": 93.3,
-      "over52weeks": 743,
-      "totalWaiting": 3012253
-    },
-    {
-      "period": "2014-03",
-      "medianWait": 5.5,
-      "pctWithin18": 93.6,
-      "over52weeks": 692,
-      "totalWaiting": 3052280
-    },
-    {
-      "period": "2014-04",
-      "medianWait": 5.9,
-      "pctWithin18": 93.6,
-      "over52weeks": 720,
-      "totalWaiting": 3119809
-    },
-    {
-      "period": "2014-05",
-      "medianWait": 6.2,
-      "pctWithin18": 93.6,
-      "over52weeks": 776,
-      "totalWaiting": 3196627
-    },
-    {
-      "period": "2014-06",
-      "medianWait": 5.8,
-      "pctWithin18": 93.6,
-      "over52weeks": 776,
-      "totalWaiting": 3220933
-    },
-    {
-      "period": "2014-07",
-      "medianWait": 5.9,
-      "pctWithin18": 93.2,
-      "over52weeks": 730,
-      "totalWaiting": 3228040
-    },
-    {
-      "period": "2014-08",
-      "medianWait": 6.4,
-      "pctWithin18": 93,
-      "over52weeks": 688,
-      "totalWaiting": 3248315
-    },
-    {
-      "period": "2014-09",
-      "medianWait": 6.2,
-      "pctWithin18": 93.1,
-      "over52weeks": 646,
-      "totalWaiting": 3224605
-    },
-    {
-      "period": "2014-10",
-      "medianWait": 5.8,
-      "pctWithin18": 92.9,
-      "over52weeks": 665,
-      "totalWaiting": 3239274
-    },
-    {
-      "period": "2014-11",
-      "medianWait": 5.8,
-      "pctWithin18": 93,
-      "over52weeks": 646,
-      "totalWaiting": 3223626
-    },
-    {
-      "period": "2014-12",
-      "medianWait": 6.5,
-      "pctWithin18": 92.6,
-      "over52weeks": 684,
-      "totalWaiting": 3174814
-    },
-    {
-      "period": "2015-01",
-      "medianWait": 6.7,
-      "pctWithin18": 92.3,
-      "over52weeks": 725,
-      "totalWaiting": 3141683
-    },
-    {
-      "period": "2015-02",
-      "medianWait": 5.6,
-      "pctWithin18": 92.8,
-      "over52weeks": 727,
-      "totalWaiting": 3145851
-    },
-    {
-      "period": "2015-03",
-      "medianWait": 5.6,
-      "pctWithin18": 92.9,
-      "over52weeks": 751,
-      "totalWaiting": 3209293
-    },
-    {
-      "period": "2015-04",
-      "medianWait": 5.9,
-      "pctWithin18": 93,
-      "over52weeks": 713,
-      "totalWaiting": 3285295
-    },
-    {
-      "period": "2015-05",
-      "medianWait": 6,
-      "pctWithin18": 93.2,
-      "over52weeks": 752,
-      "totalWaiting": 3392565
-    },
-    {
-      "period": "2015-06",
-      "medianWait": 6,
-      "pctWithin18": 93,
-      "over52weeks": 868,
-      "totalWaiting": 3409991
-    },
-    {
-      "period": "2015-07",
-      "medianWait": 6,
-      "pctWithin18": 92.6,
-      "over52weeks": 903,
-      "totalWaiting": 3472440
-    },
-    {
-      "period": "2015-08",
-      "medianWait": 6.5,
-      "pctWithin18": 92.4,
-      "over52weeks": 855,
-      "totalWaiting": 3512477
-    },
-    {
-      "period": "2015-09",
-      "medianWait": 6.5,
-      "pctWithin18": 92.3,
-      "over52weeks": 872,
-      "totalWaiting": 3491314
-    },
-    {
-      "period": "2015-10",
-      "medianWait": 6.2,
-      "pctWithin18": 91.9,
-      "over52weeks": 987,
-      "totalWaiting": 3532814
-    },
-    {
-      "period": "2015-11",
-      "medianWait": 6.1,
-      "pctWithin18": 92,
-      "over52weeks": 954,
-      "totalWaiting": 3525414
-    },
-    {
-      "period": "2015-12",
-      "medianWait": 6.7,
-      "pctWithin18": 91.4,
-      "over52weeks": 934,
-      "totalWaiting": 3529514
-    },
-    {
-      "period": "2016-01",
-      "medianWait": 6.8,
-      "pctWithin18": 91.5,
-      "over52weeks": 904,
-      "totalWaiting": 3524702
-    },
-    {
-      "period": "2016-02",
-      "medianWait": 5.9,
-      "pctWithin18": 91.7,
-      "over52weeks": 868,
-      "totalWaiting": 3579523
-    },
-    {
-      "period": "2016-03",
-      "medianWait": 6.4,
-      "pctWithin18": 91.1,
-      "over52weeks": 1024,
-      "totalWaiting": 3675298
-    },
-    {
-      "period": "2016-04",
-      "medianWait": 6.6,
-      "pctWithin18": 91.2,
-      "over52weeks": 1039,
-      "totalWaiting": 3786160
-    },
-    {
-      "period": "2016-05",
-      "medianWait": 6.4,
-      "pctWithin18": 91.4,
-      "over52weeks": 1162,
-      "totalWaiting": 3841761
-    },
-    {
-      "period": "2016-06",
-      "medianWait": 6.5,
-      "pctWithin18": 91.1,
-      "over52weeks": 1099,
-      "totalWaiting": 3847673
-    },
-    {
-      "period": "2016-07",
-      "medianWait": 6.6,
-      "pctWithin18": 90.9,
-      "over52weeks": 1234,
-      "totalWaiting": 3884464
-    },
-    {
-      "period": "2016-08",
-      "medianWait": 7,
-      "pctWithin18": 90.5,
-      "over52weeks": 1219,
-      "totalWaiting": 3911383
-    },
-    {
-      "period": "2016-09",
-      "medianWait": 6.9,
-      "pctWithin18": 90.2,
-      "over52weeks": 1342,
-      "totalWaiting": 3922359
-    },
-    {
-      "period": "2016-10",
-      "medianWait": 6.5,
-      "pctWithin18": 90.3,
-      "over52weeks": 1576,
-      "totalWaiting": 3903768
-    },
-    {
-      "period": "2016-11",
-      "medianWait": 6.5,
-      "pctWithin18": 90.3,
-      "over52weeks": 1382,
-      "totalWaiting": 3858276
-    },
-    {
-      "period": "2016-12",
-      "medianWait": 7.2,
-      "pctWithin18": 89.5,
-      "over52weeks": 1377,
-      "totalWaiting": 3833822
-    },
-    {
-      "period": "2017-01",
-      "medianWait": 7.2,
-      "pctWithin18": 89.8,
-      "over52weeks": 1495,
-      "totalWaiting": 3792730
-    },
-    {
-      "period": "2017-02",
-      "medianWait": 6.2,
-      "pctWithin18": 89.8,
-      "over52weeks": 1676,
-      "totalWaiting": 3826696
-    },
-    {
-      "period": "2017-03",
-      "medianWait": 6.2,
-      "pctWithin18": 90.1,
-      "over52weeks": 1621,
-      "totalWaiting": 3897530
-    },
-    {
-      "period": "2017-04",
-      "medianWait": 6.8,
-      "pctWithin18": 89.8,
-      "over52weeks": 1661,
-      "totalWaiting": 3945154
-    },
-    {
-      "period": "2017-05",
-      "medianWait": 7.1,
-      "pctWithin18": 90.3,
-      "over52weeks": 1744,
-      "totalWaiting": 3973736
-    },
-    {
-      "period": "2017-06",
-      "medianWait": 6.6,
-      "pctWithin18": 90.1,
-      "over52weeks": 1743,
-      "totalWaiting": 4012911
-    },
-    {
-      "period": "2017-07",
-      "medianWait": 6.6,
-      "pctWithin18": 89.7,
-      "over52weeks": 1843,
-      "totalWaiting": 4030998
-    },
-    {
-      "period": "2017-08",
-      "medianWait": 7.1,
-      "pctWithin18": 89.3,
-      "over52weeks": 1935,
-      "totalWaiting": 4066143
-    },
-    {
-      "period": "2017-09",
-      "medianWait": 7.2,
-      "pctWithin18": 89,
-      "over52weeks": 1980,
-      "totalWaiting": 4071101
-    },
-    {
-      "period": "2017-10",
-      "medianWait": 6.7,
-      "pctWithin18": 89.1,
-      "over52weeks": 1728,
-      "totalWaiting": 4065855
-    },
-    {
-      "period": "2017-11",
-      "medianWait": 6.6,
-      "pctWithin18": 89.2,
-      "over52weeks": 1671,
-      "totalWaiting": 4020625
-    },
-    {
-      "period": "2017-12",
-      "medianWait": 7.4,
-      "pctWithin18": 88.1,
-      "over52weeks": 1842,
-      "totalWaiting": 3995928
-    },
-    {
-      "period": "2018-01",
-      "medianWait": 7.6,
-      "pctWithin18": 87.9,
-      "over52weeks": 2119,
-      "totalWaiting": 3983956
-    },
-    {
-      "period": "2018-02",
-      "medianWait": 6.6,
-      "pctWithin18": 87.6,
-      "over52weeks": 2485,
-      "totalWaiting": 4014118
-    },
-    {
-      "period": "2018-03",
-      "medianWait": 6.9,
-      "pctWithin18": 87,
-      "over52weeks": 3006,
-      "totalWaiting": 4102999
-    },
-    {
-      "period": "2018-04",
-      "medianWait": 6.9,
-      "pctWithin18": 87.4,
-      "over52weeks": 3044,
-      "totalWaiting": 4194514
-    },
-    {
-      "period": "2018-05",
-      "medianWait": 6.9,
-      "pctWithin18": 88,
-      "over52weeks": 3264,
-      "totalWaiting": 4277422
-    },
-    {
-      "period": "2018-06",
-      "medianWait": 7,
-      "pctWithin18": 87.7,
-      "over52weeks": 3680,
-      "totalWaiting": 4309865
-    },
-    {
-      "period": "2018-07",
-      "medianWait": 7,
-      "pctWithin18": 87.6,
-      "over52weeks": 3628,
-      "totalWaiting": 4322746
-    },
-    {
-      "period": "2018-08",
-      "medianWait": 7.5,
-      "pctWithin18": 87.1,
-      "over52weeks": 3569,
-      "totalWaiting": 4350817
-    },
-    {
-      "period": "2018-09",
-      "medianWait": 7.6,
-      "pctWithin18": 86.6,
-      "over52weeks": 3321,
-      "totalWaiting": 4322186
-    },
-    {
-      "period": "2018-10",
-      "medianWait": 7,
-      "pctWithin18": 87,
-      "over52weeks": 2978,
-      "totalWaiting": 4340067
-    },
-    {
-      "period": "2018-11",
-      "medianWait": 6.9,
-      "pctWithin18": 87.2,
-      "over52weeks": 2594,
-      "totalWaiting": 4307771
-    },
-    {
-      "period": "2018-12",
-      "medianWait": 7.6,
-      "pctWithin18": 86.5,
-      "over52weeks": 2400,
-      "totalWaiting": 4284808
-    },
-    {
-      "period": "2019-01",
-      "medianWait": 7.8,
-      "pctWithin18": 86.6,
-      "over52weeks": 2328,
-      "totalWaiting": 4268656
-    },
-    {
-      "period": "2019-02",
-      "medianWait": 6.7,
-      "pctWithin18": 86.6,
-      "over52weeks": 2188,
-      "totalWaiting": 4306057
-    },
-    {
-      "period": "2019-03",
-      "medianWait": 6.9,
-      "pctWithin18": 86.3,
-      "over52weeks": 1377,
-      "totalWaiting": 4345467
-    },
-    {
-      "period": "2019-04",
-      "medianWait": 7.2,
-      "pctWithin18": 86.2,
-      "over52weeks": 1270,
-      "totalWaiting": 4409624
-    },
-    {
-      "period": "2019-05",
-      "medianWait": 7.7,
-      "pctWithin18": 86.5,
-      "over52weeks": 1255,
-      "totalWaiting": 4497746
-    },
-    {
-      "period": "2019-06",
-      "medianWait": 7.5,
-      "pctWithin18": 86,
-      "over52weeks": 1312,
-      "totalWaiting": 4507299
-    },
-    {
-      "period": "2019-07",
-      "medianWait": 7.3,
-      "pctWithin18": 85.5,
-      "over52weeks": 1264,
-      "totalWaiting": 4522895
-    },
-    {
-      "period": "2019-08",
-      "medianWait": 8,
-      "pctWithin18": 84.7,
-      "over52weeks": 1468,
-      "totalWaiting": 4558291
-    },
-    {
-      "period": "2019-09",
-      "medianWait": 8,
-      "pctWithin18": 84.5,
-      "over52weeks": 1537,
-      "totalWaiting": 4567210
-    },
-    {
-      "period": "2019-10",
-      "medianWait": 7.6,
-      "pctWithin18": 84.4,
-      "over52weeks": 1553,
-      "totalWaiting": 4595183
-    },
-    {
-      "period": "2019-11",
-      "medianWait": 7.7,
-      "pctWithin18": 84.1,
-      "over52weeks": 1630,
-      "totalWaiting": 4563805
-    },
-    {
-      "period": "2019-12",
-      "medianWait": 8.3,
-      "pctWithin18": 83.4,
-      "over52weeks": 1699,
-      "totalWaiting": 4565238
-    },
-    {
-      "period": "2020-01",
-      "medianWait": 8.4,
-      "pctWithin18": 83.2,
-      "over52weeks": 1875,
-      "totalWaiting": 4566021
-    },
-    {
-      "period": "2020-02",
-      "medianWait": 7.5,
-      "pctWithin18": 82.9,
-      "over52weeks": 1845,
-      "totalWaiting": 4573675
-    },
-    {
-      "period": "2020-03",
-      "medianWait": 8.9,
-      "pctWithin18": 79.5,
-      "over52weeks": 3329,
-      "totalWaiting": 4386297
-    },
-    {
-      "period": "2020-04",
-      "medianWait": 12.2,
-      "pctWithin18": 71.4,
-      "over52weeks": 11255,
-      "totalWaiting": 4051288
-    },
-    {
-      "period": "2020-05",
-      "medianWait": 15.3,
-      "pctWithin18": 62.6,
-      "over52weeks": 26793,
-      "totalWaiting": 3950230
-    },
-    {
-      "period": "2020-06",
-      "medianWait": 17.6,
-      "pctWithin18": 52.7,
-      "over52weeks": 50615,
-      "totalWaiting": 3964304
-    },
-    {
-      "period": "2020-07",
-      "medianWait": 19.6,
-      "pctWithin18": 47.3,
-      "over52weeks": 83290,
-      "totalWaiting": 4121693
-    },
-    {
-      "period": "2020-08",
-      "medianWait": 14.8,
-      "pctWithin18": 53.9,
-      "over52weeks": 111093,
-      "totalWaiting": 4286068
-    },
-    {
-      "period": "2020-09",
-      "medianWait": 12,
-      "pctWithin18": 60.8,
-      "over52weeks": 139612,
-      "totalWaiting": 4420837
-    },
-    {
-      "period": "2020-10",
-      "medianWait": 11.1,
-      "pctWithin18": 65.6,
-      "over52weeks": 167134,
-      "totalWaiting": 4514810
-    },
-    {
-      "period": "2020-11",
-      "medianWait": 10.4,
-      "pctWithin18": 68.3,
-      "over52weeks": 192236,
-      "totalWaiting": 4526665
-    },
-    {
-      "period": "2020-12",
-      "medianWait": 11.2,
-      "pctWithin18": 67.9,
-      "over52weeks": 224272,
-      "totalWaiting": 4587286
-    },
-    {
-      "period": "2021-01",
-      "medianWait": 12.1,
-      "pctWithin18": 66.3,
-      "over52weeks": 304111,
-      "totalWaiting": 4658628
-    },
-    {
-      "period": "2021-02",
-      "medianWait": 12.6,
-      "pctWithin18": 64.6,
-      "over52weeks": 387952,
-      "totalWaiting": 4764301
-    },
-    {
-      "period": "2021-03",
-      "medianWait": 11.6,
-      "pctWithin18": 64.4,
-      "over52weeks": 436127,
-      "totalWaiting": 4950297
-    },
-    {
-      "period": "2021-04",
-      "medianWait": 11,
-      "pctWithin18": 64.6,
-      "over52weeks": 385379,
-      "totalWaiting": 5123717
-    },
-    {
-      "period": "2021-05",
-      "medianWait": 10.8,
-      "pctWithin18": 67.4,
-      "over52weeks": 336779,
-      "totalWaiting": 5305425
-    },
-    {
-      "period": "2021-06",
-      "medianWait": 10.5,
-      "pctWithin18": 68.7,
-      "over52weeks": 304823,
-      "totalWaiting": 5453486
-    },
-    {
-      "period": "2021-07",
-      "medianWait": 10.9,
-      "pctWithin18": 68.3,
-      "over52weeks": 293102,
-      "totalWaiting": 5607574
-    },
-    {
-      "period": "2021-08",
-      "medianWait": 11.5,
-      "pctWithin18": 67.6,
-      "over52weeks": 295362,
-      "totalWaiting": 5740749
-    },
-    {
-      "period": "2021-09",
-      "medianWait": 11.9,
-      "pctWithin18": 66.4,
-      "over52weeks": 304498,
-      "totalWaiting": 5860046
-    },
-    {
-      "period": "2021-10",
-      "medianWait": 12,
-      "pctWithin18": 65.6,
-      "over52weeks": 312852,
-      "totalWaiting": 5977537
-    },
-    {
-      "period": "2021-11",
-      "medianWait": 11.5,
-      "pctWithin18": 65.5,
-      "over52weeks": 307214,
-      "totalWaiting": 6001676
-    },
-    {
-      "period": "2021-12",
-      "medianWait": 12.5,
-      "pctWithin18": 63.9,
-      "over52weeks": 310943,
-      "totalWaiting": 6071293
-    },
-    {
-      "period": "2022-01",
-      "medianWait": 13.1,
-      "pctWithin18": 62.4,
-      "over52weeks": 317491,
-      "totalWaiting": 6127993
-    },
-    {
-      "period": "2022-02",
-      "medianWait": 13.2,
-      "pctWithin18": 62.2,
-      "over52weeks": 306479,
-      "totalWaiting": 6211131
-    },
-    {
-      "period": "2022-03",
-      "medianWait": 12.2,
-      "pctWithin18": 62.2,
-      "over52weeks": 310067,
-      "totalWaiting": 6365772
-    },
-    {
-      "period": "2022-04",
-      "medianWait": 12.6,
-      "pctWithin18": 61.7,
-      "over52weeks": 324422,
-      "totalWaiting": 6527149
-    },
-    {
-      "period": "2022-05",
-      "medianWait": 12.7,
-      "pctWithin18": 63.6,
-      "over52weeks": 333303,
-      "totalWaiting": 6668099
-    },
-    {
-      "period": "2022-06",
-      "medianWait": 13.3,
-      "pctWithin18": 62.3,
-      "over52weeks": 357761,
-      "totalWaiting": 6790084
-    },
-    {
-      "period": "2022-07",
-      "medianWait": 13.3,
-      "pctWithin18": 61.1,
-      "over52weeks": 381384,
-      "totalWaiting": 6937525
-    },
-    {
-      "period": "2022-08",
-      "medianWait": 13.8,
-      "pctWithin18": 60.8,
-      "over52weeks": 390852,
-      "totalWaiting": 7072791
-    },
-    {
-      "period": "2022-09",
-      "medianWait": 14,
-      "pctWithin18": 59.4,
-      "over52weeks": 405209,
-      "totalWaiting": 7141950
-    },
-    {
-      "period": "2022-10",
-      "medianWait": 13.9,
-      "pctWithin18": 59.7,
-      "over52weeks": 411274,
-      "totalWaiting": 7214182
-    },
-    {
-      "period": "2022-11",
-      "medianWait": 13.6,
-      "pctWithin18": 59.6,
-      "over52weeks": 406799,
-      "totalWaiting": 7187948
-    },
-    {
-      "period": "2022-12",
-      "medianWait": 14.4,
-      "pctWithin18": 57.6,
-      "over52weeks": 405930,
-      "totalWaiting": 7200033
-    },
-    {
-      "period": "2023-01",
-      "medianWait": 14.6,
-      "pctWithin18": 58.3,
-      "over52weeks": 379145,
-      "totalWaiting": 7213120
-    },
-    {
-      "period": "2023-02",
-      "medianWait": 14.5,
-      "pctWithin18": 58.5,
-      "over52weeks": 362434,
-      "totalWaiting": 7217871
-    },
-    {
-      "period": "2023-03",
-      "medianWait": 14.1,
-      "pctWithin18": 58.6,
-      "over52weeks": 359078,
-      "totalWaiting": 7331186
-    },
-    {
-      "period": "2023-04",
-      "medianWait": 13.8,
-      "pctWithin18": 58.3,
-      "over52weeks": 371111,
-      "totalWaiting": 7415352
-    },
-    {
-      "period": "2023-05",
-      "medianWait": 14.1,
-      "pctWithin18": 59.5,
-      "over52weeks": 385027,
-      "totalWaiting": 7475194
-    },
-    {
-      "period": "2023-06",
-      "medianWait": 14.3,
-      "pctWithin18": 59.2,
-      "over52weeks": 383083,
-      "totalWaiting": 7574649
-    },
-    {
-      "period": "2023-07",
-      "medianWait": 14.1,
-      "pctWithin18": 58.6,
-      "over52weeks": 388505,
-      "totalWaiting": 7674305
-    },
-    {
-      "period": "2023-08",
-      "medianWait": 14.5,
-      "pctWithin18": 58,
-      "over52weeks": 395170,
-      "totalWaiting": 7745784
-    },
-    {
-      "period": "2023-09",
-      "medianWait": 14.7,
-      "pctWithin18": 57.6,
-      "over52weeks": 391107,
-      "totalWaiting": 7768573
-    },
-    {
-      "period": "2023-10",
-      "medianWait": 14.6,
-      "pctWithin18": 58.2,
-      "over52weeks": 377315,
-      "totalWaiting": 7703867
-    },
-    {
-      "period": "2023-11",
-      "medianWait": 14.4,
-      "pctWithin18": 58.3,
-      "over52weeks": 355712,
-      "totalWaiting": 7613842
-    },
-    {
-      "period": "2023-12",
-      "medianWait": 15,
-      "pctWithin18": 56.6,
-      "over52weeks": 338070,
-      "totalWaiting": 7607585
-    },
-    {
-      "period": "2024-01",
-      "medianWait": 15,
-      "pctWithin18": 57,
-      "over52weeks": 321394,
-      "totalWaiting": 7575914
-    },
-    {
-      "period": "2024-03",
-      "medianWait": 14.9,
-      "pctWithin18": 57.2,
-      "over52weeks": 309299,
-      "totalWaiting": 7538830
-    },
-    {
-      "period": "2024-04",
-      "medianWait": 13.9,
-      "pctWithin18": 58.2,
-      "over52weeks": 302589,
-      "totalWaiting": 7570371
-    },
-    {
-      "period": "2024-05",
-      "medianWait": 14.2,
-      "pctWithin18": 59.1,
-      "over52weeks": 307500,
-      "totalWaiting": 7601650
-    },
-    {
-      "period": "2024-06",
-      "medianWait": 14.3,
-      "pctWithin18": 58.9,
-      "over52weeks": 302693,
-      "totalWaiting": 7621297
-    },
-    {
-      "period": "2024-07",
-      "medianWait": 14,
-      "pctWithin18": 58.8,
-      "over52weeks": 290326,
-      "totalWaiting": 7623081
-    },
-    {
-      "period": "2024-08",
-      "medianWait": 14.6,
-      "pctWithin18": 58.3,
-      "over52weeks": 282664,
-      "totalWaiting": 7641774
-    },
-    {
-      "period": "2024-09",
-      "medianWait": 14.4,
-      "pctWithin18": 58.5,
-      "over52weeks": 249024,
-      "totalWaiting": 7571549
-    },
-    {
-      "period": "2024-10",
-      "medianWait": 14.2,
-      "pctWithin18": 58.9,
-      "over52weeks": 234914,
-      "totalWaiting": 7541371
-    },
-    {
-      "period": "2024-11",
-      "medianWait": 14,
-      "pctWithin18": 59.2,
-      "over52weeks": 221567,
-      "totalWaiting": 7479867
-    },
-    {
-      "period": "2024-12",
-      "medianWait": 14.2,
-      "pctWithin18": 58.9,
-      "over52weeks": 200402,
-      "totalWaiting": 7463085
-    },
-    {
-      "period": "2025-01",
-      "medianWait": 14.4,
-      "pctWithin18": 58.9,
-      "over52weeks": 198828,
-      "totalWaiting": 7427669
-    },
-    {
-      "period": "2025-02",
-      "medianWait": 14.2,
-      "pctWithin18": 59.2,
-      "over52weeks": 193525,
-      "totalWaiting": 7401153
-    },
-    {
-      "period": "2025-03",
-      "medianWait": 13.8,
-      "pctWithin18": 59.8,
-      "over52weeks": 180243,
-      "totalWaiting": 7418598
-    },
-    {
-      "period": "2025-04",
-      "medianWait": 13.3,
-      "pctWithin18": 59.7,
-      "over52weeks": 190023,
-      "totalWaiting": 7389065
-    },
-    {
-      "period": "2025-05",
-      "medianWait": 13.6,
-      "pctWithin18": 60.9,
-      "over52weeks": 196839,
-      "totalWaiting": 7355950
-    },
-    {
-      "period": "2025-06",
-      "medianWait": 13.4,
-      "pctWithin18": 61.5,
-      "over52weeks": 191755,
-      "totalWaiting": 7367836
-    },
-    {
-      "period": "2025-07",
-      "medianWait": 13.1,
-      "pctWithin18": 61.3,
-      "over52weeks": 191213,
-      "totalWaiting": 7390279
-    },
-    {
-      "period": "2025-08",
-      "medianWait": 13.5,
-      "pctWithin18": 61,
-      "over52weeks": 190499,
-      "totalWaiting": 7403612
-    },
-    {
-      "period": "2025-09",
-      "medianWait": 13.4,
-      "pctWithin18": 61.8,
-      "over52weeks": 180329,
-      "totalWaiting": 7388149
-    },
-    {
-      "period": "2025-10",
-      "medianWait": 13.3,
-      "pctWithin18": 61.8,
-      "over52weeks": 172556,
-      "totalWaiting": 7395445
-    },
-    {
-      "period": "2025-11",
-      "medianWait": 12.9,
-      "pctWithin18": 61.8,
-      "over52weeks": 156483,
-      "totalWaiting": 7308928
-    },
-    {
-      "period": "2025-12",
-      "medianWait": 13.4,
-      "pctWithin18": 61.5,
-      "over52weeks": 140508,
-      "totalWaiting": 7290880
+    "byProcedure": {
+      "sourceId": "nhs-england-rtt-waiting-times",
+      "timeField": "year",
+      "data": {
+        "period": "2023-24",
+        "source": "NHS Digital Hospital Episode Statistics, Admitted Patient Care",
+        "note": "Volumes and wait times for completed procedures, not current waiting list size",
+        "procedures": [
+          {
+            "procedure": "Cataract surgery",
+            "code": "C75",
+            "volume": 533652,
+            "medianWait": 37,
+            "meanWait": 66
+          },
+          {
+            "procedure": "Skin lesion removal",
+            "code": "S06",
+            "volume": 235855,
+            "medianWait": 33,
+            "meanWait": 75
+          },
+          {
+            "procedure": "Tooth extraction",
+            "code": "F09+F10",
+            "volume": 118144,
+            "medianWait": 77,
+            "meanWait": 113
+          },
+          {
+            "procedure": "Knee replacement",
+            "code": "W40",
+            "volume": 80458,
+            "medianWait": 144,
+            "meanWait": 196
+          },
+          {
+            "procedure": "Hip replacement",
+            "code": "W37-W95",
+            "volume": 77175,
+            "medianWait": 130,
+            "meanWait": 176
+          },
+          {
+            "procedure": "Joint injection",
+            "code": "W90",
+            "volume": 83243,
+            "medianWait": 64,
+            "meanWait": 123
+          },
+          {
+            "procedure": "YAG laser (post-cataract)",
+            "code": "C73",
+            "volume": 64038,
+            "medianWait": 32,
+            "meanWait": 64
+          },
+          {
+            "procedure": "Gallbladder removal",
+            "code": "J18",
+            "volume": 55611,
+            "medianWait": 94,
+            "meanWait": 147
+          },
+          {
+            "procedure": "Hernia repair (groin)",
+            "code": "T20",
+            "volume": 51869,
+            "medianWait": 100,
+            "meanWait": 141
+          },
+          {
+            "procedure": "Breast lump removal",
+            "code": "B28",
+            "volume": 42327,
+            "medianWait": 22,
+            "meanWait": 34
+          },
+          {
+            "procedure": "Carpal tunnel release",
+            "code": "A65",
+            "volume": 37288,
+            "medianWait": 72,
+            "meanWait": 100
+          },
+          {
+            "procedure": "Tonsillectomy",
+            "code": "F34",
+            "volume": 36977,
+            "medianWait": 114,
+            "meanWait": 138
+          },
+          {
+            "procedure": "Nose surgery",
+            "code": "E09",
+            "volume": 27620,
+            "medianWait": 44,
+            "meanWait": 75
+          },
+          {
+            "procedure": "Hysterectomy",
+            "code": "Q07",
+            "volume": 27274,
+            "medianWait": 55,
+            "meanWait": 68
+          },
+          {
+            "procedure": "Knee arthroscopy",
+            "code": "W82",
+            "volume": 25237,
+            "medianWait": 84,
+            "meanWait": 118
+          }
+        ]
+      }
+    },
+    "summary": {
+      "sourceId": "nhs-england-rtt-waiting-times",
+      "timeField": "year",
+      "data": {
+        "totalWaiting": 7290880,
+        "medianWait": 13.4,
+        "pctWithin18Weeks": 61.5,
+        "over52Weeks": 140508,
+        "rttPeriod": "2025-12",
+        "aeTotalAttendances": 2320266,
+        "aePctWithin4Hours": 72.5,
+        "aePeriod": "2026-01"
+      }
     }
-  ],
-  "ae": [
-    {
-      "period": "2025-04",
-      "totalAttendances": 2297421,
-      "within4Hours": 1718099,
-      "over4Hours": 579322,
-      "pctWithin4Hours": 74.8,
-      "pctWithin4HoursType1": 60.2,
-      "emergencyAdmissions": 396292
-    },
-    {
-      "period": "2025-07",
-      "totalAttendances": 2408866,
-      "within4Hours": 1840562,
-      "over4Hours": 568304,
-      "pctWithin4Hours": 76.4,
-      "pctWithin4HoursType1": 63.1,
-      "emergencyAdmissions": 419451
-    },
-    {
-      "period": "2025-10",
-      "totalAttendances": 2397701,
-      "within4Hours": 1777827,
-      "over4Hours": 619874,
-      "pctWithin4Hours": 74.1,
-      "pctWithin4HoursType1": 60.1,
-      "emergencyAdmissions": 413710
-    },
-    {
-      "period": "2026-01",
-      "totalAttendances": 2320266,
-      "within4Hours": 1681284,
-      "over4Hours": 638982,
-      "pctWithin4Hours": 72.5,
-      "pctWithin4HoursType1": 57.3,
-      "emergencyAdmissions": 401942
-    }
-  ],
-  "bySpecialty": {
-    "period": "2026-01",
-    "preCovidPeriod": "2020-01",
-    "specialties": [
-      { "specialty": "Trauma & Orthopaedics", "waiting": 845246, "pctWithin18": 57.6, "medianWeeks": 16, "over52weeks": 25055, "preCovidWaiting": 524763 },
-      { "specialty": "Ophthalmology", "waiting": 598650, "pctWithin18": 69.7, "medianWeeks": 12, "over52weeks": 5237, "preCovidWaiting": 441533 },
-      { "specialty": "ENT", "waiting": 589045, "pctWithin18": 53.3, "medianWeeks": 17, "over52weeks": 16122, "preCovidWaiting": 319396 },
-      { "specialty": "Gynaecology", "waiting": 566350, "pctWithin18": 56.8, "medianWeeks": 16, "over52weeks": 14735, "preCovidWaiting": 284667 },
-      { "specialty": "Dermatology", "waiting": 396831, "pctWithin18": 59.8, "medianWeeks": 15, "over52weeks": 6315, "preCovidWaiting": 222510 },
-      { "specialty": "Urology", "waiting": 390044, "pctWithin18": 62.8, "medianWeeks": 14, "over52weeks": 7858, "preCovidWaiting": 243941 },
-      { "specialty": "General Surgery", "waiting": 386565, "pctWithin18": 59.5, "medianWeeks": 15, "over52weeks": 8958, "preCovidWaiting": 325707 },
-      { "specialty": "Cardiology", "waiting": 385038, "pctWithin18": 63.9, "medianWeeks": 13, "over52weeks": 4595, "preCovidWaiting": 224292 },
-      { "specialty": "Gastroenterology", "waiting": 383697, "pctWithin18": 64.8, "medianWeeks": 13, "over52weeks": 4758, "preCovidWaiting": 229078 },
-      { "specialty": "Oral Surgery", "waiting": 318440, "pctWithin18": 52.4, "medianWeeks": 18, "over52weeks": 10023, "preCovidWaiting": 169007 },
-      { "specialty": "Neurology", "waiting": 219187, "pctWithin18": 57.0, "medianWeeks": 16, "over52weeks": 3721, "preCovidWaiting": 143705 },
-      { "specialty": "Respiratory Medicine", "waiting": 185422, "pctWithin18": 69.3, "medianWeeks": 12, "over52weeks": 1361, "preCovidWaiting": 113801 },
-      { "specialty": "Rheumatology", "waiting": 116258, "pctWithin18": 66.3, "medianWeeks": 13, "over52weeks": 859, "preCovidWaiting": 93000 },
-      { "specialty": "Plastic Surgery", "waiting": 104152, "pctWithin18": 54.2, "medianWeeks": 17, "over52weeks": 3432, "preCovidWaiting": 55317 },
-      { "specialty": "Neurosurgery", "waiting": 58192, "pctWithin18": 60.4, "medianWeeks": 15, "over52weeks": 1061, "preCovidWaiting": 35441 },
-      { "specialty": "General Medicine", "waiting": 37048, "pctWithin18": 66.9, "medianWeeks": 12, "over52weeks": 321, "preCovidWaiting": 43933 },
-      { "specialty": "Elderly Medicine", "waiting": 26371, "pctWithin18": 79.3, "medianWeeks": 9, "over52weeks": 143, "preCovidWaiting": 19207 },
-      { "specialty": "Cardiothoracic Surgery", "waiting": 9293, "pctWithin18": 71.2, "medianWeeks": 11, "over52weeks": 137, "preCovidWaiting": 8628 }
-    ]
-  },
-  "byProcedure": {
-    "period": "2023-24",
-    "source": "NHS Digital Hospital Episode Statistics, Admitted Patient Care",
-    "note": "Volumes and wait times for completed procedures, not current waiting list size",
-    "procedures": [
-      { "procedure": "Cataract surgery", "code": "C75", "volume": 533652, "medianWait": 37, "meanWait": 66 },
-      { "procedure": "Skin lesion removal", "code": "S06", "volume": 235855, "medianWait": 33, "meanWait": 75 },
-      { "procedure": "Tooth extraction", "code": "F09+F10", "volume": 118144, "medianWait": 77, "meanWait": 113 },
-      { "procedure": "Knee replacement", "code": "W40", "volume": 80458, "medianWait": 144, "meanWait": 196 },
-      { "procedure": "Hip replacement", "code": "W37-W95", "volume": 77175, "medianWait": 130, "meanWait": 176 },
-      { "procedure": "Joint injection", "code": "W90", "volume": 83243, "medianWait": 64, "meanWait": 123 },
-      { "procedure": "YAG laser (post-cataract)", "code": "C73", "volume": 64038, "medianWait": 32, "meanWait": 64 },
-      { "procedure": "Gallbladder removal", "code": "J18", "volume": 55611, "medianWait": 94, "meanWait": 147 },
-      { "procedure": "Hernia repair (groin)", "code": "T20", "volume": 51869, "medianWait": 100, "meanWait": 141 },
-      { "procedure": "Breast lump removal", "code": "B28", "volume": 42327, "medianWait": 22, "meanWait": 34 },
-      { "procedure": "Carpal tunnel release", "code": "A65", "volume": 37288, "medianWait": 72, "meanWait": 100 },
-      { "procedure": "Tonsillectomy", "code": "F34", "volume": 36977, "medianWait": 114, "meanWait": 138 },
-      { "procedure": "Nose surgery", "code": "E09", "volume": 27620, "medianWait": 44, "meanWait": 75 },
-      { "procedure": "Hysterectomy", "code": "Q07", "volume": 27274, "medianWait": 55, "meanWait": 68 },
-      { "procedure": "Knee arthroscopy", "code": "W82", "volume": 25237, "medianWait": 84, "meanWait": 118 }
-    ]
-  },
-  "summary": {
-    "totalWaiting": 7290880,
-    "medianWait": 13.4,
-    "pctWithin18Weeks": 61.5,
-    "over52Weeks": 140508,
-    "rttPeriod": "2025-12",
-    "aeTotalAttendances": 2320266,
-    "aePctWithin4Hours": 72.5,
-    "aePeriod": "2026-01"
   }
 }

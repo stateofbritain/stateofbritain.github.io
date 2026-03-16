@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "sob-catalog-v1",
+  "title": "State of Britain Dataset Catalog",
+  "description": "Server-side manifest of all datasets with NL summaries for AI search/query.",
+  "type": "object",
+  "required": ["$schema", "generated", "datasets"],
+  "properties": {
+    "$schema": {
+      "const": "sob-catalog-v1"
+    },
+    "generated": {
+      "type": "string",
+      "format": "date",
+      "description": "ISO date when the catalog was last generated"
+    },
+    "datasets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/catalogEntry"
+      }
+    },
+    "index": {
+      "type": "object",
+      "properties": {
+        "byPillar": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "byTag": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "catalogEntry": {
+      "type": "object",
+      "required": ["id", "title", "pillar", "summary", "dataFile"],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "pillar": {
+          "type": "string",
+          "enum": ["foundations", "growth", "state", "challenges"]
+        },
+        "geography": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string",
+          "description": "Natural language summary for AI search"
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "dataFile": {
+          "type": "string",
+          "description": "Path to the public data file"
+        },
+        "series": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/seriesMeta"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "seriesMeta": {
+      "type": "object",
+      "required": ["title"],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "fields": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "label": { "type": "string" },
+              "description": { "type": "string" }
+            }
+          }
+        },
+        "timeRange": {
+          "type": "object",
+          "properties": {
+            "start": {},
+            "end": {}
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

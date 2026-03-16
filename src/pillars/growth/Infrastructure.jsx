@@ -11,6 +11,7 @@ import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
+import { fetchDataset } from "../../hooks/useDataset";
 
 export default function Infrastructure() {
   const [data, setData] = useState(null);
@@ -22,11 +23,7 @@ export default function Infrastructure() {
   const [netView, setNetView] = useState("change");
 
   useEffect(() => {
-    fetch("/data/infrastructure.json")
-      .then((res) => {
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return res.json();
-      })
+    fetchDataset("infrastructure.json")
       .then(setData)
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
