@@ -1,46 +1,33 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useMemo } from "react";
 import {
   LineChart, Line, BarChart, Bar, Cell,
-  XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-} from "recharts";
+  XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import P from "../../theme/palette";
 import {
   CHART_CARD, CHART_TITLE, CHART_SUBTITLE, SOURCE_TEXT,
-  AXIS_TICK_MONO, yAxisLabel,
-} from "../../theme/chartStyles";
+  AXIS_TICK_MONO, yAxisLabel } from "../../theme/chartStyles";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
-import { fetchDataset } from "../../hooks/useDataset";
+import { useJsonDataset } from "../../hooks/useDataset";
 
 const VIEWS = ["leakage", "pollution", "overview"];
 const VIEW_LABELS = {
   leakage: "Leakage",
   pollution: "Pollution Incidents",
-  overview: "Sector Performance",
-};
+  overview: "Sector Performance" };
 
 export default function Water() {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { data, loading, error, raw } = useJsonDataset("water.json");
   const [view, setView] = useState("leakage");
 
   const overviewData = useMemo(() => {
     if (!data?.sectorPerformance?.metrics) return [];
     return data.sectorPerformance.metrics.map((m) => ({
       ...m,
-      improved: m.change < 0 || (m.metric === "Priority services register" && m.change > 0) || (m.metric === "Treatment works compliance" && m.change > 0),
-    }));
+      improved: m.change < 0 || (m.metric === "Priority services register" && m.change > 0) || (m.metric === "Treatment works compliance" && m.change > 0) }));
   }, [data]);
-
-  useEffect(() => {
-    fetchDataset("water.json")
-      .then(setData)
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false));
-  }, []);
 
   if (loading) {
     return (
@@ -131,8 +118,7 @@ export default function Water() {
                   padding: "4px 10px", fontSize: "10px", fontWeight: 500,
                   textTransform: "uppercase", letterSpacing: "0.1em",
                   cursor: "pointer", fontFamily: "'DM Mono', monospace",
-                  transition: "all 0.15s", borderRadius: 2,
-                }}
+                  transition: "all 0.15s", borderRadius: 2 }}
               >
                 {VIEW_LABELS[v].split(" ")[0]}
               </button>

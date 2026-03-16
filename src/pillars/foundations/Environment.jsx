@@ -1,19 +1,17 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useMemo } from "react";
 import {
   AreaChart, Area, LineChart, Line, BarChart, Bar,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-  ReferenceLine,
-} from "recharts";
+  ReferenceLine } from "recharts";
 import P from "../../theme/palette";
 import {
   SECTION_HEADING, SECTION_NOTE, CHART_CARD, CHART_TITLE, CHART_SUBTITLE,
-  SOURCE_TEXT, AXIS_TICK_MONO, yAxisLabel, GRID_PROPS,
-} from "../../theme/chartStyles";
+  SOURCE_TEXT, AXIS_TICK_MONO, yAxisLabel, GRID_PROPS } from "../../theme/chartStyles";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
-import { fetchDataset } from "../../hooks/useDataset";
+import { useJsonDataset } from "../../hooks/useDataset";
 
 const GHG_SECTORS = [
   { key: "electricity", label: "Electricity Supply", color: P.yellow },
@@ -27,9 +25,7 @@ const GHG_SECTORS = [
 ];
 
 export default function Environment() {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { data, loading, error, raw } = useJsonDataset("environment.json");
   const [ghgView, setGhgView] = useState("stacked");
   const [airView, setAirView] = useState("pm25");
 
@@ -37,13 +33,6 @@ export default function Environment() {
     if (!data?.ghgEmissions) return [];
     return data.ghgEmissions.filter((d) => d.year >= 2008);
   }, [data]);
-
-  useEffect(() => {
-    fetchDataset("environment.json")
-      .then(setData)
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false));
-  }, []);
 
   if (loading) {
     return (
@@ -288,8 +277,7 @@ function ChartCard({ label, yearRange, views, viewLabels, activeView, onViewChan
                   padding: "4px 10px", fontSize: "10px", fontWeight: 500,
                   textTransform: "uppercase", letterSpacing: "0.1em",
                   cursor: "pointer", fontFamily: "'DM Mono', monospace",
-                  transition: "all 0.15s", borderRadius: 2,
-                }}
+                  transition: "all 0.15s", borderRadius: 2 }}
               >
                 {viewLabels[v]}
               </button>

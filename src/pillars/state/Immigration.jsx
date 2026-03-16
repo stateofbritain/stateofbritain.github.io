@@ -1,34 +1,22 @@
-import { useState, useEffect } from "react";
 import {
   LineChart, Line, AreaChart, Area, BarChart, Bar,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-  ReferenceLine, Legend, Cell, PieChart, Pie,
-} from "recharts";
+  ReferenceLine, Legend, Cell, PieChart, Pie } from "recharts";
 import P from "../../theme/palette";
 import {
   SECTION_HEADING, SECTION_NOTE, CHART_CARD, CHART_TITLE, CHART_SUBTITLE,
-  SOURCE_TEXT, AXIS_TICK, yAxisLabel, GRID_PROPS,
-} from "../../theme/chartStyles";
+  SOURCE_TEXT, AXIS_TICK, yAxisLabel, GRID_PROPS } from "../../theme/chartStyles";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
-import { fetchDataset } from "../../hooks/useDataset";
+import { useJsonDataset } from "../../hooks/useDataset";
 
 const VISA_COLORS = [P.teal, P.navy, P.sienna, P.red, P.grey];
 const AGE_COLORS = [P.teal, P.navy, P.sienna, "#4A7A58", P.grey, P.red];
 
 export default function Immigration() {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    fetchDataset("immigration.json")
-      .then(setData)
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false));
-  }, []);
+  const { data, loading, error, raw } = useJsonDataset("immigration.json");
 
   if (loading) {
     return (

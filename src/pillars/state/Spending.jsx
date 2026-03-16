@@ -1,10 +1,9 @@
-import { useState, useEffect, useMemo, useRef } from "react";
+import { useState, useMemo, useRef } from "react";
 import {
   PieChart, Pie, Cell, Sector,
   BarChart, Bar, LineChart, Line, AreaChart, Area,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-  ReferenceLine, Legend,
-} from "recharts";
+  ReferenceLine, Legend } from "recharts";
 import P from "../../theme/palette";
 import { SECTION_HEADING, SECTION_NOTE, AXIS_TICK, AXIS_TICK_MONO, yAxisLabel, GRID_PROPS, toggleBtn } from "../../theme/chartStyles";
 import { generateShades } from "../../theme/shades";
@@ -14,7 +13,7 @@ import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import { track } from "../../analytics";
 import ShareableChart from "../../components/ShareableChart";
-import { fetchDataset } from "../../hooks/useDataset";
+import { useJsonDataset } from "../../hooks/useDataset";
 
 function cleanName(name) {
   return name.replace(/\s*\(\d+\)\s*$/, "").replace(/\s+$/, "");
@@ -32,8 +31,7 @@ const SHORT_NAMES = {
   "Law Officers' Departments": "Law Officers",
   "Single Intelligence Account": "Intelligence",
   "Small and Independent Bodies": "Small Bodies",
-  "Northern Ireland Executive": "Northern Ireland",
-};
+  "Northern Ireland Executive": "Northern Ireland" };
 
 const DEPT_COLORS = {
   "Work and Pensions": "#C25454",
@@ -62,8 +60,7 @@ const DEPT_COLORS = {
   "Small and Independent Bodies": "#8A8A7A",
   // Non-departmental
   "Debt interest": "#B04040",
-  "Other departments": "#8A8888",
-};
+  "Other departments": "#8A8888" };
 
 const fmt = (n) => (n >= 1000 ? `£${(n / 1000).toFixed(1)}tn` : `£${n.toFixed(0)}bn`);
 const fmtM = (n) => {
@@ -154,8 +151,7 @@ function SubDeptPie({ breakdown, color, scaleTo }) {
                 padding: "2px 4px", borderRadius: 2, cursor: "pointer",
                 background: hovered === idx ? "rgba(28,43,69,0.04)" : "transparent",
                 transition: "background 0.12s",
-                opacity: hovered != null && hovered !== idx ? 0.45 : 1,
-              }}
+                opacity: hovered != null && hovered !== idx ? 0.45 : 1 }}
             >
               <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
                 <span style={{ width: 7, height: 7, borderRadius: 1, background: shades[idx], display: "inline-block", flexShrink: 0 }} />
@@ -286,8 +282,7 @@ function DrillPie({ dept, isMobile, fy }) {
             style={{
               display: "flex", alignItems: "center", gap: 5, padding: "2px 0",
               opacity: hovered != null && hovered !== idx ? 0.45 : 1,
-              transition: "opacity 0.15s",
-            }}
+              transition: "opacity 0.15s" }}
           >
             <span style={{ width: 8, height: 8, borderRadius: 2, background: shades[idx], display: "inline-block", flexShrink: 0 }} />
             <span style={{ fontSize: "11px", color: hovered === idx ? P.text : P.textMuted, fontFamily: "'DM Mono', monospace", transition: "color 0.15s" }}>
@@ -302,10 +297,8 @@ function DrillPie({ dept, isMobile, fy }) {
 }
 
 export default function Spending() {
+  const { data, loading, error, raw } = useJsonDataset("spending.json");
   const isMobile = useIsMobile();
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
   const [activeSlice, setActiveSlice] = useState(null);
   const [hoveredItem, setHoveredItem] = useState(null);
   const [expandedDept, setExpandedDept] = useState(null);
@@ -315,13 +308,6 @@ export default function Spending() {
   const [salary, setSalary] = useState(35000);
   const [pieYear, setPieYear] = useState(null);
   const [deptCardYear, setDeptCardYear] = useState({});
-
-  useEffect(() => {
-    fetchDataset("spending.json")
-      .then(setData)
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false));
-  }, []);
 
   // Default pieYear to latest once data loads
   const activePieYear = pieYear || data?.departments?.latestFy || "";
@@ -347,8 +333,7 @@ export default function Spending() {
           shortName: SHORT_NAMES[cleaned] || cleaned,
           tme,
           latest: policySpend,
-          color: DEPT_COLORS[cleaned] || P.grey,
-        };
+          color: DEPT_COLORS[cleaned] || P.grey };
       })
       .sort((a, b) => b.latest - a.latest);
   }, [data, activePieYear]);
@@ -374,8 +359,7 @@ export default function Spending() {
           shortName: SHORT_NAMES[cleaned] || cleaned,
           latest: policySpend,
           tme,
-          color: DEPT_COLORS[cleaned] || P.grey,
-        };
+          color: DEPT_COLORS[cleaned] || P.grey };
       })
       .sort((a, b) => b.latest - a.latest);
   }, [data]);
@@ -417,8 +401,7 @@ export default function Spending() {
         name: "Debt interest",
         value: diVal,
         color: DEPT_COLORS["Debt interest"],
-        cleanName: "Debt Interest",
-      };
+        cleanName: "Debt Interest" };
       if (fy === data.departments.latestFy) {
         diEntry.breakdown = [
           { name: "Index-linked gilts", value: 38000 },
@@ -482,8 +465,7 @@ export default function Spending() {
         fy,
         fyShort: fy.slice(2, 4) + "/" + fy.slice(-2),
         total: (deptSum - acctAdj + Math.max(diVal, 0)) / 1000,
-        type: data.departments.fyTypes[i],
-      };
+        type: data.departments.fyTypes[i] };
     });
   }, [data]);
 
@@ -845,8 +827,7 @@ export default function Spending() {
                       background: isExpanded ? "rgba(28,43,69,0.04)" : "transparent",
                       borderRadius: 3,
                       cursor: "pointer",
-                      transition: "background 0.15s",
-                    }}
+                      transition: "background 0.15s" }}
                     onMouseEnter={(e) => { if (!isExpanded) e.currentTarget.style.background = "rgba(28,43,69,0.02)"; }}
                     onMouseLeave={(e) => { if (!isExpanded) e.currentTarget.style.background = "transparent"; }}
                   >
@@ -857,8 +838,7 @@ export default function Spending() {
                           fontSize: "12px",
                           color: isExpanded ? P.text : P.textMuted,
                           fontWeight: isExpanded ? 500 : 400,
-                          fontFamily: "'DM Mono', monospace",
-                        }}>
+                          fontFamily: "'DM Mono', monospace" }}>
                           {dept.shortName}
                         </span>
                       </div>
@@ -879,8 +859,7 @@ export default function Spending() {
                         height: "100%", width: `${barWidth}%`,
                         background: dept.color, borderRadius: 2,
                         transition: "width 0.4s ease",
-                        opacity: isExpanded ? 1 : 0.55,
-                      }} />
+                        opacity: isExpanded ? 1 : 0.55 }} />
                     </div>
                   </div>
 
@@ -897,8 +876,7 @@ export default function Spending() {
                         fy: fy.slice(2, 4) + "/" + fy.slice(-2),
                         fyFull: data.departments.fys[i],
                         value: dept.values[fy],
-                        type: data.departments.fyTypes[i],
-                      };
+                        type: data.departments.fyTypes[i] };
                       if (hasAccountingItems) {
                         const bk = dept.breakdown[fy];
                         if (bk) {
@@ -915,8 +893,7 @@ export default function Spending() {
                       padding: "12px 14px",
                       background: "rgba(28,43,69,0.02)",
                       borderRadius: 3,
-                      borderLeft: `3px solid ${dept.color}`,
-                    }}>
+                      borderLeft: `3px solid ${dept.color}` }}>
                       <div style={{ fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.12em", color: dept.color, fontWeight: 600, marginBottom: 8, fontFamily: "'DM Mono', monospace" }}>
                         {dept.cleanName}
                       </div>

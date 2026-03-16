@@ -1,51 +1,37 @@
-import { useState, useEffect, useMemo } from "react";
+import { useMemo } from "react";
 import {
   LineChart, Line, AreaChart, Area, BarChart, Bar,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-  ReferenceLine, Legend,
-} from "recharts";
+  ReferenceLine, Legend } from "recharts";
 import P from "../../theme/palette";
 import {
   SECTION_HEADING, SECTION_NOTE, CHART_CARD, CHART_TITLE, CHART_SUBTITLE,
-  SOURCE_TEXT, AXIS_TICK, yAxisLabel, GRID_PROPS,
-} from "../../theme/chartStyles";
+  SOURCE_TEXT, AXIS_TICK, yAxisLabel, GRID_PROPS } from "../../theme/chartStyles";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
-import { fetchDataset } from "../../hooks/useDataset";
+import { useJsonDataset } from "../../hooks/useDataset";
 
 const PARITY_COLORS = {
   tfr1: P.teal,
   tfr2: P.navy,
   tfr3: P.sienna,
-  tfr4: P.grey,
-};
+  tfr4: P.grey };
 
 const AGE_COLORS = {
   age1: P.teal,
   age2: P.navy,
   age3: P.sienna,
-  ageAll: P.grey,
-};
+  ageAll: P.grey };
 
 const FAMILY_COLORS = {
   married: P.navy,
   cohabiting: P.teal,
-  loneParent: P.sienna,
-};
+  loneParent: P.sienna };
 
 export default function Family() {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    fetchDataset("family.json")
-      .then(setData)
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false));
-  }, []);
+  const { data, loading, error, raw } = useJsonDataset("family.json");
 
   if (loading) {
     return (

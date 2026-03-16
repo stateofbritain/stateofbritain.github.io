@@ -1,19 +1,17 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useMemo } from "react";
 import {
   BarChart, Bar, LineChart, Line, Cell,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-  ReferenceLine,
-} from "recharts";
+  ReferenceLine } from "recharts";
 import P from "../../theme/palette";
 import {
   SECTION_HEADING, SECTION_NOTE, CHART_TITLE, CHART_SUBTITLE,
-  AXIS_TICK, yAxisLabel, GRID_PROPS, toggleBtn,
-} from "../../theme/chartStyles";
+  AXIS_TICK, yAxisLabel, GRID_PROPS, toggleBtn } from "../../theme/chartStyles";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
-import { fetchDataset } from "../../hooks/useDataset";
+import { useJsonDataset } from "../../hooks/useDataset";
 
 const TS_LINES = [
   { key: "USA", label: "United States", color: "#4A7A58" },
@@ -27,18 +25,9 @@ const TS_LINES = [
 ];
 
 export default function Productivity() {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { data, loading, error, raw } = useJsonDataset("productivity.json");
   const [ukView, setUkView] = useState("level");
   const [intlView, setIntlView] = useState("bar");
-
-  useEffect(() => {
-    fetchDataset("productivity.json")
-      .then(setData)
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false));
-  }, []);
 
   // Merge index + level into one series from 2000
   const ukSeries = useMemo(() => {
@@ -59,8 +48,7 @@ export default function Productivity() {
       .filter((r) => r.countryCode !== "IRL") // exclude statistical outlier
       .map((r) => ({
         ...r,
-        fill: r.countryCode === "GBR" ? P.teal : r.countryCode === "OECD" ? P.sienna : P.grey,
-      }));
+        fill: r.countryCode === "GBR" ? P.teal : r.countryCode === "OECD" ? P.sienna : P.grey }));
   }, [data]);
 
   // Time series from 2000 for international convergence chart
@@ -276,8 +264,7 @@ export default function Productivity() {
           <BarChart
             data={data.sectorBreakdown.map((s) => ({
               ...s,
-              sector: s.sector.length > 40 ? s.sector.slice(0, 38) + "..." : s.sector,
-            }))}
+              sector: s.sector.length > 40 ? s.sector.slice(0, 38) + "..." : s.sector }))}
             layout="vertical"
             margin={{ left: 240, right: 30 }}
           >

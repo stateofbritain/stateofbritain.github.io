@@ -1,31 +1,26 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useMemo } from "react";
 import {
   LineChart, Line, ComposedChart, BarChart, Bar, Cell,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-  ReferenceLine,
-} from "recharts";
+  ReferenceLine } from "recharts";
 import P from "../../theme/palette";
 import {
   SECTION_HEADING, SECTION_NOTE, CHART_CARD, CHART_TITLE, CHART_SUBTITLE, SOURCE_TEXT,
-  AXIS_TICK_MONO, yAxisLabel, toggleBtn,
-} from "../../theme/chartStyles";
+  AXIS_TICK_MONO, yAxisLabel, toggleBtn } from "../../theme/chartStyles";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
-import { fetchDataset } from "../../hooks/useDataset";
+import { useJsonDataset } from "../../hooks/useDataset";
 
 const VIEWS = ["waitlist", "performance", "ae"];
 const VIEW_LABELS = {
   waitlist: "Waiting List",
   performance: "18-Week Target",
-  ae: "A&E Performance",
-};
+  ae: "A&E Performance" };
 
 export default function HealthcareAccess() {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { data, loading, error, raw } = useJsonDataset("nhs.json");
   const [view, setView] = useState("waitlist");
   const [specialtyLabel, setSpecialtyLabel] = useState("everyday");
 
@@ -35,13 +30,6 @@ export default function HealthcareAccess() {
     // Sample every 3 months for cleaner chart
     return data.rtt.filter((_, i) => i % 3 === 0 || i === data.rtt.length - 1);
   }, [data]);
-
-  useEffect(() => {
-    fetchDataset("nhs.json")
-      .then(setData)
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false));
-  }, []);
 
   if (loading) {
     return (
@@ -133,8 +121,7 @@ export default function HealthcareAccess() {
                   padding: "4px 10px", fontSize: "10px", fontWeight: 500,
                   textTransform: "uppercase", letterSpacing: "0.1em",
                   cursor: "pointer", fontFamily: "'DM Mono', monospace",
-                  transition: "all 0.15s", borderRadius: 2,
-                }}
+                  transition: "all 0.15s", borderRadius: 2 }}
               >
                 {VIEW_LABELS[v].split(" ")[0]}
               </button>
@@ -277,8 +264,7 @@ export default function HealthcareAccess() {
 function WaitlistChart({ data }) {
   const formatted = data.map((d) => ({
     ...d,
-    waitingMillions: d.totalWaiting ? Math.round(d.totalWaiting / 1000) / 1000 : null,
-  }));
+    waitingMillions: d.totalWaiting ? Math.round(d.totalWaiting / 1000) / 1000 : null }));
 
   return (
     <ResponsiveContainer width="100%" height={340}>
@@ -344,8 +330,7 @@ const SPECIALTY_EVERYDAY = {
   "Neurosurgery": "Brain & spine surgery",
   "General Medicine": "General medicine",
   "Elderly Medicine": "Elderly care",
-  "Cardiothoracic Surgery": "Heart & lung surgery",
-};
+  "Cardiothoracic Surgery": "Heart & lung surgery" };
 
 const SPECIALTY_GLOSS = {
   "Trauma & Orthopaedics": "Bones, joints & fractures",
@@ -365,16 +350,14 @@ const SPECIALTY_GLOSS = {
   "Neurosurgery": "Brain & spinal surgery",
   "General Medicine": "Complex diagnosis & multi-organ",
   "Elderly Medicine": "Frailty & age-related illness",
-  "Cardiothoracic Surgery": "Heart & lung surgery",
-};
+  "Cardiothoracic Surgery": "Heart & lung surgery" };
 
 function SpecialtyChart({ data, labelMode }) {
   const formatted = data.map((d) => ({
     ...d,
     label: labelMode === "everyday" ? (SPECIALTY_EVERYDAY[d.specialty] || d.specialty) : d.specialty,
     waitingK: Math.round(d.waiting / 1000),
-    preCovidK: d.preCovidWaiting ? Math.round(d.preCovidWaiting / 1000) : 0,
-  }));
+    preCovidK: d.preCovidWaiting ? Math.round(d.preCovidWaiting / 1000) : 0 }));
 
   return (
     <ResponsiveContainer width="100%" height={Math.max(400, data.length * 28 + 30)}>

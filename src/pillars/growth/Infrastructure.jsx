@@ -1,33 +1,23 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useMemo } from "react";
 import {
   AreaChart, Area, BarChart, Bar, LineChart, Line,
   ComposedChart,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-  ReferenceLine, Legend,
-} from "recharts";
+  ReferenceLine, Legend } from "recharts";
 import P from "../../theme/palette";
 import { SECTION_HEADING, SECTION_NOTE, CHART_TITLE, CHART_SUBTITLE, AXIS_TICK, yAxisLabel, GRID_PROPS, toggleBtn } from "../../theme/chartStyles";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
-import { fetchDataset } from "../../hooks/useDataset";
+import { useJsonDataset } from "../../hooks/useDataset";
 
 export default function Infrastructure() {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { data, loading, error, raw } = useJsonDataset("infrastructure.json");
   const [bbView, setBbView] = useState("coverage");
   const [railView, setRailView] = useState("journeys");
   const [roadView, setRoadView] = useState("traffic");
   const [netView, setNetView] = useState("change");
-
-  useEffect(() => {
-    fetchDataset("infrastructure.json")
-      .then(setData)
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false));
-  }, []);
 
   // Merge FTTP + gigabit into one series for coverage chart
   const coverageSeries = useMemo(() => {
@@ -75,8 +65,7 @@ export default function Infrastructure() {
         railChangeMi: railCurr && railPrev ? Math.round((railCurr - railPrev) * KM_TO_MI) : null,
         roadTotalMi: roadMap[y]?.allMajorKm ? Math.round(roadMap[y].allMajorKm * KM_TO_MI) : null,
         railTotalMi: railMap[y]?.routeKm ? Math.round(railMap[y].routeKm * KM_TO_MI) : null,
-        railElectMi: railMap[y]?.electRouteKm ? Math.round(railMap[y].electRouteKm * KM_TO_MI) : null,
-      };
+        railElectMi: railMap[y]?.electRouteKm ? Math.round(railMap[y].electRouteKm * KM_TO_MI) : null };
     }).filter((r) => r.roadChangeMi !== null || r.railChangeMi !== null);
   }, [data]);
 

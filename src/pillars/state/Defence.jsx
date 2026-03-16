@@ -1,41 +1,28 @@
-import { useState, useEffect } from "react";
 import {
   LineChart, Line, AreaChart, Area, BarChart, Bar,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-  ReferenceLine, Legend, Cell, PieChart, Pie,
-} from "recharts";
+  ReferenceLine, Legend, Cell, PieChart, Pie } from "recharts";
 import P from "../../theme/palette";
 import {
   SECTION_HEADING, SECTION_NOTE, SOURCE_TEXT,
-  AXIS_TICK, yAxisLabel, GRID_PROPS,
-} from "../../theme/chartStyles";
+  AXIS_TICK, yAxisLabel, GRID_PROPS } from "../../theme/chartStyles";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
-import { fetchDataset } from "../../hooks/useDataset";
+import { useJsonDataset } from "../../hooks/useDataset";
 
 const SERVICE_COLORS = {
   army: P.sienna,
   navy: P.navy,
-  raf: P.teal,
-};
+  raf: P.teal };
 
 const EQUIP_COLORS = [
   P.navy, P.teal, P.sienna, "#4A7A58", P.yellow, P.grey, P.red, "#607DAA",
 ];
 
 export default function Defence() {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    fetchDataset("defence.json")
-      .then(setData)
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false));
-  }, []);
+  const { data, loading, error, raw } = useJsonDataset("defence.json");
 
   if (loading) {
     return (

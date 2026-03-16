@@ -1,19 +1,17 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useMemo } from "react";
 import {
   BarChart, Bar, LineChart, Line, AreaChart, Area, Cell,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-  ReferenceLine, Legend,
-} from "recharts";
+  ReferenceLine, Legend } from "recharts";
 import P from "../../theme/palette";
 import {
   SECTION_HEADING, SECTION_NOTE, CHART_TITLE, CHART_SUBTITLE,
-  AXIS_TICK, yAxisLabel, GRID_PROPS, toggleBtn,
-} from "../../theme/chartStyles";
+  AXIS_TICK, yAxisLabel, GRID_PROPS, toggleBtn } from "../../theme/chartStyles";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
-import { fetchDataset } from "../../hooks/useDataset";
+import { useJsonDataset } from "../../hooks/useDataset";
 
 const TS_LINES = [
   { key: "KOR", label: "South Korea", color: "#6B8EC4" },
@@ -31,23 +29,13 @@ const ASSET_COLORS = {
   buildings: P.sienna,
   plantMachinery: P.navy,
   transport: "#6B8EC4",
-  other: P.grey,
-};
+  other: P.grey };
 
 export default function Investment() {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { data, loading, error, raw } = useJsonDataset("investment.json");
   const [ukView, setUkView] = useState("gfcf");
   const [priceBase, setPriceBase] = useState("cp");
   const [intlView, setIntlView] = useState("bar");
-
-  useEffect(() => {
-    fetchDataset("investment.json")
-      .then(setData)
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false));
-  }, []);
 
   const ukTrend = useMemo(() => {
     if (!data?.ukTrend) return [];
@@ -63,8 +51,7 @@ export default function Investment() {
     if (!data?.international) return [];
     return data.international.map((r) => ({
       ...r,
-      fill: r.countryCode === "GBR" ? P.teal : r.countryCode === "OECD" ? P.sienna : P.grey,
-    }));
+      fill: r.countryCode === "GBR" ? P.teal : r.countryCode === "OECD" ? P.sienna : P.grey }));
   }, [data]);
 
   const tsSeries = useMemo(() => {

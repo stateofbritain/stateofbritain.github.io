@@ -1,15 +1,14 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useMemo } from "react";
 import {
   BarChart, Bar, LineChart, Line, AreaChart, Area, PieChart, Pie, Cell, ReferenceLine,
-  XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-} from "recharts";
+  XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import P from "../../theme/palette";
 import { SECTION_HEADING, SECTION_NOTE, SOURCE_TEXT } from "../../theme/chartStyles";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
-import { fetchDataset } from "../../hooks/useDataset";
+import { useJsonDataset } from "../../hooks/useDataset";
 
 const FUNDING_SERIES = [
   { key: "business", label: "Business Enterprise", color: P.sienna },
@@ -48,23 +47,13 @@ const INCOME_PIE = [
 
 const TRAC_TOTALS = {
   income: 10440, fec: 15807, deficit: 5367, recovery: 66.0,
-  qrGrant: 2103, sustainabilityPct: 7.6,
-};
+  qrGrant: 2103, sustainabilityPct: 7.6 };
 
 export default function ResearchFunding() {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { data, loading, error, raw } = useJsonDataset("research.json");
   const [fundingView, setFundingView] = useState("stacked");
   const [priceView, setPriceView] = useState("current");
   const [costView, setCostView] = useState("income");
-
-  useEffect(() => {
-    fetchDataset("research.json")
-      .then(setData)
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false));
-  }, []);
 
   const chartData = useMemo(() => {
     if (!data) return [];
@@ -361,8 +350,7 @@ function toggleStyle(active) {
     padding: "2px 8px", fontSize: "9px", fontWeight: 500,
     textTransform: "uppercase", letterSpacing: "0.08em",
     cursor: "pointer", fontFamily: "'DM Mono', monospace",
-    borderRadius: 2,
-  };
+    borderRadius: 2 };
 }
 
 // ─── Shared Components ────────────────────────────────────────────
@@ -388,8 +376,7 @@ function ChartCard({ label, yearRange, views, viewLabels, activeView, onViewChan
                   padding: "4px 10px", fontSize: "10px", fontWeight: 500,
                   textTransform: "uppercase", letterSpacing: "0.1em",
                   cursor: "pointer", fontFamily: "'DM Mono', monospace",
-                  transition: "all 0.15s", borderRadius: 2,
-                }}
+                  transition: "all 0.15s", borderRadius: 2 }}
               >
                 {viewLabels[v]}
               </button>
@@ -485,8 +472,7 @@ function InternationalChart({ data }) {
   const chartData = data.map((d) => ({
     ...d,
     label: d.country === "United Kingdom" ? "UK *" : d.country,
-    isUK: d.country === "United Kingdom",
-  }));
+    isUK: d.country === "United Kingdom" }));
 
   return (
     <ResponsiveContainer width="100%" height={Math.max(320, chartData.length * 26)}>

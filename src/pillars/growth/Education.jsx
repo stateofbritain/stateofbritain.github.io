@@ -1,35 +1,23 @@
-import { useState, useEffect } from "react";
 import {
   LineChart, Line, AreaChart, Area, BarChart, Bar,
   XAxis, YAxis, CartesianGrid, Tooltip,
-  ReferenceLine, Legend, Cell,
-} from "recharts";
+  ReferenceLine, Legend, Cell } from "recharts";
 import P from "../../theme/palette";
 import { SECTION_HEADING, SECTION_NOTE, AXIS_TICK, yAxisLabel, GRID_PROPS } from "../../theme/chartStyles";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ChartCard from "../../components/ChartCard";
-import { fetchDataset } from "../../hooks/useDataset";
+import { useJsonDataset } from "../../hooks/useDataset";
 
 const DEGREE_COLORS = {
   first: P.teal,
   twoOne: P.navy,
   twoTwo: P.sienna,
-  third: P.grey,
-};
+  third: P.grey };
 
 export default function Education() {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    fetchDataset("education.json")
-      .then(setData)
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false));
-  }, []);
+  const { data, loading, error, raw } = useJsonDataset("education.json");
 
   if (loading) {
     return (

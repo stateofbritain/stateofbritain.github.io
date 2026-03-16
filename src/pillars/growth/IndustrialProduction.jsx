@@ -1,20 +1,18 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useMemo } from "react";
 import {
   LineChart, Line,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-  Legend,
-} from "recharts";
+  Legend } from "recharts";
 import P from "../../theme/palette";
 import {
   SECTION_HEADING, SECTION_NOTE, CHART_TITLE, CHART_SUBTITLE,
-  AXIS_TICK, yAxisLabel, GRID_PROPS,
-} from "../../theme/chartStyles";
+  AXIS_TICK, yAxisLabel, GRID_PROPS } from "../../theme/chartStyles";
 import useIsMobile from "../../hooks/useIsMobile";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
-import { fetchDataset } from "../../hooks/useDataset";
+import { useJsonDataset } from "../../hooks/useDataset";
 
 const toggleBtn = (active) => ({
   padding: "4px 12px",
@@ -25,8 +23,7 @@ const toggleBtn = (active) => ({
   fontSize: "12px",
   fontFamily: "'DM Mono', monospace",
   cursor: "pointer",
-  transition: "all 0.15s",
-});
+  transition: "all 0.15s" });
 
 const CATEGORY_KEYS = ["all", "metals", "chemicals", "construction", "polymers", "gases", "intermediates"];
 const CATEGORY_LABELS = {
@@ -36,8 +33,7 @@ const CATEGORY_LABELS = {
   construction: "Construction",
   polymers: "Polymers",
   gases: "Gases",
-  intermediates: "Intermediates",
-};
+  intermediates: "Intermediates" };
 
 const CHART_COLOURS = [
   P.teal, P.navy, P.sienna, P.red, P.yellow, P.grey, "#4A7A58", "#6B8EC4", "#9B6B8C",
@@ -79,20 +75,11 @@ function getLatest(product) {
 }
 
 export default function IndustrialProduction() {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { data, loading, error, raw } = useJsonDataset("industrial.json");
   const [activeCategory, setActiveCategory] = useState("all");
   const [chartMode, setChartMode] = useState("indexed");
   const [expandedProduct, setExpandedProduct] = useState(null);
   const isMobile = useIsMobile();
-
-  useEffect(() => {
-    fetchDataset("industrial.json")
-      .then(setData)
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false));
-  }, []);
 
   // Flatten all products
   const allProducts = useMemo(() => {
@@ -234,8 +221,7 @@ export default function IndustrialProduction() {
                 width: "100%",
                 borderCollapse: "collapse",
                 fontSize: "13px",
-                fontFamily: "'DM Mono', monospace",
-              }}>
+                fontFamily: "'DM Mono', monospace" }}>
                 <thead>
                   <tr style={{ borderBottom: `2px solid ${P.borderStrong}` }}>
                     {["Product", "% of Peak", "Status"].map((h) => (
@@ -246,8 +232,7 @@ export default function IndustrialProduction() {
                         fontWeight: 500,
                         fontSize: "11px",
                         textTransform: "uppercase",
-                        letterSpacing: "0.5px",
-                      }}>{h}</th>
+                        letterSpacing: "0.5px" }}>{h}</th>
                     ))}
                   </tr>
                 </thead>
@@ -265,8 +250,7 @@ export default function IndustrialProduction() {
                           style={{
                             borderBottom: isExpanded ? "none" : `1px solid ${P.border}`,
                             background: isExpanded ? "rgba(30,107,94,0.06)" : i % 2 === 0 ? "transparent" : "rgba(28,43,69,0.02)",
-                            cursor: "pointer",
-                          }}
+                            cursor: "pointer" }}
                         >
                           <td style={{ padding: "7px 6px", fontWeight: 500, color: P.text, fontSize: "12px" }}>
                             <span style={{ marginRight: 4, fontSize: "9px", color: P.textLight }}>{isExpanded ? "▼" : "▶"}</span>
@@ -288,8 +272,7 @@ export default function IndustrialProduction() {
                               fontSize: "10px",
                               fontWeight: 600,
                               color: "#fff",
-                              background: sc,
-                            }}>
+                              background: sc }}>
                               {statusLabel(p)}
                             </span>
                           </td>
@@ -299,15 +282,13 @@ export default function IndustrialProduction() {
                             <td colSpan={3} style={{
                               padding: "8px 0 16px",
                               borderBottom: `1px solid ${P.border}`,
-                              background: "rgba(30,107,94,0.04)",
-                            }}>
+                              background: "rgba(30,107,94,0.04)" }}>
                               <ShareableChart title={`${p.name} — UK Production`}>
                               <div style={{
                                 background: P.bgCard,
                                 border: `1px solid ${P.borderStrong}`,
                                 borderRadius: 6,
-                                padding: "12px 10px",
-                              }}>
+                                padding: "12px 10px" }}>
                                 <div style={{ marginBottom: 10 }}>
                                   <div style={CHART_TITLE}>{p.name}</div>
                                   <div style={CHART_SUBTITLE}>UK production ({p.unit})</div>
@@ -355,8 +336,7 @@ export default function IndustrialProduction() {
                 width: "100%",
                 borderCollapse: "collapse",
                 fontSize: "13px",
-                fontFamily: "'DM Mono', monospace",
-              }}>
+                fontFamily: "'DM Mono', monospace" }}>
                 <thead>
                   <tr style={{ borderBottom: `2px solid ${P.borderStrong}` }}>
                     {["Product", "Category", "Latest", "Unit", "Peak", "Peak Yr", "% of Peak", "Status"].map((h) => (
@@ -367,8 +347,7 @@ export default function IndustrialProduction() {
                         fontWeight: 500,
                         fontSize: "11px",
                         textTransform: "uppercase",
-                        letterSpacing: "0.5px",
-                      }}>{h}</th>
+                        letterSpacing: "0.5px" }}>{h}</th>
                     ))}
                   </tr>
                 </thead>
@@ -387,8 +366,7 @@ export default function IndustrialProduction() {
                             borderBottom: isExpanded ? "none" : `1px solid ${P.border}`,
                             background: isExpanded ? "rgba(30,107,94,0.06)" : i % 2 === 0 ? "transparent" : "rgba(28,43,69,0.02)",
                             cursor: "pointer",
-                            transition: "background 0.15s",
-                          }}
+                            transition: "background 0.15s" }}
                         >
                           <td style={{ padding: "7px 10px", fontWeight: 500, color: P.text }}>
                             <span style={{ marginRight: 6, fontSize: "10px", color: P.textLight }}>{isExpanded ? "▼" : "▶"}</span>
@@ -409,14 +387,12 @@ export default function IndustrialProduction() {
                                 height: 6,
                                 background: P.border,
                                 borderRadius: 3,
-                                overflow: "hidden",
-                              }}>
+                                overflow: "hidden" }}>
                                 <div style={{
                                   width: `${Math.min(pctOfPeak, 100)}%`,
                                   height: "100%",
                                   background: sc,
-                                  borderRadius: 3,
-                                }} />
+                                  borderRadius: 3 }} />
                               </div>
                               <span style={{ minWidth: 32, color: P.text }}>{pctOfPeak}%</span>
                             </div>
@@ -429,8 +405,7 @@ export default function IndustrialProduction() {
                               fontSize: "11px",
                               fontWeight: 600,
                               color: "#fff",
-                              background: sc,
-                            }}>
+                              background: sc }}>
                               {statusLabel(p)}
                             </span>
                           </td>
@@ -440,15 +415,13 @@ export default function IndustrialProduction() {
                             <td colSpan={8} style={{
                               padding: "12px 10px 20px",
                               borderBottom: `1px solid ${P.border}`,
-                              background: "rgba(30,107,94,0.04)",
-                            }}>
+                              background: "rgba(30,107,94,0.04)" }}>
                               <ShareableChart title={`${p.name} — UK Production`}>
                               <div style={{
                                 background: P.bgCard,
                                 border: `1px solid ${P.borderStrong}`,
                                 borderRadius: 6,
-                                padding: "18px 20px 14px",
-                              }}>
+                                padding: "18px 20px 14px" }}>
                                 <div style={{ marginBottom: 10 }}>
                                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
                                     <div style={CHART_TITLE}>{p.name}</div>

@@ -1,16 +1,15 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useMemo } from "react";
 import {
   AreaChart, Area, LineChart, Line, BarChart, Bar, ComposedChart, Cell,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-  ReferenceLine, Legend as RLegend,
-} from "recharts";
+  ReferenceLine, Legend as RLegend } from "recharts";
 import P from "../../theme/palette";
 import { SECTION_HEADING, SECTION_NOTE, AXIS_TICK_MONO, yAxisLabel } from "../../theme/chartStyles";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
-import { fetchDataset } from "../../hooks/useDataset";
+import { useJsonDataset } from "../../hooks/useDataset";
 
 const MIX_FUELS = [
   { key: "coal", label: "Coal", color: "#4A4A4A" },
@@ -31,9 +30,7 @@ const ELEC_FUELS = [
 
 
 export default function Energy() {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { data, loading, error, raw } = useJsonDataset("energy.json");
   const [primaryView, setPrimaryView] = useState("mix");
   const [elecView, setElecView] = useState("generation");
   const [securityView, setSecurityView] = useState("gasStorage");
@@ -49,17 +46,9 @@ export default function Energy() {
         convThermal: Math.round((row.convThermal / total) * 1000) / 10,
         ccgt: Math.round((row.ccgt / total) * 1000) / 10,
         nuclear: Math.round((row.nuclear / total) * 1000) / 10,
-        renewables: Math.round((row.renewables / total) * 1000) / 10,
-      };
+        renewables: Math.round((row.renewables / total) * 1000) / 10 };
     });
   }, [data]);
-
-  useEffect(() => {
-    fetchDataset("energy.json")
-      .then(setData)
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false));
-  }, []);
 
   if (loading) {
     return (
@@ -245,8 +234,7 @@ export default function Energy() {
               <div style={{
                 background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3,
                 padding: "14px 20px", marginBottom: 16, boxShadow: "0 1px 6px rgba(28,43,69,0.05)",
-                display: "flex", alignItems: "center", gap: 20, flexWrap: "wrap",
-              }}>
+                display: "flex", alignItems: "center", gap: 20, flexWrap: "wrap" }}>
                 <div style={{ flex: "0 0 auto" }}>
                   <span style={{ fontSize: "11px", color: P.textMuted, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.04em" }}>
                     Live storage fill
@@ -260,13 +248,11 @@ export default function Energy() {
                 </div>
                 <div style={{ flex: 1, minWidth: 200 }}>
                   <div style={{
-                    height: 18, background: P.border, borderRadius: 9, overflow: "hidden", position: "relative",
-                  }}>
+                    height: 18, background: P.border, borderRadius: 9, overflow: "hidden", position: "relative" }}>
                     <div style={{
                       width: `${snap.liveFillPct}%`, height: "100%",
                       background: snap.liveFillPct < 30 ? P.red : snap.liveFillPct < 60 ? P.yellow : P.teal,
-                      borderRadius: 9, transition: "width 0.3s",
-                    }} />
+                      borderRadius: 9, transition: "width 0.3s" }} />
                   </div>
                   <div style={{ display: "flex", justifyContent: "space-between", marginTop: 4 }}>
                     <span style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace" }}>0%</span>
@@ -400,8 +386,7 @@ export default function Energy() {
                   <div key={ic.name} style={{
                     display: "flex", justifyContent: "space-between", alignItems: "center",
                     padding: "6px 10px", borderRadius: 3, background: "rgba(28,43,69,0.03)",
-                    fontSize: "12px", fontFamily: "'DM Mono', monospace",
-                  }}>
+                    fontSize: "12px", fontFamily: "'DM Mono', monospace" }}>
                     <span style={{ color: P.text, fontWeight: 500 }}>
                       {ic.name} <span style={{ color: P.textLight, fontWeight: 400 }}>→ {ic.partner}</span>
                     </span>
@@ -483,8 +468,7 @@ function ChartCard({ label, yearRange, views, viewLabels, activeView, onViewChan
                   padding: "4px 10px", fontSize: "10px", fontWeight: 500,
                   textTransform: "uppercase", letterSpacing: "0.1em",
                   cursor: "pointer", fontFamily: "'DM Mono', monospace",
-                  transition: "all 0.15s", borderRadius: 2,
-                }}
+                  transition: "all 0.15s", borderRadius: 2 }}
               >
                 {viewLabels[v]}
               </button>

@@ -1,19 +1,17 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useMemo } from "react";
 import {
   BarChart, Bar, LineChart, Line, Cell,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-  ReferenceLine, Legend,
-} from "recharts";
+  ReferenceLine, Legend } from "recharts";
 import P from "../../theme/palette";
 import {
   SECTION_HEADING, SECTION_NOTE, CHART_TITLE, CHART_SUBTITLE,
-  AXIS_TICK, yAxisLabel, GRID_PROPS, toggleBtn,
-} from "../../theme/chartStyles";
+  AXIS_TICK, yAxisLabel, GRID_PROPS, toggleBtn } from "../../theme/chartStyles";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
-import { fetchDataset } from "../../hooks/useDataset";
+import { useJsonDataset } from "../../hooks/useDataset";
 
 const SERVICES = [
   {
@@ -22,47 +20,34 @@ const SERVICES = [
     frontlineLabel: "Clinical staff",
     backLabel: "Infrastructure support",
     color: P.teal,
-    note: "Clinical = qualified professionals + clinical support. Non-clinical = admin, management, estates.",
-  },
+    note: "Clinical = qualified professionals + clinical support. Non-clinical = admin, management, estates." },
   {
     key: "education",
     label: "Schools",
     frontlineLabel: "Teachers + TAs",
     backLabel: "Admin & support",
     color: P.sienna,
-    note: "Frontline = teachers + teaching assistants. Back office = admin, technicians, auxiliary staff.",
-  },
+    note: "Frontline = teachers + teaching assistants. Back office = admin, technicians, auxiliary staff." },
   {
     key: "police",
     label: "Police",
     frontlineLabel: "Officers + PCSOs",
     backLabel: "Civilian staff",
     color: P.navy,
-    note: "Frontline = warranted officers + PCSOs. Back office = police staff + designated officers.",
-  },
+    note: "Frontline = warranted officers + PCSOs. Back office = police staff + designated officers." },
   {
     key: "universities",
     label: "Universities",
     frontlineLabel: "Academic staff",
     backLabel: "Professional staff",
     color: "#4A7A58",
-    note: "Academic = teaching, research, or both. Professional = management, admin, technical, clerical.",
-  },
+    note: "Academic = teaching, research, or both. Professional = management, admin, technical, clerical." },
 ];
 
 export default function ProductiveQuotient() {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { data, loading, error, raw } = useJsonDataset("workforce.json");
   const [chartView, setChartView] = useState("comparison");
   const [trendService, setTrendService] = useState("nhs");
-
-  useEffect(() => {
-    fetchDataset("workforce.json")
-      .then(setData)
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false));
-  }, []);
 
   // Latest frontline % for each service
   const latestPcts = useMemo(() => {
@@ -88,8 +73,7 @@ export default function ProductiveQuotient() {
         frontlinePct: latest.frontlinePct,
         backOfficePct: +(100 - latest.frontlinePct).toFixed(1),
         color: svc.color,
-        year: latest.year,
-      };
+        year: latest.year };
     }).filter(Boolean);
   }, [latestPcts]);
 
@@ -297,8 +281,7 @@ export default function ProductiveQuotient() {
                 background: P.bgCard,
                 border: `1px solid ${P.border}`,
                 borderRadius: 6,
-                padding: "12px 14px",
-              }}
+                padding: "12px 14px" }}
             >
               <div style={{ fontSize: 13, fontWeight: 600, color: svc.color, marginBottom: 4, fontFamily: "'Playfair Display', serif" }}>
                 {svc.label}

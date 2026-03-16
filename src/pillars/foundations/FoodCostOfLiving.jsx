@@ -1,18 +1,15 @@
-import { useState, useEffect } from "react";
 import {
   LineChart, Line,
-  XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-} from "recharts";
+  XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import P from "../../theme/palette";
 import {
   CHART_CARD, CHART_TITLE, CHART_SUBTITLE, SOURCE_TEXT,
-  AXIS_TICK_MONO, yAxisLabel,
-} from "../../theme/chartStyles";
+  AXIS_TICK_MONO, yAxisLabel } from "../../theme/chartStyles";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
-import { fetchDataset } from "../../hooks/useDataset";
+import { useJsonDataset } from "../../hooks/useDataset";
 
 const AGGREGATES = [
   { id: "CP00", label: "Overall CPIH", color: P.navy },
@@ -23,16 +20,7 @@ const AGGREGATES = [
 ];
 
 export default function FoodCostOfLiving() {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    fetchDataset("cpih.json")
-      .then(setData)
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false));
-  }, []);
+  const { data, loading, error, raw } = useJsonDataset("cpih.json");
 
   if (loading) {
     return (
