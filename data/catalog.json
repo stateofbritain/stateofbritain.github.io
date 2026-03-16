@@ -675,6 +675,323 @@
       }
     },
     {
+      "id": "gp-access",
+      "title": "General Practice",
+      "pillar": "foundations",
+      "geography": "England",
+      "summary": "GP appointments, patient satisfaction, same-day access, practice consolidation, workforce (headcount vs FTE), and training pipeline.",
+      "tags": [
+        "GP",
+        "general practice",
+        "primary care",
+        "appointments",
+        "workforce",
+        "patients",
+        "satisfaction",
+        "training"
+      ],
+      "dataFile": "/data/gp-access.json",
+      "series": {
+        "appointments": {
+          "title": "GP Appointments by Type",
+          "summary": "Around 30m GP appointments per month. Online grew from 4% to ~20% since COVID.",
+          "unit": "millions",
+          "fields": {
+            "total": {
+              "label": "total"
+            },
+            "faceToFace": {
+              "label": "faceToFace"
+            },
+            "telephone": {
+              "label": "telephone"
+            },
+            "online": {
+              "label": "online"
+            }
+          },
+          "timeRange": {
+            "start": "2019-01",
+            "end": "2026-01"
+          }
+        },
+        "appointmentWait": {
+          "title": "Time from Booking to Appointment",
+          "summary": "~45% of GP appointments are same-day, 73% within a week. Stable since 2019.",
+          "unit": "%",
+          "fields": {
+            "sameDay": {
+              "label": "sameDay"
+            },
+            "within2Days": {
+              "label": "within2Days"
+            },
+            "within7Days": {
+              "label": "within7Days"
+            },
+            "within14Days": {
+              "label": "within14Days"
+            },
+            "over21Days": {
+              "label": "over21Days"
+            }
+          },
+          "timeRange": {
+            "start": "2019-01",
+            "end": "2026-01"
+          }
+        },
+        "satisfaction": {
+          "title": "Patient Satisfaction (GPPS)",
+          "summary": "Overall good fell from 85% (2018) to 71% (2023). Phone access hardest-hit.",
+          "unit": "%",
+          "fields": {
+            "overallGood": {
+              "label": "overallGood"
+            },
+            "easyToGetThrough": {
+              "label": "easyToGetThrough"
+            }
+          },
+          "timeRange": {
+            "start": 2012,
+            "end": 2025
+          }
+        },
+        "practices": {
+          "title": "Practice Count & List Size",
+          "summary": "~2,000 practices closed/merged since 2013. Avg list size rose from 6,900 to 9,900.",
+          "unit": "count / patients",
+          "fields": {
+            "practiceCount": {
+              "label": "practiceCount"
+            },
+            "avgListSize": {
+              "label": "avgListSize"
+            }
+          },
+          "timeRange": {
+            "start": 2013,
+            "end": 2025
+          }
+        },
+        "trainingPipeline": {
+          "title": "GP Training Pipeline",
+          "summary": "ST1 posts expanded to 4,276 (100% filled). 10,900 trainees in system but conversion lossy.",
+          "unit": "posts / FTE",
+          "fields": {
+            "st1Posts": {
+              "label": "st1Posts"
+            },
+            "st1Fill": {
+              "label": "st1Fill"
+            },
+            "fillRate": {
+              "label": "fillRate"
+            },
+            "traineeFte": {
+              "label": "traineeFte"
+            }
+          },
+          "timeRange": {
+            "start": 2015,
+            "end": 2025
+          }
+        },
+        "workforce": {
+          "title": "GP Workforce (Headcount vs FTE)",
+          "summary": "Headcount grew to 35,900 but FTE fell to 27,544 — driven by part-time working, not fewer GPs.",
+          "unit": "FTE / headcount",
+          "fields": {
+            "gpHeadcount": {
+              "label": "gpHeadcount"
+            },
+            "gpFte": {
+              "label": "gpFte"
+            },
+            "patientsPerGp": {
+              "label": "patientsPerGp"
+            }
+          },
+          "timeRange": {
+            "start": 2015,
+            "end": 2024
+          }
+        }
+      }
+    },
+    {
+      "id": "health-outcomes",
+      "title": "Health Outcomes",
+      "pillar": "foundations",
+      "geography": "United Kingdom / England & Wales",
+      "summary": "Life expectancy at birth by sex, cancer survival rates by type, and avoidable mortality trends.",
+      "tags": [
+        "health",
+        "life expectancy",
+        "cancer",
+        "mortality",
+        "outcomes"
+      ],
+      "dataFile": "/data/health-outcomes.json",
+      "series": {
+        "lifeExpectancy": {
+          "title": "Life Expectancy at Birth",
+          "summary": "UK life expectancy reached 79.0 (male) and 82.9 (female) in 2023, still below 2014 peak after COVID setback.",
+          "unit": "years",
+          "fields": {
+            "male": {
+              "label": "male"
+            },
+            "female": {
+              "label": "female"
+            }
+          },
+          "timeRange": {
+            "start": 1980,
+            "end": 2023
+          }
+        },
+        "cancerSurvival": {
+          "title": "Cancer Survival Rates",
+          "summary": "1-year and 5-year net survival by cancer site. Ranges from 7% (pancreas) to 92% (melanoma) at 5 years.",
+          "unit": "%",
+          "fields": {
+            "survival1yr": {
+              "label": "survival1yr"
+            },
+            "survival5yr": {
+              "label": "survival5yr"
+            }
+          },
+          "timeRange": {
+            "start": "Breast",
+            "end": "Pancreas"
+          }
+        },
+        "avoidableMortality": {
+          "title": "Avoidable Mortality",
+          "summary": "Age-standardised avoidable mortality rate fell from 257 per 100k in 2001 to 201 in 2019, spiked during COVID.",
+          "unit": "per 100,000",
+          "fields": {
+            "preventable": {
+              "label": "preventable"
+            },
+            "treatable": {
+              "label": "treatable"
+            },
+            "total": {
+              "label": "total"
+            }
+          },
+          "timeRange": {
+            "start": 2001,
+            "end": 2023
+          }
+        }
+      }
+    },
+    {
+      "id": "hospital-capacity",
+      "title": "Hospital Capacity",
+      "pillar": "foundations",
+      "geography": "England",
+      "summary": "NHS overnight bed numbers by type, bed occupancy rates, international comparison (OECD), and hospital admissions by type.",
+      "tags": [
+        "hospital",
+        "beds",
+        "capacity",
+        "occupancy",
+        "admissions",
+        "OECD",
+        "elective",
+        "emergency"
+      ],
+      "dataFile": "/data/hospital-capacity.json",
+      "series": {
+        "beds": {
+          "title": "Overnight Beds by Type",
+          "summary": "Total NHS overnight beds fell from 186k in 2000-01 to 101k in 2025-26, a 46% reduction.",
+          "unit": "beds",
+          "fields": {
+            "generalAcute": {
+              "label": "generalAcute"
+            },
+            "maternity": {
+              "label": "maternity"
+            },
+            "mentalIllness": {
+              "label": "mentalIllness"
+            },
+            "learningDisability": {
+              "label": "learningDisability"
+            },
+            "total": {
+              "label": "total"
+            }
+          },
+          "timeRange": {
+            "start": "2000-01",
+            "end": "2025-26"
+          }
+        },
+        "occupancy": {
+          "title": "Bed Occupancy Rate",
+          "summary": "General & acute bed occupancy rose from 82% in 2000-01 to 90.5% in 2025-26.",
+          "unit": "%",
+          "fields": {
+            "generalAcute": {
+              "label": "generalAcute"
+            },
+            "overall": {
+              "label": "overall"
+            }
+          },
+          "timeRange": {
+            "start": "2000-01",
+            "end": "2025-26"
+          }
+        },
+        "international": {
+          "title": "International Comparison (OECD)",
+          "summary": "UK has 2.4 beds per 1,000 population vs OECD average of 4.3.",
+          "unit": "beds per 1,000",
+          "fields": {
+            "bedsPerThousand": {
+              "label": "bedsPerThousand"
+            }
+          },
+          "timeRange": {
+            "start": "Japan",
+            "end": "Sweden"
+          }
+        },
+        "admissions": {
+          "title": "Hospital Admissions",
+          "summary": "20.6m admissions in 2024-25: 8.6m day cases, 6.6m emergency, 5.4m elective.",
+          "unit": "thousands",
+          "fields": {
+            "elective": {
+              "label": "elective"
+            },
+            "emergency": {
+              "label": "emergency"
+            },
+            "dayCase": {
+              "label": "dayCase"
+            },
+            "total": {
+              "label": "total"
+            }
+          },
+          "timeRange": {
+            "start": "2013-14",
+            "end": "2024-25"
+          }
+        }
+      }
+    },
+    {
       "id": "immigration",
       "title": "Immigration & Demographics",
       "pillar": "state",
@@ -1235,8 +1552,8 @@
       }
     },
     {
-      "id": "nhs",
-      "title": "NHS Healthcare",
+      "id": "nhs-waiting",
+      "title": "NHS Waiting Lists",
       "pillar": "foundations",
       "geography": "England",
       "summary": "NHS referral-to-treatment waiting times, A&E performance, waiting lists by specialty and procedure.",
@@ -1247,7 +1564,7 @@
         "hospitals",
         "A&E"
       ],
-      "dataFile": "/data/nhs.json",
+      "dataFile": "/data/nhs-waiting.json",
       "series": {
         "rtt": {
           "title": "rtt",
@@ -1308,6 +1625,106 @@
         "summary": {
           "title": "summary",
           "fields": {}
+        }
+      }
+    },
+    {
+      "id": "nhs-workforce",
+      "title": "NHS Workforce",
+      "pillar": "foundations",
+      "geography": "England",
+      "summary": "NHS HCHS staff headcount and FTE by staff group, vacancy rates by profession, and sickness absence rates.",
+      "tags": [
+        "NHS",
+        "workforce",
+        "doctors",
+        "nurses",
+        "vacancies",
+        "sickness",
+        "staffing"
+      ],
+      "dataFile": "/data/nhs-workforce.json",
+      "series": {
+        "staffByGroup": {
+          "title": "Staff by Group (FTE)",
+          "summary": "NHS HCHS workforce grew from 1.05m FTE in 2010 to 1.38m in 2025, up 31%.",
+          "unit": "FTE",
+          "fields": {
+            "doctors": {
+              "label": "doctors"
+            },
+            "nurses": {
+              "label": "nurses"
+            },
+            "midwives": {
+              "label": "midwives"
+            },
+            "ahps": {
+              "label": "ahps"
+            },
+            "scientificTechnical": {
+              "label": "scientificTechnical"
+            },
+            "ambulance": {
+              "label": "ambulance"
+            },
+            "support": {
+              "label": "support"
+            },
+            "infrastructure": {
+              "label": "infrastructure"
+            },
+            "total": {
+              "label": "total"
+            }
+          },
+          "timeRange": {
+            "start": 2010,
+            "end": 2025
+          }
+        },
+        "vacancies": {
+          "title": "Vacancy Rates",
+          "summary": "Overall vacancy rate peaked at 9.7% in Q3 2022, fell to 6.7% by Q3 2025.",
+          "unit": "%",
+          "fields": {
+            "total": {
+              "label": "total"
+            },
+            "rate": {
+              "label": "rate"
+            },
+            "nursing": {
+              "label": "nursing"
+            },
+            "nursingRate": {
+              "label": "nursingRate"
+            },
+            "medical": {
+              "label": "medical"
+            },
+            "medicalRate": {
+              "label": "medicalRate"
+            }
+          },
+          "timeRange": {
+            "start": "2018 Q1",
+            "end": "2025 Q3"
+          }
+        },
+        "sickness": {
+          "title": "Sickness Absence",
+          "summary": "Sickness rate was 4.1-4.4% pre-pandemic, rose to 5.8% in 2021, at 5.2% in 2025.",
+          "unit": "%",
+          "fields": {
+            "rate": {
+              "label": "rate"
+            }
+          },
+          "timeRange": {
+            "start": 2010,
+            "end": 2025
+          }
         }
       }
     },
@@ -1963,7 +2380,11 @@
         "energy",
         "environment",
         "family",
-        "nhs",
+        "gp-access",
+        "health-outcomes",
+        "hospital-capacity",
+        "nhs-waiting",
+        "nhs-workforce",
         "water",
         "workforce"
       ]
@@ -2077,6 +2498,71 @@
         "family",
         "immigration"
       ],
+      "GP": [
+        "gp-access"
+      ],
+      "general practice": [
+        "gp-access"
+      ],
+      "primary care": [
+        "gp-access"
+      ],
+      "appointments": [
+        "gp-access"
+      ],
+      "workforce": [
+        "gp-access",
+        "nhs-workforce",
+        "workforce"
+      ],
+      "patients": [
+        "gp-access"
+      ],
+      "satisfaction": [
+        "gp-access"
+      ],
+      "training": [
+        "gp-access"
+      ],
+      "health": [
+        "health-outcomes"
+      ],
+      "life expectancy": [
+        "health-outcomes"
+      ],
+      "cancer": [
+        "health-outcomes"
+      ],
+      "mortality": [
+        "health-outcomes"
+      ],
+      "outcomes": [
+        "health-outcomes"
+      ],
+      "hospital": [
+        "hospital-capacity"
+      ],
+      "beds": [
+        "hospital-capacity"
+      ],
+      "capacity": [
+        "hospital-capacity"
+      ],
+      "occupancy": [
+        "hospital-capacity"
+      ],
+      "admissions": [
+        "hospital-capacity"
+      ],
+      "OECD": [
+        "hospital-capacity"
+      ],
+      "elective": [
+        "hospital-capacity"
+      ],
+      "emergency": [
+        "hospital-capacity"
+      ],
       "immigration": [
         "immigration"
       ],
@@ -2149,19 +2635,35 @@
         "justice"
       ],
       "NHS": [
-        "nhs"
+        "nhs-waiting",
+        "nhs-workforce"
       ],
       "healthcare": [
-        "nhs"
+        "nhs-waiting"
       ],
       "waiting times": [
-        "nhs"
+        "nhs-waiting"
       ],
       "hospitals": [
-        "nhs"
+        "nhs-waiting"
       ],
       "A&E": [
-        "nhs"
+        "nhs-waiting"
+      ],
+      "doctors": [
+        "nhs-workforce"
+      ],
+      "nurses": [
+        "nhs-workforce"
+      ],
+      "vacancies": [
+        "nhs-workforce"
+      ],
+      "sickness": [
+        "nhs-workforce"
+      ],
+      "staffing": [
+        "nhs-workforce"
       ],
       "productivity": [
         "productivity"
@@ -2228,9 +2730,6 @@
       ],
       "leakage": [
         "water"
-      ],
-      "workforce": [
-        "workforce"
       ],
       "public sector": [
         "workforce"

@@ -17,13 +17,33 @@
       "pillar": "state"
     },
     {
-      "id": "nhs",
+      "id": "nhs-waiting",
       "name": "NHS Waiting Times & A&E",
       "description": "Referral-to-treatment waiting times (median, % within 18 weeks, 52-week breaches), A&E attendances and emergency admissions.",
-      "url": "/api/data/nhs.json",
+      "url": "/api/data/nhs-waiting.json",
       "source": "NHS England RTT Waiting Times, NHS England A&E Statistics",
       "coverage": "2012–2026",
       "frequency": "monthly",
+      "pillar": "foundations"
+    },
+    {
+      "id": "health-outcomes",
+      "name": "Health Outcomes",
+      "description": "Life expectancy at birth by sex, cancer survival rates by type, avoidable mortality trends.",
+      "url": "/api/data/health-outcomes.json",
+      "source": "ONS National Life Tables, ONS Cancer Survival, ONS Avoidable Mortality",
+      "coverage": "1980–2023",
+      "frequency": "annual",
+      "pillar": "foundations"
+    },
+    {
+      "id": "gp-access",
+      "name": "Primary Care / GP Access",
+      "description": "GP appointment volumes by type (face-to-face, telephone, online), GP workforce headcount, patients per GP.",
+      "url": "/api/data/gp-access.json",
+      "source": "NHS Digital Appointments in General Practice, NHS Digital GP Workforce",
+      "coverage": "2015–2026",
+      "frequency": "monthly/annual",
       "pillar": "foundations"
     },
     {

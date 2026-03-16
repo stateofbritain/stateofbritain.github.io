@@ -19,8 +19,8 @@ const VIEW_LABELS = {
   performance: "18-Week Target",
   ae: "A&E Performance" };
 
-export default function HealthcareAccess() {
-  const { data, loading, error, raw } = useJsonDataset("nhs.json");
+export default function WaitingLists() {
+  const { data, loading, error, raw } = useJsonDataset("nhs-waiting.json");
   const [view, setView] = useState("waitlist");
   const [specialtyLabel, setSpecialtyLabel] = useState("everyday");
 
@@ -34,7 +34,7 @@ export default function HealthcareAccess() {
   if (loading) {
     return (
       <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
-        <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>Healthcare Access</h2>
+        <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>NHS Waiting Lists</h2>
         <p style={{ fontSize: "13px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>Loading NHS England data...</p>
       </div>
     );
@@ -43,7 +43,7 @@ export default function HealthcareAccess() {
   if (error || !data) {
     return (
       <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
-        <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>Healthcare Access</h2>
+        <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>NHS Waiting Lists</h2>
         <p style={{ fontSize: "13px", color: P.red, fontFamily: "'DM Mono', monospace" }}>Failed to load data: {error ?? "No data"}</p>
       </div>
     );
@@ -56,7 +56,7 @@ export default function HealthcareAccess() {
   return (
     <div style={{ animation: "fadeSlideIn 0.4s ease both" }}>
       <div style={{ display: "flex", alignItems: "baseline", gap: 14, marginBottom: 8, flexWrap: "wrap" }}>
-        <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(26px, 4vw, 36px)", fontWeight: 600, color: P.text, margin: 0 }}>Healthcare Access</h2>
+        <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(26px, 4vw, 36px)", fontWeight: 600, color: P.text, margin: 0 }}>NHS Waiting Lists</h2>
         <span style={{ fontSize: "13px", color: P.textLight, fontStyle: "italic", fontFamily: "'Playfair Display', serif" }}>
           NHS England waiting times & A&E
         </span>

@@ -1,0 +1,81 @@
+{
+  "$schema": "sob-dataset-v1",
+  "id": "gp-access",
+  "pillar": "foundations",
+  "topic": "healthcare",
+  "generated": "2026-03-16",
+  "sources": [
+    {
+      "id": "nhs-digital-gp-appointments",
+      "name": "NHS Digital Appointments in General Practice",
+      "url": "https://digital.nhs.uk/data-and-information/publications/statistical/appointments-in-general-practice"
+    },
+    {
+      "id": "nhs-digital-gp-workforce",
+      "name": "NHS Digital General Practice Workforce",
+      "url": "https://digital.nhs.uk/data-and-information/publications/statistical/general-and-personal-medical-services"
+    }
+  ],
+  "snapshot": {
+    "monthlyAppointments": 30.2,
+    "monthlyAppointmentsUnit": "m",
+    "monthlyAppointmentsPeriod": "Jan 2026",
+    "gpFte": 27544,
+    "gpFteYear": 2024,
+    "patientsPerGp": 2176,
+    "patientsPerGpYear": 2024
+  },
+  "series": {
+    "appointments": {
+      "sourceId": "nhs-digital-gp-appointments",
+      "timeField": "month",
+      "data": [
+        { "month": "2019-01", "total": 26.5, "faceToFace": 21.0, "telephone": 4.5, "online": 1.0 },
+        { "month": "2019-04", "total": 27.1, "faceToFace": 21.3, "telephone": 4.7, "online": 1.1 },
+        { "month": "2019-07", "total": 26.8, "faceToFace": 21.1, "telephone": 4.6, "online": 1.1 },
+        { "month": "2019-10", "total": 28.5, "faceToFace": 22.2, "telephone": 5.0, "online": 1.3 },
+        { "month": "2020-01", "total": 27.8, "faceToFace": 21.5, "telephone": 5.0, "online": 1.3 },
+        { "month": "2020-04", "total": 16.5, "faceToFace": 7.2, "telephone": 7.8, "online": 1.5 },
+        { "month": "2020-07", "total": 24.3, "faceToFace": 12.8, "telephone": 9.5, "online": 2.0 },
+        { "month": "2020-10", "total": 27.0, "faceToFace": 14.6, "telephone": 10.0, "online": 2.4 },
+        { "month": "2021-01", "total": 24.8, "faceToFace": 11.5, "telephone": 10.8, "online": 2.5 },
+        { "month": "2021-04", "total": 27.5, "faceToFace": 14.0, "telephone": 10.8, "online": 2.7 },
+        { "month": "2021-07", "total": 28.1, "faceToFace": 15.2, "telephone": 10.2, "online": 2.7 },
+        { "month": "2021-10", "total": 30.5, "faceToFace": 17.5, "telephone": 10.2, "online": 2.8 },
+        { "month": "2022-01", "total": 28.2, "faceToFace": 15.8, "telephone": 9.5, "online": 2.9 },
+        { "month": "2022-04", "total": 28.8, "faceToFace": 16.5, "telephone": 9.3, "online": 3.0 },
+        { "month": "2022-07", "total": 27.5, "faceToFace": 16.0, "telephone": 8.5, "online": 3.0 },
+        { "month": "2022-10", "total": 30.2, "faceToFace": 18.0, "telephone": 8.8, "online": 3.4 },
+        { "month": "2023-01", "total": 28.5, "faceToFace": 17.0, "telephone": 8.0, "online": 3.5 },
+        { "month": "2023-04", "total": 29.8, "faceToFace": 18.0, "telephone": 8.0, "online": 3.8 },
+        { "month": "2023-07", "total": 28.0, "faceToFace": 17.0, "telephone": 7.5, "online": 3.5 },
+        { "month": "2023-10", "total": 31.5, "faceToFace": 19.2, "telephone": 8.0, "online": 4.3 },
+        { "month": "2024-01", "total": 29.0, "faceToFace": 17.5, "telephone": 7.5, "online": 4.0 },
+        { "month": "2024-04", "total": 30.5, "faceToFace": 18.5, "telephone": 7.5, "online": 4.5 },
+        { "month": "2024-07", "total": 29.2, "faceToFace": 17.8, "telephone": 7.0, "online": 4.4 },
+        { "month": "2024-10", "total": 31.8, "faceToFace": 19.0, "telephone": 7.5, "online": 5.3 },
+        { "month": "2025-01", "total": 29.5, "faceToFace": 17.5, "telephone": 7.0, "online": 5.0 },
+        { "month": "2025-04", "total": 30.8, "faceToFace": 18.2, "telephone": 7.0, "online": 5.6 },
+        { "month": "2025-07", "total": 29.8, "faceToFace": 17.5, "telephone": 6.8, "online": 5.5 },
+        { "month": "2025-10", "total": 31.5, "faceToFace": 18.5, "telephone": 7.0, "online": 6.0 },
+        { "month": "2026-01", "total": 30.2, "faceToFace": 17.8, "telephone": 6.5, "online": 5.9 }
+      ]
+    },
+    "workforce": {
+      "sourceId": "nhs-digital-gp-workforce",
+      "timeField": "year",
+      "data": [
+        { "year": 2015, "gpFte": 29364, "patientsPerGp": 1874 },
+        { "year": 2016, "gpFte": 29048, "patientsPerGp": 1911 },
+        { "year": 2017, "gpFte": 28630, "patientsPerGp": 1949 },
+        { "year": 2018, "gpFte": 28197, "patientsPerGp": 1988 },
+        { "year": 2019, "gpFte": 27863, "patientsPerGp": 2021 },
+        { "year": 2020, "gpFte": 27632, "patientsPerGp": 2048 },
+        { "year": 2021, "gpFte": 27490, "patientsPerGp": 2078 },
+        { "year": 2022, "gpFte": 27291, "patientsPerGp": 2115 },
+        { "year": 2023, "gpFte": 27180, "patientsPerGp": 2145 },
+        { "year": 2024, "gpFte": 27544, "patientsPerGp": 2176 }
+      ]
+    }
+  }
+}

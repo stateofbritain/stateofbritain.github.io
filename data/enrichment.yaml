@@ -126,11 +126,103 @@ water:
   summary: "Water company performance, leakage rates, pollution incidents, and storm overflow events."
   tags: [water, utilities, pollution, sewage, leakage]
 
-nhs:
-  title: "NHS Healthcare"
+nhs-waiting:
+  title: "NHS Waiting Lists"
   geography: "England"
   summary: "NHS referral-to-treatment waiting times, A&E performance, waiting lists by specialty and procedure."
   tags: [NHS, healthcare, waiting times, hospitals, A&E]
+
+health-outcomes:
+  title: "Health Outcomes"
+  geography: "United Kingdom / England & Wales"
+  summary: "Life expectancy at birth by sex, cancer survival rates by type, and avoidable mortality trends."
+  tags: [health, life expectancy, cancer, mortality, outcomes]
+  series:
+    lifeExpectancy:
+      title: "Life Expectancy at Birth"
+      summary: "UK life expectancy reached 79.0 (male) and 82.9 (female) in 2023, still below 2014 peak after COVID setback."
+      unit: "years"
+    cancerSurvival:
+      title: "Cancer Survival Rates"
+      summary: "1-year and 5-year net survival by cancer site. Ranges from 7% (pancreas) to 92% (melanoma) at 5 years."
+      unit: "%"
+    avoidableMortality:
+      title: "Avoidable Mortality"
+      summary: "Age-standardised avoidable mortality rate fell from 257 per 100k in 2001 to 201 in 2019, spiked during COVID."
+      unit: "per 100,000"
+
+hospital-capacity:
+  title: "Hospital Capacity"
+  geography: "England"
+  summary: "NHS overnight bed numbers by type, bed occupancy rates, international comparison (OECD), and hospital admissions by type."
+  tags: [hospital, beds, capacity, occupancy, admissions, OECD, elective, emergency]
+  series:
+    beds:
+      title: "Overnight Beds by Type"
+      summary: "Total NHS overnight beds fell from 186k in 2000-01 to 101k in 2025-26, a 46% reduction."
+      unit: "beds"
+    occupancy:
+      title: "Bed Occupancy Rate"
+      summary: "General & acute bed occupancy rose from 82% in 2000-01 to 90.5% in 2025-26."
+      unit: "%"
+    international:
+      title: "International Comparison (OECD)"
+      summary: "UK has 2.4 beds per 1,000 population vs OECD average of 4.3."
+      unit: "beds per 1,000"
+    admissions:
+      title: "Hospital Admissions"
+      summary: "20.6m admissions in 2024-25: 8.6m day cases, 6.6m emergency, 5.4m elective."
+      unit: "thousands"
+
+nhs-workforce:
+  title: "NHS Workforce"
+  geography: "England"
+  summary: "NHS HCHS staff headcount and FTE by staff group, vacancy rates by profession, and sickness absence rates."
+  tags: [NHS, workforce, doctors, nurses, vacancies, sickness, staffing]
+  series:
+    staffByGroup:
+      title: "Staff by Group (FTE)"
+      summary: "NHS HCHS workforce grew from 1.05m FTE in 2010 to 1.38m in 2025, up 31%."
+      unit: "FTE"
+    vacancies:
+      title: "Vacancy Rates"
+      summary: "Overall vacancy rate peaked at 9.7% in Q3 2022, fell to 6.7% by Q3 2025."
+      unit: "%"
+    sickness:
+      title: "Sickness Absence"
+      summary: "Sickness rate was 4.1-4.4% pre-pandemic, rose to 5.8% in 2021, at 5.2% in 2025."
+      unit: "%"
+
+gp-access:
+  title: "General Practice"
+  geography: "England"
+  summary: "GP appointments, patient satisfaction, same-day access, practice consolidation, workforce (headcount vs FTE), and training pipeline."
+  tags: [GP, general practice, primary care, appointments, workforce, patients, satisfaction, training]
+  series:
+    appointments:
+      title: "GP Appointments by Type"
+      summary: "Around 30m GP appointments per month. Online grew from 4% to ~20% since COVID."
+      unit: "millions"
+    appointmentWait:
+      title: "Time from Booking to Appointment"
+      summary: "~45% of GP appointments are same-day, 73% within a week. Stable since 2019."
+      unit: "%"
+    satisfaction:
+      title: "Patient Satisfaction (GPPS)"
+      summary: "Overall good fell from 85% (2018) to 71% (2023). Phone access hardest-hit."
+      unit: "%"
+    practices:
+      title: "Practice Count & List Size"
+      summary: "~2,000 practices closed/merged since 2013. Avg list size rose from 6,900 to 9,900."
+      unit: "count / patients"
+    trainingPipeline:
+      title: "GP Training Pipeline"
+      summary: "ST1 posts expanded to 4,276 (100% filled). 10,900 trainees in system but conversion lossy."
+      unit: "posts / FTE"
+    workforce:
+      title: "GP Workforce (Headcount vs FTE)"
+      summary: "Headcount grew to 35,900 but FTE fell to 27,544 — driven by part-time working, not fewer GPs."
+      unit: "FTE / headcount"
 
 cpih:
   title: "Consumer Prices (CPIH)"

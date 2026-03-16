@@ -15,7 +15,7 @@ export default function PillarNav({ activePillar, onSelect, isMobile }) {
       }}
     >
       <button
-        onClick={() => { track("pillar_select", { pillar: "overview" }); onSelect(null); }}
+        onClick={() => { track("pillar_select", { pillar: "overview" }); onSelect(null, null, null); }}
         style={{
           background: "none",
           border: "none",
@@ -50,7 +50,13 @@ export default function PillarNav({ activePillar, onSelect, isMobile }) {
         return (
           <button
             key={key}
-            onClick={() => { track("pillar_select", { pillar: pillar.label }); onSelect(key); }}
+            onClick={() => {
+              track("pillar_select", { pillar: pillar.label });
+              const firstTopic = Object.keys(pillar.topics)[0];
+              const topicDef = pillar.topics[firstTopic];
+              const firstSub = topicDef?.subtopics ? Object.keys(topicDef.subtopics)[0] : null;
+              onSelect(key, firstTopic, firstSub);
+            }}
             style={{
               background: "none",
               border: "none",

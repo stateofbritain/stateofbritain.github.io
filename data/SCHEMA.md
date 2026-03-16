@@ -137,7 +137,8 @@ Declare methodology changes or data disruptions on a series so charts can render
 
 Known breaks already declared:
 - `education.json` / gcseResults: 2017 grading change, 2020-21 COVID assessments
-- `nhs.json` / rtt, ae: 2020-03 COVID impact
+- `nhs-waiting.json` / rtt, ae: 2020-03 COVID impact
+- `health-outcomes.json` / lifeExpectancy, avoidableMortality: 2020 COVID impact
 - `infrastructure.json` / rail.journeys: 2020 COVID collapse
 - `immigration.json` / netMigration: 2012 admin data methodology switch
 
@@ -147,7 +148,7 @@ Known breaks already declared:
 
 | Pillar | Slug | Datasets |
 |---|---|---|
-| Foundations | `foundations` | family, energy, water, environment, workforce, nhs |
+| Foundations | `foundations` | family, energy, water, environment, workforce, nhs-waiting, health-outcomes, gp-access |
 | Growth Engine | `growth` | education, industrial, infrastructure, investment, productivity, research, startups |
 | State Performance | `state` | cpih, defence, immigration, justice, spending |
 | Policy Challenges | `challenges` | (asylum-framework — not yet v1) |

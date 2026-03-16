@@ -1,0 +1,141 @@
+{
+  "$schema": "sob-dataset-v1",
+  "id": "health-outcomes",
+  "pillar": "foundations",
+  "topic": "healthcare",
+  "generated": "2026-03-16",
+  "sources": [
+    {
+      "id": "ons-life-tables",
+      "name": "ONS National Life Tables",
+      "url": "https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/lifeexpectancies/datasets/nationallifetablesunitedkingdomreferencetables"
+    },
+    {
+      "id": "ons-cancer-survival",
+      "name": "ONS Cancer Survival in England",
+      "url": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/conditionsanddiseases/datasets/cancersurvivalratescancersurvivalinenglandadultsdiagnosed"
+    },
+    {
+      "id": "ons-avoidable-mortality",
+      "name": "ONS Avoidable Mortality in England and Wales",
+      "url": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/avoidablemortalityinenglandandwalesreferencetable1"
+    }
+  ],
+  "snapshot": {
+    "lifeExpMale": 79.0,
+    "lifeExpMaleYear": 2023,
+    "lifeExpFemale": 82.9,
+    "lifeExpFemaleYear": 2023,
+    "cancerSurvival5yr": 54.5,
+    "cancerSurvival5yrYear": "2017-2021",
+    "avoidableMortalityRate": 218.2,
+    "avoidableMortalityRateYear": 2023
+  },
+  "series": {
+    "lifeExpectancy": {
+      "sourceId": "ons-life-tables",
+      "timeField": "year",
+      "methodologyBreaks": [
+        {
+          "at": 2020,
+          "label": "COVID-19",
+          "description": "COVID-19 pandemic caused sharp drop in life expectancy in 2020",
+          "severity": "major"
+        }
+      ],
+      "data": [
+        { "year": 1980, "male": 70.8, "female": 76.8 },
+        { "year": 1982, "male": 71.1, "female": 77.0 },
+        { "year": 1984, "male": 71.5, "female": 77.4 },
+        { "year": 1986, "male": 71.9, "female": 77.7 },
+        { "year": 1988, "male": 72.4, "female": 78.1 },
+        { "year": 1990, "male": 72.9, "female": 78.5 },
+        { "year": 1992, "male": 73.4, "female": 78.8 },
+        { "year": 1994, "male": 74.0, "female": 79.2 },
+        { "year": 1996, "male": 74.5, "female": 79.5 },
+        { "year": 1998, "male": 75.0, "female": 79.8 },
+        { "year": 2000, "male": 75.5, "female": 80.3 },
+        { "year": 2001, "male": 75.7, "female": 80.4 },
+        { "year": 2002, "male": 76.0, "female": 80.6 },
+        { "year": 2003, "male": 76.2, "female": 80.7 },
+        { "year": 2004, "male": 76.6, "female": 81.0 },
+        { "year": 2005, "male": 76.9, "female": 81.2 },
+        { "year": 2006, "male": 77.2, "female": 81.5 },
+        { "year": 2007, "male": 77.4, "female": 81.6 },
+        { "year": 2008, "male": 77.7, "female": 81.8 },
+        { "year": 2009, "male": 78.0, "female": 82.0 },
+        { "year": 2010, "male": 78.2, "female": 82.3 },
+        { "year": 2011, "male": 78.7, "female": 82.6 },
+        { "year": 2012, "male": 78.9, "female": 82.7 },
+        { "year": 2013, "male": 79.0, "female": 82.8 },
+        { "year": 2014, "male": 79.3, "female": 83.0 },
+        { "year": 2015, "male": 79.2, "female": 82.8 },
+        { "year": 2016, "male": 79.2, "female": 82.9 },
+        { "year": 2017, "male": 79.2, "female": 82.9 },
+        { "year": 2018, "male": 79.3, "female": 83.0 },
+        { "year": 2019, "male": 79.4, "female": 83.1 },
+        { "year": 2020, "male": 78.7, "female": 82.7 },
+        { "year": 2021, "male": 78.7, "female": 82.8 },
+        { "year": 2022, "male": 78.8, "female": 82.8 },
+        { "year": 2023, "male": 79.0, "female": 82.9 }
+      ]
+    },
+    "cancerSurvival": {
+      "sourceId": "ons-cancer-survival",
+      "timeField": "cancerType",
+      "data": [
+        { "cancerType": "Breast", "survival1yr": 96.1, "survival5yr": 85.9 },
+        { "cancerType": "Prostate", "survival1yr": 95.2, "survival5yr": 86.6 },
+        { "cancerType": "Melanoma", "survival1yr": 97.0, "survival5yr": 92.1 },
+        { "cancerType": "Bowel", "survival1yr": 76.6, "survival5yr": 58.4 },
+        { "cancerType": "Kidney", "survival1yr": 79.9, "survival5yr": 62.5 },
+        { "cancerType": "NHL", "survival1yr": 79.3, "survival5yr": 65.1 },
+        { "cancerType": "Bladder", "survival1yr": 72.5, "survival5yr": 53.6 },
+        { "cancerType": "Uterus", "survival1yr": 88.5, "survival5yr": 74.8 },
+        { "cancerType": "Ovary", "survival1yr": 72.0, "survival5yr": 42.0 },
+        { "cancerType": "Stomach", "survival1yr": 47.5, "survival5yr": 21.3 },
+        { "cancerType": "Oesophagus", "survival1yr": 46.8, "survival5yr": 17.6 },
+        { "cancerType": "Brain", "survival1yr": 39.5, "survival5yr": 14.2 },
+        { "cancerType": "Lung", "survival1yr": 41.6, "survival5yr": 16.2 },
+        { "cancerType": "Pancreas", "survival1yr": 26.3, "survival5yr": 7.3 }
+      ]
+    },
+    "avoidableMortality": {
+      "sourceId": "ons-avoidable-mortality",
+      "timeField": "year",
+      "methodologyBreaks": [
+        {
+          "at": 2020,
+          "label": "COVID-19",
+          "description": "COVID-19 significantly increased avoidable mortality in 2020-2021",
+          "severity": "major"
+        }
+      ],
+      "data": [
+        { "year": 2001, "preventable": 149.5, "treatable": 107.3, "total": 256.8 },
+        { "year": 2002, "preventable": 148.2, "treatable": 104.8, "total": 253.0 },
+        { "year": 2003, "preventable": 146.7, "treatable": 103.1, "total": 249.8 },
+        { "year": 2004, "preventable": 143.3, "treatable": 99.8, "total": 243.1 },
+        { "year": 2005, "preventable": 140.5, "treatable": 97.0, "total": 237.5 },
+        { "year": 2006, "preventable": 138.0, "treatable": 93.9, "total": 231.9 },
+        { "year": 2007, "preventable": 135.0, "treatable": 91.0, "total": 226.0 },
+        { "year": 2008, "preventable": 133.0, "treatable": 88.5, "total": 221.5 },
+        { "year": 2009, "preventable": 131.4, "treatable": 86.5, "total": 217.9 },
+        { "year": 2010, "preventable": 130.2, "treatable": 84.8, "total": 215.0 },
+        { "year": 2011, "preventable": 128.5, "treatable": 83.0, "total": 211.5 },
+        { "year": 2012, "preventable": 127.6, "treatable": 81.4, "total": 209.0 },
+        { "year": 2013, "preventable": 126.5, "treatable": 80.0, "total": 206.5 },
+        { "year": 2014, "preventable": 125.1, "treatable": 78.8, "total": 203.9 },
+        { "year": 2015, "preventable": 125.8, "treatable": 79.2, "total": 205.0 },
+        { "year": 2016, "preventable": 125.0, "treatable": 78.5, "total": 203.5 },
+        { "year": 2017, "preventable": 125.3, "treatable": 78.9, "total": 204.2 },
+        { "year": 2018, "preventable": 125.5, "treatable": 79.0, "total": 204.5 },
+        { "year": 2019, "preventable": 124.0, "treatable": 77.5, "total": 201.5 },
+        { "year": 2020, "preventable": 140.8, "treatable": 82.5, "total": 223.3 },
+        { "year": 2021, "preventable": 143.2, "treatable": 84.0, "total": 227.2 },
+        { "year": 2022, "preventable": 131.5, "treatable": 80.8, "total": 212.3 },
+        { "year": 2023, "preventable": 133.0, "treatable": 85.2, "total": 218.2 }
+      ]
+    }
+  }
+}

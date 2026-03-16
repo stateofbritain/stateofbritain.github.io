@@ -23,7 +23,17 @@ const PILLARS = {
       energy:     { label: "Energy",               icon: "⚡" },
       water:      { label: "Water",                icon: "~" },
       food:       { label: "Food & Cost of Living", icon: "£" },
-      healthcare: { label: "Healthcare Access",    icon: "+" },
+      healthcare: {
+        label: "Healthcare",
+        icon: "+",
+        subtopics: {
+          waiting:   { label: "Waiting Lists" },
+          capacity:  { label: "Hospital Capacity" },
+          workforce: { label: "NHS Workforce" },
+          outcomes:  { label: "Health Outcomes" },
+          gp:        { label: "General Practice" },
+        },
+      },
       safety:     { label: "Safety",               icon: "⚖" },
       environment:{ label: "Environment",          icon: "◉" },
       family:     { label: "Family",               icon: "♥" },

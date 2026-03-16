@@ -1,7 +1,7 @@
 /**
  * fetch-nhs.js
  *
- * Downloads NHS England statistics and outputs public/data/nhs.json.
+ * Downloads NHS England statistics and outputs public/data/nhs-waiting.json.
  *
  * Sources:
  *   - RTT Overview Timeseries — national waiting list data (Apr 2007 – Dec 2025)
@@ -187,7 +187,7 @@ async function main() {
   };
 
   mkdirSync(OUT_DIR, { recursive: true });
-  const outPath = join(OUT_DIR, "nhs.json");
+  const outPath = join(OUT_DIR, "nhs-waiting.json");
   writeFileSync(outPath, JSON.stringify(output, null, 2));
   console.log(`\nWrote ${outPath}`);
   console.log(`  RTT: ${rtt.length} months (${rtt[0]?.period} to ${latestRTT?.period})`);
