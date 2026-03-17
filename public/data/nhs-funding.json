@@ -142,6 +142,24 @@
         { "category": "Admin & other", "amount": 8.7 }
       ]
     },
+    "spendingSplit": {
+      "sourceId": "nhse-accounts",
+      "timeField": "year",
+      "data": [
+        { "year": "2013-14", "staffPct": 45.2, "drugsClinicalPct": 15.5, "premisesDeprecPct": 7.2, "capitalPct": 5.0, "otherPct": 27.1 },
+        { "year": "2014-15", "staffPct": 45.5, "drugsClinicalPct": 15.3, "premisesDeprecPct": 7.0, "capitalPct": 4.6, "otherPct": 27.6 },
+        { "year": "2015-16", "staffPct": 45.8, "drugsClinicalPct": 15.4, "premisesDeprecPct": 6.8, "capitalPct": 4.3, "otherPct": 27.7 },
+        { "year": "2016-17", "staffPct": 46.0, "drugsClinicalPct": 15.5, "premisesDeprecPct": 6.7, "capitalPct": 4.1, "otherPct": 27.7 },
+        { "year": "2017-18", "staffPct": 46.2, "drugsClinicalPct": 15.6, "premisesDeprecPct": 6.6, "capitalPct": 4.3, "otherPct": 27.3 },
+        { "year": "2018-19", "staffPct": 46.5, "drugsClinicalPct": 15.4, "premisesDeprecPct": 6.5, "capitalPct": 4.5, "otherPct": 27.1 },
+        { "year": "2019-20", "staffPct": 46.8, "drugsClinicalPct": 15.3, "premisesDeprecPct": 6.5, "capitalPct": 4.6, "otherPct": 26.8 },
+        { "year": "2020-21", "staffPct": 44.5, "drugsClinicalPct": 14.8, "premisesDeprecPct": 6.2, "capitalPct": 5.8, "otherPct": 28.7 },
+        { "year": "2021-22", "staffPct": 45.8, "drugsClinicalPct": 15.0, "premisesDeprecPct": 6.3, "capitalPct": 5.0, "otherPct": 27.9 },
+        { "year": "2022-23", "staffPct": 45.6, "drugsClinicalPct": 15.2, "premisesDeprecPct": 6.4, "capitalPct": 4.5, "otherPct": 28.3 },
+        { "year": "2023-24", "staffPct": 47.8, "drugsClinicalPct": 15.0, "premisesDeprecPct": 6.5, "capitalPct": 4.8, "otherPct": 25.9 },
+        { "year": "2024-25", "staffPct": 49.2, "drugsClinicalPct": 15.2, "premisesDeprecPct": 6.6, "capitalPct": 4.2, "otherPct": 24.8 }
+      ]
+    },
     "capitalCdel": {
       "sourceId": "hmt-pesa",
       "timeField": "year",

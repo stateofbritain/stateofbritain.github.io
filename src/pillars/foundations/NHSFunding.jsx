@@ -273,6 +273,52 @@ export default function NHSFunding() {
         </section>
       )}
 
+      {/* Spending Split */}
+      {data.spendingSplit && (
+        <section style={{ marginBottom: 32 }}>
+          <h3 style={SECTION_HEADING}>Where Does the Money Go?</h3>
+          <p style={SECTION_NOTE}>
+            Staff costs account for approximately 49% of total NHS spending in 2024-25 (65% at
+            the provider trust level, where most clinical staff are employed). Capital investment
+            has fallen from 5% to approximately 4% of total spending since 2013-14. The UK spends
+            roughly half the OECD average share of GDP on health capital (0.27% vs 0.51%), and has
+            the lowest number of CT and MRI scanners per capita among comparable countries.
+          </p>
+          <ShareableChart title="NHS Spending Split">
+            <div style={{ ...CHART_CARD, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
+              <div style={{ marginBottom: 10 }}>
+                <div style={CHART_TITLE}>Spending Split</div>
+                <div style={CHART_SUBTITLE}>Share of total NHS budget by category (%), England</div>
+              </div>
+              <ResponsiveContainer width="100%" height={360}>
+                <AreaChart data={data.spendingSplit} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
+                  <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
+                  <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} unit="%" domain={[0, 100]} ticks={[0, 25, 50, 75, 100]} label={yAxisLabel("%")} />
+                  <Tooltip content={<CustomTooltip />} />
+                  <Area type="monotone" dataKey="staffPct" name="Staff costs" stackId="1" fill={P.navy} fillOpacity={0.7} stroke={P.navy} strokeWidth={1.5} />
+                  <Area type="monotone" dataKey="drugsClinicalPct" name="Drugs & clinical supplies" stackId="1" fill={P.teal} fillOpacity={0.6} stroke={P.teal} strokeWidth={1.5} />
+                  <Area type="monotone" dataKey="premisesDeprecPct" name="Premises & depreciation" stackId="1" fill={P.sienna} fillOpacity={0.5} stroke={P.sienna} strokeWidth={1.5} />
+                  <Area type="monotone" dataKey="capitalPct" name="Capital" stackId="1" fill={P.red} fillOpacity={0.6} stroke={P.red} strokeWidth={1.5} />
+                  <Area type="monotone" dataKey="otherPct" name="Other operating" stackId="1" fill={P.grey} fillOpacity={0.4} stroke={P.grey} strokeWidth={1} />
+                  <Legend verticalAlign="top" height={36} wrapperStyle={{ fontSize: "10px", fontFamily: "'DM Mono', monospace" }} />
+                </AreaChart>
+              </ResponsiveContainer>
+              <div style={SOURCE_TEXT}>
+                SOURCE:{" "}
+                <a href="https://www.england.nhs.uk/long-read/consolidated-nhs-provider-accounts-2024-25/" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
+                  NHS England Consolidated Provider Accounts
+                </a>
+                {" "}&middot;{" "}
+                <a href="https://www.kingsfund.org.uk/insight-and-analysis/data-and-charts/nhs-capital-investment" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
+                  King's Fund Capital Investment Analysis
+                </a>
+              </div>
+            </div>
+          </ShareableChart>
+        </section>
+      )}
+
       {/* Capital CDEL */}
       {data.capitalCdel && (
         <section style={{ marginBottom: 32 }}>
