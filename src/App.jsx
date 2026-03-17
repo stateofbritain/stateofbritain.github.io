@@ -20,7 +20,9 @@ import WaitingLists from "./pillars/foundations/WaitingLists";
 import HealthOutcomes from "./pillars/foundations/HealthOutcomes";
 import GPAccess from "./pillars/foundations/GPAccess";
 import HospitalCapacity from "./pillars/foundations/HospitalCapacity";
+import MentalHealth from "./pillars/foundations/MentalHealth";
 import NHSWorkforce from "./pillars/foundations/NHSWorkforce";
+import NHSFunding from "./pillars/foundations/NHSFunding";
 import Water from "./pillars/foundations/Water";
 import Environment from "./pillars/foundations/Environment";
 import Family from "./pillars/foundations/Family";
@@ -52,6 +54,8 @@ const TOPIC_COMPONENTS = {
   "foundations/healthcare/workforce": NHSWorkforce,
   "foundations/healthcare/outcomes": HealthOutcomes,
   "foundations/healthcare/gp": GPAccess,
+  "foundations/healthcare/mental": MentalHealth,
+  "foundations/healthcare/funding": NHSFunding,
   "foundations/water": Water,
   "foundations/environment": Environment,
   "foundations/family": Family,

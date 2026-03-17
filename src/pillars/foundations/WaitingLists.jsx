@@ -31,6 +31,17 @@ export default function WaitingLists() {
     return data.rtt.filter((_, i) => i % 3 === 0 || i === data.rtt.length - 1);
   }, [data]);
 
+  const diagnosticsData = useMemo(() => {
+    if (!data?.diagnostics) return [];
+    // Sample every 3 months for cleaner chart
+    return data.diagnostics.filter((_, i) => i % 3 === 0 || i === data.diagnostics.length - 1);
+  }, [data]);
+
+  const cancerData = useMemo(() => {
+    if (!data?.cancerWaits) return [];
+    return data.cancerWaits;
+  }, [data]);
+
   if (loading) {
     return (
       <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
@@ -241,6 +252,64 @@ export default function WaitingLists() {
         </section>
       )}
 
+      {/* Diagnostic waits */}
+      {diagnosticsData.length > 0 && (
+        <section style={{ marginBottom: 48 }}>
+          <h3 style={SECTION_HEADING}>How Long Are Patients Waiting for Diagnostic Tests?</h3>
+          <p style={SECTION_NOTE}>
+            Patients referred for one of 15 key diagnostic tests (including MRI, CT, endoscopy,
+            echocardiography, and audiology) are expected to receive their test within 6 weeks. Before
+            the pandemic, fewer than 3% of patients breached this standard. COVID-19 caused a sharp
+            spike above 50% in mid-2020 as services were suspended, and the breach rate has since
+            recovered but remains around 23%, well above pre-pandemic levels.
+          </p>
+          <ShareableChart title="Diagnostic Test Waiting Times">
+          <div style={{ ...CHART_CARD, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
+            <div style={{ marginBottom: 10 }}>
+              <div style={CHART_TITLE}>Diagnostic Test Waits</div>
+              <div style={CHART_SUBTITLE}>% of patients waiting over 6 weeks for key diagnostic tests, England</div>
+            </div>
+            <DiagnosticsChart data={diagnosticsData} />
+            <div style={SOURCE_TEXT}>
+              SOURCE:{" "}
+              <a href="https://www.england.nhs.uk/statistics/statistical-work-areas/diagnostics-waiting-times-and-activity/" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
+                NHS England Diagnostic Waiting Times and Activity
+              </a>
+            </div>
+          </div>
+          </ShareableChart>
+        </section>
+      )}
+
+      {/* Cancer treatment waits */}
+      {cancerData.length > 0 && (
+        <section style={{ marginBottom: 48 }}>
+          <h3 style={SECTION_HEADING}>Are Cancer Patients Starting Treatment on Time?</h3>
+          <p style={SECTION_NOTE}>
+            NHS England tracks whether cancer patients begin treatment within 62 days of an urgent GP
+            referral (operational standard: 85%) and within 31 days of a decision to treat (standard:
+            96%). The 62-day standard was broadly met until around 2016, but performance has since
+            declined steadily and stood at approximately 65% by 2025. The 31-day standard has been
+            more resilient, remaining around 93-94%.
+          </p>
+          <ShareableChart title="Cancer Treatment Waiting Times">
+          <div style={{ ...CHART_CARD, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
+            <div style={{ marginBottom: 10 }}>
+              <div style={CHART_TITLE}>Cancer Treatment Waits</div>
+              <div style={CHART_SUBTITLE}>% of patients treated within target timeframes, England (quarterly)</div>
+            </div>
+            <CancerWaitsChart data={cancerData} />
+            <div style={SOURCE_TEXT}>
+              SOURCE:{" "}
+              <a href="https://www.england.nhs.uk/statistics/statistical-work-areas/cancer-waiting-times/" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
+                NHS England Cancer Waiting Times
+              </a>
+            </div>
+          </div>
+          </ShareableChart>
+        </section>
+      )}
+
       <AnalysisBox color={P.navy} label="Context">
         NHS England RTT waiting list: {waitingMillions}m incomplete pathways ({s.rttPeriod}).
         {" "}{s.pctWithin18Weeks}% treated within 18 weeks (target: 92%).
@@ -254,6 +323,21 @@ export default function WaitingLists() {
             ENT ({(data.bySpecialty.specialties[2].waiting / 1000).toFixed(0)}k).
             {" "}Every named specialty has grown since Jan 2020. Gynaecology (+99%),
             Oral Surgery (+88%), and ENT (+84%) saw the steepest rises.
+          </>
+        )}
+        {diagnosticsData.length > 0 && (
+          <>
+            {" "}Diagnostic tests: {diagnosticsData[diagnosticsData.length - 1]?.pctOver6Weeks}% of
+            patients waiting over 6 weeks ({diagnosticsData[diagnosticsData.length - 1]?.period}),
+            compared to under 3% before the pandemic.
+          </>
+        )}
+        {cancerData.length > 0 && (
+          <>
+            {" "}Cancer treatment: {cancerData[cancerData.length - 1]?.pctWithin62Days}% of patients
+            starting treatment within 62 days of urgent referral ({cancerData[cancerData.length - 1]?.period}),
+            against an 85% standard. {cancerData[cancerData.length - 1]?.pctWithin31Days}% treated
+            within 31 days of decision (standard: 96%).
           </>
         )}
       </AnalysisBox>
@@ -429,6 +513,38 @@ function ProcedureChart({ data }) {
           ))}
         </Bar>
       </BarChart>
+    </ResponsiveContainer>
+  );
+}
+
+function DiagnosticsChart({ data }) {
+  return (
+    <ResponsiveContainer width="100%" height={340}>
+      <LineChart data={data} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
+        <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
+        <XAxis dataKey="period" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
+        <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} unit="%" domain={[0, 55]} label={yAxisLabel("% waiting > 6 weeks")} />
+        <Tooltip content={<CustomTooltip />} />
+        <ReferenceLine y={1} stroke={P.teal} strokeDasharray="6 4" label={{ value: "~1% target", position: "right", fontSize: 10, fill: P.teal, fontFamily: "'DM Mono', monospace" }} />
+        <Line type="monotone" dataKey="pctOver6Weeks" name="% over 6 weeks" stroke={P.sienna} strokeWidth={2.5} dot={false} />
+      </LineChart>
+    </ResponsiveContainer>
+  );
+}
+
+function CancerWaitsChart({ data }) {
+  return (
+    <ResponsiveContainer width="100%" height={340}>
+      <LineChart data={data} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
+        <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
+        <XAxis dataKey="period" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
+        <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} unit="%" domain={[55, 100]} label={yAxisLabel("% treated within target")} />
+        <Tooltip content={<CustomTooltip />} />
+        <ReferenceLine y={85} stroke={P.teal} strokeDasharray="6 4" label={{ value: "85% standard (62-day)", position: "right", fontSize: 10, fill: P.teal, fontFamily: "'DM Mono', monospace" }} />
+        <ReferenceLine y={96} stroke={P.navy} strokeDasharray="6 4" label={{ value: "96% standard (31-day)", position: "right", fontSize: 10, fill: P.navy, fontFamily: "'DM Mono', monospace" }} />
+        <Line type="monotone" dataKey="pctWithin62Days" name="% within 62 days" stroke={P.red} strokeWidth={2.5} dot={false} />
+        <Line type="monotone" dataKey="pctWithin31Days" name="% within 31 days" stroke={P.navy} strokeWidth={2.5} dot={false} />
+      </LineChart>
     </ResponsiveContainer>
   );
 }

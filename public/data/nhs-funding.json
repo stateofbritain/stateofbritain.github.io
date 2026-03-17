@@ -1,0 +1,136 @@
+{
+  "$schema": "sob-dataset-v1",
+  "id": "nhs-funding",
+  "pillar": "foundations",
+  "topic": "healthcare",
+  "generated": "2026-03-17",
+  "sources": [
+    {
+      "id": "hmt-pesa",
+      "name": "HM Treasury Public Expenditure Statistical Analyses (PESA)",
+      "url": "https://www.gov.uk/government/collections/public-expenditure-statistical-analyses-pesa",
+      "publisher": "HM Treasury"
+    },
+    {
+      "id": "kings-fund-spending",
+      "name": "The King's Fund: NHS Funding and Spending",
+      "url": "https://www.kingsfund.org.uk/projects/nhs-in-a-nutshell/nhs-budget",
+      "publisher": "The King's Fund"
+    },
+    {
+      "id": "oecd-health",
+      "name": "OECD Health Statistics: Health Expenditure and Financing",
+      "url": "https://stats.oecd.org/Index.aspx?DataSetCode=SHA",
+      "publisher": "OECD"
+    },
+    {
+      "id": "nhse-accounts",
+      "name": "NHS England Annual Report and Accounts",
+      "url": "https://www.england.nhs.uk/publication/nhs-england-annual-report/",
+      "publisher": "NHS England"
+    }
+  ],
+  "snapshot": {
+    "totalBudgetReal": 164.9,
+    "totalBudgetRealYear": "2025-26",
+    "perCapitaLatest": 2890,
+    "perCapitaYear": 2024,
+    "pctGdpUK": 10.3,
+    "pctGdpYear": 2023,
+    "realGrowthLatest": 1.2,
+    "realGrowthLatestYear": "2025-26"
+  },
+  "series": {
+    "totalBudget": {
+      "sourceId": "hmt-pesa",
+      "timeField": "year",
+      "data": [
+        { "year": "2000-01", "nominal": 44.6, "real": 76.8, "realGrowth": 5.6 },
+        { "year": "2001-02", "nominal": 49.1, "real": 82.6, "realGrowth": 7.5 },
+        { "year": "2002-03", "nominal": 54.1, "real": 88.3, "realGrowth": 6.9 },
+        { "year": "2003-04", "nominal": 60.2, "real": 95.0, "realGrowth": 7.6 },
+        { "year": "2004-05", "nominal": 67.4, "real": 103.1, "realGrowth": 8.5 },
+        { "year": "2005-06", "nominal": 73.4, "real": 108.9, "realGrowth": 5.6 },
+        { "year": "2006-07", "nominal": 78.9, "real": 113.1, "realGrowth": 3.9 },
+        { "year": "2007-08", "nominal": 84.1, "real": 117.0, "realGrowth": 3.4 },
+        { "year": "2008-09", "nominal": 90.7, "real": 122.5, "realGrowth": 4.7 },
+        { "year": "2009-10", "nominal": 97.8, "real": 129.8, "realGrowth": 6.0 },
+        { "year": "2010-11", "nominal": 100.4, "real": 128.5, "realGrowth": -1.0 },
+        { "year": "2011-12", "nominal": 102.8, "real": 127.3, "realGrowth": -0.9 },
+        { "year": "2012-13", "nominal": 104.6, "real": 125.8, "realGrowth": -1.2 },
+        { "year": "2013-14", "nominal": 107.6, "real": 126.4, "realGrowth": 0.5 },
+        { "year": "2014-15", "nominal": 110.0, "real": 128.2, "realGrowth": 1.4 },
+        { "year": "2015-16", "nominal": 114.1, "real": 131.3, "realGrowth": 2.4 },
+        { "year": "2016-17", "nominal": 117.2, "real": 132.0, "realGrowth": 0.5 },
+        { "year": "2017-18", "nominal": 121.5, "real": 133.2, "realGrowth": 0.9 },
+        { "year": "2018-19", "nominal": 127.0, "real": 136.1, "realGrowth": 2.2 },
+        { "year": "2019-20", "nominal": 134.1, "real": 140.7, "realGrowth": 3.4 },
+        { "year": "2020-21", "nominal": 149.3, "real": 153.9, "realGrowth": 9.4 },
+        { "year": "2021-22", "nominal": 158.7, "real": 157.2, "realGrowth": 2.1 },
+        { "year": "2022-23", "nominal": 162.2, "real": 152.4, "realGrowth": -3.1 },
+        { "year": "2023-24", "nominal": 168.8, "real": 157.8, "realGrowth": 3.5 },
+        { "year": "2024-25", "nominal": 174.5, "real": 161.3, "realGrowth": 2.2 },
+        { "year": "2025-26", "nominal": 181.4, "real": 164.9, "realGrowth": 1.2 }
+      ]
+    },
+    "perCapita": {
+      "sourceId": "kings-fund-spending",
+      "timeField": "year",
+      "data": [
+        { "year": 2000, "perCapita": 1380 },
+        { "year": 2001, "perCapita": 1490 },
+        { "year": 2002, "perCapita": 1590 },
+        { "year": 2003, "perCapita": 1710 },
+        { "year": 2004, "perCapita": 1850 },
+        { "year": 2005, "perCapita": 1950 },
+        { "year": 2006, "perCapita": 2020 },
+        { "year": 2007, "perCapita": 2090 },
+        { "year": 2008, "perCapita": 2190 },
+        { "year": 2009, "perCapita": 2320 },
+        { "year": 2010, "perCapita": 2300 },
+        { "year": 2011, "perCapita": 2270 },
+        { "year": 2012, "perCapita": 2240 },
+        { "year": 2013, "perCapita": 2250 },
+        { "year": 2014, "perCapita": 2280 },
+        { "year": 2015, "perCapita": 2330 },
+        { "year": 2016, "perCapita": 2340 },
+        { "year": 2017, "perCapita": 2360 },
+        { "year": 2018, "perCapita": 2410 },
+        { "year": 2019, "perCapita": 2490 },
+        { "year": 2020, "perCapita": 2720 },
+        { "year": 2021, "perCapita": 2780 },
+        { "year": 2022, "perCapita": 2690 },
+        { "year": 2023, "perCapita": 2790 },
+        { "year": 2024, "perCapita": 2890 }
+      ]
+    },
+    "international": {
+      "sourceId": "oecd-health",
+      "timeField": "country",
+      "data": [
+        { "country": "United States", "pctGdp": 16.6, "perCapitaPPP": 12555 },
+        { "country": "Germany", "pctGdp": 12.7, "perCapitaPPP": 8011 },
+        { "country": "France", "pctGdp": 12.1, "perCapitaPPP": 6517 },
+        { "country": "Canada", "pctGdp": 11.2, "perCapitaPPP": 6319 },
+        { "country": "Sweden", "pctGdp": 10.5, "perCapitaPPP": 6262 },
+        { "country": "United Kingdom", "pctGdp": 10.3, "perCapitaPPP": 5138 },
+        { "country": "OECD Average", "pctGdp": 9.2, "perCapitaPPP": 4986 },
+        { "country": "Japan", "pctGdp": 11.0, "perCapitaPPP": 4823 },
+        { "country": "Italy", "pctGdp": 9.0, "perCapitaPPP": 4291 },
+        { "country": "Spain", "pctGdp": 10.4, "perCapitaPPP": 4381 }
+      ]
+    },
+    "byCategory": {
+      "sourceId": "nhse-accounts",
+      "timeField": "category",
+      "data": [
+        { "category": "Hospital & specialist", "amount": 87.2 },
+        { "category": "Primary & community care", "amount": 33.6 },
+        { "category": "Mental health", "amount": 16.4 },
+        { "category": "Prescribing", "amount": 10.1 },
+        { "category": "Capital", "amount": 8.9 },
+        { "category": "Admin & other", "amount": 8.7 }
+      ]
+    }
+  }
+}

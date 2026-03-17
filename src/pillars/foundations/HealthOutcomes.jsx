@@ -1,5 +1,5 @@
 import {
-  LineChart, Line, BarChart, Bar, Cell,
+  LineChart, Line, BarChart, Bar, Cell, ComposedChart, Area,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
   Legend } from "recharts";
 import P from "../../theme/palette";
@@ -41,7 +41,7 @@ export default function HealthOutcomes() {
       <div style={{ display: "flex", alignItems: "baseline", gap: 14, marginBottom: 8, flexWrap: "wrap" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(26px, 4vw, 36px)", fontWeight: 600, color: P.text, margin: 0 }}>Health Outcomes</h2>
         <span style={{ fontSize: "13px", color: P.textLight, fontStyle: "italic", fontFamily: "'Playfair Display', serif" }}>
-          Life expectancy, cancer survival & avoidable mortality
+          Life expectancy, cancer survival, avoidable mortality & health inequalities
         </span>
       </div>
 
@@ -78,6 +78,30 @@ export default function HealthOutcomes() {
           up={true}
           color={P.red}
           delay={0.34}
+        />
+        <MetricCard
+          label="Infant Mortality"
+          value={`${s.infantMortalityRate}`}
+          change={`per 1,000 live births (${s.infantMortalityRateYear})`}
+          up={false}
+          color={P.teal}
+          delay={0.42}
+        />
+        <MetricCard
+          label="Adult Obesity"
+          value={`${s.obesityRate}%`}
+          change={`adults (${s.obesityRateYear})`}
+          up={true}
+          color={P.sienna}
+          delay={0.50}
+        />
+        <MetricCard
+          label="Deprivation Gap (M)"
+          value={`${s.maleLifeExpGap} yrs`}
+          change={`most vs least deprived (${s.maleLifeExpGapYear})`}
+          up={true}
+          color={P.red}
+          delay={0.58}
         />
       </div>
 
@@ -248,6 +272,200 @@ export default function HealthOutcomes() {
         </section>
       )}
 
+      {/* Infant Mortality Chart */}
+      {data.infantMortality && (
+        <section style={{ marginBottom: 32 }}>
+          <h3 style={SECTION_HEADING}>Infant Mortality</h3>
+          <p style={SECTION_NOTE}>
+            The UK infant mortality rate fell from 11.2 per 1,000 live births in 1980 to 3.6 in
+            2014, driven by improvements in neonatal care and public health. Since 2014, the rate
+            has plateaued at around 3.6 to 3.8 per 1,000 live births, with no further sustained decline.
+          </p>
+          <ShareableChart title="Infant Mortality Rate, England & Wales">
+            <div style={{ ...CHART_CARD, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
+              <div style={{ marginBottom: 10 }}>
+                <div style={CHART_TITLE}>Infant Mortality Rate</div>
+                <div style={CHART_SUBTITLE}>Deaths under 1 year per 1,000 live births, England & Wales, 1980–2023</div>
+              </div>
+              <ResponsiveContainer width="100%" height={340}>
+                <LineChart data={data.infantMortality} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
+                  <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
+                  <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} domain={[0, 12]} label={yAxisLabel("Per 1,000")} />
+                  <Tooltip content={<CustomTooltip />} />
+                  <Line type="monotone" dataKey="rate" name="Infant mortality rate" stroke={P.navy} strokeWidth={2.5} dot={false} />
+                </LineChart>
+              </ResponsiveContainer>
+              <div style={SOURCE_TEXT}>
+                SOURCE:{" "}
+                <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/childmortalitystatisticschildhoodinfantandperinatalchildhoodinfantandperinatalmortalityinenglandandwales" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
+                  ONS Child and Infant Mortality, England & Wales
+                </a>
+              </div>
+            </div>
+          </ShareableChart>
+        </section>
+      )}
+
+      {/* Healthy Life Expectancy Chart */}
+      {data.healthyLifeExpectancy && (
+        <section style={{ marginBottom: 32 }}>
+          <h3 style={SECTION_HEADING}>Healthy Life Expectancy</h3>
+          <p style={SECTION_NOTE}>
+            Healthy life expectancy measures the number of years lived in good health. In 2022,
+            males could expect 62.8 years of healthy life out of 78.8 total (16 years in poor health),
+            while females could expect 63.1 healthy years out of 82.8 total (19.7 years in poor health).
+            Healthy life expectancy has not kept pace with total life expectancy gains.
+          </p>
+          <ShareableChart title="Healthy Life Expectancy vs Total, UK">
+            <div style={{ ...CHART_CARD, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
+              <div style={{ marginBottom: 10 }}>
+                <div style={CHART_TITLE}>Healthy vs Total Life Expectancy</div>
+                <div style={CHART_SUBTITLE}>United Kingdom, selected years 2010–2022</div>
+              </div>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+                <div>
+                  <div style={{ fontSize: "12px", fontWeight: 600, color: P.text, marginBottom: 6, fontFamily: "'DM Mono', monospace" }}>Males</div>
+                  <ResponsiveContainer width="100%" height={280}>
+                    <ComposedChart data={data.healthyLifeExpectancy} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
+                      <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
+                      <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
+                      <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} domain={[55, 85]} label={yAxisLabel("Years")} />
+                      <Tooltip content={<CustomTooltip />} />
+                      <Area type="monotone" dataKey="maleTotal" name="Total LE" fill={P.navy} fillOpacity={0.1} stroke={P.navy} strokeWidth={2} dot={{ r: 3 }} />
+                      <Area type="monotone" dataKey="maleHealthy" name="Healthy LE" fill={P.teal} fillOpacity={0.25} stroke={P.teal} strokeWidth={2} dot={{ r: 3 }} />
+                    </ComposedChart>
+                  </ResponsiveContainer>
+                </div>
+                <div>
+                  <div style={{ fontSize: "12px", fontWeight: 600, color: P.text, marginBottom: 6, fontFamily: "'DM Mono', monospace" }}>Females</div>
+                  <ResponsiveContainer width="100%" height={280}>
+                    <ComposedChart data={data.healthyLifeExpectancy} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
+                      <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
+                      <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
+                      <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} domain={[55, 85]} label={yAxisLabel("Years")} />
+                      <Tooltip content={<CustomTooltip />} />
+                      <Area type="monotone" dataKey="femaleTotal" name="Total LE" fill={P.sienna} fillOpacity={0.1} stroke={P.sienna} strokeWidth={2} dot={{ r: 3 }} />
+                      <Area type="monotone" dataKey="femaleHealthy" name="Healthy LE" fill={P.teal} fillOpacity={0.25} stroke={P.teal} strokeWidth={2} dot={{ r: 3 }} />
+                    </ComposedChart>
+                  </ResponsiveContainer>
+                </div>
+              </div>
+              <div style={{ display: "flex", gap: 14, marginTop: 8 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
+                  <span style={{ width: 14, height: 8, background: P.navy, display: "inline-block", borderRadius: 1 }} />
+                  <span style={{ fontSize: "11px", color: P.textMuted }}>Total (male)</span>
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
+                  <span style={{ width: 14, height: 8, background: P.sienna, display: "inline-block", borderRadius: 1 }} />
+                  <span style={{ fontSize: "11px", color: P.textMuted }}>Total (female)</span>
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
+                  <span style={{ width: 14, height: 8, background: P.teal, display: "inline-block", borderRadius: 1 }} />
+                  <span style={{ fontSize: "11px", color: P.textMuted }}>Healthy years</span>
+                </div>
+              </div>
+              <div style={SOURCE_TEXT}>
+                SOURCE:{" "}
+                <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/healthandlifeexpectancies/datasets/healthstatelifeexpectancyallagesuk" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
+                  ONS Health State Life Expectancies, UK
+                </a>
+              </div>
+            </div>
+          </ShareableChart>
+        </section>
+      )}
+
+      {/* Obesity Prevalence Chart */}
+      {data.obesity && (
+        <section style={{ marginBottom: 32 }}>
+          <h3 style={SECTION_HEADING}>Obesity Prevalence</h3>
+          <p style={SECTION_NOTE}>
+            Adult obesity prevalence in England rose from 21% in 2000 to approximately 26% by the
+            late 2010s. No Health Survey for England was conducted in 2020 due to the pandemic.
+            The overall trend has been a gradual increase across both sexes over the past two decades.
+          </p>
+          <ShareableChart title="Adult Obesity Prevalence, England">
+            <div style={{ ...CHART_CARD, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
+              <div style={{ marginBottom: 10 }}>
+                <div style={CHART_TITLE}>Adult Obesity Prevalence</div>
+                <div style={CHART_SUBTITLE}>Proportion of adults (16+) classified as obese (BMI 30+), England, 2000–2023</div>
+              </div>
+              <ResponsiveContainer width="100%" height={340}>
+                <LineChart data={data.obesity} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
+                  <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
+                  <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} domain={[15, 32]} label={yAxisLabel("%")} />
+                  <Tooltip content={<CustomTooltip />} />
+                  <Line type="monotone" dataKey="male" name="Male" stroke={P.navy} strokeWidth={2} dot={false} />
+                  <Line type="monotone" dataKey="female" name="Female" stroke={P.teal} strokeWidth={2} dot={false} />
+                  <Line type="monotone" dataKey="total" name="Total" stroke={P.sienna} strokeWidth={2.5} dot={false} />
+                  <Legend verticalAlign="top" height={30} wrapperStyle={{ fontSize: "11px", fontFamily: "'DM Mono', monospace" }} />
+                </LineChart>
+              </ResponsiveContainer>
+              <div style={SOURCE_TEXT}>
+                SOURCE:{" "}
+                <a href="https://digital.nhs.uk/data-and-information/publications/statistical/health-survey-for-england" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
+                  NHS Digital Health Survey for England
+                </a>
+              </div>
+            </div>
+          </ShareableChart>
+        </section>
+      )}
+
+      {/* Regional Inequality Chart */}
+      {data.regionalInequality && (
+        <section style={{ marginBottom: 48 }}>
+          <h3 style={SECTION_HEADING}>Life Expectancy by Deprivation</h3>
+          <p style={SECTION_NOTE}>
+            The gap in life expectancy between the most and least deprived deciles in England has
+            widened over the past decade. For males, the gap grew from 8.5 years in 2010-2012 to
+            10.0 years in 2020-2022. For females, it grew from 6.6 to 8.0 years over the same period.
+            Life expectancy in the most deprived areas has fallen in absolute terms.
+          </p>
+          <ShareableChart title="Life Expectancy Gap by Deprivation, England">
+            <div style={{ ...CHART_CARD, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
+              <div style={{ marginBottom: 10 }}>
+                <div style={CHART_TITLE}>Life Expectancy Gap by Deprivation</div>
+                <div style={CHART_SUBTITLE}>Gap in years between most and least deprived deciles, England</div>
+              </div>
+              <ResponsiveContainer width="100%" height={340}>
+                <BarChart data={data.regionalInequality} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
+                  <XAxis dataKey="period" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
+                  <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} domain={[0, 12]} label={yAxisLabel("Years")} />
+                  <Tooltip
+                    content={({ active, payload }) => {
+                      if (!active || !payload?.length) return null;
+                      const d = payload[0]?.payload;
+                      return (
+                        <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "8px 12px", fontSize: "12px", fontFamily: "'DM Mono', monospace", lineHeight: 1.7 }}>
+                          <div style={{ fontWeight: 600, marginBottom: 2 }}>{d.period}</div>
+                          <div style={{ color: P.navy }}>Male gap: {d.maleGap} years</div>
+                          <div style={{ color: P.textMuted }}>Most deprived: {d.maleMostDeprived} / Least: {d.maleLeastDeprived}</div>
+                          <div style={{ color: P.sienna }}>Female gap: {d.femaleGap} years</div>
+                          <div style={{ color: P.textMuted }}>Most deprived: {d.femaleMostDeprived} / Least: {d.femaleLeastDeprived}</div>
+                        </div>
+                      );
+                    }}
+                  />
+                  <Bar dataKey="maleGap" name="Male gap" fill={P.navy} radius={[3, 3, 0, 0]} barSize={20} />
+                  <Bar dataKey="femaleGap" name="Female gap" fill={P.sienna} radius={[3, 3, 0, 0]} barSize={20} />
+                  <Legend verticalAlign="top" height={30} wrapperStyle={{ fontSize: "11px", fontFamily: "'DM Mono', monospace" }} />
+                </BarChart>
+              </ResponsiveContainer>
+              <div style={SOURCE_TEXT}>
+                SOURCE:{" "}
+                <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/healthinequalities/datasets/healthstatelifeexpectanciesbynationaldeprivationdecilesenglandandwales" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
+                  ONS Health State Life Expectancies by Deprivation, England & Wales
+                </a>
+              </div>
+            </div>
+          </ShareableChart>
+        </section>
+      )}
+
       <AnalysisBox color={P.navy} label="Summary">
         UK life expectancy at birth: male {s.lifeExpMale} years, female {s.lifeExpFemale} years ({s.lifeExpMaleYear}).
         {" "}The rate of improvement slowed from around 2011. Life expectancy fell in 2020 during
@@ -256,6 +474,13 @@ export default function HealthOutcomes() {
         melanoma (92%), prostate (87%), and breast (86%) to pancreatic cancer (7%).
         {" "}Avoidable mortality: {s.avoidableMortalityRate} per 100,000 ({s.avoidableMortalityRateYear}),
         compared to 202 per 100,000 in 2019.
+        {" "}Infant mortality has fallen from 11.2 per 1,000 live births in 1980 to {s.infantMortalityRate} in {s.infantMortalityRateYear},
+        but progress has stalled since 2014.
+        {" "}Healthy life expectancy has not kept pace with total life expectancy, meaning more years
+        are spent in poor health. In 2022, males could expect 16 years in poor health, females nearly 20 years.
+        {" "}Adult obesity prevalence stands at {s.obesityRate}% ({s.obesityRateYear}), up from 21% in 2000.
+        {" "}The life expectancy gap between the most and least deprived areas has widened, reaching
+        {" "}{s.maleLifeExpGap} years for males ({s.maleLifeExpGapYear}).
       </AnalysisBox>
     </div>
   );

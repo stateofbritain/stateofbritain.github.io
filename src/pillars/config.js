@@ -28,10 +28,12 @@ const PILLARS = {
         icon: "+",
         subtopics: {
           outcomes:  { label: "Health Outcomes" },
+          mental:    { label: "Mental Health" },
           gp:        { label: "General Practice" },
           waiting:   { label: "Waiting Lists" },
           workforce: { label: "NHS Workforce" },
           capacity:  { label: "Hospital Capacity" },
+          funding:   { label: "NHS Funding" },
         },
       },
       safety:     { label: "Safety",               icon: "⚖" },

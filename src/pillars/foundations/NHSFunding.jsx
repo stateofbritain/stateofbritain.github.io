@@ -1,0 +1,288 @@
+import {
+  LineChart, Line, BarChart, Bar, Cell,
+  XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
+  Legend } from "recharts";
+import P from "../../theme/palette";
+import {
+  SECTION_HEADING, SECTION_NOTE, CHART_CARD, CHART_TITLE, CHART_SUBTITLE,
+  SOURCE_TEXT, AXIS_TICK_MONO, yAxisLabel } from "../../theme/chartStyles";
+import MetricCard from "../../components/MetricCard";
+import CustomTooltip from "../../components/CustomTooltip";
+import AnalysisBox from "../../components/AnalysisBox";
+import ShareableChart from "../../components/ShareableChart";
+import { useJsonDataset } from "../../hooks/useDataset";
+
+export default function NHSFunding() {
+  const { data, loading, error } = useJsonDataset("nhs-funding.json");
+
+  if (loading) {
+    return (
+      <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
+        <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>NHS Funding</h2>
+        <p style={{ fontSize: "13px", color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>Loading NHS funding data...</p>
+      </div>
+    );
+  }
+
+  if (error || !data) {
+    return (
+      <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
+        <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 16px" }}>NHS Funding</h2>
+        <p style={{ fontSize: "13px", color: P.red, fontFamily: "'DM Mono', monospace" }}>Failed to load data: {error ?? "No data"}</p>
+      </div>
+    );
+  }
+
+  const s = data.snapshot;
+
+  const internationalSorted = data.international
+    ? [...data.international].sort((a, b) => b.pctGdp - a.pctGdp)
+    : [];
+
+  return (
+    <div style={{ animation: "fadeSlideIn 0.4s ease both" }}>
+      <div style={{ display: "flex", alignItems: "baseline", gap: 14, marginBottom: 8, flexWrap: "wrap" }}>
+        <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(26px, 4vw, 36px)", fontWeight: 600, color: P.text, margin: 0 }}>NHS Funding</h2>
+        <span style={{ fontSize: "13px", color: P.textLight, fontStyle: "italic", fontFamily: "'Playfair Display', serif" }}>
+          Budget, per capita spending & international comparison
+        </span>
+      </div>
+
+      {/* Metric cards */}
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 12, marginBottom: 28 }}>
+        <MetricCard
+          label="Total Budget (real)"
+          value={`£${s.totalBudgetReal}bn`}
+          change={s.totalBudgetRealYear}
+          up={true}
+          color={P.navy}
+          delay={0.1}
+        />
+        <MetricCard
+          label="Per Capita (real)"
+          value={`£${s.perCapitaLatest?.toLocaleString()}`}
+          change={`${s.perCapitaYear}`}
+          up={true}
+          color={P.teal}
+          delay={0.18}
+        />
+        <MetricCard
+          label="Health Spend (% GDP)"
+          value={`${s.pctGdpUK}%`}
+          change={`${s.pctGdpYear}`}
+          up={false}
+          color={P.sienna}
+          delay={0.26}
+        />
+        <MetricCard
+          label="Real Growth Rate"
+          value={`${s.realGrowthLatest > 0 ? "+" : ""}${s.realGrowthLatest}%`}
+          change={s.realGrowthLatestYear}
+          up={s.realGrowthLatest > 0}
+          color={P.red}
+          delay={0.34}
+        />
+      </div>
+
+      {/* NHS Budget in Real Terms */}
+      {data.totalBudget && (
+        <section style={{ marginBottom: 32 }}>
+          <h3 style={SECTION_HEADING}>NHS England Budget</h3>
+          <p style={SECTION_NOTE}>
+            The NHS England budget has grown from £44.6bn in 2000-01 to £181.4bn in 2025-26 in nominal
+            terms. In real terms (2023-24 prices), the budget rose from £76.8bn to £164.9bn over the
+            same period. Annual real-terms growth averaged over 6% during 2000-2010, slowed to around
+            1% between 2010 and 2018, and increased temporarily during 2020-21 due to pandemic-related
+            spending.
+          </p>
+          <ShareableChart title="NHS England Budget, Real Terms">
+            <div style={{ ...CHART_CARD, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
+              <div style={{ marginBottom: 10 }}>
+                <div style={CHART_TITLE}>NHS England Budget</div>
+                <div style={CHART_SUBTITLE}>Nominal and real terms (2023-24 prices), £bn, 2000-01 to 2025-26</div>
+              </div>
+              <ResponsiveContainer width="100%" height={340}>
+                <LineChart data={data.totalBudget} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
+                  <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} interval={4} />
+                  <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} label={yAxisLabel("£bn")} />
+                  <Tooltip content={<CustomTooltip />} />
+                  <Line type="monotone" dataKey="real" name="Real (2023-24 prices)" stroke={P.navy} strokeWidth={2.5} dot={false} />
+                  <Line type="monotone" dataKey="nominal" name="Nominal" stroke={P.teal} strokeWidth={2} dot={false} strokeDasharray="5 3" />
+                  <Legend verticalAlign="top" height={30} wrapperStyle={{ fontSize: "11px", fontFamily: "'DM Mono', monospace" }} />
+                </LineChart>
+              </ResponsiveContainer>
+              <div style={SOURCE_TEXT}>
+                SOURCE:{" "}
+                <a href="https://www.gov.uk/government/collections/public-expenditure-statistical-analyses-pesa" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
+                  HM Treasury PESA
+                </a>
+                {" / "}
+                <a href="https://www.kingsfund.org.uk/projects/nhs-in-a-nutshell/nhs-budget" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
+                  The King's Fund
+                </a>
+              </div>
+            </div>
+          </ShareableChart>
+        </section>
+      )}
+
+      {/* Per Capita Spending */}
+      {data.perCapita && (
+        <section style={{ marginBottom: 32 }}>
+          <h3 style={SECTION_HEADING}>Per Capita Health Spending</h3>
+          <p style={SECTION_NOTE}>
+            Real-terms health spending per person rose from approximately £1,380 in 2000 to £2,320 in
+            2009, before a period of slower growth during 2010-2018. Spending per capita increased
+            to £2,720 in 2020, partly due to pandemic-related costs, and stood at £2,890 in 2024.
+          </p>
+          <ShareableChart title="Per Capita Health Spending, Real Terms">
+            <div style={{ ...CHART_CARD, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
+              <div style={{ marginBottom: 10 }}>
+                <div style={CHART_TITLE}>Health Spending per Capita</div>
+                <div style={CHART_SUBTITLE}>Real terms (2023-24 prices), £ per person, England</div>
+              </div>
+              <ResponsiveContainer width="100%" height={340}>
+                <BarChart data={data.perCapita} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" vertical={false} />
+                  <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
+                  <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} domain={[0, 3200]} label={yAxisLabel("£")} />
+                  <Tooltip content={<CustomTooltip />} />
+                  <Bar dataKey="perCapita" name="Per capita (£)" fill={P.teal} fillOpacity={0.75} radius={[3, 3, 0, 0]} barSize={16} />
+                </BarChart>
+              </ResponsiveContainer>
+              <div style={SOURCE_TEXT}>
+                SOURCE:{" "}
+                <a href="https://www.kingsfund.org.uk/projects/nhs-in-a-nutshell/nhs-budget" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
+                  The King's Fund
+                </a>
+              </div>
+            </div>
+          </ShareableChart>
+        </section>
+      )}
+
+      {/* International Comparison */}
+      {internationalSorted.length > 0 && (
+        <section style={{ marginBottom: 32 }}>
+          <h3 style={SECTION_HEADING}>International Comparison</h3>
+          <p style={SECTION_NOTE}>
+            The UK spent 10.3% of GDP on health in 2023, above the OECD average of 9.2% but below
+            Germany (12.7%), France (12.1%), and Canada (11.2%). On a per capita PPP basis, the UK
+            spent $5,138, compared to the OECD average of $4,986 and the US figure of $12,555.
+          </p>
+          <ShareableChart title="Health Spending as % GDP, OECD Countries">
+            <div style={{ ...CHART_CARD, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
+              <div style={{ marginBottom: 10 }}>
+                <div style={CHART_TITLE}>Health Spending as % of GDP</div>
+                <div style={CHART_SUBTITLE}>Total (public + private) health expenditure, 2023</div>
+              </div>
+              <ResponsiveContainer width="100%" height={Math.max(340, internationalSorted.length * 34 + 30)}>
+                <BarChart data={internationalSorted} layout="vertical" margin={{ top: 0, right: 30, left: 10, bottom: 0 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" horizontal={false} />
+                  <XAxis type="number" tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} unit="%" domain={[0, 18]} />
+                  <YAxis type="category" dataKey="country" tick={{ fontSize: 11, fill: P.textMuted }} axisLine={false} tickLine={false} width={120} />
+                  <Tooltip
+                    content={({ active, payload }) => {
+                      if (!active || !payload?.length) return null;
+                      const d = payload[0]?.payload;
+                      return (
+                        <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "8px 12px", fontSize: "12px", fontFamily: "'DM Mono', monospace", lineHeight: 1.7 }}>
+                          <div style={{ fontWeight: 600, marginBottom: 2 }}>{d.country}</div>
+                          <div style={{ color: P.navy }}>{d.pctGdp}% of GDP</div>
+                          <div style={{ color: P.textMuted }}>${d.perCapitaPPP?.toLocaleString()} per capita (PPP)</div>
+                        </div>
+                      );
+                    }}
+                  />
+                  <Bar dataKey="pctGdp" name="% of GDP" radius={[0, 3, 3, 0]} barSize={14}>
+                    {internationalSorted.map((d, i) => (
+                      <Cell
+                        key={i}
+                        fill={d.country === "United Kingdom" ? P.navy : d.country === "OECD Average" ? P.sienna : P.teal}
+                        fillOpacity={d.country === "United Kingdom" || d.country === "OECD Average" ? 0.9 : 0.5}
+                      />
+                    ))}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+              <div style={{ display: "flex", gap: 14, marginTop: 8, marginBottom: 4 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
+                  <span style={{ width: 14, height: 8, background: P.navy, display: "inline-block", borderRadius: 1, opacity: 0.9 }} />
+                  <span style={{ fontSize: "11px", color: P.textMuted }}>United Kingdom</span>
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
+                  <span style={{ width: 14, height: 8, background: P.sienna, display: "inline-block", borderRadius: 1, opacity: 0.9 }} />
+                  <span style={{ fontSize: "11px", color: P.textMuted }}>OECD Average</span>
+                </div>
+              </div>
+              <div style={SOURCE_TEXT}>
+                SOURCE:{" "}
+                <a href="https://stats.oecd.org/Index.aspx?DataSetCode=SHA" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
+                  OECD Health Statistics
+                </a>
+              </div>
+            </div>
+          </ShareableChart>
+        </section>
+      )}
+
+      {/* Spending by Category */}
+      {data.byCategory && (
+        <section style={{ marginBottom: 48 }}>
+          <h3 style={SECTION_HEADING}>Spending by Category</h3>
+          <p style={SECTION_NOTE}>
+            Hospital and specialist services account for the largest share of NHS England spending
+            at £87.2bn, followed by primary and community care (£33.6bn) and mental health (£16.4bn).
+            Prescribing, capital expenditure, and administration together make up approximately £27.7bn.
+          </p>
+          <ShareableChart title="NHS England Spending by Category">
+            <div style={{ ...CHART_CARD, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
+              <div style={{ marginBottom: 10 }}>
+                <div style={CHART_TITLE}>Spending by Category</div>
+                <div style={CHART_SUBTITLE}>NHS England, £bn, latest available year</div>
+              </div>
+              <ResponsiveContainer width="100%" height={Math.max(240, data.byCategory.length * 40 + 30)}>
+                <BarChart data={data.byCategory} layout="vertical" margin={{ top: 0, right: 30, left: 10, bottom: 0 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" horizontal={false} />
+                  <XAxis type="number" tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} unit="bn" />
+                  <YAxis type="category" dataKey="category" tick={{ fontSize: 11, fill: P.textMuted }} axisLine={false} tickLine={false} width={170} />
+                  <Tooltip
+                    content={({ active, payload }) => {
+                      if (!active || !payload?.length) return null;
+                      const d = payload[0]?.payload;
+                      return (
+                        <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "8px 12px", fontSize: "12px", fontFamily: "'DM Mono', monospace", lineHeight: 1.7 }}>
+                          <div style={{ fontWeight: 600, marginBottom: 2 }}>{d.category}</div>
+                          <div style={{ color: P.navy }}>£{d.amount}bn</div>
+                        </div>
+                      );
+                    }}
+                  />
+                  <Bar dataKey="amount" name="£bn" fill={P.navy} fillOpacity={0.7} radius={[0, 3, 3, 0]} barSize={14} />
+                </BarChart>
+              </ResponsiveContainer>
+              <div style={SOURCE_TEXT}>
+                SOURCE:{" "}
+                <a href="https://www.england.nhs.uk/publication/nhs-england-annual-report/" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
+                  NHS England Annual Report and Accounts
+                </a>
+              </div>
+            </div>
+          </ShareableChart>
+        </section>
+      )}
+
+      <AnalysisBox color={P.navy} label="Summary">
+        The NHS England budget for 2025-26 is £164.9bn in real terms (2023-24 prices),
+        up from £76.8bn in 2000-01. Real-terms growth averaged over 6% annually during 2000-2010,
+        slowed to approximately 1% per year between 2010 and 2018, and saw a temporary increase
+        in 2020-21 linked to pandemic spending.
+        {" "}Per capita health spending stands at £2,890 (2024), compared to £1,380 in 2000.
+        {" "}The UK spends 10.3% of GDP on health, above the OECD average of 9.2% but below
+        Germany (12.7%) and France (12.1%).
+        {" "}Hospital and specialist services account for 53% of NHS England spending at £87.2bn.
+      </AnalysisBox>
+    </div>
+  );
+}
