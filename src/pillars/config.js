@@ -19,7 +19,16 @@ const PILLARS = {
     description: "Housing, energy, water, food, health, safety",
     color: P.teal,
     topics: {
-      housing:    { label: "Housing",              icon: "⌂" },
+      housing: {
+        label: "Housing",
+        icon: "⌂",
+        subtopics: {
+          prices:  { label: "Prices & Affordability" },
+          supply:  { label: "Housebuilding" },
+          stock:   { label: "Housing Stock" },
+          density: { label: "Density & Geography" },
+        },
+      },
       energy:     { label: "Energy",               icon: "⚡" },
       water:      { label: "Water",                icon: "~" },
       food:       { label: "Food & Cost of Living", icon: "£" },

@@ -9,6 +9,7 @@ import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
+import ChartCard from "../../components/ChartCard";
 import { useJsonDataset } from "../../hooks/useDataset";
 
 const MIX_FUELS = [
@@ -139,12 +140,13 @@ export default function Energy() {
         </div>
 
         <ChartCard
-          label={primaryView === "mix" ? "Primary energy mix (% share)" : primaryView === "imports" ? "Net import dependency" : "Household energy expenditure (£m)"}
-          yearRange={`1990–${latestMix.year}`}
+          title={primaryView === "mix" ? "Primary Energy Mix" : primaryView === "imports" ? "Net Import Dependency" : "Household Energy Expenditure"}
+          subtitle={primaryView === "mix" ? `% share, 1990–${latestMix.year}` : primaryView === "imports" ? `%, 1990–${latestMix.year}` : `£m, 1990–${latestMix.year}`}
           views={["mix", "imports", "spend"]}
           viewLabels={{ mix: "Mix", imports: "Imports", spend: "Spend" }}
           activeView={primaryView}
           onViewChange={setPrimaryView}
+          source={<>SOURCE: <a href="https://www.gov.uk/government/collections/digest-of-uk-energy-statistics-dukes" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>DESNZ Digest of UK Energy Statistics (DUKES)</a></>}
         >
           {primaryView === "mix" && <MixChart data={data.energyMix} />}
           {primaryView === "imports" && <ImportsChart data={data.importDependency} />}
@@ -203,8 +205,9 @@ export default function Energy() {
         </div>
 
         <ChartCard
-          label="Electricity generation by fuel (% share)"
-          yearRange={`1990–${latestElec.year}`}
+          title="Electricity Generation by Fuel"
+          subtitle={`% share, 1990–${latestElec.year}`}
+          source={<>SOURCE: <a href="https://www.gov.uk/government/collections/digest-of-uk-energy-statistics-dukes" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>DESNZ Digest of UK Energy Statistics (DUKES)</a></>}
         >
           <ElectricityChart data={elecPctData} />
         </ChartCard>
@@ -308,20 +311,21 @@ export default function Energy() {
             </div>
 
             <ChartCard
-              label={
-                securityView === "live30" ? "GB gas storage fill level — daily (National Gas)"
-                : securityView === "gasStorage" ? "UK gas storage — days of average demand"
-                : "Gas storage — international comparison (days of demand)"
+              title={
+                securityView === "live30" ? "GB Gas Storage Fill Level"
+                : securityView === "gasStorage" ? "UK Gas Storage"
+                : "Gas Storage, International Comparison"
               }
-              yearRange={
-                securityView === "live30" ? (sec.liveFill ? `Last 30 days to ${sec.liveFill.asOf}` : "")
-                : securityView === "gasStorage" ? `2000–${snap.gasStorageYear}`
-                : (sec.gasStorageIntlAsOf || "Latest available")
+              subtitle={
+                securityView === "live30" ? (sec.liveFill ? `Daily, last 30 days to ${sec.liveFill.asOf}` : "")
+                : securityView === "gasStorage" ? `Days of average demand, 2000–${snap.gasStorageYear}`
+                : `Days of demand, ${sec.gasStorageIntlAsOf || "latest available"}`
               }
               views={[...(sec.liveFill ? ["live30"] : []), "gasStorage", "gasIntl"]}
               viewLabels={{ live30: "Live (30 days)", gasStorage: "Gas Storage", gasIntl: "Intl Comparison" }}
               activeView={securityView}
               onViewChange={setSecurityView}
+              source={securityView === "live30" ? <>SOURCE: <a href="https://www.nationalgas.com/" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>National Gas</a></> : <>SOURCE: <a href="https://www.gov.uk/government/collections/digest-of-uk-energy-statistics-dukes" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>DESNZ DUKES</a></>}
             >
               {securityView === "live30" && sec.liveFill?.history && (
                 <ResponsiveContainer width="100%" height={340}>
@@ -343,20 +347,21 @@ export default function Energy() {
             </ChartCard>
 
             <ChartCard
-              label={
+              title={
                 securityView2 === "importsFuel"
-                  ? "Import dependency by fuel (% of consumption)"
-                  : "De-rated electricity capacity margin (% above peak demand)"
+                  ? "Import Dependency by Fuel"
+                  : "De-Rated Electricity Capacity Margin"
               }
-              yearRange={
+              subtitle={
                 securityView2 === "importsFuel"
-                  ? `2000–${snap.importsByFuelYear}`
-                  : `2010–${snap.capacityMarginYear}`
+                  ? `% of consumption, 2000–${snap.importsByFuelYear}`
+                  : `% above peak demand, 2010–${snap.capacityMarginYear}`
               }
               views={["importsFuel", "capacity"]}
               viewLabels={{ importsFuel: "Imports by Fuel", capacity: "Capacity Margin" }}
               activeView={securityView2}
               onViewChange={setSecurityView2}
+              source={<>SOURCE: <a href="https://www.gov.uk/government/collections/digest-of-uk-energy-statistics-dukes" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>DESNZ DUKES</a></>}
             >
               {securityView2 === "importsFuel" && (
                 <ImportsByFuelChart data={sec.importsByFuel} />
@@ -447,40 +452,6 @@ export default function Energy() {
 
 // ─── Shared Components ────────────────────────────────────────────────
 
-function ChartCard({ label, yearRange, views, viewLabels, activeView, onViewChange, children }) {
-  return (
-    <ShareableChart title={label}>
-    <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "24px 20px 16px", marginBottom: 16, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16, flexWrap: "wrap", gap: 10 }}>
-        <span style={{ fontSize: "11px", color: P.textMuted, fontWeight: 400, letterSpacing: "0.04em", fontFamily: "'DM Mono', monospace" }}>
-          {label} &middot; {yearRange}
-        </span>
-        {views && onViewChange && (
-          <div style={{ display: "flex", gap: 0, border: `1px solid ${P.borderStrong}`, borderRadius: 3 }}>
-            {views.map((v) => (
-              <button
-                key={v}
-                onClick={() => onViewChange(v)}
-                style={{
-                  background: activeView === v ? "rgba(28,43,69,0.06)" : "transparent",
-                  border: "none",
-                  color: activeView === v ? P.text : P.textLight,
-                  padding: "4px 10px", fontSize: "10px", fontWeight: 500,
-                  textTransform: "uppercase", letterSpacing: "0.1em",
-                  cursor: "pointer", fontFamily: "'DM Mono', monospace",
-                  transition: "all 0.15s", borderRadius: 2 }}
-              >
-                {viewLabels[v]}
-              </button>
-            ))}
-          </div>
-        )}
-      </div>
-      {children}
-    </div>
-    </ShareableChart>
-  );
-}
 
 function Legend({ items }) {
   return (

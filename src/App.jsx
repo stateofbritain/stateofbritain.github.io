@@ -12,7 +12,10 @@ import DataPage from "./pillars/DataPage";
 import About from "./pillars/About";
 import Placeholder from "./pillars/Placeholder";
 import Spending from "./pillars/state/Spending";
-import Housing from "./pillars/foundations/Housing";
+import HousingPrices from "./pillars/foundations/HousingPrices";
+import HousingSupply from "./pillars/foundations/HousingSupply";
+import HousingStock from "./pillars/foundations/HousingStock";
+import HousingDensity from "./pillars/foundations/HousingDensity";
 import Safety from "./pillars/foundations/Safety";
 import FoodCostOfLiving from "./pillars/foundations/FoodCostOfLiving";
 import Energy from "./pillars/foundations/Energy";
@@ -45,7 +48,10 @@ import AsylumImmigration from "./pillars/challenges/AsylumImmigration";
 // Topics with subtopics use 3-part keys: "pillar/topic/subtopic"
 const TOPIC_COMPONENTS = {
   "spending/spending": Spending,
-  "foundations/housing": Housing,
+  "foundations/housing/prices": HousingPrices,
+  "foundations/housing/supply": HousingSupply,
+  "foundations/housing/stock": HousingStock,
+  "foundations/housing/density": HousingDensity,
   "foundations/safety": Safety,
   "foundations/food": FoodCostOfLiving,
   "foundations/energy": Energy,
