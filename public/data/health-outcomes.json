@@ -19,6 +19,11 @@
       "id": "ons-avoidable-mortality",
       "name": "ONS Avoidable Mortality in England and Wales",
       "url": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/avoidablemortalityinenglandandwalesreferencetable1"
+    },
+    {
+      "id": "ons-death-registrations",
+      "name": "ONS Death Registrations by Cause",
+      "url": "https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/deathregistrationssummarytablesenglandandwalesreferencetables"
     }
   ],
   "snapshot": {
@@ -78,6 +83,27 @@
         { "year": 2021, "male": 78.7, "female": 82.8 },
         { "year": 2022, "male": 78.8, "female": 82.8 },
         { "year": 2023, "male": 79.0, "female": 82.9 }
+      ]
+    },
+    "causeOfDeath": {
+      "sourceId": "ons-death-registrations",
+      "timeField": "cause",
+      "data": [
+        { "cause": "Heart disease", "rate": 168.2, "deaths": 91200, "pctTotal": 15.4 },
+        { "cause": "Dementia & Alzheimer's", "rate": 148.5, "deaths": 80600, "pctTotal": 13.6 },
+        { "cause": "Cerebrovascular (stroke)", "rate": 67.8, "deaths": 36800, "pctTotal": 6.2 },
+        { "cause": "Lung cancer", "rate": 60.1, "deaths": 32600, "pctTotal": 5.5 },
+        { "cause": "Chronic lower respiratory", "rate": 56.2, "deaths": 30500, "pctTotal": 5.1 },
+        { "cause": "Influenza & pneumonia", "rate": 39.5, "deaths": 21400, "pctTotal": 3.6 },
+        { "cause": "Bowel cancer", "rate": 26.8, "deaths": 14500, "pctTotal": 2.5 },
+        { "cause": "Prostate cancer", "rate": 24.1, "deaths": 12200, "pctTotal": 2.1 },
+        { "cause": "Breast cancer", "rate": 21.5, "deaths": 11500, "pctTotal": 1.9 },
+        { "cause": "Diabetes", "rate": 19.8, "deaths": 10700, "pctTotal": 1.8 },
+        { "cause": "Liver disease", "rate": 18.5, "deaths": 10000, "pctTotal": 1.7 },
+        { "cause": "Pancreatic cancer", "rate": 16.2, "deaths": 8800, "pctTotal": 1.5 },
+        { "cause": "Kidney disease", "rate": 15.5, "deaths": 8400, "pctTotal": 1.4 },
+        { "cause": "Oesophageal cancer", "rate": 12.8, "deaths": 6900, "pctTotal": 1.2 },
+        { "cause": "Suicide & self-harm", "rate": 10.5, "deaths": 5700, "pctTotal": 1.0 }
       ]
     },
     "cancerSurvival": {

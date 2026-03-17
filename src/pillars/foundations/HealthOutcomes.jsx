@@ -1,5 +1,5 @@
 import {
-  LineChart, Line, BarChart, Bar,
+  LineChart, Line, BarChart, Bar, Cell,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
   Legend } from "recharts";
 import P from "../../theme/palette";
@@ -112,6 +112,59 @@ export default function HealthOutcomes() {
                 SOURCE:{" "}
                 <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/lifeexpectancies/datasets/nationallifetablesunitedkingdomreferencetables" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
                   ONS National Life Tables, United Kingdom
+                </a>
+              </div>
+            </div>
+          </ShareableChart>
+        </section>
+      )}
+
+      {/* Cause of Death */}
+      {data.causeOfDeath && (
+        <section style={{ marginBottom: 32 }}>
+          <h3 style={SECTION_HEADING}>Leading Causes of Death</h3>
+          <p style={SECTION_NOTE}>
+            Heart disease and dementia are the two leading causes of death in England and Wales,
+            together accounting for 29% of all deaths. Cancer sites (lung, bowel, prostate, breast,
+            pancreatic, oesophageal) collectively represent approximately 15% of deaths. Chronic
+            lower respiratory diseases and stroke are the next largest categories.
+          </p>
+          <ShareableChart title="Leading Causes of Death, England & Wales">
+            <div style={{ ...CHART_CARD, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
+              <div style={{ marginBottom: 10 }}>
+                <div style={CHART_TITLE}>Leading Causes of Death</div>
+                <div style={CHART_SUBTITLE}>Age-standardised mortality rate per 100,000 population, England & Wales, 2023</div>
+              </div>
+              <ResponsiveContainer width="100%" height={Math.max(420, data.causeOfDeath.length * 28 + 30)}>
+                <BarChart data={data.causeOfDeath} layout="vertical" margin={{ top: 0, right: 30, left: 10, bottom: 0 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" horizontal={false} />
+                  <XAxis type="number" tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} />
+                  <YAxis type="category" dataKey="cause" tick={{ fontSize: 11, fill: P.textMuted }} axisLine={false} tickLine={false} width={160} />
+                  <Tooltip
+                    content={({ active, payload }) => {
+                      if (!active || !payload?.length) return null;
+                      const d = payload[0]?.payload;
+                      return (
+                        <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "8px 12px", fontSize: "12px", fontFamily: "'DM Mono', monospace", lineHeight: 1.7 }}>
+                          <div style={{ fontWeight: 600, marginBottom: 2 }}>{d.cause}</div>
+                          <div style={{ color: P.navy }}>Rate: {d.rate} per 100,000</div>
+                          <div style={{ color: P.textMuted }}>Deaths: {d.deaths?.toLocaleString()}</div>
+                          <div style={{ color: P.textMuted }}>{d.pctTotal}% of all deaths</div>
+                        </div>
+                      );
+                    }}
+                  />
+                  <Bar dataKey="rate" name="Rate per 100,000" radius={[0, 3, 3, 0]} barSize={12}>
+                    {data.causeOfDeath.map((d, i) => (
+                      <Cell key={i} fill={d.cause.toLowerCase().includes("cancer") ? P.sienna : P.navy} fillOpacity={i < 3 ? 0.9 : 0.55} />
+                    ))}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+              <div style={SOURCE_TEXT}>
+                SOURCE:{" "}
+                <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/deathregistrationssummarytablesenglandandwalesreferencetables" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
+                  ONS Death Registrations, England & Wales
                 </a>
               </div>
             </div>
