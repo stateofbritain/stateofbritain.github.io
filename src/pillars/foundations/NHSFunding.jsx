@@ -331,10 +331,14 @@ export default function NHSFunding() {
           <h3 style={SECTION_HEADING}>Estates Backlog Maintenance</h3>
           <p style={SECTION_NOTE}>
             The estimated cost to clear the NHS estates maintenance backlog rose from £4.4bn in
-            2013-14 to £15.9bn in 2024-25. The high-risk component (facilities posing a direct
-            safety risk) grew from £0.8bn to £3.5bn over the same period. The Estates Safety Fund
-            provides £750m per year from 2025-26, covering approximately 5% of the total backlog
-            annually. Investment to reduce the backlog was £1.01bn in 2024-25.
+            2013-14 to £15.9bn in 2024-25. The backlog covers deferred work across the full estate,
+            including roofs, electrical systems, heating, lifts, fire safety, and general building
+            fabric. Much of the NHS estate dates from the 1960s-1970s and is reaching end of life
+            for major building systems. RAAC (reinforced autoclaved aerated concrete) is a specific
+            structural issue with a £1.6bn remediation programme (2025-2029), but represents a
+            relatively small share of the total. The high-risk component grew from £0.8bn to £3.5bn
+            over the period. The Estates Safety Fund provides £750m per year from 2025-26, covering
+            approximately 5% of the total backlog annually.
           </p>
           <ShareableChart title="NHS Estates Backlog Maintenance">
             <div style={{ ...CHART_CARD, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
