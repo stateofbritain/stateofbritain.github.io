@@ -29,39 +29,54 @@ for (const file of files) {
 
   if (file === "industrial.json") {
     // Remove crude_steel (World Steel Association — proprietary)
-    for (const cat of Object.values(data.categories)) {
-      cat.products = cat.products.filter((p) => p.id !== "crude_steel");
+    // v1: categories is under series.categories.data
+    const cats = data.series?.categories?.data ?? data.categories;
+    if (cats && typeof cats === "object") {
+      for (const cat of Object.values(cats)) {
+        if (cat.products) {
+          cat.products = cat.products.filter((p) => p.id !== "crude_steel");
+        }
+      }
     }
     // Remove steel snapshot fields
-    const { steelLatest, steelLatestYear, steelPeak, steelPeakYear, steelPctOfPeak, ...restSnapshot } = data.snapshot;
-    data.snapshot = { ...restSnapshot, totalProducts: restSnapshot.totalProducts - 1 };
-    // Remove World Steel source from meta
-    if (data.meta?.sources) {
-      data.meta.sources = data.meta.sources.filter(
-        (s) => !s.name?.toLowerCase().includes("world steel")
-      );
+    const snap = data.snapshot ?? {};
+    const { steelLatest, steelLatestYear, steelPeak, steelPeakYear, steelPctOfPeak, ...restSnapshot } = snap;
+    if (restSnapshot.totalProducts != null) restSnapshot.totalProducts -= 1;
+    data.snapshot = restSnapshot;
+    // Remove World Steel source
+    const sources = data.sources ?? data.meta?.sources;
+    if (sources) {
+      const filtered = sources.filter((s) => !s.name?.toLowerCase().includes("world steel"));
+      if (data.sources) data.sources = filtered;
+      else if (data.meta?.sources) data.meta.sources = filtered;
     }
   }
 
   if (file === "startups.json") {
     // Remove equity array (British Business Bank — proprietary)
-    delete data.equity;
-    // Remove BBB source from meta
-    if (data.meta?.sources) {
-      data.meta.sources = data.meta.sources.filter(
-        (s) => !s.name?.toLowerCase().includes("british business bank")
-      );
+    // v1: equity is under series.equity
+    if (data.series?.equity) delete data.series.equity;
+    else delete data.equity;
+    // Remove BBB source
+    const startupSources = data.sources ?? data.meta?.sources;
+    if (startupSources) {
+      const filtered = startupSources.filter((s) => !s.name?.toLowerCase().includes("british business bank"));
+      if (data.sources) data.sources = filtered;
+      else if (data.meta?.sources) data.meta.sources = filtered;
     }
   }
 
   if (file === "defence.json") {
     // Remove intlComparison (NATO — restricted redistribution)
-    delete data.intlComparison;
-    // Remove NATO source from meta
-    if (data.meta?.sources) {
-      data.meta.sources = data.meta.sources.filter(
-        (s) => !s.name?.toLowerCase().includes("nato")
-      );
+    // v1: intlComparison is under series.intlComparison
+    if (data.series?.intlComparison) delete data.series.intlComparison;
+    else delete data.intlComparison;
+    // Remove NATO source
+    const defSources = data.sources ?? data.meta?.sources;
+    if (defSources) {
+      const filtered = defSources.filter((s) => !s.name?.toLowerCase().includes("nato"));
+      if (data.sources) data.sources = filtered;
+      else if (data.meta?.sources) data.meta.sources = filtered;
     }
   }
 
