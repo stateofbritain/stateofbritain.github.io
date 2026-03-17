@@ -281,8 +281,11 @@ export default function NHSFunding() {
             Staff costs account for approximately 49% of total NHS spending in 2024-25 (65% at
             the provider trust level, where most clinical staff are employed). Capital investment
             has fallen from 5% to approximately 4% of total spending since 2013-14. The UK spends
-            roughly half the OECD average share of GDP on health capital (0.27% vs 0.51%), and has
-            the lowest number of CT and MRI scanners per capita among comparable countries.
+            roughly half the OECD average share of GDP on health capital (0.27% vs 0.51%).
+            Purchased care from non-NHS providers (private sector elective contracts) has grown
+            from 1.8% to 2.6%. Clinical negligence costs (CNST contributions) rose from 1.4% to
+            2.0%. "Other" includes education and training, R&D, establishment costs, impairments,
+            and other smaller items.
           </p>
           <ShareableChart title="NHS Spending Split">
             <div style={{ ...CHART_CARD, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
@@ -300,7 +303,10 @@ export default function NHSFunding() {
                   <Area type="monotone" dataKey="drugsClinicalPct" name="Drugs & clinical supplies" stackId="1" fill={P.teal} fillOpacity={0.6} stroke={P.teal} strokeWidth={1.5} />
                   <Area type="monotone" dataKey="premisesDeprecPct" name="Premises & depreciation" stackId="1" fill={P.sienna} fillOpacity={0.5} stroke={P.sienna} strokeWidth={1.5} />
                   <Area type="monotone" dataKey="capitalPct" name="Capital" stackId="1" fill={P.red} fillOpacity={0.6} stroke={P.red} strokeWidth={1.5} />
-                  <Area type="monotone" dataKey="otherPct" name="Other operating" stackId="1" fill={P.grey} fillOpacity={0.4} stroke={P.grey} strokeWidth={1} />
+                  <Area type="monotone" dataKey="purchasedCarePct" name="Purchased care (non-NHS)" stackId="1" fill="#A3B8CC" fillOpacity={0.6} stroke="#7A9AB5" strokeWidth={1} />
+                  <Area type="monotone" dataKey="negligencePct" name="Clinical negligence" stackId="1" fill="#C4A0C9" fillOpacity={0.6} stroke="#9B6FA2" strokeWidth={1} />
+                  <Area type="monotone" dataKey="pfiPct" name="PFI charges" stackId="1" fill="#C4A882" fillOpacity={0.5} stroke="#A88B64" strokeWidth={1} />
+                  <Area type="monotone" dataKey="otherPct" name="Other" stackId="1" fill={P.grey} fillOpacity={0.3} stroke={P.grey} strokeWidth={1} />
                   <Legend verticalAlign="top" height={36} wrapperStyle={{ fontSize: "10px", fontFamily: "'DM Mono', monospace" }} />
                 </AreaChart>
               </ResponsiveContainer>
