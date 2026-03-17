@@ -28,6 +28,12 @@
       "name": "NHS England Annual Report and Accounts",
       "url": "https://www.england.nhs.uk/publication/nhs-england-annual-report/",
       "publisher": "NHS England"
+    },
+    {
+      "id": "eric-estates",
+      "name": "NHS Estates Returns Information Collection (ERIC)",
+      "url": "https://digital.nhs.uk/data-and-information/publications/statistical/estates-returns-information-collection",
+      "publisher": "NHS England Digital"
     }
   ],
   "snapshot": {
@@ -38,7 +44,11 @@
     "pctGdpUK": 10.3,
     "pctGdpYear": 2023,
     "realGrowthLatest": 1.2,
-    "realGrowthLatestYear": "2025-26"
+    "realGrowthLatestYear": "2025-26",
+    "backlogMaintenance": 15.9,
+    "backlogMaintenanceYear": "2024-25",
+    "capitalCdel": 13.6,
+    "capitalCdelYear": "2025-26"
   },
   "series": {
     "totalBudget": {
@@ -130,6 +140,46 @@
         { "category": "Prescribing", "amount": 10.1 },
         { "category": "Capital", "amount": 8.9 },
         { "category": "Admin & other", "amount": 8.7 }
+      ]
+    },
+    "capitalCdel": {
+      "sourceId": "hmt-pesa",
+      "timeField": "year",
+      "data": [
+        { "year": "2010-11", "real": 5.8 },
+        { "year": "2011-12", "real": 5.3 },
+        { "year": "2012-13", "real": 5.2 },
+        { "year": "2013-14", "real": 5.8 },
+        { "year": "2014-15", "real": 5.3, "transferredToRevenue": 0.68 },
+        { "year": "2015-16", "real": 4.9, "transferredToRevenue": 1.01 },
+        { "year": "2016-17", "real": 4.7, "transferredToRevenue": 1.25 },
+        { "year": "2017-18", "real": 5.3, "transferredToRevenue": 1.02 },
+        { "year": "2018-19", "real": 6.0 },
+        { "year": "2019-20", "real": 6.6 },
+        { "year": "2020-21", "real": 9.2 },
+        { "year": "2021-22", "real": 8.5 },
+        { "year": "2022-23", "real": 8.0 },
+        { "year": "2023-24", "real": 10.5 },
+        { "year": "2024-25", "real": 11.6 },
+        { "year": "2025-26", "real": 13.6 }
+      ]
+    },
+    "backlogMaintenance": {
+      "sourceId": "eric-estates",
+      "timeField": "year",
+      "data": [
+        { "year": "2013-14", "total": 4.4, "highRisk": 0.8, "significantRisk": 1.5, "moderateRisk": 1.5, "lowRisk": 0.6 },
+        { "year": "2014-15", "total": 5.1, "highRisk": 0.9, "significantRisk": 1.7, "moderateRisk": 1.7, "lowRisk": 0.8 },
+        { "year": "2015-16", "total": 6.4, "highRisk": 1.0, "significantRisk": 2.0, "moderateRisk": 2.2, "lowRisk": 1.2 },
+        { "year": "2016-17", "total": 5.8, "highRisk": 1.0, "significantRisk": 1.9, "moderateRisk": 1.8, "lowRisk": 1.1 },
+        { "year": "2017-18", "total": 6.0, "highRisk": 1.1, "significantRisk": 2.0, "moderateRisk": 1.9, "lowRisk": 1.0 },
+        { "year": "2018-19", "total": 7.9, "highRisk": 1.4, "significantRisk": 2.5, "moderateRisk": 2.5, "lowRisk": 1.5 },
+        { "year": "2019-20", "total": 10.8, "highRisk": 1.8, "significantRisk": 3.2, "moderateRisk": 3.5, "lowRisk": 2.3 },
+        { "year": "2020-21", "total": 9.0, "highRisk": 1.6, "significantRisk": 2.8, "moderateRisk": 2.8, "lowRisk": 1.8 },
+        { "year": "2021-22", "total": 9.2, "highRisk": 1.8, "significantRisk": 3.0, "moderateRisk": 2.8, "lowRisk": 1.6 },
+        { "year": "2022-23", "total": 11.6, "highRisk": 2.3, "significantRisk": 3.8, "moderateRisk": 3.6, "lowRisk": 1.9 },
+        { "year": "2023-24", "total": 13.8, "highRisk": 2.7, "significantRisk": 4.5, "moderateRisk": 4.6, "lowRisk": 2.0 },
+        { "year": "2024-25", "total": 15.9, "highRisk": 3.5, "significantRisk": 5.6, "moderateRisk": 5.0, "lowRisk": 1.8 }
       ]
     }
   }

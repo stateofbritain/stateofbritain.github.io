@@ -1,5 +1,5 @@
 import {
-  LineChart, Line, BarChart, Bar, Cell,
+  LineChart, Line, BarChart, Bar, Cell, AreaChart, Area, ComposedChart,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
   Legend } from "recharts";
 import P from "../../theme/palette";
@@ -273,6 +273,114 @@ export default function NHSFunding() {
         </section>
       )}
 
+      {/* Capital CDEL */}
+      {data.capitalCdel && (
+        <section style={{ marginBottom: 32 }}>
+          <h3 style={SECTION_HEADING}>Capital Investment</h3>
+          <p style={SECTION_NOTE}>
+            The DHSC capital departmental expenditure limit (CDEL) covers spending on buildings,
+            equipment, IT, and maintenance across the NHS. In real terms, capital spending fell from
+            £5.8bn in 2010-11 to £4.7bn in 2016-17, partly due to £4.3bn being transferred from
+            capital to revenue budgets between 2014-15 and 2017-18. It has since risen to £13.6bn
+            in 2025-26. The Darzi Review (2024) identified a cumulative £37bn shortfall in NHS
+            capital investment relative to comparable OECD countries.
+          </p>
+          <ShareableChart title="NHS Capital Spending (CDEL)">
+            <div style={{ ...CHART_CARD, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
+              <div style={{ marginBottom: 10 }}>
+                <div style={CHART_TITLE}>Capital Spending (CDEL)</div>
+                <div style={CHART_SUBTITLE}>DHSC capital departmental expenditure limit, real terms (2023-24 prices, £bn)</div>
+              </div>
+              <ResponsiveContainer width="100%" height={340}>
+                <ComposedChart data={data.capitalCdel} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
+                  <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
+                  <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} unit="bn" domain={[0, 16]} label={yAxisLabel("£bn (real)")} />
+                  <Tooltip
+                    content={({ active, payload }) => {
+                      if (!active || !payload?.length) return null;
+                      const d = payload[0]?.payload;
+                      return (
+                        <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "8px 12px", fontSize: "12px", fontFamily: "'DM Mono', monospace", lineHeight: 1.7 }}>
+                          <div style={{ fontWeight: 600, marginBottom: 2 }}>{d.year}</div>
+                          <div style={{ color: P.navy }}>Capital CDEL: £{d.real}bn (real)</div>
+                          {d.transferredToRevenue > 0 && <div style={{ color: P.red }}>Transferred to revenue: £{d.transferredToRevenue}bn</div>}
+                        </div>
+                      );
+                    }}
+                  />
+                  <Bar dataKey="real" name="Capital CDEL (£bn real)" fill={P.navy} opacity={0.6} radius={[3, 3, 0, 0]} />
+                  <Bar dataKey="transferredToRevenue" name="Transferred to revenue" fill={P.red} opacity={0.7} radius={[3, 3, 0, 0]} />
+                  <Legend verticalAlign="top" height={30} wrapperStyle={{ fontSize: "11px", fontFamily: "'DM Mono', monospace" }} />
+                </ComposedChart>
+              </ResponsiveContainer>
+              <div style={SOURCE_TEXT}>
+                SOURCE:{" "}
+                <a href="https://www.gov.uk/government/collections/public-expenditure-statistical-analyses-pesa" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
+                  HM Treasury PESA
+                </a>
+              </div>
+            </div>
+          </ShareableChart>
+        </section>
+      )}
+
+      {/* Backlog Maintenance */}
+      {data.backlogMaintenance && (
+        <section style={{ marginBottom: 48 }}>
+          <h3 style={SECTION_HEADING}>Estates Backlog Maintenance</h3>
+          <p style={SECTION_NOTE}>
+            The estimated cost to clear the NHS estates maintenance backlog rose from £4.4bn in
+            2013-14 to £15.9bn in 2024-25. The high-risk component (facilities posing a direct
+            safety risk) grew from £0.8bn to £3.5bn over the same period. The Estates Safety Fund
+            provides £750m per year from 2025-26, covering approximately 5% of the total backlog
+            annually. Investment to reduce the backlog was £1.01bn in 2024-25.
+          </p>
+          <ShareableChart title="NHS Estates Backlog Maintenance">
+            <div style={{ ...CHART_CARD, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
+              <div style={{ marginBottom: 10 }}>
+                <div style={CHART_TITLE}>Estates Backlog Maintenance</div>
+                <div style={CHART_SUBTITLE}>Estimated cost to clear, by risk category (£bn), England</div>
+              </div>
+              <ResponsiveContainer width="100%" height={360}>
+                <AreaChart data={data.backlogMaintenance} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
+                  <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
+                  <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} unit="bn" label={yAxisLabel("£bn")} />
+                  <Tooltip
+                    content={({ active, payload }) => {
+                      if (!active || !payload?.length) return null;
+                      const d = payload[0]?.payload;
+                      return (
+                        <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "8px 12px", fontSize: "12px", fontFamily: "'DM Mono', monospace", lineHeight: 1.7 }}>
+                          <div style={{ fontWeight: 600, marginBottom: 2 }}>{d.year}</div>
+                          <div style={{ color: P.red }}>High risk: £{d.highRisk}bn</div>
+                          <div style={{ color: P.sienna }}>Significant risk: £{d.significantRisk}bn</div>
+                          <div style={{ color: P.navy }}>Moderate risk: £{d.moderateRisk}bn</div>
+                          <div style={{ color: P.grey }}>Low risk: £{d.lowRisk}bn</div>
+                          <div style={{ fontWeight: 500, marginTop: 4 }}>Total: £{d.total}bn</div>
+                        </div>
+                      );
+                    }}
+                  />
+                  <Area type="monotone" dataKey="highRisk" name="High risk" stackId="1" fill={P.red} fillOpacity={0.7} stroke={P.red} strokeWidth={1.5} />
+                  <Area type="monotone" dataKey="significantRisk" name="Significant risk" stackId="1" fill={P.sienna} fillOpacity={0.6} stroke={P.sienna} strokeWidth={1.5} />
+                  <Area type="monotone" dataKey="moderateRisk" name="Moderate risk" stackId="1" fill={P.navy} fillOpacity={0.5} stroke={P.navy} strokeWidth={1.5} />
+                  <Area type="monotone" dataKey="lowRisk" name="Low risk" stackId="1" fill={P.grey} fillOpacity={0.4} stroke={P.grey} strokeWidth={1} />
+                  <Legend verticalAlign="top" height={30} wrapperStyle={{ fontSize: "11px", fontFamily: "'DM Mono', monospace" }} />
+                </AreaChart>
+              </ResponsiveContainer>
+              <div style={SOURCE_TEXT}>
+                SOURCE:{" "}
+                <a href="https://digital.nhs.uk/data-and-information/publications/statistical/estates-returns-information-collection" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
+                  NHS Estates Returns Information Collection (ERIC)
+                </a>
+              </div>
+            </div>
+          </ShareableChart>
+        </section>
+      )}
+
       <AnalysisBox color={P.navy} label="Summary">
         The NHS England budget for 2025-26 is £164.9bn in real terms (2023-24 prices),
         up from £76.8bn in 2000-01. Real-terms growth averaged over 6% annually during 2000-2010,
@@ -281,7 +389,8 @@ export default function NHSFunding() {
         {" "}Per capita health spending stands at £2,890 (2024), compared to £1,380 in 2000.
         {" "}The UK spends 10.3% of GDP on health, above the OECD average of 9.2% but below
         Germany (12.7%) and France (12.1%).
-        {" "}Hospital and specialist services account for 53% of NHS England spending at £87.2bn.
+        {" "}Capital spending (CDEL) is £13.6bn in 2025-26. The NHS estates maintenance backlog
+        stands at £15.9bn (2024-25), of which £3.5bn is classified as high risk.
       </AnalysisBox>
     </div>
   );
