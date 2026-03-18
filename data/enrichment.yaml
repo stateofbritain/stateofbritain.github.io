@@ -253,3 +253,89 @@ workforce:
   geography: "United Kingdom"
   summary: "Workforce size and trends in NHS, education, police, and university sectors."
   tags: [workforce, public sector, NHS staff, teachers, police, employment]
+
+local-government:
+  title: "Local Government Finance"
+  geography: "England"
+  summary: "Council spending by service, funding sources, council tax levels, financial health (section 114 notices, reserves, audit backlog), social care squeeze, core spending power, and workforce trends."
+  tags: [local government, councils, council tax, social care, section 114, reserves, audit, local authority, spending, DLUHC]
+  series:
+    serviceSpending:
+      title: "Service Spending by Category"
+      summary: "Net current expenditure by service area. Adult social care £25.2bn, children's social care £15.6bn in 2024-25. Total excluding education £89.8bn."
+      unit: "£bn"
+    fundingSources:
+      title: "Revenue Funding Mix"
+      summary: "Share of council revenue by source. Council tax rose from 34% (2010-11) to peak 52% (2019-20), settling at 46% (2024-25) as government grants were cut then partially restored."
+      unit: "%"
+    councilTax:
+      title: "Average Band D Council Tax"
+      summary: "Average Band D council tax rose from £1,439 (2010-11) to £2,280 (2025-26), a 58% increase in cash terms."
+      unit: "£"
+    councilTaxByRegion:
+      title: "Council Tax by Region"
+      summary: "Band D council tax varies by area: London £1,982, Metropolitan £2,289, Unitary £2,366, Shire £2,344 (2025-26)."
+      unit: "£"
+    section114:
+      title: "Section 114 Notices"
+      summary: "Seven councils issued section 114 notices between 2018 and 2023: Northamptonshire, Croydon, Slough, Thurrock, Woking, Birmingham, Nottingham."
+      unit: "count"
+    reserves:
+      title: "Usable Reserves"
+      summary: "Local authority usable reserves rose from £13bn (2010-11) to £31.2bn peak (2021-22), then fell to £27bn (2024-25)."
+      unit: "£bn"
+    auditBacklog:
+      title: "Audit Backlog"
+      summary: "Outstanding unaudited council accounts peaked at 918 (2022-23), reduced to ~100 after 2024 statutory backstop."
+      unit: "count"
+    workforce:
+      title: "Local Government Workforce"
+      summary: "Council FTE fell from 1,510k (2010) to 970k (2025), a 36% reduction. Excludes police, fire, centrally-funded teachers."
+      unit: "thousands FTE"
+    socialCareShare:
+      title: "Social Care Share of Spending"
+      summary: "Social care rose from 42% to 47% of non-education council spending between 2010-11 and 2024-25."
+      unit: "%"
+    coreSpendingPower:
+      title: "Core Spending Power per Person"
+      summary: "Real-terms core spending power per person fell 27% from 2010-11 to 2015-16. In 2024-25 it remains 18% below 2010-11 levels."
+      unit: "index"
+
+taxation:
+  title: "Taxation"
+  geography: "United Kingdom"
+  summary: "Tax receipts by type, tax burden as % of GDP, tax gap, income tax concentration by percentile, corporation tax rate history, personal allowance thresholds, and international comparisons."
+  tags: [tax, taxation, income tax, NICs, VAT, corporation tax, council tax, tax burden, tax gap, HMRC, OBR, OECD]
+  series:
+    receiptsByType:
+      title: "Tax Receipts by Type"
+      summary: "HMRC collected £858.6bn in 2024-25. Income tax (£310bn), NICs (£174bn), and VAT (£171bn) are the three largest sources."
+      unit: "£bn"
+    taxBurden:
+      title: "Tax Burden as % of GDP"
+      summary: "UK tax burden at 35.3% of GDP in 2024-25, forecast to reach 38.0% by 2029-30, a post-war high."
+      unit: "% GDP"
+    intlTaxBurden:
+      title: "Tax-to-GDP International Comparison"
+      summary: "UK at 35.3% compared to OECD average of 33.7%. Ranges from 17.7% (Mexico) to 43.8% (France)."
+      unit: "% GDP"
+    taxGap:
+      title: "Tax Gap"
+      summary: "Estimated at £46.8bn (5.3%) in 2023-24, up from 4.8% in 2021-22. Corporation tax accounts for 40% of the gap."
+      unit: "£bn / %"
+    taxConcentration:
+      title: "Income Tax Concentration"
+      summary: "Top 1% paid 29.1% of all income tax in 2022-23, up from 21.3% in 1999-2000. Top 10% paid 59.8%."
+      unit: "%"
+    corpTaxRate:
+      title: "Corporation Tax Main Rate"
+      summary: "Fell from 52% in 1982 to 19% in 2017, raised back to 25% in April 2023."
+      unit: "%"
+    thresholds:
+      title: "Personal Allowance & Thresholds"
+      summary: "Personal allowance frozen at £12,570 since 2021-22, extended to April 2031."
+      unit: "£"
+    taxpayersByBand:
+      title: "Income Taxpayers by Rate Band"
+      summary: "34.5m income taxpayers in 2024-25. Higher and additional rate taxpayers rising due to threshold freeze."
+      unit: "millions"
