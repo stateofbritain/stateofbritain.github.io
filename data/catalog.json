@@ -63,7 +63,7 @@
       "title": "Defence & Security",
       "pillar": "state",
       "geography": "United Kingdom",
-      "summary": "Defence spending, armed forces personnel, recruitment and retention, equipment inventory, fleet trends, and international capability comparison across comparable middle powers.",
+      "summary": "Defence spending, armed forces personnel, recruitment and retention, equipment inventory, fleet trends, international capability comparison, procurement affordability, major programme delivery, industry concentration, and competition rates.",
       "tags": [
         "defence",
         "military",
@@ -76,7 +76,11 @@
         "ships",
         "submarines",
         "recruitment",
-        "retention"
+        "retention",
+        "procurement",
+        "BAE Systems",
+        "affordability",
+        "NAO"
       ],
       "dataFile": "/data/defence.json",
       "series": {
@@ -323,6 +327,115 @@
           "timeRange": {
             "start": "UK",
             "end": "Australia"
+          }
+        },
+        "equipmentPlanAffordability": {
+          "title": "Equipment Plan Affordability",
+          "summary": "NAO annual assessment of MoD Equipment Plan. Funding gap rose from zero in 2012-22 to £16.9bn in 2023-33, the largest since reporting began.",
+          "unit": "£bn",
+          "fields": {
+            "totalCost": {
+              "label": "totalCost"
+            },
+            "budget": {
+              "label": "budget"
+            },
+            "gap": {
+              "label": "gap"
+            },
+            "naoVerdict": {
+              "label": "naoVerdict"
+            }
+          },
+          "timeRange": {
+            "start": "2012-22",
+            "end": "2023-33"
+          }
+        },
+        "majorProgrammes": {
+          "title": "Major Programme Cost & Schedule",
+          "summary": "8 major programmes tracked: Ajax (77% cost growth, paused), Type 26 (114% growth), Dreadnought (11% growth), F-35B (21% growth), Boxer (79% growth). Most delayed from original in-service dates.",
+          "unit": "£bn",
+          "fields": {
+            "originalCost": {
+              "label": "originalCost"
+            },
+            "currentCost": {
+              "label": "currentCost"
+            },
+            "costGrowth": {
+              "label": "costGrowth"
+            },
+            "originalISD": {
+              "label": "originalISD"
+            },
+            "currentISD": {
+              "label": "currentISD"
+            },
+            "status": {
+              "label": "status"
+            }
+          },
+          "timeRange": {
+            "start": "Ajax",
+            "end": "Apache AH-64E"
+          }
+        },
+        "industryConcentration": {
+          "title": "Industry Concentration",
+          "summary": "BAE Systems received 16.3% of MoD procurement spend (£6.7bn) in 2024-25, the highest single-supplier share since records began. Top 10 suppliers account for 39%.",
+          "unit": "£bn / %",
+          "fields": {
+            "spend": {
+              "label": "spend"
+            },
+            "sharePct": {
+              "label": "sharePct"
+            },
+            "note": {
+              "label": "note"
+            }
+          },
+          "timeRange": {
+            "start": "BAE Systems",
+            "end": "Boeing"
+          }
+        },
+        "competitionRate": {
+          "title": "Competition vs Non-Competitive Procurement",
+          "summary": "Competitive procurement fell from 31% of MoD spend in 2014-15 to 8% in 2024-25. Non-competitive sourcing rose to 45%, driven by nuclear and combat air programmes.",
+          "unit": "%",
+          "fields": {
+            "competitive": {
+              "label": "competitive"
+            },
+            "nonCompetitive": {
+              "label": "nonCompetitive"
+            },
+            "other": {
+              "label": "other"
+            }
+          },
+          "timeRange": {
+            "start": "2014-15",
+            "end": "2024-25"
+          }
+        },
+        "smeShare": {
+          "title": "SME Share of MoD Procurement",
+          "summary": "Direct SME share of MoD expenditure remained around 3.5-5% since 2016-17. Including indirect spending through prime contractors, total SME share was 25.5% in 2021-22.",
+          "unit": "%",
+          "fields": {
+            "directPct": {
+              "label": "directPct"
+            },
+            "totalPct": {
+              "label": "totalPct"
+            }
+          },
+          "timeRange": {
+            "start": "2016-17",
+            "end": "2023-24"
           }
         }
       }
@@ -4142,6 +4255,18 @@
         "defence"
       ],
       "retention": [
+        "defence"
+      ],
+      "procurement": [
+        "defence"
+      ],
+      "BAE Systems": [
+        "defence"
+      ],
+      "affordability": [
+        "defence"
+      ],
+      "NAO": [
         "defence"
       ],
       "education": [
