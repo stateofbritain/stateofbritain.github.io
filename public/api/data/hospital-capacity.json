@@ -1,0 +1,131 @@
+{
+  "$schema": "sob-dataset-v1",
+  "id": "hospital-capacity",
+  "pillar": "foundations",
+  "topic": "healthcare",
+  "generated": "2026-03-16",
+  "sources": [
+    {
+      "id": "nhs-england-kh03",
+      "name": "NHS England KH03 Bed Availability and Occupancy",
+      "url": "https://www.england.nhs.uk/statistics/statistical-work-areas/bed-availability-and-occupancy/bed-data-overnight/"
+    },
+    {
+      "id": "oecd-hospital-beds",
+      "name": "OECD Health Statistics, Hospital Beds",
+      "url": "https://www.oecd.org/en/data/indicators/hospital-beds.html"
+    },
+    {
+      "id": "nhs-digital-hes",
+      "name": "NHS Digital Hospital Episode Statistics, Admitted Patient Care",
+      "url": "https://digital.nhs.uk/data-and-information/publications/statistical/hospital-admitted-patient-care-activity"
+    }
+  ],
+  "snapshot": {
+    "totalBeds": 101028,
+    "totalBedsYear": "Q3 2025-26",
+    "occupancyRate": 89.1,
+    "occupancyRateYear": "Q3 2025-26",
+    "bedsPerThousand": 2.4,
+    "bedsPerThousandYear": 2023,
+    "oecdAvgBeds": 4.3,
+    "oecdAvgBedsYear": 2023
+  },
+  "series": {
+    "beds": {
+      "sourceId": "nhs-england-kh03",
+      "timeField": "year",
+      "data": [
+        { "year": "2000-01", "generalAcute": 119600, "maternity": 9500, "mentalIllness": 34200, "learningDisability": 4400, "total": 186200 },
+        { "year": "2001-02", "generalAcute": 116500, "maternity": 9200, "mentalIllness": 33500, "learningDisability": 3800, "total": 181000 },
+        { "year": "2002-03", "generalAcute": 114200, "maternity": 9000, "mentalIllness": 32800, "learningDisability": 3300, "total": 176700 },
+        { "year": "2003-04", "generalAcute": 112100, "maternity": 8800, "mentalIllness": 32000, "learningDisability": 2900, "total": 172300 },
+        { "year": "2004-05", "generalAcute": 110200, "maternity": 8600, "mentalIllness": 31200, "learningDisability": 2500, "total": 168300 },
+        { "year": "2005-06", "generalAcute": 109400, "maternity": 8400, "mentalIllness": 30000, "learningDisability": 2200, "total": 164900 },
+        { "year": "2006-07", "generalAcute": 108500, "maternity": 8200, "mentalIllness": 28800, "learningDisability": 1900, "total": 160500 },
+        { "year": "2007-08", "generalAcute": 107800, "maternity": 8000, "mentalIllness": 27500, "learningDisability": 1700, "total": 156100 },
+        { "year": "2008-09", "generalAcute": 106900, "maternity": 7800, "mentalIllness": 26200, "learningDisability": 1500, "total": 151700 },
+        { "year": "2009-10", "generalAcute": 105700, "maternity": 7600, "mentalIllness": 25000, "learningDisability": 1300, "total": 147700 },
+        { "year": "2010-11", "generalAcute": 104200, "maternity": 7400, "mentalIllness": 23800, "learningDisability": 1100, "total": 143500 },
+        { "year": "2011-12", "generalAcute": 102800, "maternity": 7200, "mentalIllness": 22800, "learningDisability": 900, "total": 139700 },
+        { "year": "2012-13", "generalAcute": 101600, "maternity": 7000, "mentalIllness": 22000, "learningDisability": 800, "total": 136500 },
+        { "year": "2013-14", "generalAcute": 100400, "maternity": 6800, "mentalIllness": 21200, "learningDisability": 700, "total": 133300 },
+        { "year": "2014-15", "generalAcute": 99800, "maternity": 6600, "mentalIllness": 20500, "learningDisability": 600, "total": 130700 },
+        { "year": "2015-16", "generalAcute": 99200, "maternity": 6400, "mentalIllness": 19800, "learningDisability": 500, "total": 128600 },
+        { "year": "2016-17", "generalAcute": 98600, "maternity": 6200, "mentalIllness": 19200, "learningDisability": 400, "total": 126600 },
+        { "year": "2017-18", "generalAcute": 97800, "maternity": 6000, "mentalIllness": 18600, "learningDisability": 400, "total": 124800 },
+        { "year": "2018-19", "generalAcute": 96900, "maternity": 5800, "mentalIllness": 18200, "learningDisability": 300, "total": 122800 },
+        { "year": "2019-20", "generalAcute": 95700, "maternity": 5600, "mentalIllness": 17800, "learningDisability": 300, "total": 120500 },
+        { "year": "2020-21", "generalAcute": 93400, "maternity": 5400, "mentalIllness": 17400, "learningDisability": 200, "total": 117300 },
+        { "year": "2021-22", "generalAcute": 91200, "maternity": 5200, "mentalIllness": 17000, "learningDisability": 200, "total": 114400 },
+        { "year": "2022-23", "generalAcute": 90500, "maternity": 5000, "mentalIllness": 16600, "learningDisability": 200, "total": 113000 },
+        { "year": "2023-24", "generalAcute": 88300, "maternity": 4800, "mentalIllness": 16200, "learningDisability": 200, "total": 110100 },
+        { "year": "2024-25", "generalAcute": 85500, "maternity": 4600, "mentalIllness": 15800, "learningDisability": 100, "total": 106500 },
+        { "year": "2025-26", "generalAcute": 83800, "maternity": 4500, "mentalIllness": 15600, "learningDisability": 100, "total": 101028 }
+      ]
+    },
+    "occupancy": {
+      "sourceId": "nhs-england-kh03",
+      "timeField": "year",
+      "data": [
+        { "year": "2000-01", "generalAcute": 82.4, "overall": 81.5 },
+        { "year": "2002-03", "generalAcute": 83.0, "overall": 82.2 },
+        { "year": "2004-05", "generalAcute": 84.2, "overall": 83.5 },
+        { "year": "2006-07", "generalAcute": 84.8, "overall": 84.0 },
+        { "year": "2008-09", "generalAcute": 85.5, "overall": 84.6 },
+        { "year": "2010-11", "generalAcute": 86.0, "overall": 85.2 },
+        { "year": "2011-12", "generalAcute": 86.4, "overall": 85.5 },
+        { "year": "2012-13", "generalAcute": 86.9, "overall": 85.9 },
+        { "year": "2013-14", "generalAcute": 87.0, "overall": 86.0 },
+        { "year": "2014-15", "generalAcute": 87.2, "overall": 86.2 },
+        { "year": "2015-16", "generalAcute": 87.8, "overall": 86.8 },
+        { "year": "2016-17", "generalAcute": 88.1, "overall": 87.1 },
+        { "year": "2017-18", "generalAcute": 88.8, "overall": 87.8 },
+        { "year": "2018-19", "generalAcute": 89.5, "overall": 88.4 },
+        { "year": "2019-20", "generalAcute": 89.2, "overall": 87.9 },
+        { "year": "2020-21", "generalAcute": 78.1, "overall": 76.8 },
+        { "year": "2021-22", "generalAcute": 85.8, "overall": 84.5 },
+        { "year": "2022-23", "generalAcute": 88.5, "overall": 87.3 },
+        { "year": "2023-24", "generalAcute": 89.8, "overall": 88.6 },
+        { "year": "2024-25", "generalAcute": 90.2, "overall": 89.0 },
+        { "year": "2025-26", "generalAcute": 90.5, "overall": 89.1 }
+      ]
+    },
+    "international": {
+      "sourceId": "oecd-hospital-beds",
+      "timeField": "country",
+      "data": [
+        { "country": "Japan", "bedsPerThousand": 12.6 },
+        { "country": "South Korea", "bedsPerThousand": 12.4 },
+        { "country": "Germany", "bedsPerThousand": 7.8 },
+        { "country": "Austria", "bedsPerThousand": 7.0 },
+        { "country": "France", "bedsPerThousand": 5.7 },
+        { "country": "OECD Average", "bedsPerThousand": 4.3 },
+        { "country": "Italy", "bedsPerThousand": 3.1 },
+        { "country": "Spain", "bedsPerThousand": 3.0 },
+        { "country": "United States", "bedsPerThousand": 2.8 },
+        { "country": "United Kingdom", "bedsPerThousand": 2.4 },
+        { "country": "Canada", "bedsPerThousand": 2.5 },
+        { "country": "Sweden", "bedsPerThousand": 2.0 }
+      ]
+    },
+    "admissions": {
+      "sourceId": "nhs-digital-hes",
+      "timeField": "year",
+      "data": [
+        { "year": "2013-14", "elective": 5250, "emergency": 5820, "dayCase": 7280, "total": 18350 },
+        { "year": "2014-15", "elective": 5310, "emergency": 5940, "dayCase": 7450, "total": 18700 },
+        { "year": "2015-16", "elective": 5380, "emergency": 6080, "dayCase": 7620, "total": 19080 },
+        { "year": "2016-17", "elective": 5420, "emergency": 6210, "dayCase": 7800, "total": 19430 },
+        { "year": "2017-18", "elective": 5460, "emergency": 6350, "dayCase": 7980, "total": 19790 },
+        { "year": "2018-19", "elective": 5480, "emergency": 6500, "dayCase": 8150, "total": 20130 },
+        { "year": "2019-20", "elective": 5200, "emergency": 6400, "dayCase": 7900, "total": 19500 },
+        { "year": "2020-21", "elective": 3100, "emergency": 5200, "dayCase": 5600, "total": 13900 },
+        { "year": "2021-22", "elective": 4500, "emergency": 6100, "dayCase": 7200, "total": 17800 },
+        { "year": "2022-23", "elective": 5100, "emergency": 6400, "dayCase": 8000, "total": 19500 },
+        { "year": "2023-24", "elective": 5300, "emergency": 6550, "dayCase": 8400, "total": 20250 },
+        { "year": "2024-25", "elective": 5400, "emergency": 6600, "dayCase": 8600, "total": 20600 }
+      ]
+    }
+  }
+}

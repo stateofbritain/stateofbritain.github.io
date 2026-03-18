@@ -76,9 +76,10 @@ const PILLARS = {
         label: "Defence",
         icon: "■",
         subtopics: {
-          spending:  { label: "Spending & Budget" },
-          personnel: { label: "Personnel" },
-          equipment: { label: "Equipment & Capability" },
+          spending:    { label: "Spending & Budget" },
+          personnel:   { label: "Personnel" },
+          equipment:   { label: "Equipment & Capability" },
+          procurement: { label: "Procurement" },
         },
       },
       immigration: { label: "Immigration",         icon: "→" },

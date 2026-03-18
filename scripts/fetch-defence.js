@@ -257,6 +257,89 @@ const combatAircraft = [
 ];
 
 // ══════════════════════════════════════════════════════════════════════
+// PROCUREMENT DATA
+// ══════════════════════════════════════════════════════════════════════
+
+// ── Equipment Plan affordability (NAO annual assessments) ────────────
+// Source: NAO Equipment Plan reports (annual), 10-year plan periods
+// Values are the central/headline affordability gap in £bn as assessed by NAO
+// Positive = forecast costs exceed budget; 0 = assessed as broadly affordable
+const equipmentPlanAffordability = [
+  { year: "2012-22", totalCost: 159,  budget: 152,  gap: 0,    naoVerdict: "Affordable" },
+  { year: "2013-23", totalCost: 163,  budget: 159,  gap: 0,    naoVerdict: "Affordable" },
+  { year: "2014-24", totalCost: 166,  budget: 164,  gap: 0,    naoVerdict: "Affordable but higher risk" },
+  { year: "2015-25", totalCost: 178,  budget: 172,  gap: 5.8,  naoVerdict: "At risk" },
+  { year: "2016-26", totalCost: 180,  budget: 176,  gap: 4.6,  naoVerdict: "Unaffordable" },
+  { year: "2017-27", totalCost: 186,  budget: 180,  gap: 4.9,  naoVerdict: "Unaffordable" },
+  { year: "2018-28", totalCost: 190,  budget: 183,  gap: 7.0,  naoVerdict: "Unaffordable" },
+  { year: "2019-29", totalCost: 184,  budget: 181,  gap: 2.9,  naoVerdict: "Unaffordable" },
+  { year: "2020-30", totalCost: 192,  budget: 183,  gap: 7.3,  naoVerdict: "Unaffordable" },
+  { year: "2021-31", totalCost: 238,  budget: 232,  gap: 5.8,  naoVerdict: "Unaffordable" },
+  { year: "2022-32", totalCost: 242,  budget: 240,  gap: 0,    naoVerdict: "Affordable" },
+  { year: "2023-33", totalCost: 289,  budget: 272,  gap: 16.9, naoVerdict: "Unaffordable" },
+];
+
+// ── Major programme cost and schedule ────────────────────────────────
+// Source: NAO Major Projects Reports, MoD Annual Reports, HoC Library briefings
+// originalCost / currentCost in £bn; originalISD / currentISD = in-service dates
+const majorProgrammes = [
+  { programme: "Ajax",       originalCost: 3.5, currentCost: 6.2, costGrowth: 77,  originalISD: "2017", currentISD: "Paused",    status: "Under review" },
+  { programme: "Type 26",    originalCost: 3.7, currentCost: 7.9, costGrowth: 114, originalISD: "2026", currentISD: "2028",       status: "Building" },
+  { programme: "Type 31",    originalCost: 1.25,currentCost: 1.6, costGrowth: 28,  originalISD: "2027", currentISD: "Late 2020s", status: "Building" },
+  { programme: "Dreadnought",originalCost: 31.0,currentCost: 34.4,costGrowth: 11,  originalISD: "2030", currentISD: "Early 2030s",status: "Building" },
+  { programme: "F-35B",      originalCost: 9.1, currentCost: 11.0,costGrowth: 21,  originalISD: "2018", currentISD: "2018 (IOC)", status: "Delivering" },
+  { programme: "GCAP",       originalCost: 12.0,currentCost: 12.0,costGrowth: 0,   originalISD: "2035", currentISD: "2035",       status: "Assessment" },
+  { programme: "Boxer",      originalCost: 2.8, currentCost: 5.0, costGrowth: 79,  originalISD: "2023", currentISD: "Late 2025",  status: "Delivering" },
+  { programme: "Apache AH-64E",originalCost: 2.3,currentCost: 2.6,costGrowth: 13,  originalISD: "2022", currentISD: "2025 (complete)", status: "Complete" },
+];
+
+// ── Industry concentration (MoD expenditure by supplier, 2024-25) ───
+// Source: MoD Trade, Industry and Contracts 2025
+const industryConcentration = [
+  { supplier: "BAE Systems",   spend: 6.7,  sharePct: 16.3, note: "Submarines, combat air, munitions" },
+  { supplier: "Babcock",       spend: 3.2,  sharePct: 7.8,  note: "Naval support, Skynet" },
+  { supplier: "Rolls-Royce",   spend: 2.5,  sharePct: 6.1,  note: "Nuclear propulsion (Unity contract)" },
+  { supplier: "QinetiQ",       spend: 1.4,  sharePct: 3.4,  note: "Test & evaluation" },
+  { supplier: "Leonardo",      spend: 1.2,  sharePct: 2.9,  note: "Helicopters, electronics" },
+  { supplier: "Airbus",        spend: 0.8,  sharePct: 1.9,  note: "A400M, Skynet" },
+  { supplier: "Thales",        spend: 0.7,  sharePct: 1.7,  note: "Sensors, communications" },
+  { supplier: "Leidos",        spend: 0.6,  sharePct: 1.5,  note: "Logistics information systems" },
+  { supplier: "Serco",         spend: 0.6,  sharePct: 1.5,  note: "Training, base support" },
+  { supplier: "Boeing",        spend: 0.5,  sharePct: 1.2,  note: "Chinook, P-8 support" },
+];
+
+// ── Competition vs non-competitive procurement ──────────────────────
+// Source: MoD Trade, Industry and Contracts (annual bulletins)
+// Percentage of in-year MOD procurement expenditure by sourcing method
+const competitionRate = [
+  { year: "2014-15", competitive: 31, nonCompetitive: 36, other: 33 },
+  { year: "2015-16", competitive: 26, nonCompetitive: 39, other: 35 },
+  { year: "2016-17", competitive: 17, nonCompetitive: 32, other: 51 },
+  { year: "2017-18", competitive: 12, nonCompetitive: 33, other: 55 },
+  { year: "2018-19", competitive: 8,  nonCompetitive: 38, other: 54 },
+  { year: "2019-20", competitive: 4,  nonCompetitive: 37, other: 59 },
+  { year: "2020-21", competitive: 8,  nonCompetitive: 39, other: 53 },
+  { year: "2021-22", competitive: 9,  nonCompetitive: 41, other: 50 },
+  { year: "2022-23", competitive: 12, nonCompetitive: 42, other: 46 },
+  { year: "2023-24", competitive: 9,  nonCompetitive: 44, other: 47 },
+  { year: "2024-25", competitive: 8,  nonCompetitive: 45, other: 47 },
+];
+
+// ── SME share of MoD procurement ────────────────────────────────────
+// Source: MoD Trade, Industry and Contracts / MoD Regional Expenditure bulletins
+// directPct = direct MOD expenditure with SMEs; totalPct = including indirect (through primes)
+const smeShare = [
+  { year: "2016-17", directPct: 4.7, totalPct: null },
+  { year: "2017-18", directPct: 4.8, totalPct: null },
+  { year: "2018-19", directPct: 4.4, totalPct: null },
+  { year: "2019-20", directPct: 3.7, totalPct: 21.0 },
+  { year: "2020-21", directPct: 3.5, totalPct: 22.7 },
+  { year: "2021-22", directPct: 3.6, totalPct: 25.5 },
+  { year: "2022-23", directPct: 3.9, totalPct: null },
+  { year: "2023-24", directPct: 4.0, totalPct: null },
+];
+
+// ══════════════════════════════════════════════════════════════════════
 // SNAPSHOT
 // ══════════════════════════════════════════════════════════════════════
 
@@ -296,6 +379,20 @@ const snapshot = {
   submarinesYear: 2025,
   attackHelicopters: 50,
   attackHelicoptersYear: 2025,
+  // Procurement
+  equipPlanGap: 16.9,
+  equipPlanGapYear: "2023-33",
+  equipPlanGapUnit: "£bn",
+  nonCompetitivePct: 45,
+  nonCompetitiveYear: "2024-25",
+  baeSharePct: 16.3,
+  baeShareYear: "2024-25",
+  top10SharePct: 39,
+  top10ShareYear: "2024-25",
+  smeDirectPct: 4.0,
+  smeDirectYear: "2023-24",
+  totalModProcurement: 40.6,
+  totalModProcurementYear: "2024-25",
 };
 
 // ══════════════════════════════════════════════════════════════════════
@@ -349,6 +446,23 @@ const output = {
       name: "National defence ministry publications, House of Commons Library defence briefings, Naval News",
       url: "https://commonslibrary.parliament.uk/research-briefings/cbp-10257/",
       note: "International equipment figures compiled from official national defence publications and parliamentary briefings",
+    },
+    {
+      id: "nao-equipment-plan",
+      name: "NAO Equipment Plan Reports",
+      url: "https://www.nao.org.uk/reports/equipment-plan-2023-to-2033/",
+      note: "Annual NAO affordability assessments of the MoD Equipment Plan",
+    },
+    {
+      id: "nao-major-projects",
+      name: "NAO Major Projects Reports, MoD Annual Report, HoC Library Briefings",
+      url: "https://www.nao.org.uk/reports/improving-the-performance-of-major-equipment-contracts/",
+      note: "Cost and schedule data for major defence programmes",
+    },
+    {
+      id: "mod-trade-industry-contracts",
+      name: "MoD Trade, Industry and Contracts 2025",
+      url: "https://www.gov.uk/government/statistics/mod-trade-industry-and-contracts-2025/mod-trade-industry-and-contracts-2025",
     },
   ],
   snapshot,
@@ -421,6 +535,32 @@ const output = {
       timeField: "country",
       data: intlEquipment,
     },
+    // ── Procurement series ─────────────────────────────────────────
+    equipmentPlanAffordability: {
+      sourceId: "nao-equipment-plan",
+      timeField: "year",
+      data: equipmentPlanAffordability,
+    },
+    majorProgrammes: {
+      sourceId: "nao-major-projects",
+      timeField: "programme",
+      data: majorProgrammes,
+    },
+    industryConcentration: {
+      sourceId: "mod-trade-industry-contracts",
+      timeField: "supplier",
+      data: industryConcentration,
+    },
+    competitionRate: {
+      sourceId: "mod-trade-industry-contracts",
+      timeField: "year",
+      data: competitionRate,
+    },
+    smeShare: {
+      sourceId: "mod-trade-industry-contracts",
+      timeField: "year",
+      data: smeShare,
+    },
   },
 };
 
@@ -428,5 +568,6 @@ writeFileSync("public/data/defence.json", JSON.stringify(output, null, 2));
 console.log(
   `  defence.json written (${spendingPctGdp.length} spending years, ` +
   `${personnel.length} personnel years, ${currentEquipment.length} equipment items, ` +
-  `${escortFleet.length} escort fleet years, ${intlEquipment.length} countries)`
+  `${escortFleet.length} escort fleet years, ${intlEquipment.length} countries, ` +
+  `${majorProgrammes.length} major programmes, ${industryConcentration.length} suppliers)`
 );

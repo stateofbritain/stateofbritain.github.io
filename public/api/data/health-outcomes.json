@@ -19,6 +19,31 @@
       "id": "ons-avoidable-mortality",
       "name": "ONS Avoidable Mortality in England and Wales",
       "url": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/avoidablemortalityinenglandandwalesreferencetable1"
+    },
+    {
+      "id": "ons-death-registrations",
+      "name": "ONS Death Registrations by Cause",
+      "url": "https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/deathregistrationssummarytablesenglandandwalesreferencetables"
+    },
+    {
+      "id": "ons-infant-mortality",
+      "name": "ONS Child and Infant Mortality in England and Wales",
+      "url": "https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/childmortalitystatisticschildhoodinfantandperinatalchildhoodinfantandperinatalmortalityinenglandandwales"
+    },
+    {
+      "id": "ons-healthy-life-expectancy",
+      "name": "ONS Health State Life Expectancies",
+      "url": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/healthandlifeexpectancies/datasets/healthstatelifeexpectancyallagesuk"
+    },
+    {
+      "id": "nhs-digital-hse",
+      "name": "NHS Digital Health Survey for England",
+      "url": "https://digital.nhs.uk/data-and-information/publications/statistical/health-survey-for-england"
+    },
+    {
+      "id": "ons-health-inequalities",
+      "name": "ONS Health State Life Expectancies by Deprivation",
+      "url": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/healthinequalities/datasets/healthstatelifeexpectanciesbynationaldeprivationdecilesenglandandwales"
     }
   ],
   "snapshot": {
@@ -29,7 +54,13 @@
     "cancerSurvival5yr": 54.5,
     "cancerSurvival5yrYear": "2017-2021",
     "avoidableMortalityRate": 218.2,
-    "avoidableMortalityRateYear": 2023
+    "avoidableMortalityRateYear": 2023,
+    "infantMortalityRate": 3.7,
+    "infantMortalityRateYear": 2023,
+    "obesityRate": 26.2,
+    "obesityRateYear": 2023,
+    "maleLifeExpGap": 9.7,
+    "maleLifeExpGapYear": "2020-2022"
   },
   "series": {
     "lifeExpectancy": {
@@ -78,6 +109,27 @@
         { "year": 2021, "male": 78.7, "female": 82.8 },
         { "year": 2022, "male": 78.8, "female": 82.8 },
         { "year": 2023, "male": 79.0, "female": 82.9 }
+      ]
+    },
+    "causeOfDeath": {
+      "sourceId": "ons-death-registrations",
+      "timeField": "cause",
+      "data": [
+        { "cause": "Heart disease", "rate": 168.2, "deaths": 91200, "pctTotal": 15.4 },
+        { "cause": "Dementia & Alzheimer's", "rate": 148.5, "deaths": 80600, "pctTotal": 13.6 },
+        { "cause": "Cerebrovascular (stroke)", "rate": 67.8, "deaths": 36800, "pctTotal": 6.2 },
+        { "cause": "Lung cancer", "rate": 60.1, "deaths": 32600, "pctTotal": 5.5 },
+        { "cause": "Chronic lower respiratory", "rate": 56.2, "deaths": 30500, "pctTotal": 5.1 },
+        { "cause": "Influenza & pneumonia", "rate": 39.5, "deaths": 21400, "pctTotal": 3.6 },
+        { "cause": "Bowel cancer", "rate": 26.8, "deaths": 14500, "pctTotal": 2.5 },
+        { "cause": "Prostate cancer", "rate": 24.1, "deaths": 12200, "pctTotal": 2.1 },
+        { "cause": "Breast cancer", "rate": 21.5, "deaths": 11500, "pctTotal": 1.9 },
+        { "cause": "Diabetes", "rate": 19.8, "deaths": 10700, "pctTotal": 1.8 },
+        { "cause": "Liver disease", "rate": 18.5, "deaths": 10000, "pctTotal": 1.7 },
+        { "cause": "Pancreatic cancer", "rate": 16.2, "deaths": 8800, "pctTotal": 1.5 },
+        { "cause": "Kidney disease", "rate": 15.5, "deaths": 8400, "pctTotal": 1.4 },
+        { "cause": "Oesophageal cancer", "rate": 12.8, "deaths": 6900, "pctTotal": 1.2 },
+        { "cause": "Suicide & self-harm", "rate": 10.5, "deaths": 5700, "pctTotal": 1.0 }
       ]
     },
     "cancerSurvival": {
@@ -135,6 +187,100 @@
         { "year": 2021, "preventable": 143.2, "treatable": 84.0, "total": 227.2 },
         { "year": 2022, "preventable": 131.5, "treatable": 80.8, "total": 212.3 },
         { "year": 2023, "preventable": 133.0, "treatable": 85.2, "total": 218.2 }
+      ]
+    },
+    "infantMortality": {
+      "sourceId": "ons-infant-mortality",
+      "timeField": "year",
+      "data": [
+        { "year": 1980, "rate": 11.2 },
+        { "year": 1982, "rate": 10.5 },
+        { "year": 1984, "rate": 9.6 },
+        { "year": 1986, "rate": 9.0 },
+        { "year": 1988, "rate": 8.4 },
+        { "year": 1990, "rate": 7.9 },
+        { "year": 1992, "rate": 6.6 },
+        { "year": 1994, "rate": 6.2 },
+        { "year": 1996, "rate": 6.1 },
+        { "year": 1998, "rate": 5.7 },
+        { "year": 2000, "rate": 5.6 },
+        { "year": 2001, "rate": 5.5 },
+        { "year": 2002, "rate": 5.3 },
+        { "year": 2003, "rate": 5.3 },
+        { "year": 2004, "rate": 5.1 },
+        { "year": 2005, "rate": 5.1 },
+        { "year": 2006, "rate": 5.0 },
+        { "year": 2007, "rate": 4.8 },
+        { "year": 2008, "rate": 4.7 },
+        { "year": 2009, "rate": 4.6 },
+        { "year": 2010, "rate": 4.3 },
+        { "year": 2011, "rate": 4.3 },
+        { "year": 2012, "rate": 4.1 },
+        { "year": 2013, "rate": 3.9 },
+        { "year": 2014, "rate": 3.6 },
+        { "year": 2015, "rate": 3.7 },
+        { "year": 2016, "rate": 3.8 },
+        { "year": 2017, "rate": 3.8 },
+        { "year": 2018, "rate": 3.8 },
+        { "year": 2019, "rate": 3.7 },
+        { "year": 2020, "rate": 3.6 },
+        { "year": 2021, "rate": 3.6 },
+        { "year": 2022, "rate": 3.7 },
+        { "year": 2023, "rate": 3.7 }
+      ]
+    },
+    "healthyLifeExpectancy": {
+      "sourceId": "ons-healthy-life-expectancy",
+      "timeField": "year",
+      "data": [
+        { "year": 2010, "maleTotal": 78.9, "maleHealthy": 63.0, "femaleTotal": 82.8, "femaleHealthy": 63.7 },
+        { "year": 2012, "maleTotal": 79.1, "maleHealthy": 63.3, "femaleTotal": 82.8, "femaleHealthy": 63.9 },
+        { "year": 2014, "maleTotal": 79.3, "maleHealthy": 63.4, "femaleTotal": 83.0, "femaleHealthy": 63.9 },
+        { "year": 2016, "maleTotal": 79.4, "maleHealthy": 63.1, "femaleTotal": 83.1, "femaleHealthy": 63.6 },
+        { "year": 2018, "maleTotal": 79.3, "maleHealthy": 63.1, "femaleTotal": 83.0, "femaleHealthy": 63.5 },
+        { "year": 2020, "maleTotal": 78.7, "maleHealthy": 62.4, "femaleTotal": 82.7, "femaleHealthy": 62.7 },
+        { "year": 2022, "maleTotal": 78.8, "maleHealthy": 62.8, "femaleTotal": 82.8, "femaleHealthy": 63.1 }
+      ]
+    },
+    "obesity": {
+      "sourceId": "nhs-digital-hse",
+      "timeField": "year",
+      "data": [
+        { "year": 2000, "male": 21.0, "female": 21.4, "total": 21.2 },
+        { "year": 2001, "male": 21.8, "female": 22.2, "total": 22.0 },
+        { "year": 2002, "male": 22.1, "female": 23.1, "total": 22.6 },
+        { "year": 2003, "male": 22.9, "female": 23.0, "total": 23.0 },
+        { "year": 2004, "male": 23.6, "female": 23.8, "total": 23.7 },
+        { "year": 2005, "male": 23.1, "female": 24.2, "total": 23.6 },
+        { "year": 2006, "male": 24.0, "female": 24.4, "total": 24.2 },
+        { "year": 2007, "male": 24.3, "female": 24.2, "total": 24.2 },
+        { "year": 2008, "male": 24.1, "female": 24.9, "total": 24.5 },
+        { "year": 2009, "male": 22.1, "female": 24.0, "total": 23.0 },
+        { "year": 2010, "male": 24.4, "female": 25.1, "total": 24.8 },
+        { "year": 2011, "male": 24.4, "female": 25.6, "total": 25.0 },
+        { "year": 2012, "male": 24.4, "female": 25.1, "total": 24.7 },
+        { "year": 2013, "male": 24.4, "female": 25.0, "total": 24.7 },
+        { "year": 2014, "male": 24.5, "female": 25.4, "total": 25.0 },
+        { "year": 2015, "male": 27.0, "female": 26.8, "total": 26.9 },
+        { "year": 2016, "male": 26.1, "female": 26.6, "total": 26.3 },
+        { "year": 2017, "male": 26.4, "female": 27.2, "total": 26.8 },
+        { "year": 2018, "male": 27.2, "female": 27.5, "total": 27.3 },
+        { "year": 2019, "male": 26.9, "female": 27.0, "total": 26.9 },
+        { "year": 2021, "male": 25.8, "female": 26.4, "total": 26.1 },
+        { "year": 2022, "male": 25.4, "female": 26.3, "total": 25.9 },
+        { "year": 2023, "male": 25.9, "female": 26.5, "total": 26.2 }
+      ]
+    },
+    "regionalInequality": {
+      "sourceId": "ons-health-inequalities",
+      "timeField": "period",
+      "data": [
+        { "period": "2010-2012", "maleMostDeprived": 74.0, "maleLeastDeprived": 82.5, "maleGap": 8.5, "femaleMostDeprived": 79.2, "femaleLeastDeprived": 85.8, "femaleGap": 6.6 },
+        { "period": "2012-2014", "maleMostDeprived": 74.0, "maleLeastDeprived": 82.8, "maleGap": 8.8, "femaleMostDeprived": 79.1, "femaleLeastDeprived": 86.0, "femaleGap": 6.9 },
+        { "period": "2014-2016", "maleMostDeprived": 73.8, "maleLeastDeprived": 83.1, "maleGap": 9.3, "femaleMostDeprived": 78.8, "femaleLeastDeprived": 86.2, "femaleGap": 7.4 },
+        { "period": "2016-2018", "maleMostDeprived": 73.6, "maleLeastDeprived": 83.3, "maleGap": 9.7, "femaleMostDeprived": 78.6, "femaleLeastDeprived": 86.3, "femaleGap": 7.7 },
+        { "period": "2018-2020", "maleMostDeprived": 73.1, "maleLeastDeprived": 83.2, "maleGap": 10.1, "femaleMostDeprived": 78.3, "femaleLeastDeprived": 86.3, "femaleGap": 8.0 },
+        { "period": "2020-2022", "maleMostDeprived": 72.7, "maleLeastDeprived": 82.7, "maleGap": 10.0, "femaleMostDeprived": 78.0, "femaleLeastDeprived": 86.0, "femaleGap": 8.0 }
       ]
     }
   }
