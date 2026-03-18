@@ -1894,216 +1894,6 @@
       }
     },
     {
-      "id": "local-government",
-      "title": "Local Government Finance",
-      "pillar": "state",
-      "geography": "England",
-      "summary": "Council spending by service, funding sources, council tax levels, financial health (section 114 notices, reserves, audit backlog), social care squeeze, core spending power, and workforce trends.",
-      "tags": [
-        "local government",
-        "councils",
-        "council tax",
-        "social care",
-        "section 114",
-        "reserves",
-        "audit",
-        "local authority",
-        "spending",
-        "DLUHC"
-      ],
-      "dataFile": "/data/local-government.json",
-      "series": {
-        "serviceSpending": {
-          "title": "Service Spending by Category",
-          "summary": "Net current expenditure by service area. Adult social care £25.2bn, children's social care £15.6bn in 2024-25. Total excluding education £89.8bn.",
-          "unit": "£bn",
-          "fields": {
-            "adultSocialCare": {
-              "label": "adultSocialCare"
-            },
-            "childrenSocialCare": {
-              "label": "childrenSocialCare"
-            },
-            "highways": {
-              "label": "highways"
-            },
-            "housing": {
-              "label": "housing"
-            },
-            "environment": {
-              "label": "environment"
-            },
-            "cultural": {
-              "label": "cultural"
-            },
-            "planning": {
-              "label": "planning"
-            },
-            "publicHealth": {
-              "label": "publicHealth"
-            },
-            "fire": {
-              "label": "fire"
-            },
-            "central": {
-              "label": "central"
-            },
-            "police": {
-              "label": "police"
-            }
-          },
-          "timeRange": {
-            "start": "2010-11",
-            "end": "2024-25"
-          }
-        },
-        "fundingSources": {
-          "title": "Revenue Funding Mix",
-          "summary": "Share of council revenue by source. Council tax rose from 34% (2010-11) to peak 52% (2019-20), settling at 46% (2024-25) as government grants were cut then partially restored.",
-          "unit": "%",
-          "fields": {
-            "councilTax": {
-              "label": "councilTax"
-            },
-            "govGrants": {
-              "label": "govGrants"
-            },
-            "businessRates": {
-              "label": "businessRates"
-            },
-            "other": {
-              "label": "other"
-            }
-          },
-          "timeRange": {
-            "start": "2010-11",
-            "end": "2024-25"
-          }
-        },
-        "councilTax": {
-          "title": "Average Band D Council Tax",
-          "summary": "Average Band D council tax rose from £1,439 (2010-11) to £2,280 (2025-26), a 58% increase in cash terms.",
-          "unit": "£",
-          "fields": {
-            "bandD": {
-              "label": "bandD"
-            }
-          },
-          "timeRange": {
-            "start": "2010-11",
-            "end": "2025-26"
-          }
-        },
-        "councilTaxByRegion": {
-          "title": "Council Tax by Region",
-          "summary": "Band D council tax varies by area: London £1,982, Metropolitan £2,289, Unitary £2,366, Shire £2,344 (2025-26).",
-          "unit": "£",
-          "fields": {
-            "bandD": {
-              "label": "bandD"
-            }
-          },
-          "timeRange": {
-            "start": "London",
-            "end": "Shire areas"
-          }
-        },
-        "section114": {
-          "title": "Section 114 Notices",
-          "summary": "Seven councils issued section 114 notices between 2018 and 2023: Northamptonshire, Croydon, Slough, Thurrock, Woking, Birmingham, Nottingham.",
-          "unit": "count",
-          "fields": {
-            "council": {
-              "label": "council"
-            },
-            "note": {
-              "label": "note"
-            }
-          },
-          "timeRange": {
-            "start": "2018-02-02",
-            "end": "2023-11-29"
-          }
-        },
-        "reserves": {
-          "title": "Usable Reserves",
-          "summary": "Local authority usable reserves rose from £13bn (2010-11) to £31.2bn peak (2021-22), then fell to £27bn (2024-25).",
-          "unit": "£bn",
-          "fields": {
-            "usable": {
-              "label": "usable"
-            }
-          },
-          "timeRange": {
-            "start": "2010-11",
-            "end": "2024-25"
-          }
-        },
-        "auditBacklog": {
-          "title": "Audit Backlog",
-          "summary": "Outstanding unaudited council accounts peaked at 918 (2022-23), reduced to ~100 after 2024 statutory backstop.",
-          "unit": "count",
-          "fields": {
-            "outstanding": {
-              "label": "outstanding"
-            }
-          },
-          "timeRange": {
-            "start": "2017-18",
-            "end": "2024-25"
-          }
-        },
-        "workforce": {
-          "title": "Local Government Workforce",
-          "summary": "Council FTE fell from 1,510k (2010) to 970k (2025), a 36% reduction. Excludes police, fire, centrally-funded teachers.",
-          "unit": "thousands FTE",
-          "fields": {
-            "fte": {
-              "label": "fte"
-            }
-          },
-          "timeRange": {
-            "start": 2010,
-            "end": 2025
-          }
-        },
-        "socialCareShare": {
-          "title": "Social Care Share of Spending",
-          "summary": "Social care rose from 42% to 47% of non-education council spending between 2010-11 and 2024-25.",
-          "unit": "%",
-          "fields": {
-            "socialCarePct": {
-              "label": "socialCarePct"
-            },
-            "adultPct": {
-              "label": "adultPct"
-            },
-            "childrenPct": {
-              "label": "childrenPct"
-            }
-          },
-          "timeRange": {
-            "start": "2010-11",
-            "end": "2024-25"
-          }
-        },
-        "coreSpendingPower": {
-          "title": "Core Spending Power per Person",
-          "summary": "Real-terms core spending power per person fell 27% from 2010-11 to 2015-16. In 2024-25 it remains 18% below 2010-11 levels.",
-          "unit": "index",
-          "fields": {
-            "index": {
-              "label": "index"
-            }
-          },
-          "timeRange": {
-            "start": "2010-11",
-            "end": "2024-25"
-          }
-        }
-      }
-    },
-    {
       "id": "mental-health",
       "title": "Mental-health",
       "pillar": "foundations",
@@ -2187,6 +1977,178 @@
           "timeRange": {
             "start": 2000,
             "end": 2023
+          }
+        }
+      }
+    },
+    {
+      "id": "money-supply",
+      "title": "Money Supply & Inflation",
+      "pillar": "state",
+      "geography": "United Kingdom",
+      "summary": "M4 broad money supply, Bank of England quantitative easing (APF holdings and cash flows), CPI inflation, real wage growth, purchasing power erosion, international central bank balance sheet comparison, and nominal vs real government debt.",
+      "tags": [
+        "money supply",
+        "M4",
+        "inflation",
+        "CPI",
+        "quantitative easing",
+        "QE",
+        "APF",
+        "real wages",
+        "purchasing power",
+        "central bank",
+        "Bank of England",
+        "monetary policy"
+      ],
+      "dataFile": "/data/money-supply.json",
+      "series": {
+        "m4ToGdp": {
+          "title": "M4 Money Supply and GDP",
+          "summary": "M4 grew from £867bn (2000) to £3.2tn (2025). M4/GDP ratio rose from 86% to 116%, peaking at 139% in 2020.",
+          "unit": "£bn / %",
+          "fields": {
+            "m4": {
+              "label": "m4"
+            },
+            "gdp": {
+              "label": "gdp"
+            },
+            "ratio": {
+              "label": "ratio"
+            }
+          },
+          "timeRange": {
+            "start": 2000,
+            "end": 2025
+          }
+        },
+        "apfHoldings": {
+          "title": "APF Gilt Holdings",
+          "summary": "Bank of England gilt purchases peaked at £895bn in January 2022. Reduced to £488bn by end-2025 through quantitative tightening.",
+          "unit": "£bn",
+          "fields": {
+            "year": {
+              "label": "year"
+            },
+            "quarter": {
+              "label": "quarter"
+            },
+            "holdings": {
+              "label": "holdings"
+            },
+            "note": {
+              "label": "note"
+            }
+          },
+          "timeRange": {
+            "start": "2009-03",
+            "end": "2025-12"
+          }
+        },
+        "apfCashFlows": {
+          "title": "APF Cash Flows to Treasury",
+          "summary": "APF transferred £124bn to Treasury between 2012-22, then reversed. OBR estimates lifetime net cost at £134bn.",
+          "unit": "£bn",
+          "fields": {
+            "netToHmt": {
+              "label": "netToHmt"
+            }
+          },
+          "timeRange": {
+            "start": "2012-13",
+            "end": "2025-26"
+          }
+        },
+        "cpiRate": {
+          "title": "CPI Annual Inflation Rate",
+          "summary": "CPI averaged close to 2% target from 2000-2020, spiked to 9.1% in 2022, returned to 3.2% in 2025.",
+          "unit": "%",
+          "fields": {
+            "cpi": {
+              "label": "cpi"
+            }
+          },
+          "timeRange": {
+            "start": 2000,
+            "end": 2025
+          }
+        },
+        "realWages": {
+          "title": "Real Wage Growth",
+          "summary": "Real wages fell in 6 of 7 years from 2008-14, and again in 2022 (-3.3%). Positive real growth resumed in 2024.",
+          "unit": "%",
+          "fields": {
+            "nominal": {
+              "label": "nominal"
+            },
+            "cpi": {
+              "label": "cpi"
+            },
+            "real": {
+              "label": "real"
+            }
+          },
+          "timeRange": {
+            "start": 2001,
+            "end": 2025
+          }
+        },
+        "purchasingPower": {
+          "title": "Purchasing Power Index",
+          "summary": "£1 in 2000 buys approximately 55p of goods in 2025 terms, a 45% erosion in purchasing power.",
+          "unit": "pence per £1 (2000)",
+          "fields": {
+            "index": {
+              "label": "index"
+            }
+          },
+          "timeRange": {
+            "start": 2000,
+            "end": 2025
+          }
+        },
+        "debtNominalVsReal": {
+          "title": "Government Debt: Nominal vs Real",
+          "summary": "PSND rose from £311bn (2000-01) to £2,805bn (2024-25) in nominal terms. In real terms (2000-01 prices), the increase is smaller.",
+          "unit": "£bn",
+          "fields": {
+            "nominal": {
+              "label": "nominal"
+            },
+            "real": {
+              "label": "real"
+            },
+            "pctGdp": {
+              "label": "pctGdp"
+            }
+          },
+          "timeRange": {
+            "start": "2000-01",
+            "end": "2024-25"
+          }
+        },
+        "balanceSheets": {
+          "title": "Central Bank Balance Sheets",
+          "summary": "BoE balance sheet peaked at 44% GDP (2021), BoJ at 137% (2022), ECB at 60% (2022), Fed at 35% (2022). All now contracting.",
+          "unit": "% GDP",
+          "fields": {
+            "boe": {
+              "label": "boe"
+            },
+            "fed": {
+              "label": "fed"
+            },
+            "ecb": {
+              "label": "ecb"
+            },
+            "boj": {
+              "label": "boj"
+            }
+          },
+          "timeRange": {
+            "start": 2007,
+            "end": 2025
           }
         }
       }
@@ -3608,7 +3570,7 @@
         "defence",
         "immigration",
         "justice",
-        "local-government",
+        "money-supply",
         "spending",
         "taxation"
       ],
@@ -3642,7 +3604,8 @@
     },
     "byTag": {
       "inflation": [
-        "cpih"
+        "cpih",
+        "money-supply"
       ],
       "prices": [
         "cpih"
@@ -3654,7 +3617,8 @@
         "cpih"
       ],
       "CPI": [
-        "cpih"
+        "cpih",
+        "money-supply"
       ],
       "defence": [
         "defence"
@@ -3668,7 +3632,6 @@
       "spending": [
         "defence",
         "education",
-        "local-government",
         "spending"
       ],
       "armed forces": [
@@ -3887,33 +3850,35 @@
       "courts": [
         "justice"
       ],
-      "local government": [
-        "local-government"
+      "money supply": [
+        "money-supply"
       ],
-      "councils": [
-        "local-government"
+      "M4": [
+        "money-supply"
       ],
-      "council tax": [
-        "local-government",
-        "taxation"
+      "quantitative easing": [
+        "money-supply"
       ],
-      "social care": [
-        "local-government"
+      "QE": [
+        "money-supply"
       ],
-      "section 114": [
-        "local-government"
+      "APF": [
+        "money-supply"
       ],
-      "reserves": [
-        "local-government"
+      "real wages": [
+        "money-supply"
       ],
-      "audit": [
-        "local-government"
+      "purchasing power": [
+        "money-supply"
       ],
-      "local authority": [
-        "local-government"
+      "central bank": [
+        "money-supply"
       ],
-      "DLUHC": [
-        "local-government"
+      "Bank of England": [
+        "money-supply"
+      ],
+      "monetary policy": [
+        "money-supply"
       ],
       "NHS": [
         "nhs-waiting",
@@ -4014,6 +3979,9 @@
         "taxation"
       ],
       "corporation tax": [
+        "taxation"
+      ],
+      "council tax": [
         "taxation"
       ],
       "tax burden": [
