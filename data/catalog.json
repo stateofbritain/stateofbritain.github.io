@@ -1,6 +1,6 @@
 {
   "$schema": "sob-catalog-v1",
-  "generated": "2026-03-16",
+  "generated": "2026-03-18",
   "datasets": [
     {
       "id": "cpih",
@@ -63,19 +63,26 @@
       "title": "Defence & Security",
       "pillar": "state",
       "geography": "United Kingdom",
-      "summary": "Defence spending as % of GDP, personnel strength, reserves, equipment plans, and NATO comparisons.",
+      "summary": "Defence spending, armed forces personnel, recruitment and retention, equipment inventory, fleet trends, and international capability comparison across comparable middle powers.",
       "tags": [
         "defence",
         "military",
         "NATO",
         "spending",
-        "armed forces"
+        "armed forces",
+        "equipment",
+        "tanks",
+        "aircraft",
+        "ships",
+        "submarines",
+        "recruitment",
+        "retention"
       ],
       "dataFile": "/data/defence.json",
       "series": {
         "spendingPctGdp": {
           "title": "Defence Spending as % of GDP",
-          "summary": "UK defence spending fell from 3.8% GDP in 1990 to 2.3% in 2024, above NATO's 2% target.",
+          "summary": "UK defence spending fell from 3.8% GDP in 1990 to 2.3% in 2024, above NATO's 2% target but below the new 2.5% aspiration.",
           "unit": "% GDP",
           "fields": {
             "pct": {
@@ -88,7 +95,9 @@
           }
         },
         "spendingReal": {
-          "title": "spendingReal",
+          "title": "Defence Spending in Real Terms",
+          "summary": "Real defence spending fell from £46bn in 2009 to £38bn in 2016, recovering to £54.2bn in 2024 (2023-24 prices).",
+          "unit": "£bn",
           "fields": {
             "value": {
               "label": "value"
@@ -99,9 +108,37 @@
             "end": 2024
           }
         },
+        "intlComparison": {
+          "title": "NATO Spending Comparison",
+          "summary": "Defence spending as % GDP across NATO allies. Poland leads (3.9%), UK at 2.3%, several allies below 2%.",
+          "unit": "% GDP",
+          "fields": {
+            "pct": {
+              "label": "pct"
+            }
+          },
+          "timeRange": {
+            "start": "USA",
+            "end": "Spain"
+          }
+        },
+        "equipmentPlan": {
+          "title": "Equipment Plan (10-Year)",
+          "summary": "MoD 10-year equipment plan: £60bn total. Submarines & nuclear £17.2bn, combat air £12.5bn, ships £8.3bn.",
+          "unit": "£bn",
+          "fields": {
+            "value": {
+              "label": "value"
+            }
+          },
+          "timeRange": {
+            "start": "Submarines & nuclear",
+            "end": "Air support"
+          }
+        },
         "personnel": {
           "title": "Armed Forces Personnel",
-          "summary": "Total trained personnel declined 38% from 207.7k in 2000 to 129.2k in 2024.",
+          "summary": "UK regular forces declined 39% from 207.7k in 2000 to 125.7k in 2025. Army from 110k to 70k.",
           "unit": "thousands",
           "fields": {
             "army": {
@@ -116,35 +153,13 @@
           },
           "timeRange": {
             "start": 2000,
-            "end": 2024
-          }
-        },
-        "intlComparison": {
-          "title": "intlComparison",
-          "fields": {
-            "pct": {
-              "label": "pct"
-            }
-          },
-          "timeRange": {
-            "start": "USA",
-            "end": "Spain"
-          }
-        },
-        "equipmentPlan": {
-          "title": "equipmentPlan",
-          "fields": {
-            "value": {
-              "label": "value"
-            }
-          },
-          "timeRange": {
-            "start": "Submarines & nuclear",
-            "end": "Air support"
+            "end": 2025
           }
         },
         "reserves": {
-          "title": "reserves",
+          "title": "Reserve Forces Strength",
+          "summary": "Trained reserve strength peaked at 30.7k in 2022, declined to 26k in 2024, recovered to 29.1k in 2025.",
+          "unit": "thousands",
           "fields": {
             "strength": {
               "label": "strength"
@@ -152,7 +167,162 @@
           },
           "timeRange": {
             "start": 2012,
-            "end": 2024
+            "end": 2025
+          }
+        },
+        "strengthVsRequirement": {
+          "title": "Trained Strength vs Requirement",
+          "summary": "All services below target: Army -3%, RN/RM -8%, RAF -13%. Overall 6% (8,590 personnel) below requirement.",
+          "unit": "thousands",
+          "fields": {
+            "trained": {
+              "label": "trained"
+            },
+            "requirement": {
+              "label": "requirement"
+            },
+            "deficit": {
+              "label": "deficit"
+            }
+          },
+          "timeRange": {
+            "start": "Army",
+            "end": "RAF"
+          }
+        },
+        "intakeOutflow": {
+          "title": "Recruitment Intake vs Outflow",
+          "summary": "13,450 joined in 2024-25 (up 19%), 14,600 left (down 7%). Outflow has exceeded intake in most years since 2000.",
+          "unit": "thousands",
+          "fields": {
+            "intake": {
+              "label": "intake"
+            },
+            "outflow": {
+              "label": "outflow"
+            }
+          },
+          "timeRange": {
+            "start": "2015-16",
+            "end": "2024-25"
+          }
+        },
+        "voluntaryOutflow": {
+          "title": "Voluntary Outflow Rate",
+          "summary": "Voluntary outflow rate peaked at 6.4% in 2023-24, fell to 5.9% in 2024-25. Army highest at 6.3%.",
+          "unit": "%",
+          "fields": {
+            "overall": {
+              "label": "overall"
+            },
+            "army": {
+              "label": "army"
+            },
+            "navy": {
+              "label": "navy"
+            },
+            "raf": {
+              "label": "raf"
+            }
+          },
+          "timeRange": {
+            "start": "2015-16",
+            "end": "2024-25"
+          }
+        },
+        "currentEquipment": {
+          "title": "Current Equipment Inventory",
+          "summary": "Major platforms at 1 April 2025: 288 Challenger 2 MBT, 129 Typhoon, 41 F-35B, 50 Apache, 6 Type 45 destroyers, 7 Type 23 frigates, 10 submarines.",
+          "unit": "count",
+          "fields": {
+            "category": {
+              "label": "category"
+            },
+            "count": {
+              "label": "count"
+            },
+            "note": {
+              "label": "note"
+            }
+          },
+          "timeRange": {
+            "start": "Challenger 2 MBT",
+            "end": "River-class OPV"
+          }
+        },
+        "escortFleet": {
+          "title": "Escort Fleet Trend",
+          "summary": "Royal Navy escort fleet contracted from 48 ships (1990) to 13 (2025). Type 26/31 programmes will restore frigates to 13.",
+          "unit": "ships",
+          "fields": {
+            "frigates": {
+              "label": "frigates"
+            },
+            "destroyers": {
+              "label": "destroyers"
+            },
+            "total": {
+              "label": "total"
+            }
+          },
+          "timeRange": {
+            "start": 1990,
+            "end": 2025
+          }
+        },
+        "combatAircraft": {
+          "title": "Combat Aircraft Fleet Trend",
+          "summary": "Combat-capable fast jets declined from 250 (2000) to 170 (2025). Tornado and Harrier retired; Typhoon and F-35B now form fleet.",
+          "unit": "aircraft",
+          "fields": {
+            "tornado": {
+              "label": "tornado"
+            },
+            "harrier": {
+              "label": "harrier"
+            },
+            "typhoon": {
+              "label": "typhoon"
+            },
+            "f35": {
+              "label": "f35"
+            },
+            "total": {
+              "label": "total"
+            }
+          },
+          "timeRange": {
+            "start": 2000,
+            "end": 2025
+          }
+        },
+        "intlEquipment": {
+          "title": "International Equipment Comparison",
+          "summary": "UK equipment vs peer nations (France, Germany, Italy, Japan, S. Korea, Turkey, Australia). UK has fewer tanks than France/Germany but unique carrier and nuclear sub capability.",
+          "unit": "count",
+          "fields": {
+            "tanks": {
+              "label": "tanks"
+            },
+            "fighters": {
+              "label": "fighters"
+            },
+            "attackHeli": {
+              "label": "attackHeli"
+            },
+            "submarines": {
+              "label": "submarines"
+            },
+            "frigates": {
+              "label": "frigates"
+            },
+            "destroyers": {
+              "label": "destroyers"
+            }
+          },
+          "timeRange": {
+            "start": "UK",
+            "end": "Australia"
           }
         }
       }
@@ -798,6 +968,57 @@
             "end": 2025
           }
         },
+        "appointmentsByStaff": {
+          "title": "appointmentsByStaff",
+          "fields": {
+            "gp": {
+              "label": "gp"
+            },
+            "otherStaff": {
+              "label": "otherStaff"
+            },
+            "unrecorded": {
+              "label": "unrecorded"
+            }
+          },
+          "timeRange": {
+            "start": "2019-01",
+            "end": "2026-01"
+          }
+        },
+        "practiceStaff": {
+          "title": "practiceStaff",
+          "fields": {
+            "gps": {
+              "label": "gps"
+            },
+            "nurses": {
+              "label": "nurses"
+            },
+            "dpc": {
+              "label": "dpc"
+            },
+            "managers": {
+              "label": "managers"
+            },
+            "receptionists": {
+              "label": "receptionists"
+            },
+            "secretaries": {
+              "label": "secretaries"
+            },
+            "otherAdmin": {
+              "label": "otherAdmin"
+            },
+            "total": {
+              "label": "total"
+            }
+          },
+          "timeRange": {
+            "start": 2015,
+            "end": 2024
+          }
+        },
         "workforce": {
           "title": "GP Workforce (Headcount vs FTE)",
           "summary": "Headcount grew to 35,900 but FTE fell to 27,544 — driven by part-time working, not fewer GPs.",
@@ -852,6 +1073,24 @@
             "end": 2023
           }
         },
+        "causeOfDeath": {
+          "title": "causeOfDeath",
+          "fields": {
+            "rate": {
+              "label": "rate"
+            },
+            "deaths": {
+              "label": "deaths"
+            },
+            "pctTotal": {
+              "label": "pctTotal"
+            }
+          },
+          "timeRange": {
+            "start": "Heart disease",
+            "end": "Suicide & self-harm"
+          }
+        },
         "cancerSurvival": {
           "title": "Cancer Survival Rates",
           "summary": "1-year and 5-year net survival by cancer site. Ranges from 7% (pancreas) to 92% (melanoma) at 5 years.",
@@ -887,6 +1126,84 @@
           "timeRange": {
             "start": 2001,
             "end": 2023
+          }
+        },
+        "infantMortality": {
+          "title": "infantMortality",
+          "fields": {
+            "rate": {
+              "label": "rate"
+            }
+          },
+          "timeRange": {
+            "start": 1980,
+            "end": 2023
+          }
+        },
+        "healthyLifeExpectancy": {
+          "title": "healthyLifeExpectancy",
+          "fields": {
+            "maleTotal": {
+              "label": "maleTotal"
+            },
+            "maleHealthy": {
+              "label": "maleHealthy"
+            },
+            "femaleTotal": {
+              "label": "femaleTotal"
+            },
+            "femaleHealthy": {
+              "label": "femaleHealthy"
+            }
+          },
+          "timeRange": {
+            "start": 2010,
+            "end": 2022
+          }
+        },
+        "obesity": {
+          "title": "obesity",
+          "fields": {
+            "male": {
+              "label": "male"
+            },
+            "female": {
+              "label": "female"
+            },
+            "total": {
+              "label": "total"
+            }
+          },
+          "timeRange": {
+            "start": 2000,
+            "end": 2023
+          }
+        },
+        "regionalInequality": {
+          "title": "regionalInequality",
+          "fields": {
+            "maleMostDeprived": {
+              "label": "maleMostDeprived"
+            },
+            "maleLeastDeprived": {
+              "label": "maleLeastDeprived"
+            },
+            "maleGap": {
+              "label": "maleGap"
+            },
+            "femaleMostDeprived": {
+              "label": "femaleMostDeprived"
+            },
+            "femaleLeastDeprived": {
+              "label": "femaleLeastDeprived"
+            },
+            "femaleGap": {
+              "label": "femaleGap"
+            }
+          },
+          "timeRange": {
+            "start": "2010-2012",
+            "end": "2020-2022"
           }
         }
       }
@@ -987,6 +1304,249 @@
           "timeRange": {
             "start": "2013-14",
             "end": "2024-25"
+          }
+        }
+      }
+    },
+    {
+      "id": "housing-density",
+      "title": "Housing Density & Geography",
+      "pillar": "foundations",
+      "geography": "United Kingdom",
+      "summary": "Population density by UK city, international city density comparison, and average house prices by region.",
+      "tags": [
+        "housing",
+        "density",
+        "geography",
+        "regional",
+        "prices",
+        "cities",
+        "urban"
+      ],
+      "dataFile": "/data/housing-density.json",
+      "series": {
+        "ukCityDensity": {
+          "title": "UK City Population Density",
+          "summary": "London at 5,598/km², other cities 1,500-4,700/km², England average 434/km².",
+          "unit": "persons/km²",
+          "fields": {
+            "density": {
+              "label": "density"
+            },
+            "population": {
+              "label": "population"
+            }
+          },
+          "timeRange": {
+            "start": "London",
+            "end": "England avg"
+          }
+        },
+        "intlCityDensity": {
+          "title": "International City Density",
+          "summary": "Paris 20,700/km², Barcelona 15,800/km², London 5,598/km², Berlin 4,100/km².",
+          "unit": "persons/km²",
+          "fields": {
+            "country": {
+              "label": "country"
+            },
+            "density": {
+              "label": "density"
+            }
+          },
+          "timeRange": {
+            "start": "Paris",
+            "end": "Los Angeles"
+          }
+        },
+        "regionalPrices": {
+          "title": "Average House Price by Region",
+          "summary": "London £523k, South East £375k, North East £160k. Approximately 3:1 ratio London to cheapest region.",
+          "unit": "£",
+          "fields": {
+            "avgPrice": {
+              "label": "avgPrice"
+            }
+          },
+          "timeRange": {
+            "start": "London",
+            "end": "Northern Ireland"
+          }
+        }
+      }
+    },
+    {
+      "id": "housing-stock",
+      "title": "Housing Stock",
+      "pillar": "foundations",
+      "geography": "England",
+      "summary": "Housing stock by period built, dwelling type breakdown, tenure split over time (owner-occupied, private rented, social rented), and EPC energy ratings by dwelling age.",
+      "tags": [
+        "housing",
+        "stock",
+        "tenure",
+        "EPC",
+        "energy performance",
+        "renting",
+        "ownership"
+      ],
+      "dataFile": "/data/housing-stock.json",
+      "series": {
+        "stockByAge": {
+          "title": "Housing Stock by Period Built",
+          "summary": "20% of English homes built before 1919. Post-war (1945-1980) makes up 37%.",
+          "unit": "%",
+          "fields": {
+            "pct": {
+              "label": "pct"
+            },
+            "dwellingsK": {
+              "label": "dwellingsK"
+            }
+          },
+          "timeRange": {
+            "start": "Pre-1919",
+            "end": "Post-2002"
+          }
+        },
+        "stockByType": {
+          "title": "Dwelling Type Breakdown",
+          "summary": "Semi-detached (26%) and terraced (25%) dominate. Purpose-built flats at 17%.",
+          "unit": "%",
+          "fields": {
+            "pct": {
+              "label": "pct"
+            }
+          },
+          "timeRange": {
+            "start": "Semi-detached",
+            "end": "Other"
+          }
+        },
+        "tenureTrend": {
+          "title": "Tenure Split Over Time",
+          "summary": "Owner-occupation peaked at 71% in early 2000s, now 65%. Private renting rose from 10% (1990) to 19%.",
+          "unit": "%",
+          "fields": {
+            "ownerOccupied": {
+              "label": "ownerOccupied"
+            },
+            "privateRented": {
+              "label": "privateRented"
+            },
+            "socialRented": {
+              "label": "socialRented"
+            }
+          },
+          "timeRange": {
+            "start": "1980",
+            "end": "2023-24"
+          }
+        },
+        "epcByAge": {
+          "title": "EPC Rating by Dwelling Age",
+          "summary": "Only 2% of pre-1919 homes rated EPC A-B vs 55% of post-2002 homes. 45% of pre-1919 rated E or below.",
+          "unit": "%",
+          "fields": {
+            "a_b": {
+              "label": "a_b"
+            },
+            "c": {
+              "label": "c"
+            },
+            "d": {
+              "label": "d"
+            },
+            "e_below": {
+              "label": "e_below"
+            }
+          },
+          "timeRange": {
+            "start": "Pre-1919",
+            "end": "Post-2002"
+          }
+        }
+      }
+    },
+    {
+      "id": "housing-supply",
+      "title": "Housebuilding",
+      "pillar": "foundations",
+      "geography": "England",
+      "summary": "Net additional dwellings, new build completions by tenure (private, housing association, local authority), average new build floor area, and international size comparison.",
+      "tags": [
+        "housing",
+        "housebuilding",
+        "construction",
+        "dwellings",
+        "completions",
+        "new builds"
+      ],
+      "dataFile": "/data/housing-supply.json",
+      "series": {
+        "netAdditions": {
+          "title": "Net Additional Dwellings",
+          "summary": "Total annual increase in housing stock. 208,600 in 2024-25, below the 300,000/yr target. Peak was 243,770 in 2019-20.",
+          "unit": "dwellings",
+          "fields": {
+            "dwellings": {
+              "label": "dwellings"
+            }
+          },
+          "timeRange": {
+            "start": "2001-02",
+            "end": "2024-25"
+          }
+        },
+        "completionsByTenure": {
+          "title": "New Build Completions by Tenure",
+          "summary": "Completions split by private enterprise (80%+), housing associations, and local authorities (~3,000/yr).",
+          "unit": "dwellings",
+          "fields": {
+            "private": {
+              "label": "private"
+            },
+            "housingAssociation": {
+              "label": "housingAssociation"
+            },
+            "localAuthority": {
+              "label": "localAuthority"
+            },
+            "total": {
+              "label": "total"
+            }
+          },
+          "timeRange": {
+            "start": "2001-02",
+            "end": "2024-25"
+          }
+        },
+        "newBuildSize": {
+          "title": "Average New Build Floor Area",
+          "summary": "Average internal floor area of new build homes. Declined from 83 sqm in 2003 to 76 sqm in 2023.",
+          "unit": "sqm",
+          "fields": {
+            "avgSqm": {
+              "label": "avgSqm"
+            }
+          },
+          "timeRange": {
+            "start": 2003,
+            "end": 2023
+          }
+        },
+        "sizeIntl": {
+          "title": "International New Build Size Comparison",
+          "summary": "Average new build floor area by country. UK (76 sqm) among the smallest. Australia 229, US 201, Germany 109.",
+          "unit": "sqm",
+          "fields": {
+            "avgSqm": {
+              "label": "avgSqm"
+            }
+          },
+          "timeRange": {
+            "start": "Australia",
+            "end": "Hong Kong"
           }
         }
       }
@@ -1398,7 +1958,9 @@
           }
         },
         "international": {
-          "title": "international",
+          "title": "International Comparison",
+          "summary": "UK investment as % of GDP compared to OECD peers. UK near bottom of G7.",
+          "unit": "% GDP",
           "fields": {
             "countryCode": {
               "label": "countryCode"
@@ -1552,6 +2114,249 @@
       }
     },
     {
+      "id": "mental-health",
+      "title": "Mental Health",
+      "pillar": "foundations",
+      "geography": "England",
+      "summary": "NHS talking therapies referrals and recovery rates, children and young people mental health service access, Mental Health Act detentions, suicide rates, and psychiatric morbidity prevalence.",
+      "tags": [
+        "mental health",
+        "IAPT",
+        "talking therapies",
+        "suicide",
+        "CAMHS",
+        "detention",
+        "psychiatric"
+      ],
+      "dataFile": "/data/mental-health.json",
+      "series": {
+        "prevalence": {
+          "title": "prevalence",
+          "fields": {
+            "prevalence": {
+              "label": "prevalence"
+            }
+          },
+          "timeRange": {
+            "start": 2000,
+            "end": 2023
+          }
+        },
+        "iaptReferrals": {
+          "title": "iaptReferrals",
+          "fields": {
+            "referrals": {
+              "label": "referrals"
+            },
+            "enteringTreatment": {
+              "label": "enteringTreatment"
+            },
+            "completing": {
+              "label": "completing"
+            },
+            "recoveryRate": {
+              "label": "recoveryRate"
+            }
+          },
+          "timeRange": {
+            "start": "2015-16 Q1",
+            "end": "2024-25 Q2"
+          }
+        },
+        "mhaDetentions": {
+          "title": "mhaDetentions",
+          "fields": {
+            "detentions": {
+              "label": "detentions"
+            }
+          },
+          "timeRange": {
+            "start": 2010,
+            "end": 2024
+          }
+        },
+        "cypReferrals": {
+          "title": "cypReferrals",
+          "fields": {
+            "referrals": {
+              "label": "referrals"
+            },
+            "enteringTreatment": {
+              "label": "enteringTreatment"
+            }
+          },
+          "timeRange": {
+            "start": "2018-19",
+            "end": "2024-25"
+          }
+        },
+        "suicideRate": {
+          "title": "suicideRate",
+          "fields": {
+            "male": {
+              "label": "male"
+            },
+            "female": {
+              "label": "female"
+            },
+            "total": {
+              "label": "total"
+            }
+          },
+          "timeRange": {
+            "start": 2000,
+            "end": 2023
+          }
+        }
+      }
+    },
+    {
+      "id": "nhs-funding",
+      "title": "NHS Funding",
+      "pillar": "foundations",
+      "geography": "England / United Kingdom",
+      "summary": "NHS budget in real terms, spending per capita, international health expenditure comparison (OECD), spending by category (staff, capital, other), and capital spending trends including backlog maintenance.",
+      "tags": [
+        "NHS",
+        "funding",
+        "spending",
+        "health expenditure",
+        "OECD",
+        "capital",
+        "staff costs",
+        "budget"
+      ],
+      "dataFile": "/data/nhs-funding.json",
+      "series": {
+        "totalBudget": {
+          "title": "totalBudget",
+          "fields": {
+            "nominal": {
+              "label": "nominal"
+            },
+            "real": {
+              "label": "real"
+            },
+            "realGrowth": {
+              "label": "realGrowth"
+            }
+          },
+          "timeRange": {
+            "start": "2000-01",
+            "end": "2025-26"
+          }
+        },
+        "perCapita": {
+          "title": "perCapita",
+          "fields": {
+            "perCapita": {
+              "label": "perCapita"
+            }
+          },
+          "timeRange": {
+            "start": 2000,
+            "end": 2024
+          }
+        },
+        "international": {
+          "title": "international",
+          "fields": {
+            "pctGdp": {
+              "label": "pctGdp"
+            },
+            "perCapitaPPP": {
+              "label": "perCapitaPPP"
+            }
+          },
+          "timeRange": {
+            "start": "United States",
+            "end": "Spain"
+          }
+        },
+        "byCategory": {
+          "title": "byCategory",
+          "fields": {
+            "amount": {
+              "label": "amount"
+            }
+          },
+          "timeRange": {
+            "start": "Hospital & specialist",
+            "end": "Admin & other"
+          }
+        },
+        "spendingSplit": {
+          "title": "spendingSplit",
+          "fields": {
+            "staffPct": {
+              "label": "staffPct"
+            },
+            "drugsClinicalPct": {
+              "label": "drugsClinicalPct"
+            },
+            "premisesDeprecPct": {
+              "label": "premisesDeprecPct"
+            },
+            "capitalPct": {
+              "label": "capitalPct"
+            },
+            "purchasedCarePct": {
+              "label": "purchasedCarePct"
+            },
+            "negligencePct": {
+              "label": "negligencePct"
+            },
+            "pfiPct": {
+              "label": "pfiPct"
+            },
+            "otherPct": {
+              "label": "otherPct"
+            }
+          },
+          "timeRange": {
+            "start": "2013-14",
+            "end": "2024-25"
+          }
+        },
+        "capitalCdel": {
+          "title": "capitalCdel",
+          "fields": {
+            "real": {
+              "label": "real"
+            }
+          },
+          "timeRange": {
+            "start": "2010-11",
+            "end": "2025-26"
+          }
+        },
+        "backlogMaintenance": {
+          "title": "backlogMaintenance",
+          "fields": {
+            "total": {
+              "label": "total"
+            },
+            "highRisk": {
+              "label": "highRisk"
+            },
+            "significantRisk": {
+              "label": "significantRisk"
+            },
+            "moderateRisk": {
+              "label": "moderateRisk"
+            },
+            "lowRisk": {
+              "label": "lowRisk"
+            }
+          },
+          "timeRange": {
+            "start": "2013-14",
+            "end": "2024-25"
+          }
+        }
+      }
+    },
+    {
       "id": "nhs-waiting",
       "title": "NHS Waiting Lists",
       "pillar": "foundations",
@@ -1625,6 +2430,36 @@
         "summary": {
           "title": "summary",
           "fields": {}
+        },
+        "diagnostics": {
+          "title": "diagnostics",
+          "fields": {
+            "totalWaiting": {
+              "label": "totalWaiting"
+            },
+            "pctOver6Weeks": {
+              "label": "pctOver6Weeks"
+            }
+          },
+          "timeRange": {
+            "start": "2012-01",
+            "end": "2025-12"
+          }
+        },
+        "cancerWaits": {
+          "title": "cancerWaits",
+          "fields": {
+            "pctWithin62Days": {
+              "label": "pctWithin62Days"
+            },
+            "pctWithin31Days": {
+              "label": "pctWithin31Days"
+            }
+          },
+          "timeRange": {
+            "start": "2013 Q1",
+            "end": "2025 Q4"
+          }
         }
       }
     },
@@ -1779,7 +2614,9 @@
           }
         },
         "international": {
-          "title": "international",
+          "title": "International Productivity Comparison",
+          "summary": "UK output per hour relative to G7 peers. UK trails US, Germany, and France.",
+          "unit": "US$ PPP",
           "fields": {
             "countryCode": {
               "label": "countryCode"
@@ -1847,7 +2684,9 @@
       "dataFile": "/data/research.json",
       "series": {
         "bySector": {
-          "title": "bySector",
+          "title": "R&D Expenditure by Sector",
+          "summary": "UK GERD by funding source: business (£30.5bn), government (£2.7bn), higher education (£11.2bn) in 2022.",
+          "unit": "£m",
           "fields": {
             "total": {
               "label": "total"
@@ -1913,7 +2752,9 @@
           }
         },
         "gdpPct": {
-          "title": "gdpPct",
+          "title": "R&D as % of GDP",
+          "summary": "UK R&D spending at 2.36% of GDP in 2022, below OECD average of 2.73%.",
+          "unit": "% GDP",
           "fields": {
             "total": {
               "label": "total"
@@ -2099,7 +2940,9 @@
           }
         },
         "survival": {
-          "title": "survival",
+          "title": "Survival Rates by Cohort",
+          "summary": "1 to 5 year survival rates for business birth cohorts. 5-year survival around 38%.",
+          "unit": "%",
           "fields": {
             "yr1": {
               "label": "yr1"
@@ -2135,7 +2978,9 @@
           }
         },
         "highGrowth": {
-          "title": "highGrowth",
+          "title": "High-Growth Firms",
+          "summary": "Firms with 20%+ annualised employment growth over 3 years.",
+          "unit": "count",
           "fields": {
             "count": {
               "label": "count"
@@ -2383,6 +3228,11 @@
         "gp-access",
         "health-outcomes",
         "hospital-capacity",
+        "housing-density",
+        "housing-stock",
+        "housing-supply",
+        "mental-health",
+        "nhs-funding",
         "nhs-waiting",
         "nhs-workforce",
         "water",
@@ -2394,7 +3244,8 @@
         "cpih"
       ],
       "prices": [
-        "cpih"
+        "cpih",
+        "housing-density"
       ],
       "CPIH": [
         "cpih"
@@ -2417,9 +3268,31 @@
       "spending": [
         "defence",
         "education",
+        "nhs-funding",
         "spending"
       ],
       "armed forces": [
+        "defence"
+      ],
+      "equipment": [
+        "defence"
+      ],
+      "tanks": [
+        "defence"
+      ],
+      "aircraft": [
+        "defence"
+      ],
+      "ships": [
+        "defence"
+      ],
+      "submarines": [
+        "defence"
+      ],
+      "recruitment": [
+        "defence"
+      ],
+      "retention": [
         "defence"
       ],
       "education": [
@@ -2555,13 +3428,67 @@
         "hospital-capacity"
       ],
       "OECD": [
-        "hospital-capacity"
+        "hospital-capacity",
+        "nhs-funding"
       ],
       "elective": [
         "hospital-capacity"
       ],
       "emergency": [
         "hospital-capacity"
+      ],
+      "housing": [
+        "housing-density",
+        "housing-stock",
+        "housing-supply"
+      ],
+      "density": [
+        "housing-density"
+      ],
+      "geography": [
+        "housing-density"
+      ],
+      "regional": [
+        "housing-density"
+      ],
+      "cities": [
+        "housing-density"
+      ],
+      "urban": [
+        "housing-density"
+      ],
+      "stock": [
+        "housing-stock"
+      ],
+      "tenure": [
+        "housing-stock"
+      ],
+      "EPC": [
+        "housing-stock"
+      ],
+      "energy performance": [
+        "housing-stock"
+      ],
+      "renting": [
+        "housing-stock"
+      ],
+      "ownership": [
+        "housing-stock"
+      ],
+      "housebuilding": [
+        "housing-supply"
+      ],
+      "construction": [
+        "housing-supply"
+      ],
+      "dwellings": [
+        "housing-supply"
+      ],
+      "completions": [
+        "housing-supply"
+      ],
+      "new builds": [
+        "housing-supply"
       ],
       "immigration": [
         "immigration"
@@ -2613,7 +3540,8 @@
         "investment"
       ],
       "capital": [
-        "investment"
+        "investment",
+        "nhs-funding"
       ],
       "GFCF": [
         "investment"
@@ -2634,9 +3562,44 @@
       "courts": [
         "justice"
       ],
+      "mental health": [
+        "mental-health"
+      ],
+      "IAPT": [
+        "mental-health"
+      ],
+      "talking therapies": [
+        "mental-health"
+      ],
+      "suicide": [
+        "mental-health"
+      ],
+      "CAMHS": [
+        "mental-health"
+      ],
+      "detention": [
+        "mental-health"
+      ],
+      "psychiatric": [
+        "mental-health"
+      ],
       "NHS": [
+        "nhs-funding",
         "nhs-waiting",
         "nhs-workforce"
+      ],
+      "funding": [
+        "nhs-funding"
+      ],
+      "health expenditure": [
+        "nhs-funding"
+      ],
+      "staff costs": [
+        "nhs-funding"
+      ],
+      "budget": [
+        "nhs-funding",
+        "spending"
       ],
       "healthcare": [
         "nhs-waiting"
@@ -2690,9 +3653,6 @@
         "research"
       ],
       "tax": [
-        "spending"
-      ],
-      "budget": [
         "spending"
       ],
       "fiscal": [

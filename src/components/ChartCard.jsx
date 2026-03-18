@@ -1,28 +1,26 @@
 import { ResponsiveContainer } from "recharts";
 import P from "../theme/palette";
 import ShareableChart from "./ShareableChart";
+import Legend from "./Legend";
 import { CHART_CARD, CHART_TITLE, CHART_SUBTITLE, SOURCE_TEXT } from "../theme/chartStyles";
 
 /**
  * Standard chart card wrapper used across all pillar pages.
  *
- * Every chart should have a `source` prop — a React node rendered in
- * SOURCE_TEXT style at the bottom of the card, ensuring all charts are
- * traceable to their data origin.
- *
- * Supports two header styles:
- *   1. title/subtitle (original): bold title with smaller subtitle below
- *   2. label/yearRange (Safety-style): single line "label · yearRange"
- *
- * Optional view toggles for multi-view charts (e.g. "Violent Crime" / "Homicides").
+ * Props:
+ *  - title (required): Title Case heading
+ *  - subtitle: geography, units, date range
+ *  - source (required): data citation — use sourceFrom(raw, seriesId) for v1 datasets
+ *  - legend: array of { key, label, color } for colour-swatch legend rendered inside the card
+ *  - views/viewLabels/activeView/onViewChange: multi-view toggle
+ *  - height: wraps children in ResponsiveContainer (use for single Recharts element)
+ *  - style: extra card styles
  */
 export default function ChartCard({
   title, subtitle,
-  // Source citation (should always be provided)
   source,
-  // View toggles (optional)
+  legend,
   views, viewLabels, activeView, onViewChange,
-  // Layout
   height, style, children,
 }) {
   return (
@@ -55,6 +53,7 @@ export default function ChartCard({
             </div>
           )}
         </div>
+        {legend && <div style={{ marginBottom: 8 }}><Legend items={legend} /></div>}
         {height ? (
           <ResponsiveContainer width="100%" height={height}>
             {children}

@@ -3,7 +3,7 @@
   "id": "defence",
   "pillar": "state",
   "topic": "defence",
-  "generated": "2026-03-06T21:57:41.002Z",
+  "generated": "2026-03-18",
   "sources": [
     {
       "id": "nato-defence-expenditure",
@@ -26,9 +26,24 @@
       "url": "https://www.gov.uk/government/collections/equipment-plan"
     },
     {
+      "id": "mod-equipment-formations",
+      "name": "MoD UK Armed Forces Equipment & Formations 2025",
+      "url": "https://www.gov.uk/government/statistics/uk-armed-forces-equipment-and-formations-2025"
+    },
+    {
       "id": "sipri-military-expenditure",
       "name": "SIPRI Military Expenditure",
       "url": "https://www.sipri.org/databases/milex"
+    },
+    {
+      "id": "hoc-library-defence",
+      "name": "House of Commons Library Defence Briefings",
+      "url": "https://commonslibrary.parliament.uk/research-briefings/cbp-7930/"
+    },
+    {
+      "id": "globalfirepower",
+      "name": "GlobalFirepower Military Strength Rankings",
+      "url": "https://www.globalfirepower.com/"
     }
   ],
   "snapshot": {
@@ -38,14 +53,28 @@
     "newTarget": 2.5,
     "spendingBn": 54.2,
     "spendingBnYear": 2024,
-    "totalPersonnel": 129.2,
+    "totalPersonnel": 125.7,
     "totalPersonnelUnit": "k",
-    "personnelYear": 2024,
+    "personnelYear": 2025,
     "personnelPeak": 207.7,
     "personnelPeakYear": 2000,
-    "personnelDecline": 38,
-    "reserveStrength": 26,
-    "reserveYear": 2024
+    "personnelDecline": 39,
+    "reserveStrength": 29.1,
+    "reserveYear": 2025,
+    "overallDeficit": 6,
+    "overallDeficitYear": 2025,
+    "voluntaryOutflow": 5.9,
+    "voluntaryOutflowYear": "2024-25",
+    "tanks": 288,
+    "tanksYear": 2025,
+    "combatAircraft": 170,
+    "combatAircraftYear": 2025,
+    "escorts": 13,
+    "escortsYear": 2025,
+    "submarines": 10,
+    "submarinesYear": 2025,
+    "attackHelicopters": 50,
+    "attackHelicoptersYear": 2025
   },
   "series": {
     "spendingPctGdp": {
@@ -147,7 +176,7 @@
       ]
     },
     "spendingReal": {
-      "sourceId": "nato-defence-expenditure",
+      "sourceId": "mod-annual-report-accounts",
       "timeField": "year",
       "data": [
         {
@@ -228,8 +257,92 @@
         }
       ]
     },
-    "personnel": {
+    "intlComparison": {
       "sourceId": "nato-defence-expenditure",
+      "timeField": "country",
+      "data": [
+        {
+          "country": "USA",
+          "pct": 3.4
+        },
+        {
+          "country": "Greece",
+          "pct": 3.1
+        },
+        {
+          "country": "Poland",
+          "pct": 3.9
+        },
+        {
+          "country": "UK",
+          "pct": 2.3
+        },
+        {
+          "country": "France",
+          "pct": 2.1
+        },
+        {
+          "country": "Germany",
+          "pct": 2.1
+        },
+        {
+          "country": "Turkey",
+          "pct": 1.9
+        },
+        {
+          "country": "Italy",
+          "pct": 1.5
+        },
+        {
+          "country": "Canada",
+          "pct": 1.4
+        },
+        {
+          "country": "Spain",
+          "pct": 1.3
+        }
+      ]
+    },
+    "equipmentPlan": {
+      "sourceId": "mod-equipment-plan",
+      "timeField": "category",
+      "data": [
+        {
+          "category": "Submarines & nuclear",
+          "value": 17.2
+        },
+        {
+          "category": "Combat air",
+          "value": 12.5
+        },
+        {
+          "category": "Ships",
+          "value": 8.3
+        },
+        {
+          "category": "Land equipment",
+          "value": 6.1
+        },
+        {
+          "category": "Weapons",
+          "value": 5.4
+        },
+        {
+          "category": "ISTAR & networks",
+          "value": 4.8
+        },
+        {
+          "category": "Helicopters",
+          "value": 3.2
+        },
+        {
+          "category": "Air support",
+          "value": 2.9
+        }
+      ]
+    },
+    "personnel": {
+      "sourceId": "mod-armed-forces-personnel-statistics",
       "timeField": "year",
       "data": [
         {
@@ -339,95 +452,17 @@
           "army": 72.5,
           "navy": 28.9,
           "raf": 27.8
-        }
-      ]
-    },
-    "intlComparison": {
-      "sourceId": "nato-defence-expenditure",
-      "timeField": "country",
-      "data": [
-        {
-          "country": "USA",
-          "pct": 3.4
         },
         {
-          "country": "Greece",
-          "pct": 3.1
-        },
-        {
-          "country": "Poland",
-          "pct": 3.9
-        },
-        {
-          "country": "UK",
-          "pct": 2.3
-        },
-        {
-          "country": "France",
-          "pct": 2.1
-        },
-        {
-          "country": "Germany",
-          "pct": 2.1
-        },
-        {
-          "country": "Turkey",
-          "pct": 1.9
-        },
-        {
-          "country": "Italy",
-          "pct": 1.5
-        },
-        {
-          "country": "Canada",
-          "pct": 1.4
-        },
-        {
-          "country": "Spain",
-          "pct": 1.3
-        }
-      ]
-    },
-    "equipmentPlan": {
-      "sourceId": "nato-defence-expenditure",
-      "timeField": "category",
-      "data": [
-        {
-          "category": "Submarines & nuclear",
-          "value": 17.2
-        },
-        {
-          "category": "Combat air",
-          "value": 12.5
-        },
-        {
-          "category": "Ships",
-          "value": 8.3
-        },
-        {
-          "category": "Land equipment",
-          "value": 6.1
-        },
-        {
-          "category": "Weapons",
-          "value": 5.4
-        },
-        {
-          "category": "ISTAR & networks",
-          "value": 4.8
-        },
-        {
-          "category": "Helicopters",
-          "value": 3.2
-        },
-        {
-          "category": "Air support",
-          "value": 2.9
+          "year": 2025,
+          "army": 70.3,
+          "navy": 27.8,
+          "raf": 27.6
         }
       ]
     },
     "reserves": {
-      "sourceId": "nato-defence-expenditure",
+      "sourceId": "mod-armed-forces-personnel-statistics",
       "timeField": "year",
       "data": [
         {
@@ -481,6 +516,476 @@
         {
           "year": 2024,
           "strength": 26
+        },
+        {
+          "year": 2025,
+          "strength": 29.1
+        }
+      ]
+    },
+    "strengthVsRequirement": {
+      "sourceId": "mod-armed-forces-personnel-statistics",
+      "timeField": "service",
+      "data": [
+        {
+          "service": "Army",
+          "trained": 70.3,
+          "requirement": 72.5,
+          "deficit": -3
+        },
+        {
+          "service": "RN/RM",
+          "trained": 27.8,
+          "requirement": 30.2,
+          "deficit": -8
+        },
+        {
+          "service": "RAF",
+          "trained": 27.6,
+          "requirement": 31.7,
+          "deficit": -13
+        }
+      ]
+    },
+    "intakeOutflow": {
+      "sourceId": "mod-armed-forces-personnel-statistics",
+      "timeField": "year",
+      "data": [
+        {
+          "year": "2015-16",
+          "intake": 17.5,
+          "outflow": 17.9
+        },
+        {
+          "year": "2016-17",
+          "intake": 15.2,
+          "outflow": 16.3
+        },
+        {
+          "year": "2017-18",
+          "intake": 14.7,
+          "outflow": 15.8
+        },
+        {
+          "year": "2018-19",
+          "intake": 15.3,
+          "outflow": 15.4
+        },
+        {
+          "year": "2019-20",
+          "intake": 15.8,
+          "outflow": 14.6
+        },
+        {
+          "year": "2020-21",
+          "intake": 11.6,
+          "outflow": 13.2
+        },
+        {
+          "year": "2021-22",
+          "intake": 12.8,
+          "outflow": 14.7
+        },
+        {
+          "year": "2022-23",
+          "intake": 11.4,
+          "outflow": 16.2
+        },
+        {
+          "year": "2023-24",
+          "intake": 11.3,
+          "outflow": 15.7
+        },
+        {
+          "year": "2024-25",
+          "intake": 13.5,
+          "outflow": 14.6
+        }
+      ]
+    },
+    "voluntaryOutflow": {
+      "sourceId": "mod-armed-forces-personnel-statistics",
+      "timeField": "year",
+      "data": [
+        {
+          "year": "2015-16",
+          "overall": 4.9,
+          "army": 5.4,
+          "navy": 4.1,
+          "raf": 4.5
+        },
+        {
+          "year": "2016-17",
+          "overall": 5.3,
+          "army": 5.8,
+          "navy": 4.4,
+          "raf": 4.9
+        },
+        {
+          "year": "2017-18",
+          "overall": 5.4,
+          "army": 5.9,
+          "navy": 4.6,
+          "raf": 4.8
+        },
+        {
+          "year": "2018-19",
+          "overall": 5.4,
+          "army": 5.8,
+          "navy": 4.8,
+          "raf": 5
+        },
+        {
+          "year": "2019-20",
+          "overall": 5.7,
+          "army": 6.2,
+          "navy": 5,
+          "raf": 4.9
+        },
+        {
+          "year": "2020-21",
+          "overall": 4.5,
+          "army": 4.8,
+          "navy": 3.9,
+          "raf": 4.2
+        },
+        {
+          "year": "2021-22",
+          "overall": 5.6,
+          "army": 6,
+          "navy": 5,
+          "raf": 5
+        },
+        {
+          "year": "2022-23",
+          "overall": 6.2,
+          "army": 6.6,
+          "navy": 5.6,
+          "raf": 5.5
+        },
+        {
+          "year": "2023-24",
+          "overall": 6.4,
+          "army": 6.8,
+          "navy": 5.8,
+          "raf": 5.7
+        },
+        {
+          "year": "2024-25",
+          "overall": 5.9,
+          "army": 6.3,
+          "navy": 5.3,
+          "raf": 5
+        }
+      ]
+    },
+    "currentEquipment": {
+      "sourceId": "mod-equipment-formations",
+      "timeField": "platform",
+      "data": [
+        {
+          "platform": "Challenger 2 MBT",
+          "category": "Land",
+          "count": 288,
+          "note": "148 to be upgraded to Challenger 3"
+        },
+        {
+          "platform": "Warrior IFV",
+          "category": "Land",
+          "count": 604,
+          "note": "To be replaced by Boxer"
+        },
+        {
+          "platform": "Bulldog APC",
+          "category": "Land",
+          "count": 738,
+          "note": ""
+        },
+        {
+          "platform": "Boxer MIV",
+          "category": "Land",
+          "count": 65,
+          "note": "523 on order, entering service"
+        },
+        {
+          "platform": "Typhoon",
+          "category": "Air",
+          "count": 129,
+          "note": "Tranche 1 drawdown begun"
+        },
+        {
+          "platform": "F-35B Lightning",
+          "category": "Air",
+          "count": 41,
+          "note": "47 in first batch, 27 more ordered"
+        },
+        {
+          "platform": "Apache AH-64E",
+          "category": "Air",
+          "count": 50,
+          "note": "Fleet delivery completed Mar 2025"
+        },
+        {
+          "platform": "Chinook",
+          "category": "Air",
+          "count": 50,
+          "note": "14 new HC6/6A on order"
+        },
+        {
+          "platform": "Merlin",
+          "category": "Air",
+          "count": 44,
+          "note": "HM2 (ASW) and HC4 (commando)"
+        },
+        {
+          "platform": "Wildcat",
+          "category": "Air",
+          "count": 55,
+          "note": "AH1 (Army) and HMA2 (Navy)"
+        },
+        {
+          "platform": "Puma HC2",
+          "category": "Air",
+          "count": 24,
+          "note": "Scheduled for retirement"
+        },
+        {
+          "platform": "Type 45 Destroyer",
+          "category": "Naval",
+          "count": 6,
+          "note": "Daring class"
+        },
+        {
+          "platform": "Type 23 Frigate",
+          "category": "Naval",
+          "count": 7,
+          "note": "Being replaced by Type 26/31"
+        },
+        {
+          "platform": "QE-class Carrier",
+          "category": "Naval",
+          "count": 2,
+          "note": "HMS Queen Elizabeth, Prince of Wales"
+        },
+        {
+          "platform": "Astute-class SSN",
+          "category": "Naval",
+          "count": 5,
+          "note": "7 planned, 2 more building"
+        },
+        {
+          "platform": "Vanguard-class SSBN",
+          "category": "Naval",
+          "count": 4,
+          "note": "Continuous at-sea deterrent"
+        },
+        {
+          "platform": "River-class OPV",
+          "category": "Naval",
+          "count": 8,
+          "note": "Batch 1 and Batch 2"
+        }
+      ]
+    },
+    "escortFleet": {
+      "sourceId": "hoc-library-defence",
+      "timeField": "year",
+      "data": [
+        {
+          "year": 1990,
+          "frigates": 35,
+          "destroyers": 13,
+          "total": 48
+        },
+        {
+          "year": 1995,
+          "frigates": 27,
+          "destroyers": 12,
+          "total": 39
+        },
+        {
+          "year": 2000,
+          "frigates": 21,
+          "destroyers": 11,
+          "total": 32
+        },
+        {
+          "year": 2005,
+          "frigates": 17,
+          "destroyers": 8,
+          "total": 25
+        },
+        {
+          "year": 2010,
+          "frigates": 13,
+          "destroyers": 6,
+          "total": 19
+        },
+        {
+          "year": 2015,
+          "frigates": 13,
+          "destroyers": 6,
+          "total": 19
+        },
+        {
+          "year": 2020,
+          "frigates": 12,
+          "destroyers": 6,
+          "total": 18
+        },
+        {
+          "year": 2025,
+          "frigates": 7,
+          "destroyers": 6,
+          "total": 13
+        }
+      ]
+    },
+    "combatAircraft": {
+      "sourceId": "mod-equipment-formations",
+      "timeField": "year",
+      "data": [
+        {
+          "year": 2000,
+          "tornado": 178,
+          "harrier": 72,
+          "typhoon": 0,
+          "f35": 0,
+          "total": 250
+        },
+        {
+          "year": 2005,
+          "tornado": 150,
+          "harrier": 60,
+          "typhoon": 20,
+          "f35": 0,
+          "total": 230
+        },
+        {
+          "year": 2010,
+          "tornado": 135,
+          "harrier": 30,
+          "typhoon": 72,
+          "f35": 0,
+          "total": 237
+        },
+        {
+          "year": 2011,
+          "tornado": 125,
+          "harrier": 0,
+          "typhoon": 82,
+          "f35": 0,
+          "total": 207
+        },
+        {
+          "year": 2015,
+          "tornado": 80,
+          "harrier": 0,
+          "typhoon": 107,
+          "f35": 0,
+          "total": 187
+        },
+        {
+          "year": 2019,
+          "tornado": 0,
+          "harrier": 0,
+          "typhoon": 137,
+          "f35": 18,
+          "total": 155
+        },
+        {
+          "year": 2022,
+          "tornado": 0,
+          "harrier": 0,
+          "typhoon": 137,
+          "f35": 30,
+          "total": 167
+        },
+        {
+          "year": 2025,
+          "tornado": 0,
+          "harrier": 0,
+          "typhoon": 129,
+          "f35": 41,
+          "total": 170
+        }
+      ]
+    },
+    "intlEquipment": {
+      "sourceId": "globalfirepower",
+      "timeField": "country",
+      "data": [
+        {
+          "country": "UK",
+          "tanks": 288,
+          "fighters": 141,
+          "attackHeli": 50,
+          "submarines": 10,
+          "frigates": 7,
+          "destroyers": 6
+        },
+        {
+          "country": "France",
+          "tanks": 427,
+          "fighters": 223,
+          "attackHeli": 67,
+          "submarines": 9,
+          "frigates": 5,
+          "destroyers": 11
+        },
+        {
+          "country": "Germany",
+          "tanks": 296,
+          "fighters": 127,
+          "attackHeli": 49,
+          "submarines": 6,
+          "frigates": 11,
+          "destroyers": 0
+        },
+        {
+          "country": "Italy",
+          "tanks": 203,
+          "fighters": 153,
+          "attackHeli": 37,
+          "submarines": 8,
+          "frigates": 14,
+          "destroyers": 3
+        },
+        {
+          "country": "Japan",
+          "tanks": 734,
+          "fighters": 264,
+          "attackHeli": 118,
+          "submarines": 23,
+          "frigates": 8,
+          "destroyers": 41
+        },
+        {
+          "country": "S. Korea",
+          "tanks": 1831,
+          "fighters": 340,
+          "attackHeli": 113,
+          "submarines": 22,
+          "frigates": 18,
+          "destroyers": 14
+        },
+        {
+          "country": "Turkey",
+          "tanks": 2284,
+          "fighters": 201,
+          "attackHeli": 111,
+          "submarines": 14,
+          "frigates": 17,
+          "destroyers": 0
+        },
+        {
+          "country": "Australia",
+          "tanks": 46,
+          "fighters": 95,
+          "attackHeli": 22,
+          "submarines": 6,
+          "frigates": 7,
+          "destroyers": 3
         }
       ]
     }

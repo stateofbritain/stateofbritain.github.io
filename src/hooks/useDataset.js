@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 
 /**
  * Generic data-fetching hook.
@@ -158,4 +158,44 @@ export function useJsonDataset(filename) {
  */
 export function getBreaks(raw, seriesId) {
   return raw?.series?.[seriesId]?.methodologyBreaks ?? [];
+}
+
+/**
+ * Build a source citation React node from a v1 dataset's embedded metadata.
+ *
+ * Looks up the series' sourceId, finds the matching sources[] entry,
+ * and returns formatted elements suitable for ChartCard's `source` prop.
+ *
+ * Accepts a single seriesId or an array for charts combining multiple sources.
+ *
+ * @param {object|null} raw - The raw v1 dataset (from useJsonDataset().raw)
+ * @param {string|string[]} seriesIds - Series key(s), e.g. "netAdditions" or ["violent", "homicide"]
+ * @returns {React.ReactNode|null} Formatted source node, or null if raw is missing
+ */
+export function sourceFrom(raw, seriesIds) {
+  if (!raw?.sources) return null;
+  const ids = Array.isArray(seriesIds) ? seriesIds : [seriesIds];
+  const seen = new Set();
+  const sources = [];
+  for (const sid of ids) {
+    const sourceId = raw.series?.[sid]?.sourceId;
+    if (!sourceId || seen.has(sourceId)) continue;
+    seen.add(sourceId);
+    const src = raw.sources.find(s => s.id === sourceId);
+    if (src) sources.push(src);
+  }
+  if (!sources.length) return null;
+  const h = React.createElement;
+  const linkStyle = { color: "#9B9285", textDecoration: "underline" };
+  return h(React.Fragment, null,
+    "SOURCE: ",
+    ...sources.map((s, i) =>
+      h("span", { key: s.id },
+        i > 0 ? " \u00b7 " : "",
+        s.url
+          ? h("a", { href: s.url, target: "_blank", rel: "noopener noreferrer", style: linkStyle }, s.name)
+          : s.name
+      )
+    )
+  );
 }
