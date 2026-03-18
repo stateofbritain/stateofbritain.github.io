@@ -39,7 +39,9 @@ import Infrastructure from "./pillars/growth/Infrastructure";
 import IndustrialProduction from "./pillars/growth/IndustrialProduction";
 import Education from "./pillars/growth/Education";
 import Justice from "./pillars/state/Justice";
-import Defence from "./pillars/state/Defence";
+import DefenceSpending from "./pillars/state/DefenceSpending";
+import DefencePersonnel from "./pillars/state/DefencePersonnel";
+import DefenceEquipment from "./pillars/state/DefenceEquipment";
 import Immigration from "./pillars/state/Immigration";
 import Taxation from "./pillars/state/Taxation";
 import MoneySupply from "./pillars/state/MoneySupply";
@@ -81,7 +83,9 @@ const TOPIC_COMPONENTS = {
   "growth/industrial": IndustrialProduction,
   "growth/education": Education,
   "state/justice": Justice,
-  "state/defence": Defence,
+  "state/defence/spending": DefenceSpending,
+  "state/defence/personnel": DefencePersonnel,
+  "state/defence/equipment": DefenceEquipment,
   "state/immigration": Immigration,
   "challenges/overview": ChallengesOverview,
   "challenges/asylum": AsylumImmigration,

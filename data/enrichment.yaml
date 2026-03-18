@@ -60,41 +60,141 @@ education:
 defence:
   title: "Defence & Security"
   geography: "United Kingdom"
-  summary: "Defence spending as % of GDP, personnel strength, reserves, equipment plans, and NATO comparisons."
-  tags: [defence, military, NATO, spending, armed forces]
+  summary: "Defence spending, armed forces personnel, recruitment and retention, equipment inventory, fleet trends, and international capability comparison across comparable middle powers."
+  tags: [defence, military, NATO, spending, armed forces, equipment, tanks, aircraft, ships, submarines, recruitment, retention]
   series:
     spendingPctGdp:
       title: "Defence Spending as % of GDP"
-      summary: "UK defence spending fell from 3.8% GDP in 1990 to 2.3% in 2024, above NATO's 2% target."
+      summary: "UK defence spending fell from 3.8% GDP in 1990 to 2.3% in 2024, above NATO's 2% target but below the new 2.5% aspiration."
       unit: "% GDP"
+    spendingReal:
+      title: "Defence Spending in Real Terms"
+      summary: "Real defence spending fell from £46bn in 2009 to £38bn in 2016, recovering to £54.2bn in 2024 (2023-24 prices)."
+      unit: "£bn"
+    intlComparison:
+      title: "NATO Spending Comparison"
+      summary: "Defence spending as % GDP across NATO allies. Poland leads (3.9%), UK at 2.3%, several allies below 2%."
+      unit: "% GDP"
+    equipmentPlan:
+      title: "Equipment Plan (10-Year)"
+      summary: "MoD 10-year equipment plan: £60bn total. Submarines & nuclear £17.2bn, combat air £12.5bn, ships £8.3bn."
+      unit: "£bn"
     personnel:
       title: "Armed Forces Personnel"
-      summary: "Total trained personnel declined 38% from 207.7k in 2000 to 129.2k in 2024."
+      summary: "UK regular forces declined 39% from 207.7k in 2000 to 125.7k in 2025. Army from 110k to 70k."
       unit: "thousands"
+    reserves:
+      title: "Reserve Forces Strength"
+      summary: "Trained reserve strength peaked at 30.7k in 2022, declined to 26k in 2024, recovered to 29.1k in 2025."
+      unit: "thousands"
+    strengthVsRequirement:
+      title: "Trained Strength vs Requirement"
+      summary: "All services below target: Army -3%, RN/RM -8%, RAF -13%. Overall 6% (8,590 personnel) below requirement."
+      unit: "thousands"
+    intakeOutflow:
+      title: "Recruitment Intake vs Outflow"
+      summary: "13,450 joined in 2024-25 (up 19%), 14,600 left (down 7%). Outflow has exceeded intake in most years since 2000."
+      unit: "thousands"
+    voluntaryOutflow:
+      title: "Voluntary Outflow Rate"
+      summary: "Voluntary outflow rate peaked at 6.4% in 2023-24, fell to 5.9% in 2024-25. Army highest at 6.3%."
+      unit: "%"
+    currentEquipment:
+      title: "Current Equipment Inventory"
+      summary: "Major platforms at 1 April 2025: 288 Challenger 2 MBT, 129 Typhoon, 41 F-35B, 50 Apache, 6 Type 45 destroyers, 7 Type 23 frigates, 10 submarines."
+      unit: "count"
+    escortFleet:
+      title: "Escort Fleet Trend"
+      summary: "Royal Navy escort fleet contracted from 48 ships (1990) to 13 (2025). Type 26/31 programmes will restore frigates to 13."
+      unit: "ships"
+    combatAircraft:
+      title: "Combat Aircraft Fleet Trend"
+      summary: "Combat-capable fast jets declined from 250 (2000) to 170 (2025). Tornado and Harrier retired; Typhoon and F-35B now form fleet."
+      unit: "aircraft"
+    intlEquipment:
+      title: "International Equipment Comparison"
+      summary: "UK equipment vs peer nations (France, Germany, Italy, Japan, S. Korea, Turkey, Australia). UK has fewer tanks than France/Germany but unique carrier and nuclear sub capability."
+      unit: "count"
 
 startups:
   title: "Business Startups & Entrepreneurship"
   geography: "United Kingdom"
   summary: "Business births and deaths, survival rates, sector breakdown, high-growth firms, and equity investment."
   tags: [startups, business, entrepreneurship, SMEs, venture capital]
+  series:
+    demographics:
+      title: "Business Births & Deaths"
+      summary: "Annual business births and deaths. Birth rate around 54 per 10k, death rate around 47 per 10k in 2023."
+      unit: "count"
+    survival:
+      title: "Survival Rates by Cohort"
+      summary: "1 to 5 year survival rates for business birth cohorts. 5-year survival around 38%."
+      unit: "%"
+    sectors:
+      title: "New Businesses by Sector"
+      summary: "Sector breakdown of business births. Professional/scientific and construction lead."
+      unit: "count"
+    highGrowth:
+      title: "High-Growth Firms"
+      summary: "Firms with 20%+ annualised employment growth over 3 years."
+      unit: "count"
 
 research:
   title: "Research & Development"
   geography: "United Kingdom"
   summary: "R&D spending by sector (government, business, higher education), as % of GDP, and international comparison."
   tags: [R&D, research, science, innovation, universities]
+  series:
+    bySector:
+      title: "R&D Expenditure by Sector"
+      summary: "UK GERD by funding source: business (£30.5bn), government (£2.7bn), higher education (£11.2bn) in 2022."
+      unit: "£m"
+    gdpPct:
+      title: "R&D as % of GDP"
+      summary: "UK R&D spending at 2.36% of GDP in 2022, below OECD average of 2.73%."
+      unit: "% GDP"
+    publicPrivate:
+      title: "Public vs Private R&D Split"
+      summary: "Private sector funds around 55% of UK R&D, government around 25%."
+      unit: "£m"
 
 productivity:
   title: "Productivity"
   geography: "United Kingdom"
   summary: "Output per hour worked (index and level), sector breakdown, and international comparison."
   tags: [productivity, output, efficiency, GDP per hour]
+  series:
+    outputPerHour:
+      title: "Output per Hour Worked"
+      summary: "UK output per hour index (2023=100). Productivity growth has been weak since 2008."
+      unit: "index"
+    international:
+      title: "International Productivity Comparison"
+      summary: "UK output per hour relative to G7 peers. UK trails US, Germany, and France."
+      unit: "US$ PPP"
+    sectors:
+      title: "Productivity by Sector"
+      summary: "Output per hour by industry. Financial services highest, accommodation lowest."
+      unit: "£ per hour"
 
 investment:
   title: "Investment"
   geography: "United Kingdom"
   summary: "UK gross fixed capital formation trend, asset breakdown, and international comparison."
   tags: [investment, capital, GFCF, infrastructure]
+  series:
+    gfcfTrend:
+      title: "Gross Fixed Capital Formation"
+      summary: "UK GFCF as % of GDP, consistently around 17-18%, below OECD average of ~21%."
+      unit: "% GDP"
+    byAsset:
+      title: "Investment by Asset Type"
+      summary: "Breakdown by dwellings, other buildings, transport, ICT, and intellectual property."
+      unit: "£bn"
+    international:
+      title: "International Comparison"
+      summary: "UK investment as % of GDP compared to OECD peers. UK near bottom of G7."
+      unit: "% GDP"
 
 immigration:
   title: "Immigration & Demographics"
@@ -378,3 +478,110 @@ taxation:
       title: "Income Taxpayers by Rate Band"
       summary: "34.5m income taxpayers in 2024-25. Higher and additional rate taxpayers rising due to threshold freeze."
       unit: "millions"
+housing-supply:
+  title: "Housebuilding"
+  geography: "England"
+  summary: "Net additional dwellings, new build completions by tenure (private, housing association, local authority), average new build floor area, and international size comparison."
+  tags: [housing, housebuilding, construction, dwellings, completions, new builds]
+  series:
+    netAdditions:
+      title: "Net Additional Dwellings"
+      summary: "Total annual increase in housing stock. 208,600 in 2024-25, below the 300,000/yr target. Peak was 243,770 in 2019-20."
+      unit: "dwellings"
+    completionsByTenure:
+      title: "New Build Completions by Tenure"
+      summary: "Completions split by private enterprise (80%+), housing associations, and local authorities (~3,000/yr)."
+      unit: "dwellings"
+    newBuildSize:
+      title: "Average New Build Floor Area"
+      summary: "Average internal floor area of new build homes. Declined from 83 sqm in 2003 to 76 sqm in 2023."
+      unit: "sqm"
+    sizeIntl:
+      title: "International New Build Size Comparison"
+      summary: "Average new build floor area by country. UK (76 sqm) among the smallest. Australia 229, US 201, Germany 109."
+      unit: "sqm"
+
+housing-stock:
+  title: "Housing Stock"
+  geography: "England"
+  summary: "Housing stock by period built, dwelling type breakdown, tenure split over time (owner-occupied, private rented, social rented), and EPC energy ratings by dwelling age."
+  tags: [housing, stock, tenure, EPC, energy performance, renting, ownership]
+  series:
+    stockByAge:
+      title: "Housing Stock by Period Built"
+      summary: "20% of English homes built before 1919. Post-war (1945-1980) makes up 37%."
+      unit: "%"
+    stockByType:
+      title: "Dwelling Type Breakdown"
+      summary: "Semi-detached (26%) and terraced (25%) dominate. Purpose-built flats at 17%."
+      unit: "%"
+    tenureTrend:
+      title: "Tenure Split Over Time"
+      summary: "Owner-occupation peaked at 71% in early 2000s, now 65%. Private renting rose from 10% (1990) to 19%."
+      unit: "%"
+    epcByAge:
+      title: "EPC Rating by Dwelling Age"
+      summary: "Only 2% of pre-1919 homes rated EPC A-B vs 55% of post-2002 homes. 45% of pre-1919 rated E or below."
+      unit: "%"
+
+housing-density:
+  title: "Housing Density & Geography"
+  geography: "United Kingdom"
+  summary: "Population density by UK city, international city density comparison, and average house prices by region."
+  tags: [housing, density, geography, regional, prices, cities, urban]
+  series:
+    ukCityDensity:
+      title: "UK City Population Density"
+      summary: "London at 5,598/km², other cities 1,500-4,700/km², England average 434/km²."
+      unit: "persons/km²"
+    intlCityDensity:
+      title: "International City Density"
+      summary: "Paris 20,700/km², Barcelona 15,800/km², London 5,598/km², Berlin 4,100/km²."
+      unit: "persons/km²"
+    regionalPrices:
+      title: "Average House Price by Region"
+      summary: "London £523k, South East £375k, North East £160k. Approximately 3:1 ratio London to cheapest region."
+      unit: "£"
+
+safety:
+  title: "Personal Safety & Crime"
+  geography: "England & Wales"
+  summary: "Violent crime, knife and firearms offences, homicides, sexual offences, domestic abuse, fraud, anti-social behaviour, crime outcomes, reoffending rates, fear of crime, and crime rates by police force area."
+  tags: [crime, safety, knife crime, homicide, violence, fraud, ASB, police, reoffending]
+  series:
+    violentCrime:
+      title: "Violence Against the Person"
+      summary: "Police recorded violent crime. 2,060k offences in 2023-24, up from 846k in 2002-03."
+      unit: "thousands"
+    knifeCrime:
+      title: "Knife / Sharp Instrument Offences"
+      summary: "47,870 offences in 2023-24. Peaked at 49,027 in 2022-23."
+      unit: "offences"
+    homicide:
+      title: "Homicides"
+      summary: "590 homicides in 2023-24, of which 229 involved a knife or sharp instrument."
+      unit: "count"
+    sexualOffences:
+      title: "Police Recorded Sexual Offences"
+      summary: "193k in 2023-24. Sharp rise from 2014-15 driven by recording practice changes."
+      unit: "thousands"
+    crimeOutcomes:
+      title: "Charge/Summons Rate"
+      summary: "Overall charge rate fell from 16.3% in 2014-15 to 5.5% in 2023-24."
+      unit: "%"
+    cityRates:
+      title: "Crime Rate by Police Force Area"
+      summary: "Cleveland highest (131 per 1,000), Surrey lowest (55). National average 92."
+      unit: "per 1,000"
+
+mental-health:
+  title: "Mental Health"
+  geography: "England"
+  summary: "NHS talking therapies referrals and recovery rates, children and young people mental health service access, Mental Health Act detentions, suicide rates, and psychiatric morbidity prevalence."
+  tags: [mental health, IAPT, talking therapies, suicide, CAMHS, detention, psychiatric]
+
+nhs-funding:
+  title: "NHS Funding"
+  geography: "England / United Kingdom"
+  summary: "NHS budget in real terms, spending per capita, international health expenditure comparison (OECD), spending by category (staff, capital, other), and capital spending trends including backlog maintenance."
+  tags: [NHS, funding, spending, health expenditure, OECD, capital, staff costs, budget]

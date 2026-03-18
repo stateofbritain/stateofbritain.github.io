@@ -81,7 +81,15 @@ const PILLARS = {
     color: P.navy,
     topics: {
       justice:     { label: "Justice & Policing",  icon: "⚖" },
-      defence:     { label: "Defence",             icon: "■" },
+      defence: {
+        label: "Defence",
+        icon: "■",
+        subtopics: {
+          spending:  { label: "Spending & Budget" },
+          personnel: { label: "Personnel" },
+          equipment: { label: "Equipment & Capability" },
+        },
+      },
       immigration: { label: "Immigration",         icon: "→" },
     },
   },
