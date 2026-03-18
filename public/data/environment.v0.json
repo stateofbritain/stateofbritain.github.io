@@ -1,0 +1,725 @@
+{
+  "meta": {
+    "sources": [
+      {
+        "name": "DESNZ Provisional GHG Emissions Statistics 2024",
+        "url": "https://www.gov.uk/government/statistics/provisional-uk-greenhouse-gas-emissions-national-statistics-2024"
+      },
+      {
+        "name": "DEFRA Air Quality Statistics — PM2.5",
+        "url": "https://www.gov.uk/government/statistics/air-quality-statistics"
+      },
+      {
+        "name": "DEFRA Air Quality Statistics — NO2",
+        "url": "https://www.gov.uk/government/statistics/air-quality-statistics"
+      },
+      {
+        "name": "DfT Vehicle Licensing Statistics — VEH0171",
+        "url": "https://www.gov.uk/government/statistical-data-sets/vehicle-licensing-statistics-data-tables"
+      }
+    ],
+    "generated": "2026-03-05"
+  },
+  "ghgEmissions": [
+    {
+      "year": 1990,
+      "electricity": 204,
+      "fuel": 77.2,
+      "transport": 129.3,
+      "buildings": 109.8,
+      "industry": 155.2,
+      "agriculture": 54.4,
+      "waste": 70.3,
+      "lulucf": 10.6,
+      "total": 810.7
+    },
+    {
+      "year": 1991,
+      "electricity": 200.6,
+      "fuel": 78.1,
+      "transport": 127.3,
+      "buildings": 121.5,
+      "industry": 156.3,
+      "agriculture": 54.2,
+      "waste": 71.2,
+      "lulucf": 10.1,
+      "total": 819.2
+    },
+    {
+      "year": 1992,
+      "electricity": 188.5,
+      "fuel": 79.2,
+      "transport": 128.6,
+      "buildings": 118.1,
+      "industry": 149.1,
+      "agriculture": 53.9,
+      "waste": 71.3,
+      "lulucf": 9.3,
+      "total": 798
+    },
+    {
+      "year": 1993,
+      "electricity": 171,
+      "fuel": 78.9,
+      "transport": 130,
+      "buildings": 121.9,
+      "industry": 143,
+      "agriculture": 53,
+      "waste": 72,
+      "lulucf": 8.7,
+      "total": 778.4
+    },
+    {
+      "year": 1994,
+      "electricity": 166.7,
+      "fuel": 71.4,
+      "transport": 131.3,
+      "buildings": 117,
+      "industry": 144.9,
+      "agriculture": 53.7,
+      "waste": 72.5,
+      "lulucf": 8.3,
+      "total": 765.8
+    },
+    {
+      "year": 1995,
+      "electricity": 163.6,
+      "fuel": 74.8,
+      "transport": 130.8,
+      "buildings": 112.8,
+      "industry": 142,
+      "agriculture": 53.7,
+      "waste": 73.2,
+      "lulucf": 8.3,
+      "total": 759.2
+    },
+    {
+      "year": 1996,
+      "electricity": 163.2,
+      "fuel": 74.6,
+      "transport": 135.1,
+      "buildings": 126.2,
+      "industry": 143.7,
+      "agriculture": 55,
+      "waste": 73.8,
+      "lulucf": 7.3,
+      "total": 779.1
+    },
+    {
+      "year": 1997,
+      "electricity": 150.7,
+      "fuel": 72.7,
+      "transport": 135.6,
+      "buildings": 117.1,
+      "industry": 143.5,
+      "agriculture": 54.6,
+      "waste": 73.4,
+      "lulucf": 6.7,
+      "total": 754.3
+    },
+    {
+      "year": 1998,
+      "electricity": 155.6,
+      "fuel": 71,
+      "transport": 134.6,
+      "buildings": 118.8,
+      "industry": 139.1,
+      "agriculture": 54.3,
+      "waste": 73,
+      "lulucf": 6,
+      "total": 752.4
+    },
+    {
+      "year": 1999,
+      "electricity": 147.6,
+      "fuel": 65.3,
+      "transport": 136.2,
+      "buildings": 120.5,
+      "industry": 123.6,
+      "agriculture": 54.5,
+      "waste": 70.5,
+      "lulucf": 6.1,
+      "total": 724.3
+    },
+    {
+      "year": 2000,
+      "electricity": 159,
+      "fuel": 63.3,
+      "transport": 134.2,
+      "buildings": 120.6,
+      "industry": 121.1,
+      "agriculture": 52.6,
+      "waste": 67.7,
+      "lulucf": 5.8,
+      "total": 724.3
+    },
+    {
+      "year": 2001,
+      "electricity": 169.9,
+      "fuel": 62.8,
+      "transport": 134.2,
+      "buildings": 124.2,
+      "industry": 114.7,
+      "agriculture": 50.4,
+      "waste": 65.4,
+      "lulucf": 5.2,
+      "total": 726.8
+    },
+    {
+      "year": 2002,
+      "electricity": 165.5,
+      "fuel": 63.3,
+      "transport": 137.2,
+      "buildings": 116.7,
+      "industry": 103.6,
+      "agriculture": 50.1,
+      "waste": 64.9,
+      "lulucf": 4.3,
+      "total": 705.6
+    },
+    {
+      "year": 2003,
+      "electricity": 174.5,
+      "fuel": 59.8,
+      "transport": 136.4,
+      "buildings": 118.3,
+      "industry": 106.5,
+      "agriculture": 50.5,
+      "waste": 61.5,
+      "lulucf": 4.2,
+      "total": 711.6
+    },
+    {
+      "year": 2004,
+      "electricity": 174.1,
+      "fuel": 58.2,
+      "transport": 137.6,
+      "buildings": 121.1,
+      "industry": 105.1,
+      "agriculture": 51.3,
+      "waste": 56.8,
+      "lulucf": 3.3,
+      "total": 707.6
+    },
+    {
+      "year": 2005,
+      "electricity": 173.4,
+      "fuel": 57.6,
+      "transport": 138.1,
+      "buildings": 117.4,
+      "industry": 103.8,
+      "agriculture": 51.4,
+      "waste": 54.6,
+      "lulucf": 3,
+      "total": 699.3
+    },
+    {
+      "year": 2006,
+      "electricity": 182.3,
+      "fuel": 52.7,
+      "transport": 138.2,
+      "buildings": 113.1,
+      "industry": 101,
+      "agriculture": 50.4,
+      "waste": 52.6,
+      "lulucf": 2.5,
+      "total": 692.8
+    },
+    {
+      "year": 2007,
+      "electricity": 178,
+      "fuel": 51.3,
+      "transport": 139.3,
+      "buildings": 108.4,
+      "industry": 101.5,
+      "agriculture": 50,
+      "waste": 49,
+      "lulucf": 1.9,
+      "total": 679.4
+    },
+    {
+      "year": 2008,
+      "electricity": 172.9,
+      "fuel": 49.7,
+      "transport": 134.2,
+      "buildings": 113.3,
+      "industry": 92.8,
+      "agriculture": 49.7,
+      "waste": 44.1,
+      "lulucf": 1.2,
+      "total": 658
+    },
+    {
+      "year": 2009,
+      "electricity": 151.2,
+      "fuel": 48.3,
+      "transport": 129.6,
+      "buildings": 106.9,
+      "industry": 74.9,
+      "agriculture": 49.2,
+      "waste": 40.1,
+      "lulucf": 1.1,
+      "total": 601.3
+    },
+    {
+      "year": 2010,
+      "electricity": 157.4,
+      "fuel": 48.8,
+      "transport": 128,
+      "buildings": 117.9,
+      "industry": 78.2,
+      "agriculture": 49.6,
+      "waste": 34.8,
+      "lulucf": 1.1,
+      "total": 615.8
+    },
+    {
+      "year": 2011,
+      "electricity": 144.7,
+      "fuel": 46.8,
+      "transport": 125.4,
+      "buildings": 97.8,
+      "industry": 74.1,
+      "agriculture": 48.8,
+      "waste": 32.5,
+      "lulucf": 0.4,
+      "total": 570.6
+    },
+    {
+      "year": 2012,
+      "electricity": 158.7,
+      "fuel": 43.1,
+      "transport": 124.7,
+      "buildings": 107.6,
+      "industry": 72.3,
+      "agriculture": 49.3,
+      "waste": 30.8,
+      "lulucf": 0.5,
+      "total": 587
+    },
+    {
+      "year": 2013,
+      "electricity": 147.7,
+      "fuel": 41,
+      "transport": 123,
+      "buildings": 108.8,
+      "industry": 76.6,
+      "agriculture": 49.1,
+      "waste": 27.4,
+      "lulucf": 0.4,
+      "total": 573.9
+    },
+    {
+      "year": 2014,
+      "electricity": 124.5,
+      "fuel": 39.3,
+      "transport": 124.8,
+      "buildings": 93.4,
+      "industry": 74.3,
+      "agriculture": 49.4,
+      "waste": 24.9,
+      "lulucf": 0.1,
+      "total": 530.7
+    },
+    {
+      "year": 2015,
+      "electricity": 104.3,
+      "fuel": 39.7,
+      "transport": 125.3,
+      "buildings": 95.6,
+      "industry": 70.6,
+      "agriculture": 50.6,
+      "waste": 24.1,
+      "lulucf": -0.1,
+      "total": 510.2
+    },
+    {
+      "year": 2016,
+      "electricity": 82.3,
+      "fuel": 38.6,
+      "transport": 128.8,
+      "buildings": 96.3,
+      "industry": 64.3,
+      "agriculture": 50,
+      "waste": 22.9,
+      "lulucf": 0.3,
+      "total": 483.5
+    },
+    {
+      "year": 2017,
+      "electricity": 72.2,
+      "fuel": 38,
+      "transport": 129.5,
+      "buildings": 93.8,
+      "industry": 64.5,
+      "agriculture": 49.9,
+      "waste": 23.3,
+      "lulucf": 0,
+      "total": 471.3
+    },
+    {
+      "year": 2018,
+      "electricity": 65.9,
+      "fuel": 37.3,
+      "transport": 128.1,
+      "buildings": 97.9,
+      "industry": 63.2,
+      "agriculture": 48.1,
+      "waste": 23.1,
+      "lulucf": 0.7,
+      "total": 464.3
+    },
+    {
+      "year": 2019,
+      "electricity": 57.9,
+      "fuel": 37.3,
+      "transport": 124.7,
+      "buildings": 94.1,
+      "industry": 61.7,
+      "agriculture": 48.6,
+      "waste": 22.6,
+      "lulucf": 0.6,
+      "total": 447.5
+    },
+    {
+      "year": 2020,
+      "electricity": 49.5,
+      "fuel": 33.9,
+      "transport": 103.5,
+      "buildings": 93.7,
+      "industry": 58.4,
+      "agriculture": 47.4,
+      "waste": 21.1,
+      "lulucf": 0.4,
+      "total": 408
+    },
+    {
+      "year": 2021,
+      "electricity": 54.8,
+      "fuel": 31.2,
+      "transport": 111.9,
+      "buildings": 98.2,
+      "industry": 57.9,
+      "agriculture": 48.1,
+      "waste": 20.1,
+      "lulucf": 0.2,
+      "total": 422.5
+    },
+    {
+      "year": 2022,
+      "electricity": 55,
+      "fuel": 31.3,
+      "transport": 113.1,
+      "buildings": 83.5,
+      "industry": 54.4,
+      "agriculture": 46.9,
+      "waste": 20,
+      "lulucf": 0.5,
+      "total": 404.7
+    },
+    {
+      "year": 2023,
+      "electricity": 43.9,
+      "fuel": 30.1,
+      "transport": 111.8,
+      "buildings": 78.5,
+      "industry": 53.1,
+      "agriculture": 46.6,
+      "waste": 19.9,
+      "lulucf": 1.1,
+      "total": 385
+    },
+    {
+      "year": 2024,
+      "electricity": 37.5,
+      "fuel": 28.4,
+      "transport": 110.1,
+      "buildings": 79.8,
+      "industry": 48.3,
+      "agriculture": 46.4,
+      "waste": 19.5,
+      "lulucf": 1.4,
+      "total": 371.4
+    }
+  ],
+  "pm25": [
+    {
+      "year": 2009,
+      "mean": 12.39
+    },
+    {
+      "year": 2010,
+      "mean": 12.97
+    },
+    {
+      "year": 2011,
+      "mean": 13.7
+    },
+    {
+      "year": 2012,
+      "mean": 12.56
+    },
+    {
+      "year": 2013,
+      "mean": 12.09
+    },
+    {
+      "year": 2014,
+      "mean": 12.08
+    },
+    {
+      "year": 2015,
+      "mean": 9.77
+    },
+    {
+      "year": 2016,
+      "mean": 9.79
+    },
+    {
+      "year": 2017,
+      "mean": 9.41
+    },
+    {
+      "year": 2018,
+      "mean": 9.93
+    },
+    {
+      "year": 2019,
+      "mean": 9.88
+    },
+    {
+      "year": 2020,
+      "mean": 7.88
+    },
+    {
+      "year": 2021,
+      "mean": 7.92
+    },
+    {
+      "year": 2022,
+      "mean": 8.25
+    },
+    {
+      "year": 2023,
+      "mean": 7.23
+    },
+    {
+      "year": 2024,
+      "mean": 7.15
+    }
+  ],
+  "no2": [
+    {
+      "year": 1990,
+      "mean": 53.8
+    },
+    {
+      "year": 1991,
+      "mean": 58.69
+    },
+    {
+      "year": 1992,
+      "mean": 59.75
+    },
+    {
+      "year": 1993,
+      "mean": 52.2
+    },
+    {
+      "year": 1994,
+      "mean": 49.04
+    },
+    {
+      "year": 1995,
+      "mean": 48.03
+    },
+    {
+      "year": 1996,
+      "mean": 47.38
+    },
+    {
+      "year": 1997,
+      "mean": 46.04
+    },
+    {
+      "year": 1998,
+      "mean": 40.67
+    },
+    {
+      "year": 1999,
+      "mean": 39.7
+    },
+    {
+      "year": 2000,
+      "mean": 35.87
+    },
+    {
+      "year": 2001,
+      "mean": 35.67
+    },
+    {
+      "year": 2002,
+      "mean": 32.71
+    },
+    {
+      "year": 2003,
+      "mean": 35.09
+    },
+    {
+      "year": 2004,
+      "mean": 32.24
+    },
+    {
+      "year": 2005,
+      "mean": 32.22
+    },
+    {
+      "year": 2006,
+      "mean": 31.67
+    },
+    {
+      "year": 2007,
+      "mean": 28.23
+    },
+    {
+      "year": 2008,
+      "mean": 28.04
+    },
+    {
+      "year": 2009,
+      "mean": 28.88
+    },
+    {
+      "year": 2010,
+      "mean": 31.09
+    },
+    {
+      "year": 2011,
+      "mean": 26.72
+    },
+    {
+      "year": 2012,
+      "mean": 26.58
+    },
+    {
+      "year": 2013,
+      "mean": 25.28
+    },
+    {
+      "year": 2014,
+      "mean": 24.8
+    },
+    {
+      "year": 2015,
+      "mean": 22.89
+    },
+    {
+      "year": 2016,
+      "mean": 23.32
+    },
+    {
+      "year": 2017,
+      "mean": 21.74
+    },
+    {
+      "year": 2018,
+      "mean": 20
+    },
+    {
+      "year": 2019,
+      "mean": 19.56
+    },
+    {
+      "year": 2020,
+      "mean": 15.07
+    },
+    {
+      "year": 2021,
+      "mean": 15.87
+    },
+    {
+      "year": 2022,
+      "mean": 15.65
+    },
+    {
+      "year": 2023,
+      "mean": 14.26
+    },
+    {
+      "year": 2024,
+      "mean": 13.13
+    }
+  ],
+  "ulevRegistrations": [
+    {
+      "year": 2015,
+      "bev": 11399,
+      "phev": 16769,
+      "other": 1978,
+      "total": 30146
+    },
+    {
+      "year": 2016,
+      "bev": 11986,
+      "phev": 24878,
+      "other": 5115,
+      "total": 41979
+    },
+    {
+      "year": 2017,
+      "bev": 15631,
+      "phev": 31396,
+      "other": 6227,
+      "total": 53254
+    },
+    {
+      "year": 2018,
+      "bev": 18059,
+      "phev": 41677,
+      "other": 4220,
+      "total": 63956
+    },
+    {
+      "year": 2019,
+      "bev": 43339,
+      "phev": 34831,
+      "other": 2477,
+      "total": 80647
+    },
+    {
+      "year": 2020,
+      "bev": 116359,
+      "phev": 63436,
+      "other": 1345,
+      "total": 181140
+    },
+    {
+      "year": 2021,
+      "bev": 210065,
+      "phev": 108803,
+      "other": 2432,
+      "total": 321300
+    },
+    {
+      "year": 2022,
+      "bev": 292318,
+      "phev": 96415,
+      "other": 2494,
+      "total": 391227
+    },
+    {
+      "year": 2023,
+      "bev": 341558,
+      "phev": 138899,
+      "other": 2301,
+      "total": 482758
+    },
+    {
+      "year": 2024,
+      "bev": 410138,
+      "phev": 166974,
+      "other": 1646,
+      "total": 578758
+    }
+  ]
+}

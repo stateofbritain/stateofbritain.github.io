@@ -1,0 +1,536 @@
+{
+  "meta": {
+    "sources": [
+      {
+        "name": "NHS Digital HCHS Workforce Statistics, December 2025",
+        "url": "https://digital.nhs.uk/data-and-information/publications/statistical/nhs-workforce-statistics",
+        "table": "1 (staff by group, FTE, monthly time series)",
+        "published": "26 February 2026",
+        "note": "Clinical = Professionally qualified + Support to clinical staff. Non-clinical = NHS infrastructure support."
+      },
+      {
+        "name": "DfE School Workforce Census 2024/25",
+        "url": "https://explore-education-statistics.service.gov.uk/find-statistics/school-workforce-in-england",
+        "published": "2025",
+        "note": "Frontline = teachers + teaching assistants. Back office = admin, technicians, auxiliary, leadership non-teachers."
+      },
+      {
+        "name": "Home Office Police Workforce Open Data, March 2025",
+        "url": "https://www.gov.uk/government/statistics/police-workforce-open-data-tables",
+        "published": "28 January 2026",
+        "note": "Frontline = police officers + PCSOs. Back office = police staff + designated officers."
+      },
+      {
+        "name": "HESA Staff Statistics (SB265 and earlier bulletins)",
+        "url": "https://www.hesa.ac.uk/data-and-analysis/staff",
+        "note": "Academic = teaching-only + research-only + teaching & research. Professional = all non-academic staff. Curated from published summaries (data behind paywall)."
+      }
+    ],
+    "generated": "2026-03-06"
+  },
+  "nhs": [
+    {
+      "year": 2009,
+      "total": 1010144,
+      "frontline": 818442,
+      "backOffice": 187941,
+      "frontlinePct": 81
+    },
+    {
+      "year": 2010,
+      "total": 1010196,
+      "frontline": 824000,
+      "backOffice": 182858,
+      "frontlinePct": 81.6
+    },
+    {
+      "year": 2011,
+      "total": 990593,
+      "frontline": 814108,
+      "backOffice": 173192,
+      "frontlinePct": 82.2
+    },
+    {
+      "year": 2012,
+      "total": 979204,
+      "frontline": 808005,
+      "backOffice": 167879,
+      "frontlinePct": 82.5
+    },
+    {
+      "year": 2013,
+      "total": 979728,
+      "frontline": 823033,
+      "backOffice": 153419,
+      "frontlinePct": 84
+    },
+    {
+      "year": 2014,
+      "total": 999079,
+      "frontline": 840412,
+      "backOffice": 155151,
+      "frontlinePct": 84.1
+    },
+    {
+      "year": 2015,
+      "total": 1019677,
+      "frontline": 856854,
+      "backOffice": 158871,
+      "frontlinePct": 84
+    },
+    {
+      "year": 2016,
+      "total": 1039065,
+      "frontline": 872477,
+      "backOffice": 162439,
+      "frontlinePct": 84
+    },
+    {
+      "year": 2017,
+      "total": 1057900,
+      "frontline": 887391,
+      "backOffice": 166162,
+      "frontlinePct": 83.9
+    },
+    {
+      "year": 2018,
+      "total": 1082978,
+      "frontline": 904578,
+      "backOffice": 173860,
+      "frontlinePct": 83.5
+    },
+    {
+      "year": 2019,
+      "total": 1121677,
+      "frontline": 938922,
+      "backOffice": 180540,
+      "frontlinePct": 83.7
+    },
+    {
+      "year": 2020,
+      "total": 1170771,
+      "frontline": 982716,
+      "backOffice": 187267,
+      "frontlinePct": 83.9
+    },
+    {
+      "year": 2021,
+      "total": 1212478,
+      "frontline": 1015249,
+      "backOffice": 196730,
+      "frontlinePct": 83.7
+    },
+    {
+      "year": 2022,
+      "total": 1256841,
+      "frontline": 1049794,
+      "backOffice": 206528,
+      "frontlinePct": 83.5
+    },
+    {
+      "year": 2023,
+      "total": 1328644,
+      "frontline": 1110441,
+      "backOffice": 217666,
+      "frontlinePct": 83.6
+    },
+    {
+      "year": 2024,
+      "total": 1368034,
+      "frontline": 1147624,
+      "backOffice": 220072,
+      "frontlinePct": 83.9
+    },
+    {
+      "year": 2025,
+      "total": 1377448,
+      "frontline": 1160932,
+      "backOffice": 216273,
+      "frontlinePct": 84.3
+    }
+  ],
+  "education": [
+    {
+      "year": 2012,
+      "total": 882532,
+      "teachers": 439242,
+      "teachingAssistants": 221481,
+      "frontline": 660723,
+      "backOffice": 221810,
+      "frontlinePct": 74.9
+    },
+    {
+      "year": 2013,
+      "total": 908260,
+      "teachers": 445220,
+      "teachingAssistants": 234419,
+      "frontline": 679639,
+      "backOffice": 228621,
+      "frontlinePct": 74.8
+    },
+    {
+      "year": 2014,
+      "total": 928216,
+      "teachers": 449629,
+      "teachingAssistants": 246370,
+      "frontline": 695999,
+      "backOffice": 232217,
+      "frontlinePct": 75
+    },
+    {
+      "year": 2015,
+      "total": 949760,
+      "teachers": 455407,
+      "teachingAssistants": 257183,
+      "frontline": 712590,
+      "backOffice": 237170,
+      "frontlinePct": 75
+    },
+    {
+      "year": 2016,
+      "total": 964046,
+      "teachers": 456974,
+      "teachingAssistants": 264456,
+      "frontline": 721431,
+      "backOffice": 242615,
+      "frontlinePct": 74.8
+    },
+    {
+      "year": 2017,
+      "total": 961754,
+      "teachers": 457384,
+      "teachingAssistants": 266754,
+      "frontline": 724137,
+      "backOffice": 237617,
+      "frontlinePct": 75.3
+    },
+    {
+      "year": 2018,
+      "total": 950749,
+      "teachers": 451963,
+      "teachingAssistants": 264162,
+      "frontline": 716126,
+      "backOffice": 234624,
+      "frontlinePct": 75.3
+    },
+    {
+      "year": 2019,
+      "total": 951218,
+      "teachers": 453408,
+      "teachingAssistants": 265257,
+      "frontline": 718664,
+      "backOffice": 232553,
+      "frontlinePct": 75.6
+    },
+    {
+      "year": 2020,
+      "total": 949437,
+      "teachers": 453822,
+      "teachingAssistants": 265574,
+      "frontline": 719396,
+      "backOffice": 230041,
+      "frontlinePct": 75.8
+    },
+    {
+      "year": 2021,
+      "total": 962721,
+      "teachers": 461105,
+      "teachingAssistants": 271370,
+      "frontline": 732475,
+      "backOffice": 230247,
+      "frontlinePct": 76.1
+    },
+    {
+      "year": 2022,
+      "total": 968297,
+      "teachers": 465591,
+      "teachingAssistants": 275828,
+      "frontline": 741419,
+      "backOffice": 226877,
+      "frontlinePct": 76.6
+    },
+    {
+      "year": 2023,
+      "total": 974058,
+      "teachers": 468435,
+      "teachingAssistants": 281109,
+      "frontline": 749544,
+      "backOffice": 224514,
+      "frontlinePct": 77
+    },
+    {
+      "year": 2024,
+      "total": 979072,
+      "teachers": 468690,
+      "teachingAssistants": 282924,
+      "frontline": 751614,
+      "backOffice": 227458,
+      "frontlinePct": 76.8
+    },
+    {
+      "year": 2025,
+      "total": 985754,
+      "teachers": 468258,
+      "teachingAssistants": 288812,
+      "frontline": 757070,
+      "backOffice": 228684,
+      "frontlinePct": 76.8
+    }
+  ],
+  "police": [
+    {
+      "year": 2007,
+      "total": 236150,
+      "officers": 144448,
+      "pcso": 13783,
+      "frontline": 158231,
+      "backOffice": 77919,
+      "frontlinePct": 67
+    },
+    {
+      "year": 2008,
+      "total": 239950,
+      "officers": 143736,
+      "pcso": 16063,
+      "frontline": 159798,
+      "backOffice": 80151,
+      "frontlinePct": 66.6
+    },
+    {
+      "year": 2009,
+      "total": 246940,
+      "officers": 146406,
+      "pcso": 16843,
+      "frontline": 163249,
+      "backOffice": 83691,
+      "frontlinePct": 66.1
+    },
+    {
+      "year": 2010,
+      "total": 248397,
+      "officers": 146411,
+      "pcso": 17253,
+      "frontline": 163664,
+      "backOffice": 84733,
+      "frontlinePct": 65.9
+    },
+    {
+      "year": 2011,
+      "total": 237250,
+      "officers": 141741,
+      "pcso": 16115,
+      "frontline": 157856,
+      "backOffice": 79394,
+      "frontlinePct": 66.5
+    },
+    {
+      "year": 2012,
+      "total": 224272,
+      "officers": 136657,
+      "pcso": 14715,
+      "frontline": 151372,
+      "backOffice": 72900,
+      "frontlinePct": 67.5
+    },
+    {
+      "year": 2013,
+      "total": 218052,
+      "officers": 132236,
+      "pcso": 14579,
+      "frontline": 146814,
+      "backOffice": 71238,
+      "frontlinePct": 67.3
+    },
+    {
+      "year": 2014,
+      "total": 214024,
+      "officers": 130821,
+      "pcso": 13408,
+      "frontline": 144229,
+      "backOffice": 69795,
+      "frontlinePct": 67.4
+    },
+    {
+      "year": 2015,
+      "total": 212380,
+      "officers": 130070,
+      "pcso": 12689,
+      "frontline": 142759,
+      "backOffice": 69622,
+      "frontlinePct": 67.2
+    },
+    {
+      "year": 2016,
+      "total": 205860,
+      "officers": 127034,
+      "pcso": 11401,
+      "frontline": 138435,
+      "backOffice": 67425,
+      "frontlinePct": 67.2
+    },
+    {
+      "year": 2017,
+      "total": 203135,
+      "officers": 125820,
+      "pcso": 10514,
+      "frontline": 136334,
+      "backOffice": 66801,
+      "frontlinePct": 67.1
+    },
+    {
+      "year": 2018,
+      "total": 204330,
+      "officers": 125270,
+      "pcso": 10406,
+      "frontline": 135676,
+      "backOffice": 68653,
+      "frontlinePct": 66.4
+    },
+    {
+      "year": 2019,
+      "total": 206584,
+      "officers": 126033,
+      "pcso": 9846,
+      "frontline": 135879,
+      "backOffice": 70705,
+      "frontlinePct": 65.8
+    },
+    {
+      "year": 2020,
+      "total": 215207,
+      "officers": 132074,
+      "pcso": 9435,
+      "frontline": 141509,
+      "backOffice": 73698,
+      "frontlinePct": 65.8
+    },
+    {
+      "year": 2021,
+      "total": 225024,
+      "officers": 138203,
+      "pcso": 9514,
+      "frontline": 147717,
+      "backOffice": 77307,
+      "frontlinePct": 65.6
+    },
+    {
+      "year": 2022,
+      "total": 229785,
+      "officers": 143188,
+      "pcso": 8981,
+      "frontline": 152169,
+      "backOffice": 77615,
+      "frontlinePct": 66.2
+    },
+    {
+      "year": 2023,
+      "total": 238469,
+      "officers": 150407,
+      "pcso": 7999,
+      "frontline": 158405,
+      "backOffice": 80063,
+      "frontlinePct": 66.4
+    },
+    {
+      "year": 2024,
+      "total": 240894,
+      "officers": 150655,
+      "pcso": 7764,
+      "frontline": 158419,
+      "backOffice": 82475,
+      "frontlinePct": 65.8
+    },
+    {
+      "year": 2025,
+      "total": 240419,
+      "officers": 149294,
+      "pcso": 7503,
+      "frontline": 156797,
+      "backOffice": 83622,
+      "frontlinePct": 65.2
+    }
+  ],
+  "universities": [
+    {
+      "year": 2015,
+      "academic": 198970,
+      "professional": 209150,
+      "total": 408120,
+      "frontline": 198970,
+      "backOffice": 209150,
+      "frontlinePct": 48.8
+    },
+    {
+      "year": 2016,
+      "academic": 201380,
+      "professional": 213215,
+      "total": 414595,
+      "frontline": 201380,
+      "backOffice": 213215,
+      "frontlinePct": 48.6
+    },
+    {
+      "year": 2017,
+      "academic": 210175,
+      "professional": 218020,
+      "total": 428195,
+      "frontline": 210175,
+      "backOffice": 218020,
+      "frontlinePct": 49.1
+    },
+    {
+      "year": 2018,
+      "academic": 212815,
+      "professional": 222670,
+      "total": 435485,
+      "frontline": 212815,
+      "backOffice": 222670,
+      "frontlinePct": 48.9
+    },
+    {
+      "year": 2019,
+      "academic": 217065,
+      "professional": 227535,
+      "total": 444600,
+      "frontline": 217065,
+      "backOffice": 227535,
+      "frontlinePct": 48.8
+    },
+    {
+      "year": 2020,
+      "academic": 222835,
+      "professional": 230470,
+      "total": 453305,
+      "frontline": 222835,
+      "backOffice": 230470,
+      "frontlinePct": 49.2
+    },
+    {
+      "year": 2021,
+      "academic": 225570,
+      "professional": 229660,
+      "total": 455230,
+      "frontline": 225570,
+      "backOffice": 229660,
+      "frontlinePct": 49.6
+    },
+    {
+      "year": 2022,
+      "academic": 229980,
+      "professional": 235005,
+      "total": 464985,
+      "frontline": 229980,
+      "backOffice": 235005,
+      "frontlinePct": 49.5
+    },
+    {
+      "year": 2023,
+      "academic": 231500,
+      "professional": 240485,
+      "total": 471985,
+      "frontline": 231500,
+      "backOffice": 240485,
+      "frontlinePct": 49
+    }
+  ]
+}
