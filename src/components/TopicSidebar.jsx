@@ -168,7 +168,7 @@ export default function TopicSidebar({ pillar, topics, activeTopic, activeSubtop
                     fontWeight: 500,
                     color: isGroupActive ? P.text : P.textMuted,
                     fontFamily: "'DM Mono', monospace",
-                    textTransform: "uppercase",
+                    textTransform: isGroupActive ? "uppercase" : "none",
                     letterSpacing: "0.04em",
                   }}
                 >

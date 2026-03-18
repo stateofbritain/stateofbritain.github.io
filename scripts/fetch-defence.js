@@ -88,14 +88,56 @@ const intlComparison = [
 
 // ── Equipment spending plan (£bn, MoD Equipment Plan 2024) ──────────
 const equipmentPlan = [
-  { category: "Submarines & nuclear", value: 17.2 },
-  { category: "Combat air", value: 12.5 },
-  { category: "Ships", value: 8.3 },
-  { category: "Land equipment", value: 6.1 },
-  { category: "Weapons", value: 5.4 },
-  { category: "ISTAR & networks", value: 4.8 },
-  { category: "Helicopters", value: 3.2 },
-  { category: "Air support", value: 2.9 },
+  { category: "Submarines & nuclear", value: 17.2, programmes: [
+    { name: "Dreadnought SSBN", value: 8.2 },
+    { name: "Astute SSN", value: 4.1 },
+    { name: "Nuclear warhead", value: 3.0 },
+    { name: "AUKUS SSN", value: 1.2 },
+    { name: "Other nuclear", value: 0.7 },
+  ]},
+  { category: "Combat air", value: 12.5, programmes: [
+    { name: "F-35B Lightning", value: 5.8 },
+    { name: "GCAP / Tempest", value: 3.5 },
+    { name: "Typhoon sustainment", value: 2.4 },
+    { name: "Other combat air", value: 0.8 },
+  ]},
+  { category: "Ships", value: 8.3, programmes: [
+    { name: "Type 26 Frigate", value: 3.8 },
+    { name: "Type 31 Frigate", value: 1.6 },
+    { name: "Fleet Solid Support", value: 1.3 },
+    { name: "Type 83 Destroyer", value: 0.9 },
+    { name: "Other ships", value: 0.7 },
+  ]},
+  { category: "Land equipment", value: 6.1, programmes: [
+    { name: "Boxer MRAV", value: 2.8 },
+    { name: "Ajax AFV", value: 1.5 },
+    { name: "Challenger 3", value: 0.9 },
+    { name: "Other land", value: 0.9 },
+  ]},
+  { category: "Weapons", value: 5.4, programmes: [
+    { name: "Complex weapons", value: 3.2 },
+    { name: "Munitions", value: 1.4 },
+    { name: "Other weapons", value: 0.8 },
+  ]},
+  { category: "ISTAR & networks", value: 4.8, programmes: [
+    { name: "Skynet 6", value: 1.6 },
+    { name: "ISTAR platforms", value: 1.4 },
+    { name: "Networks & C2", value: 1.8 },
+  ]},
+  { category: "Helicopters", value: 3.2, programmes: [
+    { name: "Apache AH-64E", value: 1.3 },
+    { name: "Chinook", value: 0.8 },
+    { name: "New Medium Helicopter", value: 0.6 },
+    { name: "Other rotary", value: 0.5 },
+  ]},
+  { category: "Air support", value: 2.9, programmes: [
+    { name: "A400M Atlas", value: 1.0 },
+    { name: "Wedgetail AEW", value: 0.8 },
+    { name: "Poseidon MRA1", value: 0.6 },
+    { name: "Other air support", value: 0.5 },
+  ]},
+  { category: "Support & infrastructure", value: 12.8 },
+  { category: "IT & communications", value: 8.4 },
 ];
 
 // ══════════════════════════════════════════════════════════════════════
@@ -283,14 +325,78 @@ const equipmentPlanAffordability = [
 // Source: NAO Major Projects Reports, MoD Annual Reports, HoC Library briefings
 // originalCost / currentCost in £bn; originalISD / currentISD = in-service dates
 const majorProgrammes = [
-  { programme: "Ajax",       originalCost: 3.5, currentCost: 6.2, costGrowth: 77,  originalISD: "2017", currentISD: "Paused",    status: "Under review" },
-  { programme: "Type 26",    originalCost: 3.7, currentCost: 7.9, costGrowth: 114, originalISD: "2026", currentISD: "2028",       status: "Building" },
-  { programme: "Type 31",    originalCost: 1.25,currentCost: 1.6, costGrowth: 28,  originalISD: "2027", currentISD: "Late 2020s", status: "Building" },
-  { programme: "Dreadnought",originalCost: 31.0,currentCost: 34.4,costGrowth: 11,  originalISD: "2030", currentISD: "Early 2030s",status: "Building" },
-  { programme: "F-35B",      originalCost: 9.1, currentCost: 11.0,costGrowth: 21,  originalISD: "2018", currentISD: "2018 (IOC)", status: "Delivering" },
-  { programme: "GCAP",       originalCost: 12.0,currentCost: 12.0,costGrowth: 0,   originalISD: "2035", currentISD: "2035",       status: "Assessment" },
-  { programme: "Boxer",      originalCost: 2.8, currentCost: 5.0, costGrowth: 79,  originalISD: "2023", currentISD: "Late 2025",  status: "Delivering" },
-  { programme: "Apache AH-64E",originalCost: 2.3,currentCost: 2.6,costGrowth: 13,  originalISD: "2022", currentISD: "2025 (complete)", status: "Complete" },
+  {
+    programme: "Ajax (Armoured Vehicle)",
+    quantity: "589 vehicles ordered (6 variants)",
+    originalCost: 3.5, currentCost: 6.2, costGrowth: 77,
+    originalISD: "2017", currentISD: "Paused", status: "Under review",
+    description: "A family of tracked armoured vehicles intended to replace the CVR(T) fleet in the reconnaissance role. The programme has been subject to prolonged delays related to noise and vibration issues identified during trials.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/d/dd/AJAX%2C_the_Future_Armoured_Fighting_Vehicle_for_the_British_Army_MOD_45159441.jpg",
+    imageCredit: "MOD/Crown Copyright, OGL v1.0",
+  },
+  {
+    programme: "Type 26 Frigate",
+    quantity: "8 ships",
+    originalCost: 3.7, currentCost: 7.9, costGrowth: 114,
+    originalISD: "2026", currentISD: "2028", status: "Building",
+    description: "Anti-submarine warfare frigate designed to replace the Type 23 class. Lead ship HMS Glasgow is under construction at BAE Systems Govan on the Clyde.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/a/af/HMS_Glasgow_under_construction_in_Govan.jpg",
+    imageCredit: "MOD/Crown Copyright, OGL v1.0",
+  },
+  {
+    programme: "Type 31 Frigate",
+    quantity: "5 ships",
+    originalCost: 1.25, currentCost: 1.6, costGrowth: 28,
+    originalISD: "2027", currentISD: "Late 2020s", status: "Building",
+    description: "General-purpose frigate based on the Babcock Arrowhead 140 design. Built at Rosyth. Intended for constabulary and defence engagement tasks rather than high-intensity combat.",
+    image: "https://www.royalnavy.mod.uk/-/media/news-images/2019/september/12/190912---type-31-e/arrowhead-140-exterior-camouflage-above-aerial_181001.jpg",
+    imageCredit: "Royal Navy/Crown Copyright, OGL",
+  },
+  {
+    programme: "Dreadnought (Nuclear Submarine)",
+    quantity: "4 submarines",
+    originalCost: 31.0, currentCost: 34.4, costGrowth: 11,
+    originalISD: "2030", currentISD: "Early 2030s", status: "Building",
+    description: "Ballistic missile submarines to replace the Vanguard class as the UK's nuclear deterrent. The largest and most expensive defence programme. Under construction at BAE Systems Barrow-in-Furness.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/8/82/Artist%27s_rendering_of_Dreadnought-class_submarine.jpg",
+    imageCredit: "Royal Navy/BAE Systems, Crown Copyright, OGL v3.0",
+  },
+  {
+    programme: "F-35B Lightning (Combat Aircraft)",
+    quantity: "48 ordered (first tranche), up to 138 planned",
+    originalCost: 9.1, currentCost: 11.0, costGrowth: 21,
+    originalISD: "2018", currentISD: "2018 (IOC)", status: "Delivering",
+    description: "Short take-off and vertical landing stealth fighter. Operates from the Queen Elizabeth class carriers and RAF bases.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/0/05/New_F35B_Lightning_II_in_1st_Aerial_Photoshoot_MOD_45162799.jpg",
+    imageCredit: "SAC Tim Laurence/MOD, Crown Copyright, OGL v1.0",
+  },
+  {
+    programme: "Global Combat Air Programme (Future Combat Air)",
+    quantity: "TBC, to replace Typhoon fleet",
+    originalCost: 12.0, currentCost: 12.0, costGrowth: 0,
+    originalISD: "2035", currentISD: "2035", status: "Assessment",
+    description: "A sixth-generation combat aircraft being developed jointly by the UK, Italy, and Japan to replace the Typhoon from the mid-2030s. Formerly known as Tempest. Currently in the concept and assessment phase.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/9/9e/Tempest_fighter_in_hangar.jpg",
+    imageCredit: "Jack Eckersley/MOD, Crown Copyright, OGL v1.0",
+  },
+  {
+    programme: "Boxer (Armoured Vehicle)",
+    quantity: "623 vehicles ordered",
+    originalCost: 2.8, currentCost: 5.0, costGrowth: 79,
+    originalISD: "2023", currentISD: "Late 2025", status: "Delivering",
+    description: "An 8x8 wheeled armoured vehicle for the mechanised infantry role, ordered in multiple variants. Part of the Army's transition from tracked to wheeled medium-weight forces.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/3/39/Boxer_Mechanised_Infantry_Vehicle_of_the_British_Army.jpg",
+    imageCredit: "MOD/Defence Imagery, Crown Copyright, OGL v1.0",
+  },
+  {
+    programme: "Apache AH-64E (Attack Helicopter)",
+    quantity: "50 helicopters",
+    originalCost: 2.3, currentCost: 2.6, costGrowth: 13,
+    originalISD: "2022", currentISD: "2025 (complete)", status: "Complete",
+    description: "Remanufactured attack helicopters replacing the earlier AH-64D. The AH-64E version includes improved sensors, communications, and the ability to control unmanned aircraft. Final delivery completed March 2025.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Apache_AH-64E_Version_6_MOD_45167507.jpg",
+    imageCredit: "Cpl Adam Wakefield/MOD, Crown Copyright, OGL v1.0",
+  },
 ];
 
 // ── Industry concentration (MoD expenditure by supplier, 2024-25) ───
@@ -337,6 +443,27 @@ const smeShare = [
   { year: "2021-22", directPct: 3.6, totalPct: 25.5 },
   { year: "2022-23", directPct: 3.9, totalPct: null },
   { year: "2023-24", directPct: 4.0, totalPct: null },
+];
+
+// ── Emerging technology commitments ───────────────────────────────────
+// Source: SDR 2025, MoD announcements, MoD Departmental Resources 2025
+// Parliamentary commitments and programme-level allocations
+const emergingTech = [
+  { area: "Autonomous & uncrewed systems", value: 4.0, period: "This Parliament", source: "SDR 2025", note: "Aggregated SDR commitment covering military drones, uncrewed maritime and land platforms, counter-drone systems, and AI-enabled autonomy. The MoD has not published a programme-level breakdown." },
+  { area: "Directed energy weapons (inc. DragonFire)", value: 1.0, period: "This Parliament", source: "SDR 2025", note: "Includes DragonFire laser programme (£316m production contract to MBDA) and high-power radio-frequency systems." },
+  { area: "Digital Targeting Web", value: 1.0, period: "By 2027", source: "SDR 2025" },
+  { area: "Protector UAV (16 aircraft)", value: 0.26, period: "Programme life", source: "MoD/GA-ASI" },
+  { area: "Mine counter-measures (autonomous)", value: 0.184, period: "Programme life", source: "MoD/Thales" },
+  { area: "UKDI Innovation Fund", value: 0.4, period: "Per year from 2025", source: "SDR 2025" },
+];
+
+const defenceRnD = [
+  { year: "2019-20", rdBn: 1.8, rdPct: 4.2 },
+  { year: "2020-21", rdBn: 2.0, rdPct: 4.3 },
+  { year: "2021-22", rdBn: 2.2, rdPct: 4.5 },
+  { year: "2022-23", rdBn: 2.4, rdPct: 4.7 },
+  { year: "2023-24", rdBn: 2.6, rdPct: 4.8 },
+  { year: "2024-25", rdBn: 3.1, rdPct: 5.2 },
 ];
 
 // ══════════════════════════════════════════════════════════════════════
@@ -393,6 +520,11 @@ const snapshot = {
   smeDirectYear: "2023-24",
   totalModProcurement: 40.6,
   totalModProcurementYear: "2024-25",
+  // Emerging tech
+  defenceRnD: 3.1,
+  defenceRnDPct: 5.2,
+  defenceRnDYear: "2024-25",
+  defenceRnDTarget: 7,
 };
 
 // ══════════════════════════════════════════════════════════════════════
@@ -560,6 +692,16 @@ const output = {
       sourceId: "mod-trade-industry-contracts",
       timeField: "year",
       data: smeShare,
+    },
+    emergingTech: {
+      sourceId: "mod-annual-report-accounts",
+      timeField: "area",
+      data: emergingTech,
+    },
+    defenceRnD: {
+      sourceId: "mod-annual-report-accounts",
+      timeField: "year",
+      data: defenceRnD,
     },
   },
 };

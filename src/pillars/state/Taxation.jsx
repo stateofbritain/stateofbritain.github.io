@@ -360,7 +360,7 @@ export default function Taxation() {
           <LineChart data={data.taxConcentration} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
             <CartesianGrid {...GRID_PROPS} />
             <XAxis dataKey="fy" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} interval={isMobile ? 3 : 1} />
-            <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} domain={[15, 95]} label={yAxisLabel("% of IT")} />
+            <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} domain={[0, 100]} label={yAxisLabel("% of IT")} />
             <Tooltip content={<CustomTooltip />} />
             <Line type="monotone" dataKey="top50" name="Top 50%" stroke={CONC_COLORS.top50} strokeWidth={1.5} dot={{ r: 2.5 }} />
             <Line type="monotone" dataKey="top10" name="Top 10%" stroke={CONC_COLORS.top10} strokeWidth={2} dot={{ r: 2.5 }} />
