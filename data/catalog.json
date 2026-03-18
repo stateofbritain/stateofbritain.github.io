@@ -1,6 +1,6 @@
 {
   "$schema": "sob-catalog-v1",
-  "generated": "2026-03-16",
+  "generated": "2026-03-18",
   "datasets": [
     {
       "id": "cpih",
@@ -798,6 +798,57 @@
             "end": 2025
           }
         },
+        "appointmentsByStaff": {
+          "title": "appointmentsByStaff",
+          "fields": {
+            "gp": {
+              "label": "gp"
+            },
+            "otherStaff": {
+              "label": "otherStaff"
+            },
+            "unrecorded": {
+              "label": "unrecorded"
+            }
+          },
+          "timeRange": {
+            "start": "2019-01",
+            "end": "2026-01"
+          }
+        },
+        "practiceStaff": {
+          "title": "practiceStaff",
+          "fields": {
+            "gps": {
+              "label": "gps"
+            },
+            "nurses": {
+              "label": "nurses"
+            },
+            "dpc": {
+              "label": "dpc"
+            },
+            "managers": {
+              "label": "managers"
+            },
+            "receptionists": {
+              "label": "receptionists"
+            },
+            "secretaries": {
+              "label": "secretaries"
+            },
+            "otherAdmin": {
+              "label": "otherAdmin"
+            },
+            "total": {
+              "label": "total"
+            }
+          },
+          "timeRange": {
+            "start": 2015,
+            "end": 2024
+          }
+        },
         "workforce": {
           "title": "GP Workforce (Headcount vs FTE)",
           "summary": "Headcount grew to 35,900 but FTE fell to 27,544 — driven by part-time working, not fewer GPs.",
@@ -852,6 +903,24 @@
             "end": 2023
           }
         },
+        "causeOfDeath": {
+          "title": "causeOfDeath",
+          "fields": {
+            "rate": {
+              "label": "rate"
+            },
+            "deaths": {
+              "label": "deaths"
+            },
+            "pctTotal": {
+              "label": "pctTotal"
+            }
+          },
+          "timeRange": {
+            "start": "Heart disease",
+            "end": "Suicide & self-harm"
+          }
+        },
         "cancerSurvival": {
           "title": "Cancer Survival Rates",
           "summary": "1-year and 5-year net survival by cancer site. Ranges from 7% (pancreas) to 92% (melanoma) at 5 years.",
@@ -887,6 +956,84 @@
           "timeRange": {
             "start": 2001,
             "end": 2023
+          }
+        },
+        "infantMortality": {
+          "title": "infantMortality",
+          "fields": {
+            "rate": {
+              "label": "rate"
+            }
+          },
+          "timeRange": {
+            "start": 1980,
+            "end": 2023
+          }
+        },
+        "healthyLifeExpectancy": {
+          "title": "healthyLifeExpectancy",
+          "fields": {
+            "maleTotal": {
+              "label": "maleTotal"
+            },
+            "maleHealthy": {
+              "label": "maleHealthy"
+            },
+            "femaleTotal": {
+              "label": "femaleTotal"
+            },
+            "femaleHealthy": {
+              "label": "femaleHealthy"
+            }
+          },
+          "timeRange": {
+            "start": 2010,
+            "end": 2022
+          }
+        },
+        "obesity": {
+          "title": "obesity",
+          "fields": {
+            "male": {
+              "label": "male"
+            },
+            "female": {
+              "label": "female"
+            },
+            "total": {
+              "label": "total"
+            }
+          },
+          "timeRange": {
+            "start": 2000,
+            "end": 2023
+          }
+        },
+        "regionalInequality": {
+          "title": "regionalInequality",
+          "fields": {
+            "maleMostDeprived": {
+              "label": "maleMostDeprived"
+            },
+            "maleLeastDeprived": {
+              "label": "maleLeastDeprived"
+            },
+            "maleGap": {
+              "label": "maleGap"
+            },
+            "femaleMostDeprived": {
+              "label": "femaleMostDeprived"
+            },
+            "femaleLeastDeprived": {
+              "label": "femaleLeastDeprived"
+            },
+            "femaleGap": {
+              "label": "femaleGap"
+            }
+          },
+          "timeRange": {
+            "start": "2010-2012",
+            "end": "2020-2022"
           }
         }
       }
@@ -987,6 +1134,201 @@
           "timeRange": {
             "start": "2013-14",
             "end": "2024-25"
+          }
+        }
+      }
+    },
+    {
+      "id": "housing-density",
+      "title": "Housing-density",
+      "pillar": "foundations",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/housing-density.json",
+      "series": {
+        "ukCityDensity": {
+          "title": "ukCityDensity",
+          "fields": {
+            "density": {
+              "label": "density"
+            },
+            "population": {
+              "label": "population"
+            }
+          },
+          "timeRange": {
+            "start": "London",
+            "end": "England avg"
+          }
+        },
+        "intlCityDensity": {
+          "title": "intlCityDensity",
+          "fields": {
+            "country": {
+              "label": "country"
+            },
+            "density": {
+              "label": "density"
+            }
+          },
+          "timeRange": {
+            "start": "Paris",
+            "end": "Los Angeles"
+          }
+        },
+        "regionalPrices": {
+          "title": "regionalPrices",
+          "fields": {
+            "avgPrice": {
+              "label": "avgPrice"
+            }
+          },
+          "timeRange": {
+            "start": "London",
+            "end": "Northern Ireland"
+          }
+        }
+      }
+    },
+    {
+      "id": "housing-stock",
+      "title": "Housing-stock",
+      "pillar": "foundations",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/housing-stock.json",
+      "series": {
+        "stockByAge": {
+          "title": "stockByAge",
+          "fields": {
+            "pct": {
+              "label": "pct"
+            },
+            "dwellingsK": {
+              "label": "dwellingsK"
+            }
+          },
+          "timeRange": {
+            "start": "Pre-1919",
+            "end": "Post-2002"
+          }
+        },
+        "stockByType": {
+          "title": "stockByType",
+          "fields": {
+            "pct": {
+              "label": "pct"
+            }
+          },
+          "timeRange": {
+            "start": "Semi-detached",
+            "end": "Other"
+          }
+        },
+        "tenureTrend": {
+          "title": "tenureTrend",
+          "fields": {
+            "ownerOccupied": {
+              "label": "ownerOccupied"
+            },
+            "privateRented": {
+              "label": "privateRented"
+            },
+            "socialRented": {
+              "label": "socialRented"
+            }
+          },
+          "timeRange": {
+            "start": "1980",
+            "end": "2023-24"
+          }
+        },
+        "epcByAge": {
+          "title": "epcByAge",
+          "fields": {
+            "a_b": {
+              "label": "a_b"
+            },
+            "c": {
+              "label": "c"
+            },
+            "d": {
+              "label": "d"
+            },
+            "e_below": {
+              "label": "e_below"
+            }
+          },
+          "timeRange": {
+            "start": "Pre-1919",
+            "end": "Post-2002"
+          }
+        }
+      }
+    },
+    {
+      "id": "housing-supply",
+      "title": "Housing-supply",
+      "pillar": "foundations",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/housing-supply.json",
+      "series": {
+        "netAdditions": {
+          "title": "netAdditions",
+          "fields": {
+            "dwellings": {
+              "label": "dwellings"
+            }
+          },
+          "timeRange": {
+            "start": "2001-02",
+            "end": "2024-25"
+          }
+        },
+        "completionsByTenure": {
+          "title": "completionsByTenure",
+          "fields": {
+            "private": {
+              "label": "private"
+            },
+            "housingAssociation": {
+              "label": "housingAssociation"
+            },
+            "localAuthority": {
+              "label": "localAuthority"
+            },
+            "total": {
+              "label": "total"
+            }
+          },
+          "timeRange": {
+            "start": "2001-02",
+            "end": "2024-25"
+          }
+        },
+        "newBuildSize": {
+          "title": "newBuildSize",
+          "fields": {
+            "avgSqm": {
+              "label": "avgSqm"
+            }
+          },
+          "timeRange": {
+            "start": 2003,
+            "end": 2023
+          }
+        },
+        "sizeIntl": {
+          "title": "sizeIntl",
+          "fields": {
+            "avgSqm": {
+              "label": "avgSqm"
+            }
+          },
+          "timeRange": {
+            "start": "Australia",
+            "end": "Hong Kong"
           }
         }
       }
@@ -1552,6 +1894,440 @@
       }
     },
     {
+      "id": "local-government",
+      "title": "Local Government Finance",
+      "pillar": "state",
+      "geography": "England",
+      "summary": "Council spending by service, funding sources, council tax levels, financial health (section 114 notices, reserves, audit backlog), social care squeeze, core spending power, and workforce trends.",
+      "tags": [
+        "local government",
+        "councils",
+        "council tax",
+        "social care",
+        "section 114",
+        "reserves",
+        "audit",
+        "local authority",
+        "spending",
+        "DLUHC"
+      ],
+      "dataFile": "/data/local-government.json",
+      "series": {
+        "serviceSpending": {
+          "title": "Service Spending by Category",
+          "summary": "Net current expenditure by service area. Adult social care £25.2bn, children's social care £15.6bn in 2024-25. Total excluding education £89.8bn.",
+          "unit": "£bn",
+          "fields": {
+            "adultSocialCare": {
+              "label": "adultSocialCare"
+            },
+            "childrenSocialCare": {
+              "label": "childrenSocialCare"
+            },
+            "highways": {
+              "label": "highways"
+            },
+            "housing": {
+              "label": "housing"
+            },
+            "environment": {
+              "label": "environment"
+            },
+            "cultural": {
+              "label": "cultural"
+            },
+            "planning": {
+              "label": "planning"
+            },
+            "publicHealth": {
+              "label": "publicHealth"
+            },
+            "fire": {
+              "label": "fire"
+            },
+            "central": {
+              "label": "central"
+            },
+            "police": {
+              "label": "police"
+            }
+          },
+          "timeRange": {
+            "start": "2010-11",
+            "end": "2024-25"
+          }
+        },
+        "fundingSources": {
+          "title": "Revenue Funding Mix",
+          "summary": "Share of council revenue by source. Council tax rose from 34% (2010-11) to peak 52% (2019-20), settling at 46% (2024-25) as government grants were cut then partially restored.",
+          "unit": "%",
+          "fields": {
+            "councilTax": {
+              "label": "councilTax"
+            },
+            "govGrants": {
+              "label": "govGrants"
+            },
+            "businessRates": {
+              "label": "businessRates"
+            },
+            "other": {
+              "label": "other"
+            }
+          },
+          "timeRange": {
+            "start": "2010-11",
+            "end": "2024-25"
+          }
+        },
+        "councilTax": {
+          "title": "Average Band D Council Tax",
+          "summary": "Average Band D council tax rose from £1,439 (2010-11) to £2,280 (2025-26), a 58% increase in cash terms.",
+          "unit": "£",
+          "fields": {
+            "bandD": {
+              "label": "bandD"
+            }
+          },
+          "timeRange": {
+            "start": "2010-11",
+            "end": "2025-26"
+          }
+        },
+        "councilTaxByRegion": {
+          "title": "Council Tax by Region",
+          "summary": "Band D council tax varies by area: London £1,982, Metropolitan £2,289, Unitary £2,366, Shire £2,344 (2025-26).",
+          "unit": "£",
+          "fields": {
+            "bandD": {
+              "label": "bandD"
+            }
+          },
+          "timeRange": {
+            "start": "London",
+            "end": "Shire areas"
+          }
+        },
+        "section114": {
+          "title": "Section 114 Notices",
+          "summary": "Seven councils issued section 114 notices between 2018 and 2023: Northamptonshire, Croydon, Slough, Thurrock, Woking, Birmingham, Nottingham.",
+          "unit": "count",
+          "fields": {
+            "council": {
+              "label": "council"
+            },
+            "note": {
+              "label": "note"
+            }
+          },
+          "timeRange": {
+            "start": "2018-02-02",
+            "end": "2023-11-29"
+          }
+        },
+        "reserves": {
+          "title": "Usable Reserves",
+          "summary": "Local authority usable reserves rose from £13bn (2010-11) to £31.2bn peak (2021-22), then fell to £27bn (2024-25).",
+          "unit": "£bn",
+          "fields": {
+            "usable": {
+              "label": "usable"
+            }
+          },
+          "timeRange": {
+            "start": "2010-11",
+            "end": "2024-25"
+          }
+        },
+        "auditBacklog": {
+          "title": "Audit Backlog",
+          "summary": "Outstanding unaudited council accounts peaked at 918 (2022-23), reduced to ~100 after 2024 statutory backstop.",
+          "unit": "count",
+          "fields": {
+            "outstanding": {
+              "label": "outstanding"
+            }
+          },
+          "timeRange": {
+            "start": "2017-18",
+            "end": "2024-25"
+          }
+        },
+        "workforce": {
+          "title": "Local Government Workforce",
+          "summary": "Council FTE fell from 1,510k (2010) to 970k (2025), a 36% reduction. Excludes police, fire, centrally-funded teachers.",
+          "unit": "thousands FTE",
+          "fields": {
+            "fte": {
+              "label": "fte"
+            }
+          },
+          "timeRange": {
+            "start": 2010,
+            "end": 2025
+          }
+        },
+        "socialCareShare": {
+          "title": "Social Care Share of Spending",
+          "summary": "Social care rose from 42% to 47% of non-education council spending between 2010-11 and 2024-25.",
+          "unit": "%",
+          "fields": {
+            "socialCarePct": {
+              "label": "socialCarePct"
+            },
+            "adultPct": {
+              "label": "adultPct"
+            },
+            "childrenPct": {
+              "label": "childrenPct"
+            }
+          },
+          "timeRange": {
+            "start": "2010-11",
+            "end": "2024-25"
+          }
+        },
+        "coreSpendingPower": {
+          "title": "Core Spending Power per Person",
+          "summary": "Real-terms core spending power per person fell 27% from 2010-11 to 2015-16. In 2024-25 it remains 18% below 2010-11 levels.",
+          "unit": "index",
+          "fields": {
+            "index": {
+              "label": "index"
+            }
+          },
+          "timeRange": {
+            "start": "2010-11",
+            "end": "2024-25"
+          }
+        }
+      }
+    },
+    {
+      "id": "mental-health",
+      "title": "Mental-health",
+      "pillar": "foundations",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/mental-health.json",
+      "series": {
+        "prevalence": {
+          "title": "prevalence",
+          "fields": {
+            "prevalence": {
+              "label": "prevalence"
+            }
+          },
+          "timeRange": {
+            "start": 2000,
+            "end": 2023
+          }
+        },
+        "iaptReferrals": {
+          "title": "iaptReferrals",
+          "fields": {
+            "referrals": {
+              "label": "referrals"
+            },
+            "enteringTreatment": {
+              "label": "enteringTreatment"
+            },
+            "completing": {
+              "label": "completing"
+            },
+            "recoveryRate": {
+              "label": "recoveryRate"
+            }
+          },
+          "timeRange": {
+            "start": "2015-16 Q1",
+            "end": "2024-25 Q2"
+          }
+        },
+        "mhaDetentions": {
+          "title": "mhaDetentions",
+          "fields": {
+            "detentions": {
+              "label": "detentions"
+            }
+          },
+          "timeRange": {
+            "start": 2010,
+            "end": 2024
+          }
+        },
+        "cypReferrals": {
+          "title": "cypReferrals",
+          "fields": {
+            "referrals": {
+              "label": "referrals"
+            },
+            "enteringTreatment": {
+              "label": "enteringTreatment"
+            }
+          },
+          "timeRange": {
+            "start": "2018-19",
+            "end": "2024-25"
+          }
+        },
+        "suicideRate": {
+          "title": "suicideRate",
+          "fields": {
+            "male": {
+              "label": "male"
+            },
+            "female": {
+              "label": "female"
+            },
+            "total": {
+              "label": "total"
+            }
+          },
+          "timeRange": {
+            "start": 2000,
+            "end": 2023
+          }
+        }
+      }
+    },
+    {
+      "id": "nhs-funding",
+      "title": "Nhs-funding",
+      "pillar": "foundations",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/nhs-funding.json",
+      "series": {
+        "totalBudget": {
+          "title": "totalBudget",
+          "fields": {
+            "nominal": {
+              "label": "nominal"
+            },
+            "real": {
+              "label": "real"
+            },
+            "realGrowth": {
+              "label": "realGrowth"
+            }
+          },
+          "timeRange": {
+            "start": "2000-01",
+            "end": "2025-26"
+          }
+        },
+        "perCapita": {
+          "title": "perCapita",
+          "fields": {
+            "perCapita": {
+              "label": "perCapita"
+            }
+          },
+          "timeRange": {
+            "start": 2000,
+            "end": 2024
+          }
+        },
+        "international": {
+          "title": "international",
+          "fields": {
+            "pctGdp": {
+              "label": "pctGdp"
+            },
+            "perCapitaPPP": {
+              "label": "perCapitaPPP"
+            }
+          },
+          "timeRange": {
+            "start": "United States",
+            "end": "Spain"
+          }
+        },
+        "byCategory": {
+          "title": "byCategory",
+          "fields": {
+            "amount": {
+              "label": "amount"
+            }
+          },
+          "timeRange": {
+            "start": "Hospital & specialist",
+            "end": "Admin & other"
+          }
+        },
+        "spendingSplit": {
+          "title": "spendingSplit",
+          "fields": {
+            "staffPct": {
+              "label": "staffPct"
+            },
+            "drugsClinicalPct": {
+              "label": "drugsClinicalPct"
+            },
+            "premisesDeprecPct": {
+              "label": "premisesDeprecPct"
+            },
+            "capitalPct": {
+              "label": "capitalPct"
+            },
+            "purchasedCarePct": {
+              "label": "purchasedCarePct"
+            },
+            "negligencePct": {
+              "label": "negligencePct"
+            },
+            "pfiPct": {
+              "label": "pfiPct"
+            },
+            "otherPct": {
+              "label": "otherPct"
+            }
+          },
+          "timeRange": {
+            "start": "2013-14",
+            "end": "2024-25"
+          }
+        },
+        "capitalCdel": {
+          "title": "capitalCdel",
+          "fields": {
+            "real": {
+              "label": "real"
+            }
+          },
+          "timeRange": {
+            "start": "2010-11",
+            "end": "2025-26"
+          }
+        },
+        "backlogMaintenance": {
+          "title": "backlogMaintenance",
+          "fields": {
+            "total": {
+              "label": "total"
+            },
+            "highRisk": {
+              "label": "highRisk"
+            },
+            "significantRisk": {
+              "label": "significantRisk"
+            },
+            "moderateRisk": {
+              "label": "moderateRisk"
+            },
+            "lowRisk": {
+              "label": "lowRisk"
+            }
+          },
+          "timeRange": {
+            "start": "2013-14",
+            "end": "2024-25"
+          }
+        }
+      }
+    },
+    {
       "id": "nhs-waiting",
       "title": "NHS Waiting Lists",
       "pillar": "foundations",
@@ -1625,6 +2401,36 @@
         "summary": {
           "title": "summary",
           "fields": {}
+        },
+        "diagnostics": {
+          "title": "diagnostics",
+          "fields": {
+            "totalWaiting": {
+              "label": "totalWaiting"
+            },
+            "pctOver6Weeks": {
+              "label": "pctOver6Weeks"
+            }
+          },
+          "timeRange": {
+            "start": "2012-01",
+            "end": "2025-12"
+          }
+        },
+        "cancerWaits": {
+          "title": "cancerWaits",
+          "fields": {
+            "pctWithin62Days": {
+              "label": "pctWithin62Days"
+            },
+            "pctWithin31Days": {
+              "label": "pctWithin31Days"
+            }
+          },
+          "timeRange": {
+            "start": "2013 Q1",
+            "end": "2025 Q4"
+          }
         }
       }
     },
@@ -1964,6 +2770,229 @@
           "timeRange": {
             "start": 2022,
             "end": 2022
+          }
+        }
+      }
+    },
+    {
+      "id": "safety",
+      "title": "Safety",
+      "pillar": "foundations",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/safety.json",
+      "series": {
+        "violentCrime": {
+          "title": "violentCrime",
+          "fields": {
+            "total": {
+              "label": "total"
+            }
+          },
+          "timeRange": {
+            "start": "2002-03",
+            "end": "2023-24"
+          }
+        },
+        "knifeCrime": {
+          "title": "knifeCrime",
+          "fields": {
+            "offences": {
+              "label": "offences"
+            }
+          },
+          "timeRange": {
+            "start": "2010-11",
+            "end": "2023-24"
+          }
+        },
+        "firearmsCrime": {
+          "title": "firearmsCrime",
+          "fields": {
+            "offences": {
+              "label": "offences"
+            }
+          },
+          "timeRange": {
+            "start": "2010-11",
+            "end": "2023-24"
+          }
+        },
+        "homicide": {
+          "title": "homicide",
+          "fields": {
+            "total": {
+              "label": "total"
+            },
+            "knife": {
+              "label": "knife"
+            }
+          },
+          "timeRange": {
+            "start": "2002-03",
+            "end": "2023-24"
+          }
+        },
+        "hospitalAdmissions": {
+          "title": "hospitalAdmissions",
+          "fields": {
+            "admissions": {
+              "label": "admissions"
+            }
+          },
+          "timeRange": {
+            "start": "2012-13",
+            "end": "2023-24"
+          }
+        },
+        "sexualOffences": {
+          "title": "sexualOffences",
+          "fields": {
+            "total": {
+              "label": "total"
+            },
+            "rape": {
+              "label": "rape"
+            },
+            "other": {
+              "label": "other"
+            }
+          },
+          "timeRange": {
+            "start": "2002-03",
+            "end": "2023-24"
+          }
+        },
+        "domesticAbuse": {
+          "title": "domesticAbuse",
+          "fields": {
+            "prevalencePct": {
+              "label": "prevalencePct"
+            }
+          },
+          "timeRange": {
+            "start": "2004-05",
+            "end": "2023-24"
+          }
+        },
+        "fraud": {
+          "title": "fraud",
+          "fields": {
+            "csewEstimate": {
+              "label": "csewEstimate"
+            },
+            "policeRecorded": {
+              "label": "policeRecorded"
+            }
+          },
+          "timeRange": {
+            "start": "2015-16",
+            "end": "2023-24"
+          }
+        },
+        "asb": {
+          "title": "asb",
+          "fields": {
+            "incidents": {
+              "label": "incidents"
+            }
+          },
+          "timeRange": {
+            "start": "2007-08",
+            "end": "2023-24"
+          }
+        },
+        "crimeOutcomes": {
+          "title": "crimeOutcomes",
+          "fields": {
+            "overall": {
+              "label": "overall"
+            },
+            "violent": {
+              "label": "violent"
+            },
+            "sexual": {
+              "label": "sexual"
+            },
+            "theft": {
+              "label": "theft"
+            },
+            "robbery": {
+              "label": "robbery"
+            }
+          },
+          "timeRange": {
+            "start": "2014-15",
+            "end": "2023-24"
+          }
+        },
+        "reoffending": {
+          "title": "reoffending",
+          "fields": {
+            "overall": {
+              "label": "overall"
+            },
+            "juvenile": {
+              "label": "juvenile"
+            },
+            "adult": {
+              "label": "adult"
+            }
+          },
+          "timeRange": {
+            "start": "2010",
+            "end": "2022"
+          }
+        },
+        "fearOfCrime": {
+          "title": "fearOfCrime",
+          "fields": {
+            "unsafeAlone": {
+              "label": "unsafeAlone"
+            },
+            "highWorryViolent": {
+              "label": "highWorryViolent"
+            },
+            "highWorryBurglary": {
+              "label": "highWorryBurglary"
+            }
+          },
+          "timeRange": {
+            "start": "2006-07",
+            "end": "2023-24"
+          }
+        },
+        "cityRates": {
+          "title": "cityRates",
+          "fields": {
+            "city": {
+              "label": "city"
+            },
+            "rate": {
+              "label": "rate"
+            },
+            "population": {
+              "label": "population"
+            }
+          },
+          "timeRange": {
+            "start": "Cleveland",
+            "end": "Surrey"
+          }
+        },
+        "cityKnife": {
+          "title": "cityKnife",
+          "fields": {
+            "city": {
+              "label": "city"
+            },
+            "rate": {
+              "label": "rate"
+            }
+          },
+          "timeRange": {
+            "start": "Metropolitan Police",
+            "end": "Surrey"
           }
         }
       }
@@ -2365,6 +3394,7 @@
         "defence",
         "immigration",
         "justice",
+        "local-government",
         "spending"
       ],
       "growth": [
@@ -2383,8 +3413,14 @@
         "gp-access",
         "health-outcomes",
         "hospital-capacity",
+        "housing-density",
+        "housing-stock",
+        "housing-supply",
+        "mental-health",
+        "nhs-funding",
         "nhs-waiting",
         "nhs-workforce",
+        "safety",
         "water",
         "workforce"
       ]
@@ -2417,6 +3453,7 @@
       "spending": [
         "defence",
         "education",
+        "local-government",
         "spending"
       ],
       "armed forces": [
@@ -2633,6 +3670,33 @@
       ],
       "courts": [
         "justice"
+      ],
+      "local government": [
+        "local-government"
+      ],
+      "councils": [
+        "local-government"
+      ],
+      "council tax": [
+        "local-government"
+      ],
+      "social care": [
+        "local-government"
+      ],
+      "section 114": [
+        "local-government"
+      ],
+      "reserves": [
+        "local-government"
+      ],
+      "audit": [
+        "local-government"
+      ],
+      "local authority": [
+        "local-government"
+      ],
+      "DLUHC": [
+        "local-government"
       ],
       "NHS": [
         "nhs-waiting",
