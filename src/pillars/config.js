@@ -17,6 +17,7 @@ const PILLARS = {
         subtopics: {
           overview:    { label: "Overview" },
           taxation:    { label: "Taxation" },
+          moneySupply: { label: "Money & Inflation" },
           localGov:    { label: "Local Government" },
         },
       },

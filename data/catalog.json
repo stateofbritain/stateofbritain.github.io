@@ -2192,6 +2192,178 @@
       }
     },
     {
+      "id": "money-supply",
+      "title": "Money Supply & Inflation",
+      "pillar": "state",
+      "geography": "United Kingdom",
+      "summary": "M4 broad money supply, Bank of England quantitative easing (APF holdings and cash flows), CPI inflation, real wage growth, purchasing power erosion, international central bank balance sheet comparison, and nominal vs real government debt.",
+      "tags": [
+        "money supply",
+        "M4",
+        "inflation",
+        "CPI",
+        "quantitative easing",
+        "QE",
+        "APF",
+        "real wages",
+        "purchasing power",
+        "central bank",
+        "Bank of England",
+        "monetary policy"
+      ],
+      "dataFile": "/data/money-supply.json",
+      "series": {
+        "m4ToGdp": {
+          "title": "M4 Money Supply and GDP",
+          "summary": "M4 grew from £867bn (2000) to £3.2tn (2025). M4/GDP ratio rose from 86% to 116%, peaking at 139% in 2020.",
+          "unit": "£bn / %",
+          "fields": {
+            "m4": {
+              "label": "m4"
+            },
+            "gdp": {
+              "label": "gdp"
+            },
+            "ratio": {
+              "label": "ratio"
+            }
+          },
+          "timeRange": {
+            "start": 2000,
+            "end": 2025
+          }
+        },
+        "apfHoldings": {
+          "title": "APF Gilt Holdings",
+          "summary": "Bank of England gilt purchases peaked at £895bn in January 2022. Reduced to £488bn by end-2025 through quantitative tightening.",
+          "unit": "£bn",
+          "fields": {
+            "year": {
+              "label": "year"
+            },
+            "quarter": {
+              "label": "quarter"
+            },
+            "holdings": {
+              "label": "holdings"
+            },
+            "note": {
+              "label": "note"
+            }
+          },
+          "timeRange": {
+            "start": "2009-03",
+            "end": "2025-12"
+          }
+        },
+        "apfCashFlows": {
+          "title": "APF Cash Flows to Treasury",
+          "summary": "APF transferred £124bn to Treasury between 2012-22, then reversed. OBR estimates lifetime net cost at £134bn.",
+          "unit": "£bn",
+          "fields": {
+            "netToHmt": {
+              "label": "netToHmt"
+            }
+          },
+          "timeRange": {
+            "start": "2012-13",
+            "end": "2025-26"
+          }
+        },
+        "cpiRate": {
+          "title": "CPI Annual Inflation Rate",
+          "summary": "CPI averaged close to 2% target from 2000-2020, spiked to 9.1% in 2022, returned to 3.2% in 2025.",
+          "unit": "%",
+          "fields": {
+            "cpi": {
+              "label": "cpi"
+            }
+          },
+          "timeRange": {
+            "start": 2000,
+            "end": 2025
+          }
+        },
+        "realWages": {
+          "title": "Real Wage Growth",
+          "summary": "Real wages fell in 6 of 7 years from 2008-14, and again in 2022 (-3.3%). Positive real growth resumed in 2024.",
+          "unit": "%",
+          "fields": {
+            "nominal": {
+              "label": "nominal"
+            },
+            "cpi": {
+              "label": "cpi"
+            },
+            "real": {
+              "label": "real"
+            }
+          },
+          "timeRange": {
+            "start": 2001,
+            "end": 2025
+          }
+        },
+        "purchasingPower": {
+          "title": "Purchasing Power Index",
+          "summary": "£1 in 2000 buys approximately 55p of goods in 2025 terms, a 45% erosion in purchasing power.",
+          "unit": "pence per £1 (2000)",
+          "fields": {
+            "index": {
+              "label": "index"
+            }
+          },
+          "timeRange": {
+            "start": 2000,
+            "end": 2025
+          }
+        },
+        "debtNominalVsReal": {
+          "title": "Government Debt: Nominal vs Real",
+          "summary": "PSND rose from £311bn (2000-01) to £2,805bn (2024-25) in nominal terms. In real terms (2000-01 prices), the increase is smaller.",
+          "unit": "£bn",
+          "fields": {
+            "nominal": {
+              "label": "nominal"
+            },
+            "real": {
+              "label": "real"
+            },
+            "pctGdp": {
+              "label": "pctGdp"
+            }
+          },
+          "timeRange": {
+            "start": "2000-01",
+            "end": "2024-25"
+          }
+        },
+        "balanceSheets": {
+          "title": "Central Bank Balance Sheets",
+          "summary": "BoE balance sheet peaked at 44% GDP (2021), BoJ at 137% (2022), ECB at 60% (2022), Fed at 35% (2022). All now contracting.",
+          "unit": "% GDP",
+          "fields": {
+            "boe": {
+              "label": "boe"
+            },
+            "fed": {
+              "label": "fed"
+            },
+            "ecb": {
+              "label": "ecb"
+            },
+            "boj": {
+              "label": "boj"
+            }
+          },
+          "timeRange": {
+            "start": 2007,
+            "end": 2025
+          }
+        }
+      }
+    },
+    {
       "id": "nhs-funding",
       "title": "Nhs-funding",
       "pillar": "foundations",
@@ -3609,6 +3781,7 @@
         "immigration",
         "justice",
         "local-government",
+        "money-supply",
         "spending",
         "taxation"
       ],
@@ -3642,7 +3815,8 @@
     },
     "byTag": {
       "inflation": [
-        "cpih"
+        "cpih",
+        "money-supply"
       ],
       "prices": [
         "cpih"
@@ -3654,7 +3828,8 @@
         "cpih"
       ],
       "CPI": [
-        "cpih"
+        "cpih",
+        "money-supply"
       ],
       "defence": [
         "defence"
@@ -3914,6 +4089,36 @@
       ],
       "DLUHC": [
         "local-government"
+      ],
+      "money supply": [
+        "money-supply"
+      ],
+      "M4": [
+        "money-supply"
+      ],
+      "quantitative easing": [
+        "money-supply"
+      ],
+      "QE": [
+        "money-supply"
+      ],
+      "APF": [
+        "money-supply"
+      ],
+      "real wages": [
+        "money-supply"
+      ],
+      "purchasing power": [
+        "money-supply"
+      ],
+      "central bank": [
+        "money-supply"
+      ],
+      "Bank of England": [
+        "money-supply"
+      ],
+      "monetary policy": [
+        "money-supply"
       ],
       "NHS": [
         "nhs-waiting",
