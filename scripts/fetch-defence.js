@@ -7,7 +7,7 @@
  *  - MoD UK Armed Forces Quarterly Service Personnel Statistics (personnel, recruitment, retention)
  *  - MoD Equipment Plan (equipment spending allocation)
  *  - MoD UK Armed Forces Equipment & Formations (fleet inventory)
- *  - GlobalFirepower / IISS Military Balance (international equipment comparison)
+ *  - National defence ministry publications, HoC Library briefings (international equipment comparison)
  *  - SIPRI Military Expenditure Database
  *
  * Outputs: public/data/defence.json (sob-dataset-v1)
@@ -228,18 +228,18 @@ const escortFleet = [
 ];
 
 // ── International equipment comparison ──────────────────────────────
-// Source: GlobalFirepower 2026, IISS Military Balance 2025
-// Comparable middle powers — equipment numbers (total inventory, not
-// necessarily all combat-ready)
+// Sources: National defence ministry publications, House of Commons Library
+// defence briefings, Naval News, IISS-cited analyses. See source entries below.
+// Comparable middle powers — equipment numbers (total inventory/in-service)
 const intlEquipment = [
-  { country: "UK",           tanks: 288,  fighters: 141, attackHeli: 50, submarines: 10, frigates: 7,  destroyers: 6  },
-  { country: "France",       tanks: 427,  fighters: 223, attackHeli: 67, submarines: 9,  frigates: 5,  destroyers: 11 },
-  { country: "Germany",      tanks: 296,  fighters: 127, attackHeli: 49, submarines: 6,  frigates: 11, destroyers: 0  },
-  { country: "Italy",        tanks: 203,  fighters: 153, attackHeli: 37, submarines: 8,  frigates: 14, destroyers: 3  },
-  { country: "Japan",        tanks: 734,  fighters: 264, attackHeli: 118, submarines: 23, frigates: 8,  destroyers: 41 },
-  { country: "S. Korea",     tanks: 1831, fighters: 340, attackHeli: 113, submarines: 22, frigates: 18, destroyers: 14 },
-  { country: "Turkey",       tanks: 2284, fighters: 201, attackHeli: 111, submarines: 14, frigates: 17, destroyers: 0  },
-  { country: "Australia",    tanks: 46,   fighters: 95,  attackHeli: 22, submarines: 6,  frigates: 7,  destroyers: 3  },
+  { country: "UK",           tanks: 288,  fighters: 170, attackHeli: 50, submarines: 10, frigates: 8,  destroyers: 6  },
+  { country: "France",       tanks: 222,  fighters: 200, attackHeli: 67, submarines: 10, frigates: 15, destroyers: 0  },
+  { country: "Germany",      tanks: 313,  fighters: 143, attackHeli: 55, submarines: 6,  frigates: 11, destroyers: 0  },
+  { country: "Italy",        tanks: 125,  fighters: 114, attackHeli: 48, submarines: 8,  frigates: 10, destroyers: 2  },
+  { country: "Japan",        tanks: 400,  fighters: 330, attackHeli: 62, submarines: 22, frigates: 6,  destroyers: 36 },
+  { country: "S. Korea",     tanks: 2200, fighters: 314, attackHeli: 91, submarines: 22, frigates: 17, destroyers: 13 },
+  { country: "Turkey",       tanks: 2238, fighters: 230, attackHeli: 74, submarines: 14, frigates: 16, destroyers: 0  },
+  { country: "Australia",    tanks: 46,   fighters: 72,  attackHeli: 22, submarines: 6,  frigates: 7,  destroyers: 3  },
 ];
 
 // ── RAF combat aircraft trend ───────────────────────────────────────
@@ -345,9 +345,10 @@ const output = {
       url: "https://commonslibrary.parliament.uk/research-briefings/cbp-7930/",
     },
     {
-      id: "globalfirepower",
-      name: "GlobalFirepower Military Strength Rankings",
-      url: "https://www.globalfirepower.com/",
+      id: "intl-defence-ministries",
+      name: "National defence ministry publications, House of Commons Library defence briefings, Naval News",
+      url: "https://commonslibrary.parliament.uk/research-briefings/cbp-10257/",
+      note: "International equipment figures compiled from official national defence publications and parliamentary briefings",
     },
   ],
   snapshot,
@@ -416,7 +417,7 @@ const output = {
       data: combatAircraft,
     },
     intlEquipment: {
-      sourceId: "globalfirepower",
+      sourceId: "intl-defence-ministries",
       timeField: "country",
       data: intlEquipment,
     },

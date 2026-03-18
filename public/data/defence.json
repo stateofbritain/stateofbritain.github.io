@@ -41,9 +41,10 @@
       "url": "https://commonslibrary.parliament.uk/research-briefings/cbp-7930/"
     },
     {
-      "id": "globalfirepower",
-      "name": "GlobalFirepower Military Strength Rankings",
-      "url": "https://www.globalfirepower.com/"
+      "id": "intl-defence-ministries",
+      "name": "National defence ministry publications, House of Commons Library defence briefings, Naval News",
+      "url": "https://commonslibrary.parliament.uk/research-briefings/cbp-10257/",
+      "note": "International equipment figures compiled from official national defence publications and parliamentary briefings"
     }
   ],
   "snapshot": {
@@ -912,76 +913,76 @@
       ]
     },
     "intlEquipment": {
-      "sourceId": "globalfirepower",
+      "sourceId": "intl-defence-ministries",
       "timeField": "country",
       "data": [
         {
           "country": "UK",
           "tanks": 288,
-          "fighters": 141,
+          "fighters": 170,
           "attackHeli": 50,
           "submarines": 10,
-          "frigates": 7,
+          "frigates": 8,
           "destroyers": 6
         },
         {
           "country": "France",
-          "tanks": 427,
-          "fighters": 223,
+          "tanks": 222,
+          "fighters": 200,
           "attackHeli": 67,
-          "submarines": 9,
-          "frigates": 5,
-          "destroyers": 11
+          "submarines": 10,
+          "frigates": 15,
+          "destroyers": 0
         },
         {
           "country": "Germany",
-          "tanks": 296,
-          "fighters": 127,
-          "attackHeli": 49,
+          "tanks": 313,
+          "fighters": 143,
+          "attackHeli": 55,
           "submarines": 6,
           "frigates": 11,
           "destroyers": 0
         },
         {
           "country": "Italy",
-          "tanks": 203,
-          "fighters": 153,
-          "attackHeli": 37,
+          "tanks": 125,
+          "fighters": 114,
+          "attackHeli": 48,
           "submarines": 8,
-          "frigates": 14,
-          "destroyers": 3
+          "frigates": 10,
+          "destroyers": 2
         },
         {
           "country": "Japan",
-          "tanks": 734,
-          "fighters": 264,
-          "attackHeli": 118,
-          "submarines": 23,
-          "frigates": 8,
-          "destroyers": 41
+          "tanks": 400,
+          "fighters": 330,
+          "attackHeli": 62,
+          "submarines": 22,
+          "frigates": 6,
+          "destroyers": 36
         },
         {
           "country": "S. Korea",
-          "tanks": 1831,
-          "fighters": 340,
-          "attackHeli": 113,
+          "tanks": 2200,
+          "fighters": 314,
+          "attackHeli": 91,
           "submarines": 22,
-          "frigates": 18,
-          "destroyers": 14
+          "frigates": 17,
+          "destroyers": 13
         },
         {
           "country": "Turkey",
-          "tanks": 2284,
-          "fighters": 201,
-          "attackHeli": 111,
+          "tanks": 2238,
+          "fighters": 230,
+          "attackHeli": 74,
           "submarines": 14,
-          "frigates": 17,
+          "frigates": 16,
           "destroyers": 0
         },
         {
           "country": "Australia",
           "tanks": 46,
-          "fighters": 95,
+          "fighters": 72,
           "attackHeli": 22,
           "submarines": 6,
           "frigates": 7,
