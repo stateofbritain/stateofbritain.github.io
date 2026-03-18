@@ -11,7 +11,7 @@ import Landing from "./pillars/Landing";
 import DataPage from "./pillars/DataPage";
 import About from "./pillars/About";
 import Placeholder from "./pillars/Placeholder";
-import Spending from "./pillars/state/Spending";
+import SpendingOverview from "./pillars/state/SpendingOverview";
 import HousingPrices from "./pillars/foundations/HousingPrices";
 import HousingSupply from "./pillars/foundations/HousingSupply";
 import HousingStock from "./pillars/foundations/HousingStock";
@@ -47,7 +47,7 @@ import AsylumImmigration from "./pillars/challenges/AsylumImmigration";
 // Map of pillar/topic keys to their React components.
 // Topics with subtopics use 3-part keys: "pillar/topic/subtopic"
 const TOPIC_COMPONENTS = {
-  "spending/spending": Spending,
+  "spending/spending/overview": SpendingOverview,
   "foundations/housing/prices": HousingPrices,
   "foundations/housing/supply": HousingSupply,
   "foundations/housing/stock": HousingStock,
@@ -179,7 +179,7 @@ export default function App() {
               minHeight: isMobile ? "auto" : 500,
             }}
           >
-            {Object.keys(pillarConfig.topics).length > 1 && (
+            {(Object.keys(pillarConfig.topics).length > 1 || topicConfig?.subtopics) && (
               <TopicSidebar
                 pillar={pillarConfig}
                 topics={pillarConfig.topics}
@@ -189,7 +189,7 @@ export default function App() {
                 isMobile={isMobile}
               />
             )}
-            <main style={{ flex: 1, paddingLeft: isMobile ? 0 : (Object.keys(pillarConfig.topics).length > 1 ? 24 : 0) }}>
+            <main style={{ flex: 1, paddingLeft: isMobile ? 0 : ((Object.keys(pillarConfig.topics).length > 1 || topicConfig?.subtopics) ? 24 : 0) }}>
               {TopicComponent ? (
                 <TopicComponent navigate={navigate} />
               ) : (

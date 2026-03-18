@@ -11,7 +11,15 @@ const PILLARS = {
     description: "Where the money goes — departmental breakdowns, trends, debt",
     color: P.red,
     topics: {
-      spending: { label: "Public Spending", icon: "◎" },
+      spending: {
+        label: "Public Spending",
+        icon: "◎",
+        subtopics: {
+          overview:    { label: "Overview" },
+          taxation:    { label: "Taxation" },
+          localGov:    { label: "Local Government" },
+        },
+      },
     },
   },
   foundations: {
