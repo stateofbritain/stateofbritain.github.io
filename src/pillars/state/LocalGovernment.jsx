@@ -192,17 +192,14 @@ export default function LocalGovernment() {
         </section>
       )}
 
-      {/* Section 2: Social care squeeze */}
+      {/* Section 2: Social care share */}
       {data.socialCareShare && (
         <section style={{ marginBottom: 32 }}>
-          <h3 style={SECTION_HEADING}>The Social Care Squeeze</h3>
+          <h3 style={SECTION_HEADING}>Social Care Share of Spending</h3>
           <p style={SECTION_NOTE}>
-            The share of councils' non-education spending allocated to social care has risen from
-            approximately 42% in 2010-11 to {s.socialCarePct}% in 2024-25. Adults' and children's
-            social care are statutory obligations, meaning councils have limited ability to reduce
-            them. This increased share has come at the expense of discretionary services: spending
-            on highways and transport, cultural services, and planning has each fallen by more than
-            40% in real terms per person since 2010-11.
+            Adults' and children's social care accounted for approximately {s.socialCarePct}% of
+            councils' non-education spending in 2024-25, compared with around 42% in 2010-11.
+            Both are statutory obligations with limited scope for councils to reduce provision.
           </p>
           <ChartCard
             title="Social Care Share of Spending"

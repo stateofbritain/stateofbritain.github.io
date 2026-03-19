@@ -296,7 +296,7 @@ export default function IndustrialProduction() {
                                 <ResponsiveContainer width="100%" height={220}>
                                   <LineChart data={p.series}>
                                     <CartesianGrid {...GRID_PROPS} />
-                                    <XAxis dataKey="year" tick={AXIS_TICK} />
+                                    <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK} />
                                     <YAxis
                                       tick={{ fontSize: 10, fill: P.textMuted }}
                                       tickFormatter={(v) => v.toLocaleString()}
@@ -439,7 +439,7 @@ export default function IndustrialProduction() {
                                 <ResponsiveContainer width="100%" height={220}>
                                   <LineChart data={p.series}>
                                     <CartesianGrid {...GRID_PROPS} />
-                                    <XAxis dataKey="year" tick={AXIS_TICK} />
+                                    <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK} />
                                     <YAxis
                                       tick={AXIS_TICK}
                                       tickFormatter={(v) => `${v.toLocaleString()} ${p.unit}`}
@@ -512,7 +512,7 @@ export default function IndustrialProduction() {
                 <ResponsiveContainer width="100%" height={380}>
                   <LineChart data={rows}>
                     <CartesianGrid {...GRID_PROPS} />
-                    <XAxis dataKey="year" tick={AXIS_TICK} />
+                    <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK} />
                     <YAxis
                       tick={AXIS_TICK}
                       tickFormatter={chartMode === "indexed" ? (v) => `${v}` : (v) => v?.toLocaleString()}
