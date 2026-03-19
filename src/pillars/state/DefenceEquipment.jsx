@@ -167,7 +167,7 @@ export default function DefenceEquipment() {
         >
             <AreaChart data={data.escortFleet}>
               <CartesianGrid {...GRID_PROPS} />
-              <XAxis dataKey="year" tick={AXIS_TICK} />
+              <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK} />
               <YAxis tick={AXIS_TICK} domain={[0, 55]} label={yAxisLabel("ships")} />
               <Tooltip content={<CustomTooltip />} />
               <Area type="monotone" dataKey="frigates" stackId="1" stroke={FLEET_COLORS.frigates} fill={FLEET_COLORS.frigates} fillOpacity={0.5} name="Frigates" />
@@ -199,7 +199,7 @@ export default function DefenceEquipment() {
         >
             <AreaChart data={data.combatAircraft}>
               <CartesianGrid {...GRID_PROPS} />
-              <XAxis dataKey="year" tick={AXIS_TICK} />
+              <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK} />
               <YAxis tick={AXIS_TICK} domain={[0, 280]} label={yAxisLabel("aircraft")} />
               <Tooltip content={<CustomTooltip />} />
               <Area type="monotone" dataKey="harrier" stackId="1" stroke={PLATFORM_COLORS.harrier} fill={PLATFORM_COLORS.harrier} fillOpacity={0.4} name="Harrier" />

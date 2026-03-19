@@ -73,7 +73,7 @@ export default function Immigration() {
             <ResponsiveContainer width="100%" height={380}>
               <LineChart data={data.netMigration.map((d) => ({ ...d, emigrationNeg: -d.emigration }))}>
                 <CartesianGrid {...GRID_PROPS} />
-                <XAxis dataKey="year" tick={AXIS_TICK} />
+                <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK} />
                 <YAxis tick={AXIS_TICK} domain={[-700, 1300]} tickFormatter={(v) => `${v}k`} label={yAxisLabel("thousands")} />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toLocaleString()}k`} />} />
                 <ReferenceLine y={0} stroke={P.text} strokeWidth={1} />
@@ -161,7 +161,7 @@ export default function Immigration() {
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={data.asylum}>
                 <CartesianGrid {...GRID_PROPS} />
-                <XAxis dataKey="year" tick={AXIS_TICK} />
+                <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK} />
                 <YAxis tick={AXIS_TICK} domain={[0, 80]} tickFormatter={(v) => `${v}k`} label={yAxisLabel("thousands")} />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}k`} />} />
                 <Bar dataKey="applications" name="Applications" fill={P.navy} fillOpacity={0.6} radius={[3, 3, 0, 0]} />
@@ -193,7 +193,7 @@ export default function Immigration() {
             <ResponsiveContainer width="100%" height={320}>
               <BarChart data={data.popComponents}>
                 <CartesianGrid {...GRID_PROPS} />
-                <XAxis dataKey="year" tick={AXIS_TICK} />
+                <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK} />
                 <YAxis tick={AXIS_TICK} domain={[-100, 750]} tickFormatter={(v) => `${v}k`} label={yAxisLabel("thousands")} />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toLocaleString()}k`} />} />
                 <ReferenceLine y={0} stroke={P.text} strokeWidth={1} />
@@ -225,7 +225,7 @@ export default function Immigration() {
             <ResponsiveContainer width="100%" height={280}>
               <AreaChart data={data.populationSeries}>
                 <CartesianGrid {...GRID_PROPS} />
-                <XAxis dataKey="year" tick={AXIS_TICK} />
+                <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK} />
                 <YAxis tick={AXIS_TICK} domain={[54, 70]} tickFormatter={(v) => `${v}m`} label={yAxisLabel("millions")} />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${v}m`} />} />
                 <Area type="monotone" dataKey="population" stroke={P.navy} fill={P.navy} fillOpacity={0.1} strokeWidth={2.5} name="Population (millions)" dot={{ r: 2.5, fill: P.navy }} />
@@ -280,7 +280,7 @@ export default function Immigration() {
               <ResponsiveContainer width="100%" height={280}>
                 <AreaChart data={data.dependencyRatio}>
                   <CartesianGrid {...GRID_PROPS} />
-                  <XAxis dataKey="year" tick={AXIS_TICK} />
+                  <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK} />
                   <YAxis tick={AXIS_TICK} domain={[0, 60]} label={yAxisLabel("ratio")} />
                   <Tooltip content={<CustomTooltip />} />
                   <Area type="monotone" dataKey="old" stackId="1" stroke={P.sienna} fill={P.sienna} fillOpacity={0.5} name="Old-age (65+)" />
@@ -312,7 +312,7 @@ export default function Immigration() {
             <ResponsiveContainer width="100%" height={260}>
               <AreaChart data={data.foreignBorn}>
                 <CartesianGrid {...GRID_PROPS} />
-                <XAxis dataKey="year" tick={AXIS_TICK} />
+                <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK} />
                 <YAxis tick={AXIS_TICK} domain={[8, 18]} tickFormatter={(v) => `${v}%`} label={yAxisLabel("%")} />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
                 <Area type="monotone" dataKey="pct" stroke={P.sienna} fill={P.sienna} fillOpacity={0.12} strokeWidth={2.5} name="Foreign-born %" dot={{ r: 2.5, fill: P.sienna }} />

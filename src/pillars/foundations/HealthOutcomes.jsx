@@ -123,7 +123,7 @@ export default function HealthOutcomes() {
               <ResponsiveContainer width="100%" height={340}>
                 <LineChart data={data.lifeExpectancy} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-                  <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
+                  <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
                   <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} domain={[68, 86]} label={yAxisLabel("Years")} />
                   <Tooltip content={<CustomTooltip />} />
                   <MethodologyBreak breaks={getBreaks(raw, "lifeExpectancy")} />
@@ -251,7 +251,7 @@ export default function HealthOutcomes() {
               <ResponsiveContainer width="100%" height={340}>
                 <LineChart data={data.avoidableMortality} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-                  <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
+                  <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
                   <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} label={yAxisLabel("Per 100k")} />
                   <Tooltip content={<CustomTooltip />} />
                   <MethodologyBreak breaks={getBreaks(raw, "avoidableMortality")} />
@@ -290,7 +290,7 @@ export default function HealthOutcomes() {
               <ResponsiveContainer width="100%" height={340}>
                 <LineChart data={data.infantMortality} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-                  <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
+                  <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
                   <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} domain={[0, 12]} label={yAxisLabel("Per 1,000")} />
                   <Tooltip content={<CustomTooltip />} />
                   <Line type="monotone" dataKey="rate" name="Infant mortality rate" stroke={P.navy} strokeWidth={2.5} dot={false} />
@@ -329,7 +329,7 @@ export default function HealthOutcomes() {
                   <ResponsiveContainer width="100%" height={280}>
                     <ComposedChart data={data.healthyLifeExpectancy} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
                       <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-                      <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
+                      <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
                       <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} domain={[55, 85]} label={yAxisLabel("Years")} />
                       <Tooltip content={<CustomTooltip />} />
                       <Area type="monotone" dataKey="maleTotal" name="Total LE" fill={P.navy} fillOpacity={0.1} stroke={P.navy} strokeWidth={2} dot={{ r: 3 }} />
@@ -342,7 +342,7 @@ export default function HealthOutcomes() {
                   <ResponsiveContainer width="100%" height={280}>
                     <ComposedChart data={data.healthyLifeExpectancy} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
                       <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-                      <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
+                      <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
                       <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} domain={[55, 85]} label={yAxisLabel("Years")} />
                       <Tooltip content={<CustomTooltip />} />
                       <Area type="monotone" dataKey="femaleTotal" name="Total LE" fill={P.sienna} fillOpacity={0.1} stroke={P.sienna} strokeWidth={2} dot={{ r: 3 }} />
@@ -394,7 +394,7 @@ export default function HealthOutcomes() {
               <ResponsiveContainer width="100%" height={340}>
                 <LineChart data={data.obesity} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-                  <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
+                  <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
                   <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} domain={[15, 32]} label={yAxisLabel("%")} />
                   <Tooltip content={<CustomTooltip />} />
                   <Line type="monotone" dataKey="male" name="Male" stroke={P.navy} strokeWidth={2} dot={false} />

@@ -94,6 +94,27 @@ export const toggleBtn = (active) => ({
   transition: "all 0.15s",
 });
 
+// ─── Financial year axis helpers ─────────────────────────────────────
+// Use these when charting data with FY string keys ("2003-04") that may
+// have uneven spacing. Adds a numeric field for proportional X axis.
+
+/**
+ * Add a numeric fyNum field to data with FY strings for proportional axis spacing.
+ * e.g. "2003-04" → fyNum: 2003
+ */
+export const withFyNum = (data, field = "year") =>
+  data?.map(d => ({ ...d, fyNum: parseInt(d[field]) })) ?? [];
+
+/**
+ * Format a numeric year back to FY string for tick labels.
+ * e.g. 2003 → "2003-04"
+ */
+export const fyTickFormatter = (v) => {
+  const n = Math.round(v);
+  const next = String(n + 1).slice(-2);
+  return `${n}-${next}`;
+};
+
 // ─── View toggle strip (Spending / Housing style) ────────────────────
 
 export const VIEW_TOGGLE_BUTTON = (active) => ({

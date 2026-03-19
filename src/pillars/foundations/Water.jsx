@@ -5,7 +5,7 @@ import {
 import P from "../../theme/palette";
 import {
   CHART_CARD, CHART_TITLE, CHART_SUBTITLE, SOURCE_TEXT,
-  AXIS_TICK_MONO, yAxisLabel } from "../../theme/chartStyles";
+  AXIS_TICK_MONO, yAxisLabel, withFyNum, fyTickFormatter } from "../../theme/chartStyles";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
@@ -193,9 +193,9 @@ function CategoryGroup({ label, color, companies }) {
 function LeakageChart({ data }) {
   return (
     <ResponsiveContainer width="100%" height={340}>
-      <LineChart data={data} margin={{ top: 5, right: 10, left: 10, bottom: 0 }}>
+      <LineChart data={withFyNum(data, "year")} margin={{ top: 5, right: 10, left: 10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="year" tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} interval={2} />
+        <XAxis dataKey="fyNum" type="number" domain={["dataMin", "dataMax"]} tickFormatter={fyTickFormatter} tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
         <YAxis
           tick={AXIS_TICK_MONO}
           axisLine={false} tickLine={false} domain={[2500, 5200]}
@@ -213,7 +213,7 @@ function PollutionChart({ data }) {
     <ResponsiveContainer width="100%" height={340}>
       <BarChart data={data} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
+        <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
         <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} label={yAxisLabel("Pollution incidents")} />
         <Tooltip content={<CustomTooltip />} />
         <Bar dataKey="total" name="All incidents (cat 1-3)" fill={P.red} opacity={0.7} radius={[3, 3, 0, 0]} />

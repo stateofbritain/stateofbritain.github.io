@@ -89,7 +89,7 @@ export default function Family() {
           <ResponsiveContainer width="100%" height={340}>
             <LineChart data={data.tfrByOrder}>
               <CartesianGrid {...GRID_PROPS} />
-              <XAxis dataKey="year" tick={AXIS_TICK} />
+              <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK} />
               <YAxis tick={AXIS_TICK} domain={[0, 3.2]} label={yAxisLabel("Children per woman")} />
               <Tooltip content={<CustomTooltip formatter={(v) => v?.toFixed(2)} />} />
               <ReferenceLine y={2.1} stroke={P.red} strokeDasharray="4 4" label={{ value: "Replacement (2.1)", fontSize: 10, fill: P.red, position: "right" }} />
@@ -124,7 +124,7 @@ export default function Family() {
           <ResponsiveContainer width="100%" height={320}>
             <LineChart data={data.meanAgeByOrder}>
               <CartesianGrid {...GRID_PROPS} />
-              <XAxis dataKey="year" tick={AXIS_TICK} />
+              <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK} />
               <YAxis tick={AXIS_TICK} domain={[22, 35]} tickFormatter={(v) => `${v}`} label={yAxisLabel("Age of mother (years)")} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)} years`} />} />
               <Line type="monotone" dataKey="age1" stroke={AGE_COLORS.age1} strokeWidth={2.5} dot={false} name="1st child" />
@@ -157,7 +157,7 @@ export default function Family() {
           <ResponsiveContainer width="100%" height={300}>
             <AreaChart data={data.birthsSeries}>
               <CartesianGrid {...GRID_PROPS} />
-              <XAxis dataKey="year" tick={AXIS_TICK} />
+              <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK} />
               <YAxis tick={AXIS_TICK} tickFormatter={(v) => `${v}k`} label={yAxisLabel("Live births (thousands)")} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toLocaleString()}k`} />} />
               <Area type="monotone" dataKey="births" stroke={P.teal} fill={P.teal} fillOpacity={0.12} strokeWidth={2.5} name="Live births (thousands)" dot={{ r: 2, fill: P.teal }} />
@@ -186,7 +186,7 @@ export default function Family() {
           <ResponsiveContainer width="100%" height={320}>
             <AreaChart data={data.familyTypeSeries}>
               <CartesianGrid {...GRID_PROPS} />
-              <XAxis dataKey="year" tick={AXIS_TICK} />
+              <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK} />
               <YAxis tick={AXIS_TICK} tickFormatter={(v) => `${(v / 1000).toFixed(0)}m`} label={yAxisLabel("Families (millions)")} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${(v / 1000).toFixed(1)}m`} />} />
               <Area type="monotone" dataKey="loneParent" stackId="1" stroke={FAMILY_COLORS.loneParent} fill={FAMILY_COLORS.loneParent} fillOpacity={0.5} name="Lone parent" />
@@ -218,7 +218,7 @@ export default function Family() {
           <ResponsiveContainer width="100%" height={280}>
             <LineChart data={data.householdSizeSeries}>
               <CartesianGrid {...GRID_PROPS} />
-              <XAxis dataKey="year" tick={AXIS_TICK} />
+              <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK} />
               <YAxis tick={AXIS_TICK} domain={[2.0, 3.2]} label={yAxisLabel("Persons per household")} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(2)} persons`} />} />
               <Line type="monotone" dataKey="size" stroke={P.navy} strokeWidth={2.5} dot={{ r: 2.5, fill: P.navy }} name="Persons per household" />

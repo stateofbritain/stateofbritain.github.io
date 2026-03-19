@@ -5,7 +5,8 @@ import {
 import P from "../../theme/palette";
 import {
   SECTION_HEADING, SECTION_NOTE, CHART_CARD, CHART_TITLE, CHART_SUBTITLE,
-  SOURCE_TEXT, AXIS_TICK, yAxisLabel, GRID_PROPS } from "../../theme/chartStyles";
+  SOURCE_TEXT, AXIS_TICK, yAxisLabel, GRID_PROPS,
+  withFyNum, fyTickFormatter } from "../../theme/chartStyles";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
@@ -72,9 +73,9 @@ export default function Justice() {
               <div style={CHART_SUBTITLE}>Police-recorded crime &amp; CSEW estimates, England &amp; Wales</div>
             </div>
             <ResponsiveContainer width="100%" height={320}>
-              <LineChart data={data.crimeSeries}>
+              <LineChart data={withFyNum(data.crimeSeries, "year")}>
                 <CartesianGrid {...GRID_PROPS} />
-                <XAxis dataKey="year" tick={AXIS_TICK} interval={3} angle={-30} textAnchor="end" height={50} />
+                <XAxis dataKey="fyNum" type="number" domain={["dataMin", "dataMax"]} tickFormatter={fyTickFormatter} tick={AXIS_TICK} angle={-30} textAnchor="end" height={50} />
                 <YAxis tick={AXIS_TICK} domain={[0, 13]} tickFormatter={(v) => `${v}m`} label={yAxisLabel("millions")} />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}m`} />} />
                 <Line type="monotone" dataKey="csew" stroke={P.teal} strokeWidth={2.5} dot={{ r: 2, fill: P.teal }} name="CSEW estimate" connectNulls />
@@ -139,7 +140,7 @@ export default function Justice() {
             <ResponsiveContainer width="100%" height={320}>
               <AreaChart data={data.policeWorkforce}>
                 <CartesianGrid {...GRID_PROPS} />
-                <XAxis dataKey="year" tick={AXIS_TICK} />
+                <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK} />
                 <YAxis tick={AXIS_TICK} domain={[0, 250]} tickFormatter={(v) => `${v}k`} label={yAxisLabel("Police workforce")} />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}k`} />} />
                 <Area type="monotone" dataKey="pcsos" stackId="1" stroke={P.grey} fill={P.grey} fillOpacity={0.5} name="PCSOs" />
@@ -170,9 +171,9 @@ export default function Justice() {
               <div style={CHART_SUBTITLE}>% of recorded crimes resulting in charge</div>
             </div>
             <ResponsiveContainer width="100%" height={280}>
-              <AreaChart data={data.chargeRate}>
+              <AreaChart data={withFyNum(data.chargeRate, "year")}>
                 <CartesianGrid {...GRID_PROPS} />
-                <XAxis dataKey="year" tick={AXIS_TICK} interval={1} angle={-30} textAnchor="end" height={50} />
+                <XAxis dataKey="fyNum" type="number" domain={["dataMin", "dataMax"]} tickFormatter={fyTickFormatter} tick={AXIS_TICK} angle={-30} textAnchor="end" height={50} />
                 <YAxis tick={AXIS_TICK} domain={[0, 20]} tickFormatter={(v) => `${v}%`} label={yAxisLabel("%")} />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
                 <Area type="monotone" dataKey="rate" stroke={P.red} fill={P.red} fillOpacity={0.12} strokeWidth={2.5} name="Charge rate" dot={{ r: 2.5, fill: P.red }} />
@@ -202,7 +203,7 @@ export default function Justice() {
             <ResponsiveContainer width="100%" height={280}>
               <LineChart data={data.prisonPopulation}>
                 <CartesianGrid {...GRID_PROPS} />
-                <XAxis dataKey="year" tick={AXIS_TICK} />
+                <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK} />
                 <YAxis tick={AXIS_TICK} domain={[60, 95]} tickFormatter={(v) => `${v}k`} label={yAxisLabel("Prison population")} />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}k`} />} />
                 <Line type="monotone" dataKey="capacity" stroke={P.red} strokeWidth={2} strokeDasharray="6 3" dot={false} name="Operational capacity" />
@@ -234,7 +235,7 @@ export default function Justice() {
             <ResponsiveContainer width="100%" height={260}>
               <BarChart data={data.courtBacklog}>
                 <CartesianGrid {...GRID_PROPS} />
-                <XAxis dataKey="year" tick={AXIS_TICK} />
+                <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK} />
                 <YAxis tick={AXIS_TICK} domain={[0, 80]} tickFormatter={(v) => `${v}k`} label={yAxisLabel("Outstanding cases")} />
                 <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}k cases`} />} />
                 <Bar dataKey="outstanding" name="Outstanding cases (thousands)" fill={P.navy} fillOpacity={0.7} radius={[3, 3, 0, 0]} />

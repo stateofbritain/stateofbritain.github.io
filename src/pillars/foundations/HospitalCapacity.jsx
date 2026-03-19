@@ -5,7 +5,7 @@ import {
 import P from "../../theme/palette";
 import {
   SECTION_HEADING, SECTION_NOTE, CHART_CARD, CHART_TITLE, CHART_SUBTITLE,
-  SOURCE_TEXT, AXIS_TICK_MONO, yAxisLabel } from "../../theme/chartStyles";
+  SOURCE_TEXT, AXIS_TICK_MONO, yAxisLabel, withFyNum, fyTickFormatter } from "../../theme/chartStyles";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
@@ -97,9 +97,9 @@ export default function HospitalCapacity() {
                 <div style={CHART_SUBTITLE}>Available beds by type, England (thousands)</div>
               </div>
               <ResponsiveContainer width="100%" height={340}>
-                <AreaChart data={data.beds.map(d => ({ ...d, generalAcuteK: d.generalAcute / 1000, matK: d.maternity / 1000, mhK: d.mentalIllness / 1000, ldK: d.learningDisability / 1000 }))} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
+                <AreaChart data={withFyNum(data.beds.map(d => ({ ...d, generalAcuteK: d.generalAcute / 1000, matK: d.maternity / 1000, mhK: d.mentalIllness / 1000, ldK: d.learningDisability / 1000 })), "year")} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-                  <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} interval={4} />
+                  <XAxis dataKey="fyNum" type="number" domain={["dataMin", "dataMax"]} tickFormatter={fyTickFormatter} tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} interval={4} />
                   <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} unit="k" label={yAxisLabel("Beds (thousands)")} />
                   <Tooltip content={<CustomTooltip />} />
                   <Area type="monotone" dataKey="generalAcuteK" name="General & acute" stackId="1" fill={P.navy} fillOpacity={0.6} stroke={P.navy} strokeWidth={1.5} />
@@ -138,9 +138,9 @@ export default function HospitalCapacity() {
                 <div style={CHART_SUBTITLE}>Overnight beds, general & acute and overall, England (%)</div>
               </div>
               <ResponsiveContainer width="100%" height={340}>
-                <LineChart data={data.occupancy} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
+                <LineChart data={withFyNum(data.occupancy, "year")} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-                  <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} interval={3} />
+                  <XAxis dataKey="fyNum" type="number" domain={["dataMin", "dataMax"]} tickFormatter={fyTickFormatter} tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
                   <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} unit="%" domain={[70, 95]} label={yAxisLabel("%")} />
                   <Tooltip content={<CustomTooltip />} />
                   <Line type="monotone" dataKey="generalAcute" name="General & acute" stroke={P.navy} strokeWidth={2.5} dot />
@@ -216,9 +216,9 @@ export default function HospitalCapacity() {
                 <div style={CHART_SUBTITLE}>Elective, emergency, and day case admissions, England (thousands)</div>
               </div>
               <ResponsiveContainer width="100%" height={340}>
-                <AreaChart data={data.admissions} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
+                <AreaChart data={withFyNum(data.admissions, "year")} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-                  <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
+                  <XAxis dataKey="fyNum" type="number" domain={["dataMin", "dataMax"]} tickFormatter={fyTickFormatter} tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
                   <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} unit="k" label={yAxisLabel("Admissions (thousands)")} />
                   <Tooltip content={<CustomTooltip />} />
                   <Area type="monotone" dataKey="dayCase" name="Day cases" stackId="1" fill={P.teal} fillOpacity={0.6} stroke={P.teal} strokeWidth={1.5} />

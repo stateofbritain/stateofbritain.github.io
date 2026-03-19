@@ -70,7 +70,7 @@ export default function DefenceSpending() {
         >
             <AreaChart data={data.spendingPctGdp}>
               <CartesianGrid {...GRID_PROPS} />
-              <XAxis dataKey="year" tick={AXIS_TICK} />
+              <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK} />
               <YAxis tick={AXIS_TICK} domain={[1.5, 4.2]} tickFormatter={(v) => `${v}%`} label={yAxisLabel("% of GDP")} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v}% GDP`} />} />
               <ReferenceLine y={2.0} stroke={P.grey} strokeDasharray="4 4" label={{ value: "NATO 2%", fontSize: 10, fill: P.grey, position: "right" }} />
@@ -96,7 +96,7 @@ export default function DefenceSpending() {
         >
             <AreaChart data={data.spendingReal}>
               <CartesianGrid {...GRID_PROPS} />
-              <XAxis dataKey="year" tick={AXIS_TICK} />
+              <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK} />
               <YAxis tick={AXIS_TICK} domain={[35, 58]} tickFormatter={(v) => `£${v}bn`} label={yAxisLabel("£bn")} />
               <Tooltip content={<CustomTooltip formatter={(v) => `£${v}bn`} />} />
               <Area type="monotone" dataKey="value" stroke={P.teal} fill={P.teal} fillOpacity={0.12} strokeWidth={2.5} name="Real spending (£bn)" dot={{ r: 2, fill: P.teal }} />

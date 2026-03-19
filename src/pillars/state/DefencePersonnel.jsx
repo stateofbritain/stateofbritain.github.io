@@ -6,7 +6,8 @@ import {
 import P from "../../theme/palette";
 import {
   SECTION_HEADING, SECTION_NOTE,
-  AXIS_TICK, yAxisLabel, GRID_PROPS } from "../../theme/chartStyles";
+  AXIS_TICK, yAxisLabel, GRID_PROPS,
+  withFyNum, fyTickFormatter } from "../../theme/chartStyles";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
@@ -81,7 +82,7 @@ export default function DefencePersonnel() {
         >
             <AreaChart data={data.personnel}>
               <CartesianGrid {...GRID_PROPS} />
-              <XAxis dataKey="year" tick={AXIS_TICK} />
+              <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK} />
               <YAxis tick={AXIS_TICK} domain={[0, 220]} tickFormatter={(v) => `${v}k`} label={yAxisLabel("thousands")} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}k`} />} />
               <Area type="monotone" dataKey="raf" stackId="1" stroke={SERVICE_COLORS.raf} fill={SERVICE_COLORS.raf} fillOpacity={0.5} name="RAF" />
@@ -138,9 +139,9 @@ export default function DefencePersonnel() {
           ]}
           height={300}
         >
-            <BarChart data={data.intakeOutflow}>
+            <BarChart data={withFyNum(data.intakeOutflow, "year")}>
               <CartesianGrid {...GRID_PROPS} />
-              <XAxis dataKey="year" tick={AXIS_TICK} angle={-30} textAnchor="end" height={50} />
+              <XAxis dataKey="fyNum" type="number" domain={["dataMin", "dataMax"]} tickFormatter={fyTickFormatter} tick={AXIS_TICK} angle={-30} textAnchor="end" height={50} />
               <YAxis tick={AXIS_TICK} domain={[0, 20]} tickFormatter={(v) => `${v}k`} label={yAxisLabel("thousands")} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}k`} />} />
               <Bar dataKey="intake" name="Intake" fill={P.teal} fillOpacity={0.7} radius={[3, 3, 0, 0]} />
@@ -173,17 +174,17 @@ export default function DefencePersonnel() {
           height={280}
         >
           {outflowView === "overall" ? (
-            <LineChart data={data.voluntaryOutflow}>
+            <LineChart data={withFyNum(data.voluntaryOutflow, "year")}>
               <CartesianGrid {...GRID_PROPS} />
-              <XAxis dataKey="year" tick={AXIS_TICK} angle={-30} textAnchor="end" height={50} />
+              <XAxis dataKey="fyNum" type="number" domain={["dataMin", "dataMax"]} tickFormatter={fyTickFormatter} tick={AXIS_TICK} angle={-30} textAnchor="end" height={50} />
               <YAxis tick={AXIS_TICK} domain={[3, 7.5]} tickFormatter={(v) => `${v}%`} label={yAxisLabel("%")} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
               <Line type="monotone" dataKey="overall" stroke={P.navy} strokeWidth={2.5} dot={{ r: 2.5, fill: P.navy }} name="Overall" />
             </LineChart>
           ) : (
-            <LineChart data={data.voluntaryOutflow}>
+            <LineChart data={withFyNum(data.voluntaryOutflow, "year")}>
               <CartesianGrid {...GRID_PROPS} />
-              <XAxis dataKey="year" tick={AXIS_TICK} angle={-30} textAnchor="end" height={50} />
+              <XAxis dataKey="fyNum" type="number" domain={["dataMin", "dataMax"]} tickFormatter={fyTickFormatter} tick={AXIS_TICK} angle={-30} textAnchor="end" height={50} />
               <YAxis tick={AXIS_TICK} domain={[3, 7.5]} tickFormatter={(v) => `${v}%`} label={yAxisLabel("%")} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
               <Line type="monotone" dataKey="army" stroke={SERVICE_COLORS.army} strokeWidth={2} dot={{ r: 2, fill: SERVICE_COLORS.army }} name="Army" />
@@ -210,7 +211,7 @@ export default function DefencePersonnel() {
         >
             <LineChart data={data.reserves}>
               <CartesianGrid {...GRID_PROPS} />
-              <XAxis dataKey="year" tick={AXIS_TICK} />
+              <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK} />
               <YAxis tick={AXIS_TICK} domain={[18, 34]} tickFormatter={(v) => `${v}k`} label={yAxisLabel("thousands")} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}k`} />} />
               <ReferenceLine y={30} stroke={P.grey} strokeDasharray="4 4" label={{ value: "30k target", fontSize: 10, fill: P.grey, position: "right" }} />

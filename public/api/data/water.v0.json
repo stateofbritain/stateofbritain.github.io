@@ -1,1 +1,351 @@
-{"meta":{"sources":[{"name":"Ofwat Water Company Performance Report 2024-25","url":"https://www.ofwat.gov.uk/regulated-companies/company-obligations/outcomes/water-company-performance-report-2024-25/","date":"October 2025"},{"name":"Environment Agency — Water company pollution incidents 2016-2024","url":"https://www.gov.uk/government/publications/water-and-sewerage-companies-in-england-pollution-incident-report-for-2016-to-2024","date":"2025"},{"name":"Environment Agency — Storm overflow EDM annual returns","url":"https://www.gov.uk/government/news/environment-agency-storm-overflow-spill-data-for-2024","date":"March 2025"}],"fetched":"2026-03-05"},"sectorPerformance":{"period":"2019-20 to 2024-25","metrics":[{"metric":"Sewer collapses","unit":"per 1,000 km of sewer","baseline":9.78,"latest":6.29,"change":-36},{"metric":"Water quality compliance","unit":"score (CRI)","baseline":3.21,"latest":2.11,"change":-34},{"metric":"Internal sewer flooding","unit":"per 10,000 connections","baseline":2.56,"latest":1.83,"change":-29},{"metric":"Priority services register","unit":"percentage reach","baseline":2,"latest":12.8,"change":11},{"metric":"Leakage","unit":"Ml/d (3-yr avg)","baseline":3272.1,"latest":2966.5,"change":-9},{"metric":"Mains repairs","unit":"per 1,000 km of main","baseline":136.7,"latest":128.9,"change":-6},{"metric":"Per capita consumption","unit":"litres/head/day (3-yr avg)","baseline":141,"latest":138.3,"change":-2},{"metric":"Unplanned outage","unit":"percentage","baseline":3.72,"latest":1.8,"change":-2},{"metric":"Treatment works compliance","unit":"percentage","baseline":98.65,"latest":98.81,"change":0.2},{"metric":"Supply interruptions","unit":"hr:min:sec","baseline":"00:09:17","latest":"00:10:00","change":8},{"metric":"Customer satisfaction","unit":"score","baseline":82.35,"latest":74.74,"change":-9},{"metric":"Pollution incidents","unit":"per 10,000 km of sewer","baseline":36.29,"latest":45.91,"change":27}]},"leakage":[{"year":"1992-93","value":5000},{"year":"1994-95","value":5100},{"year":"1996-97","value":4500},{"year":"1998-99","value":3700},{"year":"2000-01","value":3600},{"year":"2002-03","value":3600},{"year":"2004-05","value":3600},{"year":"2006-07","value":3500},{"year":"2008-09","value":3400},{"year":"2010-11","value":3300},{"year":"2012-13","value":3200},{"year":"2014-15","value":3200},{"year":"2016-17","value":3200},{"year":"2017-18","value":3250},{"year":"2018-19","value":3200},{"year":"2019-20","value":3100},{"year":"2020-21","value":3050},{"year":"2021-22","value":2960},{"year":"2022-23","value":2920},{"year":"2023-24","value":2890},{"year":"2024-25","value":2967}],"pollutionIncidents":[{"year":2016,"total":1902,"serious":57},{"year":2017,"total":1827,"serious":52},{"year":2018,"total":1863,"serious":56},{"year":2019,"total":2204,"serious":52},{"year":2020,"total":1919,"serious":44},{"year":2021,"total":1883,"serious":62},{"year":2022,"total":2026,"serious":44},{"year":2023,"total":2174,"serious":47},{"year":2024,"total":2801,"serious":75}],"stormOverflows":{"avgSpillsPerOverflow2024":31.8,"avgSpillsPerOverflow2023":33.1,"avgSpillsPerOverflow2020":32.6,"changeVs2023":-2.9,"noSpillPct2024":12.5,"under10SpillsPct2024":39},"companyCategories":{"leading":["Portsmouth Water"],"average":["Anglian Water","Hafren Dyfrdwy","Northumbrian Water","Severn Trent Water","South West Water (SW)","United Utilities","Wessex Water","Affinity Water","South West Water (Bristol)","South East Water","South Staffs Water"],"lagging":["Dŵr Cymru","Southern Water","Thames Water","Yorkshire Water","SES Water"]},"companyLeakage":[{"company":"Thames Water","baseline":672.9,"latest":-13.2,"commitment":-20.5},{"company":"United Utilities","baseline":447.1,"latest":-7.3,"commitment":-10.8},{"company":"Severn Trent Water","baseline":446.1,"latest":-16.8,"commitment":-14.3},{"company":"Yorkshire Water","baseline":315.3,"latest":-15.1,"commitment":-15},{"company":"Dŵr Cymru","baseline":217.1,"latest":15,"commitment":-13.3},{"company":"Anglian Water","baseline":194.1,"latest":-3.9,"commitment":-16.4},{"company":"Affinity Water","baseline":187.1,"latest":-19.4,"commitment":-20},{"company":"Northumbrian Water","baseline":134.8,"latest":-12,"commitment":-14.1},{"company":"South West region","baseline":124.2,"latest":-9.2,"commitment":-15},{"company":"Southern Water","baseline":99.9,"latest":4.7,"commitment":-15},{"company":"South East Water","baseline":95.1,"latest":8,"commitment":-9.7},{"company":"Wessex Water","baseline":73.3,"latest":-4.5,"commitment":-12.8}]}
+{
+  "meta": {
+    "sources": [
+      {
+        "name": "Ofwat Water Company Performance Report 2024-25",
+        "url": "https://www.ofwat.gov.uk/regulated-companies/company-obligations/outcomes/water-company-performance-report-2024-25/",
+        "date": "October 2025"
+      },
+      {
+        "name": "Environment Agency — Water company pollution incidents 2016-2024",
+        "url": "https://www.gov.uk/government/publications/water-and-sewerage-companies-in-england-pollution-incident-report-for-2016-to-2024",
+        "date": "2025"
+      },
+      {
+        "name": "Environment Agency — Storm overflow EDM annual returns",
+        "url": "https://www.gov.uk/government/news/environment-agency-storm-overflow-spill-data-for-2024",
+        "date": "March 2025"
+      }
+    ],
+    "fetched": "2026-03-05"
+  },
+  "sectorPerformance": {
+    "period": "2019-20 to 2024-25",
+    "metrics": [
+      {
+        "metric": "Sewer collapses",
+        "unit": "per 1,000 km of sewer",
+        "baseline": 9.78,
+        "latest": 6.29,
+        "change": -36
+      },
+      {
+        "metric": "Water quality compliance",
+        "unit": "score (CRI)",
+        "baseline": 3.21,
+        "latest": 2.11,
+        "change": -34
+      },
+      {
+        "metric": "Internal sewer flooding",
+        "unit": "per 10,000 connections",
+        "baseline": 2.56,
+        "latest": 1.83,
+        "change": -29
+      },
+      {
+        "metric": "Priority services register",
+        "unit": "percentage reach",
+        "baseline": 2,
+        "latest": 12.8,
+        "change": 11
+      },
+      {
+        "metric": "Leakage",
+        "unit": "Ml/d (3-yr avg)",
+        "baseline": 3272.1,
+        "latest": 2966.5,
+        "change": -9
+      },
+      {
+        "metric": "Mains repairs",
+        "unit": "per 1,000 km of main",
+        "baseline": 136.7,
+        "latest": 128.9,
+        "change": -6
+      },
+      {
+        "metric": "Per capita consumption",
+        "unit": "litres/head/day (3-yr avg)",
+        "baseline": 141,
+        "latest": 138.3,
+        "change": -2
+      },
+      {
+        "metric": "Unplanned outage",
+        "unit": "percentage",
+        "baseline": 3.72,
+        "latest": 1.8,
+        "change": -2
+      },
+      {
+        "metric": "Treatment works compliance",
+        "unit": "percentage",
+        "baseline": 98.65,
+        "latest": 98.81,
+        "change": 0.2
+      },
+      {
+        "metric": "Supply interruptions",
+        "unit": "hr:min:sec",
+        "baseline": "00:09:17",
+        "latest": "00:10:00",
+        "change": 8
+      },
+      {
+        "metric": "Customer satisfaction",
+        "unit": "score",
+        "baseline": 82.35,
+        "latest": 74.74,
+        "change": -9
+      },
+      {
+        "metric": "Pollution incidents",
+        "unit": "per 10,000 km of sewer",
+        "baseline": 36.29,
+        "latest": 45.91,
+        "change": 27
+      }
+    ]
+  },
+  "leakage": [
+    {
+      "year": "1992-93",
+      "value": 5000
+    },
+    {
+      "year": "1994-95",
+      "value": 5100
+    },
+    {
+      "year": "1996-97",
+      "value": 4500
+    },
+    {
+      "year": "1998-99",
+      "value": 3700
+    },
+    {
+      "year": "2000-01",
+      "value": 3600
+    },
+    {
+      "year": "2002-03",
+      "value": 3600
+    },
+    {
+      "year": "2004-05",
+      "value": 3600
+    },
+    {
+      "year": "2006-07",
+      "value": 3500
+    },
+    {
+      "year": "2008-09",
+      "value": 3400
+    },
+    {
+      "year": "2010-11",
+      "value": 3300
+    },
+    {
+      "year": "2012-13",
+      "value": 3200
+    },
+    {
+      "year": "2014-15",
+      "value": 3200
+    },
+    {
+      "year": "2016-17",
+      "value": 3200
+    },
+    {
+      "year": "2017-18",
+      "value": 3250
+    },
+    {
+      "year": "2018-19",
+      "value": 3200
+    },
+    {
+      "year": "2019-20",
+      "value": 3100
+    },
+    {
+      "year": "2020-21",
+      "value": 3050
+    },
+    {
+      "year": "2021-22",
+      "value": 2960
+    },
+    {
+      "year": "2022-23",
+      "value": 2920
+    },
+    {
+      "year": "2023-24",
+      "value": 2890
+    },
+    {
+      "year": "2024-25",
+      "value": 2967
+    }
+  ],
+  "pollutionIncidents": [
+    {
+      "year": 2016,
+      "total": 1902,
+      "serious": 57
+    },
+    {
+      "year": 2017,
+      "total": 1827,
+      "serious": 52
+    },
+    {
+      "year": 2018,
+      "total": 1863,
+      "serious": 56
+    },
+    {
+      "year": 2019,
+      "total": 2204,
+      "serious": 52
+    },
+    {
+      "year": 2020,
+      "total": 1919,
+      "serious": 44
+    },
+    {
+      "year": 2021,
+      "total": 1883,
+      "serious": 62
+    },
+    {
+      "year": 2022,
+      "total": 2026,
+      "serious": 44
+    },
+    {
+      "year": 2023,
+      "total": 2174,
+      "serious": 47
+    },
+    {
+      "year": 2024,
+      "total": 2801,
+      "serious": 75
+    }
+  ],
+  "stormOverflows": {
+    "avgSpillsPerOverflow2024": 31.8,
+    "avgSpillsPerOverflow2023": 33.1,
+    "avgSpillsPerOverflow2020": 32.6,
+    "changeVs2023": -2.9,
+    "noSpillPct2024": 12.5,
+    "under10SpillsPct2024": 39
+  },
+  "companyCategories": {
+    "leading": [
+      "Portsmouth Water"
+    ],
+    "average": [
+      "Anglian Water",
+      "Hafren Dyfrdwy",
+      "Northumbrian Water",
+      "Severn Trent Water",
+      "South West Water (SW)",
+      "United Utilities",
+      "Wessex Water",
+      "Affinity Water",
+      "South West Water (Bristol)",
+      "South East Water",
+      "South Staffs Water"
+    ],
+    "lagging": [
+      "Dŵr Cymru",
+      "Southern Water",
+      "Thames Water",
+      "Yorkshire Water",
+      "SES Water"
+    ]
+  },
+  "companyLeakage": [
+    {
+      "company": "Thames Water",
+      "baseline": 672.9,
+      "latest": -13.2,
+      "commitment": -20.5
+    },
+    {
+      "company": "United Utilities",
+      "baseline": 447.1,
+      "latest": -7.3,
+      "commitment": -10.8
+    },
+    {
+      "company": "Severn Trent Water",
+      "baseline": 446.1,
+      "latest": -16.8,
+      "commitment": -14.3
+    },
+    {
+      "company": "Yorkshire Water",
+      "baseline": 315.3,
+      "latest": -15.1,
+      "commitment": -15
+    },
+    {
+      "company": "Dŵr Cymru",
+      "baseline": 217.1,
+      "latest": 15,
+      "commitment": -13.3
+    },
+    {
+      "company": "Anglian Water",
+      "baseline": 194.1,
+      "latest": -3.9,
+      "commitment": -16.4
+    },
+    {
+      "company": "Affinity Water",
+      "baseline": 187.1,
+      "latest": -19.4,
+      "commitment": -20
+    },
+    {
+      "company": "Northumbrian Water",
+      "baseline": 134.8,
+      "latest": -12,
+      "commitment": -14.1
+    },
+    {
+      "company": "South West region",
+      "baseline": 124.2,
+      "latest": -9.2,
+      "commitment": -15
+    },
+    {
+      "company": "Southern Water",
+      "baseline": 99.9,
+      "latest": 4.7,
+      "commitment": -15
+    },
+    {
+      "company": "South East Water",
+      "baseline": 95.1,
+      "latest": 8,
+      "commitment": -9.7
+    },
+    {
+      "company": "Wessex Water",
+      "baseline": 73.3,
+      "latest": -4.5,
+      "commitment": -12.8
+    }
+  ]
+}

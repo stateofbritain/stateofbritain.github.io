@@ -74,7 +74,7 @@ export default function Defence() {
           <ResponsiveContainer width="100%" height={320}>
             <AreaChart data={data.spendingPctGdp}>
               <CartesianGrid {...GRID_PROPS} />
-              <XAxis dataKey="year" tick={AXIS_TICK} />
+              <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK} />
               <YAxis tick={AXIS_TICK} domain={[1.5, 4.2]} tickFormatter={(v) => `${v}%`} label={yAxisLabel("% of GDP")} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v}% GDP`} />} />
               <ReferenceLine y={2.0} stroke={P.grey} strokeDasharray="4 4" label={{ value: "NATO 2%", fontSize: 10, fill: P.grey, position: "right" }} />
@@ -102,7 +102,7 @@ export default function Defence() {
           <ResponsiveContainer width="100%" height={280}>
             <AreaChart data={data.spendingReal}>
               <CartesianGrid {...GRID_PROPS} />
-              <XAxis dataKey="year" tick={AXIS_TICK} />
+              <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK} />
               <YAxis tick={AXIS_TICK} domain={[35, 58]} tickFormatter={(v) => `£${v}bn`} label={yAxisLabel("£bn")} />
               <Tooltip content={<CustomTooltip formatter={(v) => `£${v}bn`} />} />
               <Area type="monotone" dataKey="value" stroke={P.teal} fill={P.teal} fillOpacity={0.12} strokeWidth={2.5} name="Real spending (£bn)" dot={{ r: 2, fill: P.teal }} />
@@ -128,7 +128,7 @@ export default function Defence() {
           <ResponsiveContainer width="100%" height={320}>
             <AreaChart data={data.personnel}>
               <CartesianGrid {...GRID_PROPS} />
-              <XAxis dataKey="year" tick={AXIS_TICK} />
+              <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK} />
               <YAxis tick={AXIS_TICK} domain={[0, 220]} tickFormatter={(v) => `${v}k`} label={yAxisLabel("thousands")} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}k`} />} />
               <Area type="monotone" dataKey="raf" stackId="1" stroke={SERVICE_COLORS.raf} fill={SERVICE_COLORS.raf} fillOpacity={0.5} name="RAF" />
@@ -157,7 +157,7 @@ export default function Defence() {
           <ResponsiveContainer width="100%" height={260}>
             <LineChart data={data.reserves}>
               <CartesianGrid {...GRID_PROPS} />
-              <XAxis dataKey="year" tick={AXIS_TICK} />
+              <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK} />
               <YAxis tick={AXIS_TICK} domain={[18, 34]} tickFormatter={(v) => `${v}k`} label={yAxisLabel("thousands")} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toFixed(1)}k`} />} />
               <ReferenceLine y={30} stroke={P.grey} strokeDasharray="4 4" label={{ value: "30k target", fontSize: 10, fill: P.grey, position: "right" }} />

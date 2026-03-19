@@ -7,6 +7,7 @@ import {
 import P from "../../theme/palette";
 import {
   SECTION_HEADING, SECTION_NOTE, AXIS_TICK_MONO, yAxisLabel, GRID_PROPS,
+  withFyNum, fyTickFormatter,
 } from "../../theme/chartStyles";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
@@ -152,9 +153,9 @@ export default function Taxation() {
           height={380}
         >
           {receiptView === "stacked" ? (
-            <AreaChart data={data.receiptsByType} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
+            <AreaChart data={withFyNum(data.receiptsByType, "fy")} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
               <CartesianGrid {...GRID_PROPS} />
-              <XAxis dataKey="fy" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} interval={isMobile ? 5 : 3} />
+              <XAxis dataKey="fyNum" type="number" domain={["dataMin", "dataMax"]} tickFormatter={fyTickFormatter} tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} interval={isMobile ? 5 : 3} />
               <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} label={yAxisLabel("£bn")} />
               <Tooltip content={<CustomTooltip />} />
               {Object.keys(RECEIPT_COLORS).map((key) => (
@@ -171,9 +172,9 @@ export default function Taxation() {
               ))}
             </AreaChart>
           ) : (
-            <LineChart data={data.receiptsByType} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
+            <LineChart data={withFyNum(data.receiptsByType, "fy")} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
               <CartesianGrid {...GRID_PROPS} />
-              <XAxis dataKey="fy" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} interval={isMobile ? 5 : 3} />
+              <XAxis dataKey="fyNum" type="number" domain={["dataMin", "dataMax"]} tickFormatter={fyTickFormatter} tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} interval={isMobile ? 5 : 3} />
               <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} label={yAxisLabel("£bn")} />
               <Tooltip content={<CustomTooltip />} />
               {Object.keys(RECEIPT_COLORS).map((key) => (
@@ -208,9 +209,9 @@ export default function Taxation() {
           source={sourceFrom(raw, "taxBurden")}
           height={320}
         >
-          <ComposedChart data={data.taxBurden} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
+          <ComposedChart data={withFyNum(data.taxBurden, "fy")} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
             <CartesianGrid {...GRID_PROPS} />
-            <XAxis dataKey="fy" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} interval={isMobile ? 7 : 4} />
+            <XAxis dataKey="fyNum" type="number" domain={["dataMin", "dataMax"]} tickFormatter={fyTickFormatter} tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} interval={isMobile ? 7 : 4} />
             <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} domain={[26, 40]} label={yAxisLabel("% GDP")} />
             <Tooltip content={<CustomTooltip />} />
             <Area
@@ -281,9 +282,9 @@ export default function Taxation() {
           onViewChange={setGapView}
           height={300}
         >
-          <ComposedChart data={data.taxGap} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
+          <ComposedChart data={withFyNum(data.taxGap, "fy")} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
             <CartesianGrid {...GRID_PROPS} />
-            <XAxis dataKey="fy" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} interval={isMobile ? 3 : 2} />
+            <XAxis dataKey="fyNum" type="number" domain={["dataMin", "dataMax"]} tickFormatter={fyTickFormatter} tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} interval={isMobile ? 3 : 2} />
             {gapView === "pct" ? (
               <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} domain={[0, 10]} label={yAxisLabel("%")} />
             ) : (
@@ -357,9 +358,9 @@ export default function Taxation() {
           ]}
           height={320}
         >
-          <LineChart data={data.taxConcentration} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
+          <LineChart data={withFyNum(data.taxConcentration, "fy")} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
             <CartesianGrid {...GRID_PROPS} />
-            <XAxis dataKey="fy" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} interval={isMobile ? 3 : 1} />
+            <XAxis dataKey="fyNum" type="number" domain={["dataMin", "dataMax"]} tickFormatter={fyTickFormatter} tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} interval={isMobile ? 3 : 1} />
             <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} domain={[0, 100]} label={yAxisLabel("% of IT")} />
             <Tooltip content={<CustomTooltip />} />
             <Line type="monotone" dataKey="top50" name="Top 50%" stroke={CONC_COLORS.top50} strokeWidth={1.5} dot={{ r: 2.5 }} />
@@ -383,9 +384,9 @@ export default function Taxation() {
               ]}
               height={300}
             >
-              <BarChart data={data.taxpayersByBand} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
+              <BarChart data={withFyNum(data.taxpayersByBand, "fy")} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
                 <CartesianGrid {...GRID_PROPS} vertical={false} />
-                <XAxis dataKey="fy" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
+                <XAxis dataKey="fyNum" type="number" domain={["dataMin", "dataMax"]} tickFormatter={fyTickFormatter} tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
                 <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} label={yAxisLabel("millions")} />
                 <Tooltip content={<CustomTooltip />} />
                 <Bar dataKey="basic" name="Basic rate" fill={P.teal} fillOpacity={0.7} stackId="1" />
@@ -414,9 +415,9 @@ export default function Taxation() {
           source={sourceFrom(raw, "corpTaxRate")}
           height={300}
         >
-          <AreaChart data={data.corpTaxRate} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
+          <AreaChart data={withFyNum(data.corpTaxRate, "fy")} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
             <CartesianGrid {...GRID_PROPS} />
-            <XAxis dataKey="fy" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} interval={isMobile ? 4 : 2} />
+            <XAxis dataKey="fyNum" type="number" domain={["dataMin", "dataMax"]} tickFormatter={fyTickFormatter} tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} interval={isMobile ? 4 : 2} />
             <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} domain={[0, 55]} label={yAxisLabel("%")} />
             <Tooltip content={<CustomTooltip />} />
             <Area type="stepAfter" dataKey="rate" name="Main rate (%)" fill="#7B4B8A" stroke="#7B4B8A" fillOpacity={0.15} strokeWidth={2.5} />
@@ -470,14 +471,14 @@ export default function Taxation() {
           source={sourceFrom(raw, "thresholds")}
           height={300}
         >
-          <AreaChart data={data.thresholds} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
+          <AreaChart data={withFyNum(data.thresholds, "fy")} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
             <CartesianGrid {...GRID_PROPS} />
-            <XAxis dataKey="fy" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} interval={isMobile ? 5 : 3} />
+            <XAxis dataKey="fyNum" type="number" domain={["dataMin", "dataMax"]} tickFormatter={fyTickFormatter} tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} interval={isMobile ? 5 : 3} />
             <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} domain={[0, 14000]} label={yAxisLabel("£")} />
             <Tooltip content={<CustomTooltip />} />
             <Area type="monotone" dataKey="personalAllowance" name="Personal allowance (£)" fill={P.teal} stroke={P.teal} fillOpacity={0.15} strokeWidth={2.5} />
             <ReferenceLine
-              x="2021-22"
+              x={2021}
               stroke={P.grey}
               strokeDasharray="4 4"
               label={{ value: "Frozen from 2021-22", fontSize: 10, fill: P.grey, position: "insideTopRight", fontFamily: "'DM Mono', monospace" }}
