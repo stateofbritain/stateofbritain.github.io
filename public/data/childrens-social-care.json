@@ -18,6 +18,12 @@
       "publisher": "Ofsted"
     },
     {
+      "id": "ofsted-fostering-qadf-2013",
+      "name": "Ofsted Fostering Quality Assurance and Data Forms, 2012-13 and 2013-14",
+      "url": "https://www.gov.uk/government/statistics/fostering-in-england-1-april-2012-to-31-march-2013",
+      "publisher": "Ofsted"
+    },
+    {
       "id": "dfe-csw-workforce-2024",
       "name": "DfE Children's Social Work Workforce, 2024",
       "url": "https://explore-education-statistics.service.gov.uk/find-statistics/children-s-social-work-workforce/2024",
@@ -150,6 +156,21 @@
       "timeField": "year",
       "data": [
         {
+          "year": 2012,
+          "approved": 51200,
+          "households": 37380
+        },
+        {
+          "year": 2013,
+          "approved": 52350,
+          "households": 38160
+        },
+        {
+          "year": 2014,
+          "approved": 53550,
+          "households": 39220
+        },
+        {
           "year": 2015,
           "approved": 55300,
           "households": 40100
@@ -247,6 +268,34 @@
       "timeField": "year",
       "data": [
         {
+          "year": 2013,
+          "avgCaseload": 17,
+          "vacancyRate": 11,
+          "turnoverRate": 15,
+          "agencyRate": 14
+        },
+        {
+          "year": 2014,
+          "avgCaseload": 16,
+          "vacancyRate": 16,
+          "turnoverRate": 16,
+          "agencyRate": 14
+        },
+        {
+          "year": 2015,
+          "avgCaseload": 15,
+          "vacancyRate": 19,
+          "turnoverRate": 16,
+          "agencyRate": 17
+        },
+        {
+          "year": 2016,
+          "avgCaseload": 16.1,
+          "vacancyRate": 16.7,
+          "turnoverRate": 15.1,
+          "agencyRate": 16
+        },
+        {
           "year": 2017,
           "avgCaseload": 17.7,
           "vacancyRate": 16.7,
@@ -308,6 +357,30 @@
       "sourceId": "dfe-cin-2024",
       "timeField": "year",
       "data": [
+        {
+          "year": "2010-11",
+          "referrals": 615000,
+          "section47": 111700,
+          "cppAt31Mar": 42700
+        },
+        {
+          "year": "2011-12",
+          "referrals": 605100,
+          "section47": 124600,
+          "cppAt31Mar": 42900
+        },
+        {
+          "year": "2012-13",
+          "referrals": 593500,
+          "section47": 127100,
+          "cppAt31Mar": 43100
+        },
+        {
+          "year": "2013-14",
+          "referrals": 657800,
+          "section47": 142500,
+          "cppAt31Mar": 48300
+        },
         {
           "year": "2014-15",
           "referrals": 635600,
@@ -455,6 +528,16 @@
       "sourceId": "dfe-ssda903-2024",
       "timeField": "year",
       "data": [
+        {
+          "year": 2014,
+          "inEET": 45,
+          "inSuitableAccom": 81
+        },
+        {
+          "year": 2015,
+          "inEET": 48,
+          "inSuitableAccom": 81
+        },
         {
           "year": 2016,
           "inEET": 49,

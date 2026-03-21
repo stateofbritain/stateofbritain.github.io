@@ -35,7 +35,11 @@ const childrenLookedAfter = [
 
 // ── Foster carers — approved mainstream foster carers, England ───────
 // Source: Ofsted Fostering in England, as at 31 March
+// Note: Pre-2015 data from Ofsted QADF data forms (broadly comparable)
 const fosterCarers = [
+  { year: 2012, approved: 51200, households: 37380 },
+  { year: 2013, approved: 52350, households: 38160 },
+  { year: 2014, approved: 53550, households: 39220 },
   { year: 2015, approved: 55300, households: 40100 },
   { year: 2016, approved: 55700, households: 40450 },
   { year: 2017, approved: 56400, households: 41050 },
@@ -62,7 +66,12 @@ const fosterRecruitment = [
 
 // ── Social worker caseloads and workforce — England ─────────────────
 // Source: DfE Children's Social Work Workforce, as at 30 September
+// Note: Statutory data collection started 2013; pre-2017 individual-level data not available
 const socialWorkerWorkforce = [
+  { year: 2013, avgCaseload: 17.0, vacancyRate: 11.0, turnoverRate: 15.0, agencyRate: 14.0 },
+  { year: 2014, avgCaseload: 16.0, vacancyRate: 16.0, turnoverRate: 16.0, agencyRate: 14.0 },
+  { year: 2015, avgCaseload: 15.0, vacancyRate: 19.0, turnoverRate: 16.0, agencyRate: 17.0 },
+  { year: 2016, avgCaseload: 16.1, vacancyRate: 16.7, turnoverRate: 15.1, agencyRate: 16.0 },
   { year: 2017, avgCaseload: 17.7, vacancyRate: 16.7, turnoverRate: 15.0, agencyRate: 15.6 },
   { year: 2018, avgCaseload: 17.4, vacancyRate: 16.4, turnoverRate: 15.3, agencyRate: 15.4 },
   { year: 2019, avgCaseload: 16.9, vacancyRate: 16.6, turnoverRate: 15.3, agencyRate: 15.7 },
@@ -76,6 +85,10 @@ const socialWorkerWorkforce = [
 // ── Referrals and child protection — England ────────────────────────
 // Source: DfE Children in Need census, year ending 31 March
 const referralsAndProtection = [
+  { year: "2010-11", referrals: 615000, section47: 111700, cppAt31Mar: 42700 },
+  { year: "2011-12", referrals: 605100, section47: 124600, cppAt31Mar: 42900 },
+  { year: "2012-13", referrals: 593500, section47: 127100, cppAt31Mar: 43100 },
+  { year: "2013-14", referrals: 657800, section47: 142500, cppAt31Mar: 48300 },
   { year: "2014-15", referrals: 635600, section47: 172830, cppAt31Mar: 49700 },
   { year: "2015-16", referrals: 621470, section47: 179160, cppAt31Mar: 50310 },
   { year: "2016-17", referrals: 646120, section47: 187870, cppAt31Mar: 51080 },
@@ -110,7 +123,10 @@ const spending = [
 
 // ── Care leavers outcomes — aged 19–21, England ─────────────────────
 // Source: DfE SSDA903, year ending 31 March
+// Note: 19-21 cohort collected from 2014 onwards (prior years tracked 19-year-olds only)
 const careLeavers = [
+  { year: 2014, inEET: 45, inSuitableAccom: 81 },
+  { year: 2015, inEET: 48, inSuitableAccom: 81 },
   { year: 2016, inEET: 49, inSuitableAccom: 84 },
   { year: 2017, inEET: 50, inSuitableAccom: 84 },
   { year: 2018, inEET: 51, inSuitableAccom: 84 },
@@ -158,6 +174,12 @@ const output = {
       id: "ofsted-fostering-2025",
       name: "Ofsted Fostering in England, 1 April 2024 to 31 March 2025",
       url: "https://www.gov.uk/government/statistics/fostering-in-england-1-april-2024-to-31-march-2025/main-findings-fostering-in-england-1-april-2024-to-31-march-2025",
+      publisher: "Ofsted",
+    },
+    {
+      id: "ofsted-fostering-qadf-2013",
+      name: "Ofsted Fostering Quality Assurance and Data Forms, 2012-13 and 2013-14",
+      url: "https://www.gov.uk/government/statistics/fostering-in-england-1-april-2012-to-31-march-2013",
       publisher: "Ofsted",
     },
     {

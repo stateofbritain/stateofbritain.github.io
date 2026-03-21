@@ -30,6 +30,12 @@
       "publisher": "Care Quality Commission"
     },
     {
+      "id": "cqc-asc-2014-2017",
+      "name": "CQC The State of Adult Social Care Services 2014 to 2017",
+      "url": "https://www.cqc.org.uk/publications/major-report/state-adult-social-care-services-2014-2017",
+      "publisher": "Care Quality Commission"
+    },
+    {
       "id": "ons-census-2021-unpaid-care",
       "name": "ONS Unpaid Care, England and Wales: Census 2021",
       "url": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/healthandwellbeing/bulletins/unpaidcareenglandandwales/census2021",
@@ -73,6 +79,10 @@
       "timeField": "year",
       "data": [
         {
+          "year": "2014-15",
+          "newRequestsM": 1.81
+        },
+        {
           "year": "2015-16",
           "newRequestsM": 1.8
         },
@@ -115,6 +125,12 @@
       ],
       "methodologyBreaks": [
         {
+          "at": "2014-15",
+          "label": "SALT collection starts",
+          "description": "SALT replaced the RAP/ASC-CAR data collection framework in 2014-15. First year of the new collection had some data quality issues.",
+          "severity": "minor"
+        },
+        {
           "at": "2020-21",
           "label": "COVID-19",
           "description": "COVID-19 pandemic reduced new requests for support in 2020-21",
@@ -132,6 +148,12 @@
       "sourceId": "nhs-digital-salt-cld",
       "timeField": "year",
       "data": [
+        {
+          "year": "2014-15",
+          "total": 664,
+          "aged18to64": 228,
+          "aged65plus": 436
+        },
         {
           "year": "2015-16",
           "total": 653,
@@ -265,6 +287,34 @@
       "timeField": "year",
       "data": [
         {
+          "year": "2012-13",
+          "filledPostsK": 1400,
+          "vacancyRate": 4.3,
+          "turnoverRate": 23.4,
+          "zeroHoursPct": 20
+        },
+        {
+          "year": "2013-14",
+          "filledPostsK": 1430,
+          "vacancyRate": 4.8,
+          "turnoverRate": 24.2,
+          "zeroHoursPct": 21
+        },
+        {
+          "year": "2014-15",
+          "filledPostsK": 1460,
+          "vacancyRate": 5.3,
+          "turnoverRate": 25.4,
+          "zeroHoursPct": 29
+        },
+        {
+          "year": "2015-16",
+          "filledPostsK": 1470,
+          "vacancyRate": 6.2,
+          "turnoverRate": 27.3,
+          "zeroHoursPct": 33
+        },
+        {
           "year": "2016-17",
           "filledPostsK": 1490,
           "vacancyRate": 6.6,
@@ -334,6 +384,36 @@
       "timeField": "year",
       "data": [
         {
+          "year": 2013,
+          "careWorker": 6.78,
+          "nlw": 6.31,
+          "medianUK": 11.03
+        },
+        {
+          "year": 2014,
+          "careWorker": 6.9,
+          "nlw": 6.5,
+          "medianUK": 11.34
+        },
+        {
+          "year": 2015,
+          "careWorker": 7.1,
+          "nlw": 6.7,
+          "medianUK": 11.61
+        },
+        {
+          "year": 2016,
+          "careWorker": 7.35,
+          "nlw": 7.2,
+          "medianUK": 11.9
+        },
+        {
+          "year": 2017,
+          "careWorker": 7.7,
+          "nlw": 7.5,
+          "medianUK": 12.01
+        },
+        {
           "year": 2018,
           "careWorker": 8,
           "nlw": 7.83,
@@ -387,6 +467,20 @@
       "sourceId": "cqc-state-of-care-2024",
       "timeField": "year",
       "data": [
+        {
+          "year": 2015,
+          "outstanding": 1,
+          "good": 63,
+          "reqImprovement": 31,
+          "inadequate": 5
+        },
+        {
+          "year": 2016,
+          "outstanding": 2,
+          "good": 71,
+          "reqImprovement": 24,
+          "inadequate": 3
+        },
         {
           "year": 2017,
           "outstanding": 3,

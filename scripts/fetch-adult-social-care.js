@@ -15,8 +15,10 @@ import { writeFileSync } from "fs";
 
 // ── Requests for support — new requests, England ────────────────────
 // Source: NHS Digital SALT / CLD, year ending 31 March (millions)
-// Note: CLD replaced SALT from April 2024; figures broadly comparable
+// Note: SALT started 2014-15 (replaced RAP/ASC-CAR). CLD replaced SALT from April 2024.
+// Pre-SALT data (before 2014-15) not comparable due to different collection framework.
 const requestsForSupport = [
+  { year: "2014-15", newRequestsM: 1.81 },
   { year: "2015-16", newRequestsM: 1.80 },
   { year: "2016-17", newRequestsM: 1.82 },
   { year: "2017-18", newRequestsM: 1.86 },
@@ -31,7 +33,9 @@ const requestsForSupport = [
 
 // ── People receiving long-term support — England ────────────────────
 // Source: NHS Digital SALT / CLD, as at 31 March (thousands)
+// Note: SALT started 2014-15; pre-SALT (RAP/NASCIS) data not comparable
 const longTermSupport = [
+  { year: "2014-15", total: 664, aged18to64: 228, aged65plus: 436 },
   { year: "2015-16", total: 653, aged18to64: 230, aged65plus: 423 },
   { year: "2016-17", total: 641, aged18to64: 232, aged65plus: 409 },
   { year: "2017-18", total: 637, aged18to64: 235, aged65plus: 402 },
@@ -67,6 +71,10 @@ const spending = [
 // ── Workforce — adult social care, England ──────────────────────────
 // Source: Skills for Care, year ending March (vacancies, turnover in %)
 const workforce = [
+  { year: "2012-13", filledPostsK: 1400, vacancyRate: 4.3, turnoverRate: 23.4, zeroHoursPct: 20 },
+  { year: "2013-14", filledPostsK: 1430, vacancyRate: 4.8, turnoverRate: 24.2, zeroHoursPct: 21 },
+  { year: "2014-15", filledPostsK: 1460, vacancyRate: 5.3, turnoverRate: 25.4, zeroHoursPct: 29 },
+  { year: "2015-16", filledPostsK: 1470, vacancyRate: 6.2, turnoverRate: 27.3, zeroHoursPct: 33 },
   { year: "2016-17", filledPostsK: 1490, vacancyRate: 6.6, turnoverRate: 27.3, zeroHoursPct: 34 },
   { year: "2017-18", filledPostsK: 1520, vacancyRate: 7.8, turnoverRate: 30.7, zeroHoursPct: 35 },
   { year: "2018-19", filledPostsK: 1540, vacancyRate: 8.0, turnoverRate: 30.4, zeroHoursPct: 34 },
@@ -80,7 +88,13 @@ const workforce = [
 
 // ── Pay — care worker hourly pay vs NLW, England ────────────────────
 // Source: Skills for Care / ONS ASHE (median hourly pay, independent sector)
+// Note: NMW preceded NLW (introduced Apr 2016); pre-2016 uses NMW for adult workers
 const pay = [
+  { year: 2013, careWorker: 6.78, nlw: 6.31, medianUK: 11.03 },
+  { year: 2014, careWorker: 6.90, nlw: 6.50, medianUK: 11.34 },
+  { year: 2015, careWorker: 7.10, nlw: 6.70, medianUK: 11.61 },
+  { year: 2016, careWorker: 7.35, nlw: 7.20, medianUK: 11.90 },
+  { year: 2017, careWorker: 7.70, nlw: 7.50, medianUK: 12.01 },
   { year: 2018, careWorker: 8.00, nlw: 7.83, medianUK: 12.10 },
   { year: 2019, careWorker: 8.50, nlw: 8.21, medianUK: 12.59 },
   { year: 2020, careWorker: 9.01, nlw: 8.72, medianUK: 13.04 },
@@ -92,8 +106,11 @@ const pay = [
 ];
 
 // ── CQC ratings — adult social care providers, England ──────────────
-// Source: CQC State of Care, as at 31 March (% of rated providers)
+// Source: CQC State of Care / State of ASC Services 2014-2017, as at 31 March (% of rated providers)
+// Note: New CQC inspection framework started Oct 2014; early years are cumulative as inspections rolled out
 const cqcRatings = [
+  { year: 2015, outstanding: 1, good: 63, reqImprovement: 31, inadequate: 5 },
+  { year: 2016, outstanding: 2, good: 71, reqImprovement: 24, inadequate: 3 },
   { year: 2017, outstanding: 3, good: 74, reqImprovement: 21, inadequate: 2 },
   { year: 2018, outstanding: 3, good: 77, reqImprovement: 18, inadequate: 2 },
   { year: 2019, outstanding: 4, good: 78, reqImprovement: 17, inadequate: 1 },
@@ -153,6 +170,12 @@ const output = {
       publisher: "Care Quality Commission",
     },
     {
+      id: "cqc-asc-2014-2017",
+      name: "CQC The State of Adult Social Care Services 2014 to 2017",
+      url: "https://www.cqc.org.uk/publications/major-report/state-adult-social-care-services-2014-2017",
+      publisher: "Care Quality Commission",
+    },
+    {
       id: "ons-census-2021-unpaid-care",
       name: "ONS Unpaid Care, England and Wales: Census 2021",
       url: "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/healthandwellbeing/bulletins/unpaidcareenglandandwales/census2021",
@@ -196,6 +219,12 @@ const output = {
       timeField: "year",
       data: requestsForSupport,
       methodologyBreaks: [
+        {
+          at: "2014-15",
+          label: "SALT collection starts",
+          description: "SALT replaced the RAP/ASC-CAR data collection framework in 2014-15. First year of the new collection had some data quality issues.",
+          severity: "minor",
+        },
         {
           at: "2020-21",
           label: "COVID-19",
