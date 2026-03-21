@@ -24,6 +24,7 @@ export default function ChildrensSocialCare() {
   const [fosterView, setFosterView] = useState("carers");
   const [workforceView, setWorkforceView] = useState("caseload");
   const [spendingView, setSpendingView] = useState("total");
+  const [priceView, setPriceView] = useState("nominal");
 
   // Hooks must run before any early returns
   const recruitWithNet = useMemo(() =>
@@ -361,16 +362,22 @@ export default function ChildrensSocialCare() {
         <ChartCard
           title={spendingView === "total" ? "Total Children's Social Care Spending" : "Spending per Child in Care"}
           subtitle={spendingView === "total"
-            ? `Net current expenditure, England, ${spend[0]?.year}-${lastSpend?.year}`
-            : `England, ${spend[0]?.year}-${lastSpend?.year}`
+            ? `Net current expenditure, England, ${spend[0]?.year}–${lastSpend?.year}`
+            : `England, ${priceView === "real" ? "2024-25 prices" : "cash terms"}, ${spend[0]?.year}–${lastSpend?.year}`
           }
           views={["total", "perChild"]}
-          viewLabels={{ total: "Total", perChild: "Per Child" }}
+          viewLabels={{ total: "Total (£bn)", perChild: "Per Child" }}
           activeView={spendingView}
           onViewChange={setSpendingView}
           source={sourceFrom(raw, "spending")}
           isMobile={isMobile}
         >
+          {spendingView === "perChild" && (
+            <div style={{ display: "flex", gap: 8, marginBottom: 10 }}>
+              <button onClick={() => setPriceView("nominal")} style={{ background: priceView === "nominal" ? "rgba(28,43,69,0.06)" : "transparent", border: `1px solid ${P.borderStrong}`, color: priceView === "nominal" ? P.text : P.textLight, padding: "3px 10px", fontSize: "10px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.08em", cursor: "pointer", fontFamily: "'DM Mono', monospace", borderRadius: 2 }}>Cash</button>
+              <button onClick={() => setPriceView("real")} style={{ background: priceView === "real" ? "rgba(28,43,69,0.06)" : "transparent", border: `1px solid ${P.borderStrong}`, color: priceView === "real" ? P.text : P.textLight, padding: "3px 10px", fontSize: "10px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.08em", cursor: "pointer", fontFamily: "'DM Mono', monospace", borderRadius: 2 }}>Real (2024-25)</button>
+            </div>
+          )}
           <ResponsiveContainer width="100%" height={340}>
             <ComposedChart data={spend} margin={{ top: 5, right: 10, left: isMobile ? -15 : -10, bottom: 0 }}>
               <CartesianGrid {...GRID} />
@@ -382,7 +389,7 @@ export default function ChildrensSocialCare() {
                   tickFormatter={v => `£${v}bn`} />
               ) : (
                 <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false}
-                  label={yAxisLabel("£ per child")} domain={[0, "auto"]}
+                  label={yAxisLabel(priceView === "real" ? "£ per child (real)" : "£ per child")} domain={[0, "auto"]}
                   tickFormatter={v => `£${(v / 1000).toFixed(0)}k`} />
               )}
               <Tooltip content={<CustomTooltip formatter={v =>
@@ -395,8 +402,8 @@ export default function ChildrensSocialCare() {
                 </>
               ) : (
                 <>
-                  <Bar dataKey="perChildInCare" name="Spending per child" fill={P.sienna} opacity={0.25} radius={[3, 3, 0, 0]} />
-                  <Line type="monotone" dataKey="perChildInCare" name="Spending per child" stroke={P.sienna} strokeWidth={2.5} dot={{ r: 3, fill: P.sienna }} />
+                  <Bar dataKey={priceView === "real" ? "perChildReal" : "perChildInCare"} name={priceView === "real" ? "Per child (real)" : "Per child (cash)"} fill={P.sienna} opacity={0.25} radius={[3, 3, 0, 0]} />
+                  <Line type="monotone" dataKey={priceView === "real" ? "perChildReal" : "perChildInCare"} name={priceView === "real" ? "Per child (real)" : "Per child (cash)"} stroke={P.sienna} strokeWidth={2.5} dot={{ r: 3, fill: P.sienna }} />
                 </>
               )}
             </ComposedChart>
