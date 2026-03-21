@@ -210,6 +210,8 @@ export default function AdultSocialCare() {
                 </>
               ) : (
                 <>
+                  <ReferenceLine x={2014} stroke={P.red} strokeDasharray="4 4" strokeWidth={1.5}
+                    label={{ value: "SALT replaces RAP", fontSize: 10, fill: P.red, position: "insideTopRight", fontFamily: "'DM Mono', monospace" }} />
                   <Bar dataKey={priceView === "real" ? "perRecipientReal" : "perRecipient"} name={priceView === "real" ? "Per recipient (real)" : "Per recipient (cash)"} fill={P.sienna} opacity={0.25} radius={[3, 3, 0, 0]} />
                   <Line type="monotone" dataKey={priceView === "real" ? "perRecipientReal" : "perRecipient"} name={priceView === "real" ? "Per recipient (real)" : "Per recipient (cash)"} stroke={P.sienna} strokeWidth={2.5} dot={{ r: 3, fill: P.sienna }} />
                 </>

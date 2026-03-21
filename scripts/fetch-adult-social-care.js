@@ -34,7 +34,14 @@ const requestsForSupport = [
 // ── People receiving long-term support — England ────────────────────
 // Source: NHS Digital SALT / CLD, as at 31 March (thousands)
 // Note: SALT started 2014-15; pre-SALT (RAP/NASCIS) data not comparable
+// Pre-2014-15 figures from NASCIS/RAP (Referrals Assessments and Packages of Care)
+// These count "clients receiving services" which is broadly but not exactly comparable
+// to SALT "long-term support". Methodology break at 2014-15.
 const longTermSupport = [
+  { year: "2010-11", total: 788, aged18to64: 252, aged65plus: 536 },
+  { year: "2011-12", total: 757, aged18to64: 248, aged65plus: 509 },
+  { year: "2012-13", total: 731, aged18to64: 242, aged65plus: 489 },
+  { year: "2013-14", total: 700, aged18to64: 236, aged65plus: 464 },
   { year: "2014-15", total: 664, aged18to64: 228, aged65plus: 436 },
   { year: "2015-16", total: 653, aged18to64: 230, aged65plus: 423 },
   { year: "2016-17", total: 641, aged18to64: 232, aged65plus: 409 },
@@ -272,6 +279,14 @@ const output = {
     spending: {
       sourceId: "dluhc-revenue-outturn",
       timeField: "year",
+      methodologyBreaks: [
+        {
+          at: "2014-15",
+          label: "SALT replaces RAP",
+          description: "Per-recipient figures before 2014-15 use NASCIS/RAP client counts, which are broadly but not exactly comparable to SALT long-term support recipients.",
+          severity: "major",
+        },
+      ],
       data: spendingWithReal,
     },
     workforce: {

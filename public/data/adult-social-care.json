@@ -149,6 +149,30 @@
       "timeField": "year",
       "data": [
         {
+          "year": "2010-11",
+          "total": 788,
+          "aged18to64": 252,
+          "aged65plus": 536
+        },
+        {
+          "year": "2011-12",
+          "total": 757,
+          "aged18to64": 248,
+          "aged65plus": 509
+        },
+        {
+          "year": "2012-13",
+          "total": 731,
+          "aged18to64": 242,
+          "aged65plus": 489
+        },
+        {
+          "year": "2013-14",
+          "total": 700,
+          "aged18to64": 236,
+          "aged65plus": 464
+        },
+        {
           "year": "2014-15",
           "total": 664,
           "aged18to64": 228,
@@ -219,34 +243,42 @@
     "spending": {
       "sourceId": "dluhc-revenue-outturn",
       "timeField": "year",
+      "methodologyBreaks": [
+        {
+          "at": "2014-15",
+          "label": "SALT replaces RAP",
+          "description": "Per-recipient figures before 2014-15 use NASCIS/RAP client counts, which are broadly but not exactly comparable to SALT long-term support recipients.",
+          "severity": "major"
+        }
+      ],
       "data": [
         {
           "year": "2010-11",
           "totalBn": 17.1,
           "totalBnReal": 24,
-          "perRecipient": null,
-          "perRecipientReal": null
+          "perRecipient": 21701,
+          "perRecipientReal": 30468
         },
         {
           "year": "2011-12",
           "totalBn": 16.9,
           "totalBnReal": 22.7,
-          "perRecipient": null,
-          "perRecipientReal": null
+          "perRecipient": 22325,
+          "perRecipientReal": 29982
         },
         {
           "year": "2012-13",
           "totalBn": 16.5,
           "totalBnReal": 21.6,
-          "perRecipient": null,
-          "perRecipientReal": null
+          "perRecipient": 22572,
+          "perRecipientReal": 29524
         },
         {
           "year": "2013-14",
           "totalBn": 16.3,
           "totalBnReal": 20.9,
-          "perRecipient": null,
-          "perRecipientReal": null
+          "perRecipient": 23286,
+          "perRecipientReal": 29899
         },
         {
           "year": "2014-15",
