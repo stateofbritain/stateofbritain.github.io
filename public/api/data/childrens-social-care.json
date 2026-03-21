@@ -18,6 +18,12 @@
       "publisher": "Ofsted"
     },
     {
+      "id": "ofsted-fostering-qadf-2013",
+      "name": "Ofsted Fostering Quality Assurance and Data Forms, 2012-13 and 2013-14",
+      "url": "https://www.gov.uk/government/statistics/fostering-in-england-1-april-2012-to-31-march-2013",
+      "publisher": "Ofsted"
+    },
+    {
       "id": "dfe-csw-workforce-2024",
       "name": "DfE Children's Social Work Workforce, 2024",
       "url": "https://explore-education-statistics.service.gov.uk/find-statistics/children-s-social-work-workforce/2024",
@@ -150,6 +156,21 @@
       "timeField": "year",
       "data": [
         {
+          "year": 2012,
+          "approved": 51200,
+          "households": 37380
+        },
+        {
+          "year": 2013,
+          "approved": 52350,
+          "households": 38160
+        },
+        {
+          "year": 2014,
+          "approved": 53550,
+          "households": 39220
+        },
+        {
           "year": 2015,
           "approved": 55300,
           "households": 40100
@@ -247,6 +268,34 @@
       "timeField": "year",
       "data": [
         {
+          "year": 2013,
+          "avgCaseload": 17,
+          "vacancyRate": 11,
+          "turnoverRate": 15,
+          "agencyRate": 14
+        },
+        {
+          "year": 2014,
+          "avgCaseload": 16,
+          "vacancyRate": 16,
+          "turnoverRate": 16,
+          "agencyRate": 14
+        },
+        {
+          "year": 2015,
+          "avgCaseload": 15,
+          "vacancyRate": 19,
+          "turnoverRate": 16,
+          "agencyRate": 17
+        },
+        {
+          "year": 2016,
+          "avgCaseload": 16.1,
+          "vacancyRate": 16.7,
+          "turnoverRate": 15.1,
+          "agencyRate": 16
+        },
+        {
           "year": 2017,
           "avgCaseload": 17.7,
           "vacancyRate": 16.7,
@@ -308,6 +357,30 @@
       "sourceId": "dfe-cin-2024",
       "timeField": "year",
       "data": [
+        {
+          "year": "2010-11",
+          "referrals": 615000,
+          "section47": 111700,
+          "cppAt31Mar": 42700
+        },
+        {
+          "year": "2011-12",
+          "referrals": 605100,
+          "section47": 124600,
+          "cppAt31Mar": 42900
+        },
+        {
+          "year": "2012-13",
+          "referrals": 593500,
+          "section47": 127100,
+          "cppAt31Mar": 43100
+        },
+        {
+          "year": "2013-14",
+          "referrals": 657800,
+          "section47": 142500,
+          "cppAt31Mar": 48300
+        },
         {
           "year": "2014-15",
           "referrals": 635600,
@@ -377,77 +450,107 @@
         {
           "year": "2010-11",
           "totalBn": 7.4,
-          "perChildInCare": 44400
+          "perChildInCare": 44400,
+          "totalBnReal": 10.4,
+          "perChildReal": 62338
         },
         {
           "year": "2011-12",
           "totalBn": 7.3,
-          "perChildInCare": 43600
+          "perChildInCare": 43600,
+          "totalBnReal": 9.8,
+          "perChildReal": 58555
         },
         {
           "year": "2012-13",
           "totalBn": 7.3,
-          "perChildInCare": 42400
+          "perChildInCare": 42400,
+          "totalBnReal": 9.5,
+          "perChildReal": 55459
         },
         {
           "year": "2013-14",
           "totalBn": 7.4,
-          "perChildInCare": 42200
+          "perChildInCare": 42200,
+          "totalBnReal": 9.5,
+          "perChildReal": 54185
         },
         {
           "year": "2014-15",
           "totalBn": 7.6,
-          "perChildInCare": 43300
+          "perChildInCare": 43300,
+          "totalBnReal": 9.7,
+          "perChildReal": 55511
         },
         {
           "year": "2015-16",
           "totalBn": 7.8,
-          "perChildInCare": 43800
+          "perChildInCare": 43800,
+          "totalBnReal": 10,
+          "perChildReal": 55976
         },
         {
           "year": "2016-17",
           "totalBn": 8.2,
-          "perChildInCare": 45800
+          "perChildInCare": 45800,
+          "totalBnReal": 10.2,
+          "perChildReal": 57113
         },
         {
           "year": "2017-18",
           "totalBn": 8.8,
-          "perChildInCare": 47200
+          "perChildInCare": 47200,
+          "totalBnReal": 10.7,
+          "perChildReal": 57348
         },
         {
           "year": "2018-19",
           "totalBn": 9.4,
-          "perChildInCare": 49200
+          "perChildInCare": 49200,
+          "totalBnReal": 11.2,
+          "perChildReal": 58548
         },
         {
           "year": "2019-20",
           "totalBn": 9.9,
-          "perChildInCare": 51800
+          "perChildInCare": 51800,
+          "totalBnReal": 11.6,
+          "perChildReal": 60554
         },
         {
           "year": "2020-21",
           "totalBn": 10.5,
-          "perChildInCare": 55900
+          "perChildInCare": 55900,
+          "totalBnReal": 12.2,
+          "perChildReal": 64732
         },
         {
           "year": "2021-22",
           "totalBn": 10.9,
-          "perChildInCare": 57800
+          "perChildInCare": 57800,
+          "totalBnReal": 12.1,
+          "perChildReal": 64274
         },
         {
           "year": "2022-23",
           "totalBn": 12.1,
-          "perChildInCare": 63000
+          "perChildInCare": 63000,
+          "totalBnReal": 12.4,
+          "perChildReal": 64701
         },
         {
           "year": "2023-24",
           "totalBn": 12.8,
-          "perChildInCare": 65600
+          "perChildInCare": 65600,
+          "totalBnReal": 12.8,
+          "perChildReal": 65600
         },
         {
           "year": "2024-25",
           "totalBn": 14.2,
-          "perChildInCare": 72000
+          "perChildInCare": 72000,
+          "totalBnReal": 13.8,
+          "perChildReal": 69840
         }
       ]
     },
@@ -455,6 +558,16 @@
       "sourceId": "dfe-ssda903-2024",
       "timeField": "year",
       "data": [
+        {
+          "year": 2014,
+          "inEET": 45,
+          "inSuitableAccom": 81
+        },
+        {
+          "year": 2015,
+          "inEET": 48,
+          "inSuitableAccom": 81
+        },
         {
           "year": 2016,
           "inEET": 49,

@@ -30,6 +30,12 @@
       "publisher": "Care Quality Commission"
     },
     {
+      "id": "cqc-asc-2014-2017",
+      "name": "CQC The State of Adult Social Care Services 2014 to 2017",
+      "url": "https://www.cqc.org.uk/publications/major-report/state-adult-social-care-services-2014-2017",
+      "publisher": "Care Quality Commission"
+    },
+    {
       "id": "ons-census-2021-unpaid-care",
       "name": "ONS Unpaid Care, England and Wales: Census 2021",
       "url": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/healthandwellbeing/bulletins/unpaidcareenglandandwales/census2021",
@@ -73,6 +79,10 @@
       "timeField": "year",
       "data": [
         {
+          "year": "2014-15",
+          "newRequestsM": 1.81
+        },
+        {
           "year": "2015-16",
           "newRequestsM": 1.8
         },
@@ -115,6 +125,12 @@
       ],
       "methodologyBreaks": [
         {
+          "at": "2014-15",
+          "label": "SALT collection starts",
+          "description": "SALT replaced the RAP/ASC-CAR data collection framework in 2014-15. First year of the new collection had some data quality issues.",
+          "severity": "minor"
+        },
+        {
           "at": "2020-21",
           "label": "COVID-19",
           "description": "COVID-19 pandemic reduced new requests for support in 2020-21",
@@ -132,6 +148,36 @@
       "sourceId": "nhs-digital-salt-cld",
       "timeField": "year",
       "data": [
+        {
+          "year": "2010-11",
+          "total": 788,
+          "aged18to64": 252,
+          "aged65plus": 536
+        },
+        {
+          "year": "2011-12",
+          "total": 757,
+          "aged18to64": 248,
+          "aged65plus": 509
+        },
+        {
+          "year": "2012-13",
+          "total": 731,
+          "aged18to64": 242,
+          "aged65plus": 489
+        },
+        {
+          "year": "2013-14",
+          "total": 700,
+          "aged18to64": 236,
+          "aged65plus": 464
+        },
+        {
+          "year": "2014-15",
+          "total": 664,
+          "aged18to64": 228,
+          "aged65plus": 436
+        },
         {
           "year": "2015-16",
           "total": 653,
@@ -197,66 +243,119 @@
     "spending": {
       "sourceId": "dluhc-revenue-outturn",
       "timeField": "year",
+      "methodologyBreaks": [
+        {
+          "at": "2014-15",
+          "label": "SALT replaces RAP",
+          "description": "Per-recipient figures before 2014-15 use NASCIS/RAP client counts, which are broadly but not exactly comparable to SALT long-term support recipients.",
+          "severity": "major"
+        }
+      ],
       "data": [
         {
           "year": "2010-11",
-          "totalBn": 17.1
+          "totalBn": 17.1,
+          "totalBnReal": 24,
+          "perRecipient": 21701,
+          "perRecipientReal": 30468
         },
         {
           "year": "2011-12",
-          "totalBn": 16.9
+          "totalBn": 16.9,
+          "totalBnReal": 22.7,
+          "perRecipient": 22325,
+          "perRecipientReal": 29982
         },
         {
           "year": "2012-13",
-          "totalBn": 16.5
+          "totalBn": 16.5,
+          "totalBnReal": 21.6,
+          "perRecipient": 22572,
+          "perRecipientReal": 29524
         },
         {
           "year": "2013-14",
-          "totalBn": 16.3
+          "totalBn": 16.3,
+          "totalBnReal": 20.9,
+          "perRecipient": 23286,
+          "perRecipientReal": 29899
         },
         {
           "year": "2014-15",
-          "totalBn": 16.2
+          "totalBn": 16.2,
+          "totalBnReal": 20.8,
+          "perRecipient": 24398,
+          "perRecipientReal": 31278
         },
         {
           "year": "2015-16",
-          "totalBn": 16.5
+          "totalBn": 16.5,
+          "totalBnReal": 21.1,
+          "perRecipient": 25268,
+          "perRecipientReal": 32293
         },
         {
           "year": "2016-17",
-          "totalBn": 17.1
+          "totalBn": 17.1,
+          "totalBnReal": 21.3,
+          "perRecipient": 26677,
+          "perRecipientReal": 33266
         },
         {
           "year": "2017-18",
-          "totalBn": 17.8
+          "totalBn": 17.8,
+          "totalBnReal": 21.6,
+          "perRecipient": 27943,
+          "perRecipientReal": 33951
         },
         {
           "year": "2018-19",
-          "totalBn": 18.5
+          "totalBn": 18.5,
+          "totalBnReal": 22,
+          "perRecipient": 29226,
+          "perRecipientReal": 34779
         },
         {
           "year": "2019-20",
-          "totalBn": 19.4
+          "totalBn": 19.4,
+          "totalBnReal": 22.7,
+          "perRecipient": 30892,
+          "perRecipientReal": 36113
         },
         {
           "year": "2020-21",
-          "totalBn": 21.1
+          "totalBn": 21.1,
+          "totalBnReal": 24.4,
+          "perRecipient": 33977,
+          "perRecipientReal": 39345
         },
         {
           "year": "2021-22",
-          "totalBn": 22.2
+          "totalBn": 22.2,
+          "totalBnReal": 24.7,
+          "perRecipient": 35520,
+          "perRecipientReal": 39498
         },
         {
           "year": "2022-23",
-          "totalBn": 23.1
+          "totalBn": 23.1,
+          "totalBnReal": 23.7,
+          "perRecipient": 36378,
+          "perRecipientReal": 37360
         },
         {
           "year": "2023-24",
-          "totalBn": 25.2
+          "totalBn": 25.2,
+          "totalBnReal": 25.2,
+          "perRecipient": 38769,
+          "perRecipientReal": 38769
         },
         {
           "year": "2024-25",
-          "totalBn": 27.6
+          "totalBn": 27.6,
+          "totalBnReal": 26.8,
+          "perRecipient": 41071,
+          "perRecipientReal": 39839
         }
       ]
     },
@@ -264,6 +363,34 @@
       "sourceId": "skills-for-care-2025",
       "timeField": "year",
       "data": [
+        {
+          "year": "2012-13",
+          "filledPostsK": 1400,
+          "vacancyRate": 4.3,
+          "turnoverRate": 23.4,
+          "zeroHoursPct": 20
+        },
+        {
+          "year": "2013-14",
+          "filledPostsK": 1430,
+          "vacancyRate": 4.8,
+          "turnoverRate": 24.2,
+          "zeroHoursPct": 21
+        },
+        {
+          "year": "2014-15",
+          "filledPostsK": 1460,
+          "vacancyRate": 5.3,
+          "turnoverRate": 25.4,
+          "zeroHoursPct": 29
+        },
+        {
+          "year": "2015-16",
+          "filledPostsK": 1470,
+          "vacancyRate": 6.2,
+          "turnoverRate": 27.3,
+          "zeroHoursPct": 33
+        },
         {
           "year": "2016-17",
           "filledPostsK": 1490,
@@ -334,6 +461,36 @@
       "timeField": "year",
       "data": [
         {
+          "year": 2013,
+          "careWorker": 6.78,
+          "nlw": 6.31,
+          "medianUK": 11.03
+        },
+        {
+          "year": 2014,
+          "careWorker": 6.9,
+          "nlw": 6.5,
+          "medianUK": 11.34
+        },
+        {
+          "year": 2015,
+          "careWorker": 7.1,
+          "nlw": 6.7,
+          "medianUK": 11.61
+        },
+        {
+          "year": 2016,
+          "careWorker": 7.35,
+          "nlw": 7.2,
+          "medianUK": 11.9
+        },
+        {
+          "year": 2017,
+          "careWorker": 7.7,
+          "nlw": 7.5,
+          "medianUK": 12.01
+        },
+        {
           "year": 2018,
           "careWorker": 8,
           "nlw": 7.83,
@@ -387,6 +544,20 @@
       "sourceId": "cqc-state-of-care-2024",
       "timeField": "year",
       "data": [
+        {
+          "year": 2015,
+          "outstanding": 1,
+          "good": 63,
+          "reqImprovement": 31,
+          "inadequate": 5
+        },
+        {
+          "year": 2016,
+          "outstanding": 2,
+          "good": 71,
+          "reqImprovement": 24,
+          "inadequate": 3
+        },
         {
           "year": 2017,
           "outstanding": 3,
