@@ -29,6 +29,8 @@ import NHSFunding from "./pillars/foundations/NHSFunding";
 import Water from "./pillars/foundations/Water";
 import Environment from "./pillars/foundations/Environment";
 import Family from "./pillars/foundations/Family";
+import ChildrensSocialCare from "./pillars/foundations/ChildrensSocialCare";
+import AdultSocialCare from "./pillars/foundations/AdultSocialCare";
 import Startups from "./pillars/growth/Startups";
 import Spinouts from "./pillars/growth/Spinouts";
 import ResearchFunding from "./pillars/growth/ResearchFunding";
@@ -74,6 +76,8 @@ const TOPIC_COMPONENTS = {
   "foundations/water": Water,
   "foundations/environment": Environment,
   "foundations/family": Family,
+  "foundations/socialCare/children": ChildrensSocialCare,
+  "foundations/socialCare/adults": AdultSocialCare,
   "growth/startups": Startups,
   "growth/spinouts": Spinouts,
   "growth/research": ResearchFunding,

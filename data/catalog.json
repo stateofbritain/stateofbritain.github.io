@@ -1,7 +1,359 @@
 {
   "$schema": "sob-catalog-v1",
-  "generated": "2026-03-18",
+  "generated": "2026-03-21",
   "datasets": [
+    {
+      "id": "adult-social-care",
+      "title": "Adult Social Care",
+      "pillar": "foundations",
+      "geography": "England",
+      "summary": "Requests for support, long-term care recipients, spending trends, workforce vacancies and turnover, care worker pay, CQC provider ratings, unpaid carers, and self-funders.",
+      "tags": [
+        "adult social care",
+        "care homes",
+        "domiciliary care",
+        "workforce",
+        "vacancies",
+        "CQC",
+        "unpaid carers",
+        "self-funders",
+        "pay"
+      ],
+      "dataFile": "/data/adult-social-care.json",
+      "series": {
+        "requestsForSupport": {
+          "title": "Requests for Support",
+          "summary": "2.02 million new requests for adult social care support in 2024-25, up from 1.80 million in 2015-16.",
+          "unit": "millions",
+          "fields": {
+            "newRequestsM": {
+              "label": "newRequestsM"
+            }
+          },
+          "timeRange": {
+            "start": "2015-16",
+            "end": "2024-25"
+          }
+        },
+        "longTermSupport": {
+          "title": "Long-Term Support Recipients",
+          "summary": "672,000 people receiving long-term support as at March 2025. Working-age adults rising, over-65s fell then recovered.",
+          "unit": "thousands",
+          "fields": {
+            "total": {
+              "label": "total"
+            },
+            "aged18to64": {
+              "label": "aged18to64"
+            },
+            "aged65plus": {
+              "label": "aged65plus"
+            }
+          },
+          "timeRange": {
+            "start": "2015-16",
+            "end": "2024-25"
+          }
+        },
+        "spending": {
+          "title": "Adult Social Care Spending",
+          "summary": "Net expenditure rose from £17.1bn in 2010-11 to £27.6bn in 2024-25. Declined in real terms 2010-15, then recovered.",
+          "unit": "£bn",
+          "fields": {
+            "totalBn": {
+              "label": "totalBn"
+            }
+          },
+          "timeRange": {
+            "start": "2010-11",
+            "end": "2024-25"
+          }
+        },
+        "workforce": {
+          "title": "Workforce",
+          "summary": "1.60 million filled posts in 2024-25. Vacancy rate fell to 5.9% from 10.6% peak in 2021-22. Turnover 24%.",
+          "unit": "thousands / %",
+          "fields": {
+            "filledPostsK": {
+              "label": "filledPostsK"
+            },
+            "vacancyRate": {
+              "label": "vacancyRate"
+            },
+            "turnoverRate": {
+              "label": "turnoverRate"
+            },
+            "zeroHoursPct": {
+              "label": "zeroHoursPct"
+            }
+          },
+          "timeRange": {
+            "start": "2016-17",
+            "end": "2024-25"
+          }
+        },
+        "pay": {
+          "title": "Care Worker Pay",
+          "summary": "Median care worker pay £12.60/hr in December 2025, just 39p above the National Living Wage of £12.21.",
+          "unit": "£/hour",
+          "fields": {
+            "careWorker": {
+              "label": "careWorker"
+            },
+            "nlw": {
+              "label": "nlw"
+            },
+            "medianUK": {
+              "label": "medianUK"
+            }
+          },
+          "timeRange": {
+            "start": 2018,
+            "end": 2025
+          }
+        },
+        "cqcRatings": {
+          "title": "CQC Ratings",
+          "summary": "82% of adult social care providers rated Good or Outstanding in 2024. 16% Requires Improvement, 1% Inadequate.",
+          "unit": "%",
+          "fields": {
+            "outstanding": {
+              "label": "outstanding"
+            },
+            "good": {
+              "label": "good"
+            },
+            "reqImprovement": {
+              "label": "reqImprovement"
+            },
+            "inadequate": {
+              "label": "inadequate"
+            }
+          },
+          "timeRange": {
+            "start": 2017,
+            "end": 2024
+          }
+        },
+        "unpaidCarers": {
+          "title": "Unpaid Carers",
+          "summary": "4.7 million unpaid carers in England (Census 2021). 1.4 million provide 50+ hours per week.",
+          "unit": "count",
+          "fields": {
+            "count": {
+              "label": "count"
+            },
+            "pct": {
+              "label": "pct"
+            }
+          },
+          "timeRange": {
+            "start": "No unpaid care",
+            "end": "50+ hours/week"
+          }
+        },
+        "selfFunders": {
+          "title": "Self-funders",
+          "summary": "37% of care home residents self-fund, 26% of community care users. Self-funders pay ~40% more than publicly funded clients.",
+          "unit": "%",
+          "fields": {
+            "selfFundedPct": {
+              "label": "selfFundedPct"
+            },
+            "councilFundedPct": {
+              "label": "councilFundedPct"
+            },
+            "nhsFundedPct": {
+              "label": "nhsFundedPct"
+            }
+          },
+          "timeRange": {
+            "start": "Care homes",
+            "end": "Community care"
+          }
+        }
+      }
+    },
+    {
+      "id": "childrens-social-care",
+      "title": "Children's Social Care",
+      "pillar": "foundations",
+      "geography": "England",
+      "summary": "Children looked after numbers and rates, foster carer supply, social worker caseloads and vacancies, referrals and child protection plans, spending, care leaver outcomes, and placement types.",
+      "tags": [
+        "children",
+        "social care",
+        "looked after children",
+        "foster care",
+        "child protection",
+        "social workers",
+        "care leavers",
+        "residential care"
+      ],
+      "dataFile": "/data/childrens-social-care.json",
+      "series": {
+        "childrenLookedAfter": {
+          "title": "Children Looked After",
+          "summary": "83,630 children in care in England in 2024, rate of 70 per 10,000. Risen 30% since 2010.",
+          "unit": "children",
+          "fields": {
+            "total": {
+              "label": "total"
+            },
+            "ratePer10k": {
+              "label": "ratePer10k"
+            }
+          },
+          "timeRange": {
+            "start": 2010,
+            "end": 2024
+          }
+        },
+        "fosterCarers": {
+          "title": "Approved Foster Carers",
+          "summary": "56,345 approved mainstream foster carers as at March 2025, down 12% from 63,890 in 2021.",
+          "unit": "carers",
+          "fields": {
+            "approved": {
+              "label": "approved"
+            },
+            "households": {
+              "label": "households"
+            }
+          },
+          "timeRange": {
+            "start": 2015,
+            "end": 2025
+          }
+        },
+        "fosterRecruitment": {
+          "title": "Foster Carer Recruitment vs Deregistration",
+          "summary": "4,430 new foster households approved in 2024-25, 4,690 deregistered. Net loss of 260 households.",
+          "unit": "households",
+          "fields": {
+            "newApprovals": {
+              "label": "newApprovals"
+            },
+            "deregistrations": {
+              "label": "deregistrations"
+            }
+          },
+          "timeRange": {
+            "start": "2019-20",
+            "end": "2024-25"
+          }
+        },
+        "socialWorkerWorkforce": {
+          "title": "Social Worker Workforce",
+          "summary": "Average caseload 15.4 per worker in 2024, vacancy rate 18.0%, agency rate 15.8%.",
+          "unit": "various",
+          "fields": {
+            "avgCaseload": {
+              "label": "avgCaseload"
+            },
+            "vacancyRate": {
+              "label": "vacancyRate"
+            },
+            "turnoverRate": {
+              "label": "turnoverRate"
+            },
+            "agencyRate": {
+              "label": "agencyRate"
+            }
+          },
+          "timeRange": {
+            "start": 2017,
+            "end": 2024
+          }
+        },
+        "referralsAndProtection": {
+          "title": "Referrals & Child Protection",
+          "summary": "621,880 referrals in 2023-24, 224,990 Section 47 enquiries, 49,960 children on protection plans.",
+          "unit": "count",
+          "fields": {
+            "referrals": {
+              "label": "referrals"
+            },
+            "section47": {
+              "label": "section47"
+            },
+            "cppAt31Mar": {
+              "label": "cppAt31Mar"
+            }
+          },
+          "timeRange": {
+            "start": "2014-15",
+            "end": "2023-24"
+          }
+        },
+        "spending": {
+          "title": "Children's Social Care Spending",
+          "summary": "Total spending rose from £7.4bn in 2010-11 to £14.2bn in 2024-25. Per child in care: £72,000.",
+          "unit": "£bn",
+          "fields": {
+            "totalBn": {
+              "label": "totalBn"
+            },
+            "perChildInCare": {
+              "label": "perChildInCare"
+            }
+          },
+          "timeRange": {
+            "start": "2010-11",
+            "end": "2024-25"
+          }
+        },
+        "careLeavers": {
+          "title": "Care Leaver Outcomes",
+          "summary": "54% of care leavers aged 19-21 in EET in 2024, vs ~85% of all young people. 89% in suitable accommodation.",
+          "unit": "%",
+          "fields": {
+            "inEET": {
+              "label": "inEET"
+            },
+            "inSuitableAccom": {
+              "label": "inSuitableAccom"
+            }
+          },
+          "timeRange": {
+            "start": 2016,
+            "end": 2024
+          }
+        },
+        "placementTypes": {
+          "title": "Placement Types",
+          "summary": "67% in foster care, 10% in children's homes, 7% in supported accommodation, 6% placed with parents.",
+          "unit": "count",
+          "fields": {
+            "count": {
+              "label": "count"
+            },
+            "pct": {
+              "label": "pct"
+            }
+          },
+          "timeRange": {
+            "start": "Foster care",
+            "end": "Other"
+          }
+        },
+        "fosterBreakdown": {
+          "title": "fosterBreakdown",
+          "fields": {
+            "count": {
+              "label": "count"
+            },
+            "pct": {
+              "label": "pct"
+            }
+          },
+          "timeRange": {
+            "start": "Non-relative (LA)",
+            "end": "Relative or friend"
+          }
+        }
+      }
+    },
     {
       "id": "cpih",
       "title": "Consumer Prices (CPIH)",
@@ -133,11 +485,14 @@
           "fields": {
             "value": {
               "label": "value"
+            },
+            "programmes": {
+              "label": "programmes"
             }
           },
           "timeRange": {
             "start": "Submarines & nuclear",
-            "end": "Air support"
+            "end": "IT & communications"
           }
         },
         "personnel": {
@@ -357,6 +712,9 @@
           "summary": "8 major programmes tracked: Ajax (77% cost growth, paused), Type 26 (114% growth), Dreadnought (11% growth), F-35B (21% growth), Boxer (79% growth). Most delayed from original in-service dates.",
           "unit": "£bn",
           "fields": {
+            "quantity": {
+              "label": "quantity"
+            },
             "originalCost": {
               "label": "originalCost"
             },
@@ -374,11 +732,20 @@
             },
             "status": {
               "label": "status"
+            },
+            "description": {
+              "label": "description"
+            },
+            "image": {
+              "label": "image"
+            },
+            "imageCredit": {
+              "label": "imageCredit"
             }
           },
           "timeRange": {
-            "start": "Ajax",
-            "end": "Apache AH-64E"
+            "start": "Ajax (Armoured Vehicle)",
+            "end": "Apache AH-64E (Attack Helicopter)"
           }
         },
         "industryConcentration": {
@@ -436,6 +803,42 @@
           "timeRange": {
             "start": "2016-17",
             "end": "2023-24"
+          }
+        },
+        "emergingTech": {
+          "title": "emergingTech",
+          "fields": {
+            "value": {
+              "label": "value"
+            },
+            "period": {
+              "label": "period"
+            },
+            "source": {
+              "label": "source"
+            },
+            "note": {
+              "label": "note"
+            }
+          },
+          "timeRange": {
+            "start": "Autonomous & uncrewed systems",
+            "end": "UKDI Innovation Fund"
+          }
+        },
+        "defenceRnD": {
+          "title": "defenceRnD",
+          "fields": {
+            "rdBn": {
+              "label": "rdBn"
+            },
+            "rdPct": {
+              "label": "rdPct"
+            }
+          },
+          "timeRange": {
+            "start": "2019-20",
+            "end": "2024-25"
           }
         }
       }
@@ -583,163 +986,6 @@
             "start": "2010-11",
             "end": "2022-23"
           }
-        }
-      }
-    },
-    {
-      "id": "energy",
-      "title": "Energy",
-      "pillar": "foundations",
-      "geography": "United Kingdom",
-      "summary": "Energy mix, fuel consumption, electricity generation, household expenditure, import dependency, and storage.",
-      "tags": [
-        "energy",
-        "electricity",
-        "renewables",
-        "gas",
-        "oil",
-        "nuclear"
-      ],
-      "dataFile": "/data/energy.json",
-      "series": {
-        "energyMix": {
-          "title": "energyMix",
-          "fields": {
-            "coal": {
-              "label": "coal"
-            },
-            "petroleum": {
-              "label": "petroleum"
-            },
-            "gas": {
-              "label": "gas"
-            },
-            "nuclear": {
-              "label": "nuclear"
-            },
-            "renewables": {
-              "label": "renewables"
-            },
-            "imports": {
-              "label": "imports"
-            },
-            "bioenergy": {
-              "label": "bioenergy"
-            }
-          },
-          "timeRange": {
-            "start": 1990,
-            "end": 2024
-          }
-        },
-        "fuelConsumption": {
-          "title": "fuelConsumption",
-          "fields": {
-            "coal": {
-              "label": "coal"
-            },
-            "petroleum": {
-              "label": "petroleum"
-            },
-            "gas": {
-              "label": "gas"
-            },
-            "nuclear": {
-              "label": "nuclear"
-            },
-            "renewables": {
-              "label": "renewables"
-            },
-            "imports": {
-              "label": "imports"
-            },
-            "bioenergy": {
-              "label": "bioenergy"
-            },
-            "total": {
-              "label": "total"
-            }
-          },
-          "timeRange": {
-            "start": 1990,
-            "end": 2024
-          }
-        },
-        "electricity": {
-          "title": "electricity",
-          "fields": {
-            "convThermal": {
-              "label": "convThermal"
-            },
-            "ccgt": {
-              "label": "ccgt"
-            },
-            "nuclear": {
-              "label": "nuclear"
-            },
-            "renewables": {
-              "label": "renewables"
-            },
-            "pumpedStorage": {
-              "label": "pumpedStorage"
-            },
-            "battery": {
-              "label": "battery"
-            },
-            "totalNet": {
-              "label": "totalNet"
-            }
-          },
-          "timeRange": {
-            "start": 1990,
-            "end": 2024
-          }
-        },
-        "expenditure": {
-          "title": "expenditure",
-          "fields": {
-            "domesticGas": {
-              "label": "domesticGas"
-            },
-            "domesticElectricity": {
-              "label": "domesticElectricity"
-            },
-            "domesticTotal": {
-              "label": "domesticTotal"
-            },
-            "industryTotal": {
-              "label": "industryTotal"
-            },
-            "allTotal": {
-              "label": "allTotal"
-            }
-          },
-          "timeRange": {
-            "start": 1990,
-            "end": 2024
-          }
-        },
-        "importDependency": {
-          "title": "importDependency",
-          "fields": {
-            "production": {
-              "label": "production"
-            },
-            "consumption": {
-              "label": "consumption"
-            },
-            "importDependency": {
-              "label": "importDependency"
-            }
-          },
-          "timeRange": {
-            "start": 1990,
-            "end": 2024
-          }
-        },
-        "energySecurity": {
-          "title": "energySecurity",
-          "fields": {}
         }
       }
     },
@@ -4160,6 +4406,25 @@
   ],
   "index": {
     "byPillar": {
+      "foundations": [
+        "adult-social-care",
+        "childrens-social-care",
+        "environment",
+        "family",
+        "gp-access",
+        "health-outcomes",
+        "hospital-capacity",
+        "housing-density",
+        "housing-stock",
+        "housing-supply",
+        "mental-health",
+        "nhs-funding",
+        "nhs-waiting",
+        "nhs-workforce",
+        "safety",
+        "water",
+        "workforce"
+      ],
       "state": [
         "cpih",
         "defence",
@@ -4178,27 +4443,65 @@
         "productivity",
         "research",
         "startups"
-      ],
-      "foundations": [
-        "energy",
-        "environment",
-        "family",
-        "gp-access",
-        "health-outcomes",
-        "hospital-capacity",
-        "housing-density",
-        "housing-stock",
-        "housing-supply",
-        "mental-health",
-        "nhs-funding",
-        "nhs-waiting",
-        "nhs-workforce",
-        "safety",
-        "water",
-        "workforce"
       ]
     },
     "byTag": {
+      "adult social care": [
+        "adult-social-care"
+      ],
+      "care homes": [
+        "adult-social-care"
+      ],
+      "domiciliary care": [
+        "adult-social-care"
+      ],
+      "workforce": [
+        "adult-social-care",
+        "gp-access",
+        "nhs-workforce",
+        "workforce"
+      ],
+      "vacancies": [
+        "adult-social-care",
+        "nhs-workforce"
+      ],
+      "CQC": [
+        "adult-social-care"
+      ],
+      "unpaid carers": [
+        "adult-social-care"
+      ],
+      "self-funders": [
+        "adult-social-care"
+      ],
+      "pay": [
+        "adult-social-care"
+      ],
+      "children": [
+        "childrens-social-care"
+      ],
+      "social care": [
+        "childrens-social-care",
+        "local-government"
+      ],
+      "looked after children": [
+        "childrens-social-care"
+      ],
+      "foster care": [
+        "childrens-social-care"
+      ],
+      "child protection": [
+        "childrens-social-care"
+      ],
+      "social workers": [
+        "childrens-social-care"
+      ],
+      "care leavers": [
+        "childrens-social-care"
+      ],
+      "residential care": [
+        "childrens-social-care"
+      ],
       "inflation": [
         "cpih",
         "money-supply"
@@ -4289,24 +4592,6 @@
         "education",
         "workforce"
       ],
-      "energy": [
-        "energy"
-      ],
-      "electricity": [
-        "energy"
-      ],
-      "renewables": [
-        "energy"
-      ],
-      "gas": [
-        "energy"
-      ],
-      "oil": [
-        "energy"
-      ],
-      "nuclear": [
-        "energy"
-      ],
       "environment": [
         "environment"
       ],
@@ -4356,11 +4641,6 @@
       ],
       "appointments": [
         "gp-access"
-      ],
-      "workforce": [
-        "gp-access",
-        "nhs-workforce",
-        "workforce"
       ],
       "patients": [
         "gp-access"
@@ -4549,9 +4829,6 @@
         "local-government",
         "taxation"
       ],
-      "social care": [
-        "local-government"
-      ],
       "section 114": [
         "local-government"
       ],
@@ -4652,9 +4929,6 @@
         "nhs-workforce"
       ],
       "nurses": [
-        "nhs-workforce"
-      ],
-      "vacancies": [
         "nhs-workforce"
       ],
       "sickness": [

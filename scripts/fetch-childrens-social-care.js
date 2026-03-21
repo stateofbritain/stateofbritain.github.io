@@ -1,0 +1,260 @@
+/**
+ * fetch-childrens-social-care.js
+ *
+ * Curated children's social care data for England from official sources:
+ *  - DfE SSDA903: Children looked after (CLA) numbers, placement types
+ *  - Ofsted: Fostering statistics, approved foster carers
+ *  - DfE Children's Social Work Workforce: caseloads, vacancies, agency workers
+ *  - DfE Children in Need census: referrals, Section 47, child protection plans
+ *  - DLUHC Revenue Outturn: children's social care spending
+ *  - DfE: Care leavers outcomes
+ *
+ * Outputs: public/data/childrens-social-care.json (sob-dataset-v1)
+ */
+import { writeFileSync } from "fs";
+
+// ── Children looked after (CLA) — total number in care, England ─────
+// Source: DfE SSDA903, year ending 31 March
+const childrenLookedAfter = [
+  { year: 2010, total: 64400, ratePer10k: 57 },
+  { year: 2011, total: 65520, ratePer10k: 58 },
+  { year: 2012, total: 67050, ratePer10k: 59 },
+  { year: 2013, total: 68060, ratePer10k: 60 },
+  { year: 2014, total: 68840, ratePer10k: 60 },
+  { year: 2015, total: 69540, ratePer10k: 60 },
+  { year: 2016, total: 70440, ratePer10k: 60 },
+  { year: 2017, total: 72670, ratePer10k: 62 },
+  { year: 2018, total: 75420, ratePer10k: 64 },
+  { year: 2019, total: 78150, ratePer10k: 65 },
+  { year: 2020, total: 80080, ratePer10k: 67 },
+  { year: 2021, total: 80850, ratePer10k: 67 },
+  { year: 2022, total: 82170, ratePer10k: 70 },
+  { year: 2023, total: 83840, ratePer10k: 71 },
+  { year: 2024, total: 83630, ratePer10k: 70 },
+];
+
+// ── Foster carers — approved mainstream foster carers, England ───────
+// Source: Ofsted Fostering in England, as at 31 March
+const fosterCarers = [
+  { year: 2015, approved: 55300, households: 40100 },
+  { year: 2016, approved: 55700, households: 40450 },
+  { year: 2017, approved: 56400, households: 41050 },
+  { year: 2018, approved: 57400, households: 41800 },
+  { year: 2019, approved: 64295, households: 44450 },
+  { year: 2020, approved: 63800, households: 44950 },
+  { year: 2021, approved: 63890, households: 45370 },
+  { year: 2022, approved: 62260, households: 44200 },
+  { year: 2023, approved: 59380, households: 43100 },
+  { year: 2024, approved: 57065, households: 42100 },
+  { year: 2025, approved: 56345, households: 42615 },
+];
+
+// ── Foster carer recruitment vs deregistration ──────────────────────
+// Source: Ofsted Fostering in England, year to 31 March
+const fosterRecruitment = [
+  { year: "2019-20", newApprovals: 5620, deregistrations: 5380 },
+  { year: "2020-21", newApprovals: 4670, deregistrations: 4100 },
+  { year: "2021-22", newApprovals: 4810, deregistrations: 5620 },
+  { year: "2022-23", newApprovals: 4330, deregistrations: 5490 },
+  { year: "2023-24", newApprovals: 4300, deregistrations: 5100 },
+  { year: "2024-25", newApprovals: 4430, deregistrations: 4690 },
+];
+
+// ── Social worker caseloads and workforce — England ─────────────────
+// Source: DfE Children's Social Work Workforce, as at 30 September
+const socialWorkerWorkforce = [
+  { year: 2017, avgCaseload: 17.7, vacancyRate: 16.7, turnoverRate: 15.0, agencyRate: 15.6 },
+  { year: 2018, avgCaseload: 17.4, vacancyRate: 16.4, turnoverRate: 15.3, agencyRate: 15.4 },
+  { year: 2019, avgCaseload: 16.9, vacancyRate: 16.6, turnoverRate: 15.3, agencyRate: 15.7 },
+  { year: 2020, avgCaseload: 16.3, vacancyRate: 16.4, turnoverRate: 13.5, agencyRate: 15.4 },
+  { year: 2021, avgCaseload: 16.3, vacancyRate: 18.7, turnoverRate: 15.4, agencyRate: 15.5 },
+  { year: 2022, avgCaseload: 16.3, vacancyRate: 20.3, turnoverRate: 17.1, agencyRate: 17.1 },
+  { year: 2023, avgCaseload: 16.0, vacancyRate: 19.2, turnoverRate: 16.4, agencyRate: 16.3 },
+  { year: 2024, avgCaseload: 15.4, vacancyRate: 18.0, turnoverRate: 15.5, agencyRate: 15.8 },
+];
+
+// ── Referrals and child protection — England ────────────────────────
+// Source: DfE Children in Need census, year ending 31 March
+const referralsAndProtection = [
+  { year: "2014-15", referrals: 635600, section47: 172830, cppAt31Mar: 49700 },
+  { year: "2015-16", referrals: 621470, section47: 179160, cppAt31Mar: 50310 },
+  { year: "2016-17", referrals: 646120, section47: 187870, cppAt31Mar: 51080 },
+  { year: "2017-18", referrals: 655630, section47: 198090, cppAt31Mar: 53790 },
+  { year: "2018-19", referrals: 655340, section47: 201170, cppAt31Mar: 52260 },
+  { year: "2019-20", referrals: 642980, section47: 201280, cppAt31Mar: 51510 },
+  { year: "2020-21", referrals: 587250, section47: 187050, cppAt31Mar: 51370 },
+  { year: "2021-22", referrals: 637470, section47: 218830, cppAt31Mar: 50920 },
+  { year: "2022-23", referrals: 644830, section47: 233530, cppAt31Mar: 50570 },
+  { year: "2023-24", referrals: 621880, section47: 224990, cppAt31Mar: 49960 },
+];
+
+// ── Children's social care spending — England ───────────────────────
+// Source: DLUHC Revenue Outturn (net current expenditure, £bn, cash terms)
+const spending = [
+  { year: "2010-11", totalBn: 7.4, perChildInCare: 44400 },
+  { year: "2011-12", totalBn: 7.3, perChildInCare: 43600 },
+  { year: "2012-13", totalBn: 7.3, perChildInCare: 42400 },
+  { year: "2013-14", totalBn: 7.4, perChildInCare: 42200 },
+  { year: "2014-15", totalBn: 7.6, perChildInCare: 43300 },
+  { year: "2015-16", totalBn: 7.8, perChildInCare: 43800 },
+  { year: "2016-17", totalBn: 8.2, perChildInCare: 45800 },
+  { year: "2017-18", totalBn: 8.8, perChildInCare: 47200 },
+  { year: "2018-19", totalBn: 9.4, perChildInCare: 49200 },
+  { year: "2019-20", totalBn: 9.9, perChildInCare: 51800 },
+  { year: "2020-21", totalBn: 10.5, perChildInCare: 55900 },
+  { year: "2021-22", totalBn: 10.9, perChildInCare: 57800 },
+  { year: "2022-23", totalBn: 12.1, perChildInCare: 63000 },
+  { year: "2023-24", totalBn: 12.8, perChildInCare: 65600 },
+  { year: "2024-25", totalBn: 14.2, perChildInCare: 72000 },
+];
+
+// ── Care leavers outcomes — aged 19–21, England ─────────────────────
+// Source: DfE SSDA903, year ending 31 March
+const careLeavers = [
+  { year: 2016, inEET: 49, inSuitableAccom: 84 },
+  { year: 2017, inEET: 50, inSuitableAccom: 84 },
+  { year: 2018, inEET: 51, inSuitableAccom: 84 },
+  { year: 2019, inEET: 52, inSuitableAccom: 85 },
+  { year: 2020, inEET: 53, inSuitableAccom: 85 },
+  { year: 2021, inEET: 55, inSuitableAccom: 88 },
+  { year: 2022, inEET: 55, inSuitableAccom: 88 },
+  { year: 2023, inEET: 56, inSuitableAccom: 89 },
+  { year: 2024, inEET: 54, inSuitableAccom: 89 },
+];
+
+// ── Placement types — CLA by placement type, England ────────────────
+// Source: DfE SSDA903, as at 31 March 2024
+const placementTypes = [
+  { type: "Foster care", count: 56390, pct: 67 },
+  { type: "Children's homes", count: 8640, pct: 10 },
+  { type: "Supported accommodation", count: 6250, pct: 7 },
+  { type: "Placed with parents", count: 4730, pct: 6 },
+  { type: "Placed for adoption", count: 2400, pct: 3 },
+  { type: "Other", count: 5220, pct: 7 },
+];
+
+// ── Foster placement breakdown ──────────────────────────────────────
+// Source: DfE SSDA903, as at 31 March 2024
+const fosterBreakdown = [
+  { type: "Non-relative (LA)", count: 23100, pct: 41 },
+  { type: "Non-relative (IFA)", count: 19630, pct: 35 },
+  { type: "Relative or friend", count: 13660, pct: 24 },
+];
+
+const output = {
+  $schema: "sob-dataset-v1",
+  id: "childrens-social-care",
+  pillar: "foundations",
+  topic: "socialCare",
+  generated: new Date().toISOString().slice(0, 10),
+  sources: [
+    {
+      id: "dfe-ssda903-2024",
+      name: "DfE Children Looked After in England including Adoptions, 2024",
+      url: "https://explore-education-statistics.service.gov.uk/find-statistics/children-looked-after-in-england-including-adoptions/2024",
+      publisher: "Department for Education",
+    },
+    {
+      id: "ofsted-fostering-2025",
+      name: "Ofsted Fostering in England, 1 April 2024 to 31 March 2025",
+      url: "https://www.gov.uk/government/statistics/fostering-in-england-1-april-2024-to-31-march-2025/main-findings-fostering-in-england-1-april-2024-to-31-march-2025",
+      publisher: "Ofsted",
+    },
+    {
+      id: "dfe-csw-workforce-2024",
+      name: "DfE Children's Social Work Workforce, 2024",
+      url: "https://explore-education-statistics.service.gov.uk/find-statistics/children-s-social-work-workforce/2024",
+      publisher: "Department for Education",
+    },
+    {
+      id: "dfe-cin-2024",
+      name: "DfE Children in Need, 2024",
+      url: "https://explore-education-statistics.service.gov.uk/find-statistics/children-in-need/2024",
+      publisher: "Department for Education",
+    },
+    {
+      id: "dluhc-revenue-outturn",
+      name: "DLUHC Local Authority Revenue Expenditure and Financing, England",
+      url: "https://www.gov.uk/government/statistics/local-authority-revenue-expenditure-and-financing-england-2024-to-2025-first-release",
+      publisher: "DLUHC",
+    },
+  ],
+  snapshot: {
+    childrenInCare: 83630,
+    childrenInCareYear: 2024,
+    childrenInCareRate: 70,
+    childrenInCareRateUnit: "per 10,000",
+    fosterCarers: 56345,
+    fosterCarersYear: 2025,
+    fosterCarersChange: -12,
+    fosterCarersChangeFrom: 2021,
+    avgCaseload: 15.4,
+    avgCaseloadYear: 2024,
+    recommendedCaseload: "15-20",
+    vacancyRate: 18.0,
+    vacancyRateYear: 2024,
+    agencyRate: 15.8,
+    agencyRateYear: 2024,
+    referrals: 621880,
+    referralsYear: "2023-24",
+    cppChildren: 49960,
+    cppChildrenYear: 2024,
+    totalSpendingBn: 14.2,
+    totalSpendingYear: "2024-25",
+    careLeaverEET: 54,
+    careLeaverEETYear: 2024,
+    careLeaverAccom: 89,
+    careLeaverAccomYear: 2024,
+  },
+  series: {
+    childrenLookedAfter: {
+      sourceId: "dfe-ssda903-2024",
+      timeField: "year",
+      data: childrenLookedAfter,
+    },
+    fosterCarers: {
+      sourceId: "ofsted-fostering-2025",
+      timeField: "year",
+      data: fosterCarers,
+    },
+    fosterRecruitment: {
+      sourceId: "ofsted-fostering-2025",
+      timeField: "year",
+      data: fosterRecruitment,
+    },
+    socialWorkerWorkforce: {
+      sourceId: "dfe-csw-workforce-2024",
+      timeField: "year",
+      data: socialWorkerWorkforce,
+    },
+    referralsAndProtection: {
+      sourceId: "dfe-cin-2024",
+      timeField: "year",
+      data: referralsAndProtection,
+    },
+    spending: {
+      sourceId: "dluhc-revenue-outturn",
+      timeField: "year",
+      data: spending,
+    },
+    careLeavers: {
+      sourceId: "dfe-ssda903-2024",
+      timeField: "year",
+      data: careLeavers,
+    },
+    placementTypes: {
+      sourceId: "dfe-ssda903-2024",
+      timeField: "type",
+      data: placementTypes,
+    },
+    fosterBreakdown: {
+      sourceId: "dfe-ssda903-2024",
+      timeField: "type",
+      data: fosterBreakdown,
+    },
+  },
+};
+
+const outPath = new URL("../public/data/childrens-social-care.json", import.meta.url).pathname;
+writeFileSync(outPath, JSON.stringify(output, null, 2));
+console.log(`Wrote ${outPath}`);

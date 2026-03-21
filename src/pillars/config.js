@@ -57,6 +57,14 @@ const PILLARS = {
       safety:     { label: "Safety",               icon: "⚖" },
       environment:{ label: "Environment",          icon: "◉" },
       family:     { label: "Family",               icon: "♥" },
+      socialCare: {
+        label: "Social Care",
+        icon: "♡",
+        subtopics: {
+          children: { label: "Children's" },
+          adults:   { label: "Adults" },
+        },
+      },
     },
   },
   growth: {

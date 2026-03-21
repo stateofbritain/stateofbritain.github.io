@@ -605,3 +605,81 @@ nhs-funding:
   geography: "England / United Kingdom"
   summary: "NHS budget in real terms, spending per capita, international health expenditure comparison (OECD), spending by category (staff, capital, other), and capital spending trends including backlog maintenance."
   tags: [NHS, funding, spending, health expenditure, OECD, capital, staff costs, budget]
+
+childrens-social-care:
+  title: "Children's Social Care"
+  geography: "England"
+  summary: "Children looked after numbers and rates, foster carer supply, social worker caseloads and vacancies, referrals and child protection plans, spending, care leaver outcomes, and placement types."
+  tags: [children, social care, looked after children, foster care, child protection, social workers, care leavers, residential care]
+  series:
+    childrenLookedAfter:
+      title: "Children Looked After"
+      summary: "83,630 children in care in England in 2024, rate of 70 per 10,000. Risen 30% since 2010."
+      unit: "children"
+    fosterCarers:
+      title: "Approved Foster Carers"
+      summary: "56,345 approved mainstream foster carers as at March 2025, down 12% from 63,890 in 2021."
+      unit: "carers"
+    fosterRecruitment:
+      title: "Foster Carer Recruitment vs Deregistration"
+      summary: "4,430 new foster households approved in 2024-25, 4,690 deregistered. Net loss of 260 households."
+      unit: "households"
+    socialWorkerWorkforce:
+      title: "Social Worker Workforce"
+      summary: "Average caseload 15.4 per worker in 2024, vacancy rate 18.0%, agency rate 15.8%."
+      unit: "various"
+    referralsAndProtection:
+      title: "Referrals & Child Protection"
+      summary: "621,880 referrals in 2023-24, 224,990 Section 47 enquiries, 49,960 children on protection plans."
+      unit: "count"
+    spending:
+      title: "Children's Social Care Spending"
+      summary: "Total spending rose from £7.4bn in 2010-11 to £14.2bn in 2024-25. Per child in care: £72,000."
+      unit: "£bn"
+    careLeavers:
+      title: "Care Leaver Outcomes"
+      summary: "54% of care leavers aged 19-21 in EET in 2024, vs ~85% of all young people. 89% in suitable accommodation."
+      unit: "%"
+    placementTypes:
+      title: "Placement Types"
+      summary: "67% in foster care, 10% in children's homes, 7% in supported accommodation, 6% placed with parents."
+      unit: "count"
+
+adult-social-care:
+  title: "Adult Social Care"
+  geography: "England"
+  summary: "Requests for support, long-term care recipients, spending trends, workforce vacancies and turnover, care worker pay, CQC provider ratings, unpaid carers, and self-funders."
+  tags: [adult social care, care homes, domiciliary care, workforce, vacancies, CQC, unpaid carers, self-funders, pay]
+  series:
+    requestsForSupport:
+      title: "Requests for Support"
+      summary: "2.02 million new requests for adult social care support in 2024-25, up from 1.80 million in 2015-16."
+      unit: "millions"
+    longTermSupport:
+      title: "Long-Term Support Recipients"
+      summary: "672,000 people receiving long-term support as at March 2025. Working-age adults rising, over-65s fell then recovered."
+      unit: "thousands"
+    spending:
+      title: "Adult Social Care Spending"
+      summary: "Net expenditure rose from £17.1bn in 2010-11 to £27.6bn in 2024-25. Declined in real terms 2010-15, then recovered."
+      unit: "£bn"
+    workforce:
+      title: "Workforce"
+      summary: "1.60 million filled posts in 2024-25. Vacancy rate fell to 5.9% from 10.6% peak in 2021-22. Turnover 24%."
+      unit: "thousands / %"
+    pay:
+      title: "Care Worker Pay"
+      summary: "Median care worker pay £12.60/hr in December 2025, just 39p above the National Living Wage of £12.21."
+      unit: "£/hour"
+    cqcRatings:
+      title: "CQC Ratings"
+      summary: "82% of adult social care providers rated Good or Outstanding in 2024. 16% Requires Improvement, 1% Inadequate."
+      unit: "%"
+    unpaidCarers:
+      title: "Unpaid Carers"
+      summary: "4.7 million unpaid carers in England (Census 2021). 1.4 million provide 50+ hours per week."
+      unit: "count"
+    selfFunders:
+      title: "Self-funders"
+      summary: "37% of care home residents self-fund, 26% of community care users. Self-funders pay ~40% more than publicly funded clients."
+      unit: "%"
