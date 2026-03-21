@@ -101,6 +101,15 @@ const referralsAndProtection = [
   { year: "2023-24", referrals: 621880, section47: 224990, cppAt31Mar: 49960 },
 ];
 
+// ── CPI deflators (2024-25 prices) ───────────────────────────────────
+// Source: ONS CPI Index (annual average, rebased so 2024-25 = 1.000)
+const CPI_DEFLATOR = {
+  "2010-11": 1.404, "2011-12": 1.343, "2012-13": 1.308, "2013-14": 1.284,
+  "2014-15": 1.282, "2015-16": 1.278, "2016-17": 1.247, "2017-18": 1.215,
+  "2018-19": 1.190, "2019-20": 1.169, "2020-21": 1.158, "2021-22": 1.112,
+  "2022-23": 1.027, "2023-24": 1.000, "2024-25": 0.970,
+};
+
 // ── Children's social care spending — England ───────────────────────
 // Source: DLUHC Revenue Outturn (net current expenditure, £bn, cash terms)
 const spending = [
@@ -120,6 +129,13 @@ const spending = [
   { year: "2023-24", totalBn: 12.8, perChildInCare: 65600 },
   { year: "2024-25", totalBn: 14.2, perChildInCare: 72000 },
 ];
+
+// Add real-terms fields
+const spendingWithReal = spending.map(d => ({
+  ...d,
+  totalBnReal: Math.round(d.totalBn * CPI_DEFLATOR[d.year] * 10) / 10,
+  perChildReal: Math.round(d.perChildInCare * CPI_DEFLATOR[d.year]),
+}));
 
 // ── Care leavers outcomes — aged 19–21, England ─────────────────────
 // Source: DfE SSDA903, year ending 31 March
@@ -257,7 +273,7 @@ const output = {
     spending: {
       sourceId: "dluhc-revenue-outturn",
       timeField: "year",
-      data: spending,
+      data: spendingWithReal,
     },
     careLeavers: {
       sourceId: "dfe-ssda903-2024",

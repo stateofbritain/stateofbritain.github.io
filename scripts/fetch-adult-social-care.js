@@ -48,6 +48,15 @@ const longTermSupport = [
   { year: "2024-25", total: 672, aged18to64: 258, aged65plus: 414 },
 ];
 
+// ── CPI deflators (2024-25 prices) ───────────────────────────────────
+// Source: ONS CPI Index (annual average, rebased so 2024-25 = 1.000)
+const CPI_DEFLATOR = {
+  "2010-11": 1.404, "2011-12": 1.343, "2012-13": 1.308, "2013-14": 1.284,
+  "2014-15": 1.282, "2015-16": 1.278, "2016-17": 1.247, "2017-18": 1.215,
+  "2018-19": 1.190, "2019-20": 1.169, "2020-21": 1.158, "2021-22": 1.112,
+  "2022-23": 1.027, "2023-24": 1.000, "2024-25": 0.970,
+};
+
 // ── Spending — adult social care, England ────────────────────────────
 // Source: DLUHC Revenue Outturn / DHSC (net current expenditure, £bn, cash terms)
 const spending = [
@@ -67,6 +76,22 @@ const spending = [
   { year: "2023-24", totalBn: 25.2 },
   { year: "2024-25", totalBn: 27.6 },
 ];
+
+// Build spending with real-terms and per-recipient fields
+// Long-term support totals (thousands) mapped by year for join
+const ltsMap = {};
+for (const d of longTermSupport) ltsMap[d.year] = d.total;
+const spendingWithReal = spending.map(d => {
+  const deflator = CPI_DEFLATOR[d.year] || 1;
+  const ltsK = ltsMap[d.year];
+  const perRecipient = ltsK ? Math.round((d.totalBn * 1e9) / (ltsK * 1000)) : null;
+  return {
+    ...d,
+    totalBnReal: Math.round(d.totalBn * deflator * 10) / 10,
+    perRecipient,
+    perRecipientReal: perRecipient ? Math.round(perRecipient * deflator) : null,
+  };
+});
 
 // ── Workforce — adult social care, England ──────────────────────────
 // Source: Skills for Care, year ending March (vacancies, turnover in %)
@@ -247,7 +272,7 @@ const output = {
     spending: {
       sourceId: "dluhc-revenue-outturn",
       timeField: "year",
-      data: spending,
+      data: spendingWithReal,
     },
     workforce: {
       sourceId: "skills-for-care-2025",
