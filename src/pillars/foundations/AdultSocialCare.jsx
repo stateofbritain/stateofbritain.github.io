@@ -156,69 +156,6 @@ export default function AdultSocialCare() {
         </ChartCard>
       </div>
 
-      {/* ═══ SECTION 2 — SPENDING ═══ */}
-      <div style={{ marginBottom: 40 }}>
-        <h3 style={SECTION_HEADING}>Spending</h3>
-        <p style={SECTION_NOTE}>
-          Net current expenditure on adult social care reached £{lastSpend?.totalBn}bn
-          in {data.spending?.[data.spending.length - 1]?.year}. Between 2010-11 and 2014-15,
-          spending declined by approximately 2.5% per year in real terms, recovering to 2010-11
-          levels only by 2019-20. Since then, spending has increased at an average of 3.7% per year
-          in real terms, driven by rising demand and workforce costs.
-        </p>
-
-        <ChartCard
-          title={spendView === "total" ? "Adult Social Care Spending" : "Spending per Recipient"}
-          subtitle={spendView === "total"
-            ? `Net current expenditure (£bn), ${priceView === "real" ? "2024-25 prices" : "cash terms"}, England`
-            : `Per long-term support recipient, ${priceView === "real" ? "2024-25 prices" : "cash terms"}, England`
-          }
-          views={["total", "perRecipient"]}
-          viewLabels={{ total: "Total (£bn)", perRecipient: "Per Recipient" }}
-          activeView={spendView}
-          onViewChange={setSpendView}
-          source={sourceFrom(raw, "spending")}
-          isMobile={isMobile}
-        >
-          <div style={{ display: "flex", gap: 8, marginBottom: 10 }}>
-            <button onClick={() => setPriceView("nominal")} style={{ background: priceView === "nominal" ? "rgba(28,43,69,0.06)" : "transparent", border: `1px solid ${P.borderStrong}`, color: priceView === "nominal" ? P.text : P.textLight, padding: "3px 10px", fontSize: "10px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.08em", cursor: "pointer", fontFamily: "'DM Mono', monospace", borderRadius: 2 }}>Cash</button>
-            <button onClick={() => setPriceView("real")} style={{ background: priceView === "real" ? "rgba(28,43,69,0.06)" : "transparent", border: `1px solid ${P.borderStrong}`, color: priceView === "real" ? P.text : P.textLight, padding: "3px 10px", fontSize: "10px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.08em", cursor: "pointer", fontFamily: "'DM Mono', monospace", borderRadius: 2 }}>Real (2024-25)</button>
-          </div>
-          <ResponsiveContainer width="100%" height={340}>
-            <ComposedChart data={spend} margin={{ top: 5, right: 10, left: isMobile ? -15 : -10, bottom: 0 }}>
-              <CartesianGrid {...GRID} />
-              <XAxis dataKey="fyNum" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK_MONO}
-                tickFormatter={fyTickFormatter} />
-              {spendView === "total" ? (
-                <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false}
-                  label={yAxisLabel("£ billions")} domain={[0, "auto"]}
-                  tickFormatter={v => `£${v}bn`} />
-              ) : (
-                <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false}
-                  label={yAxisLabel(priceView === "real" ? "£ per recipient (real)" : "£ per recipient")} domain={[0, "auto"]}
-                  tickFormatter={v => `£${(v / 1000).toFixed(0)}k`} />
-              )}
-              <Tooltip content={<CustomTooltip formatter={v =>
-                spendView === "total" ? `£${v}bn` : `£${v?.toLocaleString()}`
-              } labelFormatter={fyTickFormatter} />} />
-              {spendView === "total" ? (
-                <>
-                  <Bar dataKey={priceView === "real" ? "totalBnReal" : "totalBn"} name={priceView === "real" ? "Total (real)" : "Total (cash)"} fill={P.navy} opacity={0.25} radius={[3, 3, 0, 0]} />
-                  <Line type="monotone" dataKey={priceView === "real" ? "totalBnReal" : "totalBn"} name={priceView === "real" ? "Total (real)" : "Total (cash)"} stroke={P.navy} strokeWidth={2.5} dot={{ r: 3, fill: P.navy }} />
-                </>
-              ) : (
-                <>
-                  <ReferenceLine x={2014} stroke={P.red} strokeDasharray="4 4" strokeWidth={1.5}
-                    label={{ value: "SALT replaces RAP", fontSize: 10, fill: P.red, position: "insideTopRight", fontFamily: "'DM Mono', monospace" }} />
-                  <Bar dataKey={priceView === "real" ? "perRecipientReal" : "perRecipient"} name={priceView === "real" ? "Per recipient (real)" : "Per recipient (cash)"} fill={P.sienna} opacity={0.25} radius={[3, 3, 0, 0]} />
-                  <Line type="monotone" dataKey={priceView === "real" ? "perRecipientReal" : "perRecipient"} name={priceView === "real" ? "Per recipient (real)" : "Per recipient (cash)"} stroke={P.sienna} strokeWidth={2.5} dot={{ r: 3, fill: P.sienna }} />
-                </>
-              )}
-            </ComposedChart>
-          </ResponsiveContainer>
-        </ChartCard>
-      </div>
-
       {/* ═══ SECTION 3 — WORKFORCE ═══ */}
       <div style={{ marginBottom: 40 }}>
         <h3 style={SECTION_HEADING}>Workforce</h3>
@@ -322,6 +259,67 @@ export default function AdultSocialCare() {
         </ChartCard>
       </div>
 
+      {/* ═══ SECTION 2 — SPENDING ═══ */}
+      <div style={{ marginBottom: 40 }}>
+        <h3 style={SECTION_HEADING}>Spending</h3>
+        <p style={SECTION_NOTE}>
+          Net current expenditure on adult social care was £{lastSpend?.totalBn}bn
+          in {data.spending?.[data.spending.length - 1]?.year}, up
+          from £{data.spending?.[0]?.totalBn}bn in {data.spending?.[0]?.year}. The cash/real
+          toggle shows nominal and inflation-adjusted trends.
+        </p>
+
+        <ChartCard
+          title={spendView === "total" ? "Adult Social Care Spending" : "Spending per Recipient"}
+          subtitle={spendView === "total"
+            ? `Net current expenditure (£bn), ${priceView === "real" ? "2024-25 prices" : "cash terms"}, England`
+            : `Per long-term support recipient, ${priceView === "real" ? "2024-25 prices" : "cash terms"}, England`
+          }
+          views={["total", "perRecipient"]}
+          viewLabels={{ total: "Total (£bn)", perRecipient: "Per Recipient" }}
+          activeView={spendView}
+          onViewChange={setSpendView}
+          source={sourceFrom(raw, "spending")}
+          isMobile={isMobile}
+        >
+          <div style={{ display: "flex", gap: 8, marginBottom: 10 }}>
+            <button onClick={() => setPriceView("nominal")} style={{ background: priceView === "nominal" ? "rgba(28,43,69,0.06)" : "transparent", border: `1px solid ${P.borderStrong}`, color: priceView === "nominal" ? P.text : P.textLight, padding: "3px 10px", fontSize: "10px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.08em", cursor: "pointer", fontFamily: "'DM Mono', monospace", borderRadius: 2 }}>Cash</button>
+            <button onClick={() => setPriceView("real")} style={{ background: priceView === "real" ? "rgba(28,43,69,0.06)" : "transparent", border: `1px solid ${P.borderStrong}`, color: priceView === "real" ? P.text : P.textLight, padding: "3px 10px", fontSize: "10px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.08em", cursor: "pointer", fontFamily: "'DM Mono', monospace", borderRadius: 2 }}>Real (2024-25)</button>
+          </div>
+          <ResponsiveContainer width="100%" height={340}>
+            <ComposedChart data={spend} margin={{ top: 5, right: 10, left: isMobile ? -15 : -10, bottom: 0 }}>
+              <CartesianGrid {...GRID} />
+              <XAxis dataKey="fyNum" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK_MONO}
+                tickFormatter={fyTickFormatter} />
+              {spendView === "total" ? (
+                <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false}
+                  label={yAxisLabel("£ billions")} domain={[0, "auto"]}
+                  tickFormatter={v => `£${v}bn`} />
+              ) : (
+                <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false}
+                  label={yAxisLabel(priceView === "real" ? "£ per recipient (real)" : "£ per recipient")} domain={[0, "auto"]}
+                  tickFormatter={v => `£${(v / 1000).toFixed(0)}k`} />
+              )}
+              <Tooltip content={<CustomTooltip formatter={v =>
+                spendView === "total" ? `£${v}bn` : `£${v?.toLocaleString()}`
+              } labelFormatter={fyTickFormatter} />} />
+              {spendView === "total" ? (
+                <>
+                  <Bar dataKey={priceView === "real" ? "totalBnReal" : "totalBn"} name={priceView === "real" ? "Total (real)" : "Total (cash)"} fill={P.navy} opacity={0.25} radius={[3, 3, 0, 0]} />
+                  <Line type="monotone" dataKey={priceView === "real" ? "totalBnReal" : "totalBn"} name={priceView === "real" ? "Total (real)" : "Total (cash)"} stroke={P.navy} strokeWidth={2.5} dot={{ r: 3, fill: P.navy }} />
+                </>
+              ) : (
+                <>
+                  <ReferenceLine x={2014} stroke={P.red} strokeDasharray="4 4" strokeWidth={1.5}
+                    label={{ value: "SALT replaces RAP", fontSize: 10, fill: P.red, position: "insideTopRight", fontFamily: "'DM Mono', monospace" }} />
+                  <Bar dataKey={priceView === "real" ? "perRecipientReal" : "perRecipient"} name={priceView === "real" ? "Per recipient (real)" : "Per recipient (cash)"} fill={P.sienna} opacity={0.25} radius={[3, 3, 0, 0]} />
+                  <Line type="monotone" dataKey={priceView === "real" ? "perRecipientReal" : "perRecipient"} name={priceView === "real" ? "Per recipient (real)" : "Per recipient (cash)"} stroke={P.sienna} strokeWidth={2.5} dot={{ r: 3, fill: P.sienna }} />
+                </>
+              )}
+            </ComposedChart>
+          </ResponsiveContainer>
+        </ChartCard>
+      </div>
       {/* ═══ SECTION 5 — CQC RATINGS ═══ */}
       <div style={{ marginBottom: 40 }}>
         <h3 style={SECTION_HEADING}>CQC Ratings</h3>

@@ -351,12 +351,10 @@ export default function ChildrensSocialCare() {
         <h3 style={SECTION_HEADING}>Spending</h3>
         <p style={SECTION_NOTE}>
           Total children's social care spending by local authorities in England
-          reached {lastSpend?.totalBn} billion in {lastSpend?.year}, up
-          from {spend[0]?.totalBn} billion in {spend[0]?.year}. Spending per child in care
-          has risen from {spend[0]?.perChildInCare?.toLocaleString()} to {lastSpend?.perChildInCare?.toLocaleString()} over
-          the same period, driven in part by rising residential placement costs. Since 2010-11,
-          the number of children in residential care has increased 79%, with spending on residential
-          care reaching a historical high.
+          was £{lastSpend?.totalBn} billion in {lastSpend?.year}, up
+          from £{spend[0]?.totalBn} billion in {spend[0]?.year}. Spending per child in care
+          rose from £{spend[0]?.perChildInCare?.toLocaleString()} to £{lastSpend?.perChildInCare?.toLocaleString()} over
+          the same period in cash terms.
         </p>
 
         <ChartCard
@@ -414,9 +412,8 @@ export default function ChildrensSocialCare() {
         <h3 style={SECTION_HEADING}>Care Leavers</h3>
         <p style={SECTION_NOTE}>
           Of care leavers aged 19-21 in {lastCl?.year}, {lastCl?.inEET}% were in education, employment or
-          training (EET), compared to an estimated 85% of all young people in that age group. {lastCl?.inSuitableAccom}%
-          were living in accommodation judged to be suitable. 40% of care leavers were not in education,
-          employment or training, compared to approximately 15% of all 19-21 year olds.
+          training, compared to approximately 85% of all young people in that age group. {lastCl?.inSuitableAccom}%
+          were living in accommodation judged to be suitable.
         </p>
 
         <ChartCard
