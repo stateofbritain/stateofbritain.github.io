@@ -26,6 +26,19 @@ export default function AdultSocialCare() {
   const [workforceView, setWorkforceView] = useState("workforce");
   const [ratingsView, setRatingsView] = useState("trend");
 
+  // Hooks must run before any early returns
+  const requests = useMemo(() => withFyNum(data?.requestsForSupport || []), [data]);
+  const lts = useMemo(() => withFyNum(data?.longTermSupport || []), [data]);
+  const spend = useMemo(() => withFyNum(data?.spending || []), [data]);
+  const wf = useMemo(() => withFyNum(data?.workforce || []), [data]);
+  const ratingsStacked = useMemo(() =>
+    (data?.cqcRatings || []).map(d => ({
+      ...d,
+      goodOrOutstanding: (d.outstanding || 0) + (d.good || 0),
+    })),
+    [data]
+  );
+
   if (loading) {
     return (
       <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
@@ -46,10 +59,6 @@ export default function AdultSocialCare() {
 
   const snap = data.snapshot || {};
 
-  const requests = useMemo(() => withFyNum(data.requestsForSupport || []), [data]);
-  const lts = useMemo(() => withFyNum(data.longTermSupport || []), [data]);
-  const spend = useMemo(() => withFyNum(data.spending || []), [data]);
-  const wf = useMemo(() => withFyNum(data.workforce || []), [data]);
   const payData = data.pay || [];
   const ratings = data.cqcRatings || [];
   const unpaid = data.unpaidCarers || [];
@@ -65,15 +74,6 @@ export default function AdultSocialCare() {
   // Unpaid carers providing care (excluding "no unpaid care")
   const unpaidProviding = unpaid.filter(d => d.category !== "No unpaid care");
   const totalUnpaid = unpaidProviding.reduce((sum, d) => sum + d.count, 0);
-
-  // Stacked CQC ratings data
-  const ratingsStacked = useMemo(() =>
-    ratings.map(d => ({
-      ...d,
-      goodOrOutstanding: d.outstanding + d.good,
-    })),
-    [ratings]
-  );
 
   return (
     <div style={{ animation: "fadeSlideIn 0.4s ease both" }}>

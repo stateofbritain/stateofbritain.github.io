@@ -25,6 +25,12 @@ export default function ChildrensSocialCare() {
   const [workforceView, setWorkforceView] = useState("caseload");
   const [spendingView, setSpendingView] = useState("total");
 
+  // Hooks must run before any early returns
+  const recruitWithNet = useMemo(() =>
+    (data?.fosterRecruitment || []).map(d => ({ ...d, net: d.newApprovals - d.deregistrations })),
+    [data]
+  );
+
   if (loading) {
     return (
       <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
@@ -53,10 +59,6 @@ export default function ChildrensSocialCare() {
   const lastFc = fc[fc.length - 1];
 
   const recruit = data.fosterRecruitment || [];
-  const recruitWithNet = useMemo(() =>
-    recruit.map(d => ({ ...d, net: d.newApprovals - d.deregistrations })),
-    [recruit]
-  );
 
   const sw = data.socialWorkerWorkforce || [];
   const lastSw = sw[sw.length - 1];
