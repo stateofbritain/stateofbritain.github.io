@@ -362,8 +362,8 @@ export default function ChildrensSocialCare() {
         <ChartCard
           title={spendingView === "total" ? "Total Children's Social Care Spending" : "Spending per Child in Care"}
           subtitle={spendingView === "total"
-            ? `Net current expenditure, England, ${spend[0]?.year}–${lastSpend?.year}`
-            : `England, ${priceView === "real" ? "2024-25 prices" : "cash terms"}, ${spend[0]?.year}–${lastSpend?.year}`
+            ? `Net current expenditure (£bn), ${priceView === "real" ? "2024-25 prices" : "cash terms"}, England`
+            : `Per child in care, ${priceView === "real" ? "2024-25 prices" : "cash terms"}, England`
           }
           views={["total", "perChild"]}
           viewLabels={{ total: "Total (£bn)", perChild: "Per Child" }}
@@ -372,12 +372,10 @@ export default function ChildrensSocialCare() {
           source={sourceFrom(raw, "spending")}
           isMobile={isMobile}
         >
-          {spendingView === "perChild" && (
-            <div style={{ display: "flex", gap: 8, marginBottom: 10 }}>
-              <button onClick={() => setPriceView("nominal")} style={{ background: priceView === "nominal" ? "rgba(28,43,69,0.06)" : "transparent", border: `1px solid ${P.borderStrong}`, color: priceView === "nominal" ? P.text : P.textLight, padding: "3px 10px", fontSize: "10px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.08em", cursor: "pointer", fontFamily: "'DM Mono', monospace", borderRadius: 2 }}>Cash</button>
-              <button onClick={() => setPriceView("real")} style={{ background: priceView === "real" ? "rgba(28,43,69,0.06)" : "transparent", border: `1px solid ${P.borderStrong}`, color: priceView === "real" ? P.text : P.textLight, padding: "3px 10px", fontSize: "10px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.08em", cursor: "pointer", fontFamily: "'DM Mono', monospace", borderRadius: 2 }}>Real (2024-25)</button>
-            </div>
-          )}
+          <div style={{ display: "flex", gap: 8, marginBottom: 10 }}>
+            <button onClick={() => setPriceView("nominal")} style={{ background: priceView === "nominal" ? "rgba(28,43,69,0.06)" : "transparent", border: `1px solid ${P.borderStrong}`, color: priceView === "nominal" ? P.text : P.textLight, padding: "3px 10px", fontSize: "10px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.08em", cursor: "pointer", fontFamily: "'DM Mono', monospace", borderRadius: 2 }}>Cash</button>
+            <button onClick={() => setPriceView("real")} style={{ background: priceView === "real" ? "rgba(28,43,69,0.06)" : "transparent", border: `1px solid ${P.borderStrong}`, color: priceView === "real" ? P.text : P.textLight, padding: "3px 10px", fontSize: "10px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.08em", cursor: "pointer", fontFamily: "'DM Mono', monospace", borderRadius: 2 }}>Real (2024-25)</button>
+          </div>
           <ResponsiveContainer width="100%" height={340}>
             <ComposedChart data={spend} margin={{ top: 5, right: 10, left: isMobile ? -15 : -10, bottom: 0 }}>
               <CartesianGrid {...GRID} />
@@ -397,8 +395,8 @@ export default function ChildrensSocialCare() {
               } />} />
               {spendingView === "total" ? (
                 <>
-                  <Bar dataKey="totalBn" name="Total spending" fill={P.navy} opacity={0.25} radius={[3, 3, 0, 0]} />
-                  <Line type="monotone" dataKey="totalBn" name="Total spending" stroke={P.navy} strokeWidth={2.5} dot={{ r: 3, fill: P.navy }} />
+                  <Bar dataKey={priceView === "real" ? "totalBnReal" : "totalBn"} name={priceView === "real" ? "Total (real)" : "Total (cash)"} fill={P.navy} opacity={0.25} radius={[3, 3, 0, 0]} />
+                  <Line type="monotone" dataKey={priceView === "real" ? "totalBnReal" : "totalBn"} name={priceView === "real" ? "Total (real)" : "Total (cash)"} stroke={P.navy} strokeWidth={2.5} dot={{ r: 3, fill: P.navy }} />
                 </>
               ) : (
                 <>
