@@ -1,12 +1,14 @@
 import P from "../theme/palette";
+import Search from "./Search";
 
-export default function Header({ onHome, isMobile }) {
+export default function Header({ onHome, onNavigate, isMobile }) {
   return (
     <header style={{ paddingTop: isMobile ? 24 : 44, paddingBottom: 20 }}>
       <div
         style={{
           display: "flex",
           alignItems: isMobile ? "flex-start" : "baseline",
+          justifyContent: "space-between",
           gap: isMobile ? 6 : 14,
           flexWrap: "wrap",
           flexDirection: isMobile ? "column" : "row",
@@ -42,6 +44,9 @@ export default function Header({ onHome, isMobile }) {
         >
           The state of the state
         </span>
+        <div style={{ marginLeft: "auto" }}>
+          <Search onNavigate={onNavigate} isMobile={isMobile} />
+        </div>
       </div>
       <p
         style={{

@@ -165,7 +165,7 @@ export default function App() {
       }}
     >
       <div style={{ maxWidth: 1280, margin: "0 auto", padding: isMobile ? "0 12px" : "0 28px" }}>
-        <Header onHome={() => navigate(null)} isMobile={isMobile} />
+        <Header onHome={() => navigate(null)} onNavigate={navigate} isMobile={isMobile} />
         <PillarNav
           activePillar={activePillar}
           onSelect={(p, t, s) => navigate(p, t, s)}
