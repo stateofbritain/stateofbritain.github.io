@@ -460,6 +460,49 @@ money-supply:
       summary: "BoE balance sheet peaked at 44% GDP (2021), BoJ at 137% (2022), ECB at 60% (2022), Fed at 35% (2022). All now contracting."
       unit: "% GDP"
 
+borrowing:
+  title: "Borrowing & Debt"
+  geography: "United Kingdom"
+  summary: "UK government borrowing, gilt yields, debt interest, public sector net debt, gilt maturity profile, issuance remit, international debt comparison, and sovereign credit ratings."
+  tags: [borrowing, debt, gilts, yields, gilt yields, debt interest, issuance, DMO, OBR, bonds, maturity, credit rating]
+  series:
+    giltYields:
+      title: "Gilt Yields by Maturity"
+      summary: "Monthly average benchmark gilt yields at 2, 5, 10 and 30-year maturities. 10-year yield rose from 1% in Jan 2022 to 4.89% in Mar 2026."
+      unit: "%"
+    monthlyBorrowing:
+      title: "Monthly Public Sector Net Borrowing"
+      summary: "Monthly borrowing by financial year. Year to Feb 2026: £125.9bn. Full year 2024-25: £151.8bn."
+      unit: "£bn"
+    annualBorrowing:
+      title: "Annual Borrowing Trend"
+      summary: "Public sector net borrowing in £bn and % of GDP from 1993-94 to 2029-30 (forecast). Peak: 14.7% GDP in 2020-21."
+      unit: "£bn / % GDP"
+    debtInterest:
+      title: "Debt Interest Payments"
+      summary: "Central government debt interest payments reached post-war high of £112.1bn (4.3% GDP) in 2022-23 due to index-linked gilt inflation."
+      unit: "£bn"
+    debtToGdp:
+      title: "Public Sector Net Debt as % of GDP"
+      summary: "PSND rose from 30% of GDP in 2001-02 to 95.6% in 2024-25. Stabilised in mid-90s range."
+      unit: "% GDP"
+    maturityProfile:
+      title: "Gilt Maturity Profile"
+      summary: "Outstanding gilt portfolio by maturity bucket. Average maturity approximately 14.8 years. 25% index-linked."
+      unit: "£bn"
+    giltIssuance:
+      title: "Gilt Issuance Remit"
+      summary: "Gross gilt issuance £296.9bn in 2024-25. 2025-26 remit: £299.6bn gross, £164.7bn redemptions."
+      unit: "£bn"
+    intlDebtGdp:
+      title: "International Debt Comparison"
+      summary: "General government gross debt as % of GDP. UK at 101.3%, Japan 252.7%, US 123.8%, Germany 62.9%."
+      unit: "% GDP"
+    creditRatings:
+      title: "UK Sovereign Credit Ratings"
+      summary: "S&P: AA (stable), Moody's: Aa3 (stable), Fitch: AA- (stable)."
+      unit: "rating"
+
 taxation:
   title: "Taxation"
   geography: "United Kingdom"

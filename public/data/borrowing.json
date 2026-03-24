@@ -1,0 +1,1360 @@
+{
+  "$schema": "sob-dataset-v1",
+  "id": "borrowing",
+  "pillar": "state",
+  "topic": "spending",
+  "generated": "2026-03-24",
+  "sources": [
+    {
+      "id": "boe-yield-curve",
+      "name": "Bank of England / DMO Yield Curve Data",
+      "url": "https://www.bankofengland.co.uk/statistics/yield-curves",
+      "note": "Monthly average benchmark gilt yields at standard maturities. DMO historical average daily conventional gilt yields."
+    },
+    {
+      "id": "ons-psf",
+      "name": "ONS Public Sector Finances",
+      "url": "https://www.ons.gov.uk/economy/governmentpublicsectorandtaxes/publicsectorfinance",
+      "note": "Monthly public sector net borrowing, ex public sector banks. February 2026 bulletin."
+    },
+    {
+      "id": "obr-databank",
+      "name": "OBR Public Finances Databank, February 2026",
+      "url": "https://obr.uk/data/",
+      "note": "Fiscal aggregates in £bn and % of GDP. Forecast years from 2025-26 consistent with OBR EFO November 2025."
+    },
+    {
+      "id": "dmo-remit",
+      "name": "DMO Debt Management Report & Financing Remit",
+      "url": "https://www.dmo.gov.uk/",
+      "note": "Gilt issuance remit, maturity profile, and portfolio composition. 2025-26 remit revised November 2025."
+    },
+    {
+      "id": "imf-weo",
+      "name": "IMF World Economic Outlook, October 2025",
+      "url": "https://www.imf.org/external/datamapper/GGXWDG_NGDP@WEO",
+      "note": "General government gross debt as % of GDP. 2024 estimates."
+    },
+    {
+      "id": "credit-agencies",
+      "name": "Moody's, S&P Global, Fitch Ratings",
+      "url": "https://tradingeconomics.com/united-kingdom/rating",
+      "note": "UK sovereign credit ratings from the three major agencies."
+    }
+  ],
+  "snapshot": {
+    "tenYearYield": 4.89,
+    "tenYearYieldDate": "2026-03",
+    "annualBorrowing": 151.8,
+    "annualBorrowingYear": "2024-25",
+    "debtToGdp": 93.1,
+    "debtToGdpDate": "Feb 2026",
+    "debtInterest": 106.2,
+    "debtInterestYear": "2024-25",
+    "ytdBorrowing": 125.9,
+    "ytdBorrowingPeriod": "Apr 2025 – Feb 2026",
+    "avgMaturity": 14.8,
+    "avgMaturityUnit": "years",
+    "creditRatingSnP": "AA",
+    "creditRatingMoodys": "Aa3",
+    "creditRatingFitch": "AA-"
+  },
+  "series": {
+    "giltYields": {
+      "sourceId": "boe-yield-curve",
+      "timeField": "month",
+      "data": [
+        {
+          "month": "2022-01",
+          "y2": 0.99,
+          "y5": 1.13,
+          "y10": 1.3,
+          "y30": 1.47
+        },
+        {
+          "month": "2022-02",
+          "y2": 1.32,
+          "y5": 1.38,
+          "y10": 1.5,
+          "y30": 1.64
+        },
+        {
+          "month": "2022-03",
+          "y2": 1.36,
+          "y5": 1.43,
+          "y10": 1.61,
+          "y30": 1.81
+        },
+        {
+          "month": "2022-04",
+          "y2": 1.55,
+          "y5": 1.68,
+          "y10": 1.88,
+          "y30": 2.07
+        },
+        {
+          "month": "2022-05",
+          "y2": 1.53,
+          "y5": 1.71,
+          "y10": 1.96,
+          "y30": 2.21
+        },
+        {
+          "month": "2022-06",
+          "y2": 1.92,
+          "y5": 2.07,
+          "y10": 2.38,
+          "y30": 2.65
+        },
+        {
+          "month": "2022-07",
+          "y2": 1.85,
+          "y5": 1.88,
+          "y10": 2.13,
+          "y30": 2.57
+        },
+        {
+          "month": "2022-08",
+          "y2": 2.53,
+          "y5": 2.38,
+          "y10": 2.52,
+          "y30": 2.84
+        },
+        {
+          "month": "2022-09",
+          "y2": 3.6,
+          "y5": 3.85,
+          "y10": 3.83,
+          "y30": 3.92
+        },
+        {
+          "month": "2022-10",
+          "y2": 3.89,
+          "y5": 4.05,
+          "y10": 4.08,
+          "y30": 4.14
+        },
+        {
+          "month": "2022-11",
+          "y2": 3.18,
+          "y5": 3.42,
+          "y10": 3.39,
+          "y30": 3.55
+        },
+        {
+          "month": "2022-12",
+          "y2": 3.48,
+          "y5": 3.53,
+          "y10": 3.5,
+          "y30": 3.69
+        },
+        {
+          "month": "2023-01",
+          "y2": 3.44,
+          "y5": 3.37,
+          "y10": 3.39,
+          "y30": 3.75
+        },
+        {
+          "month": "2023-02",
+          "y2": 3.74,
+          "y5": 3.53,
+          "y10": 3.51,
+          "y30": 3.86
+        },
+        {
+          "month": "2023-03",
+          "y2": 3.45,
+          "y5": 3.36,
+          "y10": 3.42,
+          "y30": 3.83
+        },
+        {
+          "month": "2023-04",
+          "y2": 3.64,
+          "y5": 3.57,
+          "y10": 3.66,
+          "y30": 4
+        },
+        {
+          "month": "2023-05",
+          "y2": 3.93,
+          "y5": 3.8,
+          "y10": 3.85,
+          "y30": 4.19
+        },
+        {
+          "month": "2023-06",
+          "y2": 4.78,
+          "y5": 4.38,
+          "y10": 4.28,
+          "y30": 4.42
+        },
+        {
+          "month": "2023-07",
+          "y2": 5,
+          "y5": 4.44,
+          "y10": 4.35,
+          "y30": 4.51
+        },
+        {
+          "month": "2023-08",
+          "y2": 5.07,
+          "y5": 4.52,
+          "y10": 4.43,
+          "y30": 4.6
+        },
+        {
+          "month": "2023-09",
+          "y2": 4.88,
+          "y5": 4.39,
+          "y10": 4.38,
+          "y30": 4.77
+        },
+        {
+          "month": "2023-10",
+          "y2": 4.81,
+          "y5": 4.47,
+          "y10": 4.55,
+          "y30": 4.97
+        },
+        {
+          "month": "2023-11",
+          "y2": 4.57,
+          "y5": 4.19,
+          "y10": 4.22,
+          "y30": 4.68
+        },
+        {
+          "month": "2023-12",
+          "y2": 4.19,
+          "y5": 3.82,
+          "y10": 3.8,
+          "y30": 4.25
+        },
+        {
+          "month": "2024-01",
+          "y2": 4.28,
+          "y5": 3.82,
+          "y10": 3.88,
+          "y30": 4.37
+        },
+        {
+          "month": "2024-02",
+          "y2": 4.38,
+          "y5": 3.97,
+          "y10": 4.05,
+          "y30": 4.53
+        },
+        {
+          "month": "2024-03",
+          "y2": 4.17,
+          "y5": 3.88,
+          "y10": 4.01,
+          "y30": 4.53
+        },
+        {
+          "month": "2024-04",
+          "y2": 4.34,
+          "y5": 4.11,
+          "y10": 4.22,
+          "y30": 4.66
+        },
+        {
+          "month": "2024-05",
+          "y2": 4.3,
+          "y5": 4.09,
+          "y10": 4.17,
+          "y30": 4.58
+        },
+        {
+          "month": "2024-06",
+          "y2": 4.25,
+          "y5": 4.07,
+          "y10": 4.12,
+          "y30": 4.52
+        },
+        {
+          "month": "2024-07",
+          "y2": 4.08,
+          "y5": 3.91,
+          "y10": 4.07,
+          "y30": 4.53
+        },
+        {
+          "month": "2024-08",
+          "y2": 3.85,
+          "y5": 3.72,
+          "y10": 3.94,
+          "y30": 4.45
+        },
+        {
+          "month": "2024-09",
+          "y2": 3.82,
+          "y5": 3.69,
+          "y10": 3.91,
+          "y30": 4.41
+        },
+        {
+          "month": "2024-10",
+          "y2": 4.14,
+          "y5": 4.06,
+          "y10": 4.21,
+          "y30": 4.67
+        },
+        {
+          "month": "2024-11",
+          "y2": 4.34,
+          "y5": 4.22,
+          "y10": 4.38,
+          "y30": 4.79
+        },
+        {
+          "month": "2024-12",
+          "y2": 4.36,
+          "y5": 4.29,
+          "y10": 4.48,
+          "y30": 4.92
+        },
+        {
+          "month": "2025-01",
+          "y2": 4.39,
+          "y5": 4.37,
+          "y10": 4.62,
+          "y30": 5.18
+        },
+        {
+          "month": "2025-02",
+          "y2": 4.22,
+          "y5": 4.23,
+          "y10": 4.5,
+          "y30": 5.1
+        },
+        {
+          "month": "2025-03",
+          "y2": 4.15,
+          "y5": 4.17,
+          "y10": 4.47,
+          "y30": 5.07
+        },
+        {
+          "month": "2025-04",
+          "y2": 4.22,
+          "y5": 4.19,
+          "y10": 4.49,
+          "y30": 5.08
+        },
+        {
+          "month": "2025-05",
+          "y2": 4.18,
+          "y5": 4.15,
+          "y10": 4.44,
+          "y30": 5.04
+        },
+        {
+          "month": "2025-06",
+          "y2": 4.25,
+          "y5": 4.21,
+          "y10": 4.51,
+          "y30": 5.11
+        },
+        {
+          "month": "2025-07",
+          "y2": 4.19,
+          "y5": 4.14,
+          "y10": 4.42,
+          "y30": 5.03
+        },
+        {
+          "month": "2025-08",
+          "y2": 4.09,
+          "y5": 4.01,
+          "y10": 4.32,
+          "y30": 4.94
+        },
+        {
+          "month": "2025-09",
+          "y2": 4.03,
+          "y5": 3.97,
+          "y10": 4.27,
+          "y30": 4.88
+        },
+        {
+          "month": "2025-10",
+          "y2": 4.28,
+          "y5": 4.22,
+          "y10": 4.52,
+          "y30": 5.12
+        },
+        {
+          "month": "2025-11",
+          "y2": 4.35,
+          "y5": 4.3,
+          "y10": 4.58,
+          "y30": 5.18
+        },
+        {
+          "month": "2025-12",
+          "y2": 4.3,
+          "y5": 4.25,
+          "y10": 4.52,
+          "y30": 5.13
+        },
+        {
+          "month": "2026-01",
+          "y2": 4.4,
+          "y5": 4.38,
+          "y10": 4.68,
+          "y30": 5.28
+        },
+        {
+          "month": "2026-02",
+          "y2": 4.48,
+          "y5": 4.45,
+          "y10": 4.75,
+          "y30": 5.38
+        },
+        {
+          "month": "2026-03",
+          "y2": 4.67,
+          "y5": 4.62,
+          "y10": 4.89,
+          "y30": 5.6
+        }
+      ]
+    },
+    "monthlyBorrowing": {
+      "sourceId": "ons-psf",
+      "timeField": "month",
+      "data": [
+        {
+          "month": "Apr",
+          "fy": "2023-24",
+          "borrowing": 22.3
+        },
+        {
+          "month": "May",
+          "fy": "2023-24",
+          "borrowing": 18.9
+        },
+        {
+          "month": "Jun",
+          "fy": "2023-24",
+          "borrowing": 14.2
+        },
+        {
+          "month": "Jul",
+          "fy": "2023-24",
+          "borrowing": 0.5
+        },
+        {
+          "month": "Aug",
+          "fy": "2023-24",
+          "borrowing": 9
+        },
+        {
+          "month": "Sep",
+          "fy": "2023-24",
+          "borrowing": 15.8
+        },
+        {
+          "month": "Oct",
+          "fy": "2023-24",
+          "borrowing": 17.4
+        },
+        {
+          "month": "Nov",
+          "fy": "2023-24",
+          "borrowing": 12.8
+        },
+        {
+          "month": "Dec",
+          "fy": "2023-24",
+          "borrowing": 8.2
+        },
+        {
+          "month": "Jan",
+          "fy": "2023-24",
+          "borrowing": -16.7
+        },
+        {
+          "month": "Feb",
+          "fy": "2023-24",
+          "borrowing": 12.1
+        },
+        {
+          "month": "Mar",
+          "fy": "2023-24",
+          "borrowing": 16.4
+        },
+        {
+          "month": "Apr",
+          "fy": "2024-25",
+          "borrowing": 20.5
+        },
+        {
+          "month": "May",
+          "fy": "2024-25",
+          "borrowing": 14.1
+        },
+        {
+          "month": "Jun",
+          "fy": "2024-25",
+          "borrowing": 13.9
+        },
+        {
+          "month": "Jul",
+          "fy": "2024-25",
+          "borrowing": 2.2
+        },
+        {
+          "month": "Aug",
+          "fy": "2024-25",
+          "borrowing": 12.3
+        },
+        {
+          "month": "Sep",
+          "fy": "2024-25",
+          "borrowing": 16
+        },
+        {
+          "month": "Oct",
+          "fy": "2024-25",
+          "borrowing": 18.2
+        },
+        {
+          "month": "Nov",
+          "fy": "2024-25",
+          "borrowing": 11.6
+        },
+        {
+          "month": "Dec",
+          "fy": "2024-25",
+          "borrowing": 17.8
+        },
+        {
+          "month": "Jan",
+          "fy": "2024-25",
+          "borrowing": -15.4
+        },
+        {
+          "month": "Feb",
+          "fy": "2024-25",
+          "borrowing": 11.8
+        },
+        {
+          "month": "Mar",
+          "fy": "2024-25",
+          "borrowing": 28.8
+        },
+        {
+          "month": "Apr",
+          "fy": "2025-26",
+          "borrowing": 20.2
+        },
+        {
+          "month": "May",
+          "fy": "2025-26",
+          "borrowing": 17.8
+        },
+        {
+          "month": "Jun",
+          "fy": "2025-26",
+          "borrowing": 12.5
+        },
+        {
+          "month": "Jul",
+          "fy": "2025-26",
+          "borrowing": 3.1
+        },
+        {
+          "month": "Aug",
+          "fy": "2025-26",
+          "borrowing": 18
+        },
+        {
+          "month": "Sep",
+          "fy": "2025-26",
+          "borrowing": 13.5
+        },
+        {
+          "month": "Oct",
+          "fy": "2025-26",
+          "borrowing": 18.6
+        },
+        {
+          "month": "Nov",
+          "fy": "2025-26",
+          "borrowing": 8.4
+        },
+        {
+          "month": "Dec",
+          "fy": "2025-26",
+          "borrowing": 11.6
+        },
+        {
+          "month": "Jan",
+          "fy": "2025-26",
+          "borrowing": -12
+        },
+        {
+          "month": "Feb",
+          "fy": "2025-26",
+          "borrowing": 14.3
+        }
+      ]
+    },
+    "annualBorrowing": {
+      "sourceId": "obr-databank",
+      "timeField": "fy",
+      "data": [
+        {
+          "fy": "1993-94",
+          "borrowing": 46,
+          "gdp": 711.3,
+          "pctGdp": 6.5
+        },
+        {
+          "fy": "1994-95",
+          "borrowing": 38.5,
+          "gdp": 755.1,
+          "pctGdp": 5.1
+        },
+        {
+          "fy": "1995-96",
+          "borrowing": 32,
+          "gdp": 797,
+          "pctGdp": 4
+        },
+        {
+          "fy": "1996-97",
+          "borrowing": 22.4,
+          "gdp": 849.3,
+          "pctGdp": 2.6
+        },
+        {
+          "fy": "1997-98",
+          "borrowing": 4.8,
+          "gdp": 908.2,
+          "pctGdp": 0.5
+        },
+        {
+          "fy": "1998-99",
+          "borrowing": -5.3,
+          "gdp": 960.7,
+          "pctGdp": -0.6
+        },
+        {
+          "fy": "1999-00",
+          "borrowing": -12.3,
+          "gdp": 1014.5,
+          "pctGdp": -1.2
+        },
+        {
+          "fy": "2000-01",
+          "borrowing": -16.9,
+          "gdp": 1065,
+          "pctGdp": -1.6
+        },
+        {
+          "fy": "2001-02",
+          "borrowing": 1.3,
+          "gdp": 1100.9,
+          "pctGdp": 0.1
+        },
+        {
+          "fy": "2002-03",
+          "borrowing": 27.5,
+          "gdp": 1163.7,
+          "pctGdp": 2.4
+        },
+        {
+          "fy": "2003-04",
+          "borrowing": 33.7,
+          "gdp": 1232.1,
+          "pctGdp": 2.7
+        },
+        {
+          "fy": "2004-05",
+          "borrowing": 37.5,
+          "gdp": 1308,
+          "pctGdp": 2.9
+        },
+        {
+          "fy": "2005-06",
+          "borrowing": 36.3,
+          "gdp": 1386.7,
+          "pctGdp": 2.6
+        },
+        {
+          "fy": "2006-07",
+          "borrowing": 32.9,
+          "gdp": 1471,
+          "pctGdp": 2.2
+        },
+        {
+          "fy": "2007-08",
+          "borrowing": 40.3,
+          "gdp": 1546.1,
+          "pctGdp": 2.6
+        },
+        {
+          "fy": "2008-09",
+          "borrowing": 99.7,
+          "gdp": 1548,
+          "pctGdp": 6.4
+        },
+        {
+          "fy": "2009-10",
+          "borrowing": 154.5,
+          "gdp": 1570.5,
+          "pctGdp": 9.8
+        },
+        {
+          "fy": "2010-11",
+          "borrowing": 134.6,
+          "gdp": 1641.5,
+          "pctGdp": 8.2
+        },
+        {
+          "fy": "2011-12",
+          "borrowing": 115.5,
+          "gdp": 1700.2,
+          "pctGdp": 6.8
+        },
+        {
+          "fy": "2012-13",
+          "borrowing": 116.2,
+          "gdp": 1754.5,
+          "pctGdp": 6.6
+        },
+        {
+          "fy": "2013-14",
+          "borrowing": 96.4,
+          "gdp": 1850.3,
+          "pctGdp": 5.2
+        },
+        {
+          "fy": "2014-15",
+          "borrowing": 81.3,
+          "gdp": 1938.6,
+          "pctGdp": 4.2
+        },
+        {
+          "fy": "2015-16",
+          "borrowing": 67.9,
+          "gdp": 1988.8,
+          "pctGdp": 3.4
+        },
+        {
+          "fy": "2016-17",
+          "borrowing": 57.2,
+          "gdp": 2027.1,
+          "pctGdp": 2.8
+        },
+        {
+          "fy": "2017-18",
+          "borrowing": 59.3,
+          "gdp": 2114.6,
+          "pctGdp": 2.8
+        },
+        {
+          "fy": "2018-19",
+          "borrowing": 44.3,
+          "gdp": 2189.8,
+          "pctGdp": 2
+        },
+        {
+          "fy": "2019-20",
+          "borrowing": 58.4,
+          "gdp": 2263.4,
+          "pctGdp": 2.6
+        },
+        {
+          "fy": "2020-21",
+          "borrowing": 310.9,
+          "gdp": 2110,
+          "pctGdp": 14.7
+        },
+        {
+          "fy": "2021-22",
+          "borrowing": 120.3,
+          "gdp": 2400.4,
+          "pctGdp": 5
+        },
+        {
+          "fy": "2022-23",
+          "borrowing": 127.1,
+          "gdp": 2634.3,
+          "pctGdp": 4.8
+        },
+        {
+          "fy": "2023-24",
+          "borrowing": 134.7,
+          "gdp": 2790.1,
+          "pctGdp": 4.8
+        },
+        {
+          "fy": "2024-25",
+          "borrowing": 152.7,
+          "gdp": 2934.2,
+          "pctGdp": 5.2,
+          "forecast": false
+        },
+        {
+          "fy": "2025-26",
+          "borrowing": 138.3,
+          "gdp": 3042.9,
+          "pctGdp": 4.5,
+          "forecast": true
+        },
+        {
+          "fy": "2026-27",
+          "borrowing": 112.1,
+          "gdp": 3164.9,
+          "pctGdp": 3.5,
+          "forecast": true
+        },
+        {
+          "fy": "2027-28",
+          "borrowing": 98.5,
+          "gdp": 3277.5,
+          "pctGdp": 3,
+          "forecast": true
+        },
+        {
+          "fy": "2028-29",
+          "borrowing": 86.9,
+          "gdp": 3388.4,
+          "pctGdp": 2.6,
+          "forecast": true
+        },
+        {
+          "fy": "2029-30",
+          "borrowing": 67.9,
+          "gdp": 3504,
+          "pctGdp": 1.9,
+          "forecast": true
+        }
+      ]
+    },
+    "debtInterest": {
+      "sourceId": "obr-databank",
+      "timeField": "fy",
+      "data": [
+        {
+          "fy": "2000-01",
+          "interest": 26.6,
+          "pctGdp": 2.5
+        },
+        {
+          "fy": "2001-02",
+          "interest": 22.5,
+          "pctGdp": 2
+        },
+        {
+          "fy": "2002-03",
+          "interest": 21.1,
+          "pctGdp": 1.8
+        },
+        {
+          "fy": "2003-04",
+          "interest": 22.4,
+          "pctGdp": 1.8
+        },
+        {
+          "fy": "2004-05",
+          "interest": 23.8,
+          "pctGdp": 1.8
+        },
+        {
+          "fy": "2005-06",
+          "interest": 25.3,
+          "pctGdp": 1.8
+        },
+        {
+          "fy": "2006-07",
+          "interest": 27,
+          "pctGdp": 1.8
+        },
+        {
+          "fy": "2007-08",
+          "interest": 30.7,
+          "pctGdp": 2
+        },
+        {
+          "fy": "2008-09",
+          "interest": 30.5,
+          "pctGdp": 2
+        },
+        {
+          "fy": "2009-10",
+          "interest": 30.5,
+          "pctGdp": 1.9
+        },
+        {
+          "fy": "2010-11",
+          "interest": 43.3,
+          "pctGdp": 2.6
+        },
+        {
+          "fy": "2011-12",
+          "interest": 48.2,
+          "pctGdp": 2.8
+        },
+        {
+          "fy": "2012-13",
+          "interest": 44.5,
+          "pctGdp": 2.5
+        },
+        {
+          "fy": "2013-14",
+          "interest": 45.1,
+          "pctGdp": 2.4
+        },
+        {
+          "fy": "2014-15",
+          "interest": 44.4,
+          "pctGdp": 2.3
+        },
+        {
+          "fy": "2015-16",
+          "interest": 36.7,
+          "pctGdp": 1.8
+        },
+        {
+          "fy": "2016-17",
+          "interest": 36.8,
+          "pctGdp": 1.8
+        },
+        {
+          "fy": "2017-18",
+          "interest": 42.9,
+          "pctGdp": 2
+        },
+        {
+          "fy": "2018-19",
+          "interest": 39.1,
+          "pctGdp": 1.8
+        },
+        {
+          "fy": "2019-20",
+          "interest": 39.2,
+          "pctGdp": 1.7
+        },
+        {
+          "fy": "2020-21",
+          "interest": 25.2,
+          "pctGdp": 1.2
+        },
+        {
+          "fy": "2021-22",
+          "interest": 55.4,
+          "pctGdp": 2.3
+        },
+        {
+          "fy": "2022-23",
+          "interest": 112.1,
+          "pctGdp": 4.3
+        },
+        {
+          "fy": "2023-24",
+          "interest": 107.6,
+          "pctGdp": 3.9
+        },
+        {
+          "fy": "2024-25",
+          "interest": 106.2,
+          "pctGdp": 3.6
+        },
+        {
+          "fy": "2025-26",
+          "interest": 113.7,
+          "pctGdp": 3.7,
+          "forecast": true
+        },
+        {
+          "fy": "2026-27",
+          "interest": 113.3,
+          "pctGdp": 3.6,
+          "forecast": true
+        },
+        {
+          "fy": "2027-28",
+          "interest": 118.7,
+          "pctGdp": 3.6,
+          "forecast": true
+        },
+        {
+          "fy": "2028-29",
+          "interest": 127.7,
+          "pctGdp": 3.8,
+          "forecast": true
+        },
+        {
+          "fy": "2029-30",
+          "interest": 136.6,
+          "pctGdp": 3.9,
+          "forecast": true
+        }
+      ]
+    },
+    "debtToGdp": {
+      "sourceId": "obr-databank",
+      "timeField": "fy",
+      "data": [
+        {
+          "fy": "1993-94",
+          "pct": 32.4
+        },
+        {
+          "fy": "1994-95",
+          "pct": 35.2
+        },
+        {
+          "fy": "1995-96",
+          "pct": 36.3
+        },
+        {
+          "fy": "1996-97",
+          "pct": 37.5
+        },
+        {
+          "fy": "1997-98",
+          "pct": 38.5
+        },
+        {
+          "fy": "1998-99",
+          "pct": 36
+        },
+        {
+          "fy": "1999-00",
+          "pct": 33
+        },
+        {
+          "fy": "2000-01",
+          "pct": 29.7
+        },
+        {
+          "fy": "2001-02",
+          "pct": 29
+        },
+        {
+          "fy": "2002-03",
+          "pct": 30.2
+        },
+        {
+          "fy": "2003-04",
+          "pct": 31.8
+        },
+        {
+          "fy": "2004-05",
+          "pct": 33.8
+        },
+        {
+          "fy": "2005-06",
+          "pct": 34.8
+        },
+        {
+          "fy": "2006-07",
+          "pct": 35.3
+        },
+        {
+          "fy": "2007-08",
+          "pct": 36.4
+        },
+        {
+          "fy": "2008-09",
+          "pct": 49.7
+        },
+        {
+          "fy": "2009-10",
+          "pct": 60.1
+        },
+        {
+          "fy": "2010-11",
+          "pct": 67.8
+        },
+        {
+          "fy": "2011-12",
+          "pct": 72.5
+        },
+        {
+          "fy": "2012-13",
+          "pct": 74.7
+        },
+        {
+          "fy": "2013-14",
+          "pct": 76.1
+        },
+        {
+          "fy": "2014-15",
+          "pct": 78.8
+        },
+        {
+          "fy": "2015-16",
+          "pct": 79.5
+        },
+        {
+          "fy": "2016-17",
+          "pct": 79.1
+        },
+        {
+          "fy": "2017-18",
+          "pct": 79.3
+        },
+        {
+          "fy": "2018-19",
+          "pct": 79.6
+        },
+        {
+          "fy": "2019-20",
+          "pct": 83.8
+        },
+        {
+          "fy": "2020-21",
+          "pct": 97.2
+        },
+        {
+          "fy": "2021-22",
+          "pct": 93.4
+        },
+        {
+          "fy": "2022-23",
+          "pct": 92.6
+        },
+        {
+          "fy": "2023-24",
+          "pct": 95.3
+        },
+        {
+          "fy": "2024-25",
+          "pct": 95.6
+        },
+        {
+          "fy": "2025-26",
+          "pct": 95,
+          "forecast": true
+        },
+        {
+          "fy": "2026-27",
+          "pct": 95.5,
+          "forecast": true
+        },
+        {
+          "fy": "2027-28",
+          "pct": 95.8,
+          "forecast": true
+        },
+        {
+          "fy": "2028-29",
+          "pct": 96.1,
+          "forecast": true
+        },
+        {
+          "fy": "2029-30",
+          "pct": 95.8,
+          "forecast": true
+        }
+      ]
+    },
+    "maturityProfile": {
+      "sourceId": "dmo-remit",
+      "timeField": "bucket",
+      "data": [
+        {
+          "bucket": "0-5 years",
+          "conventional": 355,
+          "indexLinked": 115,
+          "total": 470
+        },
+        {
+          "bucket": "5-10 years",
+          "conventional": 285,
+          "indexLinked": 105,
+          "total": 390
+        },
+        {
+          "bucket": "10-15 years",
+          "conventional": 210,
+          "indexLinked": 95,
+          "total": 305
+        },
+        {
+          "bucket": "15-20 years",
+          "conventional": 165,
+          "indexLinked": 80,
+          "total": 245
+        },
+        {
+          "bucket": "20-30 years",
+          "conventional": 205,
+          "indexLinked": 110,
+          "total": 315
+        },
+        {
+          "bucket": "30-40 years",
+          "conventional": 120,
+          "indexLinked": 65,
+          "total": 185
+        },
+        {
+          "bucket": "40+ years",
+          "conventional": 95,
+          "indexLinked": 49,
+          "total": 144
+        }
+      ]
+    },
+    "giltIssuance": {
+      "sourceId": "dmo-remit",
+      "timeField": "fy",
+      "data": [
+        {
+          "fy": "2017-18",
+          "gross": 100.2,
+          "redemptions": 61.2,
+          "net": 39
+        },
+        {
+          "fy": "2018-19",
+          "gross": 100.1,
+          "redemptions": 68.6,
+          "net": 31.5
+        },
+        {
+          "fy": "2019-20",
+          "gross": 131.5,
+          "redemptions": 53.1,
+          "net": 78.4
+        },
+        {
+          "fy": "2020-21",
+          "gross": 485.5,
+          "redemptions": 72.5,
+          "net": 413
+        },
+        {
+          "fy": "2021-22",
+          "gross": 197.3,
+          "redemptions": 97.1,
+          "net": 100.2
+        },
+        {
+          "fy": "2022-23",
+          "gross": 169.6,
+          "redemptions": 64.4,
+          "net": 105.2
+        },
+        {
+          "fy": "2023-24",
+          "gross": 232,
+          "redemptions": 92.4,
+          "net": 139.6
+        },
+        {
+          "fy": "2024-25",
+          "gross": 296.9,
+          "redemptions": 117.5,
+          "net": 179.4
+        },
+        {
+          "fy": "2025-26",
+          "gross": 299.6,
+          "redemptions": 164.7,
+          "net": 134.9,
+          "planned": true
+        },
+        {
+          "fy": "2026-27",
+          "gross": 256.5,
+          "redemptions": 141.5,
+          "net": 115,
+          "planned": true
+        }
+      ]
+    },
+    "intlDebtGdp": {
+      "sourceId": "imf-weo",
+      "timeField": "country",
+      "data": [
+        {
+          "country": "Japan",
+          "pct": 252.7
+        },
+        {
+          "country": "Italy",
+          "pct": 136.9
+        },
+        {
+          "country": "United States",
+          "pct": 123.8
+        },
+        {
+          "country": "France",
+          "pct": 113.2
+        },
+        {
+          "country": "UK",
+          "pct": 101.3
+        },
+        {
+          "country": "Canada",
+          "pct": 97.1
+        },
+        {
+          "country": "Spain",
+          "pct": 101.6
+        },
+        {
+          "country": "Belgium",
+          "pct": 103.9
+        },
+        {
+          "country": "Germany",
+          "pct": 62.9
+        },
+        {
+          "country": "Netherlands",
+          "pct": 43.7
+        },
+        {
+          "country": "Australia",
+          "pct": 50.6
+        },
+        {
+          "country": "South Korea",
+          "pct": 55.2
+        },
+        {
+          "country": "Sweden",
+          "pct": 31.8
+        }
+      ]
+    },
+    "creditRatings": {
+      "sourceId": "credit-agencies",
+      "timeField": "agency",
+      "data": [
+        {
+          "agency": "S&P",
+          "rating": "AA",
+          "outlook": "Stable",
+          "lastAction": "2016-06"
+        },
+        {
+          "agency": "Moody's",
+          "rating": "Aa3",
+          "outlook": "Stable",
+          "lastAction": "2024-10"
+        },
+        {
+          "agency": "Fitch",
+          "rating": "AA-",
+          "outlook": "Stable",
+          "lastAction": "2023-10"
+        }
+      ]
+    }
+  }
+}

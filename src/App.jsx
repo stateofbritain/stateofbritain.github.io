@@ -47,6 +47,7 @@ import DefenceEquipment from "./pillars/state/DefenceEquipment";
 import DefenceProcurement from "./pillars/state/DefenceProcurement";
 import Immigration from "./pillars/state/Immigration";
 import Taxation from "./pillars/state/Taxation";
+import Borrowing from "./pillars/state/Borrowing";
 import MoneySupply from "./pillars/state/MoneySupply";
 import LocalGovernment from "./pillars/state/LocalGovernment";
 import ChallengesOverview from "./pillars/challenges/ChallengesOverview";
@@ -56,6 +57,7 @@ import AsylumImmigration from "./pillars/challenges/AsylumImmigration";
 // Topics with subtopics use 3-part keys: "pillar/topic/subtopic"
 const TOPIC_COMPONENTS = {
   "spending/spending/overview": SpendingOverview,
+  "spending/spending/borrowing": Borrowing,
   "spending/spending/taxation": Taxation,
   "spending/spending/moneySupply": MoneySupply,
   "spending/spending/localGov": LocalGovernment,
