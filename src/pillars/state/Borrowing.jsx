@@ -36,6 +36,7 @@ export default function Borrowing() {
   const { data, loading, error, raw } = useJsonDataset("borrowing.json");
   const isMobile = useIsMobile();
   const [borrowingView, setBorrowingView] = useState("pctGdp");
+  const [intlYieldView, setIntlYieldView] = useState("trend");
 
   if (loading) {
     return (
@@ -255,28 +256,52 @@ export default function Borrowing() {
         </ChartCard>
 
         {/* International yield comparison */}
-        {data.intlYields && (
-          <div style={{ marginTop: 18 }}>
-            <ChartCard
-              title="10-Year Government Bond Yields, International"
-              subtitle="%, March 2026"
-              source={sourceFrom(raw, "intlYields")}
-              height={Math.max(300, data.intlYields.length * 30)}
-            >
-              <BarChart data={[...data.intlYields].sort((a, b) => b.y10 - a.y10)} layout="vertical" margin={{ left: 10 }}>
+        <div style={{ marginTop: 18 }}>
+          <ChartCard
+            title={intlYieldView === "trend" ? "10-Year Government Bond Yields Over Time" : "10-Year Government Bond Yields, Current"}
+            subtitle={intlYieldView === "trend" ? "Annual average %, 2000–2025" : "%, March 2026"}
+            views={["trend", "current"]}
+            viewLabels={{ trend: "Over Time", current: "Current" }}
+            activeView={intlYieldView}
+            onViewChange={setIntlYieldView}
+            source={sourceFrom(raw, intlYieldView === "trend" ? "intlYieldTrend" : "intlYields")}
+            legend={intlYieldView === "trend" ? [
+              { key: "uk", label: "UK", color: P.red },
+              { key: "us", label: "US", color: P.navy },
+              { key: "de", label: "Germany", color: P.teal },
+              { key: "fr", label: "France", color: P.sienna },
+              { key: "jp", label: "Japan", color: P.yellow },
+            ] : undefined}
+            height={intlYieldView === "trend" ? 380 : Math.max(300, (data.intlYields?.length || 10) * 30)}
+          >
+            {intlYieldView === "trend" ? (
+              <LineChart data={data.intlYieldTrend} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
+                <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} domain={[-1, 7]} label={yAxisLabel("%")} />
+                <Tooltip content={<CustomTooltip formatter={v => `${v}%`} />} />
+                <Line type="monotone" dataKey="uk" name="UK" stroke={P.red} strokeWidth={2.5} dot={{ r: 2.5, fill: P.red }} />
+                <Line type="monotone" dataKey="us" name="US" stroke={P.navy} strokeWidth={2} dot={{ r: 2, fill: P.navy }} />
+                <Line type="monotone" dataKey="de" name="Germany" stroke={P.teal} strokeWidth={2} dot={{ r: 2, fill: P.teal }} />
+                <Line type="monotone" dataKey="fr" name="France" stroke={P.sienna} strokeWidth={1.5} dot={false} strokeDasharray="6 3" />
+                <Line type="monotone" dataKey="jp" name="Japan" stroke={P.yellow} strokeWidth={1.5} dot={false} strokeDasharray="4 4" />
+                <ReferenceLine y={0} stroke={P.text} strokeWidth={0.5} />
+              </LineChart>
+            ) : (
+              <BarChart data={[...(data.intlYields || [])].sort((a, b) => b.y10 - a.y10)} layout="vertical" margin={{ left: 10 }}>
                 <CartesianGrid {...GRID_PROPS} horizontal={false} />
                 <XAxis type="number" tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} tickFormatter={v => `${v}%`} />
                 <YAxis type="category" dataKey="country" tick={{ fontSize: isMobile ? 10 : 11, fill: P.textMuted, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} width={isMobile ? 80 : 120} />
                 <Tooltip content={<CustomTooltip formatter={v => `${v}%`} />} />
                 <Bar dataKey="y10" name="10-year yield (%)" radius={[0, 3, 3, 0]}>
-                  {[...data.intlYields].sort((a, b) => b.y10 - a.y10).map(d => (
+                  {[...(data.intlYields || [])].sort((a, b) => b.y10 - a.y10).map(d => (
                     <Cell key={d.country} fill={d.country === "United Kingdom" ? P.red : P.navy} opacity={d.country === "United Kingdom" ? 1 : 0.6} />
                   ))}
                 </Bar>
               </BarChart>
-            </ChartCard>
-          </div>
-        )}
+            )}
+          </ChartCard>
+        </div>
       </section>
 
       {/* ── Section 2: Monthly Borrowing ───────────────────────────────── */}
