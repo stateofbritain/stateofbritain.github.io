@@ -256,7 +256,6 @@ export default function Borrowing() {
               label={{ value: "Financial crisis", fontSize: 9, fill: P.grey, position: "insideTopRight", fontFamily: "'DM Mono', monospace" }} />
             <ReferenceLine x={2020 + 2/12} stroke={P.grey} strokeDasharray="4 4"
               label={{ value: "COVID", fontSize: 9, fill: P.grey, position: "insideTopRight", fontFamily: "'DM Mono', monospace" }} />
-            <ReferenceLine x={2022 + 8/12} stroke={P.grey} strokeDasharray="4 4" />
             {Object.entries(YIELD_COLORS).map(([key, color]) => (
               <Line key={key} type="monotone" dataKey={key} name={YIELD_LABELS[key]} stroke={color} strokeWidth={key === "y10" ? 2.5 : 1.5} dot={false} />
             ))}
@@ -640,17 +639,6 @@ export default function Borrowing() {
       )}
 
       {/* Context */}
-      <AnalysisBox
-        title="Context"
-        points={[
-          `The 10-year gilt yield was ${s.tenYearYield}% in ${s.tenYearYieldDate}, up from around 1% at the start of 2022. The 30-year yield reached 5.6%, reflecting a widening term premium.`,
-          `Public sector net borrowing was £${s.annualBorrowing}bn in ${s.annualBorrowingYear}, the third-highest financial year on record. The OBR forecasts borrowing will decline to 1.9% of GDP by 2029-30.`,
-          `Debt interest payments were £${s.debtInterest}bn in ${s.debtInterestYear}, down from the post-war high of £112.1bn in 2022-23 but forecast to rise to £136.6bn by 2029-30 as the debt stock grows.`,
-          `Public sector net debt stood at ${s.debtToGdp}% of GDP as of ${s.debtToGdpDate}. The debt-to-GDP ratio has stabilised in the mid-90s after rising sharply from 30% in the early 2000s.`,
-          `The UK's credit ratings are ${ratings.map(r => `${r.agency}: ${r.rating}`).join(", ")}. All three agencies assign stable outlooks.`,
-          `Gross gilt issuance was £296.9bn in 2024-25, with £164.7bn in redemptions due in 2025-26. Rising redemption volumes increase the refinancing requirement even as net borrowing declines.`,
-        ]}
-      />
     </div>
   );
 }
