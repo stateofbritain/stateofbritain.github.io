@@ -85,7 +85,16 @@ export default function Borrowing() {
   const annualData = withFyNum(data.annualBorrowing || [], "fy");
 
   // Debt interest with FY numeric
-  const interestData = withFyNum(data.debtInterest || [], "fy");
+  const interestData = withFyNum((data.debtInterest || []).map(d => ({
+    ...d,
+    pctActual: d.forecast ? null : d.pctGdp,
+    pctForecast: d.forecast ? d.pctGdp : null,
+  })), "fy");
+  // Bridge for continuous forecast line
+  const lastIntActual = interestData.findLastIndex(d => d.pctActual != null);
+  if (lastIntActual >= 0 && lastIntActual < interestData.length - 1) {
+    interestData[lastIntActual].pctForecast = interestData[lastIntActual].pctActual;
+  }
 
   // Debt to GDP with FY numeric
   const debtGdpData = withFyNum((data.debtToGdp || []).map(d => ({
@@ -247,8 +256,7 @@ export default function Borrowing() {
               label={{ value: "Financial crisis", fontSize: 9, fill: P.grey, position: "insideTopRight", fontFamily: "'DM Mono', monospace" }} />
             <ReferenceLine x={2020 + 2/12} stroke={P.grey} strokeDasharray="4 4"
               label={{ value: "COVID", fontSize: 9, fill: P.grey, position: "insideTopRight", fontFamily: "'DM Mono', monospace" }} />
-            <ReferenceLine x={2022 + 8/12} stroke={P.red} strokeDasharray="4 4"
-              label={{ value: "Mini-budget", fontSize: 9, fill: P.red, position: "insideTopRight", fontFamily: "'DM Mono', monospace" }} />
+            <ReferenceLine x={2022 + 8/12} stroke={P.grey} strokeDasharray="4 4" />
             {Object.entries(YIELD_COLORS).map(([key, color]) => (
               <Line key={key} type="monotone" dataKey={key} name={YIELD_LABELS[key]} stroke={color} strokeWidth={key === "y10" ? 2.5 : 1.5} dot={false} />
             ))}
@@ -266,11 +274,11 @@ export default function Borrowing() {
             onViewChange={setIntlYieldView}
             source={sourceFrom(raw, intlYieldView === "trend" ? "intlYieldTrend" : "intlYields")}
             legend={intlYieldView === "trend" ? [
-              { key: "uk", label: "UK", color: P.red },
-              { key: "us", label: "US", color: P.navy },
-              { key: "de", label: "Germany", color: P.teal },
-              { key: "fr", label: "France", color: P.sienna },
-              { key: "jp", label: "Japan", color: P.yellow },
+              { key: "uk", label: "UK", color: P.navy },
+              { key: "us", label: "US", color: P.teal + "99" },
+              { key: "de", label: "Germany", color: P.sienna + "99" },
+              { key: "fr", label: "France", color: P.yellow + "99" },
+              { key: "jp", label: "Japan", color: P.grey + "99" },
             ] : undefined}
             height={intlYieldView === "trend" ? 380 : Math.max(300, (data.intlYields?.length || 10) * 30)}
           >
@@ -280,11 +288,11 @@ export default function Borrowing() {
                 <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
                 <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} domain={[-1, 7]} label={yAxisLabel("%")} />
                 <Tooltip content={<CustomTooltip formatter={v => `${v}%`} />} />
-                <Line type="monotone" dataKey="uk" name="UK" stroke={P.red} strokeWidth={2.5} dot={{ r: 2.5, fill: P.red }} />
-                <Line type="monotone" dataKey="us" name="US" stroke={P.navy} strokeWidth={2} dot={{ r: 2, fill: P.navy }} />
-                <Line type="monotone" dataKey="de" name="Germany" stroke={P.teal} strokeWidth={2} dot={{ r: 2, fill: P.teal }} />
-                <Line type="monotone" dataKey="fr" name="France" stroke={P.sienna} strokeWidth={1.5} dot={false} strokeDasharray="6 3" />
-                <Line type="monotone" dataKey="jp" name="Japan" stroke={P.yellow} strokeWidth={1.5} dot={false} strokeDasharray="4 4" />
+                <Line type="monotone" dataKey="uk" name="UK" stroke={P.navy} strokeWidth={2.5} dot={{ r: 2.5, fill: P.navy }} />
+                <Line type="monotone" dataKey="us" name="US" stroke={P.teal} strokeWidth={1.5} dot={false} opacity={0.5} />
+                <Line type="monotone" dataKey="de" name="Germany" stroke={P.sienna} strokeWidth={1.5} dot={false} opacity={0.5} />
+                <Line type="monotone" dataKey="fr" name="France" stroke={P.yellow} strokeWidth={1.5} dot={false} opacity={0.5} />
+                <Line type="monotone" dataKey="jp" name="Japan" stroke={P.grey} strokeWidth={1.5} dot={false} opacity={0.5} />
                 <ReferenceLine y={0} stroke={P.text} strokeWidth={0.5} />
               </LineChart>
             ) : (
@@ -437,7 +445,8 @@ export default function Borrowing() {
                 <Cell key={i} fill={d.forecast ? P.grey : P.sienna} fillOpacity={d.forecast ? 0.4 : 0.7} />
               ))}
             </Bar>
-            <Line yAxisId="right" type="monotone" dataKey="pctGdp" name="% of GDP" stroke={P.navy} strokeWidth={2} dot={false} />
+            <Line yAxisId="right" type="monotone" dataKey="pctActual" name="% of GDP" stroke={P.navy} strokeWidth={2} dot={false} connectNulls={false} />
+            <Line yAxisId="right" type="monotone" dataKey="pctForecast" name="% of GDP (forecast)" stroke={P.navy} strokeWidth={2} dot={false} strokeDasharray="6 4" connectNulls={false} />
           </ComposedChart>
         </ChartCard>
       </section>
