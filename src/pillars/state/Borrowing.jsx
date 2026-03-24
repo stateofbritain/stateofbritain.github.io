@@ -87,7 +87,17 @@ export default function Borrowing() {
   const interestData = withFyNum(data.debtInterest || [], "fy");
 
   // Debt to GDP with FY numeric
-  const debtGdpData = withFyNum(data.debtToGdp || [], "fy");
+  const debtGdpData = withFyNum((data.debtToGdp || []).map(d => ({
+    ...d,
+    pctActual: d.forecast ? null : d.pct,
+    pctForecast: d.forecast ? d.pct : null,
+    // Bridge: last actual year also gets forecast value for continuous line
+  })), "fy");
+  // Add bridge point so forecast line connects to actual
+  const lastActualIdx = debtGdpData.findLastIndex(d => d.pctActual != null);
+  if (lastActualIdx >= 0 && lastActualIdx < debtGdpData.length - 1) {
+    debtGdpData[lastActualIdx].pctForecast = debtGdpData[lastActualIdx].pctActual;
+  }
 
   // Maturity profile
   const maturityData = data.maturityProfile || [];
@@ -232,17 +242,41 @@ export default function Borrowing() {
                 );
               }}
             />
-            <ReferenceLine
-              x={2022 + 8 / 12}
-              stroke={P.grey}
-              strokeDasharray="4 4"
-              label={{ value: "Mini-budget", fontSize: 10, fill: P.grey, position: "insideTopRight", fontFamily: "'DM Mono', monospace" }}
-            />
+            <ReferenceLine x={2008 + 8/12} stroke={P.grey} strokeDasharray="4 4"
+              label={{ value: "Financial crisis", fontSize: 9, fill: P.grey, position: "insideTopRight", fontFamily: "'DM Mono', monospace" }} />
+            <ReferenceLine x={2020 + 2/12} stroke={P.grey} strokeDasharray="4 4"
+              label={{ value: "COVID", fontSize: 9, fill: P.grey, position: "insideTopRight", fontFamily: "'DM Mono', monospace" }} />
+            <ReferenceLine x={2022 + 8/12} stroke={P.red} strokeDasharray="4 4"
+              label={{ value: "Mini-budget", fontSize: 9, fill: P.red, position: "insideTopRight", fontFamily: "'DM Mono', monospace" }} />
             {Object.entries(YIELD_COLORS).map(([key, color]) => (
               <Line key={key} type="monotone" dataKey={key} name={YIELD_LABELS[key]} stroke={color} strokeWidth={key === "y10" ? 2.5 : 1.5} dot={false} />
             ))}
           </LineChart>
         </ChartCard>
+
+        {/* International yield comparison */}
+        {data.intlYields && (
+          <div style={{ marginTop: 18 }}>
+            <ChartCard
+              title="10-Year Government Bond Yields, International"
+              subtitle="%, March 2026"
+              source={sourceFrom(raw, "intlYields")}
+              height={Math.max(300, data.intlYields.length * 30)}
+            >
+              <BarChart data={[...data.intlYields].sort((a, b) => b.y10 - a.y10)} layout="vertical" margin={{ left: 10 }}>
+                <CartesianGrid {...GRID_PROPS} horizontal={false} />
+                <XAxis type="number" tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} tickFormatter={v => `${v}%`} />
+                <YAxis type="category" dataKey="country" tick={{ fontSize: isMobile ? 10 : 11, fill: P.textMuted, fontFamily: "'DM Mono', monospace" }} axisLine={false} tickLine={false} width={isMobile ? 80 : 120} />
+                <Tooltip content={<CustomTooltip formatter={v => `${v}%`} />} />
+                <Bar dataKey="y10" name="10-year yield (%)" radius={[0, 3, 3, 0]}>
+                  {[...data.intlYields].sort((a, b) => b.y10 - a.y10).map(d => (
+                    <Cell key={d.country} fill={d.country === "United Kingdom" ? P.red : P.navy} opacity={d.country === "United Kingdom" ? 1 : 0.6} />
+                  ))}
+                </Bar>
+              </BarChart>
+            </ChartCard>
+          </div>
+        )}
       </section>
 
       {/* ── Section 2: Monthly Borrowing ───────────────────────────────── */}
@@ -416,8 +450,8 @@ export default function Borrowing() {
                 );
               }}
             />
-            <Line type="monotone" dataKey="pct" name="Net debt (% GDP)" stroke={P.navy} strokeWidth={2.5} dot={false}>
-            </Line>
+            <Line type="monotone" dataKey="pctActual" name="Net debt (% GDP)" stroke={P.navy} strokeWidth={2.5} dot={false} connectNulls={false} />
+            <Line type="monotone" dataKey="pctForecast" name="Forecast" stroke={P.navy} strokeWidth={2} dot={false} strokeDasharray="6 4" connectNulls={false} />
             <ReferenceLine
               x={2008}
               stroke={P.grey}

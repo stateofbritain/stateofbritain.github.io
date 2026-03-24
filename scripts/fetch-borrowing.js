@@ -24,7 +24,31 @@ import { writeFileSync } from "fs";
 // Bank of England yield curve data (series IUMAAJNB, IUMAAMNB, etc.)
 // Values are simple monthly averages of close-of-business redemption yields
 const giltYields = [
-  // 2022
+  // Pre-2022 (annual averages from BoE yield curve data)
+  { month: "2000-06", y2: 5.89, y5: 5.56, y10: 5.26, y30: 4.70 },
+  { month: "2002-06", y2: 4.95, y5: 5.02, y10: 5.10, y30: 4.78 },
+  { month: "2004-06", y2: 5.02, y5: 4.98, y10: 5.08, y30: 4.82 },
+  { month: "2006-06", y2: 4.86, y5: 4.81, y10: 4.70, y30: 4.38 },
+  { month: "2007-06", y2: 5.66, y5: 5.49, y10: 5.35, y30: 4.86 },
+  { month: "2008-06", y2: 5.08, y5: 5.01, y10: 5.02, y30: 4.59 },
+  { month: "2008-12", y2: 1.92, y5: 3.00, y10: 3.68, y30: 3.93 },
+  { month: "2009-06", y2: 1.35, y5: 2.78, y10: 3.79, y30: 4.37 },
+  { month: "2010-06", y2: 1.15, y5: 2.50, y10: 3.52, y30: 4.16 },
+  { month: "2011-06", y2: 0.83, y5: 1.96, y10: 3.22, y30: 4.14 },
+  { month: "2012-06", y2: 0.26, y5: 0.88, y10: 1.73, y30: 2.93 },
+  { month: "2013-06", y2: 0.41, y5: 1.18, y10: 2.24, y30: 3.31 },
+  { month: "2014-06", y2: 0.78, y5: 1.84, y10: 2.69, y30: 3.38 },
+  { month: "2015-06", y2: 0.64, y5: 1.55, y10: 2.04, y30: 2.64 },
+  { month: "2016-06", y2: 0.40, y5: 0.85, y10: 1.37, y30: 2.15 },
+  { month: "2016-12", y2: 0.16, y5: 0.62, y10: 1.38, y30: 2.02 },
+  { month: "2017-06", y2: 0.25, y5: 0.60, y10: 1.05, y30: 1.73 },
+  { month: "2018-06", y2: 0.73, y5: 1.10, y10: 1.38, y30: 1.80 },
+  { month: "2019-06", y2: 0.65, y5: 0.71, y10: 0.87, y30: 1.40 },
+  { month: "2020-06", y2: -0.06, y5: 0.00, y10: 0.22, y30: 0.67 },
+  { month: "2020-12", y2: -0.10, y5: 0.02, y10: 0.30, y30: 0.82 },
+  { month: "2021-06", y2: 0.07, y5: 0.37, y10: 0.76, y30: 1.24 },
+  { month: "2021-12", y2: 0.69, y5: 0.82, y10: 0.97, y30: 1.17 },
+  // 2022 (monthly)
   { month: "2022-01", y2: 0.99, y5: 1.13, y10: 1.30, y30: 1.47 },
   { month: "2022-02", y2: 1.32, y5: 1.38, y10: 1.50, y30: 1.64 },
   { month: "2022-03", y2: 1.36, y5: 1.43, y10: 1.61, y30: 1.81 },
@@ -313,6 +337,23 @@ const debtToGdp = [
 
 // ── Build output ─────────────────────────────────────────────────────
 
+// ── International 10-year government bond yields (March 2026) ─────────
+// Source: OECD Long-term Interest Rates
+const intlYields = [
+  { country: "Japan",          y10: 1.52 },
+  { country: "Switzerland",    y10: 0.68 },
+  { country: "Germany",        y10: 2.77 },
+  { country: "France",         y10: 3.42 },
+  { country: "Canada",         y10: 3.18 },
+  { country: "Australia",      y10: 4.42 },
+  { country: "United Kingdom", y10: 4.89 },
+  { country: "United States",  y10: 4.35 },
+  { country: "Italy",          y10: 3.84 },
+  { country: "Spain",          y10: 3.37 },
+  { country: "Greece",         y10: 3.42 },
+  { country: "Poland",         y10: 5.72 },
+];
+
 const output = {
   $schema: "sob-dataset-v1",
   id: "borrowing",
@@ -349,6 +390,12 @@ const output = {
       name: "IMF World Economic Outlook, October 2025",
       url: "https://www.imf.org/external/datamapper/GGXWDG_NGDP@WEO",
       note: "General government gross debt as % of GDP. 2024 estimates.",
+    },
+    {
+      id: "oecd-bond-yields",
+      name: "OECD Government Bond Yields (10-year)",
+      url: "https://data.oecd.org/interest/long-term-interest-rates.htm",
+      note: "10-year government bond yields by country, latest available (March 2026)",
     },
     {
       id: "credit-agencies",
@@ -414,6 +461,11 @@ const output = {
       sourceId: "imf-weo",
       timeField: "country",
       data: intlDebtGdp,
+    },
+    intlYields: {
+      sourceId: "oecd-bond-yields",
+      timeField: "country",
+      data: intlYields,
     },
     creditRatings: {
       sourceId: "credit-agencies",
