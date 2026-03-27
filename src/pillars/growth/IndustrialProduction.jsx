@@ -571,11 +571,16 @@ export default function IndustrialProduction() {
         of {snapshot.steelPeak} Mt. Cement production has halved from {snapshot.cementPeak} Mt
         ({snapshot.cementPeakYear}) to {snapshot.cementLatest} Mt. Primary aluminium production collapsed
         from 370 kt to ~40 kt after Lynemouth and Anglesey smelter closures.
-        {" "}The decline is accelerating. CF Industries permanently closed its Ince ammonia
-        and fertiliser plant in 2024, leaving Billingham as the sole UK ammonia producer.
-        INEOS Grangemouth — Scotland's only refinery and petrochemical complex — is closing
-        in 2025, removing ~300 kt/yr of ethylene capacity. Vynova Runcorn entered
-        administration in December 2025, putting half of UK chlor-alkali capacity at risk.
+        {" "}CF Industries permanently closed its Ince ammonia and fertiliser plant in 2024,
+        leaving Billingham as the sole UK ammonia producer. INEOS Grangemouth, Scotland&rsquo;s
+        only refinery and petrochemical complex, closed in 2025, removing approximately 300 kt/yr
+        of ethylene capacity. Vynova Runcorn entered administration in December 2025, putting
+        roughly half of UK chlor-alkali capacity at risk. In March 2026, INEOS INOVYN indicated
+        it may close its Runcorn salt operations unless energy cost support is forthcoming; INOVYN
+        supplies approximately half of UK salt production, which feeds into chlorine and soda ash
+        manufacturing. UK total salt output has fallen from 9,029 kt in 1970 to around 2,673 kt
+        in 2023, reflecting both declining industrial brine demand and milder winters reducing
+        road-gritting requirements.
         {" "}The pattern is consistent: once a plant closes, it does not reopen. Each closure
         removes not just output but the skilled workforce, supply chains, and institutional
         knowledge needed to rebuild.

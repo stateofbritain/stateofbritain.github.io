@@ -3,7 +3,7 @@
   "id": "industrial",
   "pillar": "growth",
   "topic": "industrial",
-  "generated": "2026-03-09T09:41:10.741Z",
+  "generated": "2026-03-26T00:00:00.000Z",
   "sources": [
     {
       "id": "world-steel-association",
@@ -128,7 +128,7 @@
     "cementPeakYear": 1970,
     "cementPctOfPeak": 52,
     "ceasedCount": 5,
-    "totalProducts": 34
+    "totalProducts": 35
   },
   "series": {
     "categories": {
@@ -312,7 +312,7 @@
               "unit": "kt",
               "source": "BGS",
               "sourceUrl": "https://www.bgs.ac.uk/mineralsuk/statistics/",
-              "note": "Neath smelter (Nystar) — remaining UK zinc production",
+              "note": "Neath smelter (Nystar) \u2014 remaining UK zinc production",
               "ceased": false,
               "series": [
                 {
@@ -457,7 +457,7 @@
               "unit": "kt",
               "source": "CIA / Euro Chlor / PRODCOM",
               "sourceUrl": "https://www.eurochlor.org/production/",
-              "note": "Runcorn MCP (450 kt/yr capacity, INEOS Inovyn / Vynova JV) is nearly all UK production. Vynova Runcorn entered administration Dec 2025 — future of 50% of capacity uncertain. 2024 estimated from European recovery (~+10% vs 2023).",
+              "note": "Runcorn MCP (450 kt/yr capacity, INEOS Inovyn / Vynova JV) is nearly all UK production. Vynova Runcorn entered administration Dec 2025 \u2014 future of 50% of capacity uncertain. 2024 estimated from European recovery (~+10% vs 2023).",
               "ceased": false,
               "series": [
                 {
@@ -559,7 +559,7 @@
               "unit": "kt",
               "source": "DESNZ / CF Fertilisers",
               "sourceUrl": "https://www.gov.uk/government/collections/digest-of-uk-energy-statistics-dukes",
-              "note": "Two UK plants (Billingham, Ince). CF Industries shut Ince permanently in 2024 — Billingham is now the sole UK ammonia plant. 2024 output estimated post-Ince closure.",
+              "note": "Two UK plants (Billingham, Ince). CF Industries shut Ince permanently in 2024 \u2014 Billingham is now the sole UK ammonia plant. 2024 output estimated post-Ince closure.",
               "ceased": false,
               "series": [
                 {
@@ -657,7 +657,7 @@
               "unit": "kt",
               "source": "BEIS / petrochemical sites",
               "sourceUrl": "https://www.gov.uk/government/collections/digest-of-uk-energy-statistics-dukes",
-              "note": "Wilton (Teesside), Fawley, Grangemouth crackers. INEOS Grangemouth refinery/petrochemical complex closing 2025 — will remove ~300 kt/yr ethylene capacity. 2025 estimated post-Grangemouth.",
+              "note": "Wilton (Teesside), Fawley, Grangemouth crackers. INEOS Grangemouth refinery/petrochemical complex closing 2025 \u2014 will remove ~300 kt/yr ethylene capacity. 2025 estimated post-Grangemouth.",
               "ceased": false,
               "series": [
                 {
@@ -832,6 +832,77 @@
                 {
                   "year": 2023,
                   "value": 50
+                }
+              ]
+            },
+            {
+              "id": "sodium_chloride",
+              "name": "Salt (NaCl)",
+              "unit": "kt",
+              "source": "BGS World Mineral Statistics",
+              "sourceUrl": "https://www.bgs.ac.uk/mineralsuk/statistics/uk/",
+              "note": "Combines rock salt, white salt, and industrial brine. Post-2013 decline reflects milder winters and chlor-alkali contraction. INOVYN Runcorn, the dominant producer, indicated possible closure in March 2026.",
+              "ceased": false,
+              "series": [
+                {
+                  "year": 1970,
+                  "value": 9029
+                },
+                {
+                  "year": 1975,
+                  "value": 7630
+                },
+                {
+                  "year": 1980,
+                  "value": 7154
+                },
+                {
+                  "year": 1985,
+                  "value": 7145
+                },
+                {
+                  "year": 1990,
+                  "value": 6434
+                },
+                {
+                  "year": 1995,
+                  "value": 6648
+                },
+                {
+                  "year": 2000,
+                  "value": 5800
+                },
+                {
+                  "year": 2005,
+                  "value": 5800
+                },
+                {
+                  "year": 2010,
+                  "value": 6666
+                },
+                {
+                  "year": 2013,
+                  "value": 6930
+                },
+                {
+                  "year": 2015,
+                  "value": 4000
+                },
+                {
+                  "year": 2017,
+                  "value": 2362
+                },
+                {
+                  "year": 2020,
+                  "value": 2328
+                },
+                {
+                  "year": 2022,
+                  "value": 2646
+                },
+                {
+                  "year": 2023,
+                  "value": 2673
                 }
               ]
             }
@@ -1027,7 +1098,7 @@
             {
               "id": "ready_mix_concrete",
               "name": "Ready-mix concrete",
-              "unit": "Mm³",
+              "unit": "Mm\u00b3",
               "source": "MPA",
               "sourceUrl": "https://www.mineralproducts.org/Facts-Figures",
               "note": null,
@@ -1404,7 +1475,7 @@
               "unit": "kt",
               "source": "AIC (Agricultural Industries Confederation)",
               "sourceUrl": "https://www.agindustries.org.uk/",
-              "note": "Domestic production only. CF Industries closed Ince ammonia/fertiliser plant in 2024 — Billingham is now the sole UK producer. UK self-sufficiency has fallen from ~50% to under 25%.",
+              "note": "Domestic production only. CF Industries closed Ince ammonia/fertiliser plant in 2024 \u2014 Billingham is now the sole UK producer. UK self-sufficiency has fallen from ~50% to under 25%.",
               "ceased": false,
               "series": [
                 {
