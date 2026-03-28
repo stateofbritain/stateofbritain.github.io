@@ -9,7 +9,8 @@ const CHALLENGE_TOPICS = () => {
 
 const TOPIC_DESCRIPTIONS = {
   asylum: "The international treaties, domestic statutes, and case law that constrain government action on Channel crossings, asylum processing, and the deportation of foreign national offenders.",
-  housebuilding: "Coming soon.",
+  university: "How universities are funded, the structural gap between research costs and grant income, and the cross-subsidy from international student fees that covers it.",
+  hs2: "The engineering, cost escalation, and delivery timeline of Britain's high-speed rail project, from the original £37.5bn estimate to the current £66bn for Phase 1 alone.",
 };
 
 export default function ChallengesOverview({ navigate }) {

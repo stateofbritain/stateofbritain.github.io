@@ -52,6 +52,8 @@ import MoneySupply from "./pillars/state/MoneySupply";
 import LocalGovernment from "./pillars/state/LocalGovernment";
 import ChallengesOverview from "./pillars/challenges/ChallengesOverview";
 import AsylumImmigration from "./pillars/challenges/AsylumImmigration";
+import UniversityFunding from "./pillars/challenges/UniversityFunding";
+import HS2 from "./pillars/challenges/HS2";
 
 // Map of pillar/topic keys to their React components.
 // Topics with subtopics use 3-part keys: "pillar/topic/subtopic"
@@ -97,6 +99,8 @@ const TOPIC_COMPONENTS = {
   "state/immigration": Immigration,
   "challenges/overview": ChallengesOverview,
   "challenges/asylum": AsylumImmigration,
+  "challenges/university": UniversityFunding,
+  "challenges/hs2": HS2,
 };
 
 function getTopicComponent(pillarKey, topicKey, subtopicKey) {

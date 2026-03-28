@@ -108,9 +108,10 @@ const PILLARS = {
     description: "Legal and regulatory frameworks on issues with significant public interest",
     color: "#7B4B8A",
     topics: {
-      overview: { label: "Overview",              icon: "◈" },
-      asylum:   { label: "Asylum & Immigration",  icon: "⊘" },
-      housebuilding: { label: "Housebuilding",      icon: "⌂" },
+      overview:    { label: "Overview",              icon: "◈" },
+      asylum:      { label: "Asylum & Immigration",  icon: "⊘" },
+      university:  { label: "University Funding",    icon: "△" },
+      hs2:         { label: "HS2",                   icon: "▬" },
     },
   },
 };
