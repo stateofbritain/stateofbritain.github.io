@@ -369,14 +369,130 @@ export default function Reservoirs() {
         </div>
       </section>
 
+      {/* Planned reservoirs */}
+      {data.planned?.length > 0 && (
+        <section style={{ marginBottom: 48 }}>
+          <h3 style={SECTION_HEADING}>Planned Reservoirs</h3>
+          <p style={SECTION_NOTE}>
+            Six major reservoirs are in various stages of planning or construction across England,
+            representing the first significant investment in new reservoir capacity since the early
+            1990s. Only Havant Thicket is under construction; the remainder are at pre-application
+            stage. Combined, they would add approximately {Math.round(
+              data.planned.reduce((s, r) => s + r.capacityMl, 0) / 1000
+            ).toLocaleString()} billion litres of capacity at an estimated cost
+            of over £{Math.round(
+              data.planned.reduce((s, r) => s + (r.costMn || 0), 0) / 1000
+            )}bn.
+          </p>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+            {data.planned.map((r, i) => {
+              const isDelayed = r.expectedOperational > r.originalOperational;
+              return (
+                <div
+                  key={r.name}
+                  style={{
+                    background: P.bgCard,
+                    border: `1px solid ${P.border}`,
+                    borderLeft: `3px solid ${r.status === "Under construction" ? P.teal : P.navy}`,
+                    borderRadius: 3,
+                    padding: isMobile ? "14px" : "16px 20px",
+                    boxShadow: "0 1px 4px rgba(28,43,69,0.04)",
+                    animation: `fadeSlideIn 0.3s ease ${i * 0.06}s both`,
+                  }}
+                >
+                  {/* Header */}
+                  <div style={{
+                    display: "flex", justifyContent: "space-between", alignItems: "baseline",
+                    gap: 8, flexWrap: "wrap", marginBottom: 8,
+                  }}>
+                    <div style={{ display: "flex", alignItems: "baseline", gap: 8 }}>
+                      <span style={{
+                        fontFamily: "'Playfair Display', serif",
+                        fontSize: isMobile ? "15px" : "16px", fontWeight: 600, color: P.text,
+                      }}>
+                        {r.name}
+                      </span>
+                      <span style={{
+                        fontSize: "9px", textTransform: "uppercase", letterSpacing: "0.1em",
+                        fontFamily: "'DM Mono', monospace", fontWeight: 500,
+                        color: r.status === "Under construction" ? P.teal : P.navy,
+                      }}>
+                        {r.status}
+                      </span>
+                    </div>
+                    <span style={{
+                      fontSize: "14px", fontWeight: 600, color: P.teal,
+                      fontFamily: "'DM Mono', monospace", whiteSpace: "nowrap",
+                    }}>
+                      {r.capacityMl >= 1000000
+                        ? `${(r.capacityMl / 1000000).toFixed(0)} bn L`
+                        : r.capacityMl >= 1000
+                          ? `${(r.capacityMl / 1000).toFixed(1)} bn L`
+                          : `${r.capacityMl} Ml`}
+                    </span>
+                  </div>
+
+                  {/* Key stats row */}
+                  <div style={{
+                    display: "flex", flexWrap: "wrap", gap: isMobile ? 10 : 18,
+                    fontSize: "11px", fontFamily: "'DM Mono', monospace", color: P.textMuted,
+                    marginBottom: 8,
+                  }}>
+                    <span>{r.location}</span>
+                    <span>{r.developer}</span>
+                    {r.supplyMld && <span>{r.supplyMld} Ml/day supply</span>}
+                  </div>
+
+                  {/* Cost and timeline */}
+                  <div style={{
+                    display: "flex", flexWrap: "wrap", gap: isMobile ? 10 : 18,
+                    fontSize: "12px", fontFamily: "'DM Mono', monospace",
+                  }}>
+                    {r.costMn && (
+                      <span style={{ color: P.text, fontWeight: 600 }}>
+                        {"\u00A3"}{r.costMn >= 1000 ? `${(r.costMn / 1000).toFixed(1)}bn` : `${r.costMn}m`}
+                      </span>
+                    )}
+                    <span style={{ color: isDelayed ? P.red : P.textMuted }}>
+                      {isDelayed
+                        ? `${r.originalOperational} \u2192 ${r.expectedOperational}`
+                        : `Expected ${r.expectedOperational}`}
+                      {isDelayed && (
+                        <span style={{
+                          fontSize: "10px", marginLeft: 4,
+                          color: P.red, fontWeight: 500,
+                        }}>
+                          (+{r.expectedOperational - r.originalOperational}y)
+                        </span>
+                      )}
+                    </span>
+                  </div>
+
+                  {/* Status detail */}
+                  <p style={{
+                    fontSize: "11px", lineHeight: 1.6, color: P.textLight,
+                    fontFamily: "'DM Mono', monospace", margin: "8px 0 0",
+                  }}>
+                    {r.statusDetail}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      )}
+
       <AnalysisBox>
         The UK's reservoir infrastructure was largely built between 1950 and 1980, a period in
         which total storage capacity more than tripled. Since water privatisation in 1989, almost
         no new reservoir capacity has been added. The Environment Agency projects a freshwater
-        shortfall of nearly 5 billion litres per day by 2055, and revised Water Resources
-        Management Plans include proposals for several new reservoirs, but none are yet under
-        construction. Meanwhile, the population has grown by over 12 million since the last
-        major water supply reservoir was completed, reducing per-capita storage
+        shortfall of nearly 5 billion litres per day by 2055. Six new reservoirs are now in
+        planning or construction, but only Havant Thicket (8,700 Ml) is under way. The largest
+        proposal, SESRO near Abingdon (150,000 Ml), has seen its cost estimate rise
+        from approximately £2.2bn to £5.5-7.5bn before construction has begun. Meanwhile, the
+        population has grown by over 12 million since the last major water supply reservoir was
+        completed, reducing per-capita storage
         from {ov.perCapitaPeak} to {ov.perCapitaLitres2020s} litres per person.
       </AnalysisBox>
     </div>

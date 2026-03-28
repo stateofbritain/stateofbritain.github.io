@@ -99,6 +99,97 @@
         { "name": "Loch Luichart", "capacityMl": 128124, "completionYear": 1954, "use": "Hydro-electric" },
         { "name": "Rutland Water", "capacityMl": 124000, "completionYear": 1976, "use": "Water supply" }
       ]
+    },
+    "planned": {
+      "sourceId": "ukceh-reservoirs",
+      "timeField": "expectedOperational",
+      "description": "Major reservoirs currently planned or under construction in England, from RAPID and water company announcements",
+      "data": [
+        {
+          "name": "Havant Thicket",
+          "location": "North of Havant, Hampshire",
+          "developer": "Portsmouth Water / Southern Water",
+          "capacityMl": 8700,
+          "supplyMld": 21,
+          "costMn": 340,
+          "costNote": "Up from Ofwat's original PR19 allowance of £124m (2017-18 prices). Ofwat adjusted price control to £370m (Nov 2021 prices).",
+          "originalOperational": 2029,
+          "expectedOperational": 2031,
+          "status": "Under construction",
+          "statusDetail": "Main dam and embankment works underway. 13m steel cut-off wall installed February 2026. First major reservoir in England since the early 1990s.",
+          "dcoApproved": true
+        },
+        {
+          "name": "SESRO (Abingdon)",
+          "location": "South-west of Abingdon-on-Thames, Oxfordshire",
+          "developer": "Thames Water / Southern Water / Affinity Water",
+          "capacityMl": 150000,
+          "supplyMld": 271,
+          "costMn": 5700,
+          "costNote": "Main works advertised at £5.7bn (Q2 2025 prices, excl. inflation). Government range £5.5-7.5bn. Thames Water cited up to £7.5bn in August 2025. Originally ~£2.2bn at early market engagement.",
+          "originalOperational": 2040,
+          "expectedOperational": 2040,
+          "status": "Pre-application",
+          "statusDetail": "DCO application targeted Autumn 2026. Statutory consultation held 2025. Judicial review dismissed July 2025. Would be second-largest reservoir in England after Kielder Water (670 ha surface area).",
+          "dcoApproved": false
+        },
+        {
+          "name": "Fens Reservoir",
+          "location": "Between Chatteris and March, Cambridgeshire",
+          "developer": "Anglian Water / Cambridge Water",
+          "capacityMl": 55000,
+          "supplyMld": 100,
+          "costMn": 2200,
+          "costNote": "Capital cost at 2022-23 prices. Whole-life total expenditure estimated at nearly £6bn.",
+          "originalOperational": 2036,
+          "expectedOperational": 2036,
+          "status": "Pre-application",
+          "statusDetail": "Designated as Nationally Significant Infrastructure Project (NSIP) in spring 2025. DCO application slipped from 2026 to early 2027. Cost-saving design update revealed October 2025.",
+          "dcoApproved": false
+        },
+        {
+          "name": "Lincolnshire Reservoir",
+          "location": "South-east of Sleaford, South Lincolnshire",
+          "developer": "Anglian Water",
+          "capacityMl": 55000,
+          "supplyMld": 166,
+          "costMn": 2600,
+          "costNote": "Combined cost with Fens Reservoir: £4.8bn. Main works for both advertised at £5bn.",
+          "originalOperational": 2039,
+          "expectedOperational": 2039,
+          "status": "Pre-application",
+          "statusDetail": "Designated as NSIP in spring 2025. DCO application pushed back ~2 years to late 2028 / early 2029. Phase two consultations planned 2026-2027.",
+          "dcoApproved": false
+        },
+        {
+          "name": "Cheddar 2",
+          "location": "Adjacent to existing Cheddar Reservoir, Somerset",
+          "developer": "South West Water",
+          "capacityMl": 8200,
+          "supplyMld": null,
+          "costMn": 750,
+          "costNote": "Capital cost excluding VAT. Total expenditure including operations/maintenance ~£1bn. Government committed £84m in direct funding. Includes 75 km potable water pipeline from Bristol to Devon.",
+          "originalOperational": 2033,
+          "expectedOperational": 2035,
+          "status": "Pre-application",
+          "statusDetail": "Planning application targeted 2027. Contract award May 2029. Construction 2029-2034. Project was scrapped in 2018 and revived after Bristol Water merger in 2023.",
+          "dcoApproved": false
+        },
+        {
+          "name": "Broad Oak",
+          "location": "North of Broad Oak, near Canterbury, Kent",
+          "developer": "South East Water",
+          "capacityMl": 5126,
+          "supplyMld": 22,
+          "costMn": 362,
+          "costNote": "Ground investigation works completed July-November 2025. RAPID Gate Two milestone pushed from December 2025 to September 2026.",
+          "originalOperational": 2033,
+          "expectedOperational": 2035,
+          "status": "Pre-application",
+          "statusDetail": "Ground investigation phase. Public consultation February-March 2026. Planning application submission planned early 2028, construction start ~2030.",
+          "dcoApproved": false
+        }
+      ]
     }
   }
 }
