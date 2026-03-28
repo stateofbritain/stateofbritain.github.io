@@ -366,8 +366,8 @@ export default function Reservoirs() {
                 fontFamily: "'DM Mono', monospace", whiteSpace: "nowrap",
               }}>
                 {r.capacityMl >= 1000000
-                  ? `${(r.capacityMl / 1000000).toFixed(1)} bn L`
-                  : `${(r.capacityMl / 1000).toFixed(0)} mn L`}
+                  ? `${(r.capacityMl / 1000000).toFixed(1)} tn L`
+                  : `${(r.capacityMl / 1000).toFixed(0)} bn L`}
               </span>
             </div>
           ))}
@@ -431,9 +431,9 @@ export default function Reservoirs() {
                       fontFamily: "'DM Mono', monospace", whiteSpace: "nowrap",
                     }}>
                       {r.capacityMl >= 1000000
-                        ? `${(r.capacityMl / 1000000).toFixed(0)} bn L`
+                        ? `${(r.capacityMl / 1000000).toFixed(1)} tn L`
                         : r.capacityMl >= 1000
-                          ? `${(r.capacityMl / 1000).toFixed(1)} bn L`
+                          ? `${(r.capacityMl / 1000).toFixed(0)} bn L`
                           : `${r.capacityMl} Ml`}
                     </span>
                   </div>
