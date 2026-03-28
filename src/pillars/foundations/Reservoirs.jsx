@@ -114,7 +114,7 @@ export default function Reservoirs() {
 
         <ChartCard
           title="Reservoirs Built per Decade"
-          subtitle="United Kingdom, major reservoirs (>25 Ml capacity), 1850s–2020s"
+          subtitle="United Kingdom, major reservoirs (>25 Ml capacity), 1850s–2025"
           source={sourceFrom(raw, "constructionByDecade")}
           height={320}
         >
@@ -167,7 +167,7 @@ export default function Reservoirs() {
 
         <ChartCard
           title="Cumulative Reservoir Capacity"
-          subtitle="United Kingdom, billion litres, 1850s–2020s"
+          subtitle="United Kingdom, billion litres, 1850s–2025"
           source={sourceFrom(raw, "cumulativeCapacity")}
           legend={[
             { key: "capacity", label: "Cumulative capacity (bn L)", color: P.teal },
@@ -180,10 +180,10 @@ export default function Reservoirs() {
             <XAxis
               dataKey="year"
               type="number"
-              domain={[1850, 2020]}
+              domain={[1850, 2025]}
               tick={AXIS_TICK_MONO}
               tickLine={false}
-              tickFormatter={(v) => `${v}s`}
+              tickFormatter={(v) => v >= 2020 ? `${v}` : `${v}s`}
             />
             <YAxis
               yAxisId="capacity"
@@ -214,7 +214,7 @@ export default function Reservoirs() {
                 if (name === "cumulativeCount") return [v, "Reservoirs"];
                 return [v, name];
               }}
-              labelFormatter={(l) => `${l}s`}
+              labelFormatter={(l) => l >= 2020 ? `${l}` : `${l}s`}
             />} />
             <Area
               yAxisId="capacity"
@@ -252,7 +252,7 @@ export default function Reservoirs() {
 
         <ChartCard
           title="Reservoir Storage per Capita"
-          subtitle="United Kingdom, litres per person, 1850s–2020s"
+          subtitle="United Kingdom, litres per person, 1850s–2025"
           source={sourceFrom(raw, "cumulativeCapacity")}
           legend={[
             { key: "perCapita", label: "Per-capita storage (litres)", color: P.sienna },
@@ -264,10 +264,10 @@ export default function Reservoirs() {
             <XAxis
               dataKey="year"
               type="number"
-              domain={[1850, 2020]}
+              domain={[1850, 2025]}
               tick={AXIS_TICK_MONO}
               tickLine={false}
-              tickFormatter={(v) => `${v}s`}
+              tickFormatter={(v) => v >= 2020 ? `${v}` : `${v}s`}
             />
             <YAxis
               tick={AXIS_TICK_MONO}
@@ -281,7 +281,7 @@ export default function Reservoirs() {
                 if (name === "perCapitaL") return [`${v} litres`, "Per capita"];
                 return [v, name];
               }}
-              labelFormatter={(l) => `${l}s`}
+              labelFormatter={(l) => l >= 2020 ? `${l}` : `${l}s`}
             />} />
             <ReferenceLine
               y={ov.perCapitaPeak}
