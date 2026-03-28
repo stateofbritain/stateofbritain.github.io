@@ -569,17 +569,120 @@ export default function Reservoirs() {
         </section>
       )}
 
+      {/* SESRO spotlight */}
+      <section style={{ marginBottom: 48 }}>
+        <h3 style={SECTION_HEADING}>Spotlight: SESRO (Abingdon Reservoir)</h3>
+        <p style={SECTION_NOTE}>
+          The South East Strategic Reservoir Option near Abingdon would be the largest new
+          reservoir in England since Kielder Water in 1981 and the most expensive ever built in
+          the UK. At 150 billion litres it would add approximately 2.4% to total UK reservoir
+          capacity. The comparison with Kielder illustrates how the cost of building reservoir
+          infrastructure has changed over four decades.
+        </p>
+
+        <div style={{
+          background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3,
+          padding: isMobile ? "16px" : "24px 28px",
+          boxShadow: "0 1px 6px rgba(28,43,69,0.05)",
+        }}>
+          {/* Comparison table */}
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: isMobile ? "1fr" : "140px 1fr 1fr",
+            gap: 0,
+          }}>
+            {/* Header row */}
+            <div style={{ padding: "8px 0", borderBottom: `1px solid ${P.border}` }} />
+            {[
+              { name: "Kielder Water", year: "1981", color: P.navy },
+              { name: "SESRO", year: "2040 est.", color: P.teal },
+            ].map(h => (
+              <div key={h.name} style={{
+                padding: "8px 12px",
+                borderBottom: `1px solid ${P.border}`,
+                borderLeft: isMobile ? "none" : `1px solid ${P.border}`,
+              }}>
+                <span style={{
+                  fontFamily: "'Playfair Display', serif",
+                  fontSize: "15px", fontWeight: 600, color: h.color,
+                }}>
+                  {h.name}
+                </span>
+                <span style={{
+                  fontSize: "10px", color: P.textLight,
+                  fontFamily: "'DM Mono', monospace", marginLeft: 8,
+                }}>
+                  {h.year}
+                </span>
+              </div>
+            ))}
+
+            {/* Data rows */}
+            {[
+              { label: "Capacity", kielder: "199 bn L", sesro: "150 bn L" },
+              { label: "Cost (nominal)", kielder: "£167m (1981)", sesro: "£5.7bn (2025)" },
+              { label: "Cost (2025 prices)", kielder: "~£700m", sesro: "£5.7–7.5bn" },
+              { label: "Cost per bn litre", kielder: "~£3.5m", sesro: "£38–50m" },
+              { label: "Share of UK capacity", kielder: "3.0%", sesro: "2.4%" },
+              { label: "Construction", kielder: "6 years (1975–1981)", sesro: "~11 years (2029–2040)" },
+              { label: "Planning to operation", kielder: "~10 years", sesro: "34+ years (2006–2040)" },
+              { label: "Serves", kielder: "North East England", sesro: "South East (15m people)" },
+            ].map((row, i) => (
+              <div key={row.label} style={{ display: "contents" }}>
+                <div style={{
+                  padding: "8px 0", fontSize: "11px", color: P.textLight,
+                  fontFamily: "'DM Mono', monospace", fontWeight: 500,
+                  borderBottom: i < 7 ? `1px solid ${P.border}` : "none",
+                  display: "flex", alignItems: "center",
+                }}>
+                  {row.label}
+                </div>
+                <div style={{
+                  padding: "8px 12px", fontSize: "12px", color: P.text,
+                  fontFamily: "'DM Mono', monospace", fontWeight: 500,
+                  borderBottom: i < 7 ? `1px solid ${P.border}` : "none",
+                  borderLeft: isMobile ? "none" : `1px solid ${P.border}`,
+                }}>
+                  {row.kielder}
+                </div>
+                <div style={{
+                  padding: "8px 12px", fontSize: "12px", color: P.text,
+                  fontFamily: "'DM Mono', monospace", fontWeight: 500,
+                  borderBottom: i < 7 ? `1px solid ${P.border}` : "none",
+                  borderLeft: isMobile ? "none" : `1px solid ${P.border}`,
+                }}>
+                  {row.sesro}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <p style={{
+            fontSize: "12px", lineHeight: 1.7, color: P.textMuted,
+            fontFamily: "'Playfair Display', serif", margin: "18px 0 0",
+          }}>
+            In inflation-adjusted terms, SESRO costs roughly 8–11 times more than Kielder per
+            litre of storage capacity. Kielder was built on sparsely populated upland in
+            Northumberland; SESRO sits in the Thames Valley where land values are high, planning
+            constraints are extensive, and the project was first proposed in 2006, rejected in
+            2011, and revived in 2023. The cost estimate has risen from approximately £2.2bn at
+            early market engagement to a government range of £5.5–7.5bn before construction has
+            started.
+          </p>
+        </div>
+      </section>
+
       <AnalysisBox>
         The UK's reservoir infrastructure was largely built between 1950 and 1980, a period in
         which total storage capacity more than tripled. Since water privatisation in 1989, almost
         no new reservoir capacity has been added. The Environment Agency projects a freshwater
         shortfall of nearly 5 billion litres per day by 2055. Six new reservoirs are now in
-        planning or construction, but only Havant Thicket (8,700 Ml) is under way. The largest
-        proposal, SESRO near Abingdon (150,000 Ml), has seen its cost estimate rise
-        from approximately £2.2bn to £5.5-7.5bn before construction has begun. Meanwhile, the
-        population has grown by over 12 million since the last major water supply reservoir was
-        completed, reducing per-capita storage
-        from {ov.perCapitaPeakKL} to {ov.perCapitaKL} kL per person.
+        planning or construction, but only Havant Thicket is under way. Even if all six are
+        delivered on their current timelines at a combined cost of over £12bn, per-capita
+        storage in 2040 would only recover to approximately today's level as population growth
+        absorbs the new capacity. The cost of building reservoir infrastructure has increased
+        by roughly an order of magnitude in real terms since the last major programme in the
+        1970s and 1980s.
       </AnalysisBox>
     </div>
   );
