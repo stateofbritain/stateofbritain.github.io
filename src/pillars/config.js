@@ -40,7 +40,14 @@ const PILLARS = {
         },
       },
       energy:     { label: "Energy",               icon: "⚡" },
-      water:      { label: "Water",                icon: "~" },
+      water: {
+        label: "Water",
+        icon: "~",
+        subtopics: {
+          performance: { label: "Quality & Performance" },
+          reservoirs:  { label: "Reservoirs" },
+        },
+      },
       food:       { label: "Food & Cost of Living", icon: "£" },
       healthcare: {
         label: "Healthcare",

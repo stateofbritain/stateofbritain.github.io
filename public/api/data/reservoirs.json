@@ -1,0 +1,103 @@
+{
+  "$schema": "sob-dataset-v1",
+  "id": "reservoirs",
+  "pillar": "foundations",
+  "topic": "water",
+  "generated": "2026-03-28",
+  "sources": [
+    {
+      "id": "ukceh-reservoirs",
+      "name": "UKCEH Inventory of Reservoirs (273 reservoirs, ~90% of UK storage)",
+      "url": "https://catalogue.ceh.ac.uk/id/f5a7d56c-cea0-4f00-b159-c3788a3b2b38",
+      "publisher": "UK Centre for Ecology & Hydrology"
+    },
+    {
+      "id": "ons-population",
+      "name": "ONS Mid-Year Population Estimates",
+      "url": "https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates",
+      "publisher": "ONS"
+    }
+  ],
+  "snapshot": {
+    "totalMajorReservoirs": 273,
+    "reservoirsWithDates": 252,
+    "totalCapacityBnLitres": 6652,
+    "waterResourceCapacityBnLitres": 3239,
+    "lastMajorWaterSupplyReservoir": "Carsington (1991)",
+    "yearsSinceLastMajor": 35,
+    "perCapitaLitres2020s": 94,
+    "perCapitaPeak": 111,
+    "perCapitaPeakDecade": "1980s"
+  },
+  "series": {
+    "constructionByDecade": {
+      "sourceId": "ukceh-reservoirs",
+      "timeField": "year",
+      "description": "Number of major reservoirs constructed per decade and capacity added, from UKCEH inventory of 273 reservoirs covering ~90% of UK storage",
+      "unit": "count / megalitres",
+      "data": [
+        { "decade": "1850s", "year": 1850, "built": 12, "capacityAddedMl": 876543 },
+        { "decade": "1860s", "year": 1860, "built": 10, "capacityAddedMl": 47485 },
+        { "decade": "1870s", "year": 1870, "built": 25, "capacityAddedMl": 65242 },
+        { "decade": "1880s", "year": 1880, "built": 6, "capacityAddedMl": 73643 },
+        { "decade": "1890s", "year": 1890, "built": 11, "capacityAddedMl": 74827 },
+        { "decade": "1900s", "year": 1900, "built": 26, "capacityAddedMl": 357768 },
+        { "decade": "1910s", "year": 1910, "built": 11, "capacityAddedMl": 85818 },
+        { "decade": "1920s", "year": 1920, "built": 10, "capacityAddedMl": 103001 },
+        { "decade": "1930s", "year": 1930, "built": 18, "capacityAddedMl": 202989 },
+        { "decade": "1940s", "year": 1940, "built": 5, "capacityAddedMl": 61085 },
+        { "decade": "1950s", "year": 1950, "built": 33, "capacityAddedMl": 1764815 },
+        { "decade": "1960s", "year": 1960, "built": 34, "capacityAddedMl": 1738751 },
+        { "decade": "1970s", "year": 1970, "built": 23, "capacityAddedMl": 432323 },
+        { "decade": "1980s", "year": 1980, "built": 8, "capacityAddedMl": 348072 },
+        { "decade": "1990s", "year": 1990, "built": 2, "capacityAddedMl": 39200 },
+        { "decade": "2000s", "year": 2000, "built": 0, "capacityAddedMl": 0 },
+        { "decade": "2010s", "year": 2010, "built": 1, "capacityAddedMl": 3040 },
+        { "decade": "2020s", "year": 2020, "built": 0, "capacityAddedMl": 0 }
+      ]
+    },
+    "cumulativeCapacity": {
+      "sourceId": "ukceh-reservoirs",
+      "timeField": "year",
+      "description": "Cumulative reservoir count and storage capacity by decade, with UK population and per-capita storage",
+      "unit": "count / billion litres / litres per person",
+      "data": [
+        { "decade": "1850s", "year": 1850, "cumulativeCount": 12, "capacityBnL": 876.5, "popMn": 20.8, "perCapitaL": 42 },
+        { "decade": "1860s", "year": 1860, "cumulativeCount": 22, "capacityBnL": 924.0, "popMn": 23.1, "perCapitaL": 40 },
+        { "decade": "1870s", "year": 1870, "cumulativeCount": 47, "capacityBnL": 989.3, "popMn": 26.1, "perCapitaL": 38 },
+        { "decade": "1880s", "year": 1880, "cumulativeCount": 53, "capacityBnL": 1062.9, "popMn": 29.7, "perCapitaL": 36 },
+        { "decade": "1890s", "year": 1890, "cumulativeCount": 64, "capacityBnL": 1137.7, "popMn": 33.0, "perCapitaL": 34 },
+        { "decade": "1900s", "year": 1900, "cumulativeCount": 90, "capacityBnL": 1495.5, "popMn": 38.2, "perCapitaL": 39 },
+        { "decade": "1910s", "year": 1910, "cumulativeCount": 101, "capacityBnL": 1581.3, "popMn": 42.1, "perCapitaL": 38 },
+        { "decade": "1920s", "year": 1920, "cumulativeCount": 111, "capacityBnL": 1684.3, "popMn": 44.0, "perCapitaL": 38 },
+        { "decade": "1930s", "year": 1930, "cumulativeCount": 129, "capacityBnL": 1887.3, "popMn": 46.0, "perCapitaL": 41 },
+        { "decade": "1940s", "year": 1940, "cumulativeCount": 134, "capacityBnL": 1948.4, "popMn": 48.2, "perCapitaL": 40 },
+        { "decade": "1950s", "year": 1950, "cumulativeCount": 167, "capacityBnL": 3713.2, "popMn": 50.6, "perCapitaL": 73 },
+        { "decade": "1960s", "year": 1960, "cumulativeCount": 201, "capacityBnL": 5452.0, "popMn": 52.8, "perCapitaL": 103 },
+        { "decade": "1970s", "year": 1970, "cumulativeCount": 224, "capacityBnL": 5884.3, "popMn": 55.6, "perCapitaL": 106 },
+        { "decade": "1980s", "year": 1980, "cumulativeCount": 232, "capacityBnL": 6232.4, "popMn": 56.3, "perCapitaL": 111 },
+        { "decade": "1990s", "year": 1990, "cumulativeCount": 234, "capacityBnL": 6271.6, "popMn": 57.2, "perCapitaL": 110 },
+        { "decade": "2000s", "year": 2000, "cumulativeCount": 234, "capacityBnL": 6271.6, "popMn": 58.9, "perCapitaL": 106 },
+        { "decade": "2010s", "year": 2010, "cumulativeCount": 235, "capacityBnL": 6274.6, "popMn": 62.8, "perCapitaL": 100 },
+        { "decade": "2020s", "year": 2020, "cumulativeCount": 235, "capacityBnL": 6274.6, "popMn": 67.1, "perCapitaL": 94 }
+      ]
+    },
+    "largest": {
+      "sourceId": "ukceh-reservoirs",
+      "timeField": "completionYear",
+      "description": "Ten largest UK reservoirs by storage capacity",
+      "data": [
+        { "name": "Loch Ericht", "capacityMl": 1291596, "completionYear": 1962, "use": "Hydro-electric" },
+        { "name": "Loch Katrine", "capacityMl": 804704, "completionYear": 1859, "use": "Water supply" },
+        { "name": "Loch Quoich", "capacityMl": 556677, "completionYear": 1955, "use": "Hydro-electric" },
+        { "name": "Loch Earn", "capacityMl": 397630, "completionYear": 1958, "use": "Hydro-electric" },
+        { "name": "Blackwater", "capacityMl": 214977, "completionYear": 1909, "use": "Hydro-electric" },
+        { "name": "Kielder Water", "capacityMl": 199000, "completionYear": 1981, "use": "Water supply" },
+        { "name": "Mullardoch", "capacityMl": 165226, "completionYear": 1951, "use": "Hydro-electric" },
+        { "name": "Loch Garry", "capacityMl": 163272, "completionYear": 1956, "use": "Hydro-electric" },
+        { "name": "Loch Luichart", "capacityMl": 128124, "completionYear": 1954, "use": "Hydro-electric" },
+        { "name": "Rutland Water", "capacityMl": 124000, "completionYear": 1976, "use": "Water supply" }
+      ]
+    }
+  }
+}

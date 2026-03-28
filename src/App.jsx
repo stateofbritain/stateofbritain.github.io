@@ -27,6 +27,7 @@ import MentalHealth from "./pillars/foundations/MentalHealth";
 import NHSWorkforce from "./pillars/foundations/NHSWorkforce";
 import NHSFunding from "./pillars/foundations/NHSFunding";
 import Water from "./pillars/foundations/Water";
+import Reservoirs from "./pillars/foundations/Reservoirs";
 import Environment from "./pillars/foundations/Environment";
 import Family from "./pillars/foundations/Family";
 import ChildrensSocialCare from "./pillars/foundations/ChildrensSocialCare";
@@ -77,7 +78,8 @@ const TOPIC_COMPONENTS = {
   "foundations/healthcare/gp": GPAccess,
   "foundations/healthcare/mental": MentalHealth,
   "foundations/healthcare/funding": NHSFunding,
-  "foundations/water": Water,
+  "foundations/water/performance": Water,
+  "foundations/water/reservoirs": Reservoirs,
   "foundations/environment": Environment,
   "foundations/family": Family,
   "foundations/socialCare/children": ChildrensSocialCare,
