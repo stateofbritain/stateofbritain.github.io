@@ -29,6 +29,11 @@ export default function Reservoirs() {
     return data.cumulativeCapacity;
   }, [data]);
 
+  const projected = useMemo(() => {
+    if (!data?.projectedCapacity) return [];
+    return data.projectedCapacity;
+  }, [data]);
+
   if (loading) {
     return (
       <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
@@ -65,7 +70,7 @@ export default function Reservoirs() {
         litres of water, covering around 90% of total UK reservoir storage. No major water supply
         reservoir has been built since Carsington in 1991. With the population growing and capacity
         fixed, per-capita reservoir storage has fallen from a peak
-        of {ov.perCapitaPeak} litres per person in the {ov.perCapitaPeakDecade} to {ov.perCapitaLitres2020s} litres
+        of {ov.perCapitaPeakKL} kilolitres per person in the {ov.perCapitaPeakDecade} to {ov.perCapitaKL} kilolitres
         today.
       </p>
 
@@ -87,8 +92,8 @@ export default function Reservoirs() {
         />
         <MetricCard
           label="Per-capita storage"
-          value={`${ov.perCapitaLitres2020s} L`}
-          change={`Peak: ${ov.perCapitaPeak} L (${ov.perCapitaPeakDecade})`}
+          value={`${ov.perCapitaKL} kL`}
+          change={`Peak: ${ov.perCapitaPeakKL} kL (${ov.perCapitaPeakDecade})`}
           up={false}
           color={P.red}
           delay={0.1}
@@ -244,18 +249,18 @@ export default function Reservoirs() {
         <h3 style={SECTION_HEADING}>Per-Capita Storage</h3>
         <p style={SECTION_NOTE}>
           Reservoir storage per person rose rapidly through the post-war construction programme,
-          peaking at {ov.perCapitaPeak} litres per person in the {ov.perCapitaPeakDecade}. With no
+          peaking at {ov.perCapitaPeakKL} kL per person in the {ov.perCapitaPeakDecade}. With no
           new capacity being added and the UK population growing by approximately 12 million
-          since 1990, per-capita storage has fallen to {ov.perCapitaLitres2020s} litres, a decline
-          of {Math.round((1 - ov.perCapitaLitres2020s / ov.perCapitaPeak) * 100)}% from the peak.
+          since 1990, per-capita storage has fallen to {ov.perCapitaKL} kL, a decline
+          of {Math.round((1 - ov.perCapitaKL / ov.perCapitaPeakKL) * 100)}% from the peak.
         </p>
 
         <ChartCard
           title="Reservoir Storage per Capita"
-          subtitle="United Kingdom, litres per person, 1850s–2025"
+          subtitle="United Kingdom, kilolitres per person, 1850s–2025"
           source={sourceFrom(raw, "cumulativeCapacity")}
           legend={[
-            { key: "perCapita", label: "Per-capita storage (litres)", color: P.sienna },
+            { key: "perCapita", label: "Per-capita storage (kL)", color: P.sienna },
           ]}
           height={300}
         >
@@ -274,21 +279,21 @@ export default function Reservoirs() {
               tickLine={false}
               axisLine={false}
               domain={[0, 120]}
-              label={yAxisLabel("Litres / person")}
+              label={yAxisLabel("kL / person")}
             />
             <Tooltip content={<CustomTooltip
               formatter={(v, name) => {
-                if (name === "perCapitaL") return [`${v} litres`, "Per capita"];
+                if (name === "perCapitaKL") return [`${v} kL`, "Per capita"];
                 return [v, name];
               }}
               labelFormatter={(l) => l >= 2020 ? `${l}` : `${l}s`}
             />} />
             <ReferenceLine
-              y={ov.perCapitaPeak}
+              y={ov.perCapitaPeakKL}
               stroke={P.grey}
               strokeDasharray="4 4"
               label={{
-                value: `Peak: ${ov.perCapitaPeak} L`,
+                value: `Peak: ${ov.perCapitaPeakKL} kL`,
                 fontSize: 10,
                 fill: P.grey,
                 position: "insideTopRight",
@@ -297,7 +302,7 @@ export default function Reservoirs() {
             />
             <Line
               type="monotone"
-              dataKey="perCapitaL"
+              dataKey="perCapitaKL"
               stroke={P.sienna}
               strokeWidth={2.5}
               dot={{ r: 4, fill: P.sienna, stroke: "#fff", strokeWidth: 2 }}
@@ -483,6 +488,87 @@ export default function Reservoirs() {
         </section>
       )}
 
+      {/* Projected capacity */}
+      {projected.length > 0 && (
+        <section style={{ marginBottom: 48 }}>
+          <h3 style={SECTION_HEADING}>Projected Capacity</h3>
+          <p style={SECTION_NOTE}>
+            If all six planned reservoirs are delivered on their current timelines, total UK
+            reservoir capacity would rise from {(6274.6 / 1000).toFixed(1)} to {(6556.6 / 1000).toFixed(1)} trillion
+            litres by 2040, an increase of approximately 4.5%. Per-capita storage would recover
+            from {ov.perCapitaKL} kL to around 90 kL by 2040, roughly back to today's level.
+            Without new reservoirs, per-capita storage would continue to fall to around 86 kL
+            as the population grows. Population projections are from the ONS 2022-based
+            principal projection.
+          </p>
+
+          <ChartCard
+            title="Projected Per-Capita Reservoir Storage"
+            subtitle="United Kingdom, kilolitres per person, 2020–2040 (projected)"
+            source={sourceFrom(raw, "projectedCapacity")}
+            legend={[
+              { key: "withPlanned", label: "With planned reservoirs", color: P.teal },
+              { key: "noNew", label: "No new reservoirs", color: P.textLight },
+            ]}
+            height={300}
+          >
+            <LineChart data={projected} margin={{ top: 10, right: 20, left: 10, bottom: 5 }}>
+              <CartesianGrid {...GRID_PROPS} />
+              <XAxis
+                dataKey="year"
+                type="number"
+                domain={[2020, 2040]}
+                tick={AXIS_TICK_MONO}
+                tickLine={false}
+              />
+              <YAxis
+                tick={AXIS_TICK_MONO}
+                tickLine={false}
+                axisLine={false}
+                domain={[80, 100]}
+                label={yAxisLabel("kL / person")}
+              />
+              <Tooltip content={<CustomTooltip
+                formatter={(v, name) => {
+                  if (name === "perCapitaKL") return [`${v} kL`, "With planned"];
+                  if (name === "perCapitaNoNewKL") return [`${v} kL`, "No new reservoirs"];
+                  return [v, name];
+                }}
+              />} />
+              <ReferenceLine
+                x={2025}
+                stroke={P.grey}
+                strokeDasharray="4 4"
+                label={{
+                  value: "Today",
+                  fontSize: 10,
+                  fill: P.grey,
+                  position: "insideTopLeft",
+                  fontFamily: "'DM Mono', monospace",
+                }}
+              />
+              <Line
+                type="monotone"
+                dataKey="perCapitaNoNewKL"
+                stroke={P.textLight}
+                strokeWidth={1.5}
+                strokeDasharray="6 3"
+                dot={false}
+                name="perCapitaNoNewKL"
+              />
+              <Line
+                type="monotone"
+                dataKey="perCapitaKL"
+                stroke={P.teal}
+                strokeWidth={2.5}
+                dot={false}
+                name="perCapitaKL"
+              />
+            </LineChart>
+          </ChartCard>
+        </section>
+      )}
+
       <AnalysisBox>
         The UK's reservoir infrastructure was largely built between 1950 and 1980, a period in
         which total storage capacity more than tripled. Since water privatisation in 1989, almost
@@ -493,7 +579,7 @@ export default function Reservoirs() {
         from approximately £2.2bn to £5.5-7.5bn before construction has begun. Meanwhile, the
         population has grown by over 12 million since the last major water supply reservoir was
         completed, reducing per-capita storage
-        from {ov.perCapitaPeak} to {ov.perCapitaLitres2020s} litres per person.
+        from {ov.perCapitaPeakKL} to {ov.perCapitaKL} kL per person.
       </AnalysisBox>
     </div>
   );
