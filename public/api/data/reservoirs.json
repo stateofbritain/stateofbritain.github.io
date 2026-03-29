@@ -218,6 +218,24 @@
         { "year": 2039, "capacityBnL": 6406.6, "popMn": 72.8, "perCapitaKL": 88, "perCapitaNoNewKL": 86 },
         { "year": 2040, "capacityBnL": 6556.6, "popMn": 73.0, "perCapitaKL": 90, "perCapitaNoNewKL": 86 }
       ]
+    },
+    "sesroTimeline": {
+      "sourceId": "ukceh-reservoirs",
+      "timeField": "year",
+      "description": "Key milestones in the SESRO (Abingdon Reservoir) project, from first proposal in 2006 to projected completion in 2040",
+      "data": [
+        { "year": 2006, "event": "Thames Water identifies Upper Thames Reservoir in draft WRMP", "phase": "planning" },
+        { "year": 2010, "event": "Public inquiry into Thames Water's WRMP including reservoir proposal", "phase": "planning" },
+        { "year": 2011, "event": "Secretary of State rejects the Abingdon reservoir after Planning Inspector recommends against", "phase": "rejected" },
+        { "year": 2017, "event": "National Infrastructure Commission recommends new strategic water resources for the South East", "phase": "revival" },
+        { "year": 2020, "event": "RAPID (Regulators' Alliance) formed; SESRO enters gated assessment process", "phase": "revival" },
+        { "year": 2022, "event": "SESRO passes RAPID Gate 2 assessment", "phase": "revival" },
+        { "year": 2023, "event": "Thames Water includes SESRO in revised WRMP; scheme formally revived", "phase": "revival" },
+        { "year": 2025, "event": "Statutory consultation held; judicial review dismissed (July); cost estimate £5.7bn", "phase": "pre-construction" },
+        { "year": 2026, "event": "DCO application targeted (Autumn 2026)", "phase": "pre-construction", "projected": true },
+        { "year": 2029, "event": "Construction start (projected)", "phase": "construction", "projected": true },
+        { "year": 2040, "event": "Operational (projected)", "phase": "construction", "projected": true }
+      ]
     }
   }
 }
