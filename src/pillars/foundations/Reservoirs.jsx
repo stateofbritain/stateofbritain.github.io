@@ -828,7 +828,7 @@ export default function Reservoirs() {
               { label: "Cost (nominal)", kielder: "£167m (1981)", sesro: "£5.7bn (2025)" },
               { label: "Cost (2025 prices)", kielder: "~£700m", sesro: "£5.7–7.5bn" },
               { label: "Cost per bn litre", kielder: "~£3.5m", sesro: "£38–50m" },
-              { label: "Share of UK capacity", kielder: "3.0%", sesro: "2.4%" },
+              { label: "Share of UK water supply", kielder: "6.1%", sesro: "4.6%" },
               { label: "Construction", kielder: "6 years (1975–1981)", sesro: "~11 years (2029–2040)" },
               { label: "Planning to operation", kielder: "~10 years", sesro: "34+ years (2006–2040)" },
               { label: "Serves", kielder: "North East England", sesro: "South East (15m people)" },
