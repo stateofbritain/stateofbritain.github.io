@@ -706,7 +706,7 @@ export default function Reservoirs() {
 
           <ChartCard
             title="Projected Water Supply Storage per Capita"
-            subtitle="United Kingdom, kilolitres per person, 2020–2040 (projected)"
+            subtitle="United Kingdom, kilolitres per person, 2010–2040 (projected from 2025)"
             source={sourceFrom(raw, "projectedCapacity")}
             legend={[
               { key: "withPlanned", label: "With planned reservoirs", color: P.teal },
@@ -719,7 +719,7 @@ export default function Reservoirs() {
               <XAxis
                 dataKey="year"
                 type="number"
-                domain={[2020, 2040]}
+                domain={[2010, 2040]}
                 tick={AXIS_TICK_MONO}
                 tickLine={false}
               />
@@ -727,7 +727,7 @@ export default function Reservoirs() {
                 tick={AXIS_TICK_MONO}
                 tickLine={false}
                 axisLine={false}
-                domain={[38, 52]}
+                domain={[40, 54]}
                 label={yAxisLabel("kL / person")}
               />
               <Tooltip content={<CustomTooltip
