@@ -791,39 +791,8 @@ export default function Reservoirs() {
           boxShadow: "0 1px 6px rgba(28,43,69,0.05)",
         }}>
           {/* Comparison table */}
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: isMobile ? "90px 1fr 1fr" : "140px 1fr 1fr",
-            gap: 0,
-          }}>
-            {/* Header row */}
-            <div style={{ padding: "8px 0", borderBottom: `1px solid ${P.border}` }} />
-            {[
-              { name: "Kielder Water", year: "1981", color: P.navy },
-              { name: "SESRO", year: "2040 est.", color: P.teal },
-            ].map(h => (
-              <div key={h.name} style={{
-                padding: isMobile ? "8px 6px" : "8px 12px",
-                borderBottom: `1px solid ${P.border}`,
-                borderLeft: `1px solid ${P.border}`,
-              }}>
-                <span style={{
-                  fontFamily: "'Playfair Display', serif",
-                  fontSize: isMobile ? "13px" : "15px", fontWeight: 600, color: h.color,
-                }}>
-                  {h.name}
-                </span>
-                {!isMobile && <span style={{
-                  fontSize: "10px", color: P.textLight,
-                  fontFamily: "'DM Mono', monospace", marginLeft: 8,
-                }}>
-                  {h.year}
-                </span>}
-              </div>
-            ))}
-
-            {/* Data rows */}
-            {[
+          {(() => {
+            const rows = [
               { label: "Capacity", kielder: "199 bn L", sesro: "150 bn L" },
               { label: "Cost (nominal)", kielder: "£167m (1981)", sesro: "£5.7bn (2025)" },
               { label: "Cost (2025 prices)", kielder: "~£700m", sesro: "£5.7–7.5bn" },
@@ -832,35 +801,135 @@ export default function Reservoirs() {
               { label: "Construction", kielder: "6 years (1975–1981)", sesro: "~11 years (2029–2040)" },
               { label: "Planning to operation", kielder: "~10 years", sesro: "34+ years (2006–2040)" },
               { label: "Serves", kielder: "North East England", sesro: "South East (15m people)" },
-            ].map((row, i) => (
-              <div key={row.label} style={{ display: "contents" }}>
-                <div style={{
-                  padding: "8px 0", fontSize: "11px", color: P.textLight,
-                  fontFamily: "'DM Mono', monospace", fontWeight: 500,
-                  borderBottom: i < 7 ? `1px solid ${P.border}` : "none",
-                  display: "flex", alignItems: "center",
-                }}>
-                  {row.label}
+            ];
+            const headers = [
+              { name: "Kielder Water", year: "1981", color: P.navy },
+              { name: "SESRO", year: "2040 est.", color: P.teal },
+            ];
+
+            if (isMobile) {
+              return (
+                <div>
+                  {/* Mobile header row */}
+                  <div style={{
+                    display: "grid", gridTemplateColumns: "1fr 1fr", gap: 0,
+                    borderBottom: `1px solid ${P.border}`,
+                  }}>
+                    {headers.map((h, hi) => (
+                      <div key={h.name} style={{
+                        padding: "8px 8px",
+                        borderLeft: hi > 0 ? `1px solid ${P.border}` : "none",
+                      }}>
+                        <span style={{
+                          fontFamily: "'Playfair Display', serif",
+                          fontSize: "14px", fontWeight: 600, color: h.color,
+                        }}>
+                          {h.name}
+                        </span>
+                        <span style={{
+                          fontSize: "10px", color: P.textLight,
+                          fontFamily: "'DM Mono', monospace", marginLeft: 6,
+                        }}>
+                          {h.year}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Mobile data rows: label spanning full width, then 2-col values */}
+                  {rows.map((row, i) => (
+                    <div key={row.label} style={{
+                      borderBottom: i < rows.length - 1 ? `1px solid ${P.border}` : "none",
+                    }}>
+                      <div style={{
+                        padding: "6px 8px 2px", fontSize: "10px", color: P.textLight,
+                        fontFamily: "'DM Mono', monospace", fontWeight: 500,
+                        textTransform: "uppercase", letterSpacing: "0.04em",
+                      }}>
+                        {row.label}
+                      </div>
+                      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
+                        <div style={{
+                          padding: "2px 8px 8px", fontSize: "12px", color: P.text,
+                          fontFamily: "'DM Mono', monospace", fontWeight: 500,
+                        }}>
+                          {row.kielder}
+                        </div>
+                        <div style={{
+                          padding: "2px 8px 8px", fontSize: "12px", color: P.text,
+                          fontFamily: "'DM Mono', monospace", fontWeight: 500,
+                          borderLeft: `1px solid ${P.border}`,
+                        }}>
+                          {row.sesro}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-                <div style={{
-                  padding: isMobile ? "8px 6px" : "8px 12px", fontSize: isMobile ? "11px" : "12px", color: P.text,
-                  fontFamily: "'DM Mono', monospace", fontWeight: 500,
-                  borderBottom: i < 7 ? `1px solid ${P.border}` : "none",
-                  borderLeft: `1px solid ${P.border}`,
-                }}>
-                  {row.kielder}
-                </div>
-                <div style={{
-                  padding: isMobile ? "8px 6px" : "8px 12px", fontSize: isMobile ? "11px" : "12px", color: P.text,
-                  fontFamily: "'DM Mono', monospace", fontWeight: 500,
-                  borderBottom: i < 7 ? `1px solid ${P.border}` : "none",
-                  borderLeft: `1px solid ${P.border}`,
-                }}>
-                  {row.sesro}
-                </div>
+              );
+            }
+
+            return (
+              <div style={{
+                display: "grid",
+                gridTemplateColumns: "140px 1fr 1fr",
+                gap: 0,
+              }}>
+                {/* Desktop header row */}
+                <div style={{ padding: "8px 0", borderBottom: `1px solid ${P.border}` }} />
+                {headers.map(h => (
+                  <div key={h.name} style={{
+                    padding: "8px 12px",
+                    borderBottom: `1px solid ${P.border}`,
+                    borderLeft: `1px solid ${P.border}`,
+                  }}>
+                    <span style={{
+                      fontFamily: "'Playfair Display', serif",
+                      fontSize: "15px", fontWeight: 600, color: h.color,
+                    }}>
+                      {h.name}
+                    </span>
+                    <span style={{
+                      fontSize: "10px", color: P.textLight,
+                      fontFamily: "'DM Mono', monospace", marginLeft: 8,
+                    }}>
+                      {h.year}
+                    </span>
+                  </div>
+                ))}
+
+                {/* Desktop data rows */}
+                {rows.map((row, i) => (
+                  <div key={row.label} style={{ display: "contents" }}>
+                    <div style={{
+                      padding: "8px 0", fontSize: "11px", color: P.textLight,
+                      fontFamily: "'DM Mono', monospace", fontWeight: 500,
+                      borderBottom: i < rows.length - 1 ? `1px solid ${P.border}` : "none",
+                      display: "flex", alignItems: "center",
+                    }}>
+                      {row.label}
+                    </div>
+                    <div style={{
+                      padding: "8px 12px", fontSize: "12px", color: P.text,
+                      fontFamily: "'DM Mono', monospace", fontWeight: 500,
+                      borderBottom: i < rows.length - 1 ? `1px solid ${P.border}` : "none",
+                      borderLeft: `1px solid ${P.border}`,
+                    }}>
+                      {row.kielder}
+                    </div>
+                    <div style={{
+                      padding: "8px 12px", fontSize: "12px", color: P.text,
+                      fontFamily: "'DM Mono', monospace", fontWeight: 500,
+                      borderBottom: i < rows.length - 1 ? `1px solid ${P.border}` : "none",
+                      borderLeft: `1px solid ${P.border}`,
+                    }}>
+                      {row.sesro}
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            );
+          })()}
 
           <p style={{
             fontSize: "12px", lineHeight: 1.7, color: P.textMuted,
