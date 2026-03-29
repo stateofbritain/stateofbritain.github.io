@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import {
   BarChart, Bar, LineChart, Line, ComposedChart, Area,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
@@ -14,6 +14,178 @@ import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import { useJsonDataset, sourceFrom } from "../../hooks/useDataset";
 import useIsMobile from "../../hooks/useIsMobile";
+
+const PHASE_COLORS = {
+  planning: P.navy,
+  rejected: P.red,
+  revival: P.sienna,
+  "pre-construction": P.teal,
+  construction: P.teal,
+};
+
+function SesroTimeline({ milestones, isMobile }) {
+  const [selected, setSelected] = useState(null);
+  const [hovered, setHovered] = useState(null);
+
+  const minY = milestones[0].year;
+  const maxY = milestones[milestones.length - 1].year;
+  const span = maxY - minY;
+  const active = hovered ?? selected;
+
+  return (
+    <div style={{
+      background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3,
+      padding: isMobile ? "16px 16px 14px" : "24px 28px 20px",
+      boxShadow: "0 1px 6px rgba(28,43,69,0.05)",
+      marginBottom: 20,
+    }}>
+      <div style={{
+        fontSize: "11px", fontFamily: "'DM Mono', monospace",
+        color: P.textLight, marginBottom: 20,
+        textTransform: "uppercase", letterSpacing: "0.06em",
+      }}>
+        Project timeline: 2006–2040 ({span} years)
+      </div>
+
+      {/* Track area */}
+      <div style={{ position: "relative", height: 56, margin: "0 6px" }}>
+        {/* Base line */}
+        <div style={{
+          position: "absolute", top: 20, left: 0, right: 0, height: 2,
+          background: P.border,
+        }} />
+
+        {/* Phase segments */}
+        {milestones.map((m, i) => {
+          if (i === milestones.length - 1) return null;
+          const next = milestones[i + 1];
+          const left = ((m.year - minY) / span) * 100;
+          const width = ((next.year - m.year) / span) * 100;
+          return (
+            <div
+              key={`seg-${i}`}
+              style={{
+                position: "absolute", top: 18, height: 6, borderRadius: 3,
+                left: `${left}%`, width: `${width}%`,
+                background: PHASE_COLORS[m.phase] || P.textLight,
+                opacity: m.projected ? 0.3 : 0.6,
+              }}
+            />
+          );
+        })}
+
+        {/* Dots + year labels */}
+        {milestones.map((m) => {
+          const left = ((m.year - minY) / span) * 100;
+          const isActive = active?.year === m.year;
+          const color = PHASE_COLORS[m.phase] || P.textLight;
+          return (
+            <div
+              key={m.year}
+              onClick={() => setSelected(selected?.year === m.year ? null : m)}
+              onMouseEnter={() => setHovered(m)}
+              onMouseLeave={() => setHovered(null)}
+              style={{
+                position: "absolute",
+                left: `${left}%`,
+                top: 0,
+                transform: "translateX(-50%)",
+                cursor: "pointer",
+                padding: "0 4px",
+                zIndex: isActive ? 2 : 1,
+              }}
+            >
+              {/* Year label above */}
+              <div style={{
+                fontSize: isActive ? "12px" : "10px",
+                fontWeight: 600,
+                fontFamily: "'DM Mono', monospace",
+                color: isActive ? color : P.textLight,
+                textAlign: "center",
+                marginBottom: 4,
+                whiteSpace: "nowrap",
+                transition: "all 0.15s",
+              }}>
+                {m.year}{m.projected ? "*" : ""}
+              </div>
+
+              {/* Dot */}
+              <div style={{
+                width: isActive ? 14 : 10,
+                height: isActive ? 14 : 10,
+                borderRadius: "50%",
+                background: color,
+                border: `2px solid ${P.bgCard}`,
+                opacity: m.projected && !isActive ? 0.5 : 1,
+                margin: "0 auto",
+                transition: "all 0.15s",
+                boxShadow: isActive ? `0 0 0 3px ${color}33` : "none",
+              }} />
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Detail strip */}
+      <div style={{
+        minHeight: 48,
+        padding: "12px 0 4px",
+        borderTop: `1px solid ${P.border}`,
+        marginTop: 4,
+      }}>
+        {active ? (
+          <div style={{ animation: "fadeSlideIn 0.2s ease both" }}>
+            <span style={{
+              fontSize: "13px", fontWeight: 600,
+              fontFamily: "'DM Mono', monospace",
+              color: PHASE_COLORS[active.phase] || P.textLight,
+              marginRight: 10,
+            }}>
+              {active.year}
+            </span>
+            <span style={{
+              fontSize: "12px", lineHeight: 1.5,
+              fontFamily: "'DM Mono', monospace",
+              color: P.text,
+            }}>
+              {active.event}
+            </span>
+          </div>
+        ) : (
+          <span style={{
+            fontSize: "11px",
+            fontFamily: "'DM Mono', monospace",
+            color: P.textLight,
+          }}>
+            {isMobile ? "Tap" : "Hover over"} a milestone to see details
+          </span>
+        )}
+      </div>
+
+      {/* Phase legend */}
+      <div style={{
+        display: "flex", flexWrap: "wrap", gap: 14, marginTop: 8,
+        fontSize: "10px", fontFamily: "'DM Mono', monospace", color: P.textLight,
+      }}>
+        {[
+          { label: "Planning", color: P.navy },
+          { label: "Rejected", color: P.red },
+          { label: "Revival", color: P.sienna },
+          { label: "Pre-construction / Construction", color: P.teal },
+        ].map(l => (
+          <span key={l.label} style={{ display: "flex", alignItems: "center", gap: 4 }}>
+            <span style={{
+              width: 8, height: 8, borderRadius: "50%",
+              background: l.color, display: "inline-block",
+            }} />
+            {l.label}
+          </span>
+        ))}
+        <span style={{ marginLeft: 4 }}>* Projected</span>
+      </div>
+    </div>
+  );
+}
 
 export default function Reservoirs() {
   const isMobile = useIsMobile();
@@ -586,156 +758,7 @@ export default function Reservoirs() {
         </p>
 
         {/* SESRO timeline */}
-        {sesroTimeline.length > 0 && (() => {
-          const minY = sesroTimeline[0].year;
-          const maxY = sesroTimeline[sesroTimeline.length - 1].year;
-          const span = maxY - minY;
-          const PHASE_COLORS = {
-            planning: P.navy,
-            rejected: P.red,
-            revival: P.sienna,
-            "pre-construction": P.teal,
-            construction: P.teal,
-          };
-          return (
-            <div style={{
-              background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3,
-              padding: isMobile ? "16px" : "24px 28px",
-              boxShadow: "0 1px 6px rgba(28,43,69,0.05)",
-              marginBottom: 20,
-              overflowX: isMobile ? "auto" : "visible",
-            }}>
-              <div style={{
-                fontSize: "11px", fontFamily: "'DM Mono', monospace",
-                color: P.textLight, marginBottom: 16,
-                textTransform: "uppercase", letterSpacing: "0.06em",
-              }}>
-                Project timeline: 2006–2040 ({span} years)
-              </div>
-
-              {/* Horizontal track */}
-              <div style={{ position: "relative", minWidth: isMobile ? 600 : "auto", height: 180 }}>
-                {/* Main line */}
-                <div style={{
-                  position: "absolute", top: 40, left: 0, right: 0, height: 2,
-                  background: P.border,
-                }} />
-
-                {/* Phase segments */}
-                {sesroTimeline.map((m, i) => {
-                  if (i === sesroTimeline.length - 1) return null;
-                  const next = sesroTimeline[i + 1];
-                  const left = ((m.year - minY) / span) * 100;
-                  const width = ((next.year - m.year) / span) * 100;
-                  return (
-                    <div
-                      key={`seg-${i}`}
-                      style={{
-                        position: "absolute", top: 38, height: 6, borderRadius: 3,
-                        left: `${left}%`, width: `${width}%`,
-                        background: PHASE_COLORS[m.phase] || P.textLight,
-                        opacity: m.projected ? 0.4 : 0.7,
-                      }}
-                    />
-                  );
-                })}
-
-                {/* Milestone nodes + labels */}
-                {sesroTimeline.map((m, i) => {
-                  const left = ((m.year - minY) / span) * 100;
-                  const above = i % 2 === 0;
-                  return (
-                    <div key={m.year} style={{
-                      position: "absolute",
-                      left: `${left}%`,
-                      top: 41,
-                      transform: "translate(-50%, -50%)",
-                    }}>
-                      {/* Dot */}
-                      <div style={{
-                        width: m.phase === "rejected" ? 12 : 10,
-                        height: m.phase === "rejected" ? 12 : 10,
-                        borderRadius: "50%",
-                        background: PHASE_COLORS[m.phase] || P.textLight,
-                        border: `2px solid ${P.bgCard}`,
-                        opacity: m.projected ? 0.5 : 1,
-                        margin: "0 auto",
-                      }} />
-
-                      {/* Stem */}
-                      <div style={{
-                        position: "absolute",
-                        left: "50%",
-                        transform: "translateX(-50%)",
-                        width: 1,
-                        height: above ? 20 : 20,
-                        background: P.border,
-                        ...(above
-                          ? { bottom: "100%", marginBottom: 1 }
-                          : { top: "100%", marginTop: 1 }
-                        ),
-                      }} />
-
-                      {/* Label */}
-                      <div style={{
-                        position: "absolute",
-                        left: "50%",
-                        transform: i === 0 ? "translateX(-10%)" :
-                                   i === sesroTimeline.length - 1 ? "translateX(-90%)" :
-                                   "translateX(-50%)",
-                        width: isMobile ? 110 : 130,
-                        textAlign: i === 0 ? "left" :
-                                   i === sesroTimeline.length - 1 ? "right" : "center",
-                        ...(above
-                          ? { bottom: "100%", marginBottom: 22 }
-                          : { top: "100%", marginTop: 22 }
-                        ),
-                      }}>
-                        <div style={{
-                          fontSize: "12px", fontWeight: 600,
-                          fontFamily: "'DM Mono', monospace",
-                          color: PHASE_COLORS[m.phase] || P.textLight,
-                          marginBottom: 2,
-                        }}>
-                          {m.year}{m.projected ? "*" : ""}
-                        </div>
-                        <div style={{
-                          fontSize: "10px", lineHeight: 1.4,
-                          fontFamily: "'DM Mono', monospace",
-                          color: P.textMuted,
-                        }}>
-                          {m.event}
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* Phase legend */}
-              <div style={{
-                display: "flex", flexWrap: "wrap", gap: 14, marginTop: 8,
-                fontSize: "10px", fontFamily: "'DM Mono', monospace", color: P.textLight,
-              }}>
-                {[
-                  { label: "Planning", color: P.navy },
-                  { label: "Rejected", color: P.red },
-                  { label: "Revival", color: P.sienna },
-                  { label: "Pre-construction / Construction", color: P.teal },
-                ].map(l => (
-                  <span key={l.label} style={{ display: "flex", alignItems: "center", gap: 4 }}>
-                    <span style={{
-                      width: 8, height: 8, borderRadius: "50%",
-                      background: l.color, display: "inline-block",
-                    }} />
-                    {l.label}
-                  </span>
-                ))}
-                <span style={{ marginLeft: 4 }}>* Projected</span>
-              </div>
-            </div>
-          );
-        })()}
+        {sesroTimeline.length > 0 && <SesroTimeline milestones={sesroTimeline} isMobile={isMobile} />}
 
         <div style={{
           background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3,
