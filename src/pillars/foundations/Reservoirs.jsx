@@ -793,7 +793,7 @@ export default function Reservoirs() {
           {/* Comparison table */}
           <div style={{
             display: "grid",
-            gridTemplateColumns: isMobile ? "1fr" : "140px 1fr 1fr",
+            gridTemplateColumns: isMobile ? "90px 1fr 1fr" : "140px 1fr 1fr",
             gap: 0,
           }}>
             {/* Header row */}
@@ -803,22 +803,22 @@ export default function Reservoirs() {
               { name: "SESRO", year: "2040 est.", color: P.teal },
             ].map(h => (
               <div key={h.name} style={{
-                padding: "8px 12px",
+                padding: isMobile ? "8px 6px" : "8px 12px",
                 borderBottom: `1px solid ${P.border}`,
-                borderLeft: isMobile ? "none" : `1px solid ${P.border}`,
+                borderLeft: `1px solid ${P.border}`,
               }}>
                 <span style={{
                   fontFamily: "'Playfair Display', serif",
-                  fontSize: "15px", fontWeight: 600, color: h.color,
+                  fontSize: isMobile ? "13px" : "15px", fontWeight: 600, color: h.color,
                 }}>
                   {h.name}
                 </span>
-                <span style={{
+                {!isMobile && <span style={{
                   fontSize: "10px", color: P.textLight,
                   fontFamily: "'DM Mono', monospace", marginLeft: 8,
                 }}>
                   {h.year}
-                </span>
+                </span>}
               </div>
             ))}
 
@@ -843,18 +843,18 @@ export default function Reservoirs() {
                   {row.label}
                 </div>
                 <div style={{
-                  padding: "8px 12px", fontSize: "12px", color: P.text,
+                  padding: isMobile ? "8px 6px" : "8px 12px", fontSize: isMobile ? "11px" : "12px", color: P.text,
                   fontFamily: "'DM Mono', monospace", fontWeight: 500,
                   borderBottom: i < 7 ? `1px solid ${P.border}` : "none",
-                  borderLeft: isMobile ? "none" : `1px solid ${P.border}`,
+                  borderLeft: `1px solid ${P.border}`,
                 }}>
                   {row.kielder}
                 </div>
                 <div style={{
-                  padding: "8px 12px", fontSize: "12px", color: P.text,
+                  padding: isMobile ? "8px 6px" : "8px 12px", fontSize: isMobile ? "11px" : "12px", color: P.text,
                   fontFamily: "'DM Mono', monospace", fontWeight: 500,
                   borderBottom: i < 7 ? `1px solid ${P.border}` : "none",
-                  borderLeft: isMobile ? "none" : `1px solid ${P.border}`,
+                  borderLeft: `1px solid ${P.border}`,
                 }}>
                   {row.sesro}
                 </div>
