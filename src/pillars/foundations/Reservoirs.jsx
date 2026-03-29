@@ -244,11 +244,12 @@ export default function Reservoirs() {
       </h2>
       <p style={{ ...SECTION_NOTE, margin: "0 0 24px", maxWidth: 720 }}>
         The UK's 273 major reservoirs hold approximately {(ov.totalCapacityBnLitres / 1000).toFixed(1)} trillion
-        litres of water, covering around 90% of total UK reservoir storage. No major water supply
-        reservoir has been built since Carsington in 1991. With the population growing and capacity
-        fixed, per-capita reservoir storage has fallen from a peak
-        of {ov.perCapitaPeakKL} kilolitres per person in the {ov.perCapitaPeakDecade} to {ov.perCapitaKL} kilolitres
-        today.
+        litres of water, but only {(ov.waterResourceCapacityBnLitres / 1000).toFixed(1)} trillion litres
+        ({Math.round(ov.waterResourceCapacityBnLitres / ov.totalCapacityBnLitres * 100)}%) is for
+        water supply; the rest is hydro-electric, principally large Scottish lochs built in the
+        1950s and 1960s. No major water supply reservoir has been built since Carsington in 1991.
+        Per-capita water supply storage has fallen from a peak
+        of {ov.perCapitaWsPeakKL} kL in the {ov.perCapitaWsPeakDecade} to {ov.perCapitaWsKL} kL today.
       </p>
 
       {/* Metric cards */}
@@ -263,14 +264,14 @@ export default function Reservoirs() {
         <MetricCard
           label="Total capacity"
           value={`${(ov.totalCapacityBnLitres / 1000).toFixed(1)}tn L`}
-          change={`${(ov.totalCapacityBnLitres).toLocaleString()} bn litres`}
+          change={`Water supply: ${(ov.waterResourceCapacityBnLitres / 1000).toFixed(1)}tn L (${Math.round(ov.waterResourceCapacityBnLitres / ov.totalCapacityBnLitres * 100)}%)`}
           color={P.navy}
           delay={0.05}
         />
         <MetricCard
-          label="Per-capita storage"
-          value={`${ov.perCapitaKL} kL`}
-          change={`Peak: ${ov.perCapitaPeakKL} kL (${ov.perCapitaPeakDecade})`}
+          label="Water supply per capita"
+          value={`${ov.perCapitaWsKL} kL`}
+          change={`Peak: ${ov.perCapitaWsPeakKL} kL (${ov.perCapitaWsPeakDecade})`}
           up={false}
           color={P.red}
           delay={0.1}
@@ -284,14 +285,14 @@ export default function Reservoirs() {
         />
       </div>
 
-      {/* Construction by decade */}
+      {/* Construction by decade — count */}
       <section style={{ marginBottom: 48 }}>
         <h3 style={SECTION_HEADING}>Reservoir Construction by Decade</h3>
         <p style={SECTION_NOTE}>
           Major reservoir construction peaked in the 1950s and 1960s, when 67 reservoirs were
-          built adding over 3.5 trillion litres of capacity. Construction slowed sharply after
-          privatisation of the water industry in 1989. Only three reservoirs in this inventory
-          have been completed since 1990, and none for water supply since 1991.
+          built. However, much of the capacity added in those decades was hydro-electric,
+          principally large Scottish lochs. Water supply construction slowed sharply after
+          privatisation in 1989, with no major water supply reservoir built since 1991.
         </p>
 
         <ChartCard
@@ -336,6 +337,45 @@ export default function Reservoirs() {
             <Bar dataKey="built" fill={P.teal} radius={[2, 2, 0, 0]} />
           </BarChart>
         </ChartCard>
+
+        <div style={{ height: 20 }} />
+
+        <ChartCard
+          title="Capacity Added per Decade by Use"
+          subtitle="United Kingdom, billion litres, 1850s–2025"
+          source={sourceFrom(raw, "constructionByDecade")}
+          legend={[
+            { key: "ws", label: "Water supply", color: P.teal },
+            { key: "hydro", label: "Hydro-electric", color: P.navy },
+          ]}
+          height={320}
+        >
+          <BarChart data={construction} margin={{ top: 10, right: 20, left: 10, bottom: 5 }}>
+            <CartesianGrid {...GRID_PROPS} />
+            <XAxis
+              dataKey="decade"
+              tick={AXIS_TICK_MONO}
+              tickLine={false}
+              interval={isMobile ? 2 : 1}
+            />
+            <YAxis
+              tick={AXIS_TICK_MONO}
+              tickLine={false}
+              axisLine={false}
+              domain={[0, "auto"]}
+              label={yAxisLabel("bn litres")}
+            />
+            <Tooltip content={<CustomTooltip
+              formatter={(v, name) => {
+                if (name === "waterSupplyAddedBnL") return [`${v} bn L`, "Water supply"];
+                if (name === "hydroAddedBnL") return [`${v} bn L`, "Hydro-electric"];
+                return [v, name];
+              }}
+            />} />
+            <Bar dataKey="waterSupplyAddedBnL" stackId="cap" fill={P.teal} name="waterSupplyAddedBnL" />
+            <Bar dataKey="hydroAddedBnL" stackId="cap" fill={P.navy} radius={[2, 2, 0, 0]} name="hydroAddedBnL" />
+          </BarChart>
+        </ChartCard>
       </section>
 
       {/* Cumulative capacity */}
@@ -343,21 +383,22 @@ export default function Reservoirs() {
         <h3 style={SECTION_HEADING}>Cumulative Storage Capacity</h3>
         <p style={SECTION_NOTE}>
           Total UK reservoir storage rose from under 1 trillion litres in the mid-19th century
-          to over 6 trillion litres by 1980. It has remained essentially flat since then, while
-          the population has grown by over 10 million.
+          to over 6 trillion litres by 1980, but roughly half of that capacity is hydro-electric.
+          Water supply capacity grew more steadily and plateaued at around 3 trillion litres after
+          the last major additions in the 1970s and 1980s (Rutland Water and Kielder Water).
         </p>
 
         <ChartCard
-          title="Cumulative Reservoir Capacity"
+          title="Cumulative Reservoir Capacity by Use"
           subtitle="United Kingdom, billion litres, 1850s–2025"
           source={sourceFrom(raw, "cumulativeCapacity")}
           legend={[
-            { key: "capacity", label: "Cumulative capacity (bn L)", color: P.teal },
-            { key: "count", label: "Cumulative reservoir count", color: P.navy },
+            { key: "ws", label: "Water supply", color: P.teal },
+            { key: "hydro", label: "Hydro-electric", color: P.navy },
           ]}
           height={340}
         >
-          <ComposedChart data={cumulative} margin={{ top: 10, right: 50, left: 10, bottom: 5 }}>
+          <ComposedChart data={cumulative} margin={{ top: 10, right: 20, left: 10, bottom: 5 }}>
             <CartesianGrid {...GRID_PROPS} />
             <XAxis
               dataKey="year"
@@ -368,54 +409,39 @@ export default function Reservoirs() {
               tickFormatter={(v) => v >= 2020 ? `${v}` : `${v}s`}
             />
             <YAxis
-              yAxisId="capacity"
               tick={AXIS_TICK_MONO}
               tickLine={false}
               axisLine={false}
               domain={[0, 7000]}
               label={yAxisLabel("bn litres")}
             />
-            <YAxis
-              yAxisId="count"
-              orientation="right"
-              tick={AXIS_TICK_MONO}
-              tickLine={false}
-              axisLine={false}
-              domain={[0, 280]}
-              label={{
-                value: "Reservoirs",
-                angle: 90,
-                position: "insideRight",
-                offset: 10,
-                style: { fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" },
-              }}
-            />
             <Tooltip content={<CustomTooltip
               formatter={(v, name) => {
-                if (name === "capacityBnL") return [`${v.toLocaleString()} bn L`, "Capacity"];
-                if (name === "cumulativeCount") return [v, "Reservoirs"];
+                if (name === "waterSupplyBnL") return [`${v.toLocaleString()} bn L`, "Water supply"];
+                if (name === "hydroBnL") return [`${v.toLocaleString()} bn L`, "Hydro-electric"];
                 return [v, name];
               }}
               labelFormatter={(l) => l >= 2020 ? `${l}` : `${l}s`}
             />} />
             <Area
-              yAxisId="capacity"
               type="monotone"
-              dataKey="capacityBnL"
+              dataKey="waterSupplyBnL"
+              stackId="capacity"
               stroke={P.teal}
               strokeWidth={2}
               fill={P.teal}
-              fillOpacity={0.08}
-              name="capacityBnL"
+              fillOpacity={0.15}
+              name="waterSupplyBnL"
             />
-            <Line
-              yAxisId="count"
+            <Area
               type="monotone"
-              dataKey="cumulativeCount"
+              dataKey="hydroBnL"
+              stackId="capacity"
               stroke={P.navy}
               strokeWidth={2}
-              dot={{ r: 3, fill: P.navy, stroke: "#fff", strokeWidth: 1.5 }}
-              name="cumulativeCount"
+              fill={P.navy}
+              fillOpacity={0.12}
+              name="hydroBnL"
             />
           </ComposedChart>
         </ChartCard>
@@ -425,11 +451,13 @@ export default function Reservoirs() {
       <section style={{ marginBottom: 48 }}>
         <h3 style={SECTION_HEADING}>Per-Capita Storage</h3>
         <p style={SECTION_NOTE}>
-          Reservoir storage per person rose rapidly through the post-war construction programme,
-          peaking at {ov.perCapitaPeakKL} kL per person in the {ov.perCapitaPeakDecade}. With no
-          new capacity being added and the UK population growing by approximately 12 million
-          since 1990, per-capita storage has fallen to {ov.perCapitaKL} kL, a decline
-          of {Math.round((1 - ov.perCapitaKL / ov.perCapitaPeakKL) * 100)}% from the peak.
+          Total reservoir storage per person peaked at {ov.perCapitaPeakKL} kL in
+          the {ov.perCapitaPeakDecade}, but this includes hydro-electric capacity that does
+          not serve domestic water. Water supply storage per capita peaked at
+          just {ov.perCapitaWsPeakKL} kL and has since fallen to {ov.perCapitaWsKL} kL, a
+          decline of {Math.round((1 - ov.perCapitaWsKL / ov.perCapitaWsPeakKL) * 100)}% from
+          the peak, as no new supply capacity has been added while the population has grown by
+          approximately 12 million since 1990.
         </p>
 
         <ChartCard
@@ -437,7 +465,8 @@ export default function Reservoirs() {
           subtitle="United Kingdom, kilolitres per person, 1850s–2025"
           source={sourceFrom(raw, "cumulativeCapacity")}
           legend={[
-            { key: "perCapita", label: "Per-capita storage (kL)", color: P.sienna },
+            { key: "total", label: "All reservoirs (kL)", color: P.textLight },
+            { key: "ws", label: "Water supply only (kL)", color: P.teal },
           ]}
           height={300}
         >
@@ -460,31 +489,29 @@ export default function Reservoirs() {
             />
             <Tooltip content={<CustomTooltip
               formatter={(v, name) => {
-                if (name === "perCapitaKL") return [`${v} kL`, "Per capita"];
+                if (name === "perCapitaKL") return [`${v} kL`, "All reservoirs"];
+                if (name === "perCapitaWsKL") return [`${v} kL`, "Water supply"];
                 return [v, name];
               }}
               labelFormatter={(l) => l >= 2020 ? `${l}` : `${l}s`}
             />} />
-            <ReferenceLine
-              y={ov.perCapitaPeakKL}
-              stroke={P.grey}
-              strokeDasharray="4 4"
-              label={{
-                value: `Peak: ${ov.perCapitaPeakKL} kL`,
-                fontSize: 10,
-                fill: P.grey,
-                position: "insideTopRight",
-                fontFamily: "'DM Mono', monospace",
-              }}
-            />
             <Line
               type="monotone"
               dataKey="perCapitaKL"
-              stroke={P.sienna}
+              stroke={P.textLight}
+              strokeWidth={1.5}
+              strokeDasharray="6 3"
+              dot={{ r: 3, fill: P.textLight, stroke: "#fff", strokeWidth: 1.5 }}
+              name="perCapitaKL"
+            />
+            <Line
+              type="monotone"
+              dataKey="perCapitaWsKL"
+              stroke={P.teal}
               strokeWidth={2.5}
-              dot={{ r: 4, fill: P.sienna, stroke: "#fff", strokeWidth: 2 }}
-              activeDot={{ r: 6, stroke: P.sienna, strokeWidth: 2 }}
-              name="perCapitaL"
+              dot={{ r: 4, fill: P.teal, stroke: "#fff", strokeWidth: 2 }}
+              activeDot={{ r: 6, stroke: P.teal, strokeWidth: 2 }}
+              name="perCapitaWsKL"
             />
           </LineChart>
         </ChartCard>
@@ -665,22 +692,20 @@ export default function Reservoirs() {
         </section>
       )}
 
-      {/* Projected capacity */}
+      {/* Projected capacity — water supply per-capita */}
       {projected.length > 0 && (
         <section style={{ marginBottom: 48 }}>
-          <h3 style={SECTION_HEADING}>Projected Capacity</h3>
+          <h3 style={SECTION_HEADING}>Projected Water Supply Capacity</h3>
           <p style={SECTION_NOTE}>
-            If all six planned reservoirs are delivered on their current timelines, total UK
-            reservoir capacity would rise from {(6274.6 / 1000).toFixed(1)} to {(6556.6 / 1000).toFixed(1)} trillion
-            litres by 2040, an increase of approximately 4.5%. Per-capita storage would recover
-            from {ov.perCapitaKL} kL to around 90 kL by 2040, roughly back to today's level.
-            Without new reservoirs, per-capita storage would continue to fall to around 86 kL
-            as the population grows. Population projections are from the ONS 2022-based
-            principal projection.
+            All six planned reservoirs are for water supply. If delivered on current timelines,
+            water supply per-capita storage would rise from {ov.perCapitaWsKL} kL
+            to around 48 kL by 2040. Without new reservoirs, it would remain
+            at {ov.perCapitaWsKL} kL as population growth offsets no new capacity.
+            Population projections are from the ONS 2022-based principal projection.
           </p>
 
           <ChartCard
-            title="Projected Per-Capita Reservoir Storage"
+            title="Projected Water Supply Storage per Capita"
             subtitle="United Kingdom, kilolitres per person, 2020–2040 (projected)"
             source={sourceFrom(raw, "projectedCapacity")}
             legend={[
@@ -702,13 +727,13 @@ export default function Reservoirs() {
                 tick={AXIS_TICK_MONO}
                 tickLine={false}
                 axisLine={false}
-                domain={[80, 100]}
+                domain={[38, 52]}
                 label={yAxisLabel("kL / person")}
               />
               <Tooltip content={<CustomTooltip
                 formatter={(v, name) => {
-                  if (name === "perCapitaKL") return [`${v} kL`, "With planned"];
-                  if (name === "perCapitaNoNewKL") return [`${v} kL`, "No new reservoirs"];
+                  if (name === "perCapitaWsKL") return [`${v} kL`, "With planned"];
+                  if (name === "perCapitaWsNoNewKL") return [`${v} kL`, "No new reservoirs"];
                   return [v, name];
                 }}
               />} />
@@ -726,20 +751,20 @@ export default function Reservoirs() {
               />
               <Line
                 type="monotone"
-                dataKey="perCapitaNoNewKL"
+                dataKey="perCapitaWsNoNewKL"
                 stroke={P.textLight}
                 strokeWidth={1.5}
                 strokeDasharray="6 3"
                 dot={false}
-                name="perCapitaNoNewKL"
+                name="perCapitaWsNoNewKL"
               />
               <Line
                 type="monotone"
-                dataKey="perCapitaKL"
+                dataKey="perCapitaWsKL"
                 stroke={P.teal}
                 strokeWidth={2.5}
                 dot={false}
-                name="perCapitaKL"
+                name="perCapitaWsKL"
               />
             </LineChart>
           </ChartCard>

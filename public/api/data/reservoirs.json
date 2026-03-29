@@ -27,60 +27,379 @@
     "yearsSinceLastMajor": 35,
     "perCapitaKL": 90,
     "perCapitaPeakKL": 111,
-    "perCapitaPeakDecade": "1980s"
+    "perCapitaPeakDecade": "1980s",
+    "perCapitaWsKL": 44,
+    "perCapitaWsPeakKL": 54,
+    "perCapitaWsPeakDecade": "1980s"
   },
   "series": {
     "constructionByDecade": {
       "sourceId": "ukceh-reservoirs",
       "timeField": "year",
-      "description": "Number of major reservoirs constructed per decade and capacity added, from UKCEH inventory of 273 reservoirs covering ~90% of UK storage",
+      "description": "Number of major reservoirs constructed per decade and capacity added by use type, from UKCEH inventory. Hydro-electric capacity estimated from identified large Scottish hydro schemes.",
       "unit": "count / megalitres",
       "data": [
-        { "decade": "1850s", "year": 1850, "built": 12, "capacityAddedMl": 876543 },
-        { "decade": "1860s", "year": 1860, "built": 10, "capacityAddedMl": 47485 },
-        { "decade": "1870s", "year": 1870, "built": 25, "capacityAddedMl": 65242 },
-        { "decade": "1880s", "year": 1880, "built": 6, "capacityAddedMl": 73643 },
-        { "decade": "1890s", "year": 1890, "built": 11, "capacityAddedMl": 74827 },
-        { "decade": "1900s", "year": 1900, "built": 26, "capacityAddedMl": 357768 },
-        { "decade": "1910s", "year": 1910, "built": 11, "capacityAddedMl": 85818 },
-        { "decade": "1920s", "year": 1920, "built": 10, "capacityAddedMl": 103001 },
-        { "decade": "1930s", "year": 1930, "built": 18, "capacityAddedMl": 202989 },
-        { "decade": "1940s", "year": 1940, "built": 5, "capacityAddedMl": 61085 },
-        { "decade": "1950s", "year": 1950, "built": 33, "capacityAddedMl": 1764815 },
-        { "decade": "1960s", "year": 1960, "built": 34, "capacityAddedMl": 1738751 },
-        { "decade": "1970s", "year": 1970, "built": 23, "capacityAddedMl": 432323 },
-        { "decade": "1980s", "year": 1980, "built": 8, "capacityAddedMl": 348072 },
-        { "decade": "1990s", "year": 1990, "built": 2, "capacityAddedMl": 39200 },
-        { "decade": "2000s", "year": 2000, "built": 0, "capacityAddedMl": 0 },
-        { "decade": "2010s", "year": 2010, "built": 1, "capacityAddedMl": 3040 },
-        { "decade": "2020s", "year": 2020, "built": 0, "capacityAddedMl": 0 }
+        {
+          "decade": "1850s",
+          "year": 1850,
+          "built": 12,
+          "capacityAddedMl": 876543,
+          "waterSupplyAddedBnL": 877,
+          "hydroAddedBnL": 0
+        },
+        {
+          "decade": "1860s",
+          "year": 1860,
+          "built": 10,
+          "capacityAddedMl": 47485,
+          "waterSupplyAddedBnL": 47,
+          "hydroAddedBnL": 0
+        },
+        {
+          "decade": "1870s",
+          "year": 1870,
+          "built": 25,
+          "capacityAddedMl": 65242,
+          "waterSupplyAddedBnL": 65,
+          "hydroAddedBnL": 0
+        },
+        {
+          "decade": "1880s",
+          "year": 1880,
+          "built": 6,
+          "capacityAddedMl": 73643,
+          "waterSupplyAddedBnL": 74,
+          "hydroAddedBnL": 0
+        },
+        {
+          "decade": "1890s",
+          "year": 1890,
+          "built": 11,
+          "capacityAddedMl": 74827,
+          "waterSupplyAddedBnL": 75,
+          "hydroAddedBnL": 0
+        },
+        {
+          "decade": "1900s",
+          "year": 1900,
+          "built": 26,
+          "capacityAddedMl": 357768,
+          "waterSupplyAddedBnL": 143,
+          "hydroAddedBnL": 215
+        },
+        {
+          "decade": "1910s",
+          "year": 1910,
+          "built": 11,
+          "capacityAddedMl": 85818,
+          "waterSupplyAddedBnL": 71,
+          "hydroAddedBnL": 15
+        },
+        {
+          "decade": "1920s",
+          "year": 1920,
+          "built": 10,
+          "capacityAddedMl": 103001,
+          "waterSupplyAddedBnL": 93,
+          "hydroAddedBnL": 10
+        },
+        {
+          "decade": "1930s",
+          "year": 1930,
+          "built": 18,
+          "capacityAddedMl": 202989,
+          "waterSupplyAddedBnL": 178,
+          "hydroAddedBnL": 25
+        },
+        {
+          "decade": "1940s",
+          "year": 1940,
+          "built": 5,
+          "capacityAddedMl": 61085,
+          "waterSupplyAddedBnL": 46,
+          "hydroAddedBnL": 15
+        },
+        {
+          "decade": "1950s",
+          "year": 1950,
+          "built": 33,
+          "capacityAddedMl": 1764815,
+          "waterSupplyAddedBnL": 255,
+          "hydroAddedBnL": 1510
+        },
+        {
+          "decade": "1960s",
+          "year": 1960,
+          "built": 34,
+          "capacityAddedMl": 1738751,
+          "waterSupplyAddedBnL": 359,
+          "hydroAddedBnL": 1380
+        },
+        {
+          "decade": "1970s",
+          "year": 1970,
+          "built": 23,
+          "capacityAddedMl": 432323,
+          "waterSupplyAddedBnL": 382,
+          "hydroAddedBnL": 50
+        },
+        {
+          "decade": "1980s",
+          "year": 1980,
+          "built": 8,
+          "capacityAddedMl": 348072,
+          "waterSupplyAddedBnL": 348,
+          "hydroAddedBnL": 0
+        },
+        {
+          "decade": "1990s",
+          "year": 1990,
+          "built": 2,
+          "capacityAddedMl": 39200,
+          "waterSupplyAddedBnL": 39,
+          "hydroAddedBnL": 0
+        },
+        {
+          "decade": "2000s",
+          "year": 2000,
+          "built": 0,
+          "capacityAddedMl": 0,
+          "waterSupplyAddedBnL": 0,
+          "hydroAddedBnL": 0
+        },
+        {
+          "decade": "2010s",
+          "year": 2010,
+          "built": 1,
+          "capacityAddedMl": 3040,
+          "waterSupplyAddedBnL": 3,
+          "hydroAddedBnL": 0
+        },
+        {
+          "decade": "2020s",
+          "year": 2020,
+          "built": 0,
+          "capacityAddedMl": 0,
+          "waterSupplyAddedBnL": 0,
+          "hydroAddedBnL": 0
+        }
       ]
     },
     "cumulativeCapacity": {
       "sourceId": "ukceh-reservoirs",
       "timeField": "year",
-      "description": "Cumulative reservoir count and storage capacity by decade, with UK population and per-capita storage",
+      "description": "Cumulative reservoir count and storage capacity by decade and use type, with UK population and per-capita storage. Hydro-electric share estimated from identified large schemes.",
       "unit": "count / billion litres / litres per person",
       "data": [
-        { "decade": "1850s", "year": 1850, "cumulativeCount": 12, "capacityBnL": 876.5, "popMn": 20.8, "perCapitaKL": 42 },
-        { "decade": "1860s", "year": 1860, "cumulativeCount": 22, "capacityBnL": 924.0, "popMn": 23.1, "perCapitaKL": 40 },
-        { "decade": "1870s", "year": 1870, "cumulativeCount": 47, "capacityBnL": 989.3, "popMn": 26.1, "perCapitaKL": 38 },
-        { "decade": "1880s", "year": 1880, "cumulativeCount": 53, "capacityBnL": 1062.9, "popMn": 29.7, "perCapitaKL": 36 },
-        { "decade": "1890s", "year": 1890, "cumulativeCount": 64, "capacityBnL": 1137.7, "popMn": 33.0, "perCapitaKL": 34 },
-        { "decade": "1900s", "year": 1900, "cumulativeCount": 90, "capacityBnL": 1495.5, "popMn": 38.2, "perCapitaKL": 39 },
-        { "decade": "1910s", "year": 1910, "cumulativeCount": 101, "capacityBnL": 1581.3, "popMn": 42.1, "perCapitaKL": 38 },
-        { "decade": "1920s", "year": 1920, "cumulativeCount": 111, "capacityBnL": 1684.3, "popMn": 44.0, "perCapitaKL": 38 },
-        { "decade": "1930s", "year": 1930, "cumulativeCount": 129, "capacityBnL": 1887.3, "popMn": 46.0, "perCapitaKL": 41 },
-        { "decade": "1940s", "year": 1940, "cumulativeCount": 134, "capacityBnL": 1948.4, "popMn": 48.2, "perCapitaKL": 40 },
-        { "decade": "1950s", "year": 1950, "cumulativeCount": 167, "capacityBnL": 3713.2, "popMn": 50.6, "perCapitaKL": 73 },
-        { "decade": "1960s", "year": 1960, "cumulativeCount": 201, "capacityBnL": 5452.0, "popMn": 52.8, "perCapitaKL": 103 },
-        { "decade": "1970s", "year": 1970, "cumulativeCount": 224, "capacityBnL": 5884.3, "popMn": 55.6, "perCapitaKL": 106 },
-        { "decade": "1980s", "year": 1980, "cumulativeCount": 232, "capacityBnL": 6232.4, "popMn": 56.3, "perCapitaKL": 111 },
-        { "decade": "1990s", "year": 1990, "cumulativeCount": 234, "capacityBnL": 6271.6, "popMn": 57.2, "perCapitaKL": 110 },
-        { "decade": "2000s", "year": 2000, "cumulativeCount": 234, "capacityBnL": 6271.6, "popMn": 58.9, "perCapitaKL": 106 },
-        { "decade": "2010s", "year": 2010, "cumulativeCount": 235, "capacityBnL": 6274.6, "popMn": 62.8, "perCapitaKL": 100 },
-        { "decade": "2020s", "year": 2020, "cumulativeCount": 235, "capacityBnL": 6274.6, "popMn": 67.1, "perCapitaKL": 94 },
-        { "decade": "2025", "year": 2025, "cumulativeCount": 235, "capacityBnL": 6274.6, "popMn": 69.4, "perCapitaKL": 90 }
+        {
+          "decade": "1850s",
+          "year": 1850,
+          "cumulativeCount": 12,
+          "capacityBnL": 876.5,
+          "popMn": 20.8,
+          "perCapitaKL": 42,
+          "waterSupplyBnL": 877,
+          "hydroBnL": 0,
+          "perCapitaWsKL": 42
+        },
+        {
+          "decade": "1860s",
+          "year": 1860,
+          "cumulativeCount": 22,
+          "capacityBnL": 924,
+          "popMn": 23.1,
+          "perCapitaKL": 40,
+          "waterSupplyBnL": 924,
+          "hydroBnL": 0,
+          "perCapitaWsKL": 40
+        },
+        {
+          "decade": "1870s",
+          "year": 1870,
+          "cumulativeCount": 47,
+          "capacityBnL": 989.3,
+          "popMn": 26.1,
+          "perCapitaKL": 38,
+          "waterSupplyBnL": 989,
+          "hydroBnL": 0,
+          "perCapitaWsKL": 38
+        },
+        {
+          "decade": "1880s",
+          "year": 1880,
+          "cumulativeCount": 53,
+          "capacityBnL": 1062.9,
+          "popMn": 29.7,
+          "perCapitaKL": 36,
+          "waterSupplyBnL": 1063,
+          "hydroBnL": 0,
+          "perCapitaWsKL": 36
+        },
+        {
+          "decade": "1890s",
+          "year": 1890,
+          "cumulativeCount": 64,
+          "capacityBnL": 1137.7,
+          "popMn": 33,
+          "perCapitaKL": 34,
+          "waterSupplyBnL": 1138,
+          "hydroBnL": 0,
+          "perCapitaWsKL": 34
+        },
+        {
+          "decade": "1900s",
+          "year": 1900,
+          "cumulativeCount": 90,
+          "capacityBnL": 1495.5,
+          "popMn": 38.2,
+          "perCapitaKL": 39,
+          "waterSupplyBnL": 1281,
+          "hydroBnL": 215,
+          "perCapitaWsKL": 34
+        },
+        {
+          "decade": "1910s",
+          "year": 1910,
+          "cumulativeCount": 101,
+          "capacityBnL": 1581.3,
+          "popMn": 42.1,
+          "perCapitaKL": 38,
+          "waterSupplyBnL": 1352,
+          "hydroBnL": 230,
+          "perCapitaWsKL": 32
+        },
+        {
+          "decade": "1920s",
+          "year": 1920,
+          "cumulativeCount": 111,
+          "capacityBnL": 1684.3,
+          "popMn": 44,
+          "perCapitaKL": 38,
+          "waterSupplyBnL": 1445,
+          "hydroBnL": 240,
+          "perCapitaWsKL": 33
+        },
+        {
+          "decade": "1930s",
+          "year": 1930,
+          "cumulativeCount": 129,
+          "capacityBnL": 1887.3,
+          "popMn": 46,
+          "perCapitaKL": 41,
+          "waterSupplyBnL": 1623,
+          "hydroBnL": 265,
+          "perCapitaWsKL": 35
+        },
+        {
+          "decade": "1940s",
+          "year": 1940,
+          "cumulativeCount": 134,
+          "capacityBnL": 1948.4,
+          "popMn": 48.2,
+          "perCapitaKL": 40,
+          "waterSupplyBnL": 1669,
+          "hydroBnL": 280,
+          "perCapitaWsKL": 35
+        },
+        {
+          "decade": "1950s",
+          "year": 1950,
+          "cumulativeCount": 167,
+          "capacityBnL": 3713.2,
+          "popMn": 50.6,
+          "perCapitaKL": 73,
+          "waterSupplyBnL": 1924,
+          "hydroBnL": 1790,
+          "perCapitaWsKL": 38
+        },
+        {
+          "decade": "1960s",
+          "year": 1960,
+          "cumulativeCount": 201,
+          "capacityBnL": 5452,
+          "popMn": 52.8,
+          "perCapitaKL": 103,
+          "waterSupplyBnL": 2283,
+          "hydroBnL": 3170,
+          "perCapitaWsKL": 43
+        },
+        {
+          "decade": "1970s",
+          "year": 1970,
+          "cumulativeCount": 224,
+          "capacityBnL": 5884.3,
+          "popMn": 55.6,
+          "perCapitaKL": 106,
+          "waterSupplyBnL": 2665,
+          "hydroBnL": 3220,
+          "perCapitaWsKL": 48
+        },
+        {
+          "decade": "1980s",
+          "year": 1980,
+          "cumulativeCount": 232,
+          "capacityBnL": 6232.4,
+          "popMn": 56.3,
+          "perCapitaKL": 111,
+          "waterSupplyBnL": 3013,
+          "hydroBnL": 3220,
+          "perCapitaWsKL": 54
+        },
+        {
+          "decade": "1990s",
+          "year": 1990,
+          "cumulativeCount": 234,
+          "capacityBnL": 6271.6,
+          "popMn": 57.2,
+          "perCapitaKL": 110,
+          "waterSupplyBnL": 3052,
+          "hydroBnL": 3220,
+          "perCapitaWsKL": 53
+        },
+        {
+          "decade": "2000s",
+          "year": 2000,
+          "cumulativeCount": 234,
+          "capacityBnL": 6271.6,
+          "popMn": 58.9,
+          "perCapitaKL": 106,
+          "waterSupplyBnL": 3052,
+          "hydroBnL": 3220,
+          "perCapitaWsKL": 52
+        },
+        {
+          "decade": "2010s",
+          "year": 2010,
+          "cumulativeCount": 235,
+          "capacityBnL": 6274.6,
+          "popMn": 62.8,
+          "perCapitaKL": 100,
+          "waterSupplyBnL": 3055,
+          "hydroBnL": 3220,
+          "perCapitaWsKL": 49
+        },
+        {
+          "decade": "2020s",
+          "year": 2020,
+          "cumulativeCount": 235,
+          "capacityBnL": 6274.6,
+          "popMn": 67.1,
+          "perCapitaKL": 94,
+          "waterSupplyBnL": 3055,
+          "hydroBnL": 3220,
+          "perCapitaWsKL": 46
+        },
+        {
+          "decade": "2025",
+          "year": 2025,
+          "cumulativeCount": 235,
+          "capacityBnL": 6274.6,
+          "popMn": 69.4,
+          "perCapitaKL": 90,
+          "waterSupplyBnL": 3055,
+          "hydroBnL": 3220,
+          "perCapitaWsKL": 44
+        }
       ]
     },
     "largest": {
@@ -88,16 +407,66 @@
       "timeField": "completionYear",
       "description": "Ten largest UK reservoirs by storage capacity",
       "data": [
-        { "name": "Loch Ericht", "capacityMl": 1291596, "completionYear": 1962, "use": "Hydro-electric" },
-        { "name": "Loch Katrine", "capacityMl": 804704, "completionYear": 1859, "use": "Water supply" },
-        { "name": "Loch Quoich", "capacityMl": 556677, "completionYear": 1955, "use": "Hydro-electric" },
-        { "name": "Loch Earn", "capacityMl": 397630, "completionYear": 1958, "use": "Hydro-electric" },
-        { "name": "Blackwater", "capacityMl": 214977, "completionYear": 1909, "use": "Hydro-electric" },
-        { "name": "Kielder Water", "capacityMl": 199000, "completionYear": 1981, "use": "Water supply" },
-        { "name": "Mullardoch", "capacityMl": 165226, "completionYear": 1951, "use": "Hydro-electric" },
-        { "name": "Loch Garry", "capacityMl": 163272, "completionYear": 1956, "use": "Hydro-electric" },
-        { "name": "Loch Luichart", "capacityMl": 128124, "completionYear": 1954, "use": "Hydro-electric" },
-        { "name": "Rutland Water", "capacityMl": 124000, "completionYear": 1976, "use": "Water supply" }
+        {
+          "name": "Loch Ericht",
+          "capacityMl": 1291596,
+          "completionYear": 1962,
+          "use": "Hydro-electric"
+        },
+        {
+          "name": "Loch Katrine",
+          "capacityMl": 804704,
+          "completionYear": 1859,
+          "use": "Water supply"
+        },
+        {
+          "name": "Loch Quoich",
+          "capacityMl": 556677,
+          "completionYear": 1955,
+          "use": "Hydro-electric"
+        },
+        {
+          "name": "Loch Earn",
+          "capacityMl": 397630,
+          "completionYear": 1958,
+          "use": "Hydro-electric"
+        },
+        {
+          "name": "Blackwater",
+          "capacityMl": 214977,
+          "completionYear": 1909,
+          "use": "Hydro-electric"
+        },
+        {
+          "name": "Kielder Water",
+          "capacityMl": 199000,
+          "completionYear": 1981,
+          "use": "Water supply"
+        },
+        {
+          "name": "Mullardoch",
+          "capacityMl": 165226,
+          "completionYear": 1951,
+          "use": "Hydro-electric"
+        },
+        {
+          "name": "Loch Garry",
+          "capacityMl": 163272,
+          "completionYear": 1956,
+          "use": "Hydro-electric"
+        },
+        {
+          "name": "Loch Luichart",
+          "capacityMl": 128124,
+          "completionYear": 1954,
+          "use": "Hydro-electric"
+        },
+        {
+          "name": "Rutland Water",
+          "capacityMl": 124000,
+          "completionYear": 1976,
+          "use": "Water supply"
+        }
       ]
     },
     "planned": {
@@ -196,27 +565,195 @@
       "timeField": "year",
       "description": "Projected total reservoir capacity and per-capita storage 2020-2040, assuming planned reservoirs come online at expected dates. Population from ONS 2022-based principal projection.",
       "data": [
-        { "year": 2020, "capacityBnL": 6274.6, "popMn": 67.1, "perCapitaKL": 94, "perCapitaNoNewKL": 94 },
-        { "year": 2021, "capacityBnL": 6274.6, "popMn": 67.6, "perCapitaKL": 93, "perCapitaNoNewKL": 93 },
-        { "year": 2022, "capacityBnL": 6274.6, "popMn": 68.0, "perCapitaKL": 92, "perCapitaNoNewKL": 92 },
-        { "year": 2023, "capacityBnL": 6274.6, "popMn": 68.5, "perCapitaKL": 92, "perCapitaNoNewKL": 92 },
-        { "year": 2024, "capacityBnL": 6274.6, "popMn": 68.9, "perCapitaKL": 91, "perCapitaNoNewKL": 91 },
-        { "year": 2025, "capacityBnL": 6274.6, "popMn": 69.4, "perCapitaKL": 90, "perCapitaNoNewKL": 90 },
-        { "year": 2026, "capacityBnL": 6274.6, "popMn": 69.7, "perCapitaKL": 90, "perCapitaNoNewKL": 90 },
-        { "year": 2027, "capacityBnL": 6274.6, "popMn": 70.0, "perCapitaKL": 90, "perCapitaNoNewKL": 90 },
-        { "year": 2028, "capacityBnL": 6274.6, "popMn": 70.2, "perCapitaKL": 89, "perCapitaNoNewKL": 89 },
-        { "year": 2029, "capacityBnL": 6274.6, "popMn": 70.5, "perCapitaKL": 89, "perCapitaNoNewKL": 89 },
-        { "year": 2030, "capacityBnL": 6274.6, "popMn": 70.8, "perCapitaKL": 89, "perCapitaNoNewKL": 89 },
-        { "year": 2031, "capacityBnL": 6283.3, "popMn": 71.0, "perCapitaKL": 88, "perCapitaNoNewKL": 88 },
-        { "year": 2032, "capacityBnL": 6283.3, "popMn": 71.3, "perCapitaKL": 88, "perCapitaNoNewKL": 88 },
-        { "year": 2033, "capacityBnL": 6283.3, "popMn": 71.5, "perCapitaKL": 88, "perCapitaNoNewKL": 88 },
-        { "year": 2034, "capacityBnL": 6283.3, "popMn": 71.8, "perCapitaKL": 88, "perCapitaNoNewKL": 87 },
-        { "year": 2035, "capacityBnL": 6296.6, "popMn": 72.0, "perCapitaKL": 87, "perCapitaNoNewKL": 87 },
-        { "year": 2036, "capacityBnL": 6351.6, "popMn": 72.2, "perCapitaKL": 88, "perCapitaNoNewKL": 87 },
-        { "year": 2037, "capacityBnL": 6351.6, "popMn": 72.4, "perCapitaKL": 88, "perCapitaNoNewKL": 87 },
-        { "year": 2038, "capacityBnL": 6351.6, "popMn": 72.6, "perCapitaKL": 87, "perCapitaNoNewKL": 86 },
-        { "year": 2039, "capacityBnL": 6406.6, "popMn": 72.8, "perCapitaKL": 88, "perCapitaNoNewKL": 86 },
-        { "year": 2040, "capacityBnL": 6556.6, "popMn": 73.0, "perCapitaKL": 90, "perCapitaNoNewKL": 86 }
+        {
+          "year": 2020,
+          "capacityBnL": 6274.6,
+          "popMn": 67.1,
+          "perCapitaKL": 94,
+          "perCapitaNoNewKL": 94,
+          "perCapitaWsKL": 48,
+          "perCapitaWsNoNewKL": 48
+        },
+        {
+          "year": 2021,
+          "capacityBnL": 6274.6,
+          "popMn": 67.6,
+          "perCapitaKL": 93,
+          "perCapitaNoNewKL": 93,
+          "perCapitaWsKL": 48,
+          "perCapitaWsNoNewKL": 48
+        },
+        {
+          "year": 2022,
+          "capacityBnL": 6274.6,
+          "popMn": 68,
+          "perCapitaKL": 92,
+          "perCapitaNoNewKL": 92,
+          "perCapitaWsKL": 48,
+          "perCapitaWsNoNewKL": 48
+        },
+        {
+          "year": 2023,
+          "capacityBnL": 6274.6,
+          "popMn": 68.5,
+          "perCapitaKL": 92,
+          "perCapitaNoNewKL": 92,
+          "perCapitaWsKL": 47,
+          "perCapitaWsNoNewKL": 47
+        },
+        {
+          "year": 2024,
+          "capacityBnL": 6274.6,
+          "popMn": 68.9,
+          "perCapitaKL": 91,
+          "perCapitaNoNewKL": 91,
+          "perCapitaWsKL": 47,
+          "perCapitaWsNoNewKL": 47
+        },
+        {
+          "year": 2025,
+          "capacityBnL": 6274.6,
+          "popMn": 69.4,
+          "perCapitaKL": 90,
+          "perCapitaNoNewKL": 90,
+          "perCapitaWsKL": 47,
+          "perCapitaWsNoNewKL": 47
+        },
+        {
+          "year": 2026,
+          "capacityBnL": 6274.6,
+          "popMn": 69.7,
+          "perCapitaKL": 90,
+          "perCapitaNoNewKL": 90,
+          "perCapitaWsKL": 46,
+          "perCapitaWsNoNewKL": 46
+        },
+        {
+          "year": 2027,
+          "capacityBnL": 6274.6,
+          "popMn": 70,
+          "perCapitaKL": 90,
+          "perCapitaNoNewKL": 90,
+          "perCapitaWsKL": 46,
+          "perCapitaWsNoNewKL": 46
+        },
+        {
+          "year": 2028,
+          "capacityBnL": 6274.6,
+          "popMn": 70.2,
+          "perCapitaKL": 89,
+          "perCapitaNoNewKL": 89,
+          "perCapitaWsKL": 46,
+          "perCapitaWsNoNewKL": 46
+        },
+        {
+          "year": 2029,
+          "capacityBnL": 6274.6,
+          "popMn": 70.5,
+          "perCapitaKL": 89,
+          "perCapitaNoNewKL": 89,
+          "perCapitaWsKL": 46,
+          "perCapitaWsNoNewKL": 46
+        },
+        {
+          "year": 2030,
+          "capacityBnL": 6274.6,
+          "popMn": 70.8,
+          "perCapitaKL": 89,
+          "perCapitaNoNewKL": 89,
+          "perCapitaWsKL": 46,
+          "perCapitaWsNoNewKL": 46
+        },
+        {
+          "year": 2031,
+          "capacityBnL": 6283.3,
+          "popMn": 71,
+          "perCapitaKL": 88,
+          "perCapitaNoNewKL": 88,
+          "perCapitaWsKL": 46,
+          "perCapitaWsNoNewKL": 46
+        },
+        {
+          "year": 2032,
+          "capacityBnL": 6283.3,
+          "popMn": 71.3,
+          "perCapitaKL": 88,
+          "perCapitaNoNewKL": 88,
+          "perCapitaWsKL": 46,
+          "perCapitaWsNoNewKL": 45
+        },
+        {
+          "year": 2033,
+          "capacityBnL": 6283.3,
+          "popMn": 71.5,
+          "perCapitaKL": 88,
+          "perCapitaNoNewKL": 88,
+          "perCapitaWsKL": 45,
+          "perCapitaWsNoNewKL": 45
+        },
+        {
+          "year": 2034,
+          "capacityBnL": 6283.3,
+          "popMn": 71.8,
+          "perCapitaKL": 88,
+          "perCapitaNoNewKL": 87,
+          "perCapitaWsKL": 45,
+          "perCapitaWsNoNewKL": 45
+        },
+        {
+          "year": 2035,
+          "capacityBnL": 6296.6,
+          "popMn": 72,
+          "perCapitaKL": 87,
+          "perCapitaNoNewKL": 87,
+          "perCapitaWsKL": 45,
+          "perCapitaWsNoNewKL": 45
+        },
+        {
+          "year": 2036,
+          "capacityBnL": 6351.6,
+          "popMn": 72.2,
+          "perCapitaKL": 88,
+          "perCapitaNoNewKL": 87,
+          "perCapitaWsKL": 46,
+          "perCapitaWsNoNewKL": 45
+        },
+        {
+          "year": 2037,
+          "capacityBnL": 6351.6,
+          "popMn": 72.4,
+          "perCapitaKL": 88,
+          "perCapitaNoNewKL": 87,
+          "perCapitaWsKL": 46,
+          "perCapitaWsNoNewKL": 45
+        },
+        {
+          "year": 2038,
+          "capacityBnL": 6351.6,
+          "popMn": 72.6,
+          "perCapitaKL": 87,
+          "perCapitaNoNewKL": 86,
+          "perCapitaWsKL": 46,
+          "perCapitaWsNoNewKL": 45
+        },
+        {
+          "year": 2039,
+          "capacityBnL": 6406.6,
+          "popMn": 72.8,
+          "perCapitaKL": 88,
+          "perCapitaNoNewKL": 86,
+          "perCapitaWsKL": 46,
+          "perCapitaWsNoNewKL": 44
+        },
+        {
+          "year": 2040,
+          "capacityBnL": 6556.6,
+          "popMn": 73,
+          "perCapitaKL": 90,
+          "perCapitaNoNewKL": 86,
+          "perCapitaWsKL": 48,
+          "perCapitaWsNoNewKL": 44
+        }
       ]
     },
     "sesroTimeline": {
@@ -224,17 +761,64 @@
       "timeField": "year",
       "description": "Key milestones in the SESRO (Abingdon Reservoir) project, from first proposal in 2006 to projected completion in 2040",
       "data": [
-        { "year": 2006, "event": "Thames Water identifies Upper Thames Reservoir in draft WRMP", "phase": "planning" },
-        { "year": 2010, "event": "Public inquiry into Thames Water's WRMP including reservoir proposal", "phase": "planning" },
-        { "year": 2011, "event": "Secretary of State rejects the Abingdon reservoir after Planning Inspector recommends against", "phase": "rejected" },
-        { "year": 2017, "event": "National Infrastructure Commission recommends new strategic water resources for the South East", "phase": "revival" },
-        { "year": 2020, "event": "RAPID (Regulators' Alliance) formed; SESRO enters gated assessment process", "phase": "revival" },
-        { "year": 2022, "event": "SESRO passes RAPID Gate 2 assessment", "phase": "revival" },
-        { "year": 2023, "event": "Thames Water includes SESRO in revised WRMP; scheme formally revived", "phase": "revival" },
-        { "year": 2025, "event": "Statutory consultation held; judicial review dismissed (July); cost estimate £5.7bn", "phase": "pre-construction" },
-        { "year": 2026, "event": "DCO application targeted (Autumn 2026)", "phase": "pre-construction", "projected": true },
-        { "year": 2029, "event": "Construction start (projected)", "phase": "construction", "projected": true },
-        { "year": 2040, "event": "Operational (projected)", "phase": "construction", "projected": true }
+        {
+          "year": 2006,
+          "event": "Thames Water identifies Upper Thames Reservoir in draft WRMP",
+          "phase": "planning"
+        },
+        {
+          "year": 2010,
+          "event": "Public inquiry into Thames Water's WRMP including reservoir proposal",
+          "phase": "planning"
+        },
+        {
+          "year": 2011,
+          "event": "Secretary of State rejects the Abingdon reservoir after Planning Inspector recommends against",
+          "phase": "rejected"
+        },
+        {
+          "year": 2017,
+          "event": "National Infrastructure Commission recommends new strategic water resources for the South East",
+          "phase": "revival"
+        },
+        {
+          "year": 2020,
+          "event": "RAPID (Regulators' Alliance) formed; SESRO enters gated assessment process",
+          "phase": "revival"
+        },
+        {
+          "year": 2022,
+          "event": "SESRO passes RAPID Gate 2 assessment",
+          "phase": "revival"
+        },
+        {
+          "year": 2023,
+          "event": "Thames Water includes SESRO in revised WRMP; scheme formally revived",
+          "phase": "revival"
+        },
+        {
+          "year": 2025,
+          "event": "Statutory consultation held; judicial review dismissed (July); cost estimate £5.7bn",
+          "phase": "pre-construction"
+        },
+        {
+          "year": 2026,
+          "event": "DCO application targeted (Autumn 2026)",
+          "phase": "pre-construction",
+          "projected": true
+        },
+        {
+          "year": 2029,
+          "event": "Construction start (projected)",
+          "phase": "construction",
+          "projected": true
+        },
+        {
+          "year": 2040,
+          "event": "Operational (projected)",
+          "phase": "construction",
+          "projected": true
+        }
       ]
     }
   }
