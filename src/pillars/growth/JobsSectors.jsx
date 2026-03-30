@@ -37,13 +37,11 @@ export default function JobsSectors() {
     return data.bySector.reduce((sum, d) => sum + d.employeesK, 0);
   }, [data]);
 
-  // Shorten long SIC labels for the bar chart
+  // Use label directly (already short in curated data)
   const sectorBarsFormatted = useMemo(() => {
     return sectorBars.map((d) => ({
       ...d,
-      shortLabel: d.label
-        .replace(/^[A-Z] : /, "")
-        .replace(/;.*$/, ""),
+      shortLabel: d.label,
     }));
   }, [sectorBars]);
 
@@ -108,19 +106,19 @@ export default function JobsSectors() {
       <section style={{ marginBottom: 48 }}>
         <h3 style={SECTION_HEADING}>Employment by Industry</h3>
         <p style={SECTION_NOTE}>
-          Employee jobs by SIC 2007 industry section in England, 2024 (provisional BRES data).
+          Employee jobs by SIC 2007 industry section in England, 2023 (BRES).
           Sectors with fewer than 100,000 employees are excluded for clarity.
         </p>
         <ChartCard
           title="Employment by Industry Sector"
-          subtitle="England, employee jobs by SIC section, 2024 (thousands)"
+          subtitle="England, employee jobs by SIC section, 2023 (thousands)"
           source={sourceFrom(raw, "bySector")}
           height={Math.max(400, sectorBarsFormatted.length * 48)}
         >
           <BarChart
             data={sectorBarsFormatted}
             layout="vertical"
-            margin={{ left: 220, right: 40, top: 10, bottom: 10 }}
+            margin={{ left: 10, right: 40, top: 10, bottom: 10 }}
           >
             <CartesianGrid {...GRID_PROPS} horizontal={false} />
             <XAxis
@@ -133,7 +131,7 @@ export default function JobsSectors() {
               type="category"
               dataKey="shortLabel"
               tick={{ ...AXIS_TICK, fontSize: 11 }}
-              width={210}
+              width={160}
             />
             <Tooltip
               content={
@@ -225,7 +223,7 @@ export default function JobsSectors() {
           <BarChart
             data={data.earningsBySector}
             layout="vertical"
-            margin={{ left: 200, right: 40, top: 10, bottom: 10 }}
+            margin={{ left: 10, right: 40, top: 10, bottom: 10 }}
           >
             <CartesianGrid {...GRID_PROPS} horizontal={false} />
             <XAxis
@@ -238,7 +236,7 @@ export default function JobsSectors() {
               type="category"
               dataKey="label"
               tick={{ ...AXIS_TICK, fontSize: 11 }}
-              width={190}
+              width={160}
             />
             <Tooltip
               content={

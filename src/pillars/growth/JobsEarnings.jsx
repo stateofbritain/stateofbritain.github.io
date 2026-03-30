@@ -20,6 +20,8 @@ export default function JobsEarnings() {
   const { data, loading, error, raw } = useJsonDataset("jobs.json");
 
   const earningsTrend = useMemo(() => data?.earningsTrend ?? [], [data]);
+  const realEarningsTrend = useMemo(() => data?.realEarningsTrend ?? [], [data]);
+  const productivityPayGap = useMemo(() => data?.productivityPayGap ?? [], [data]);
   const genderPayGap = useMemo(() => data?.genderPayGap ?? [], [data]);
 
   const earningsByOccupation = useMemo(() => {
@@ -159,7 +161,53 @@ export default function JobsEarnings() {
         </ChartCard>
       </section>
 
-      {/* Section 2: Gender Pay Gap */}
+      {/* Section 2: Real Earnings */}
+      <section style={{ marginBottom: 48 }}>
+        <h3 style={SECTION_HEADING}>Real Earnings</h3>
+        <p style={SECTION_NOTE}>
+          Median full-time annual pay adjusted for inflation using the Consumer Prices Index,
+          expressed in constant 2025 prices. In real terms, median pay peaked around 2008 at
+          approximately {"\u00A3"}42,000 and did not return to that level until 2025. The period
+          from 2008 to 2024 represents an extended period of real wage stagnation.
+        </p>
+
+        <ChartCard
+          title="Real Median Annual Pay (CPI-Adjusted)"
+          subtitle={`United Kingdom, full-time, constant 2025 \u00A3, 1997-2025`}
+          source={sourceFrom(raw, "realEarningsTrend")}
+          legend={[
+            { key: "realMedian", label: "All", color: P.teal },
+            { key: "realMale", label: "Male", color: P.navy },
+            { key: "realFemale", label: "Female", color: P.sienna },
+          ]}
+          height={340}
+        >
+          <LineChart data={realEarningsTrend}>
+            <CartesianGrid {...GRID_PROPS} />
+            <XAxis
+              dataKey="year"
+              type="number"
+              domain={[1997, 2025]}
+              tick={AXIS_TICK}
+              tickCount={8}
+            />
+            <YAxis
+              domain={[0, 50000]}
+              tick={AXIS_TICK}
+              tickFormatter={fmtGBP}
+              label={yAxisLabel("Annual pay (2025 \u00A3)")}
+            />
+            <Tooltip
+              content={<CustomTooltip formatter={(v) => fmtGBPFull(v)} />}
+            />
+            <Line type="monotone" dataKey="realMedian" stroke={P.teal} strokeWidth={2.5} dot={false} name="All" connectNulls />
+            <Line type="monotone" dataKey="realMale" stroke={P.navy} strokeWidth={2} dot={false} name="Male" connectNulls />
+            <Line type="monotone" dataKey="realFemale" stroke={P.sienna} strokeWidth={2} dot={false} name="Female" connectNulls />
+          </LineChart>
+        </ChartCard>
+      </section>
+
+      {/* Section 3: Gender Pay Gap */}
       <section style={{ marginBottom: 48 }}>
         <h3 style={SECTION_HEADING}>Gender Pay Gap</h3>
         <p style={SECTION_NOTE}>
@@ -227,7 +275,7 @@ export default function JobsEarnings() {
           <BarChart
             data={earningsByOccupation}
             layout="vertical"
-            margin={{ left: 200, right: 30, top: 5, bottom: 5 }}
+            margin={{ left: 10, right: 30, top: 5, bottom: 5 }}
           >
             <CartesianGrid {...GRID_PROPS} horizontal={false} />
             <XAxis
@@ -240,7 +288,7 @@ export default function JobsEarnings() {
               type="category"
               dataKey="label"
               tick={AXIS_TICK}
-              width={195}
+              width={160}
             />
             <Tooltip
               content={
@@ -265,6 +313,50 @@ export default function JobsEarnings() {
           </BarChart>
         </ChartCard>
       </section>
+
+      {/* Section 6: Productivity-Pay Gap */}
+      {productivityPayGap.length > 0 && (
+        <section style={{ marginBottom: 48 }}>
+          <h3 style={SECTION_HEADING}>Productivity-Pay Gap</h3>
+          <p style={SECTION_NOTE}>
+            Output per hour and real median pay, both indexed to 2000 = 100. Since 2000,
+            productivity has grown faster than real pay. The gap widened sharply during the
+            post-2008 period of inflation and wage stagnation. This divergence is a key
+            feature of the UK economy: growth in output has not translated proportionally
+            into growth in median earnings.
+          </p>
+
+          <ChartCard
+            title="Productivity vs Real Pay"
+            subtitle="United Kingdom, indexed 2000 = 100"
+            source={sourceFrom(raw, "productivityPayGap")}
+            legend={[
+              { key: "productivityIndex", label: "Output per hour", color: P.teal },
+              { key: "realPayIndex", label: "Real median pay", color: P.sienna },
+            ]}
+            height={300}
+          >
+            <LineChart data={productivityPayGap}>
+              <CartesianGrid {...GRID_PROPS} />
+              <XAxis
+                dataKey="year"
+                type="number"
+                domain={[2000, 2024]}
+                tick={AXIS_TICK}
+                tickCount={7}
+              />
+              <YAxis
+                domain={[90, 140]}
+                tick={AXIS_TICK}
+                label={yAxisLabel("Index (2000=100)")}
+              />
+              <Tooltip content={<CustomTooltip />} />
+              <Line type="monotone" dataKey="productivityIndex" stroke={P.teal} strokeWidth={2.5} dot={{ r: 3 }} name="Output per hour" connectNulls />
+              <Line type="monotone" dataKey="realPayIndex" stroke={P.sienna} strokeWidth={2.5} dot={{ r: 3 }} name="Real median pay" connectNulls />
+            </LineChart>
+          </ChartCard>
+        </section>
+      )}
 
       {/* Context */}
       <AnalysisBox color={P.teal}>

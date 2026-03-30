@@ -85,6 +85,8 @@ const PILLARS = {
         icon: "◉",
         subtopics: {
           overview:  { label: "Overview" },
+          nature:    { label: "Nature of Work" },
+          skills:    { label: "Skills & Training" },
           sectors:   { label: "Sectors" },
           earnings:  { label: "Earnings" },
         },
