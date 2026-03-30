@@ -77,9 +77,18 @@ const PILLARS = {
   },
   growth: {
     label: "Growth Engine",
-    description: "Startups, R&D, productivity, investment, education",
+    description: "Jobs, startups, R&D, productivity, investment, education",
     color: P.sienna,
     topics: {
+      jobs: {
+        label: "Jobs & Employment",
+        icon: "◉",
+        subtopics: {
+          overview:  { label: "Overview" },
+          sectors:   { label: "Sectors" },
+          earnings:  { label: "Earnings" },
+        },
+      },
       education:      { label: "Education",            icon: "▲" },
       industrial:     { label: "Industrial Production", icon: "⚙" },
       infrastructure: { label: "Infrastructure",     icon: "≡" },
