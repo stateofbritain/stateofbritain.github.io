@@ -29,7 +29,7 @@ var SITE_BASE = "https://stateofbritain.uk";
 var ENRICHMENT_SUMMARY_URL = SITE_BASE + "/data/enrichment-summary.json";
 var GEMINI_MODEL = "gemini-2.5-flash";
 var MAX_REQUESTS_PER_HOUR = 10;
-var MAX_REQUESTS_PER_DAY = 30;
+var MAX_REQUESTS_PER_DAY = 50;
 
 function doPost(e) {
   try {
@@ -173,18 +173,30 @@ function handleAsk(question) {
 
   var routingPrompt = "You are a dataset router for a UK statistics site called State of Britain.\n\n"
     + "Given the dataset catalog below, identify which 1-3 datasets are most relevant to the user's question. "
-    + "Return ONLY a JSON array of dataset IDs, nothing else. Example: [\"nhs-waiting\", \"health-outcomes\"]\n\n"
-    + "If the question cannot be answered by any dataset, return an empty array: []\n\n"
+    + "Also classify the question depth:\n"
+    + "- \"latest\": the user wants a current/recent value (e.g. \"How many GPs are there?\", \"What is the waiting list?\")\n"
+    + "- \"trend\": the user wants to see change over time or compare periods (e.g. \"How has X changed since 2010?\", \"What's the trend?\")\n\n"
+    + "Return ONLY a JSON object like: {\"datasets\": [\"nhs-waiting\"], \"depth\": \"latest\"}\n"
+    + "If no dataset is relevant, return: {\"datasets\": [], \"depth\": \"latest\"}\n\n"
     + "CATALOG:\n" + catalog + "\n\n"
     + "QUESTION: " + question;
 
   var routingResult = callGemini(routingPrompt);
 
-  // Parse dataset IDs from response
-  var datasetIds;
+  // Parse routing response
+  var datasetIds = [];
+  var depth = "trend"; // default to full data
   try {
-    var match = routingResult.match(/\[[\s\S]*?\]/);
-    datasetIds = match ? JSON.parse(match[0]) : [];
+    var jsonMatch = routingResult.match(/\{[\s\S]*?\}/);
+    if (jsonMatch) {
+      var parsed = JSON.parse(jsonMatch[0]);
+      datasetIds = parsed.datasets || [];
+      depth = parsed.depth || "trend";
+    } else {
+      // Fallback: try old array format
+      var arrMatch = routingResult.match(/\[[\s\S]*?\]/);
+      datasetIds = arrMatch ? JSON.parse(arrMatch[0]) : [];
+    }
   } catch (e) {
     datasetIds = [];
   }
@@ -203,6 +215,12 @@ function handleAsk(question) {
     try {
       var url = SITE_BASE + "/api/data/" + datasetIds[i] + ".json";
       var dataText = UrlFetchApp.fetch(url).getContentText();
+
+      // For "latest" questions, trim to snapshot + last data points only
+      if (depth === "latest") {
+        dataText = trimToLatest(dataText);
+      }
+
       dataTexts.push(dataText);
       datasetNames.push(datasetIds[i]);
     } catch (e) {
@@ -225,6 +243,25 @@ function handleAsk(question) {
     cache.put(questionKey, answer, 21600);
   } catch (e) {
     // Cache value too large, skip caching
+  }
+
+  // Log question anonymously for optimisation
+  try {
+    var ss = SpreadsheetApp.getActiveSpreadsheet();
+    var logSheet = ss.getSheetByName("Ask Log");
+    if (!logSheet) {
+      logSheet = ss.insertSheet("Ask Log");
+      logSheet.appendRow(["Timestamp", "Question", "Depth", "Datasets", "Cached"]);
+    }
+    logSheet.appendRow([
+      new Date().toISOString(),
+      question,
+      depth,
+      datasetNames.join(", "),
+      "no"
+    ]);
+  } catch (e) {
+    // Non-critical, don't fail the response
   }
 
   return jsonResponse({ answer: answer, datasets: datasetNames });
@@ -265,6 +302,34 @@ function callGemini(prompt) {
   var json = JSON.parse(response.getContentText());
   if (json.error) throw new Error(json.error.message);
   return json.candidates[0].content.parts[0].text;
+}
+
+function trimToLatest(dataText) {
+  try {
+    var dataset = JSON.parse(dataText);
+    var slim = {
+      id: dataset.id,
+      pillar: dataset.pillar,
+      topic: dataset.topic,
+      sources: dataset.sources,
+      snapshot: dataset.snapshot || {}
+    };
+    // Include only the last 2 data points from each series
+    if (dataset.series) {
+      slim.series = {};
+      for (var key in dataset.series) {
+        var s = dataset.series[key];
+        slim.series[key] = {
+          label: s.label,
+          unit: s.unit,
+          data: (s.data || []).slice(-2)
+        };
+      }
+    }
+    return JSON.stringify(slim);
+  } catch (e) {
+    return dataText; // fallback to full data if parsing fails
+  }
 }
 
 function jsonResponse(obj) {
