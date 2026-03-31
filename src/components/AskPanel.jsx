@@ -365,42 +365,75 @@ export default function AskPanel({ open, onClose, isMobile }) {
               {answer}
             </p>
 
-            {datasets.length > 0 && (
-              <div
-                style={{
-                  marginTop: 12,
-                  paddingTop: 10,
-                  borderTop: `1px solid ${P.border}`,
-                  fontSize: "10px",
-                  color: P.textLight,
-                  fontFamily: "'DM Mono', monospace",
-                }}
-              >
-                Sources:{" "}
-                {datasets.map((d, i) => {
-                  const route = DATASET_ROUTES[d];
-                  return (
-                    <span key={d}>
-                      {i > 0 && ", "}
-                      {route ? (
-                        <a
-                          href={route.path}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            onClose();
-                            window.history.pushState(null, "", route.path);
-                            window.dispatchEvent(new PopStateEvent("popstate"));
-                          }}
-                          style={{ color: P.teal, textDecoration: "underline" }}
-                        >
-                          {route.label}
-                        </a>
-                      ) : d}
-                    </span>
-                  );
-                })}
-              </div>
-            )}
+            {datasets.length > 0 && (() => {
+              const primary = DATASET_ROUTES[datasets[0]];
+              return (
+                <div
+                  style={{
+                    marginTop: 12,
+                    paddingTop: 10,
+                    borderTop: `1px solid ${P.border}`,
+                  }}
+                >
+                  {primary && (
+                    <button
+                      onClick={() => {
+                        onClose();
+                        window.history.pushState(null, "", primary.path);
+                        window.dispatchEvent(new PopStateEvent("popstate"));
+                      }}
+                      style={{
+                        fontSize: "11px",
+                        fontFamily: "'DM Mono', monospace",
+                        fontWeight: 500,
+                        color: P.bgCard,
+                        background: P.navy,
+                        border: "none",
+                        borderRadius: 3,
+                        padding: "7px 16px",
+                        cursor: "pointer",
+                        letterSpacing: "0.06em",
+                        textTransform: "uppercase",
+                        marginBottom: 10,
+                      }}
+                    >
+                      View the data
+                    </button>
+                  )}
+                  <div
+                    style={{
+                      fontSize: "10px",
+                      color: P.textLight,
+                      fontFamily: "'DM Mono', monospace",
+                    }}
+                  >
+                    Sources:{" "}
+                    {datasets.map((d, i) => {
+                      const route = DATASET_ROUTES[d];
+                      return (
+                        <span key={d}>
+                          {i > 0 && ", "}
+                          {route ? (
+                            <a
+                              href={route.path}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                onClose();
+                                window.history.pushState(null, "", route.path);
+                                window.dispatchEvent(new PopStateEvent("popstate"));
+                              }}
+                              style={{ color: P.teal, textDecoration: "underline" }}
+                            >
+                              {route.label}
+                            </a>
+                          ) : d}
+                        </span>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            })()}
           </div>
         )}
 

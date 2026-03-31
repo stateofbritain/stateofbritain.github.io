@@ -223,6 +223,7 @@ function handleAsk(question) {
     var noDataAnswer = "I don't have data on that topic. State of Britain covers UK public services, economy, and society "
       + "with datasets on healthcare, education, housing, defence, spending, taxation, and more. Try asking about one of these areas.";
     cache.put(questionKey, noDataAnswer, 21600);
+    logQuestion(question, "no_match", [], false);
     return jsonResponse({ answer: noDataAnswer, datasets: [] });
   }
 
@@ -247,6 +248,7 @@ function handleAsk(question) {
   }
 
   if (dataTexts.length === 0) {
+    logQuestion(question, "fetch_fail", datasetIds, false);
     return jsonResponse({ answer: "Sorry, I was unable to retrieve the relevant data. Please try again.", datasets: [] });
   }
 
@@ -275,7 +277,9 @@ var EDITORIAL_SYSTEM_PROMPT = "You are a data lookup tool for State of Britain, 
   + "- Be neutral and factual. Never editorialise: avoid words like crisis, soaring, collapsed, plummeted, broken, dramatic.\n"
   + "- Present trade-offs symmetrically, showing both sides.\n"
   + "- If data is estimated or methodology changed, note the caveat.\n"
-  + "- Keep answers to 2-4 sentences unless the question clearly warrants more detail.\n"
+  + "- For simple factual questions, keep answers to 2-4 sentences.\n"
+  + "- For analytical questions (correlations, comparisons, trends), provide the full analysis with specific numbers.\n"
+  + "- You can and should perform calculations (rates of change, correlations, ratios) when the question asks for analysis.\n"
   + "- Use plain language suitable for a general audience.\n"
   + "- Format numbers with commas for thousands (e.g. 1,234,567).\n"
   + "- When referencing percentage changes, state both the start and end values.\n"
@@ -290,7 +294,7 @@ function callGemini(prompt) {
 
   var payload = {
     contents: [{ parts: [{ text: prompt }] }],
-    generationConfig: { temperature: 0.2, maxOutputTokens: 2048 }
+    generationConfig: { temperature: 0.2 }
   };
 
   var response = UrlFetchApp.fetch(url, {
