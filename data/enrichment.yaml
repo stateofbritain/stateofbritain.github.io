@@ -424,8 +424,8 @@ local-government:
 money-supply:
   title: "Money Supply & Inflation"
   geography: "United Kingdom"
-  summary: "M4 broad money supply, Bank of England quantitative easing (APF holdings and cash flows), CPI inflation, real wage growth, purchasing power erosion, international central bank balance sheet comparison, and nominal vs real government debt."
-  tags: [money supply, M4, inflation, CPI, quantitative easing, QE, APF, real wages, purchasing power, central bank, Bank of England, monetary policy]
+  summary: "M4 broad money supply, Bank of England quantitative easing (APF holdings and cash flows), CPI inflation, real wage growth, purchasing power erosion, international central bank balance sheet comparison, nominal vs real government debt, mortgage approvals, and cash ISA deposits."
+  tags: [money supply, M4, inflation, CPI, quantitative easing, QE, APF, real wages, purchasing power, central bank, Bank of England, monetary policy, mortgages, ISA, savings]
   series:
     m4ToGdp:
       title: "M4 Money Supply and GDP"
@@ -459,6 +459,14 @@ money-supply:
       title: "Central Bank Balance Sheets"
       summary: "BoE balance sheet peaked at 44% GDP (2021), BoJ at 137% (2022), ECB at 60% (2022), Fed at 35% (2022). All now contracting."
       unit: "% GDP"
+    mortgageApprovals:
+      title: "Mortgage Approvals for House Purchase"
+      summary: "Monthly mortgage approvals (SA). Peaked at ~133k/month (2003), crashed to ~26k during GFC, ~9k during COVID, currently ~62k. A leading indicator of housing market activity."
+      unit: "approvals per month"
+    cashIsaDeposits:
+      title: "Cash ISA Deposits Outstanding"
+      summary: "Household cash ISA balances rose from £9.5bn (2000) to £458bn (Feb 2026). Accelerated from 2022 as interest rates rose."
+      unit: "£m"
 
 borrowing:
   title: "Borrowing & Debt"
@@ -544,8 +552,8 @@ taxation:
 housing-supply:
   title: "Housebuilding"
   geography: "England"
-  summary: "Net additional dwellings, new build completions by tenure (private, housing association, local authority), average new build floor area, and international size comparison."
-  tags: [housing, housebuilding, construction, dwellings, completions, new builds]
+  summary: "Net additional dwellings, new build completions by tenure (private, housing association, local authority), average new build floor area, international size comparison, EPC new build lodgements as a leading indicator, and brick delivery volumes."
+  tags: [housing, housebuilding, construction, dwellings, completions, new builds, EPC, bricks, leading indicators]
   series:
     netAdditions:
       title: "Net Additional Dwellings"
@@ -563,6 +571,14 @@ housing-supply:
       title: "International New Build Size Comparison"
       summary: "Average new build floor area by country. UK (76 sqm) among the smallest. Australia 229, US 201, Germany 109."
       unit: "sqm"
+    epcNewBuilds:
+      title: "New Build EPC Lodgements"
+      summary: "Quarterly EPC lodgements for new domestic properties in England & Wales. Peaked at ~255k/yr in 2019, dropped during COVID, around 210k in 2025. A near-real-time proxy for housing completions."
+      unit: "lodgements per quarter"
+    brickDeliveries:
+      title: "Brick Deliveries (Seasonally Adjusted)"
+      summary: "Monthly seasonally adjusted brick deliveries in Great Britain (millions). Tracks material demand from builders. Around 168m/month in early 2018, declined to ~118m by late 2025."
+      unit: "millions of bricks"
 
 housing-stock:
   title: "Housing Stock"

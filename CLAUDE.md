@@ -48,6 +48,7 @@ All charts must use the shared `ChartCard` component (`src/components/ChartCard.
 ## Chart axis rules
 - **Y-axis must start at zero** unless the data range is a small fraction of the absolute values and the trend would be invisible (e.g. life expectancy varying 78-83). When in doubt, start at zero.
 - **X-axis must have proportional spacing.** When using numeric years as the X axis and the data has uneven intervals (e.g. 1970, 1980, 1990, 2000, 2005, 2010, 2023), use `<XAxis type="number" domain={["dataMin", "dataMax"]}/>` so that gaps are rendered proportionally. Never use categorical X axes for numeric time data with uneven spacing — this misleads the reader about rates of change.
+- **X-axis tick density for quarterly/monthly data.** When using quarterly keys like `"2024-Q1"` or monthly keys as the X axis, labels become unreadable if every tick is shown. Use `tickFormatter={v => v.slice(0, 4)}` to display only the year, and set `interval` high enough to avoid overlap — typically `interval={isMobile ? 15 : 7}` for ~100 quarterly points over 25 years. Adjust the interval based on the number of data points: the goal is roughly 8-12 visible labels on desktop.
 - Charts should not be placed side by side (except in Public Spending where this is an intentional design choice). Stack charts vertically.
 
 ## Methodology breaks

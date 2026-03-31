@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import {
-  BarChart, Bar, LineChart, Line, ComposedChart, Cell,
+  BarChart, Bar, LineChart, Line, ComposedChart, AreaChart, Area, Cell,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
   ReferenceLine,
 } from "recharts";
@@ -13,12 +13,12 @@ import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
 import ChartCard from "../../components/ChartCard";
-import { useJsonDataset } from "../../hooks/useDataset";
+import { useJsonDataset, sourceFrom } from "../../hooks/useDataset";
 import useIsMobile from "../../hooks/useIsMobile";
 
 export default function HousingSupply() {
   const isMobile = useIsMobile();
-  const { data, loading, error } = useJsonDataset("housing-supply.json");
+  const { data, loading, error, raw } = useJsonDataset("housing-supply.json");
 
   // Hooks must run before any early returns
   const completionsK = useMemo(() => {
@@ -35,6 +35,46 @@ export default function HousingSupply() {
   const sizeIntlSorted = useMemo(() => {
     if (!data?.sizeIntl) return [];
     return [...data.sizeIntl].sort((a, b) => b.avgSqm - a.avgSqm);
+  }, [data]);
+
+  // Convert quarterly EPC data to annual for cleaner charting
+  const epcAnnual = useMemo(() => {
+    if (!data?.epcNewBuilds) return [];
+    const byYear = {};
+    for (const d of data.epcNewBuilds) {
+      const year = parseInt(d.quarter.slice(0, 4), 10);
+      if (!byYear[year]) byYear[year] = 0;
+      byYear[year] += d.lodgements;
+    }
+    // Only include complete years (4 quarters)
+    const qtrsPerYear = {};
+    for (const d of data.epcNewBuilds) {
+      const year = parseInt(d.quarter.slice(0, 4), 10);
+      qtrsPerYear[year] = (qtrsPerYear[year] || 0) + 1;
+    }
+    return Object.entries(byYear)
+      .filter(([y]) => qtrsPerYear[parseInt(y, 10)] === 4)
+      .map(([year, lodgements]) => ({ year: parseInt(year, 10), lodgements }))
+      .sort((a, b) => a.year - b.year);
+  }, [data]);
+
+  // Brick deliveries — aggregate to quarterly for cleaner view
+  const brickQuarterly = useMemo(() => {
+    if (!data?.brickDeliveries) return [];
+    const byQ = {};
+    for (const d of data.brickDeliveries) {
+      const [y, m] = d.month.split("-");
+      const q = Math.ceil(parseInt(m, 10) / 3);
+      const key = `${y}-Q${q}`;
+      if (!byQ[key]) byQ[key] = { quarter: key, total: 0, count: 0 };
+      byQ[key].total += d.saDeliveries;
+      byQ[key].count += 1;
+    }
+    // Only include complete quarters (3 months)
+    return Object.values(byQ)
+      .filter(d => d.count === 3)
+      .map(d => ({ quarter: d.quarter, deliveries: Math.round(d.total) }))
+      .sort((a, b) => a.quarter.localeCompare(b.quarter));
   }, [data]);
 
   if (loading) {
@@ -210,6 +250,56 @@ export default function HousingSupply() {
         </div>
       </div>
 
+      {/* ═══ SECTION 4 — LEADING INDICATORS ═══ */}
+      <div style={{ marginBottom: 40 }}>
+        <h3 style={SECTION_HEADING}>Leading Indicators</h3>
+        <p style={SECTION_NOTE}>
+          EPC lodgements for new dwellings are a near-real-time proxy for housing completions,
+          as every new home requires an Energy Performance Certificate at completion. Brick
+          deliveries track material demand from builders and tend to move ahead of completion
+          figures.
+        </p>
+
+        {epcAnnual.length > 0 && (
+          <>
+            <ChartCard
+              title="New Build EPC Lodgements"
+              subtitle="England & Wales, annual, 2009–2024"
+              source={sourceFrom(raw, "epcNewBuilds")}
+            >
+              <ResponsiveContainer width="100%" height={300}>
+                <BarChart data={epcAnnual} margin={{ top: 5, right: 10, left: isMobile ? -15 : -10, bottom: 0 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
+                  <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
+                  <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} tickFormatter={v => `${(v / 1000).toFixed(0)}k`} label={yAxisLabel("Lodgements")} />
+                  <Tooltip content={<CustomTooltip formatter={v => v?.toLocaleString()} />} />
+                  <Bar dataKey="lodgements" name="EPC lodgements" fill={P.navy} opacity={0.7} radius={[3, 3, 0, 0]} />
+                </BarChart>
+              </ResponsiveContainer>
+            </ChartCard>
+            <div style={{ marginBottom: 24 }} />
+          </>
+        )}
+
+        {brickQuarterly.length > 0 && (
+          <ChartCard
+            title="Brick Deliveries"
+            subtitle="Great Britain, seasonally adjusted, millions, quarterly"
+            source={sourceFrom(raw, "brickDeliveries")}
+          >
+            <ResponsiveContainer width="100%" height={300}>
+              <AreaChart data={brickQuarterly} margin={{ top: 5, right: 10, left: isMobile ? -15 : -10, bottom: 0 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
+                <XAxis dataKey="quarter" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} tickFormatter={v => v.slice(0, 4)} interval={isMobile ? 7 : 3} />
+                <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} label={yAxisLabel("Millions")} />
+                <Tooltip content={<CustomTooltip formatter={v => `${v}m bricks`} />} />
+                <Area type="monotone" dataKey="deliveries" name="Brick deliveries" stroke={P.sienna} fill={P.sienna} fillOpacity={0.15} strokeWidth={2} />
+              </AreaChart>
+            </ResponsiveContainer>
+          </ChartCard>
+        )}
+      </div>
+
       <AnalysisBox color={P.teal} label="Context">
         England added {snap.netAdditions?.toLocaleString()} net dwellings in {snap.netAdditionsYear},
         below the 300,000/yr target. The peak was {snap.netAdditionsPeak?.toLocaleString()} in{" "}
@@ -218,6 +308,17 @@ export default function HousingSupply() {
         Average new build floor area is {snap.avgNewBuildSqm} sqm, among the smallest in the
         developed world.
       </AnalysisBox>
+
+      <div style={{
+        marginTop: 24,
+        padding: "12px 16px",
+        fontSize: "11px",
+        fontFamily: "'DM Mono', monospace",
+        color: P.textLight,
+        borderTop: `1px solid ${P.border}`,
+      }}>
+        Leading indicators section suggested by Greg Boggis
+      </div>
     </div>
   );
 }

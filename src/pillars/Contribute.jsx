@@ -393,6 +393,41 @@ export default function Contribute() {
         </p>
       </section>
 
+      {/* ── Community Contributions ────────────────────────────── */}
+      <section style={{ marginBottom: 32 }}>
+        <h3 style={h3Style}>Community contributions</h3>
+        <p style={pStyle}>
+          The following data and suggestions have been contributed by readers and
+          incorporated into the site.
+        </p>
+        <div style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 8,
+          marginTop: 12,
+        }}>
+          {[
+            { topic: "Housebuilding", detail: "EPC lodgements and brick deliveries as leading indicators of new builds", contributor: "Greg Boggis" },
+            { topic: "Personal Finance", detail: "Mortgage approvals and cash ISA balances from Bank of England datasets", contributor: "Greg Boggis" },
+          ].map((c, i) => (
+            <div key={i} style={{
+              padding: "10px 14px",
+              background: P.bgCard,
+              border: `1px solid ${P.border}`,
+              borderRadius: 3,
+              fontSize: "12px",
+              fontFamily: "'DM Mono', monospace",
+              color: P.textMuted,
+              lineHeight: 1.5,
+            }}>
+              <span style={{ fontWeight: 500, color: P.text }}>{c.topic}</span>
+              {" — "}{c.detail}
+              <span style={{ color: P.textLight }}>{" · "}{c.contributor}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* ── Deletion Request ──────────────────────────────────── */}
       <section
         style={{
