@@ -144,14 +144,6 @@ export default function AskPanel({ open, onClose, isMobile }) {
     [question]
   );
 
-  const handleReset = () => {
-    setQuestion("");
-    setAnswer("");
-    setDatasets([]);
-    setStatus("idle");
-    if (inputRef.current) inputRef.current.focus();
-  };
-
   if (!open) return null;
 
   const panelStyle = isMobile
@@ -426,25 +418,6 @@ export default function AskPanel({ open, onClose, isMobile }) {
           </div>
         )}
 
-        {/* Reset / ask another */}
-        {(status === "answer" || status === "error") && (
-          <button
-            onClick={handleReset}
-            style={{
-              fontSize: "12px",
-              fontFamily: "'DM Mono', monospace",
-              color: P.navy,
-              background: "none",
-              border: "none",
-              cursor: "pointer",
-              padding: 0,
-              textDecoration: "underline",
-              marginBottom: 16,
-            }}
-          >
-            Ask another question
-          </button>
-        )}
 
         {/* Disclaimer */}
         <div
