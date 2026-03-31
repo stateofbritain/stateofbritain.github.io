@@ -4,7 +4,7 @@ import useIsMobile from "../hooks/useIsMobile";
 
 // Replace with your Google Apps Script deployment URL after setup
 // See scripts/google-apps-script.js for setup instructions
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycby8S4IULiJ1JZfUOaKERG_dQ1vquTK8khf9vx4kYJ0X8R4t266wgrSp3UvIhQT0GCYppw/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxe0o8gieqssvL8X7nH-TDtILq62-9f7HUGtWtCt0fl_GwRrSrRKIM6QsKmAEbAajEU2Q/exec";
 
 
 export default function Contribute() {

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import P from "./theme/palette";
 import PILLARS from "./pillars/config";
 import useHashRoute from "./hooks/useHashRoute";
@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import PillarNav from "./components/PillarNav";
 import TopicSidebar from "./components/TopicSidebar";
 import Footer from "./components/Footer";
+import AskPanel from "./components/AskPanel";
 import Landing from "./pillars/Landing";
 import DataPage from "./pillars/DataPage";
 import About from "./pillars/About";
@@ -130,6 +131,7 @@ function getTopicComponent(pillarKey, topicKey, subtopicKey) {
 export default function App() {
   const { pillar, topic, subtopic, navigate } = useHashRoute();
   const isMobile = useIsMobile();
+  const [askOpen, setAskOpen] = useState(false);
 
   const activePillar = pillar && PILLARS[pillar] ? pillar : null;
   const pillarConfig = activePillar ? PILLARS[activePillar] : null;
@@ -189,7 +191,8 @@ export default function App() {
       }}
     >
       <div style={{ maxWidth: 1280, margin: "0 auto", padding: isMobile ? "0 12px" : "0 28px" }}>
-        <Header onHome={() => navigate(null)} onNavigate={navigate} isMobile={isMobile} />
+        <Header onHome={() => navigate(null)} onNavigate={navigate} onAskOpen={() => setAskOpen(true)} isMobile={isMobile} />
+        <AskPanel open={askOpen} onClose={() => setAskOpen(false)} isMobile={isMobile} />
         <PillarNav
           activePillar={activePillar}
           onSelect={(p, t, s) => navigate(p, t, s)}

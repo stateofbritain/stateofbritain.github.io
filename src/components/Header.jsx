@@ -1,7 +1,7 @@
 import P from "../theme/palette";
 import Search from "./Search";
 
-export default function Header({ onHome, onNavigate, isMobile }) {
+export default function Header({ onHome, onNavigate, onAskOpen, isMobile }) {
   return (
     <header style={{ paddingTop: isMobile ? 24 : 44, paddingBottom: 20 }}>
       <div
@@ -46,6 +46,28 @@ export default function Header({ onHome, onNavigate, isMobile }) {
         </span>
         <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 10 }}>
           <Search onNavigate={onNavigate} isMobile={isMobile} />
+          <button
+            onClick={onAskOpen}
+            style={{
+              fontSize: "11px",
+              fontFamily: "'DM Mono', monospace",
+              fontWeight: 500,
+              color: P.navy,
+              background: "none",
+              border: `1px solid ${P.border}`,
+              borderRadius: 3,
+              padding: "5px 12px",
+              cursor: "pointer",
+              letterSpacing: "0.06em",
+              textTransform: "uppercase",
+              whiteSpace: "nowrap",
+              transition: "border-color 0.15s",
+            }}
+            onMouseEnter={(e) => e.currentTarget.style.borderColor = P.borderStrong}
+            onMouseLeave={(e) => e.currentTarget.style.borderColor = P.border}
+          >
+            Ask
+          </button>
           <a
             href="/contribute"
             onClick={(e) => {

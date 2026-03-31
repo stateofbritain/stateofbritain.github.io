@@ -1,0 +1,665 @@
+{
+  "generated": "2026-03-31",
+  "datasets": [
+    {
+      "id": "family",
+      "title": "Family, Fertility & Households",
+      "summary": "Birth rates, fertility by parity, mean age of motherhood, family structure, and household composition. Covers 1960 to present.",
+      "tags": [
+        "fertility",
+        "births",
+        "TFR",
+        "households",
+        "family structure",
+        "demographics"
+      ],
+      "seriesSummaries": [
+        "UK TFR fell from 2.72 in 1960 to 1.41 in 2024, now 33% below replacement. Rising childlessness is the primary driver.",
+        "Mean age at first birth rose from 24.4 in 1960 to 29.5 in 2022, a shift of over 5 years.",
+        "Annual live births in England & Wales. Peaked at 876k in 1964, now around 595k.",
+        "Breakdown of families by type: married couples, cohabiting couples, and lone parents.",
+        "Average number of people per household. Fell from 3.09 in 1961 to 2.35 in 2024."
+      ]
+    },
+    {
+      "id": "education",
+      "title": "Education & Skills",
+      "summary": "Per-pupil spending, GCSE results, PISA scores, HE participation, teacher workforce, and degree classification trends.",
+      "tags": [
+        "education",
+        "schools",
+        "GCSE",
+        "PISA",
+        "universities",
+        "teachers",
+        "spending"
+      ],
+      "seriesSummaries": [
+        "Real per-pupil spending peaked at £6,720 in 2009-10, fell 6% to £6,310 by 2023-24.",
+        "Share of students achieving grade 5+ in English and Maths. Grading changed from A*-G to 9-1 in 2017.",
+        "UK PISA scores in maths (489), reading (494), and science (503) as of 2022.",
+        "HE participation rate reached 52% in 2022-23.",
+        "Number of teachers and pupil-teacher ratios in state schools."
+      ]
+    },
+    {
+      "id": "defence",
+      "title": "Defence & Security",
+      "summary": "Defence spending, armed forces personnel, recruitment and retention, equipment inventory, fleet trends, international capability comparison, procurement affordability, major programme delivery, industry concentration, and competition rates.",
+      "tags": [
+        "defence",
+        "military",
+        "NATO",
+        "spending",
+        "armed forces",
+        "equipment",
+        "tanks",
+        "aircraft",
+        "ships",
+        "submarines",
+        "recruitment",
+        "retention",
+        "procurement",
+        "BAE Systems",
+        "affordability",
+        "NAO"
+      ],
+      "seriesSummaries": [
+        "UK defence spending fell from 3.8% GDP in 1990 to 2.3% in 2024, above NATO's 2% target but below the new 2.5% aspiration.",
+        "Real defence spending fell from £46bn in 2009 to £38bn in 2016, recovering to £54.2bn in 2024 (2023-24 prices).",
+        "Defence spending as % GDP across NATO allies. Poland leads (3.9%), UK at 2.3%, several allies below 2%.",
+        "MoD 10-year equipment plan: £60bn total. Submarines & nuclear £17.2bn, combat air £12.5bn, ships £8.3bn.",
+        "UK regular forces declined 39% from 207.7k in 2000 to 125.7k in 2025. Army from 110k to 70k.",
+        "Trained reserve strength peaked at 30.7k in 2022, declined to 26k in 2024, recovered to 29.1k in 2025.",
+        "All services below target: Army -3%, RN/RM -8%, RAF -13%. Overall 6% (8,590 personnel) below requirement.",
+        "13,450 joined in 2024-25 (up 19%), 14,600 left (down 7%). Outflow has exceeded intake in most years since 2000.",
+        "Voluntary outflow rate peaked at 6.4% in 2023-24, fell to 5.9% in 2024-25. Army highest at 6.3%.",
+        "Major platforms at 1 April 2025: 288 Challenger 2 MBT, 129 Typhoon, 41 F-35B, 50 Apache, 6 Type 45 destroyers, 7 Type 23 frigates, 10 submarines.",
+        "Royal Navy escort fleet contracted from 48 ships (1990) to 13 (2025). Type 26/31 programmes will restore frigates to 13.",
+        "Combat-capable fast jets declined from 250 (2000) to 170 (2025). Tornado and Harrier retired; Typhoon and F-35B now form fleet.",
+        "UK equipment vs peer nations (France, Germany, Italy, Japan, S. Korea, Turkey, Australia). UK has fewer tanks than France/Germany but unique carrier and nuclear sub capability.",
+        "NAO annual assessment of MoD Equipment Plan. Funding gap rose from zero in 2012-22 to £16.9bn in 2023-33, the largest since reporting began.",
+        "8 major programmes tracked: Ajax (77% cost growth, paused), Type 26 (114% growth), Dreadnought (11% growth), F-35B (21% growth), Boxer (79% growth). Most delayed from original in-service dates.",
+        "BAE Systems received 16.3% of MoD procurement spend (£6.7bn) in 2024-25, the highest single-supplier share since records began. Top 10 suppliers account for 39%.",
+        "Competitive procurement fell from 31% of MoD spend in 2014-15 to 8% in 2024-25. Non-competitive sourcing rose to 45%, driven by nuclear and combat air programmes.",
+        "Direct SME share of MoD expenditure remained around 3.5-5% since 2016-17. Including indirect spending through prime contractors, total SME share was 25.5% in 2021-22."
+      ]
+    },
+    {
+      "id": "startups",
+      "title": "Business Startups & Entrepreneurship",
+      "summary": "Business births and deaths, survival rates, sector breakdown, high-growth firms, and equity investment.",
+      "tags": [
+        "startups",
+        "business",
+        "entrepreneurship",
+        "SMEs",
+        "venture capital"
+      ],
+      "seriesSummaries": [
+        "Annual business births and deaths. Birth rate around 54 per 10k, death rate around 47 per 10k in 2023.",
+        "1 to 5 year survival rates for business birth cohorts. 5-year survival around 38%.",
+        "Sector breakdown of business births. Professional/scientific and construction lead.",
+        "Firms with 20%+ annualised employment growth over 3 years."
+      ]
+    },
+    {
+      "id": "research",
+      "title": "Research & Development",
+      "summary": "R&D spending by sector (government, business, higher education), as % of GDP, and international comparison.",
+      "tags": [
+        "R&D",
+        "research",
+        "science",
+        "innovation",
+        "universities"
+      ],
+      "seriesSummaries": [
+        "UK GERD by funding source: business (£30.5bn), government (£2.7bn), higher education (£11.2bn) in 2022.",
+        "UK R&D spending at 2.36% of GDP in 2022, below OECD average of 2.73%.",
+        "Private sector funds around 55% of UK R&D, government around 25%."
+      ]
+    },
+    {
+      "id": "productivity",
+      "title": "Productivity",
+      "summary": "Output per hour worked (index and level), sector breakdown, and international comparison.",
+      "tags": [
+        "productivity",
+        "output",
+        "efficiency",
+        "GDP per hour"
+      ],
+      "seriesSummaries": [
+        "UK output per hour index (2023=100). Productivity growth has been weak since 2008.",
+        "UK output per hour relative to G7 peers. UK trails US, Germany, and France.",
+        "Output per hour by industry. Financial services highest, accommodation lowest."
+      ]
+    },
+    {
+      "id": "investment",
+      "title": "Investment",
+      "summary": "UK gross fixed capital formation trend, asset breakdown, and international comparison.",
+      "tags": [
+        "investment",
+        "capital",
+        "GFCF",
+        "infrastructure"
+      ],
+      "seriesSummaries": [
+        "UK GFCF as % of GDP, consistently around 17-18%, below OECD average of ~21%.",
+        "Breakdown by dwellings, other buildings, transport, ICT, and intellectual property.",
+        "UK investment as % of GDP compared to OECD peers. UK near bottom of G7."
+      ]
+    },
+    {
+      "id": "immigration",
+      "title": "Immigration & Demographics",
+      "summary": "Net migration, visa breakdown, asylum applications, population projections, age structure, and dependency ratios.",
+      "tags": [
+        "immigration",
+        "migration",
+        "population",
+        "demographics",
+        "asylum",
+        "visas"
+      ],
+      "seriesSummaries": []
+    },
+    {
+      "id": "justice",
+      "title": "Justice & Crime",
+      "summary": "Crime trends, police workforce, prison population, court backlog, and charge rates.",
+      "tags": [
+        "crime",
+        "justice",
+        "police",
+        "prisons",
+        "courts"
+      ],
+      "seriesSummaries": []
+    },
+    {
+      "id": "infrastructure",
+      "title": "Infrastructure",
+      "summary": "Broadband (FTTP, gigabit coverage), rail (punctuality, journeys), and road (traffic, condition) metrics.",
+      "tags": [
+        "infrastructure",
+        "broadband",
+        "rail",
+        "roads",
+        "transport",
+        "digital"
+      ],
+      "seriesSummaries": []
+    },
+    {
+      "id": "energy",
+      "title": "Energy",
+      "summary": "Energy mix, fuel consumption, electricity generation, household expenditure, import dependency, and storage.",
+      "tags": [
+        "energy",
+        "electricity",
+        "renewables",
+        "gas",
+        "oil",
+        "nuclear"
+      ],
+      "seriesSummaries": []
+    },
+    {
+      "id": "water",
+      "title": "Water Industry",
+      "summary": "Water company performance, leakage rates, pollution incidents, and storm overflow events.",
+      "tags": [
+        "water",
+        "utilities",
+        "pollution",
+        "sewage",
+        "leakage"
+      ],
+      "seriesSummaries": []
+    },
+    {
+      "id": "nhs-waiting",
+      "title": "NHS Waiting Lists",
+      "summary": "NHS referral-to-treatment waiting times, A&E performance, waiting lists by specialty and procedure.",
+      "tags": [
+        "NHS",
+        "healthcare",
+        "waiting times",
+        "hospitals",
+        "A&E"
+      ],
+      "seriesSummaries": []
+    },
+    {
+      "id": "health-outcomes",
+      "title": "Health Outcomes",
+      "summary": "Life expectancy at birth by sex, cancer survival rates by type, and avoidable mortality trends.",
+      "tags": [
+        "health",
+        "life expectancy",
+        "cancer",
+        "mortality",
+        "outcomes"
+      ],
+      "seriesSummaries": [
+        "UK life expectancy reached 79.0 (male) and 82.9 (female) in 2023, still below 2014 peak after COVID setback.",
+        "1-year and 5-year net survival by cancer site. Ranges from 7% (pancreas) to 92% (melanoma) at 5 years.",
+        "Age-standardised avoidable mortality rate fell from 257 per 100k in 2001 to 201 in 2019, spiked during COVID."
+      ]
+    },
+    {
+      "id": "hospital-capacity",
+      "title": "Hospital Capacity",
+      "summary": "NHS overnight bed numbers by type, bed occupancy rates, international comparison (OECD), and hospital admissions by type.",
+      "tags": [
+        "hospital",
+        "beds",
+        "capacity",
+        "occupancy",
+        "admissions",
+        "OECD",
+        "elective",
+        "emergency"
+      ],
+      "seriesSummaries": [
+        "Total NHS overnight beds fell from 186k in 2000-01 to 101k in 2025-26, a 46% reduction.",
+        "General & acute bed occupancy rose from 82% in 2000-01 to 90.5% in 2025-26.",
+        "UK has 2.4 beds per 1,000 population vs OECD average of 4.3.",
+        "20.6m admissions in 2024-25: 8.6m day cases, 6.6m emergency, 5.4m elective."
+      ]
+    },
+    {
+      "id": "nhs-workforce",
+      "title": "NHS Workforce",
+      "summary": "NHS HCHS staff headcount and FTE by staff group, vacancy rates by profession, and sickness absence rates.",
+      "tags": [
+        "NHS",
+        "workforce",
+        "doctors",
+        "nurses",
+        "vacancies",
+        "sickness",
+        "staffing"
+      ],
+      "seriesSummaries": [
+        "NHS HCHS workforce grew from 1.05m FTE in 2010 to 1.38m in 2025, up 31%.",
+        "Overall vacancy rate peaked at 9.7% in Q3 2022, fell to 6.7% by Q3 2025.",
+        "Sickness rate was 4.1-4.4% pre-pandemic, rose to 5.8% in 2021, at 5.2% in 2025."
+      ]
+    },
+    {
+      "id": "gp-access",
+      "title": "General Practice",
+      "summary": "GP appointments, patient satisfaction, same-day access, practice consolidation, workforce (headcount vs FTE), and training pipeline.",
+      "tags": [
+        "GP",
+        "general practice",
+        "primary care",
+        "appointments",
+        "workforce",
+        "patients",
+        "satisfaction",
+        "training"
+      ],
+      "seriesSummaries": [
+        "Around 30m GP appointments per month. Online grew from 4% to ~20% since COVID.",
+        "~45% of GP appointments are same-day, 73% within a week. Stable since 2019.",
+        "Overall good fell from 85% (2018) to 71% (2023). Phone access hardest-hit.",
+        "~2,000 practices closed/merged since 2013. Avg list size rose from 6,900 to 9,900.",
+        "ST1 posts expanded to 4,276 (100% filled). 10,900 trainees in system but conversion lossy.",
+        "Headcount grew to 35,900 but FTE fell to 27,544 — driven by part-time working, not fewer GPs."
+      ]
+    },
+    {
+      "id": "cpih",
+      "title": "Consumer Prices (CPIH)",
+      "summary": "Consumer Prices Index including owner-occupier housing costs, broken down by category.",
+      "tags": [
+        "inflation",
+        "prices",
+        "CPIH",
+        "cost of living",
+        "CPI"
+      ],
+      "seriesSummaries": []
+    },
+    {
+      "id": "spending",
+      "title": "Government Spending",
+      "summary": "Total managed expenditure, spending as % of GDP, tax receipts, departmental spending trends, and debt.",
+      "tags": [
+        "spending",
+        "tax",
+        "budget",
+        "fiscal",
+        "debt",
+        "GDP"
+      ],
+      "seriesSummaries": []
+    },
+    {
+      "id": "industrial",
+      "title": "Industrial Strategy",
+      "summary": "Industrial output by sector, manufacturing trends, and structural economic composition.",
+      "tags": [
+        "industry",
+        "manufacturing",
+        "sectors",
+        "industrial strategy"
+      ],
+      "seriesSummaries": []
+    },
+    {
+      "id": "environment",
+      "title": "Environment & Air Quality",
+      "summary": "Greenhouse gas emissions, PM2.5 and NO2 air quality, and ultra-low emission vehicle uptake.",
+      "tags": [
+        "environment",
+        "emissions",
+        "air quality",
+        "climate",
+        "EVs",
+        "pollution"
+      ],
+      "seriesSummaries": []
+    },
+    {
+      "id": "workforce",
+      "title": "Public Sector Workforce",
+      "summary": "Workforce size and trends in NHS, education, police, and university sectors.",
+      "tags": [
+        "workforce",
+        "public sector",
+        "NHS staff",
+        "teachers",
+        "police",
+        "employment"
+      ],
+      "seriesSummaries": []
+    },
+    {
+      "id": "local-government",
+      "title": "Local Government Finance",
+      "summary": "Council spending by service, funding sources, council tax levels, financial health (section 114 notices, reserves, audit backlog), social care squeeze, core spending power, and workforce trends.",
+      "tags": [
+        "local government",
+        "councils",
+        "council tax",
+        "social care",
+        "section 114",
+        "reserves",
+        "audit",
+        "local authority",
+        "spending",
+        "DLUHC"
+      ],
+      "seriesSummaries": [
+        "Net current expenditure by service area. Adult social care £25.2bn, children's social care £15.6bn in 2024-25. Total excluding education £89.8bn.",
+        "Share of council revenue by source. Council tax rose from 34% (2010-11) to peak 52% (2019-20), settling at 46% (2024-25) as government grants were cut then partially restored.",
+        "Average Band D council tax rose from £1,439 (2010-11) to £2,280 (2025-26), a 58% increase in cash terms.",
+        "Band D council tax varies by area: London £1,982, Metropolitan £2,289, Unitary £2,366, Shire £2,344 (2025-26).",
+        "Seven councils issued section 114 notices between 2018 and 2023: Northamptonshire, Croydon, Slough, Thurrock, Woking, Birmingham, Nottingham.",
+        "Local authority usable reserves rose from £13bn (2010-11) to £31.2bn peak (2021-22), then fell to £27bn (2024-25).",
+        "Outstanding unaudited council accounts peaked at 918 (2022-23), reduced to ~100 after 2024 statutory backstop.",
+        "Council FTE fell from 1,510k (2010) to 970k (2025), a 36% reduction. Excludes police, fire, centrally-funded teachers.",
+        "Social care rose from 42% to 47% of non-education council spending between 2010-11 and 2024-25.",
+        "Real-terms core spending power per person fell 27% from 2010-11 to 2015-16. In 2024-25 it remains 18% below 2010-11 levels."
+      ]
+    },
+    {
+      "id": "money-supply",
+      "title": "Money Supply & Inflation",
+      "summary": "M4 broad money supply, Bank of England quantitative easing (APF holdings and cash flows), CPI inflation, real wage growth, purchasing power erosion, international central bank balance sheet comparison, and nominal vs real government debt.",
+      "tags": [
+        "money supply",
+        "M4",
+        "inflation",
+        "CPI",
+        "quantitative easing",
+        "QE",
+        "APF",
+        "real wages",
+        "purchasing power",
+        "central bank",
+        "Bank of England",
+        "monetary policy"
+      ],
+      "seriesSummaries": [
+        "M4 grew from £867bn (2000) to £3.2tn (2025). M4/GDP ratio rose from 86% to 116%, peaking at 139% in 2020.",
+        "Bank of England gilt purchases peaked at £895bn in January 2022. Reduced to £488bn by end-2025 through quantitative tightening.",
+        "APF transferred £124bn to Treasury between 2012-22, then reversed. OBR estimates lifetime net cost at £134bn.",
+        "CPI averaged close to 2% target from 2000-2020, spiked to 9.1% in 2022, returned to 3.2% in 2025.",
+        "Real wages fell in 6 of 7 years from 2008-14, and again in 2022 (-3.3%). Positive real growth resumed in 2024.",
+        "£1 in 2000 buys approximately 55p of goods in 2025 terms, a 45% erosion in purchasing power.",
+        "PSND rose from £311bn (2000-01) to £2,805bn (2024-25) in nominal terms. In real terms (2000-01 prices), the increase is smaller.",
+        "BoE balance sheet peaked at 44% GDP (2021), BoJ at 137% (2022), ECB at 60% (2022), Fed at 35% (2022). All now contracting."
+      ]
+    },
+    {
+      "id": "borrowing",
+      "title": "Borrowing & Debt",
+      "summary": "UK government borrowing, gilt yields, debt interest, public sector net debt, gilt maturity profile, issuance remit, international debt comparison, and sovereign credit ratings.",
+      "tags": [
+        "borrowing",
+        "debt",
+        "gilts",
+        "yields",
+        "gilt yields",
+        "debt interest",
+        "issuance",
+        "DMO",
+        "OBR",
+        "bonds",
+        "maturity",
+        "credit rating"
+      ],
+      "seriesSummaries": [
+        "Monthly average benchmark gilt yields at 2, 5, 10 and 30-year maturities. 10-year yield rose from 1% in Jan 2022 to 4.89% in Mar 2026.",
+        "Monthly borrowing by financial year. Year to Feb 2026: £125.9bn. Full year 2024-25: £151.8bn.",
+        "Public sector net borrowing in £bn and % of GDP from 1993-94 to 2029-30 (forecast). Peak: 14.7% GDP in 2020-21.",
+        "Central government debt interest payments reached post-war high of £112.1bn (4.3% GDP) in 2022-23 due to index-linked gilt inflation.",
+        "PSND rose from 30% of GDP in 2001-02 to 95.6% in 2024-25. Stabilised in mid-90s range.",
+        "Outstanding gilt portfolio by maturity bucket. Average maturity approximately 14.8 years. 25% index-linked.",
+        "Gross gilt issuance £296.9bn in 2024-25. 2025-26 remit: £299.6bn gross, £164.7bn redemptions.",
+        "General government gross debt as % of GDP. UK at 101.3%, Japan 252.7%, US 123.8%, Germany 62.9%.",
+        "S&P: AA (stable), Moody's: Aa3 (stable), Fitch: AA- (stable)."
+      ]
+    },
+    {
+      "id": "taxation",
+      "title": "Taxation",
+      "summary": "Tax receipts by type, tax burden as % of GDP, tax gap, income tax concentration by percentile, corporation tax rate history, personal allowance thresholds, and international comparisons.",
+      "tags": [
+        "tax",
+        "taxation",
+        "income tax",
+        "NICs",
+        "VAT",
+        "corporation tax",
+        "council tax",
+        "tax burden",
+        "tax gap",
+        "HMRC",
+        "OBR",
+        "OECD"
+      ],
+      "seriesSummaries": [
+        "HMRC collected £858.6bn in 2024-25. Income tax (£310bn), NICs (£174bn), and VAT (£171bn) are the three largest sources.",
+        "UK tax burden at 35.3% of GDP in 2024-25, forecast to reach 38.0% by 2029-30, a post-war high.",
+        "UK at 35.3% compared to OECD average of 33.7%. Ranges from 17.7% (Mexico) to 43.8% (France).",
+        "Estimated at £46.8bn (5.3%) in 2023-24, up from 4.8% in 2021-22. Corporation tax accounts for 40% of the gap.",
+        "Top 1% paid 29.1% of all income tax in 2022-23, up from 21.3% in 1999-2000. Top 10% paid 59.8%.",
+        "Fell from 52% in 1982 to 19% in 2017, raised back to 25% in April 2023.",
+        "Personal allowance frozen at £12,570 since 2021-22, extended to April 2031.",
+        "34.5m income taxpayers in 2024-25. Higher and additional rate taxpayers rising due to threshold freeze."
+      ]
+    },
+    {
+      "id": "housing-supply",
+      "title": "Housebuilding",
+      "summary": "Net additional dwellings, new build completions by tenure (private, housing association, local authority), average new build floor area, and international size comparison.",
+      "tags": [
+        "housing",
+        "housebuilding",
+        "construction",
+        "dwellings",
+        "completions",
+        "new builds"
+      ],
+      "seriesSummaries": [
+        "Total annual increase in housing stock. 208,600 in 2024-25, below the 300,000/yr target. Peak was 243,770 in 2019-20.",
+        "Completions split by private enterprise (80%+), housing associations, and local authorities (~3,000/yr).",
+        "Average internal floor area of new build homes. Declined from 83 sqm in 2003 to 76 sqm in 2023.",
+        "Average new build floor area by country. UK (76 sqm) among the smallest. Australia 229, US 201, Germany 109."
+      ]
+    },
+    {
+      "id": "housing-stock",
+      "title": "Housing Stock",
+      "summary": "Housing stock by period built, dwelling type breakdown, tenure split over time (owner-occupied, private rented, social rented), and EPC energy ratings by dwelling age.",
+      "tags": [
+        "housing",
+        "stock",
+        "tenure",
+        "EPC",
+        "energy performance",
+        "renting",
+        "ownership"
+      ],
+      "seriesSummaries": [
+        "20% of English homes built before 1919. Post-war (1945-1980) makes up 37%.",
+        "Semi-detached (26%) and terraced (25%) dominate. Purpose-built flats at 17%.",
+        "Owner-occupation peaked at 71% in early 2000s, now 65%. Private renting rose from 10% (1990) to 19%.",
+        "Only 2% of pre-1919 homes rated EPC A-B vs 55% of post-2002 homes. 45% of pre-1919 rated E or below."
+      ]
+    },
+    {
+      "id": "housing-density",
+      "title": "Housing Density & Geography",
+      "summary": "Population density by UK city, international city density comparison, and average house prices by region.",
+      "tags": [
+        "housing",
+        "density",
+        "geography",
+        "regional",
+        "prices",
+        "cities",
+        "urban"
+      ],
+      "seriesSummaries": [
+        "London at 5,598/km², other cities 1,500-4,700/km², England average 434/km².",
+        "Paris 20,700/km², Barcelona 15,800/km², London 5,598/km², Berlin 4,100/km².",
+        "London £523k, South East £375k, North East £160k. Approximately 3:1 ratio London to cheapest region."
+      ]
+    },
+    {
+      "id": "safety",
+      "title": "Personal Safety & Crime",
+      "summary": "Violent crime, knife and firearms offences, homicides, sexual offences, domestic abuse, fraud, anti-social behaviour, crime outcomes, reoffending rates, fear of crime, and crime rates by police force area.",
+      "tags": [
+        "crime",
+        "safety",
+        "knife crime",
+        "homicide",
+        "violence",
+        "fraud",
+        "ASB",
+        "police",
+        "reoffending"
+      ],
+      "seriesSummaries": [
+        "Police recorded violent crime. 2,060k offences in 2023-24, up from 846k in 2002-03.",
+        "47,870 offences in 2023-24. Peaked at 49,027 in 2022-23.",
+        "590 homicides in 2023-24, of which 229 involved a knife or sharp instrument.",
+        "193k in 2023-24. Sharp rise from 2014-15 driven by recording practice changes.",
+        "Overall charge rate fell from 16.3% in 2014-15 to 5.5% in 2023-24.",
+        "Cleveland highest (131 per 1,000), Surrey lowest (55). National average 92."
+      ]
+    },
+    {
+      "id": "mental-health",
+      "title": "Mental Health",
+      "summary": "NHS talking therapies referrals and recovery rates, children and young people mental health service access, Mental Health Act detentions, suicide rates, and psychiatric morbidity prevalence.",
+      "tags": [
+        "mental health",
+        "IAPT",
+        "talking therapies",
+        "suicide",
+        "CAMHS",
+        "detention",
+        "psychiatric"
+      ],
+      "seriesSummaries": []
+    },
+    {
+      "id": "nhs-funding",
+      "title": "NHS Funding",
+      "summary": "NHS budget in real terms, spending per capita, international health expenditure comparison (OECD), spending by category (staff, capital, other), and capital spending trends including backlog maintenance.",
+      "tags": [
+        "NHS",
+        "funding",
+        "spending",
+        "health expenditure",
+        "OECD",
+        "capital",
+        "staff costs",
+        "budget"
+      ],
+      "seriesSummaries": []
+    },
+    {
+      "id": "childrens-social-care",
+      "title": "Children's Social Care",
+      "summary": "Children looked after numbers and rates, foster carer supply, social worker caseloads and vacancies, referrals and child protection plans, spending, care leaver outcomes, and placement types.",
+      "tags": [
+        "children",
+        "social care",
+        "looked after children",
+        "foster care",
+        "child protection",
+        "social workers",
+        "care leavers",
+        "residential care"
+      ],
+      "seriesSummaries": [
+        "83,630 children in care in England in 2024, rate of 70 per 10,000. Risen 30% since 2010.",
+        "56,345 approved mainstream foster carers as at March 2025, down 12% from 63,890 in 2021.",
+        "4,430 new foster households approved in 2024-25, 4,690 deregistered. Net loss of 260 households.",
+        "Average caseload 15.4 per worker in 2024, vacancy rate 18.0%, agency rate 15.8%.",
+        "621,880 referrals in 2023-24, 224,990 Section 47 enquiries, 49,960 children on protection plans.",
+        "Total spending rose from £7.4bn in 2010-11 to £14.2bn in 2024-25. Per child in care: £72,000.",
+        "54% of care leavers aged 19-21 in EET in 2024, vs ~85% of all young people. 89% in suitable accommodation.",
+        "67% in foster care, 10% in children's homes, 7% in supported accommodation, 6% placed with parents."
+      ]
+    },
+    {
+      "id": "adult-social-care",
+      "title": "Adult Social Care",
+      "summary": "Requests for support, long-term care recipients, spending trends, workforce vacancies and turnover, care worker pay, CQC provider ratings, unpaid carers, and self-funders.",
+      "tags": [
+        "adult social care",
+        "care homes",
+        "domiciliary care",
+        "workforce",
+        "vacancies",
+        "CQC",
+        "unpaid carers",
+        "self-funders",
+        "pay"
+      ],
+      "seriesSummaries": [
+        "2.02 million new requests for adult social care support in 2024-25, up from 1.80 million in 2015-16.",
+        "672,000 people receiving long-term support as at March 2025. Working-age adults rising, over-65s fell then recovered.",
+        "Net expenditure rose from £17.1bn in 2010-11 to £27.6bn in 2024-25. Declined in real terms 2010-15, then recovered.",
+        "1.60 million filled posts in 2024-25. Vacancy rate fell to 5.9% from 10.6% peak in 2021-22. Turnover 24%.",
+        "Median care worker pay £12.60/hr in December 2025, just 39p above the National Living Wage of £12.21.",
+        "82% of adult social care providers rated Good or Outstanding in 2024. 16% Requires Improvement, 1% Inadequate.",
+        "4.7 million unpaid carers in England (Census 2021). 1.4 million provide 50+ hours per week.",
+        "37% of care home residents self-fund, 26% of community care users. Self-funders pay ~40% more than publicly funded clients."
+      ]
+    }
+  ]
+}

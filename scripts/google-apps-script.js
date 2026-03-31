@@ -24,6 +24,13 @@ var SHEET_NAME = "Contributions";
 var EMAIL = "jackaspinall1@gmail.com";
 var DRIVE_FOLDER_NAME = "StateOfBritain Contributions";
 
+// ── Ask the Data config ────────────────────────────────────────────
+var SITE_BASE = "https://stateofbritain.uk";
+var ENRICHMENT_SUMMARY_URL = SITE_BASE + "/data/enrichment-summary.json";
+var GEMINI_MODEL = "gemini-2.5-flash";
+var MAX_REQUESTS_PER_HOUR = 10;
+var MAX_REQUESTS_PER_DAY = 30;
+
 function doPost(e) {
   try {
     var data = JSON.parse(e.postData.contents);
@@ -35,6 +42,11 @@ function doPost(e) {
       sheet.appendRow([
         "Timestamp", "Type", "Name", "Email", "Recognition", "Message", "File Link"
       ]);
+    }
+
+    // ── Ask the Data ────────────────────────────────────────
+    if (data.type === "ask") {
+      return handleAsk(data.question || "");
     }
 
     // ── Deletion request ────────────────────────────────────
@@ -107,4 +119,156 @@ function getOrCreateFolder(name) {
   var folders = DriveApp.getFoldersByName(name);
   if (folders.hasNext()) return folders.next();
   return DriveApp.createFolder(name);
+}
+
+// ── Ask the Data ─────────────────────────────────────────────────
+
+function handleAsk(question) {
+  // Kill switch: set ASK_ENABLED to "false" in Script Properties to disable
+  var enabled = PropertiesService.getScriptProperties().getProperty("ASK_ENABLED");
+  if (enabled === "false") {
+    return jsonResponse({ error: "Ask the Data is temporarily unavailable." });
+  }
+
+  question = (question || "").trim();
+  if (!question) {
+    return jsonResponse({ error: "No question provided" });
+  }
+
+  // Rate limiting via CacheService
+  var cache = CacheService.getScriptCache();
+
+  // Daily cap (resets every 24h)
+  var dailyKey = "ask_daily";
+  var dailyCount = parseInt(cache.get(dailyKey) || "0", 10);
+  if (dailyCount >= MAX_REQUESTS_PER_DAY) {
+    return jsonResponse({
+      error: "Daily question limit reached. This feature resets each day."
+    });
+  }
+
+  // Hourly rate limit
+  var rateLimitKey = "ask_count";
+  var count = parseInt(cache.get(rateLimitKey) || "0", 10);
+  if (count >= MAX_REQUESTS_PER_HOUR) {
+    return jsonResponse({
+      error: "This feature has limited capacity. Please try again shortly."
+    });
+  }
+  cache.put(rateLimitKey, String(count + 1), 3600);
+  cache.put(dailyKey, String(dailyCount + 1), 86400);
+
+  // Check answer cache
+  var questionKey = "ask_" + Utilities.computeDigest(
+    Utilities.DigestAlgorithm.SHA_256,
+    question.toLowerCase()
+  ).map(function(b) { return (b + 256) % 256; }).join("");
+  var cached = cache.get(questionKey);
+  if (cached) {
+    return jsonResponse({ answer: cached, cached: true });
+  }
+
+  // Pass 1: Route — identify relevant datasets
+  var catalog = UrlFetchApp.fetch(ENRICHMENT_SUMMARY_URL).getContentText();
+
+  var routingPrompt = "You are a dataset router for a UK statistics site called State of Britain.\n\n"
+    + "Given the dataset catalog below, identify which 1-3 datasets are most relevant to the user's question. "
+    + "Return ONLY a JSON array of dataset IDs, nothing else. Example: [\"nhs-waiting\", \"health-outcomes\"]\n\n"
+    + "If the question cannot be answered by any dataset, return an empty array: []\n\n"
+    + "CATALOG:\n" + catalog + "\n\n"
+    + "QUESTION: " + question;
+
+  var routingResult = callGemini(routingPrompt);
+
+  // Parse dataset IDs from response
+  var datasetIds;
+  try {
+    var match = routingResult.match(/\[[\s\S]*?\]/);
+    datasetIds = match ? JSON.parse(match[0]) : [];
+  } catch (e) {
+    datasetIds = [];
+  }
+
+  if (datasetIds.length === 0) {
+    var noDataAnswer = "I don't have data on that topic. State of Britain covers UK public services, economy, and society "
+      + "with datasets on healthcare, education, housing, defence, spending, taxation, and more. Try asking about one of these areas.";
+    cache.put(questionKey, noDataAnswer, 21600);
+    return jsonResponse({ answer: noDataAnswer, datasets: [] });
+  }
+
+  // Pass 2: Answer — fetch datasets and generate response
+  var dataTexts = [];
+  var datasetNames = [];
+  for (var i = 0; i < datasetIds.length && i < 3; i++) {
+    try {
+      var url = SITE_BASE + "/api/data/" + datasetIds[i] + ".json";
+      var dataText = UrlFetchApp.fetch(url).getContentText();
+      dataTexts.push(dataText);
+      datasetNames.push(datasetIds[i]);
+    } catch (e) {
+      // Skip datasets that fail to fetch
+    }
+  }
+
+  if (dataTexts.length === 0) {
+    return jsonResponse({ answer: "Sorry, I was unable to retrieve the relevant data. Please try again.", datasets: [] });
+  }
+
+  var answerPrompt = EDITORIAL_SYSTEM_PROMPT
+    + "\n\nDATA:\n" + dataTexts.join("\n\n---\n\n")
+    + "\n\nQUESTION: " + question;
+
+  var answer = callGemini(answerPrompt);
+
+  // Cache for 6 hours
+  try {
+    cache.put(questionKey, answer, 21600);
+  } catch (e) {
+    // Cache value too large, skip caching
+  }
+
+  return jsonResponse({ answer: answer, datasets: datasetNames });
+}
+
+var EDITORIAL_SYSTEM_PROMPT = "You are a data lookup tool for State of Britain, a site presenting official UK government statistics.\n\n"
+  + "RULES:\n"
+  + "- Answer the question using ONLY the data provided below. Never invent or assume numbers.\n"
+  + "- Cite the specific time period and geography for every number you mention.\n"
+  + "- If the data does not cover the question, say so explicitly.\n"
+  + "- Be neutral and factual. Never editorialise: avoid words like crisis, soaring, collapsed, plummeted, broken, dramatic.\n"
+  + "- Present trade-offs symmetrically, showing both sides.\n"
+  + "- If data is estimated or methodology changed, note the caveat.\n"
+  + "- Keep answers to 2-4 sentences unless the question clearly warrants more detail.\n"
+  + "- Use plain language suitable for a general audience.\n"
+  + "- Format numbers with commas for thousands (e.g. 1,234,567).\n"
+  + "- When referencing percentage changes, state both the start and end values.";
+
+function callGemini(prompt) {
+  var key = PropertiesService.getScriptProperties().getProperty("GEMINI_KEY");
+  if (!key) throw new Error("GEMINI_KEY not set in Script Properties");
+
+  var url = "https://generativelanguage.googleapis.com/v1beta/models/"
+    + GEMINI_MODEL + ":generateContent?key=" + key;
+
+  var payload = {
+    contents: [{ parts: [{ text: prompt }] }],
+    generationConfig: { temperature: 0.2, maxOutputTokens: 1024 }
+  };
+
+  var response = UrlFetchApp.fetch(url, {
+    method: "post",
+    contentType: "application/json",
+    payload: JSON.stringify(payload),
+    muteHttpExceptions: true
+  });
+
+  var json = JSON.parse(response.getContentText());
+  if (json.error) throw new Error(json.error.message);
+  return json.candidates[0].content.parts[0].text;
+}
+
+function jsonResponse(obj) {
+  return ContentService
+    .createTextOutput(JSON.stringify(obj))
+    .setMimeType(ContentService.MimeType.JSON);
 }
