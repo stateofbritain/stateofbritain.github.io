@@ -424,8 +424,8 @@ local-government:
 money-supply:
   title: "Money Supply & Inflation"
   geography: "United Kingdom"
-  summary: "M4 broad money supply, Bank of England quantitative easing (APF holdings and cash flows), CPI inflation, real wage growth, purchasing power erosion, international central bank balance sheet comparison, nominal vs real government debt, mortgage approvals, and cash ISA deposits."
-  tags: [money supply, M4, inflation, CPI, quantitative easing, QE, APF, real wages, purchasing power, central bank, Bank of England, monetary policy, mortgages, ISA, savings]
+  summary: "M4 broad money supply, Bank of England quantitative easing (APF holdings and cash flows), CPI inflation, real wage growth, purchasing power erosion, international central bank balance sheet comparison, nominal vs real government debt, mortgage approvals, cash ISA deposits, consumer credit, credit card lending, and effective mortgage interest rates."
+  tags: [money supply, M4, inflation, CPI, quantitative easing, QE, APF, real wages, purchasing power, central bank, Bank of England, monetary policy, mortgages, ISA, savings, consumer credit, credit cards, interest rates, household debt]
   series:
     m4ToGdp:
       title: "M4 Money Supply and GDP"
@@ -467,6 +467,18 @@ money-supply:
       title: "Cash ISA Deposits Outstanding"
       summary: "Household cash ISA balances rose from £9.5bn (2000) to £458bn (Feb 2026). Accelerated from 2022 as interest rates rose."
       unit: "£m"
+    consumerCredit:
+      title: "Consumer Credit Outstanding"
+      summary: "Total unsecured lending to individuals (credit cards, personal loans, car finance, overdrafts). Rose from £84bn (2000) to £137bn (Feb 2026)."
+      unit: "£m"
+    creditCardLending:
+      title: "Credit Card Lending Outstanding"
+      summary: "Outstanding credit card debt held by UK individuals. Grew from £32bn (2000) to £80bn (Feb 2026)."
+      unit: "£m"
+    mortgageRate:
+      title: "Effective Interest Rate on New Mortgage Lending"
+      summary: "Average rate paid by new mortgage borrowers, weighted by loan value. Fell from 7% (2000) to below 2% (2021), rose to 5% (2023), now around 4%."
+      unit: "%"
 
 borrowing:
   title: "Borrowing & Debt"
