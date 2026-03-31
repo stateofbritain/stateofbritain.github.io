@@ -28,7 +28,7 @@ var DRIVE_FOLDER_NAME = "StateOfBritain Contributions";
 var SITE_BASE = "https://stateofbritain.uk";
 var ENRICHMENT_SUMMARY_URL = SITE_BASE + "/data/enrichment-summary.json";
 var GEMINI_MODEL = "gemini-2.5-flash";
-var MAX_REQUESTS_PER_HOUR = 10;
+var MAX_REQUESTS_PER_HOUR = 20;
 var MAX_REQUESTS_PER_DAY = 50;
 
 function doPost(e) {
@@ -168,16 +168,27 @@ function handleAsk(question) {
     return jsonResponse({ answer: cached, cached: true });
   }
 
-  // Pass 1: Route — identify relevant datasets
-  var catalog = UrlFetchApp.fetch(ENRICHMENT_SUMMARY_URL).getContentText();
+  // Fetch catalog (cached in Apps Script for 6 hours)
+  var catalogKey = "enrichment_catalog";
+  var catalog = cache.get(catalogKey);
+  if (!catalog) {
+    catalog = UrlFetchApp.fetch(ENRICHMENT_SUMMARY_URL).getContentText();
+    cache.put(catalogKey, catalog, 21600);
+  }
 
-  var routingPrompt = "You are a dataset router for a UK statistics site called State of Britain.\n\n"
-    + "Given the dataset catalog below, identify which 1-3 datasets are most relevant to the user's question. "
-    + "Also classify the question depth:\n"
-    + "- \"latest\": the user wants a current/recent value (e.g. \"How many GPs are there?\", \"What is the waiting list?\")\n"
-    + "- \"trend\": the user wants to see change over time or compare periods (e.g. \"How has X changed since 2010?\", \"What's the trend?\")\n\n"
-    + "Return ONLY a JSON object like: {\"datasets\": [\"nhs-waiting\"], \"depth\": \"latest\"}\n"
-    + "If no dataset is relevant, return: {\"datasets\": [], \"depth\": \"latest\"}\n\n"
+  // Pass 1: Route + attempt quick answer from catalog summaries
+  var routingPrompt = "You are a data lookup tool for a UK statistics site called State of Britain.\n\n"
+    + "Given the dataset catalog below (which includes summary statistics), do TWO things:\n\n"
+    + "1. Identify which 1-3 datasets are most relevant.\n"
+    + "2. Classify the question:\n"
+    + "   - \"quick\": you can answer confidently from the catalog summaries alone\n"
+    + "   - \"latest\": needs the latest data point but not full history\n"
+    + "   - \"trend\": needs full time series data\n\n"
+    + "If \"quick\", also include your answer (neutral, factual, cite time period and geography).\n\n"
+    + "Return ONLY JSON:\n"
+    + "  Quick: {\"datasets\": [\"family\"], \"depth\": \"quick\", \"answer\": \"The UK TFR was 1.41 in 2024...\"}\n"
+    + "  Needs data: {\"datasets\": [\"nhs-waiting\"], \"depth\": \"latest\"}\n"
+    + "  No match: {\"datasets\": [], \"depth\": \"quick\", \"answer\": \"I don't have data on that topic.\"}\n\n"
     + "CATALOG:\n" + catalog + "\n\n"
     + "QUESTION: " + question;
 
@@ -185,20 +196,27 @@ function handleAsk(question) {
 
   // Parse routing response
   var datasetIds = [];
-  var depth = "trend"; // default to full data
+  var depth = "trend";
+  var quickAnswer = null;
   try {
-    var jsonMatch = routingResult.match(/\{[\s\S]*?\}/);
+    var jsonMatch = routingResult.match(/\{[\s\S]*\}/);
     if (jsonMatch) {
       var parsed = JSON.parse(jsonMatch[0]);
       datasetIds = parsed.datasets || [];
       depth = parsed.depth || "trend";
-    } else {
-      // Fallback: try old array format
-      var arrMatch = routingResult.match(/\[[\s\S]*?\]/);
-      datasetIds = arrMatch ? JSON.parse(arrMatch[0]) : [];
+      quickAnswer = parsed.answer || null;
     }
   } catch (e) {
     datasetIds = [];
+  }
+
+  // Quick answer — single Gemini call, no data fetch needed
+  if (depth === "quick" && quickAnswer) {
+    var answer = quickAnswer;
+    var datasetNames = datasetIds;
+    try { cache.put(questionKey, answer, 21600); } catch (e) {}
+    logQuestion(question, depth, datasetNames, false);
+    return jsonResponse({ answer: answer, datasets: datasetNames });
   }
 
   if (datasetIds.length === 0) {
@@ -245,25 +263,7 @@ function handleAsk(question) {
     // Cache value too large, skip caching
   }
 
-  // Log question anonymously for optimisation
-  try {
-    var ss = SpreadsheetApp.getActiveSpreadsheet();
-    var logSheet = ss.getSheetByName("Ask Log");
-    if (!logSheet) {
-      logSheet = ss.insertSheet("Ask Log");
-      logSheet.appendRow(["Timestamp", "Question", "Depth", "Datasets", "Cached"]);
-    }
-    logSheet.appendRow([
-      new Date().toISOString(),
-      question,
-      depth,
-      datasetNames.join(", "),
-      "no"
-    ]);
-  } catch (e) {
-    // Non-critical, don't fail the response
-  }
-
+  logQuestion(question, depth, datasetNames, false);
   return jsonResponse({ answer: answer, datasets: datasetNames });
 }
 
@@ -302,6 +302,26 @@ function callGemini(prompt) {
   var json = JSON.parse(response.getContentText());
   if (json.error) throw new Error(json.error.message);
   return json.candidates[0].content.parts[0].text;
+}
+
+function logQuestion(question, depth, datasets, cached) {
+  try {
+    var ss = SpreadsheetApp.getActiveSpreadsheet();
+    var logSheet = ss.getSheetByName("Ask Log");
+    if (!logSheet) {
+      logSheet = ss.insertSheet("Ask Log");
+      logSheet.appendRow(["Timestamp", "Question", "Depth", "Datasets", "Cached"]);
+    }
+    logSheet.appendRow([
+      new Date().toISOString(),
+      question,
+      depth,
+      (datasets || []).join(", "),
+      cached ? "yes" : "no"
+    ]);
+  } catch (e) {
+    // Non-critical
+  }
 }
 
 function trimToLatest(dataText) {

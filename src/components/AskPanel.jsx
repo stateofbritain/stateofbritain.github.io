@@ -3,11 +3,53 @@ import P from "../theme/palette";
 
 const SCRIPT_URL ="https://script.google.com/macros/s/AKfycbxe0o8gieqssvL8X7nH-TDtILq62-9f7HUGtWtCt0fl_GwRrSrRKIM6QsKmAEbAajEU2Q/exec";
 
+// Map dataset IDs to site pages (first/primary page for each)
+const DATASET_ROUTES = {
+  "gp-access": { path: "/foundations/healthcare/gp", label: "General Practice" },
+  "nhs-waiting": { path: "/foundations/healthcare/waiting", label: "NHS Waiting Lists" },
+  "nhs-workforce": { path: "/foundations/healthcare/workforce", label: "NHS Workforce" },
+  "nhs-funding": { path: "/foundations/healthcare/funding", label: "NHS Funding" },
+  "health-outcomes": { path: "/foundations/healthcare/outcomes", label: "Health Outcomes" },
+  "mental-health": { path: "/foundations/healthcare/mental", label: "Mental Health" },
+  "hospital-capacity": { path: "/foundations/healthcare/capacity", label: "Hospital Capacity" },
+  "family": { path: "/foundations/family", label: "Family & Fertility" },
+  "housing-stock": { path: "/foundations/housing/stock", label: "Housing Stock" },
+  "housing-supply": { path: "/foundations/housing/supply", label: "Housebuilding" },
+  "housing-prices": { path: "/foundations/housing/prices", label: "Housing Prices" },
+  "housing-density": { path: "/foundations/housing/density", label: "Housing Density" },
+  "safety": { path: "/foundations/safety", label: "Personal Safety" },
+  "cpih": { path: "/foundations/food", label: "Food & Cost of Living" },
+  "energy": { path: "/foundations/energy/overview", label: "Energy" },
+  "water": { path: "/foundations/water/performance", label: "Water Industry" },
+  "reservoirs": { path: "/foundations/water/reservoirs", label: "Reservoirs" },
+  "environment": { path: "/foundations/environment", label: "Environment" },
+  "childrens-social-care": { path: "/foundations/socialCare/children", label: "Children's Social Care" },
+  "adult-social-care": { path: "/foundations/socialCare/adults", label: "Adult Social Care" },
+  "jobs": { path: "/growth/jobs/overview", label: "Jobs & Employment" },
+  "startups": { path: "/growth/startups", label: "Startups" },
+  "research": { path: "/growth/research", label: "Research & Development" },
+  "productivity": { path: "/growth/productivity", label: "Productivity" },
+  "workforce": { path: "/growth/pq", label: "Public Sector Workforce" },
+  "investment": { path: "/growth/investment", label: "Investment" },
+  "infrastructure": { path: "/growth/infrastructure", label: "Infrastructure" },
+  "industrial": { path: "/growth/industrial", label: "Industrial Production" },
+  "education": { path: "/growth/education", label: "Education" },
+  "justice": { path: "/state/justice", label: "Justice & Crime" },
+  "defence": { path: "/state/defence/spending", label: "Defence" },
+  "immigration": { path: "/state/immigration", label: "Immigration" },
+  "taxation": { path: "/spending/spending/taxation", label: "Taxation" },
+  "borrowing": { path: "/spending/spending/borrowing", label: "Borrowing & Debt" },
+  "money-supply": { path: "/spending/spending/moneySupply", label: "Money Supply" },
+  "local-government": { path: "/spending/spending/localGov", label: "Local Government" },
+  "spending": { path: "/spending/spending/overview", label: "Government Spending" },
+};
+
 export default function AskPanel({ open, onClose, isMobile }) {
   const [question, setQuestion] = useState("");
   const [status, setStatus] = useState("idle"); // idle | loading | answer | error
   const [answer, setAnswer] = useState("");
   const [datasets, setDatasets] = useState([]);
+  const [loadingStep, setLoadingStep] = useState(0);
   const inputRef = useRef(null);
   const panelRef = useRef(null);
   const cacheRef = useRef(new Map());
@@ -57,8 +99,13 @@ export default function AskPanel({ open, onClose, isMobile }) {
       }
 
       setStatus("loading");
+      setLoadingStep(0);
       setAnswer("");
       setDatasets([]);
+
+      // Animate loading steps
+      const step1 = setTimeout(() => setLoadingStep(1), 1200);
+      const step2 = setTimeout(() => setLoadingStep(2), 3000);
 
       try {
         const res = await fetch(SCRIPT_URL, {
@@ -66,6 +113,9 @@ export default function AskPanel({ open, onClose, isMobile }) {
           body: JSON.stringify({ type: "ask", question: q }),
         });
         const data = await res.json();
+
+        clearTimeout(step1);
+        clearTimeout(step2);
 
         if (data.error || data.status === "error") {
           setAnswer(data.error || data.message || "Something went wrong.");
@@ -83,6 +133,8 @@ export default function AskPanel({ open, onClose, isMobile }) {
           datasets: data.datasets,
         });
       } catch (err) {
+        clearTimeout(step1);
+        clearTimeout(step2);
         setAnswer(
           "Unable to reach the server. Please check your connection and try again."
         );
@@ -254,27 +306,43 @@ export default function AskPanel({ open, onClose, isMobile }) {
           </button>
         </form>
 
-        {/* Loading state */}
+        {/* Loading state — stepped narrative */}
         {status === "loading" && (
-          <div
-            style={{
-              padding: "20px 0",
-              textAlign: "center",
-            }}
-          >
+          <div style={{ padding: "16px 0" }}>
+            {[
+              "Searching 34 datasets...",
+              "Identifying relevant sources...",
+              "Reading the data...",
+            ].map((step, i) => (
+              <div
+                key={i}
+                style={{
+                  fontSize: "12px",
+                  fontFamily: "'DM Mono', monospace",
+                  fontWeight: 300,
+                  color: loadingStep >= i ? P.textMuted : P.border,
+                  marginBottom: 8,
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 8,
+                  transition: "color 0.3s",
+                }}
+              >
+                <span style={{
+                  display: "inline-block",
+                  width: 6,
+                  height: 6,
+                  borderRadius: "50%",
+                  background: loadingStep > i ? P.teal : loadingStep === i ? P.navy : P.border,
+                  transition: "background 0.3s",
+                  flexShrink: 0,
+                }} />
+                {step}
+              </div>
+            ))}
             <div
               style={{
-                fontSize: "12px",
-                color: P.textMuted,
-                fontFamily: "'DM Mono', monospace",
-                fontWeight: 300,
-              }}
-            >
-              Looking through 34 datasets...
-            </div>
-            <div
-              style={{
-                marginTop: 12,
+                marginTop: 8,
                 height: 2,
                 background: P.border,
                 borderRadius: 1,
@@ -331,12 +399,28 @@ export default function AskPanel({ open, onClose, isMobile }) {
                 }}
               >
                 Sources:{" "}
-                {datasets.map((d, i) => (
-                  <span key={d}>
-                    {i > 0 && ", "}
-                    {d}
-                  </span>
-                ))}
+                {datasets.map((d, i) => {
+                  const route = DATASET_ROUTES[d];
+                  return (
+                    <span key={d}>
+                      {i > 0 && ", "}
+                      {route ? (
+                        <a
+                          href={route.path}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            onClose();
+                            window.history.pushState(null, "", route.path);
+                            window.dispatchEvent(new PopStateEvent("popstate"));
+                          }}
+                          style={{ color: P.teal, textDecoration: "underline" }}
+                        >
+                          {route.label}
+                        </a>
+                      ) : d}
+                    </span>
+                  );
+                })}
               </div>
             )}
           </div>
