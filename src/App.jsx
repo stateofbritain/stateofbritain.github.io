@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import Landing from "./pillars/Landing";
 import DataPage from "./pillars/DataPage";
 import About from "./pillars/About";
+import Contribute from "./pillars/Contribute";
 import Placeholder from "./pillars/Placeholder";
 import SpendingOverview from "./pillars/state/SpendingOverview";
 import HousingPrices from "./pillars/foundations/HousingPrices";
@@ -171,6 +172,7 @@ export default function App() {
     const base = "State of Britain";
     if (pillar === "data") document.title = `Data & API — ${base}`;
     else if (pillar === "about") document.title = `About — ${base}`;
+    else if (pillar === "contribute") document.title = `Contribute — ${base}`;
     else if (subtopicConfig && topicConfig) document.title = `${subtopicConfig.label} — ${topicConfig.label} — ${base}`;
     else if (topicConfig) document.title = `${topicConfig.label} — ${base}`;
     else if (pillarConfig) document.title = `${pillarConfig.label} — ${base}`;
@@ -198,6 +200,8 @@ export default function App() {
           <DataPage />
         ) : pillar === "about" ? (
           <About />
+        ) : pillar === "contribute" ? (
+          <Contribute />
         ) : !activePillar ? (
           <Landing
             onNavigate={(p) => {

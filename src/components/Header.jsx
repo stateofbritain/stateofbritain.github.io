@@ -44,8 +44,28 @@ export default function Header({ onHome, onNavigate, isMobile }) {
         >
           The state of the state
         </span>
-        <div style={{ marginLeft: "auto" }}>
+        <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 10 }}>
           <Search onNavigate={onNavigate} isMobile={isMobile} />
+          <a
+            href="/contribute"
+            onClick={(e) => {
+              e.preventDefault();
+              window.history.pushState(null, "", "/contribute");
+              window.dispatchEvent(new PopStateEvent("popstate"));
+            }}
+            style={{
+              fontSize: "11px",
+              fontFamily: "'DM Mono', monospace",
+              fontWeight: 500,
+              color: P.teal,
+              textDecoration: "none",
+              letterSpacing: "0.06em",
+              textTransform: "uppercase",
+              whiteSpace: "nowrap",
+            }}
+          >
+            Contribute
+          </a>
         </div>
       </div>
       <p

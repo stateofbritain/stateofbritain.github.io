@@ -54,6 +54,18 @@ export default function Footer() {
         >
           About
         </a>
+        {" "}&middot;{" "}
+        <a
+          href="/contribute"
+          onClick={(e) => {
+            e.preventDefault();
+            window.history.pushState(null, "", "/contribute");
+            window.dispatchEvent(new PopStateEvent("popstate"));
+          }}
+          style={{ color: P.textLight, textDecoration: "underline" }}
+        >
+          Contribute
+        </a>
       </div>
     </footer>
   );

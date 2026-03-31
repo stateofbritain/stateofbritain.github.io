@@ -122,6 +122,66 @@ export default function Landing({ onNavigate }) {
           );
         })}
       </div>
+
+      {/* ── Contribute callout ─────────────────────────────── */}
+      <div
+        onClick={() => {
+          window.history.pushState(null, "", "/contribute");
+          window.dispatchEvent(new PopStateEvent("popstate"));
+        }}
+        style={{
+          background: P.bgCard,
+          border: `1px solid ${P.border}`,
+          borderLeft: `3px solid ${P.teal}`,
+          borderRadius: 3,
+          padding: isMobile ? "16px 16px" : "20px 24px",
+          marginBottom: 40,
+          cursor: "pointer",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: 16,
+          transition: "box-shadow 0.2s",
+          boxShadow: "0 1px 6px rgba(28,43,69,0.05)",
+          animation: "fadeSlideIn 0.5s ease 0.6s both",
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.boxShadow = "0 4px 20px rgba(28,43,69,0.1)";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.boxShadow = "0 1px 6px rgba(28,43,69,0.05)";
+        }}
+      >
+        <div>
+          <h3 style={{
+            fontFamily: "'Playfair Display', serif",
+            fontSize: "16px",
+            fontWeight: 600,
+            color: P.text,
+            margin: "0 0 4px",
+          }}>
+            Contribute
+          </h3>
+          <p style={{
+            fontSize: "13px",
+            color: P.textMuted,
+            fontFamily: "'DM Mono', monospace",
+            fontWeight: 300,
+            margin: 0,
+            lineHeight: 1.5,
+          }}>
+            Data sources, corrections, or observations from the ground. This site grows with community input.
+          </p>
+        </div>
+        <span style={{
+          fontSize: "18px",
+          color: P.teal,
+          fontFamily: "'DM Mono', monospace",
+          flexShrink: 0,
+        }}>
+          &rarr;
+        </span>
+      </div>
     </div>
   );
 }
