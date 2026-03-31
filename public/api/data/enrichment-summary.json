@@ -2,6 +2,30 @@
   "generated": "2026-03-31",
   "datasets": [
     {
+      "id": "culture",
+      "title": "Culture & Religion",
+      "summary": "Religious affiliation from the Census (2001, 2011, 2021). Christianity declined from 71.7% to 46.2%, while 'no religion' rose from 14.8% to 37.2%. No census has been conducted since March 2021.",
+      "tags": [
+        "religion",
+        "faith",
+        "Christianity",
+        "Islam",
+        "Muslim",
+        "Hindu",
+        "Sikh",
+        "Jewish",
+        "Buddhist",
+        "census",
+        "culture",
+        "secularism",
+        "no religion"
+      ],
+      "seriesSummaries": [
+        "Share of population by religion across three census years. Christian fell from 71.7% (2001) to 46.2% (2021). No religion rose from 14.8% to 37.2%.",
+        "Population by religion in millions. Christians fell from 37.3M (2001) to 27.5M (2021). Those reporting no religion rose from 7.7M to 22.2M."
+      ]
+    },
+    {
       "id": "family",
       "title": "Family, Fertility & Households",
       "summary": "Birth rates, fertility by parity, mean age of motherhood, family structure, and household composition. Covers 1960 to present.",
@@ -412,7 +436,7 @@
     {
       "id": "money-supply",
       "title": "Money Supply & Inflation",
-      "summary": "M4 broad money supply, Bank of England quantitative easing (APF holdings and cash flows), CPI inflation, real wage growth, purchasing power erosion, international central bank balance sheet comparison, nominal vs real government debt, mortgage approvals, and cash ISA deposits.",
+      "summary": "M4 broad money supply, Bank of England quantitative easing (APF holdings and cash flows), CPI inflation, real wage growth, purchasing power erosion, international central bank balance sheet comparison, nominal vs real government debt, mortgage approvals, cash ISA deposits, consumer credit, credit card lending, and effective mortgage interest rates.",
       "tags": [
         "money supply",
         "M4",
@@ -428,7 +452,11 @@
         "monetary policy",
         "mortgages",
         "ISA",
-        "savings"
+        "savings",
+        "consumer credit",
+        "credit cards",
+        "interest rates",
+        "household debt"
       ],
       "seriesSummaries": [
         "M4 grew from £867bn (2000) to £3.2tn (2025). M4/GDP ratio rose from 86% to 116%, peaking at 139% in 2020.",
@@ -440,7 +468,10 @@
         "PSND rose from £311bn (2000-01) to £2,805bn (2024-25) in nominal terms. In real terms (2000-01 prices), the increase is smaller.",
         "BoE balance sheet peaked at 44% GDP (2021), BoJ at 137% (2022), ECB at 60% (2022), Fed at 35% (2022). All now contracting.",
         "Monthly mortgage approvals (SA). Peaked at ~133k/month (2003), crashed to ~26k during GFC, ~9k during COVID, currently ~62k. A leading indicator of housing market activity.",
-        "Household cash ISA balances rose from £9.5bn (2000) to £458bn (Feb 2026). Accelerated from 2022 as interest rates rose."
+        "Household cash ISA balances rose from £9.5bn (2000) to £458bn (Feb 2026). Accelerated from 2022 as interest rates rose.",
+        "Total unsecured lending to individuals (credit cards, personal loans, car finance, overdrafts). Rose from £84bn (2000) to £137bn (Feb 2026).",
+        "Outstanding credit card debt held by UK individuals. Grew from £32bn (2000) to £80bn (Feb 2026).",
+        "Average rate paid by new mortgage borrowers, weighted by loan value. Fell from 7% (2000) to below 2% (2021), rose to 5% (2023), now around 4%."
       ]
     },
     {
