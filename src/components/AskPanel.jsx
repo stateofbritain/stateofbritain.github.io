@@ -289,7 +289,7 @@ export default function AskPanel({ open, onClose, isMobile }) {
         {status === "loading" && (
           <div style={{ padding: "16px 0" }}>
             {[
-              "Searching 34 datasets...",
+              "Locating datasets...",
               "Identifying relevant sources...",
               "Reading the data...",
             ].map((step, i) => (
