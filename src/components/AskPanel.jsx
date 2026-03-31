@@ -23,6 +23,7 @@ const DATASET_ROUTES = {
   "water": { path: "/foundations/water/performance", label: "Water Industry" },
   "reservoirs": { path: "/foundations/water/reservoirs", label: "Reservoirs" },
   "environment": { path: "/foundations/environment", label: "Environment" },
+  "culture": { path: "/foundations/culture", label: "Culture & Religion" },
   "childrens-social-care": { path: "/foundations/socialCare/children", label: "Children's Social Care" },
   "adult-social-care": { path: "/foundations/socialCare/adults", label: "Adult Social Care" },
   "jobs": { path: "/growth/jobs/overview", label: "Jobs & Employment" },

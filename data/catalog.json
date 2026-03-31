@@ -651,6 +651,110 @@
       }
     },
     {
+      "id": "culture",
+      "title": "Culture & Religion",
+      "pillar": "foundations",
+      "geography": "England & Wales",
+      "summary": "Religious affiliation from the Census (2001, 2011, 2021). Christianity declined from 71.7% to 46.2%, while 'no religion' rose from 14.8% to 37.2%. No census has been conducted since March 2021.",
+      "tags": [
+        "religion",
+        "faith",
+        "Christianity",
+        "Islam",
+        "Muslim",
+        "Hindu",
+        "Sikh",
+        "Jewish",
+        "Buddhist",
+        "census",
+        "culture",
+        "secularism",
+        "no religion"
+      ],
+      "dataFile": "/data/culture.json",
+      "series": {
+        "religionPct": {
+          "title": "Religious Affiliation (% of population)",
+          "summary": "Share of population by religion across three census years. Christian fell from 71.7% (2001) to 46.2% (2021). No religion rose from 14.8% to 37.2%.",
+          "unit": "%",
+          "fields": {
+            "christian": {
+              "label": "christian"
+            },
+            "noReligion": {
+              "label": "noReligion"
+            },
+            "muslim": {
+              "label": "muslim"
+            },
+            "hindu": {
+              "label": "hindu"
+            },
+            "sikh": {
+              "label": "sikh"
+            },
+            "jewish": {
+              "label": "jewish"
+            },
+            "buddhist": {
+              "label": "buddhist"
+            },
+            "other": {
+              "label": "other"
+            },
+            "notStated": {
+              "label": "notStated"
+            }
+          },
+          "timeRange": {
+            "start": 2001,
+            "end": 2021
+          }
+        },
+        "religionAbsolute": {
+          "title": "Religious Affiliation (millions)",
+          "summary": "Population by religion in millions. Christians fell from 37.3M (2001) to 27.5M (2021). Those reporting no religion rose from 7.7M to 22.2M.",
+          "unit": "millions",
+          "fields": {
+            "christian": {
+              "label": "christian"
+            },
+            "noReligion": {
+              "label": "noReligion"
+            },
+            "muslim": {
+              "label": "muslim"
+            },
+            "hindu": {
+              "label": "hindu"
+            },
+            "sikh": {
+              "label": "sikh"
+            },
+            "jewish": {
+              "label": "jewish"
+            },
+            "buddhist": {
+              "label": "buddhist"
+            },
+            "other": {
+              "label": "other"
+            },
+            "notStated": {
+              "label": "notStated"
+            },
+            "total": {
+              "label": "total"
+            }
+          },
+          "timeRange": {
+            "start": 2001,
+            "end": 2021
+          }
+        }
+      }
+    },
+    {
       "id": "defence",
       "title": "Defence & Security",
       "pillar": "state",
@@ -5362,6 +5466,7 @@
       "foundations": [
         "adult-social-care",
         "childrens-social-care",
+        "culture",
         "environment",
         "family",
         "gp-access",
@@ -5513,6 +5618,45 @@
       "CPI": [
         "cpih",
         "money-supply"
+      ],
+      "religion": [
+        "culture"
+      ],
+      "faith": [
+        "culture"
+      ],
+      "Christianity": [
+        "culture"
+      ],
+      "Islam": [
+        "culture"
+      ],
+      "Muslim": [
+        "culture"
+      ],
+      "Hindu": [
+        "culture"
+      ],
+      "Sikh": [
+        "culture"
+      ],
+      "Jewish": [
+        "culture"
+      ],
+      "Buddhist": [
+        "culture"
+      ],
+      "census": [
+        "culture"
+      ],
+      "culture": [
+        "culture"
+      ],
+      "secularism": [
+        "culture"
+      ],
+      "no religion": [
+        "culture"
       ],
       "defence": [
         "defence"

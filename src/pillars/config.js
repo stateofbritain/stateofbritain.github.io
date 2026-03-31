@@ -73,6 +73,7 @@ const PILLARS = {
       safety:     { label: "Safety",               icon: "⚖" },
       environment:{ label: "Environment",          icon: "◉" },
       family:     { label: "Family",               icon: "♥" },
+      culture:    { label: "Culture & Religion",  icon: "◈" },
       socialCare: {
         label: "Social Care",
         icon: "♡",

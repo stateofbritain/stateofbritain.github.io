@@ -3,6 +3,21 @@
 # Used by scripts/generate-catalog.js to produce data/catalog.json.
 # This file is NOT served to the browser.
 
+culture:
+  title: "Culture & Religion"
+  geography: "England & Wales"
+  summary: "Religious affiliation from the Census (2001, 2011, 2021). Christianity declined from 71.7% to 46.2%, while 'no religion' rose from 14.8% to 37.2%. No census has been conducted since March 2021."
+  tags: [religion, faith, Christianity, Islam, Muslim, Hindu, Sikh, Jewish, Buddhist, census, culture, secularism, no religion]
+  series:
+    religionPct:
+      title: "Religious Affiliation (% of population)"
+      summary: "Share of population by religion across three census years. Christian fell from 71.7% (2001) to 46.2% (2021). No religion rose from 14.8% to 37.2%."
+      unit: "%"
+    religionAbsolute:
+      title: "Religious Affiliation (millions)"
+      summary: "Population by religion in millions. Christians fell from 37.3M (2001) to 27.5M (2021). Those reporting no religion rose from 7.7M to 22.2M."
+      unit: "millions"
+
 family:
   title: "Family, Fertility & Households"
   geography: "England & Wales"

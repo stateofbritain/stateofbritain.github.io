@@ -34,6 +34,7 @@ import Water from "./pillars/foundations/Water";
 import Reservoirs from "./pillars/foundations/Reservoirs";
 import Environment from "./pillars/foundations/Environment";
 import Family from "./pillars/foundations/Family";
+import Culture from "./pillars/foundations/Culture";
 import ChildrensSocialCare from "./pillars/foundations/ChildrensSocialCare";
 import AdultSocialCare from "./pillars/foundations/AdultSocialCare";
 import Startups from "./pillars/growth/Startups";
@@ -94,6 +95,7 @@ const TOPIC_COMPONENTS = {
   "foundations/water/reservoirs": Reservoirs,
   "foundations/environment": Environment,
   "foundations/family": Family,
+  "foundations/culture": Culture,
   "foundations/socialCare/children": ChildrensSocialCare,
   "foundations/socialCare/adults": AdultSocialCare,
   "growth/jobs/overview": JobsOverview,
