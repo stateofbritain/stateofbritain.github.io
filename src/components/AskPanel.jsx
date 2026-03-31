@@ -227,20 +227,6 @@ export default function AskPanel({ open, onClose, isMobile }) {
           </button>
         </div>
 
-        <p
-          style={{
-            fontSize: "12px",
-            color: P.textMuted,
-            fontFamily: "'DM Mono', monospace",
-            fontWeight: 300,
-            lineHeight: 1.6,
-            margin: "0 0 16px",
-          }}
-        >
-          Ask a plain-English question and get an answer drawn from 34 official
-          UK datasets.
-        </p>
-
         {/* Input form */}
         <form onSubmit={handleSubmit} style={{ marginBottom: 16 }}>
           <textarea

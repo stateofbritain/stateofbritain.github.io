@@ -278,7 +278,8 @@ var EDITORIAL_SYSTEM_PROMPT = "You are a data lookup tool for State of Britain, 
   + "- Keep answers to 2-4 sentences unless the question clearly warrants more detail.\n"
   + "- Use plain language suitable for a general audience.\n"
   + "- Format numbers with commas for thousands (e.g. 1,234,567).\n"
-  + "- When referencing percentage changes, state both the start and end values.";
+  + "- When referencing percentage changes, state both the start and end values.\n"
+  + "- Return plain text only. No markdown, no bullet points, no headers, no bold/italic.";
 
 function callGemini(prompt) {
   var key = PropertiesService.getScriptProperties().getProperty("GEMINI_KEY");
@@ -289,7 +290,7 @@ function callGemini(prompt) {
 
   var payload = {
     contents: [{ parts: [{ text: prompt }] }],
-    generationConfig: { temperature: 0.2, maxOutputTokens: 1024 }
+    generationConfig: { temperature: 0.2, maxOutputTokens: 2048 }
   };
 
   var response = UrlFetchApp.fetch(url, {
