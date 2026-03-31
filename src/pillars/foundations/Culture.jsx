@@ -124,42 +124,7 @@ export default function Culture() {
         />
       </div>
 
-      {/* ── Section 1: Religious Affiliation by Census Year ────────── */}
-      <section style={{ marginBottom: 32 }}>
-        <h3 style={SECTION_HEADING}>Religious Affiliation by Census Year</h3>
-        <p style={SECTION_NOTE}>
-          The Census religion question is voluntary. Between 2001 and 2021, the share identifying
-          as Christian fell from 71.7% to 46.2%, while those reporting no religion rose from 14.8%
-          to 37.2%. The Muslim population grew from 3.0% to 6.5%. Other faiths remained
-          relatively stable in percentage terms.
-        </p>
-
-        {groupedData.length > 0 && (
-          <ChartCard
-            title="Religious Affiliation"
-            subtitle="% of population, Census years, England & Wales"
-            source={sourceFrom(raw, "religionPct")}
-            legend={[
-              { key: "y2001", label: "2001", color: P.grey },
-              { key: "y2011", label: "2011", color: P.navy },
-              { key: "y2021", label: "2021", color: P.teal },
-            ]}
-            height={380}
-          >
-            <BarChart data={groupedData} margin={{ top: 5, right: 10, left: -10, bottom: 0 }} layout="horizontal">
-              <CartesianGrid {...GRID_PROPS} />
-              <XAxis dataKey="religion" tick={{ ...AXIS_TICK_MONO, fontSize: 10 }} axisLine={{ stroke: P.border }} tickLine={false} interval={0} angle={-35} textAnchor="end" height={60} />
-              <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} tickFormatter={v => `${v}%`} label={yAxisLabel("%")} domain={[0, 80]} />
-              <Tooltip content={<CustomTooltip formatter={v => `${v}%`} />} />
-              <Bar dataKey="y2001" name="2001" fill={P.grey} fillOpacity={0.5} radius={[2, 2, 0, 0]} />
-              <Bar dataKey="y2011" name="2011" fill={P.navy} fillOpacity={0.7} radius={[2, 2, 0, 0]} />
-              <Bar dataKey="y2021" name="2021" fill={P.teal} radius={[2, 2, 0, 0]} />
-            </BarChart>
-          </ChartCard>
-        )}
-      </section>
-
-      {/* ── Section 2: Major Group Trends ─────────────────────────── */}
+      {/* ── Section 1: Major Group Trends ─────────────────────────── */}
       <section style={{ marginBottom: 32 }}>
         <h3 style={SECTION_HEADING}>Major Group Trends</h3>
         <p style={SECTION_NOTE}>
@@ -192,6 +157,41 @@ export default function Culture() {
               <Line type="monotone" dataKey="muslim" name="Muslim" stroke={RELIGION_COLORS.muslim} strokeWidth={2.5} dot={{ r: 4 }} />
               <Line type="monotone" dataKey="otherFaiths" name="Other faiths" stroke={P.sienna} strokeWidth={2.5} dot={{ r: 4 }} />
             </LineChart>
+          </ChartCard>
+        )}
+      </section>
+
+      {/* ── Section 2: Religious Affiliation by Census Year ────────── */}
+      <section style={{ marginBottom: 32 }}>
+        <h3 style={SECTION_HEADING}>Religious Affiliation by Census Year</h3>
+        <p style={SECTION_NOTE}>
+          The Census religion question is voluntary. Between 2001 and 2021, the share identifying
+          as Christian fell from 71.7% to 46.2%, while those reporting no religion rose from 14.8%
+          to 37.2%. The Muslim population grew from 3.0% to 6.5%. Other faiths remained
+          relatively stable in percentage terms.
+        </p>
+
+        {groupedData.length > 0 && (
+          <ChartCard
+            title="Religious Affiliation"
+            subtitle="% of population, Census years, England & Wales"
+            source={sourceFrom(raw, "religionPct")}
+            legend={[
+              { key: "y2001", label: "2001", color: P.grey },
+              { key: "y2011", label: "2011", color: P.navy },
+              { key: "y2021", label: "2021", color: P.teal },
+            ]}
+            height={380}
+          >
+            <BarChart data={groupedData} margin={{ top: 5, right: 10, left: -10, bottom: 0 }} layout="horizontal">
+              <CartesianGrid {...GRID_PROPS} />
+              <XAxis dataKey="religion" tick={{ ...AXIS_TICK_MONO, fontSize: 10 }} axisLine={{ stroke: P.border }} tickLine={false} interval={0} angle={-35} textAnchor="end" height={60} />
+              <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} tickFormatter={v => `${v}%`} label={yAxisLabel("%")} domain={[0, 80]} />
+              <Tooltip content={<CustomTooltip formatter={v => `${v}%`} />} />
+              <Bar dataKey="y2001" name="2001" fill={P.grey} fillOpacity={0.5} radius={[2, 2, 0, 0]} />
+              <Bar dataKey="y2011" name="2011" fill={P.navy} fillOpacity={0.7} radius={[2, 2, 0, 0]} />
+              <Bar dataKey="y2021" name="2021" fill={P.teal} radius={[2, 2, 0, 0]} />
+            </BarChart>
           </ChartCard>
         )}
       </section>
