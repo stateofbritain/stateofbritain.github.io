@@ -215,7 +215,7 @@ function handleAsk(question) {
     var answer = quickAnswer;
     var datasetNames = datasetIds;
     try { cache.put(questionKey, answer, 21600); } catch (e) {}
-    logQuestion(question, depth, datasetNames, false);
+    logQuestion(question, depth, datasetNames, false, answer);
     return jsonResponse({ answer: answer, datasets: datasetNames });
   }
 
@@ -223,7 +223,7 @@ function handleAsk(question) {
     var noDataAnswer = "I don't have data on that topic. State of Britain covers UK public services, economy, and society "
       + "with datasets on healthcare, education, housing, defence, spending, taxation, and more. Try asking about one of these areas.";
     cache.put(questionKey, noDataAnswer, 21600);
-    logQuestion(question, "no_match", [], false);
+    logQuestion(question, "no_match", [], false, noDataAnswer);
     return jsonResponse({ answer: noDataAnswer, datasets: [] });
   }
 
@@ -248,7 +248,7 @@ function handleAsk(question) {
   }
 
   if (dataTexts.length === 0) {
-    logQuestion(question, "fetch_fail", datasetIds, false);
+    logQuestion(question, "fetch_fail", datasetIds, false, "fetch_fail");
     return jsonResponse({ answer: "Sorry, I was unable to retrieve the relevant data. Please try again.", datasets: [] });
   }
 
@@ -265,7 +265,7 @@ function handleAsk(question) {
     // Cache value too large, skip caching
   }
 
-  logQuestion(question, depth, datasetNames, false);
+  logQuestion(question, depth, datasetNames, false, answer);
   return jsonResponse({ answer: answer, datasets: datasetNames });
 }
 
@@ -309,20 +309,21 @@ function callGemini(prompt) {
   return json.candidates[0].content.parts[0].text;
 }
 
-function logQuestion(question, depth, datasets, cached) {
+function logQuestion(question, depth, datasets, cached, answer) {
   try {
     var ss = SpreadsheetApp.getActiveSpreadsheet();
     var logSheet = ss.getSheetByName("Ask Log");
     if (!logSheet) {
       logSheet = ss.insertSheet("Ask Log");
-      logSheet.appendRow(["Timestamp", "Question", "Depth", "Datasets", "Cached"]);
+      logSheet.appendRow(["Timestamp", "Question", "Depth", "Datasets", "Cached", "Answer"]);
     }
     logSheet.appendRow([
       new Date().toISOString(),
       question,
       depth,
       (datasets || []).join(", "),
-      cached ? "yes" : "no"
+      cached ? "yes" : "no",
+      answer || ""
     ]);
   } catch (e) {
     // Non-critical

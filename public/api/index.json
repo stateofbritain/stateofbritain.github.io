@@ -205,6 +205,166 @@
       "coverage": "2009–2025",
       "frequency": "annual",
       "pillar": "growth"
+    },
+    {
+      "id": "nhs-funding",
+      "name": "NHS Funding",
+      "description": "Total NHS budget, per capita spending, international comparison, spending by category and budget split.",
+      "url": "/api/data/nhs-funding.json",
+      "source": "HM Treasury PESA, The King's Fund",
+      "coverage": "2000–2025",
+      "frequency": "annual",
+      "pillar": "foundations"
+    },
+    {
+      "id": "nhs-workforce",
+      "name": "NHS Workforce",
+      "description": "NHS staff numbers by group, vacancy rates, and sickness absence.",
+      "url": "/api/data/nhs-workforce.json",
+      "source": "NHS Digital Workforce Statistics, NHS Digital Vacancy Statistics",
+      "coverage": "2010–2025",
+      "frequency": "annual/quarterly",
+      "pillar": "foundations"
+    },
+    {
+      "id": "hospital-capacity",
+      "name": "Hospital Capacity",
+      "description": "Hospital bed numbers, occupancy rates, international comparison, and admission volumes.",
+      "url": "/api/data/hospital-capacity.json",
+      "source": "NHS England KH03, OECD Health Statistics",
+      "coverage": "2000–2025",
+      "frequency": "annual/quarterly",
+      "pillar": "foundations"
+    },
+    {
+      "id": "mental-health",
+      "name": "Mental Health",
+      "description": "Prevalence of mental disorders, talking therapies referrals, MHA detentions, children and young people referrals, suicide rates.",
+      "url": "/api/data/mental-health.json",
+      "source": "Adult Psychiatric Morbidity Survey, NHS Talking Therapies",
+      "coverage": "2000–2024",
+      "frequency": "annual",
+      "pillar": "foundations"
+    },
+    {
+      "id": "safety",
+      "name": "Personal Safety",
+      "description": "Violent crime trends, knife crime, firearms crime, homicide rates, and hospital admissions from violence.",
+      "url": "/api/data/safety.json",
+      "source": "ONS Crime in England and Wales, Home Office",
+      "coverage": "2002–2023",
+      "frequency": "annual",
+      "pillar": "foundations"
+    },
+    {
+      "id": "housing-stock",
+      "name": "Housing Stock",
+      "description": "Dwelling stock by age, type, tenure trends, and EPC ratings.",
+      "url": "/api/data/housing-stock.json",
+      "source": "English Housing Survey, DLUHC Tenure Trends",
+      "coverage": "1980–2023",
+      "frequency": "annual",
+      "pillar": "foundations"
+    },
+    {
+      "id": "housing-supply",
+      "name": "Housebuilding",
+      "description": "Net additional dwellings, completions by tenure, new build size, and international comparison.",
+      "url": "/api/data/housing-supply.json",
+      "source": "DLUHC Live Tables",
+      "coverage": "2001–2024",
+      "frequency": "annual",
+      "pillar": "foundations"
+    },
+    {
+      "id": "housing-density",
+      "name": "Housing Density",
+      "description": "UK city population density, international city density comparison, and regional house prices.",
+      "url": "/api/data/housing-density.json",
+      "source": "ONS Mid-Year Population Estimates, Demographia",
+      "coverage": "varies",
+      "frequency": "varies",
+      "pillar": "foundations"
+    },
+    {
+      "id": "reservoirs",
+      "name": "Reservoirs",
+      "description": "UK reservoir construction by decade, cumulative storage capacity, largest reservoirs, and planned/projected capacity.",
+      "url": "/api/data/reservoirs.json",
+      "source": "UKCEH Inventory of Reservoirs, ONS Population Estimates",
+      "coverage": "1850–2040",
+      "frequency": "varies",
+      "pillar": "foundations"
+    },
+    {
+      "id": "childrens-social-care",
+      "name": "Children's Social Care",
+      "description": "Children looked after, foster carer numbers and recruitment, social worker workforce, referrals and child protection.",
+      "url": "/api/data/childrens-social-care.json",
+      "source": "DfE Children Looked After in England, Ofsted Fostering",
+      "coverage": "2010–2025",
+      "frequency": "annual",
+      "pillar": "foundations"
+    },
+    {
+      "id": "adult-social-care",
+      "name": "Adult Social Care",
+      "description": "Requests for support, long-term care recipients, spending, workforce numbers, and pay levels.",
+      "url": "/api/data/adult-social-care.json",
+      "source": "NHS England SALT/CLD, DLUHC Local Authority Revenue Expenditure",
+      "coverage": "2010–2025",
+      "frequency": "annual",
+      "pillar": "foundations"
+    },
+    {
+      "id": "jobs",
+      "name": "Jobs & Employment",
+      "description": "Employment, unemployment, and inactivity trends, employment by sector and occupation, earnings by occupation.",
+      "url": "/api/data/jobs.json",
+      "source": "ONS Labour Force Survey, ONS BRES",
+      "coverage": "1992–2025",
+      "frequency": "monthly/annual",
+      "pillar": "growth"
+    },
+    {
+      "id": "borrowing",
+      "name": "Borrowing & Debt",
+      "description": "Gilt yields, monthly and annual borrowing, debt interest payments, and debt-to-GDP ratio.",
+      "url": "/api/data/borrowing.json",
+      "source": "Bank of England, ONS Public Sector Finances, OBR",
+      "coverage": "2000–2025",
+      "frequency": "monthly/annual",
+      "pillar": "state"
+    },
+    {
+      "id": "taxation",
+      "name": "Taxation",
+      "description": "Tax receipts by type, tax burden as share of GDP, international comparison, and tax gap analysis.",
+      "url": "/api/data/taxation.json",
+      "source": "HMRC Tax Receipts, OBR, HMRC Measuring Tax Gaps 2025",
+      "coverage": "2000–2025",
+      "frequency": "annual",
+      "pillar": "state"
+    },
+    {
+      "id": "money-supply",
+      "name": "Money Supply",
+      "description": "M4 money supply to GDP, Bank of England asset purchases (QE), cash flows, CPI rate, and real wages.",
+      "url": "/api/data/money-supply.json",
+      "source": "Bank of England M4 Statistics, Bank of England APF",
+      "coverage": "2000–2025",
+      "frequency": "monthly/annual",
+      "pillar": "state"
+    },
+    {
+      "id": "local-government",
+      "name": "Local Government",
+      "description": "Local authority service spending, funding sources, council tax levels by region, and Section 114 notices.",
+      "url": "/api/data/local-government.json",
+      "source": "DLUHC Local Authority Revenue Expenditure, DLUHC Council Tax Levels",
+      "coverage": "2010–2025",
+      "frequency": "annual",
+      "pillar": "state"
     }
   ]
 }
