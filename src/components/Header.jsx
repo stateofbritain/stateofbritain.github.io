@@ -68,26 +68,6 @@ export default function Header({ onHome, onNavigate, onAskOpen, isMobile }) {
           >
             Ask
           </button>
-          <a
-            href="/contribute"
-            onClick={(e) => {
-              e.preventDefault();
-              window.history.pushState(null, "", "/contribute");
-              window.dispatchEvent(new PopStateEvent("popstate"));
-            }}
-            style={{
-              fontSize: "11px",
-              fontFamily: "'DM Mono', monospace",
-              fontWeight: 500,
-              color: P.teal,
-              textDecoration: "none",
-              letterSpacing: "0.06em",
-              textTransform: "uppercase",
-              whiteSpace: "nowrap",
-            }}
-          >
-            Contribute
-          </a>
         </div>
       </div>
       <p
