@@ -136,14 +136,6 @@ export default function PersonalFinance() {
           color={P.sienna}
           delay={0.26}
         />
-        <MetricCard
-          label="New Mortgage Rate"
-          value={`${s.mortgageRateLatest?.toFixed(2)}%`}
-          change={s.mortgageRateLatestMonth}
-          up={false}
-          color={P.red}
-          delay={0.34}
-        />
       </div>
 
       {/* ── Section 1: Mortgage Approvals ──────────────────────────── */}
