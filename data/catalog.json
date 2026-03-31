@@ -1,6 +1,6 @@
 {
   "$schema": "sob-catalog-v1",
-  "generated": "2026-03-24",
+  "generated": "2026-03-31",
   "datasets": [
     {
       "id": "adult-social-care",
@@ -224,7 +224,7 @@
             }
           },
           "timeRange": {
-            "start": "2022-01",
+            "start": "2000-06",
             "end": "2026-03"
           }
         },
@@ -348,6 +348,42 @@
           "timeRange": {
             "start": "Japan",
             "end": "Sweden"
+          }
+        },
+        "intlYields": {
+          "title": "intlYields",
+          "fields": {
+            "y10": {
+              "label": "y10"
+            }
+          },
+          "timeRange": {
+            "start": "Japan",
+            "end": "Poland"
+          }
+        },
+        "intlYieldTrend": {
+          "title": "intlYieldTrend",
+          "fields": {
+            "uk": {
+              "label": "uk"
+            },
+            "us": {
+              "label": "us"
+            },
+            "de": {
+              "label": "de"
+            },
+            "fr": {
+              "label": "fr"
+            },
+            "jp": {
+              "label": "jp"
+            }
+          },
+          "timeRange": {
+            "start": 2000,
+            "end": 2025
           }
         },
         "creditRatings": {
@@ -2036,14 +2072,17 @@
       "title": "Housebuilding",
       "pillar": "foundations",
       "geography": "England",
-      "summary": "Net additional dwellings, new build completions by tenure (private, housing association, local authority), average new build floor area, and international size comparison.",
+      "summary": "Net additional dwellings, new build completions by tenure (private, housing association, local authority), average new build floor area, international size comparison, EPC new build lodgements as a leading indicator, and brick delivery volumes.",
       "tags": [
         "housing",
         "housebuilding",
         "construction",
         "dwellings",
         "completions",
-        "new builds"
+        "new builds",
+        "EPC",
+        "bricks",
+        "leading indicators"
       ],
       "dataFile": "/data/housing-supply.json",
       "series": {
@@ -2110,6 +2149,37 @@
           "timeRange": {
             "start": "Australia",
             "end": "Hong Kong"
+          }
+        },
+        "epcNewBuilds": {
+          "title": "New Build EPC Lodgements",
+          "summary": "Quarterly EPC lodgements for new domestic properties in England & Wales. Peaked at ~255k/yr in 2019, dropped during COVID, around 210k in 2025. A near-real-time proxy for housing completions.",
+          "unit": "lodgements per quarter",
+          "fields": {
+            "lodgements": {
+              "label": "lodgements"
+            }
+          },
+          "timeRange": {
+            "start": "2008-Q4",
+            "end": "2025-Q4"
+          }
+        },
+        "brickDeliveries": {
+          "title": "Brick Deliveries (Seasonally Adjusted)",
+          "summary": "Monthly seasonally adjusted brick deliveries in Great Britain (millions). Tracks material demand from builders. Around 168m/month in early 2018, declined to ~118m by late 2025.",
+          "unit": "millions of bricks",
+          "fields": {
+            "saDeliveries": {
+              "label": "saDeliveries"
+            },
+            "totalDeliveries": {
+              "label": "totalDeliveries"
+            }
+          },
+          "timeRange": {
+            "start": "2018-01",
+            "end": "2025-10"
           }
         }
       }
@@ -2576,6 +2646,439 @@
       }
     },
     {
+      "id": "jobs",
+      "title": "Jobs",
+      "pillar": "growth",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/jobs.json",
+      "series": {
+        "headlineTrend": {
+          "title": "headlineTrend",
+          "fields": {
+            "empRate": {
+              "label": "empRate"
+            },
+            "unempRate": {
+              "label": "unempRate"
+            },
+            "inactRate": {
+              "label": "inactRate"
+            }
+          },
+          "timeRange": {
+            "start": 1992,
+            "end": 2025
+          }
+        },
+        "bySector": {
+          "title": "bySector",
+          "fields": {
+            "label": {
+              "label": "label"
+            },
+            "employeesK": {
+              "label": "employeesK"
+            },
+            "pctTotal": {
+              "label": "pctTotal"
+            }
+          },
+          "timeRange": {
+            "start": "G",
+            "end": "B"
+          }
+        },
+        "sectorTrend": {
+          "title": "sectorTrend",
+          "fields": {
+            "manufacturing": {
+              "label": "manufacturing"
+            },
+            "construction": {
+              "label": "construction"
+            },
+            "retail": {
+              "label": "retail"
+            },
+            "health": {
+              "label": "health"
+            },
+            "finance": {
+              "label": "finance"
+            },
+            "ict": {
+              "label": "ict"
+            },
+            "hospitality": {
+              "label": "hospitality"
+            },
+            "profServices": {
+              "label": "profServices"
+            }
+          },
+          "timeRange": {
+            "start": 1996,
+            "end": 2024
+          }
+        },
+        "byOccupation": {
+          "title": "byOccupation",
+          "fields": {
+            "label": {
+              "label": "label"
+            },
+            "employedK": {
+              "label": "employedK"
+            },
+            "pctTotal": {
+              "label": "pctTotal"
+            }
+          },
+          "timeRange": {
+            "start": 1,
+            "end": 9
+          }
+        },
+        "earningsByOccupation": {
+          "title": "earningsByOccupation",
+          "fields": {
+            "label": {
+              "label": "label"
+            },
+            "medianAnnual": {
+              "label": "medianAnnual"
+            },
+            "p10": {
+              "label": "p10"
+            },
+            "p25": {
+              "label": "p25"
+            },
+            "p75": {
+              "label": "p75"
+            },
+            "p90": {
+              "label": "p90"
+            }
+          },
+          "timeRange": {
+            "start": 1,
+            "end": 9
+          }
+        },
+        "earningsBySector": {
+          "title": "earningsBySector",
+          "fields": {
+            "label": {
+              "label": "label"
+            },
+            "medianAnnual": {
+              "label": "medianAnnual"
+            }
+          },
+          "timeRange": {
+            "start": "B",
+            "end": "I"
+          }
+        },
+        "earningsTrend": {
+          "title": "earningsTrend",
+          "fields": {
+            "median": {
+              "label": "median"
+            },
+            "medianMale": {
+              "label": "medianMale"
+            },
+            "medianFemale": {
+              "label": "medianFemale"
+            }
+          },
+          "timeRange": {
+            "start": 1997,
+            "end": 2025
+          }
+        },
+        "genderPayGap": {
+          "title": "genderPayGap",
+          "fields": {
+            "gap": {
+              "label": "gap"
+            }
+          },
+          "timeRange": {
+            "start": 1997,
+            "end": 2025
+          }
+        },
+        "employmentType": {
+          "title": "employmentType",
+          "fields": {
+            "employees": {
+              "label": "employees"
+            },
+            "selfEmployed": {
+              "label": "selfEmployed"
+            },
+            "unpaidFamily": {
+              "label": "unpaidFamily"
+            }
+          },
+          "timeRange": {
+            "start": 2000,
+            "end": 2025
+          }
+        },
+        "inactivityReasons": {
+          "title": "inactivityReasons",
+          "fields": {
+            "longTermSick": {
+              "label": "longTermSick"
+            },
+            "student": {
+              "label": "student"
+            },
+            "lookingAfterFamily": {
+              "label": "lookingAfterFamily"
+            },
+            "retired": {
+              "label": "retired"
+            },
+            "other": {
+              "label": "other"
+            }
+          },
+          "timeRange": {
+            "start": 2004,
+            "end": 2025
+          }
+        },
+        "vacancyTrend": {
+          "title": "vacancyTrend",
+          "fields": {
+            "vacanciesK": {
+              "label": "vacanciesK"
+            }
+          },
+          "timeRange": {
+            "start": 2001,
+            "end": 2025
+          }
+        },
+        "occupationalChange": {
+          "title": "occupationalChange",
+          "fields": {
+            "profManagerialK": {
+              "label": "profManagerialK"
+            },
+            "adminTradesK": {
+              "label": "adminTradesK"
+            },
+            "serviceManualK": {
+              "label": "serviceManualK"
+            }
+          },
+          "timeRange": {
+            "start": 2001,
+            "end": 2024
+          }
+        },
+        "occupationGrowth": {
+          "title": "occupationGrowth",
+          "fields": {
+            "changeK": {
+              "label": "changeK"
+            },
+            "employees2024K": {
+              "label": "employees2024K"
+            }
+          },
+          "timeRange": {
+            "start": "Caring personal services",
+            "end": "Secretarial & related occupations"
+          }
+        },
+        "selfEmploymentDetail": {
+          "title": "selfEmploymentDetail",
+          "fields": {
+            "withEmployeesK": {
+              "label": "withEmployeesK"
+            },
+            "soloK": {
+              "label": "soloK"
+            }
+          },
+          "timeRange": {
+            "start": 2000,
+            "end": 2025
+          }
+        },
+        "hoursWorkedTrend": {
+          "title": "hoursWorkedTrend",
+          "fields": {
+            "allHours": {
+              "label": "allHours"
+            },
+            "ftHours": {
+              "label": "ftHours"
+            },
+            "ptHours": {
+              "label": "ptHours"
+            }
+          },
+          "timeRange": {
+            "start": 1992,
+            "end": 2025
+          }
+        },
+        "ftPtTrend": {
+          "title": "ftPtTrend",
+          "fields": {
+            "fullTimeK": {
+              "label": "fullTimeK"
+            },
+            "partTimeK": {
+              "label": "partTimeK"
+            }
+          },
+          "timeRange": {
+            "start": 1992,
+            "end": 2025
+          }
+        },
+        "zeroHoursTrend": {
+          "title": "zeroHoursTrend",
+          "fields": {
+            "zeroHoursK": {
+              "label": "zeroHoursK"
+            }
+          },
+          "timeRange": {
+            "start": 2000,
+            "end": 2025
+          }
+        },
+        "apprenticeshipStarts": {
+          "title": "apprenticeshipStarts",
+          "fields": {
+            "startsK": {
+              "label": "startsK"
+            },
+            "completionsK": {
+              "label": "completionsK"
+            }
+          },
+          "timeRange": {
+            "start": 2010,
+            "end": 2024
+          }
+        },
+        "apprenticeshipsByLevel": {
+          "title": "apprenticeshipsByLevel",
+          "fields": {
+            "intermediateK": {
+              "label": "intermediateK"
+            },
+            "advancedK": {
+              "label": "advancedK"
+            },
+            "higherK": {
+              "label": "higherK"
+            }
+          },
+          "timeRange": {
+            "start": 2014,
+            "end": 2024
+          }
+        },
+        "employerTraining": {
+          "title": "employerTraining",
+          "fields": {
+            "spendPerEmployee": {
+              "label": "spendPerEmployee"
+            },
+            "pctTrained": {
+              "label": "pctTrained"
+            }
+          },
+          "timeRange": {
+            "start": 2005,
+            "end": 2022
+          }
+        },
+        "workforceQualifications": {
+          "title": "workforceQualifications",
+          "fields": {
+            "degreeK": {
+              "label": "degreeK"
+            },
+            "aLevelK": {
+              "label": "aLevelK"
+            },
+            "gcseK": {
+              "label": "gcseK"
+            },
+            "otherK": {
+              "label": "otherK"
+            },
+            "noneK": {
+              "label": "noneK"
+            }
+          },
+          "timeRange": {
+            "start": 2004,
+            "end": 2024
+          }
+        },
+        "empRateByQualification": {
+          "title": "empRateByQualification",
+          "fields": {
+            "empRate": {
+              "label": "empRate"
+            }
+          },
+          "timeRange": {
+            "start": "Degree or equivalent",
+            "end": "No qualifications"
+          }
+        },
+        "realEarningsTrend": {
+          "title": "realEarningsTrend",
+          "fields": {
+            "realMedian": {
+              "label": "realMedian"
+            },
+            "realMale": {
+              "label": "realMale"
+            },
+            "realFemale": {
+              "label": "realFemale"
+            }
+          },
+          "timeRange": {
+            "start": 1997,
+            "end": 2025
+          }
+        },
+        "productivityPayGap": {
+          "title": "productivityPayGap",
+          "fields": {
+            "productivityIndex": {
+              "label": "productivityIndex"
+            },
+            "realPayIndex": {
+              "label": "realPayIndex"
+            }
+          },
+          "timeRange": {
+            "start": 2000,
+            "end": 2024
+          }
+        }
+      }
+    },
+    {
       "id": "justice",
       "title": "Justice & Crime",
       "pillar": "state",
@@ -2988,7 +3491,7 @@
       "title": "Money Supply & Inflation",
       "pillar": "state",
       "geography": "United Kingdom",
-      "summary": "M4 broad money supply, Bank of England quantitative easing (APF holdings and cash flows), CPI inflation, real wage growth, purchasing power erosion, international central bank balance sheet comparison, and nominal vs real government debt.",
+      "summary": "M4 broad money supply, Bank of England quantitative easing (APF holdings and cash flows), CPI inflation, real wage growth, purchasing power erosion, international central bank balance sheet comparison, nominal vs real government debt, mortgage approvals, and cash ISA deposits.",
       "tags": [
         "money supply",
         "M4",
@@ -3001,7 +3504,10 @@
         "purchasing power",
         "central bank",
         "Bank of England",
-        "monetary policy"
+        "monetary policy",
+        "mortgages",
+        "ISA",
+        "savings"
       ],
       "dataFile": "/data/money-supply.json",
       "series": {
@@ -3151,6 +3657,34 @@
           "timeRange": {
             "start": 2007,
             "end": 2025
+          }
+        },
+        "mortgageApprovals": {
+          "title": "Mortgage Approvals for House Purchase",
+          "summary": "Monthly mortgage approvals (SA). Peaked at ~133k/month (2003), crashed to ~26k during GFC, ~9k during COVID, currently ~62k. A leading indicator of housing market activity.",
+          "unit": "approvals per month",
+          "fields": {
+            "approvals": {
+              "label": "approvals"
+            }
+          },
+          "timeRange": {
+            "start": "2000-01",
+            "end": "2026-02"
+          }
+        },
+        "cashIsaDeposits": {
+          "title": "Cash ISA Deposits Outstanding",
+          "summary": "Household cash ISA balances rose from £9.5bn (2000) to £458bn (Feb 2026). Accelerated from 2022 as interest rates rose.",
+          "unit": "£m",
+          "fields": {
+            "balance": {
+              "label": "balance"
+            }
+          },
+          "timeRange": {
+            "start": "2000-01",
+            "end": "2026-02"
           }
         }
       }
@@ -3750,6 +4284,175 @@
           "timeRange": {
             "start": 2022,
             "end": 2022
+          }
+        }
+      }
+    },
+    {
+      "id": "reservoirs",
+      "title": "Reservoirs",
+      "pillar": "foundations",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/reservoirs.json",
+      "series": {
+        "constructionByDecade": {
+          "title": "constructionByDecade",
+          "fields": {
+            "decade": {
+              "label": "decade"
+            },
+            "built": {
+              "label": "built"
+            },
+            "capacityAddedMl": {
+              "label": "capacityAddedMl"
+            },
+            "waterSupplyAddedBnL": {
+              "label": "waterSupplyAddedBnL"
+            },
+            "hydroAddedBnL": {
+              "label": "hydroAddedBnL"
+            }
+          },
+          "timeRange": {
+            "start": 1850,
+            "end": 2020
+          }
+        },
+        "cumulativeCapacity": {
+          "title": "cumulativeCapacity",
+          "fields": {
+            "decade": {
+              "label": "decade"
+            },
+            "cumulativeCount": {
+              "label": "cumulativeCount"
+            },
+            "capacityBnL": {
+              "label": "capacityBnL"
+            },
+            "popMn": {
+              "label": "popMn"
+            },
+            "perCapitaKL": {
+              "label": "perCapitaKL"
+            },
+            "waterSupplyBnL": {
+              "label": "waterSupplyBnL"
+            },
+            "hydroBnL": {
+              "label": "hydroBnL"
+            },
+            "perCapitaWsKL": {
+              "label": "perCapitaWsKL"
+            }
+          },
+          "timeRange": {
+            "start": 1850,
+            "end": 2025
+          }
+        },
+        "largest": {
+          "title": "largest",
+          "fields": {
+            "name": {
+              "label": "name"
+            },
+            "capacityMl": {
+              "label": "capacityMl"
+            },
+            "use": {
+              "label": "use"
+            }
+          },
+          "timeRange": {
+            "start": 1962,
+            "end": 1976
+          }
+        },
+        "planned": {
+          "title": "planned",
+          "fields": {
+            "name": {
+              "label": "name"
+            },
+            "location": {
+              "label": "location"
+            },
+            "developer": {
+              "label": "developer"
+            },
+            "capacityMl": {
+              "label": "capacityMl"
+            },
+            "supplyMld": {
+              "label": "supplyMld"
+            },
+            "costMn": {
+              "label": "costMn"
+            },
+            "costNote": {
+              "label": "costNote"
+            },
+            "originalOperational": {
+              "label": "originalOperational"
+            },
+            "status": {
+              "label": "status"
+            },
+            "statusDetail": {
+              "label": "statusDetail"
+            },
+            "dcoApproved": {
+              "label": "dcoApproved"
+            }
+          },
+          "timeRange": {
+            "start": 2031,
+            "end": 2035
+          }
+        },
+        "projectedCapacity": {
+          "title": "projectedCapacity",
+          "fields": {
+            "capacityBnL": {
+              "label": "capacityBnL"
+            },
+            "popMn": {
+              "label": "popMn"
+            },
+            "perCapitaKL": {
+              "label": "perCapitaKL"
+            },
+            "perCapitaNoNewKL": {
+              "label": "perCapitaNoNewKL"
+            },
+            "perCapitaWsKL": {
+              "label": "perCapitaWsKL"
+            },
+            "perCapitaWsNoNewKL": {
+              "label": "perCapitaWsNoNewKL"
+            }
+          },
+          "timeRange": {
+            "start": 2010,
+            "end": 2040
+          }
+        },
+        "sesroTimeline": {
+          "title": "sesroTimeline",
+          "fields": {
+            "event": {
+              "label": "event"
+            },
+            "phase": {
+              "label": "phase"
+            }
+          },
+          "timeRange": {
+            "start": 2006,
+            "end": 2040
           }
         }
       }
@@ -4625,6 +5328,7 @@
         "nhs-funding",
         "nhs-waiting",
         "nhs-workforce",
+        "reservoirs",
         "safety",
         "water",
         "workforce"
@@ -4645,6 +5349,7 @@
         "industrial",
         "infrastructure",
         "investment",
+        "jobs",
         "productivity",
         "research",
         "startups"
@@ -4962,7 +5667,8 @@
         "housing-stock"
       ],
       "EPC": [
-        "housing-stock"
+        "housing-stock",
+        "housing-supply"
       ],
       "energy performance": [
         "housing-stock"
@@ -4986,6 +5692,12 @@
         "housing-supply"
       ],
       "new builds": [
+        "housing-supply"
+      ],
+      "bricks": [
+        "housing-supply"
+      ],
+      "leading indicators": [
         "housing-supply"
       ],
       "immigration": [
@@ -5136,6 +5848,15 @@
         "money-supply"
       ],
       "monetary policy": [
+        "money-supply"
+      ],
+      "mortgages": [
+        "money-supply"
+      ],
+      "ISA": [
+        "money-supply"
+      ],
+      "savings": [
         "money-supply"
       ],
       "NHS": [

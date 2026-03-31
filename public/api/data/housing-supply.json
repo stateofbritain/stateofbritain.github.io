@@ -3,7 +3,7 @@
   "id": "housing-supply",
   "pillar": "foundations",
   "topic": "housing",
-  "generated": "2026-03-17",
+  "generated": "2026-03-31",
   "sources": [
     {
       "id": "dluhc-table120",
@@ -30,6 +30,20 @@
       "url": "https://www.commsec.com.au/",
       "publisher": "Various",
       "note": "International comparison of average new build dwelling sizes"
+    },
+    {
+      "id": "mhclg-epc-nb1",
+      "name": "MHCLG Energy Performance of Buildings Certificates: Table NB1, new domestic properties",
+      "url": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-energy-performance-of-buildings-certificates",
+      "publisher": "MHCLG",
+      "note": "Quarterly EPC lodgements for new build domestic properties, England and Wales"
+    },
+    {
+      "id": "desnz-bricks",
+      "name": "DESNZ Construction Building Materials: Table 9a, bricks monthly",
+      "url": "https://www.gov.uk/government/statistical-data-sets/building-materials-and-components-monthly-statistics-2012",
+      "publisher": "DESNZ",
+      "note": "Monthly brick production, deliveries, and stocks for Great Britain (millions of bricks)"
     }
   ],
   "snapshot": {
@@ -40,7 +54,11 @@
     "completionTotal": 190600,
     "completionTotalYear": "2024-25",
     "avgNewBuildSqm": 76,
-    "avgNewBuildSqmYear": 2023
+    "avgNewBuildSqmYear": 2023,
+    "epcNewBuildLodgements": 59795,
+    "epcNewBuildLodgementsQuarter": "2025-Q4",
+    "brickDeliveriesSA": 118,
+    "brickDeliveriesMonth": "2025-10"
   },
   "series": {
     "netAdditions": {
@@ -456,6 +474,768 @@
         {
           "country": "Hong Kong",
           "avgSqm": 45
+        }
+      ]
+    },
+    "epcNewBuilds": {
+      "sourceId": "mhclg-epc-nb1",
+      "label": "New Build EPC Lodgements",
+      "unit": "lodgements per quarter",
+      "timeField": "quarter",
+      "data": [
+        {
+          "quarter": "2008-Q4",
+          "lodgements": 57576
+        },
+        {
+          "quarter": "2009-Q1",
+          "lodgements": 36098
+        },
+        {
+          "quarter": "2009-Q2",
+          "lodgements": 35519
+        },
+        {
+          "quarter": "2009-Q3",
+          "lodgements": 31249
+        },
+        {
+          "quarter": "2009-Q4",
+          "lodgements": 34844
+        },
+        {
+          "quarter": "2010-Q1",
+          "lodgements": 27474
+        },
+        {
+          "quarter": "2010-Q2",
+          "lodgements": 30035
+        },
+        {
+          "quarter": "2010-Q3",
+          "lodgements": 30010
+        },
+        {
+          "quarter": "2010-Q4",
+          "lodgements": 31761
+        },
+        {
+          "quarter": "2011-Q1",
+          "lodgements": 32521
+        },
+        {
+          "quarter": "2011-Q2",
+          "lodgements": 35159
+        },
+        {
+          "quarter": "2011-Q3",
+          "lodgements": 33837
+        },
+        {
+          "quarter": "2011-Q4",
+          "lodgements": 37151
+        },
+        {
+          "quarter": "2012-Q1",
+          "lodgements": 36766
+        },
+        {
+          "quarter": "2012-Q2",
+          "lodgements": 36292
+        },
+        {
+          "quarter": "2012-Q3",
+          "lodgements": 31639
+        },
+        {
+          "quarter": "2012-Q4",
+          "lodgements": 32797
+        },
+        {
+          "quarter": "2013-Q1",
+          "lodgements": 28929
+        },
+        {
+          "quarter": "2013-Q2",
+          "lodgements": 34779
+        },
+        {
+          "quarter": "2013-Q3",
+          "lodgements": 31722
+        },
+        {
+          "quarter": "2013-Q4",
+          "lodgements": 38286
+        },
+        {
+          "quarter": "2014-Q1",
+          "lodgements": 32224
+        },
+        {
+          "quarter": "2014-Q2",
+          "lodgements": 39444
+        },
+        {
+          "quarter": "2014-Q3",
+          "lodgements": 36929
+        },
+        {
+          "quarter": "2014-Q4",
+          "lodgements": 43403
+        },
+        {
+          "quarter": "2015-Q1",
+          "lodgements": 47350
+        },
+        {
+          "quarter": "2015-Q2",
+          "lodgements": 49775
+        },
+        {
+          "quarter": "2015-Q3",
+          "lodgements": 46949
+        },
+        {
+          "quarter": "2015-Q4",
+          "lodgements": 50139
+        },
+        {
+          "quarter": "2016-Q1",
+          "lodgements": 45583
+        },
+        {
+          "quarter": "2016-Q2",
+          "lodgements": 56467
+        },
+        {
+          "quarter": "2016-Q3",
+          "lodgements": 52848
+        },
+        {
+          "quarter": "2016-Q4",
+          "lodgements": 56193
+        },
+        {
+          "quarter": "2017-Q1",
+          "lodgements": 49144
+        },
+        {
+          "quarter": "2017-Q2",
+          "lodgements": 55922
+        },
+        {
+          "quarter": "2017-Q3",
+          "lodgements": 53342
+        },
+        {
+          "quarter": "2017-Q4",
+          "lodgements": 60237
+        },
+        {
+          "quarter": "2018-Q1",
+          "lodgements": 52418
+        },
+        {
+          "quarter": "2018-Q2",
+          "lodgements": 64703
+        },
+        {
+          "quarter": "2018-Q3",
+          "lodgements": 58960
+        },
+        {
+          "quarter": "2018-Q4",
+          "lodgements": 67467
+        },
+        {
+          "quarter": "2019-Q1",
+          "lodgements": 57981
+        },
+        {
+          "quarter": "2019-Q2",
+          "lodgements": 66273
+        },
+        {
+          "quarter": "2019-Q3",
+          "lodgements": 61682
+        },
+        {
+          "quarter": "2019-Q4",
+          "lodgements": 68952
+        },
+        {
+          "quarter": "2020-Q1",
+          "lodgements": 57315
+        },
+        {
+          "quarter": "2020-Q2",
+          "lodgements": 29477
+        },
+        {
+          "quarter": "2020-Q3",
+          "lodgements": 62332
+        },
+        {
+          "quarter": "2020-Q4",
+          "lodgements": 66162
+        },
+        {
+          "quarter": "2021-Q1",
+          "lodgements": 62571
+        },
+        {
+          "quarter": "2021-Q2",
+          "lodgements": 60959
+        },
+        {
+          "quarter": "2021-Q3",
+          "lodgements": 59735
+        },
+        {
+          "quarter": "2021-Q4",
+          "lodgements": 60344
+        },
+        {
+          "quarter": "2022-Q1",
+          "lodgements": 58392
+        },
+        {
+          "quarter": "2022-Q2",
+          "lodgements": 64323
+        },
+        {
+          "quarter": "2022-Q3",
+          "lodgements": 62855
+        },
+        {
+          "quarter": "2022-Q4",
+          "lodgements": 65579
+        },
+        {
+          "quarter": "2023-Q1",
+          "lodgements": 52786
+        },
+        {
+          "quarter": "2023-Q2",
+          "lodgements": 57323
+        },
+        {
+          "quarter": "2023-Q3",
+          "lodgements": 57641
+        },
+        {
+          "quarter": "2023-Q4",
+          "lodgements": 59315
+        },
+        {
+          "quarter": "2024-Q1",
+          "lodgements": 54230
+        },
+        {
+          "quarter": "2024-Q2",
+          "lodgements": 54326
+        },
+        {
+          "quarter": "2024-Q3",
+          "lodgements": 50751
+        },
+        {
+          "quarter": "2024-Q4",
+          "lodgements": 55712
+        },
+        {
+          "quarter": "2025-Q1",
+          "lodgements": 46776
+        },
+        {
+          "quarter": "2025-Q2",
+          "lodgements": 52398
+        },
+        {
+          "quarter": "2025-Q3",
+          "lodgements": 51310
+        },
+        {
+          "quarter": "2025-Q4",
+          "lodgements": 59795
+        }
+      ]
+    },
+    "brickDeliveries": {
+      "sourceId": "desnz-bricks",
+      "label": "Brick Deliveries (Seasonally Adjusted)",
+      "unit": "millions of bricks",
+      "timeField": "month",
+      "data": [
+        {
+          "month": "2018-01",
+          "saDeliveries": 168,
+          "totalDeliveries": 142
+        },
+        {
+          "month": "2018-02",
+          "saDeliveries": 166,
+          "totalDeliveries": 148
+        },
+        {
+          "month": "2018-03",
+          "saDeliveries": 156,
+          "totalDeliveries": 153
+        },
+        {
+          "month": "2018-04",
+          "saDeliveries": 164,
+          "totalDeliveries": 173
+        },
+        {
+          "month": "2018-05",
+          "saDeliveries": 162,
+          "totalDeliveries": 179
+        },
+        {
+          "month": "2018-06",
+          "saDeliveries": 191,
+          "totalDeliveries": 207
+        },
+        {
+          "month": "2018-07",
+          "saDeliveries": 171,
+          "totalDeliveries": 185
+        },
+        {
+          "month": "2018-08",
+          "saDeliveries": 174,
+          "totalDeliveries": 184
+        },
+        {
+          "month": "2018-09",
+          "saDeliveries": 172,
+          "totalDeliveries": 170
+        },
+        {
+          "month": "2018-10",
+          "saDeliveries": 175,
+          "totalDeliveries": 194
+        },
+        {
+          "month": "2018-11",
+          "saDeliveries": 176,
+          "totalDeliveries": 186
+        },
+        {
+          "month": "2018-12",
+          "saDeliveries": 176,
+          "totalDeliveries": 130
+        },
+        {
+          "month": "2019-01",
+          "saDeliveries": 165,
+          "totalDeliveries": 137
+        },
+        {
+          "month": "2019-02",
+          "saDeliveries": 171,
+          "totalDeliveries": 152
+        },
+        {
+          "month": "2019-03",
+          "saDeliveries": 167,
+          "totalDeliveries": 168
+        },
+        {
+          "month": "2019-04",
+          "saDeliveries": 172,
+          "totalDeliveries": 176
+        },
+        {
+          "month": "2019-05",
+          "saDeliveries": 172,
+          "totalDeliveries": 189
+        },
+        {
+          "month": "2019-06",
+          "saDeliveries": 171,
+          "totalDeliveries": 182
+        },
+        {
+          "month": "2019-07",
+          "saDeliveries": 156,
+          "totalDeliveries": 177
+        },
+        {
+          "month": "2019-08",
+          "saDeliveries": 158,
+          "totalDeliveries": 163
+        },
+        {
+          "month": "2019-09",
+          "saDeliveries": 173,
+          "totalDeliveries": 178
+        },
+        {
+          "month": "2019-10",
+          "saDeliveries": 163,
+          "totalDeliveries": 181
+        },
+        {
+          "month": "2019-11",
+          "saDeliveries": 160,
+          "totalDeliveries": 163
+        },
+        {
+          "month": "2019-12",
+          "saDeliveries": 171,
+          "totalDeliveries": 133
+        },
+        {
+          "month": "2020-01",
+          "saDeliveries": 162,
+          "totalDeliveries": 132
+        },
+        {
+          "month": "2020-02",
+          "saDeliveries": 163,
+          "totalDeliveries": 141
+        },
+        {
+          "month": "2020-03",
+          "saDeliveries": 115,
+          "totalDeliveries": 122
+        },
+        {
+          "month": "2020-04",
+          "saDeliveries": 20,
+          "totalDeliveries": 23
+        },
+        {
+          "month": "2020-05",
+          "saDeliveries": 65,
+          "totalDeliveries": 70
+        },
+        {
+          "month": "2020-06",
+          "saDeliveries": 100,
+          "totalDeliveries": 123
+        },
+        {
+          "month": "2020-07",
+          "saDeliveries": 135,
+          "totalDeliveries": 156
+        },
+        {
+          "month": "2020-08",
+          "saDeliveries": 149,
+          "totalDeliveries": 147
+        },
+        {
+          "month": "2020-09",
+          "saDeliveries": 154,
+          "totalDeliveries": 165
+        },
+        {
+          "month": "2020-10",
+          "saDeliveries": 155,
+          "totalDeliveries": 167
+        },
+        {
+          "month": "2020-11",
+          "saDeliveries": 162,
+          "totalDeliveries": 164
+        },
+        {
+          "month": "2020-12",
+          "saDeliveries": 165,
+          "totalDeliveries": 133
+        },
+        {
+          "month": "2021-01",
+          "saDeliveries": 164,
+          "totalDeliveries": 123
+        },
+        {
+          "month": "2021-02",
+          "saDeliveries": 153,
+          "totalDeliveries": 135
+        },
+        {
+          "month": "2021-03",
+          "saDeliveries": 175,
+          "totalDeliveries": 183
+        },
+        {
+          "month": "2021-04",
+          "saDeliveries": 163,
+          "totalDeliveries": 171
+        },
+        {
+          "month": "2021-05",
+          "saDeliveries": 164,
+          "totalDeliveries": 169
+        },
+        {
+          "month": "2021-06",
+          "saDeliveries": 163,
+          "totalDeliveries": 187
+        },
+        {
+          "month": "2021-07",
+          "saDeliveries": 161,
+          "totalDeliveries": 178
+        },
+        {
+          "month": "2021-08",
+          "saDeliveries": 157,
+          "totalDeliveries": 161
+        },
+        {
+          "month": "2021-09",
+          "saDeliveries": 162,
+          "totalDeliveries": 174
+        },
+        {
+          "month": "2021-10",
+          "saDeliveries": 165,
+          "totalDeliveries": 170
+        },
+        {
+          "month": "2021-11",
+          "saDeliveries": 161,
+          "totalDeliveries": 169
+        },
+        {
+          "month": "2021-12",
+          "saDeliveries": 150,
+          "totalDeliveries": 118
+        },
+        {
+          "month": "2022-01",
+          "saDeliveries": 181,
+          "totalDeliveries": 141
+        },
+        {
+          "month": "2022-02",
+          "saDeliveries": 172,
+          "totalDeliveries": 156
+        },
+        {
+          "month": "2022-03",
+          "saDeliveries": 176,
+          "totalDeliveries": 191
+        },
+        {
+          "month": "2022-04",
+          "saDeliveries": 169,
+          "totalDeliveries": 166
+        },
+        {
+          "month": "2022-05",
+          "saDeliveries": 171,
+          "totalDeliveries": 182
+        },
+        {
+          "month": "2022-06",
+          "saDeliveries": 148,
+          "totalDeliveries": 173
+        },
+        {
+          "month": "2022-07",
+          "saDeliveries": 159,
+          "totalDeliveries": 170
+        },
+        {
+          "month": "2022-08",
+          "saDeliveries": 160,
+          "totalDeliveries": 169
+        },
+        {
+          "month": "2022-09",
+          "saDeliveries": 168,
+          "totalDeliveries": 180
+        },
+        {
+          "month": "2022-10",
+          "saDeliveries": 153,
+          "totalDeliveries": 159
+        },
+        {
+          "month": "2022-11",
+          "saDeliveries": 148,
+          "totalDeliveries": 155
+        },
+        {
+          "month": "2022-12",
+          "saDeliveries": 134,
+          "totalDeliveries": 95
+        },
+        {
+          "month": "2023-01",
+          "saDeliveries": 128,
+          "totalDeliveries": 96
+        },
+        {
+          "month": "2023-02",
+          "saDeliveries": 124,
+          "totalDeliveries": 109
+        },
+        {
+          "month": "2023-03",
+          "saDeliveries": 113,
+          "totalDeliveries": 129
+        },
+        {
+          "month": "2023-04",
+          "saDeliveries": 119,
+          "totalDeliveries": 111
+        },
+        {
+          "month": "2023-05",
+          "saDeliveries": 116,
+          "totalDeliveries": 132
+        },
+        {
+          "month": "2023-06",
+          "saDeliveries": 121,
+          "totalDeliveries": 145
+        },
+        {
+          "month": "2023-07",
+          "saDeliveries": 115,
+          "totalDeliveries": 128
+        },
+        {
+          "month": "2023-08",
+          "saDeliveries": 108,
+          "totalDeliveries": 120
+        },
+        {
+          "month": "2023-09",
+          "saDeliveries": 105,
+          "totalDeliveries": 113
+        },
+        {
+          "month": "2023-10",
+          "saDeliveries": 103,
+          "totalDeliveries": 115
+        },
+        {
+          "month": "2023-11",
+          "saDeliveries": 97,
+          "totalDeliveries": 105
+        },
+        {
+          "month": "2023-12",
+          "saDeliveries": 114,
+          "totalDeliveries": 69
+        },
+        {
+          "month": "2024-01",
+          "saDeliveries": 116,
+          "totalDeliveries": 91
+        },
+        {
+          "month": "2024-02",
+          "saDeliveries": 112,
+          "totalDeliveries": 102
+        },
+        {
+          "month": "2024-03",
+          "saDeliveries": 113,
+          "totalDeliveries": 104
+        },
+        {
+          "month": "2024-04",
+          "saDeliveries": 111,
+          "totalDeliveries": 121
+        },
+        {
+          "month": "2024-05",
+          "saDeliveries": 106,
+          "totalDeliveries": 120
+        },
+        {
+          "month": "2024-06",
+          "saDeliveries": 109,
+          "totalDeliveries": 118
+        },
+        {
+          "month": "2024-07",
+          "saDeliveries": 117,
+          "totalDeliveries": 140
+        },
+        {
+          "month": "2024-08",
+          "saDeliveries": 124,
+          "totalDeliveries": 128
+        },
+        {
+          "month": "2024-09",
+          "saDeliveries": 122,
+          "totalDeliveries": 128
+        },
+        {
+          "month": "2024-10",
+          "saDeliveries": 124,
+          "totalDeliveries": 140
+        },
+        {
+          "month": "2024-11",
+          "saDeliveries": 125,
+          "totalDeliveries": 126
+        },
+        {
+          "month": "2024-12",
+          "saDeliveries": 124,
+          "totalDeliveries": 83
+        },
+        {
+          "month": "2025-01",
+          "saDeliveries": 126,
+          "totalDeliveries": 104
+        },
+        {
+          "month": "2025-02",
+          "saDeliveries": 135,
+          "totalDeliveries": 120
+        },
+        {
+          "month": "2025-03",
+          "saDeliveries": 123,
+          "totalDeliveries": 125
+        },
+        {
+          "month": "2025-04",
+          "saDeliveries": 125,
+          "totalDeliveries": 125
+        },
+        {
+          "month": "2025-05",
+          "saDeliveries": 128,
+          "totalDeliveries": 137
+        },
+        {
+          "month": "2025-06",
+          "saDeliveries": 126,
+          "totalDeliveries": 142
+        },
+        {
+          "month": "2025-07",
+          "saDeliveries": 123,
+          "totalDeliveries": 146
+        },
+        {
+          "month": "2025-08",
+          "saDeliveries": 120,
+          "totalDeliveries": 119
+        },
+        {
+          "month": "2025-09",
+          "saDeliveries": 121,
+          "totalDeliveries": 134
+        },
+        {
+          "month": "2025-10",
+          "saDeliveries": 118,
+          "totalDeliveries": 134
         }
       ]
     }

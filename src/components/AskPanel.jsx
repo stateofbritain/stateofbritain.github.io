@@ -40,7 +40,7 @@ const DATASET_ROUTES = {
   "taxation": { path: "/spending/spending/taxation", label: "Taxation" },
   "borrowing": { path: "/spending/spending/borrowing", label: "Borrowing & Debt" },
   "money-supply": { path: "/spending/spending/moneySupply", label: "Money Supply" },
-  "local-government": { path: "/spending/spending/localGov", label: "Local Government" },
+  "local-government": { path: "/spending/localGov", label: "Local Government" },
   "spending": { path: "/spending/spending/overview", label: "Government Spending" },
 };
 

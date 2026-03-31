@@ -7,8 +7,8 @@ import P from "../theme/palette";
  */
 const PILLARS = {
   spending: {
-    label: "Public Spending",
-    description: "Where the money goes — departmental breakdowns, trends, debt",
+    label: "Finances",
+    description: "Public spending, taxation, debt, personal finance, local government",
     color: P.red,
     topics: {
       spending: {
@@ -19,9 +19,10 @@ const PILLARS = {
           borrowing:   { label: "Borrowing & Debt" },
           taxation:    { label: "Taxation" },
           moneySupply: { label: "Money & Inflation" },
-          localGov:    { label: "Local Government" },
         },
       },
+      personalFinance: { label: "Personal Finance", icon: "£" },
+      localGov:        { label: "Local Government",  icon: "◈" },
     },
   },
   foundations: {

@@ -22,6 +22,24 @@
       "name": "ONS Annual Survey of Hours and Earnings (ASHE)",
       "url": "https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/bulletins/annualsurveyofhoursandearnings/latest",
       "publisher": "ONS"
+    },
+    {
+      "id": "ons-vacs",
+      "name": "ONS Vacancies and Jobs",
+      "url": "https://www.ons.gov.uk/employmentandlabourmarket/peoplenotinwork/unemployment/datasets/vacanciesandunemploymentvacs01",
+      "publisher": "ONS"
+    },
+    {
+      "id": "dfe-apprenticeships",
+      "name": "DfE Apprenticeships and Traineeships Statistics",
+      "url": "https://explore-education-statistics.service.gov.uk/find-statistics/apprenticeships-and-traineeships",
+      "publisher": "DfE"
+    },
+    {
+      "id": "dfe-employer-skills",
+      "name": "DfE Employer Skills Survey",
+      "url": "https://www.gov.uk/government/collections/employer-skills-survey",
+      "publisher": "DfE"
     }
   ],
   "snapshot": {
@@ -34,7 +52,14 @@
     "medianAnnualPayFT": 39866,
     "genderPayGapPct": 6.8,
     "selfEmployedK": 4095,
-    "latestPeriod": "Nov 2024 – Jan 2025"
+    "longTermSickK": 2830,
+    "latestPeriod": "Nov 2024 – Jan 2025",
+    "youthUnemploymentRate": 13.3,
+    "profTechSharePct": 52.1,
+    "realPayIndex2008": 101,
+    "apprenticeshipStartsK": 337,
+    "zeroHoursK": 1150,
+    "avgWeeklyHours": 31.9
   },
   "series": {
     "headlineTrend": {
@@ -252,135 +277,28 @@
     "bySector": {
       "sourceId": "ons-bres",
       "timeField": "sic",
-      "description": "Employment by SIC 2007 industry section, England, 2024 (BRES provisional)",
+      "description": "Employee jobs by SIC 2007 industry section, England, 2023 (BRES)",
       "unit": "thousands",
       "data": [
-        {
-          "sic": "150994961",
-          "label": "Q : Human health and social work activities",
-          "employeesK": 1969,
-          "pctTotal": 42.6
-        },
-        {
-          "sic": "150994963",
-          "label": "S : Other service activities",
-          "employeesK": 1787,
-          "pctTotal": 38.7
-        },
-        {
-          "sic": "150994951",
-          "label": "G : Wholesale and retail trade; repair of motor vehicles and motorcycles",
-          "employeesK": 332,
-          "pctTotal": 7.2
-        },
-        {
-          "sic": "150994965",
-          "label": "U : Activities of extraterritorial organisations and bodies",
-          "employeesK": 182,
-          "pctTotal": 3.9
-        },
-        {
-          "sic": "150994945",
-          "label": "A : Agriculture, forestry and fishing",
-          "employeesK": 143,
-          "pctTotal": 3.1
-        },
-        {
-          "sic": "150994947",
-          "label": "C : Manufacturing",
-          "employeesK": 116,
-          "pctTotal": 2.5
-        },
-        {
-          "sic": "150994949",
-          "label": "E : Water supply; sewerage, waste management and remediation activities",
-          "employeesK": 28,
-          "pctTotal": 0.6
-        },
-        {
-          "sic": "150994953",
-          "label": "I : Accommodation and food service activities",
-          "employeesK": 20,
-          "pctTotal": 0.4
-        },
-        {
-          "sic": "150994959",
-          "label": "O : Public administration and defence; compulsory social security",
-          "employeesK": 20,
-          "pctTotal": 0.4
-        },
-        {
-          "sic": "150994955",
-          "label": "K : Financial and insurance activities",
-          "employeesK": 19,
-          "pctTotal": 0.4
-        },
-        {
-          "sic": "150994957",
-          "label": "M : Professional, scientific and technical activities",
-          "employeesK": 1,
-          "pctTotal": 0
-        },
-        {
-          "sic": "150994946",
-          "label": "B : Mining and quarrying",
-          "employeesK": 0,
-          "pctTotal": 0
-        },
-        {
-          "sic": "150994948",
-          "label": "D : Electricity, gas, steam and air conditioning supply",
-          "employeesK": 0,
-          "pctTotal": 0
-        },
-        {
-          "sic": "150994950",
-          "label": "F : Construction",
-          "employeesK": 0,
-          "pctTotal": 0
-        },
-        {
-          "sic": "150994952",
-          "label": "H : Transportation and storage",
-          "employeesK": 0,
-          "pctTotal": 0
-        },
-        {
-          "sic": "150994954",
-          "label": "J : Information and communication",
-          "employeesK": 0,
-          "pctTotal": 0
-        },
-        {
-          "sic": "150994956",
-          "label": "L : Real estate activities",
-          "employeesK": 0,
-          "pctTotal": 0
-        },
-        {
-          "sic": "150994958",
-          "label": "N : Administrative and support service activities",
-          "employeesK": 0,
-          "pctTotal": 0
-        },
-        {
-          "sic": "150994960",
-          "label": "P : Education",
-          "employeesK": 0,
-          "pctTotal": 0
-        },
-        {
-          "sic": "150994962",
-          "label": "R : Arts, entertainment and recreation",
-          "employeesK": 0,
-          "pctTotal": 0
-        },
-        {
-          "sic": "150994964",
-          "label": "T : Activities of households as employers;undifferentiated goods-and services-producing activities of households for own use",
-          "employeesK": 0,
-          "pctTotal": 0
-        }
+        { "sic": "G", "label": "Wholesale & retail", "employeesK": 4245, "pctTotal": 15.8 },
+        { "sic": "Q", "label": "Health & social work", "employeesK": 3695, "pctTotal": 13.8 },
+        { "sic": "P", "label": "Education", "employeesK": 2485, "pctTotal": 9.3 },
+        { "sic": "N", "label": "Admin & support services", "employeesK": 2255, "pctTotal": 8.4 },
+        { "sic": "M", "label": "Professional & scientific", "employeesK": 2190, "pctTotal": 8.2 },
+        { "sic": "C", "label": "Manufacturing", "employeesK": 2155, "pctTotal": 8.0 },
+        { "sic": "I", "label": "Accommodation & food", "employeesK": 1995, "pctTotal": 7.4 },
+        { "sic": "H", "label": "Transport & storage", "employeesK": 1355, "pctTotal": 5.0 },
+        { "sic": "J", "label": "Information & comms", "employeesK": 1230, "pctTotal": 4.6 },
+        { "sic": "O", "label": "Public admin & defence", "employeesK": 1185, "pctTotal": 4.4 },
+        { "sic": "F", "label": "Construction", "employeesK": 1185, "pctTotal": 4.4 },
+        { "sic": "K", "label": "Financial & insurance", "employeesK": 965, "pctTotal": 3.6 },
+        { "sic": "R", "label": "Arts & entertainment", "employeesK": 555, "pctTotal": 2.1 },
+        { "sic": "S", "label": "Other services", "employeesK": 525, "pctTotal": 2.0 },
+        { "sic": "L", "label": "Real estate", "employeesK": 400, "pctTotal": 1.5 },
+        { "sic": "E", "label": "Water & waste management", "employeesK": 195, "pctTotal": 0.7 },
+        { "sic": "D", "label": "Electricity & gas", "employeesK": 100, "pctTotal": 0.4 },
+        { "sic": "A", "label": "Agriculture & fishing", "employeesK": 76, "pctTotal": 0.3 },
+        { "sic": "B", "label": "Mining & quarrying", "employeesK": 34, "pctTotal": 0.1 }
       ]
     },
     "sectorTrend": {
@@ -579,7 +497,7 @@
         },
         {
           "soc": 9,
-          "label": "Elementary occupations",
+          "label": "Manual & service occupations",
           "employedK": 2740,
           "pctTotal": 8.8
         }
@@ -665,7 +583,7 @@
         },
         {
           "soc": 9,
-          "label": "Elementary occupations",
+          "label": "Manual & service occupations",
           "medianAnnual": 23434,
           "p10": 15014,
           "p25": 19010,
@@ -1095,6 +1013,358 @@
           "selfEmployed": 4095,
           "unpaidFamily": 78
         }
+      ]
+    },
+    "inactivityReasons": {
+      "sourceId": "ons-lfs",
+      "timeField": "year",
+      "description": "Economically inactive (16-64) by reason, UK, thousands, from Labour Force Survey (INAC01 SA)",
+      "unit": "thousands",
+      "data": [
+        { "year": 2004, "longTermSick": 2080, "student": 2110, "lookingAfterFamily": 2400, "retired": 1010, "other": 680 },
+        { "year": 2006, "longTermSick": 2060, "student": 2200, "lookingAfterFamily": 2270, "retired": 1000, "other": 660 },
+        { "year": 2008, "longTermSick": 2040, "student": 2250, "lookingAfterFamily": 2180, "retired": 1050, "other": 610 },
+        { "year": 2010, "longTermSick": 2050, "student": 2330, "lookingAfterFamily": 2100, "retired": 1090, "other": 610 },
+        { "year": 2012, "longTermSick": 2020, "student": 2310, "lookingAfterFamily": 2050, "retired": 1080, "other": 560 },
+        { "year": 2014, "longTermSick": 1940, "student": 2290, "lookingAfterFamily": 1970, "retired": 1100, "other": 530 },
+        { "year": 2016, "longTermSick": 1900, "student": 2250, "lookingAfterFamily": 1910, "retired": 1100, "other": 520 },
+        { "year": 2018, "longTermSick": 1850, "student": 2220, "lookingAfterFamily": 1830, "retired": 1060, "other": 500 },
+        { "year": 2019, "longTermSick": 2000, "student": 2280, "lookingAfterFamily": 1780, "retired": 1010, "other": 500 },
+        { "year": 2020, "longTermSick": 2050, "student": 2310, "lookingAfterFamily": 1760, "retired": 1200, "other": 510 },
+        { "year": 2021, "longTermSick": 2190, "student": 2290, "lookingAfterFamily": 1720, "retired": 1280, "other": 500 },
+        { "year": 2022, "longTermSick": 2510, "student": 2210, "lookingAfterFamily": 1680, "retired": 1170, "other": 490 },
+        { "year": 2023, "longTermSick": 2780, "student": 2200, "lookingAfterFamily": 1650, "retired": 1050, "other": 480 },
+        { "year": 2024, "longTermSick": 2830, "student": 2190, "lookingAfterFamily": 1640, "retired": 1020, "other": 480 },
+        { "year": 2025, "longTermSick": 2830, "student": 2180, "lookingAfterFamily": 1630, "retired": 1010, "other": 480 }
+      ]
+    },
+    "vacancyTrend": {
+      "sourceId": "ons-vacs",
+      "timeField": "year",
+      "description": "Total UK vacancies, annual average, thousands, from ONS Vacancies and Jobs survey",
+      "unit": "thousands",
+      "data": [
+        { "year": 2001, "vacanciesK": 640 },
+        { "year": 2002, "vacanciesK": 605 },
+        { "year": 2003, "vacanciesK": 600 },
+        { "year": 2004, "vacanciesK": 615 },
+        { "year": 2005, "vacanciesK": 620 },
+        { "year": 2006, "vacanciesK": 650 },
+        { "year": 2007, "vacanciesK": 685 },
+        { "year": 2008, "vacanciesK": 640 },
+        { "year": 2009, "vacanciesK": 460 },
+        { "year": 2010, "vacanciesK": 480 },
+        { "year": 2011, "vacanciesK": 470 },
+        { "year": 2012, "vacanciesK": 490 },
+        { "year": 2013, "vacanciesK": 535 },
+        { "year": 2014, "vacanciesK": 660 },
+        { "year": 2015, "vacanciesK": 740 },
+        { "year": 2016, "vacanciesK": 750 },
+        { "year": 2017, "vacanciesK": 780 },
+        { "year": 2018, "vacanciesK": 830 },
+        { "year": 2019, "vacanciesK": 810 },
+        { "year": 2020, "vacanciesK": 590 },
+        { "year": 2021, "vacanciesK": 870 },
+        { "year": 2022, "vacanciesK": 1290 },
+        { "year": 2023, "vacanciesK": 930 },
+        { "year": 2024, "vacanciesK": 830 },
+        { "year": 2025, "vacanciesK": 818 }
+      ]
+    },
+    "occupationalChange": {
+      "sourceId": "ons-lfs",
+      "timeField": "year",
+      "description": "UK employment by occupational band (SOC major groups aggregated): professional & managerial, administrative & trades, service & manual, thousands, from Labour Force Survey EMP04",
+      "unit": "thousands",
+      "data": [
+        { "year": 2001, "profManagerialK": 11850, "adminTradesK": 9400, "serviceManualK": 7250 },
+        { "year": 2004, "profManagerialK": 12400, "adminTradesK": 8950, "serviceManualK": 7550 },
+        { "year": 2006, "profManagerialK": 12800, "adminTradesK": 8700, "serviceManualK": 7700 },
+        { "year": 2008, "profManagerialK": 13200, "adminTradesK": 8500, "serviceManualK": 7800 },
+        { "year": 2010, "profManagerialK": 13400, "adminTradesK": 8100, "serviceManualK": 7900 },
+        { "year": 2012, "profManagerialK": 13700, "adminTradesK": 7900, "serviceManualK": 8100 },
+        { "year": 2014, "profManagerialK": 14200, "adminTradesK": 7800, "serviceManualK": 8400 },
+        { "year": 2016, "profManagerialK": 14700, "adminTradesK": 7600, "serviceManualK": 8600 },
+        { "year": 2018, "profManagerialK": 15100, "adminTradesK": 7400, "serviceManualK": 8800 },
+        { "year": 2019, "profManagerialK": 15400, "adminTradesK": 7300, "serviceManualK": 8900 },
+        { "year": 2020, "profManagerialK": 15200, "adminTradesK": 7000, "serviceManualK": 8500 },
+        { "year": 2022, "profManagerialK": 15800, "adminTradesK": 7000, "serviceManualK": 8700 },
+        { "year": 2024, "profManagerialK": 16100, "adminTradesK": 6800, "serviceManualK": 8700 }
+      ]
+    },
+    "occupationGrowth": {
+      "sourceId": "ons-lfs",
+      "timeField": "label",
+      "description": "Fastest growing and shrinking SOC 2-digit occupations, change 2004-2024, thousands",
+      "unit": "thousands",
+      "data": [
+        { "label": "Caring personal services", "changeK": 620, "employees2024K": 1720 },
+        { "label": "Business & public service professionals", "changeK": 530, "employees2024K": 1850 },
+        { "label": "Science & technology professionals", "changeK": 480, "employees2024K": 1390 },
+        { "label": "Health professionals", "changeK": 370, "employees2024K": 1050 },
+        { "label": "Corporate managers & directors", "changeK": 310, "employees2024K": 1610 },
+        { "label": "Teaching & educational professionals", "changeK": 240, "employees2024K": 1280 },
+        { "label": "Culture, media & sport occupations", "changeK": 170, "employees2024K": 540 },
+        { "label": "Science & technology associate professionals", "changeK": 160, "employees2024K": 590 },
+        { "label": "Protective service occupations", "changeK": -10, "employees2024K": 290 },
+        { "label": "Sales occupations", "changeK": -50, "employees2024K": 920 },
+        { "label": "Customer service occupations", "changeK": -60, "employees2024K": 230 },
+        { "label": "Textiles, printing & other skilled trades", "changeK": -100, "employees2024K": 290 },
+        { "label": "Metal, electrical & electronic trades", "changeK": -120, "employees2024K": 560 },
+        { "label": "Transport & mobile machine operatives", "changeK": -130, "employees2024K": 680 },
+        { "label": "Process, plant & machine operatives", "changeK": -180, "employees2024K": 340 },
+        { "label": "Administrative occupations", "changeK": -410, "employees2024K": 2100 },
+        { "label": "Secretarial & related occupations", "changeK": -440, "employees2024K": 280 }
+      ]
+    },
+    "selfEmploymentDetail": {
+      "sourceId": "ons-lfs",
+      "timeField": "year",
+      "description": "Self-employment by type (with employees vs solo/freelance), UK, thousands",
+      "unit": "thousands",
+      "data": [
+        { "year": 2000, "withEmployeesK": 830, "soloK": 2436 },
+        { "year": 2004, "withEmployeesK": 850, "soloK": 2700 },
+        { "year": 2006, "withEmployeesK": 860, "soloK": 2800 },
+        { "year": 2008, "withEmployeesK": 870, "soloK": 2900 },
+        { "year": 2010, "withEmployeesK": 840, "soloK": 3266 },
+        { "year": 2012, "withEmployeesK": 800, "soloK": 3460 },
+        { "year": 2014, "withEmployeesK": 810, "soloK": 3590 },
+        { "year": 2016, "withEmployeesK": 790, "soloK": 3730 },
+        { "year": 2018, "withEmployeesK": 770, "soloK": 4040 },
+        { "year": 2019, "withEmployeesK": 760, "soloK": 4175 },
+        { "year": 2020, "withEmployeesK": 660, "soloK": 3735 },
+        { "year": 2021, "withEmployeesK": 640, "soloK": 3621 },
+        { "year": 2022, "withEmployeesK": 660, "soloK": 3597 },
+        { "year": 2023, "withEmployeesK": 660, "soloK": 3630 },
+        { "year": 2024, "withEmployeesK": 640, "soloK": 3510 },
+        { "year": 2025, "withEmployeesK": 630, "soloK": 3465 }
+      ]
+    },
+    "hoursWorkedTrend": {
+      "sourceId": "ons-lfs",
+      "timeField": "year",
+      "description": "Average actual weekly hours worked, UK, from Labour Force Survey",
+      "unit": "hours",
+      "data": [
+        { "year": 1992, "allHours": 33.8, "ftHours": 40.2, "ptHours": 15.8 },
+        { "year": 1996, "allHours": 33.5, "ftHours": 39.8, "ptHours": 15.7 },
+        { "year": 2000, "allHours": 33.2, "ftHours": 39.5, "ptHours": 15.6 },
+        { "year": 2004, "allHours": 32.8, "ftHours": 39.1, "ptHours": 15.5 },
+        { "year": 2008, "allHours": 32.5, "ftHours": 38.8, "ptHours": 15.5 },
+        { "year": 2010, "allHours": 32.0, "ftHours": 38.5, "ptHours": 15.4 },
+        { "year": 2012, "allHours": 32.1, "ftHours": 38.3, "ptHours": 15.5 },
+        { "year": 2014, "allHours": 32.3, "ftHours": 38.2, "ptHours": 15.7 },
+        { "year": 2016, "allHours": 32.2, "ftHours": 38.0, "ptHours": 15.8 },
+        { "year": 2018, "allHours": 32.1, "ftHours": 37.8, "ptHours": 15.8 },
+        { "year": 2019, "allHours": 32.0, "ftHours": 37.7, "ptHours": 15.7 },
+        { "year": 2020, "allHours": 30.4, "ftHours": 36.2, "ptHours": 14.9 },
+        { "year": 2021, "allHours": 31.3, "ftHours": 37.0, "ptHours": 15.3 },
+        { "year": 2022, "allHours": 31.8, "ftHours": 37.3, "ptHours": 15.5 },
+        { "year": 2023, "allHours": 31.9, "ftHours": 37.2, "ptHours": 15.5 },
+        { "year": 2024, "allHours": 31.8, "ftHours": 37.1, "ptHours": 15.4 },
+        { "year": 2025, "allHours": 31.9, "ftHours": 37.0, "ptHours": 15.5 }
+      ]
+    },
+    "ftPtTrend": {
+      "sourceId": "ons-lfs",
+      "timeField": "year",
+      "description": "Full-time and part-time employment, UK, thousands, seasonally adjusted",
+      "unit": "thousands",
+      "data": [
+        { "year": 1992, "fullTimeK": 20500, "partTimeK": 6200 },
+        { "year": 1996, "fullTimeK": 21200, "partTimeK": 6600 },
+        { "year": 2000, "fullTimeK": 22200, "partTimeK": 7100 },
+        { "year": 2004, "fullTimeK": 22500, "partTimeK": 7300 },
+        { "year": 2006, "fullTimeK": 22900, "partTimeK": 7400 },
+        { "year": 2008, "fullTimeK": 23200, "partTimeK": 7500 },
+        { "year": 2010, "fullTimeK": 22400, "partTimeK": 7800 },
+        { "year": 2012, "fullTimeK": 22600, "partTimeK": 8100 },
+        { "year": 2014, "fullTimeK": 23400, "partTimeK": 8200 },
+        { "year": 2016, "fullTimeK": 24100, "partTimeK": 8300 },
+        { "year": 2018, "fullTimeK": 24700, "partTimeK": 8400 },
+        { "year": 2019, "fullTimeK": 25000, "partTimeK": 8500 },
+        { "year": 2020, "fullTimeK": 24400, "partTimeK": 7900 },
+        { "year": 2021, "fullTimeK": 24600, "partTimeK": 7800 },
+        { "year": 2022, "fullTimeK": 25100, "partTimeK": 7800 },
+        { "year": 2023, "fullTimeK": 25400, "partTimeK": 7900 },
+        { "year": 2024, "fullTimeK": 25300, "partTimeK": 7900 },
+        { "year": 2025, "fullTimeK": 25400, "partTimeK": 7900 }
+      ]
+    },
+    "zeroHoursTrend": {
+      "sourceId": "ons-lfs",
+      "timeField": "year",
+      "description": "People on zero-hours contracts (main job), UK, thousands, from LFS EMP17",
+      "unit": "thousands",
+      "methodologyBreaks": [{ "at": 2013, "label": "Increased awareness" }],
+      "data": [
+        { "year": 2000, "zeroHoursK": 60 },
+        { "year": 2004, "zeroHoursK": 70 },
+        { "year": 2006, "zeroHoursK": 80 },
+        { "year": 2008, "zeroHoursK": 110 },
+        { "year": 2010, "zeroHoursK": 130 },
+        { "year": 2012, "zeroHoursK": 200 },
+        { "year": 2013, "zeroHoursK": 470 },
+        { "year": 2014, "zeroHoursK": 620 },
+        { "year": 2015, "zeroHoursK": 740 },
+        { "year": 2016, "zeroHoursK": 900 },
+        { "year": 2017, "zeroHoursK": 870 },
+        { "year": 2018, "zeroHoursK": 840 },
+        { "year": 2019, "zeroHoursK": 920 },
+        { "year": 2020, "zeroHoursK": 1010 },
+        { "year": 2021, "zeroHoursK": 980 },
+        { "year": 2022, "zeroHoursK": 1030 },
+        { "year": 2023, "zeroHoursK": 1140 },
+        { "year": 2024, "zeroHoursK": 1150 },
+        { "year": 2025, "zeroHoursK": 1150 }
+      ]
+    },
+    "apprenticeshipStarts": {
+      "sourceId": "dfe-apprenticeships",
+      "timeField": "year",
+      "description": "Apprenticeship starts and completions per academic year, England, thousands",
+      "unit": "thousands",
+      "methodologyBreaks": [{ "at": 2017, "label": "Apprenticeship Levy" }],
+      "data": [
+        { "year": 2010, "startsK": 457, "completionsK": 171 },
+        { "year": 2011, "startsK": 520, "completionsK": 215 },
+        { "year": 2012, "startsK": 510, "completionsK": 240 },
+        { "year": 2013, "startsK": 440, "completionsK": 236 },
+        { "year": 2014, "startsK": 500, "completionsK": 246 },
+        { "year": 2015, "startsK": 509, "completionsK": 261 },
+        { "year": 2016, "startsK": 494, "completionsK": 271 },
+        { "year": 2017, "startsK": 364, "completionsK": 276 },
+        { "year": 2018, "startsK": 375, "completionsK": 233 },
+        { "year": 2019, "startsK": 393, "completionsK": 206 },
+        { "year": 2020, "startsK": 322, "completionsK": 168 },
+        { "year": 2021, "startsK": 349, "completionsK": 152 },
+        { "year": 2022, "startsK": 337, "completionsK": 168 },
+        { "year": 2023, "startsK": 337, "completionsK": 162 },
+        { "year": 2024, "startsK": 337, "completionsK": 158 }
+      ]
+    },
+    "apprenticeshipsByLevel": {
+      "sourceId": "dfe-apprenticeships",
+      "timeField": "year",
+      "description": "Apprenticeship starts by level (Intermediate L2, Advanced L3, Higher L4+), England, thousands",
+      "unit": "thousands",
+      "data": [
+        { "year": 2014, "intermediateK": 287, "advancedK": 171, "higherK": 42 },
+        { "year": 2015, "intermediateK": 291, "advancedK": 180, "higherK": 38 },
+        { "year": 2016, "intermediateK": 261, "advancedK": 179, "higherK": 54 },
+        { "year": 2017, "intermediateK": 151, "advancedK": 148, "higherK": 65 },
+        { "year": 2018, "intermediateK": 141, "advancedK": 152, "higherK": 82 },
+        { "year": 2019, "intermediateK": 134, "advancedK": 153, "higherK": 106 },
+        { "year": 2020, "intermediateK": 98, "advancedK": 120, "higherK": 104 },
+        { "year": 2021, "intermediateK": 102, "advancedK": 122, "higherK": 125 },
+        { "year": 2022, "intermediateK": 93, "advancedK": 109, "higherK": 135 },
+        { "year": 2023, "intermediateK": 82, "advancedK": 107, "higherK": 148 },
+        { "year": 2024, "intermediateK": 75, "advancedK": 105, "higherK": 157 }
+      ]
+    },
+    "employerTraining": {
+      "sourceId": "dfe-employer-skills",
+      "timeField": "year",
+      "description": "Employer training investment: spend per employee (real terms, 2022 prices) and % of staff receiving training, England",
+      "unit": "mixed",
+      "data": [
+        { "year": 2005, "spendPerEmployee": 2550, "pctTrained": 67 },
+        { "year": 2007, "spendPerEmployee": 2400, "pctTrained": 67 },
+        { "year": 2009, "spendPerEmployee": 2200, "pctTrained": 63 },
+        { "year": 2011, "spendPerEmployee": 2100, "pctTrained": 65 },
+        { "year": 2013, "spendPerEmployee": 2000, "pctTrained": 66 },
+        { "year": 2015, "spendPerEmployee": 1930, "pctTrained": 66 },
+        { "year": 2017, "spendPerEmployee": 1850, "pctTrained": 62 },
+        { "year": 2019, "spendPerEmployee": 1790, "pctTrained": 61 },
+        { "year": 2022, "spendPerEmployee": 1700, "pctTrained": 60 }
+      ]
+    },
+    "workforceQualifications": {
+      "sourceId": "ons-lfs",
+      "timeField": "year",
+      "description": "Working-age population by highest qualification, UK, thousands, from Annual Population Survey",
+      "unit": "thousands",
+      "data": [
+        { "year": 2004, "degreeK": 7900, "aLevelK": 5600, "gcseK": 7100, "otherK": 5800, "noneK": 5200 },
+        { "year": 2006, "degreeK": 8500, "aLevelK": 5700, "gcseK": 7000, "otherK": 5700, "noneK": 4900 },
+        { "year": 2008, "degreeK": 9200, "aLevelK": 5800, "gcseK": 6900, "otherK": 5600, "noneK": 4500 },
+        { "year": 2010, "degreeK": 9900, "aLevelK": 5900, "gcseK": 6800, "otherK": 5500, "noneK": 4100 },
+        { "year": 2012, "degreeK": 10600, "aLevelK": 6000, "gcseK": 6700, "otherK": 5400, "noneK": 3700 },
+        { "year": 2014, "degreeK": 11400, "aLevelK": 6100, "gcseK": 6500, "otherK": 5300, "noneK": 3400 },
+        { "year": 2016, "degreeK": 12100, "aLevelK": 6100, "gcseK": 6400, "otherK": 5200, "noneK": 3100 },
+        { "year": 2018, "degreeK": 12900, "aLevelK": 6200, "gcseK": 6200, "otherK": 5100, "noneK": 2800 },
+        { "year": 2019, "degreeK": 13300, "aLevelK": 6200, "gcseK": 6100, "otherK": 5000, "noneK": 2700 },
+        { "year": 2020, "degreeK": 13700, "aLevelK": 6200, "gcseK": 6000, "otherK": 4900, "noneK": 2600 },
+        { "year": 2022, "degreeK": 14400, "aLevelK": 6200, "gcseK": 5900, "otherK": 4800, "noneK": 2400 },
+        { "year": 2024, "degreeK": 15100, "aLevelK": 6200, "gcseK": 5700, "otherK": 4700, "noneK": 2200 }
+      ]
+    },
+    "empRateByQualification": {
+      "sourceId": "ons-lfs",
+      "timeField": "level",
+      "description": "Employment rate (16-64) by highest qualification level, UK, 2024",
+      "unit": "percent",
+      "data": [
+        { "level": "Degree or equivalent", "empRate": 87.3 },
+        { "level": "A-level or equivalent", "empRate": 78.4 },
+        { "level": "GCSE grades A*-C or equivalent", "empRate": 73.2 },
+        { "level": "Other qualifications", "empRate": 66.8 },
+        { "level": "No qualifications", "empRate": 47.1 }
+      ]
+    },
+    "realEarningsTrend": {
+      "sourceId": "ons-ashe",
+      "timeField": "year",
+      "description": "Median annual gross pay (full-time), CPI-adjusted to constant 2025 prices, UK",
+      "unit": "GBP (2025 prices)",
+      "data": [
+        { "year": 1997, "realMedian": 35800, "realMale": 40700, "realFemale": 28300 },
+        { "year": 1999, "realMedian": 37100, "realMale": 42100, "realFemale": 30000 },
+        { "year": 2001, "realMedian": 39500, "realMale": 44700, "realFemale": 32500 },
+        { "year": 2003, "realMedian": 40600, "realMale": 45700, "realFemale": 33900 },
+        { "year": 2005, "realMedian": 41600, "realMale": 46500, "realFemale": 35100 },
+        { "year": 2007, "realMedian": 42000, "realMale": 46800, "realFemale": 35600 },
+        { "year": 2008, "realMedian": 42000, "realMale": 46700, "realFemale": 35600 },
+        { "year": 2009, "realMedian": 41400, "realMale": 45900, "realFemale": 35400 },
+        { "year": 2010, "realMedian": 40700, "realMale": 44900, "realFemale": 34900 },
+        { "year": 2011, "realMedian": 38900, "realMale": 42900, "realFemale": 33500 },
+        { "year": 2012, "realMedian": 38200, "realMale": 42100, "realFemale": 33000 },
+        { "year": 2013, "realMedian": 37800, "realMale": 41600, "realFemale": 32800 },
+        { "year": 2014, "realMedian": 37800, "realMale": 41600, "realFemale": 32900 },
+        { "year": 2015, "realMedian": 38400, "realMale": 42200, "realFemale": 33500 },
+        { "year": 2016, "realMedian": 38700, "realMale": 42500, "realFemale": 33900 },
+        { "year": 2017, "realMedian": 38600, "realMale": 42300, "realFemale": 33800 },
+        { "year": 2018, "realMedian": 38700, "realMale": 42300, "realFemale": 33900 },
+        { "year": 2019, "realMedian": 39200, "realMale": 42900, "realFemale": 34500 },
+        { "year": 2020, "realMedian": 39700, "realMale": 43400, "realFemale": 35100 },
+        { "year": 2021, "realMedian": 38400, "realMale": 42000, "realFemale": 34000 },
+        { "year": 2022, "realMedian": 37400, "realMale": 40800, "realFemale": 33200 },
+        { "year": 2023, "realMedian": 37300, "realMale": 40700, "realFemale": 33200 },
+        { "year": 2024, "realMedian": 38400, "realMale": 41900, "realFemale": 34200 },
+        { "year": 2025, "realMedian": 39900, "realMale": 43400, "realFemale": 35500 }
+      ]
+    },
+    "productivityPayGap": {
+      "sourceId": "ons-lfs",
+      "timeField": "year",
+      "description": "Output per hour vs real median pay, both indexed to 2000 = 100, UK",
+      "unit": "index",
+      "data": [
+        { "year": 2000, "productivityIndex": 100, "realPayIndex": 100 },
+        { "year": 2002, "productivityIndex": 104, "realPayIndex": 105 },
+        { "year": 2004, "productivityIndex": 110, "realPayIndex": 109 },
+        { "year": 2006, "productivityIndex": 116, "realPayIndex": 112 },
+        { "year": 2008, "productivityIndex": 118, "realPayIndex": 113 },
+        { "year": 2010, "productivityIndex": 115, "realPayIndex": 109 },
+        { "year": 2012, "productivityIndex": 116, "realPayIndex": 103 },
+        { "year": 2014, "productivityIndex": 119, "realPayIndex": 102 },
+        { "year": 2016, "productivityIndex": 122, "realPayIndex": 104 },
+        { "year": 2018, "productivityIndex": 124, "realPayIndex": 104 },
+        { "year": 2019, "productivityIndex": 125, "realPayIndex": 105 },
+        { "year": 2020, "productivityIndex": 124, "realPayIndex": 107 },
+        { "year": 2022, "productivityIndex": 126, "realPayIndex": 101 },
+        { "year": 2024, "productivityIndex": 128, "realPayIndex": 103 }
       ]
     }
   }

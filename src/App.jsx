@@ -59,6 +59,7 @@ import Immigration from "./pillars/state/Immigration";
 import Taxation from "./pillars/state/Taxation";
 import Borrowing from "./pillars/state/Borrowing";
 import MoneySupply from "./pillars/state/MoneySupply";
+import PersonalFinance from "./pillars/state/PersonalFinance";
 import LocalGovernment from "./pillars/state/LocalGovernment";
 import ChallengesOverview from "./pillars/challenges/ChallengesOverview";
 import AsylumImmigration from "./pillars/challenges/AsylumImmigration";
@@ -72,7 +73,8 @@ const TOPIC_COMPONENTS = {
   "spending/spending/borrowing": Borrowing,
   "spending/spending/taxation": Taxation,
   "spending/spending/moneySupply": MoneySupply,
-  "spending/spending/localGov": LocalGovernment,
+  "spending/personalFinance": PersonalFinance,
+  "spending/localGov": LocalGovernment,
   "foundations/housing/prices": HousingPrices,
   "foundations/housing/supply": HousingSupply,
   "foundations/housing/stock": HousingStock,

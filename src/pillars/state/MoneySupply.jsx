@@ -376,40 +376,6 @@ export default function MoneySupply() {
         </ChartCard>
       </section>
 
-      {/* ── Section 7: Nominal vs Real Government Debt ──────────────────── */}
-      <section style={{ marginBottom: 32 }}>
-        <h3 style={SECTION_HEADING}>Government Debt: Nominal vs Real</h3>
-        <p style={SECTION_NOTE}>
-          Public sector net debt (excluding public sector banks) stood at £{s.debtLatest}bn
-          ({s.debtPctGdp}% of GDP) in {s.debtLatestYear}. In nominal terms, debt has risen
-          ninefold since 2000-01. In real terms (deflated by CPI to 2000-01 prices), the
-          increase is smaller, reflecting the effect of cumulative inflation on the real value
-          of outstanding nominal liabilities.
-        </p>
-
-        <ChartCard
-          title="Public Sector Net Debt: Nominal vs Real"
-          subtitle="£bn, real terms deflated to 2000-01 prices using CPI"
-          source={sourceFrom(raw, "debtNominalVsReal")}
-          height={340}
-        >
-          <LineChart data={data.debtNominalVsReal} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
-            <CartesianGrid {...GRID_PROPS} />
-            <XAxis dataKey="fy" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} interval={isMobile ? 4 : 2} />
-            <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} label={yAxisLabel("£bn")} />
-            <Tooltip content={<CustomTooltip />} />
-            <Line type="monotone" dataKey="nominal" name="Nominal debt (£bn)" stroke={P.navy} strokeWidth={2.5} dot={{ r: 2.5 }} />
-            <Line type="monotone" dataKey="real" name="Real debt (2000-01 £bn)" stroke={P.teal} strokeWidth={2} dot={{ r: 2 }} strokeDasharray="6 3" />
-          </LineChart>
-        </ChartCard>
-
-        <AnalysisBox color={P.teal} label="Context">
-          The gap between the nominal and real debt lines represents the cumulative effect
-          of inflation on the real value of government debt. Because government debt is denominated
-          in nominal terms, rising prices reduce the real burden of existing debt. This effect
-          is separate from changes in the debt-to-GDP ratio, which also reflects GDP growth.
-        </AnalysisBox>
-      </section>
     </div>
   );
 }
