@@ -4,7 +4,7 @@ import useIsMobile from "../hooks/useIsMobile";
 
 // Replace with your Google Apps Script deployment URL after setup
 // See scripts/google-apps-script.js for setup instructions
-const SCRIPT_URL = "YOUR_APPS_SCRIPT_URL";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycby8S4IULiJ1JZfUOaKERG_dQ1vquTK8khf9vx4kYJ0X8R4t266wgrSp3UvIhQT0GCYppw/exec";
 
 
 export default function Contribute() {
@@ -96,42 +96,34 @@ export default function Contribute() {
       payload.fileData = await readFileAsBase64(file);
     }
 
-    try {
-      await fetch(SCRIPT_URL, {
-        method: "POST",
-        mode: "no-cors",
-        body: JSON.stringify(payload),
-      });
-      // no-cors means we cannot read the response, but the request is sent
-      setStatus("success");
-      setName("");
-      setEmail("");
-      setRecognition("anonymous");
-      setCustomAlias("");
-      setMessage("");
-      setConsent(false);
-      if (fileRef.current) fileRef.current.value = "";
-    } catch {
-      setStatus("error");
-    }
+    // Fire and forget — no-cors means we cannot read the response anyway,
+    // so show success immediately rather than making the user wait
+    fetch(SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      body: JSON.stringify(payload),
+    });
+    setStatus("success");
+    setName("");
+    setEmail("");
+    setRecognition("anonymous");
+    setCustomAlias("");
+    setMessage("");
+    setConsent(false);
+    if (fileRef.current) fileRef.current.value = "";
   };
 
   const handleDeleteRequest = async (e) => {
     e.preventDefault();
     if (!deleteEmail.trim()) return;
 
-    setDeleteStatus("submitting");
-    try {
-      await fetch(SCRIPT_URL, {
-        method: "POST",
-        mode: "no-cors",
-        body: JSON.stringify({ type: "deletion", email: deleteEmail }),
-      });
-      setDeleteStatus("success");
-      setDeleteEmail("");
-    } catch {
-      setDeleteStatus("error");
-    }
+    fetch(SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      body: JSON.stringify({ type: "deletion", email: deleteEmail }),
+    });
+    setDeleteStatus("success");
+    setDeleteEmail("");
   };
 
   return (
