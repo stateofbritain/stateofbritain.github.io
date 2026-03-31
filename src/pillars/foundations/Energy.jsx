@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import {
   AreaChart, Area, LineChart, Line, BarChart, Bar, ComposedChart, Cell,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
@@ -22,34 +22,11 @@ const MIX_FUELS = [
   { key: "imports", label: "Net Electricity Imports", color: P.grey },
 ];
 
-const ELEC_FUELS = [
-  { key: "convThermal", label: "Coal & Other Thermal", color: "#4A4A4A" },
-  { key: "ccgt", label: "Gas (CCGT)", color: P.yellow },
-  { key: "nuclear", label: "Nuclear", color: P.navy },
-  { key: "renewables", label: "Renewables", color: P.teal },
-];
-
-
 export default function Energy() {
   const { data, loading, error, raw } = useJsonDataset("energy.json");
   const [primaryView, setPrimaryView] = useState("mix");
-  const [elecView, setElecView] = useState("generation");
   const [securityView, setSecurityView] = useState("gasStorage");
   const [securityView2, setSecurityView2] = useState("importsFuel");
-
-  const elecPctData = useMemo(() => {
-    if (!data?.electricity) return [];
-    return data.electricity.map((row) => {
-      const total = row.convThermal + row.ccgt + row.nuclear + row.renewables;
-      if (total === 0) return { year: row.year };
-      return {
-        year: row.year,
-        convThermal: Math.round((row.convThermal / total) * 1000) / 10,
-        ccgt: Math.round((row.ccgt / total) * 1000) / 10,
-        nuclear: Math.round((row.nuclear / total) * 1000) / 10,
-        renewables: Math.round((row.renewables / total) * 1000) / 10 };
-    });
-  }, [data]);
 
   if (loading) {
     return (
@@ -70,17 +47,12 @@ export default function Energy() {
   }
 
   const latestMix = data.energyMix[data.energyMix.length - 1];
-  const latestElec = data.electricity[data.electricity.length - 1];
   const latestSpend = data.expenditure[data.expenditure.length - 1];
   const latestImport = data.importDependency[data.importDependency.length - 1];
   const latestFuel = data.fuelConsumption[data.fuelConsumption.length - 1];
 
   const fossilPct = (latestMix.coal + latestMix.petroleum + latestMix.gas).toFixed(1);
   const lowCarbonPct = (latestMix.nuclear + latestMix.renewables + latestMix.bioenergy).toFixed(1);
-
-  const renewElecPct = latestElec.totalNet > 0
-    ? ((latestElec.renewables / latestElec.totalNet) * 100).toFixed(1)
-    : "--";
 
   return (
     <div style={{ animation: "fadeSlideIn 0.4s ease both" }}>
@@ -154,65 +126,6 @@ export default function Energy() {
         </ChartCard>
 
         {primaryView === "mix" && <Legend items={MIX_FUELS} />}
-      </div>
-
-      {/* ═══════════════════════════════════════════════════════════════
-          SECTION 2 — ELECTRICITY
-          ═══════════════════════════════════════════════════════════════ */}
-      <div style={{ marginBottom: 16 }}>
-        <h3 style={SECTION_HEADING}>Electricity Generation</h3>
-        <p style={SECTION_NOTE}>
-          Electricity is a subset of primary energy — roughly a quarter of total consumption goes
-          to generating it. The electricity mix looks very different from the primary energy mix
-          because transport and industrial fuel use (the main drivers of fossil fuel dominance)
-          play no direct role in generation. Decarbonisation of the grid has therefore moved
-          faster than decarbonisation of the economy as a whole.
-        </p>
-
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 12, marginBottom: 20 }}>
-          <MetricCard
-            label="Renewables Share"
-            value={`${renewElecPct}%`}
-            change={`of electricity generated (${latestElec.year})`}
-            up={false}
-            color={P.teal}
-            delay={0.1}
-          />
-          <MetricCard
-            label="Gas (CCGT)"
-            value={`${latestElec.totalNet > 0 ? ((latestElec.ccgt / latestElec.totalNet) * 100).toFixed(1) : "--"}%`}
-            change={`of electricity generated`}
-            up={true}
-            color={P.yellow}
-            delay={0.18}
-          />
-          <MetricCard
-            label="Nuclear"
-            value={`${latestElec.totalNet > 0 ? ((latestElec.nuclear / latestElec.totalNet) * 100).toFixed(1) : "--"}%`}
-            change={`of electricity generated`}
-            up={false}
-            color={P.navy}
-            delay={0.26}
-          />
-          <MetricCard
-            label="Total Generation"
-            value={`${Math.round(latestElec.totalNet / 1000)} TWh`}
-            change={`net, all generators (${latestElec.year})`}
-            up={false}
-            color={P.grey}
-            delay={0.34}
-          />
-        </div>
-
-        <ChartCard
-          title="Electricity Generation by Fuel"
-          subtitle={`% share, 1990–${latestElec.year}`}
-          source={<>SOURCE: <a href="https://www.gov.uk/government/collections/digest-of-uk-energy-statistics-dukes" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>DESNZ Digest of UK Energy Statistics (DUKES)</a></>}
-        >
-          <ElectricityChart data={elecPctData} />
-        </ChartCard>
-
-        <Legend items={ELEC_FUELS} />
       </div>
 
       {/* ═══════════════════════════════════════════════════════════════
@@ -291,14 +204,6 @@ export default function Energy() {
                 up={true}
                 color={P.sienna}
                 delay={0.18}
-              />
-              <MetricCard
-                label="Interconnector Capacity"
-                value={`${(snap.totalInterconnectorMw / 1000).toFixed(1)} GW`}
-                change={`${sec.interconnectors.length} links to ${[...new Set(sec.interconnectors.map(ic => ic.partner))].length} countries`}
-                up={false}
-                color={P.teal}
-                delay={0.26}
               />
               <MetricCard
                 label="Capacity Margin"
@@ -381,27 +286,6 @@ export default function Energy() {
               )}
             </ChartCard>
 
-            {/* Interconnectors table */}
-            <div style={{ marginTop: 16, background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 3, padding: "16px 20px", boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
-              <span style={{ fontSize: "11px", color: P.textMuted, fontWeight: 400, letterSpacing: "0.04em", fontFamily: "'DM Mono', monospace" }}>
-                Electricity interconnectors &middot; {snap.totalInterconnectorMw.toLocaleString()} MW total
-              </span>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: 8, marginTop: 12 }}>
-                {sec.interconnectors.map((ic) => (
-                  <div key={ic.name} style={{
-                    display: "flex", justifyContent: "space-between", alignItems: "center",
-                    padding: "6px 10px", borderRadius: 3, background: "rgba(28,43,69,0.03)",
-                    fontSize: "12px", fontFamily: "'DM Mono', monospace" }}>
-                    <span style={{ color: P.text, fontWeight: 500 }}>
-                      {ic.name} <span style={{ color: P.textLight, fontWeight: 400 }}>→ {ic.partner}</span>
-                    </span>
-                    <span style={{ color: P.textMuted }}>
-                      {ic.capacityMw.toLocaleString()} MW <span style={{ color: P.textLight }}>({ic.yearOpened})</span>
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         );
       })()}
@@ -426,9 +310,6 @@ export default function Energy() {
       <AnalysisBox color={P.navy} label="Context">
         UK primary energy consumption: {latestFuel.total} mtoe ({latestMix.year}).
         {" "}Fossil fuels supply {fossilPct}% of all primary energy; low-carbon sources {lowCarbonPct}%.
-        {" "}The electricity mix is different: renewables generated {renewElecPct}% of electricity,
-        while gas (CCGT) provided {latestElec.totalNet > 0 ? ((latestElec.ccgt / latestElec.totalNet) * 100).toFixed(1) : "--"}%
-        and nuclear {latestElec.totalNet > 0 ? ((latestElec.nuclear / latestElec.totalNet) * 100).toFixed(1) : "--"}%.
         {" "}Net import dependency: {latestImport.importDependency}%.
         {" "}Household energy spend: £{(latestSpend.domesticTotal / 1000).toFixed(1)}bn.
         {data.energySecurity && (() => {
@@ -439,8 +320,7 @@ export default function Energy() {
               compared with 89 days in Germany and 103 in France.
               {" "}Gas import dependency has risen from net exporter status in 2000 to {snap.gasImportPct}%,
               oil from net exporter to {snap.oilImportPct}%.
-              {" "}Electricity interconnector capacity stands at {(snap.totalInterconnectorMw / 1000).toFixed(1)} GW
-              across {data.energySecurity.interconnectors.length} links. The de-rated capacity margin
+              {" "}The de-rated electricity capacity margin
               is {snap.capacityMarginPct}% ({snap.capacityMarginYear}).
             </>
           );
@@ -477,22 +357,6 @@ function MixChart({ data }) {
         <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} unit="%" label={yAxisLabel("Share of primary energy (%)")} />
         <Tooltip content={<CustomTooltip />} />
         {MIX_FUELS.map((fuel) => (
-          <Area key={fuel.key} type="monotone" dataKey={fuel.key} name={fuel.label} stackId="1" stroke={fuel.color} fill={fuel.color} fillOpacity={0.8} />
-        ))}
-      </AreaChart>
-    </ResponsiveContainer>
-  );
-}
-
-function ElectricityChart({ data }) {
-  return (
-    <ResponsiveContainer width="100%" height={340}>
-      <AreaChart data={data} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
-        <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
-        <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
-        <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} unit="%" label={yAxisLabel("Share of generation (%)")} />
-        <Tooltip content={<CustomTooltip />} />
-        {ELEC_FUELS.map((fuel) => (
           <Area key={fuel.key} type="monotone" dataKey={fuel.key} name={fuel.label} stackId="1" stroke={fuel.color} fill={fuel.color} fillOpacity={0.8} />
         ))}
       </AreaChart>

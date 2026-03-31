@@ -39,7 +39,14 @@ const PILLARS = {
           density: { label: "Density & Geography" },
         },
       },
-      energy:     { label: "Energy",               icon: "⚡" },
+      energy: {
+        label: "Energy",
+        icon: "⚡",
+        subtopics: {
+          overview:     { label: "Overview" },
+          electricity:  { label: "Electricity" },
+        },
+      },
       water: {
         label: "Water",
         icon: "~",
@@ -130,6 +137,7 @@ const PILLARS = {
       asylum:      { label: "Asylum & Immigration",  icon: "⊘" },
       university:  { label: "University Funding",    icon: "△" },
       hs2:         { label: "HS2",                   icon: "▬" },
+      energy:      { label: "Energy Security",       icon: "⚡" },
     },
   },
 };

@@ -19,6 +19,8 @@ import HousingDensity from "./pillars/foundations/HousingDensity";
 import Safety from "./pillars/foundations/Safety";
 import FoodCostOfLiving from "./pillars/foundations/FoodCostOfLiving";
 import Energy from "./pillars/foundations/Energy";
+import Electricity from "./pillars/foundations/Electricity";
+import GridSimulator from "./pillars/foundations/GridSimulator";
 import WaitingLists from "./pillars/foundations/WaitingLists";
 import HealthOutcomes from "./pillars/foundations/HealthOutcomes";
 import GPAccess from "./pillars/foundations/GPAccess";
@@ -75,7 +77,8 @@ const TOPIC_COMPONENTS = {
   "foundations/housing/density": HousingDensity,
   "foundations/safety": Safety,
   "foundations/food": FoodCostOfLiving,
-  "foundations/energy": Energy,
+  "foundations/energy/overview": Energy,
+  "foundations/energy/electricity": Electricity,
   "foundations/healthcare/waiting": WaitingLists,
   "foundations/healthcare/capacity": HospitalCapacity,
   "foundations/healthcare/workforce": NHSWorkforce,
@@ -113,6 +116,7 @@ const TOPIC_COMPONENTS = {
   "challenges/asylum": AsylumImmigration,
   "challenges/university": UniversityFunding,
   "challenges/hs2": HS2,
+  "challenges/energy": GridSimulator,
 };
 
 function getTopicComponent(pillarKey, topicKey, subtopicKey) {
