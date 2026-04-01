@@ -952,14 +952,15 @@ export default function Reservoirs() {
         <section style={{ marginBottom: 32 }}>
           <h3 style={SECTION_HEADING}>Reservoir Locations</h3>
           <p style={SECTION_NOTE}>
-            Geographic distribution of the largest UK reservoirs by storage capacity. Circle size
-            is proportional to capacity in megalitres. Hydro-electric reservoirs (primarily Scottish
-            Highland lochs) account for half of total UK storage but serve a different function to
-            water supply reservoirs. Planned reservoirs are shown with dashed outlines.
+            Geographic distribution of {data.reservoirLocations.length} UK reservoirs. Larger
+            circles indicate greater storage capacity where data is available. Hydro-electric
+            reservoirs (primarily Scottish Highland lochs) account for half of total UK storage
+            but serve a different function to water supply reservoirs. Three planned reservoirs
+            are shown in orange.
           </p>
           <ChartCard
-            title="UK Reservoirs by Storage Capacity"
-            subtitle="Megalitres, largest ~50 reservoirs"
+            title="UK Reservoirs"
+            subtitle="~980 reservoirs, sized by capacity where known"
             source={sourceFrom(raw, "reservoirLocations")}
             legend={[
               { key: "ws", label: "Water supply", color: P.teal },
@@ -971,7 +972,9 @@ export default function Reservoirs() {
               locations={data.reservoirLocations}
               valueKey="capacityMl"
               color={P.teal}
-              maxRadius={36}
+              minRadius={2}
+              maxRadius={30}
+              opacity={0.6}
               colorFn={(loc) =>
                 loc.use === "Hydro-electric" ? P.navy
                 : loc.use === "Planned" ? P.sienna
@@ -979,18 +982,19 @@ export default function Reservoirs() {
               }
               renderTooltip={({ location }) => {
                 const ml = location.capacityMl;
-                const cap = ml >= 1e6
-                  ? `${(ml / 1e6).toFixed(1)} trillion litres`
-                  : ml >= 1e3
-                    ? `${(ml / 1e3).toFixed(0)} billion litres`
-                    : `${ml.toLocaleString()} Ml`;
+                const cap = !ml ? null
+                  : ml >= 1e6 ? `${(ml / 1e6).toFixed(1)} trillion litres`
+                  : ml >= 1e3 ? `${(ml / 1e3).toFixed(0)} billion litres`
+                  : `${ml.toLocaleString()} Ml`;
                 return (
                   <div>
                     <div style={{ fontWeight: 600, marginBottom: 4, color: P.parchment }}>
                       {location.name}
                     </div>
-                    <div>{cap}</div>
-                    <div style={{ opacity: 0.7 }}>{location.use} · {location.year}</div>
+                    {cap && <div>{cap}</div>}
+                    <div style={{ opacity: 0.7 }}>
+                      {location.use}{location.year ? ` · ${location.year}` : ""}
+                    </div>
                   </div>
                 );
               }}

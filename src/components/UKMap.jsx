@@ -87,12 +87,13 @@ export default function UKMap({
   const circles = useMemo(() => {
     if (!projection || !locations.length) return [];
     const maxVal = Math.max(...locations.map(l => l[valueKey] || 0));
-    if (maxVal === 0) return [];
     return locations
       .map(loc => {
         const val = loc[valueKey] || 0;
         const [cx, cy] = projection([loc.lng, loc.lat]);
-        const r = minRadius + (maxRadius - minRadius) * Math.sqrt(val / maxVal);
+        const r = val > 0 && maxVal > 0
+          ? minRadius + (maxRadius - minRadius) * Math.sqrt(val / maxVal)
+          : minRadius;
         return { loc, cx, cy, r, val };
       })
       .sort((a, b) => b.r - a.r); // largest first so small circles render on top
