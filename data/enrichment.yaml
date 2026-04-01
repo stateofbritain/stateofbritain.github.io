@@ -816,6 +816,17 @@ welfare:
       summary: "Annual expenditure on individual benefits. State Pension is largest at £124bn, followed by housing benefits and disability payments. Covers 1999/00 to 2024/25."
       unit: "£bn"
 
+population:
+  title: "UK Population"
+  geography: "United Kingdom"
+  summary: "Mid-year population estimates for the UK and constituent countries from 1971 to 2025. UK population reached 69.3 million in mid-2024 (England 58.6M, Scotland 5.5M, Wales 3.2M, Northern Ireland 1.9M). Provisional mid-2025 estimate is 69.5 million."
+  tags: [population, demographics, census, people, how many people, UK population, England population, Scotland population, Wales population, Northern Ireland population, inhabitants, residents, per capita, capita]
+  series:
+    annual:
+      title: "UK Population (Mid-Year Estimates)"
+      summary: "Annual mid-year estimates from 1971. UK population grew from 55.9M (1971) to 69.3M (2024). England accounts for 85% of the total. Growth has accelerated since 2000, driven primarily by net migration."
+      unit: "persons"
+
 ethnicity:
   title: "Ethnicity & Demographics"
   geography: "England & Wales"

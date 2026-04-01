@@ -1,0 +1,471 @@
+{
+  "$schema": "sob-dataset-v1",
+  "id": "population",
+  "pillar": "foundations",
+  "topic": "demographics",
+  "generated": "2026-04-01",
+  "sources": [
+    {
+      "id": "ons-mye",
+      "name": "ONS Mid-Year Population Estimates",
+      "url": "https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates",
+      "publisher": "Office for National Statistics",
+      "note": "Mid-year estimates, rebased to Census 2021/2022. UK, England, Scotland, Wales, Northern Ireland."
+    }
+  ],
+  "snapshot": {
+    "latestYear": 2024,
+    "ukPopulation": 69281400,
+    "englandPopulation": 58620100,
+    "scotlandPopulation": 5546900,
+    "walesPopulation": 3186600,
+    "niPopulation": 1927900
+  },
+  "series": {
+    "annual": {
+      "sourceId": "ons-mye",
+      "label": "UK Population (Mid-Year Estimates)",
+      "unit": "persons",
+      "timeField": "year",
+      "description": "Annual mid-year population estimates for the UK and constituent countries.",
+      "data": [
+        {
+          "year": 1971,
+          "uk": 55928000,
+          "england": 46411700,
+          "scotland": 5235600,
+          "wales": 2740300,
+          "ni": 1540400
+        },
+        {
+          "year": 1972,
+          "uk": 56096700,
+          "england": 46571900,
+          "scotland": 5230600,
+          "wales": 2755200,
+          "ni": 1539000
+        },
+        {
+          "year": 1973,
+          "uk": 56222900,
+          "england": 46686200,
+          "scotland": 5233900,
+          "wales": 2772800,
+          "ni": 1530000
+        },
+        {
+          "year": 1974,
+          "uk": 56235600,
+          "england": 46682700,
+          "scotland": 5240800,
+          "wales": 2785200,
+          "ni": 1526900
+        },
+        {
+          "year": 1975,
+          "uk": 56225700,
+          "england": 46674400,
+          "scotland": 5232400,
+          "wales": 2795400,
+          "ni": 1523500
+        },
+        {
+          "year": 1976,
+          "uk": 56216100,
+          "england": 46659900,
+          "scotland": 5233400,
+          "wales": 2799300,
+          "ni": 1523500
+        },
+        {
+          "year": 1977,
+          "uk": 56189900,
+          "england": 46639800,
+          "scotland": 5226200,
+          "wales": 2800600,
+          "ni": 1523300
+        },
+        {
+          "year": 1978,
+          "uk": 56178000,
+          "england": 46638200,
+          "scotland": 5212300,
+          "wales": 2804300,
+          "ni": 1523200
+        },
+        {
+          "year": 1979,
+          "uk": 56240100,
+          "england": 46698100,
+          "scotland": 5203600,
+          "wales": 2810100,
+          "ni": 1528300
+        },
+        {
+          "year": 1980,
+          "uk": 56329700,
+          "england": 46787200,
+          "scotland": 5193900,
+          "wales": 2815800,
+          "ni": 1532800
+        },
+        {
+          "year": 1981,
+          "uk": 56357500,
+          "england": 46820800,
+          "scotland": 5180200,
+          "wales": 2813500,
+          "ni": 1543000
+        },
+        {
+          "year": 1982,
+          "uk": 56290700,
+          "england": 46777300,
+          "scotland": 5164500,
+          "wales": 2804300,
+          "ni": 1544500
+        },
+        {
+          "year": 1983,
+          "uk": 56315700,
+          "england": 46813700,
+          "scotland": 5148100,
+          "wales": 2803300,
+          "ni": 1550600
+        },
+        {
+          "year": 1984,
+          "uk": 56409300,
+          "england": 46912400,
+          "scotland": 5138900,
+          "wales": 2800700,
+          "ni": 1557300
+        },
+        {
+          "year": 1985,
+          "uk": 56554000,
+          "england": 47057400,
+          "scotland": 5127900,
+          "wales": 2803400,
+          "ni": 1565400
+        },
+        {
+          "year": 1986,
+          "uk": 56683800,
+          "england": 47187600,
+          "scotland": 5111800,
+          "wales": 2810900,
+          "ni": 1573500
+        },
+        {
+          "year": 1987,
+          "uk": 56804000,
+          "england": 47300400,
+          "scotland": 5099000,
+          "wales": 2822600,
+          "ni": 1582000
+        },
+        {
+          "year": 1988,
+          "uk": 56916400,
+          "england": 47412300,
+          "scotland": 5077400,
+          "wales": 2841200,
+          "ni": 1585400
+        },
+        {
+          "year": 1989,
+          "uk": 57076500,
+          "england": 47552700,
+          "scotland": 5078200,
+          "wales": 2855200,
+          "ni": 1590400
+        },
+        {
+          "year": 1990,
+          "uk": 57237500,
+          "england": 47699100,
+          "scotland": 5081300,
+          "wales": 2861500,
+          "ni": 1595600
+        },
+        {
+          "year": 1991,
+          "uk": 57438700,
+          "england": 47875000,
+          "scotland": 5083300,
+          "wales": 2873000,
+          "ni": 1607300
+        },
+        {
+          "year": 1992,
+          "uk": 57584500,
+          "england": 47998000,
+          "scotland": 5085600,
+          "wales": 2877700,
+          "ni": 1623300
+        },
+        {
+          "year": 1993,
+          "uk": 57713900,
+          "england": 48102300,
+          "scotland": 5092500,
+          "wales": 2883600,
+          "ni": 1635600
+        },
+        {
+          "year": 1994,
+          "uk": 57862100,
+          "england": 48228800,
+          "scotland": 5102200,
+          "wales": 2887400,
+          "ni": 1643700
+        },
+        {
+          "year": 1995,
+          "uk": 58024800,
+          "england": 48383500,
+          "scotland": 5103700,
+          "wales": 2888500,
+          "ni": 1649100
+        },
+        {
+          "year": 1996,
+          "uk": 58164400,
+          "england": 48519100,
+          "scotland": 5092200,
+          "wales": 2891300,
+          "ni": 1661800
+        },
+        {
+          "year": 1997,
+          "uk": 58314200,
+          "england": 48664800,
+          "scotland": 5083300,
+          "wales": 2894900,
+          "ni": 1671300
+        },
+        {
+          "year": 1998,
+          "uk": 58474900,
+          "england": 48820600,
+          "scotland": 5077100,
+          "wales": 2899500,
+          "ni": 1677800
+        },
+        {
+          "year": 1999,
+          "uk": 58684400,
+          "england": 49032900,
+          "scotland": 5072000,
+          "wales": 2900600,
+          "ni": 1679000
+        },
+        {
+          "year": 2000,
+          "uk": 58886100,
+          "england": 49233300,
+          "scotland": 5062900,
+          "wales": 2906900,
+          "ni": 1682900
+        },
+        {
+          "year": 2001,
+          "uk": 59113000,
+          "england": 49449700,
+          "scotland": 5064200,
+          "wales": 2910200,
+          "ni": 1688800
+        },
+        {
+          "year": 2002,
+          "uk": 59365700,
+          "england": 49679300,
+          "scotland": 5066000,
+          "wales": 2922900,
+          "ni": 1697500
+        },
+        {
+          "year": 2003,
+          "uk": 59636700,
+          "england": 49925500,
+          "scotland": 5068500,
+          "wales": 2937700,
+          "ni": 1704900
+        },
+        {
+          "year": 2004,
+          "uk": 59950400,
+          "england": 50194600,
+          "scotland": 5084300,
+          "wales": 2957400,
+          "ni": 1714000
+        },
+        {
+          "year": 2005,
+          "uk": 60413300,
+          "england": 50606000,
+          "scotland": 5110200,
+          "wales": 2969300,
+          "ni": 1727700
+        },
+        {
+          "year": 2006,
+          "uk": 60827000,
+          "england": 50965200,
+          "scotland": 5133000,
+          "wales": 2985700,
+          "ni": 1743100
+        },
+        {
+          "year": 2007,
+          "uk": 61319100,
+          "england": 51381100,
+          "scotland": 5170000,
+          "wales": 3006300,
+          "ni": 1761700
+        },
+        {
+          "year": 2008,
+          "uk": 61823800,
+          "england": 51815900,
+          "scotland": 5202900,
+          "wales": 3025900,
+          "ni": 1779200
+        },
+        {
+          "year": 2009,
+          "uk": 62260500,
+          "england": 52196400,
+          "scotland": 5231900,
+          "wales": 3038900,
+          "ni": 1793300
+        },
+        {
+          "year": 2010,
+          "uk": 62759500,
+          "england": 52642500,
+          "scotland": 5262200,
+          "wales": 3050000,
+          "ni": 1804800
+        },
+        {
+          "year": 2011,
+          "uk": 63285100,
+          "england": 53107200,
+          "scotland": 5299900,
+          "wales": 3063800,
+          "ni": 1814300
+        },
+        {
+          "year": 2012,
+          "uk": 63710500,
+          "england": 53506800,
+          "scotland": 5308200,
+          "wales": 3070900,
+          "ni": 1824600
+        },
+        {
+          "year": 2013,
+          "uk": 64138200,
+          "england": 53918700,
+          "scotland": 5316800,
+          "wales": 3071100,
+          "ni": 1831700
+        },
+        {
+          "year": 2014,
+          "uk": 64618700,
+          "england": 54370300,
+          "scotland": 5331400,
+          "wales": 3073800,
+          "ni": 1843200
+        },
+        {
+          "year": 2015,
+          "uk": 65087000,
+          "england": 54808700,
+          "scotland": 5350600,
+          "wales": 3072700,
+          "ni": 1854900
+        },
+        {
+          "year": 2016,
+          "uk": 65605800,
+          "england": 55289000,
+          "scotland": 5373600,
+          "wales": 3077200,
+          "ni": 1866000
+        },
+        {
+          "year": 2017,
+          "uk": 65964300,
+          "england": 55619500,
+          "scotland": 5388200,
+          "wales": 3081400,
+          "ni": 1875200
+        },
+        {
+          "year": 2018,
+          "uk": 66286700,
+          "england": 55924500,
+          "scotland": 5392100,
+          "wales": 3083800,
+          "ni": 1886300
+        },
+        {
+          "year": 2019,
+          "uk": 66627500,
+          "england": 56230100,
+          "scotland": 5411200,
+          "wales": 3087700,
+          "ni": 1898500
+        },
+        {
+          "year": 2020,
+          "uk": 66739900,
+          "england": 56326000,
+          "scotland": 5408900,
+          "wales": 3104500,
+          "ni": 1900500
+        },
+        {
+          "year": 2021,
+          "uk": 66978000,
+          "england": 56554900,
+          "scotland": 5412900,
+          "wales": 3105600,
+          "ni": 1904600
+        },
+        {
+          "year": 2022,
+          "uk": 67636100,
+          "england": 57144400,
+          "scotland": 5447000,
+          "wales": 3134200,
+          "ni": 1910500
+        },
+        {
+          "year": 2023,
+          "uk": 68526200,
+          "england": 57932500,
+          "scotland": 5506000,
+          "wales": 3167300,
+          "ni": 1920400
+        },
+        {
+          "year": 2024,
+          "uk": 69281400,
+          "england": 58620100,
+          "scotland": 5546900,
+          "wales": 3186600,
+          "ni": 1927900
+        },
+        {
+          "year": 2025,
+          "uk": 69487000
+        }
+      ]
+    }
+  }
+}

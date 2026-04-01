@@ -4535,6 +4535,58 @@
       }
     },
     {
+      "id": "population",
+      "title": "UK Population",
+      "pillar": "foundations",
+      "geography": "United Kingdom",
+      "summary": "Mid-year population estimates for the UK and constituent countries from 1971 to 2025. UK population reached 69.3 million in mid-2024 (England 58.6M, Scotland 5.5M, Wales 3.2M, Northern Ireland 1.9M). Provisional mid-2025 estimate is 69.5 million.",
+      "tags": [
+        "population",
+        "demographics",
+        "census",
+        "people",
+        "how many people",
+        "UK population",
+        "England population",
+        "Scotland population",
+        "Wales population",
+        "Northern Ireland population",
+        "inhabitants",
+        "residents",
+        "per capita",
+        "capita"
+      ],
+      "dataFile": "/data/population.json",
+      "series": {
+        "annual": {
+          "title": "UK Population (Mid-Year Estimates)",
+          "summary": "Annual mid-year estimates from 1971. UK population grew from 55.9M (1971) to 69.3M (2024). England accounts for 85% of the total. Growth has accelerated since 2000, driven primarily by net migration.",
+          "unit": "persons",
+          "fields": {
+            "uk": {
+              "label": "uk"
+            },
+            "england": {
+              "label": "england"
+            },
+            "scotland": {
+              "label": "scotland"
+            },
+            "wales": {
+              "label": "wales"
+            },
+            "ni": {
+              "label": "ni"
+            }
+          },
+          "timeRange": {
+            "start": 1971,
+            "end": 2025
+          }
+        }
+      }
+    },
+    {
       "id": "productivity",
       "title": "Productivity",
       "pillar": "growth",
@@ -6037,6 +6089,7 @@
         "nhs-funding",
         "nhs-waiting",
         "nhs-workforce",
+        "population",
         "reservoirs",
         "safety",
         "transport-fares",
@@ -6273,7 +6326,8 @@
       ],
       "census": [
         "culture",
-        "ethnicity"
+        "ethnicity",
+        "population"
       ],
       "culture": [
         "culture"
@@ -6394,11 +6448,13 @@
       "demographics": [
         "ethnicity",
         "family",
-        "immigration"
+        "immigration",
+        "population"
       ],
       "population": [
         "ethnicity",
-        "immigration"
+        "immigration",
+        "population"
       ],
       "White British": [
         "ethnicity"
@@ -6519,7 +6575,8 @@
         "gdp"
       ],
       "per capita": [
-        "gdp"
+        "gdp",
+        "population"
       ],
       "economic growth": [
         "gdp"
@@ -6863,6 +6920,36 @@
       ],
       "staffing": [
         "nhs-workforce"
+      ],
+      "people": [
+        "population"
+      ],
+      "how many people": [
+        "population"
+      ],
+      "UK population": [
+        "population"
+      ],
+      "England population": [
+        "population"
+      ],
+      "Scotland population": [
+        "population"
+      ],
+      "Wales population": [
+        "population"
+      ],
+      "Northern Ireland population": [
+        "population"
+      ],
+      "inhabitants": [
+        "population"
+      ],
+      "residents": [
+        "population"
+      ],
+      "capita": [
+        "population"
       ],
       "productivity": [
         "productivity"
