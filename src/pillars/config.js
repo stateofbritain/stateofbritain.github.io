@@ -106,8 +106,10 @@ const PILLARS = {
         label: "Infrastructure",
         icon: "≡",
         subtopics: {
-          overview: { label: "Overview" },
-          airports: { label: "Airports" },
+          roads:     { label: "Roads" },
+          rail:      { label: "Rail" },
+          airports:  { label: "Airports" },
+          broadband: { label: "Broadband" },
         },
       },
       investment:     { label: "Investment & Capital",  icon: "£" },

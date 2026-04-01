@@ -43,8 +43,10 @@ import ResearchFunding from "./pillars/growth/ResearchFunding";
 import Productivity from "./pillars/growth/Productivity";
 import ProductiveQuotient from "./pillars/growth/ProductiveQuotient";
 import Investment from "./pillars/growth/Investment";
-import Infrastructure from "./pillars/growth/Infrastructure";
+import Roads from "./pillars/growth/Roads";
+import Rail from "./pillars/growth/Rail";
 import Airports from "./pillars/growth/Airports";
+import Broadband from "./pillars/growth/Broadband";
 import IndustrialProduction from "./pillars/growth/IndustrialProduction";
 import Education from "./pillars/growth/Education";
 import JobsOverview from "./pillars/growth/JobsOverview";
@@ -110,8 +112,10 @@ const TOPIC_COMPONENTS = {
   "growth/productivity": Productivity,
   "growth/pq": ProductiveQuotient,
   "growth/investment": Investment,
-  "growth/infrastructure/overview": Infrastructure,
+  "growth/infrastructure/roads": Roads,
+  "growth/infrastructure/rail": Rail,
   "growth/infrastructure/airports": Airports,
+  "growth/infrastructure/broadband": Broadband,
   "growth/industrial": IndustrialProduction,
   "growth/education": Education,
   "state/justice": Justice,

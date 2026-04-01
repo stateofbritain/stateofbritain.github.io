@@ -32,7 +32,7 @@ const DATASET_ROUTES = {
   "productivity": { path: "/growth/productivity", label: "Productivity" },
   "workforce": { path: "/growth/pq", label: "Public Sector Workforce" },
   "investment": { path: "/growth/investment", label: "Investment" },
-  "infrastructure": { path: "/growth/infrastructure/overview", label: "Infrastructure" },
+  "infrastructure": { path: "/growth/infrastructure/roads", label: "Infrastructure" },
   "airports": { path: "/growth/infrastructure/airports", label: "Airports" },
   "industrial": { path: "/growth/industrial", label: "Industrial Production" },
   "education": { path: "/growth/education", label: "Education" },
