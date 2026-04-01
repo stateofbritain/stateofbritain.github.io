@@ -4769,6 +4769,36 @@
             "start": 2006,
             "end": 2040
           }
+        },
+        "reservoirLocations": {
+          "title": "reservoirLocations",
+          "fields": {
+            "name": {
+              "label": "name"
+            },
+            "lat": {
+              "label": "lat"
+            },
+            "lng": {
+              "label": "lng"
+            },
+            "capacityMl": {
+              "label": "capacityMl"
+            },
+            "capacityBnL": {
+              "label": "capacityBnL"
+            },
+            "use": {
+              "label": "use"
+            },
+            "year": {
+              "label": "year"
+            }
+          },
+          "timeRange": {
+            "start": "loch-ericht",
+            "end": "fens-reservoir-2036"
+          }
         }
       }
     },

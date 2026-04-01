@@ -12,6 +12,7 @@ import MetricCard from "../../components/MetricCard";
 import ChartCard from "../../components/ChartCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
+import UKMap from "../../components/UKMap";
 import { useJsonDataset, sourceFrom } from "../../hooks/useDataset";
 import useIsMobile from "../../hooks/useIsMobile";
 
@@ -945,6 +946,58 @@ export default function Reservoirs() {
           </p>
         </div>
       </section>
+
+      {/* ── Reservoir Map ────────────────────────────────────────────── */}
+      {data.reservoirLocations?.length > 0 && (
+        <section style={{ marginBottom: 32 }}>
+          <h3 style={SECTION_HEADING}>Reservoir Locations</h3>
+          <p style={SECTION_NOTE}>
+            Geographic distribution of the largest UK reservoirs by storage capacity. Circle size
+            is proportional to capacity in megalitres. Hydro-electric reservoirs (primarily Scottish
+            Highland lochs) account for half of total UK storage but serve a different function to
+            water supply reservoirs. Planned reservoirs are shown with dashed outlines.
+          </p>
+          <ChartCard
+            title="UK Reservoirs by Storage Capacity"
+            subtitle="Megalitres, largest ~50 reservoirs"
+            source={sourceFrom(raw, "reservoirLocations")}
+            legend={[
+              { key: "ws", label: "Water supply", color: P.teal },
+              { key: "hydro", label: "Hydro-electric", color: P.navy },
+              { key: "planned", label: "Planned", color: P.sienna },
+            ]}
+          >
+            <UKMap
+              locations={data.reservoirLocations}
+              valueKey="capacityMl"
+              color={P.teal}
+              maxRadius={36}
+              colorFn={(loc) =>
+                loc.use === "Hydro-electric" ? P.navy
+                : loc.use === "Planned" ? P.sienna
+                : P.teal
+              }
+              renderTooltip={({ location }) => {
+                const ml = location.capacityMl;
+                const cap = ml >= 1e6
+                  ? `${(ml / 1e6).toFixed(1)} trillion litres`
+                  : ml >= 1e3
+                    ? `${(ml / 1e3).toFixed(0)} billion litres`
+                    : `${ml.toLocaleString()} Ml`;
+                return (
+                  <div>
+                    <div style={{ fontWeight: 600, marginBottom: 4, color: P.parchment }}>
+                      {location.name}
+                    </div>
+                    <div>{cap}</div>
+                    <div style={{ opacity: 0.7 }}>{location.use} · {location.year}</div>
+                  </div>
+                );
+              }}
+            />
+          </ChartCard>
+        </section>
+      )}
 
       <AnalysisBox>
         The UK's reservoir infrastructure was largely built between 1950 and 1980, a period in

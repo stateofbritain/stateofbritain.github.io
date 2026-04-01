@@ -24,6 +24,7 @@ export default function UKMap({
   locations = [],
   valueKey = "value",
   color = P.teal,
+  colorFn,
   minRadius = 3,
   maxRadius = 28,
   opacity = 0.7,
@@ -171,7 +172,7 @@ export default function UKMap({
             cx={c.cx}
             cy={c.cy}
             r={c.r}
-            fill={color}
+            fill={colorFn ? colorFn(c.loc) : color}
             fillOpacity={c.loc === hovered?.location ? Math.min(opacity + 0.2, 1) : opacity}
             stroke="#fff"
             strokeWidth={c.loc === hovered?.location ? 1.5 : 0.8}

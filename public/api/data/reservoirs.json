@@ -910,6 +910,535 @@
           "projected": true
         }
       ]
+    },
+    "reservoirLocations": {
+      "sourceId": "ukceh-reservoirs",
+      "timeField": "id",
+      "label": "UK Reservoir Locations with Capacity",
+      "unit": "megalitres",
+      "description": "Geographic coordinates and storage capacity for ~50 largest UK reservoirs, curated from UKCEH inventory and public reference data.",
+      "data": [
+        {
+          "id": "loch-ericht",
+          "name": "Loch Ericht",
+          "lat": 56.805,
+          "lng": -4.38,
+          "capacityMl": 1291596,
+          "capacityBnL": 1291.6,
+          "use": "Hydro-electric",
+          "year": 1962
+        },
+        {
+          "id": "loch-quoich",
+          "name": "Loch Quoich",
+          "lat": 57.05,
+          "lng": -5.35,
+          "capacityMl": 556677,
+          "capacityBnL": 556.7,
+          "use": "Hydro-electric",
+          "year": 1955
+        },
+        {
+          "id": "loch-earn",
+          "name": "Loch Earn",
+          "lat": 56.385,
+          "lng": -4.215,
+          "capacityMl": 397630,
+          "capacityBnL": 397.6,
+          "use": "Hydro-electric",
+          "year": 1958
+        },
+        {
+          "id": "mullardoch",
+          "name": "Mullardoch",
+          "lat": 57.28,
+          "lng": -5.12,
+          "capacityMl": 165226,
+          "capacityBnL": 165.2,
+          "use": "Hydro-electric",
+          "year": 1951
+        },
+        {
+          "id": "loch-garry",
+          "name": "Loch Garry",
+          "lat": 57.025,
+          "lng": -5.125,
+          "capacityMl": 163272,
+          "capacityBnL": 163.3,
+          "use": "Hydro-electric",
+          "year": 1956
+        },
+        {
+          "id": "loch-luichart",
+          "name": "Loch Luichart",
+          "lat": 57.618,
+          "lng": -4.855,
+          "capacityMl": 128124,
+          "capacityBnL": 128.1,
+          "use": "Hydro-electric",
+          "year": 1954
+        },
+        {
+          "id": "blackwater",
+          "name": "Blackwater",
+          "lat": 57.71,
+          "lng": -4.795,
+          "capacityMl": 214977,
+          "capacityBnL": 215,
+          "use": "Hydro-electric",
+          "year": 1909
+        },
+        {
+          "id": "loch-sloy",
+          "name": "Loch Sloy",
+          "lat": 56.27,
+          "lng": -4.775,
+          "capacityMl": 33800,
+          "capacityBnL": 33.8,
+          "use": "Hydro-electric",
+          "year": 1950
+        },
+        {
+          "id": "loch-monar",
+          "name": "Loch Monar",
+          "lat": 57.385,
+          "lng": -5.17,
+          "capacityMl": 97000,
+          "capacityBnL": 97,
+          "use": "Hydro-electric",
+          "year": 1960
+        },
+        {
+          "id": "loch-fannich",
+          "name": "Loch Fannich",
+          "lat": 57.69,
+          "lng": -5.1,
+          "capacityMl": 79000,
+          "capacityBnL": 79,
+          "use": "Hydro-electric",
+          "year": 1952
+        },
+        {
+          "id": "loch-katrine",
+          "name": "Loch Katrine",
+          "lat": 56.25,
+          "lng": -4.58,
+          "capacityMl": 804704,
+          "capacityBnL": 804.7,
+          "use": "Water supply",
+          "year": 1859
+        },
+        {
+          "id": "loch-lomond",
+          "name": "Loch Lomond",
+          "lat": 56.11,
+          "lng": -4.58,
+          "capacityMl": 91000,
+          "capacityBnL": 91,
+          "use": "Water supply",
+          "year": 1971
+        },
+        {
+          "id": "megget",
+          "name": "Megget",
+          "lat": 55.49,
+          "lng": -3.26,
+          "capacityMl": 64000,
+          "capacityBnL": 64,
+          "use": "Water supply",
+          "year": 1983
+        },
+        {
+          "id": "talla",
+          "name": "Talla",
+          "lat": 55.52,
+          "lng": -3.345,
+          "capacityMl": 29000,
+          "capacityBnL": 29,
+          "use": "Water supply",
+          "year": 1905
+        },
+        {
+          "id": "carron-valley",
+          "name": "Carron Valley",
+          "lat": 56.02,
+          "lng": -4.05,
+          "capacityMl": 25000,
+          "capacityBnL": 25,
+          "use": "Water supply",
+          "year": 1939
+        },
+        {
+          "id": "kielder-water",
+          "name": "Kielder Water",
+          "lat": 55.2,
+          "lng": -2.59,
+          "capacityMl": 199000,
+          "capacityBnL": 199,
+          "use": "Water supply",
+          "year": 1981
+        },
+        {
+          "id": "cow-green",
+          "name": "Cow Green",
+          "lat": 54.665,
+          "lng": -2.29,
+          "capacityMl": 40920,
+          "capacityBnL": 40.9,
+          "use": "Water supply",
+          "year": 1971
+        },
+        {
+          "id": "haweswater",
+          "name": "Haweswater",
+          "lat": 54.51,
+          "lng": -2.8,
+          "capacityMl": 84500,
+          "capacityBnL": 84.5,
+          "use": "Water supply",
+          "year": 1941
+        },
+        {
+          "id": "thirlmere",
+          "name": "Thirlmere",
+          "lat": 54.54,
+          "lng": -3.065,
+          "capacityMl": 41000,
+          "capacityBnL": 41,
+          "use": "Water supply",
+          "year": 1894
+        },
+        {
+          "id": "ennerdale-water",
+          "name": "Ennerdale Water",
+          "lat": 54.53,
+          "lng": -3.38,
+          "capacityMl": 26000,
+          "capacityBnL": 26,
+          "use": "Water supply",
+          "year": 1902
+        },
+        {
+          "id": "scammonden",
+          "name": "Scammonden",
+          "lat": 53.635,
+          "lng": -1.895,
+          "capacityMl": 7750,
+          "capacityBnL": 7.8,
+          "use": "Water supply",
+          "year": 1971
+        },
+        {
+          "id": "grimwith",
+          "name": "Grimwith",
+          "lat": 54.06,
+          "lng": -1.92,
+          "capacityMl": 21360,
+          "capacityBnL": 21.4,
+          "use": "Water supply",
+          "year": 1983
+        },
+        {
+          "id": "scar-house",
+          "name": "Scar House",
+          "lat": 54.165,
+          "lng": -1.94,
+          "capacityMl": 22500,
+          "capacityBnL": 22.5,
+          "use": "Water supply",
+          "year": 1936
+        },
+        {
+          "id": "stocks",
+          "name": "Stocks",
+          "lat": 54,
+          "lng": -2.505,
+          "capacityMl": 13450,
+          "capacityBnL": 13.4,
+          "use": "Water supply",
+          "year": 1932
+        },
+        {
+          "id": "rivington",
+          "name": "Rivington",
+          "lat": 53.62,
+          "lng": -2.545,
+          "capacityMl": 11200,
+          "capacityBnL": 11.2,
+          "use": "Water supply",
+          "year": 1857
+        },
+        {
+          "id": "derwent-reservoir",
+          "name": "Derwent Reservoir",
+          "lat": 53.405,
+          "lng": -1.745,
+          "capacityMl": 9630,
+          "capacityBnL": 9.6,
+          "use": "Water supply",
+          "year": 1916
+        },
+        {
+          "id": "ladybower",
+          "name": "Ladybower",
+          "lat": 53.38,
+          "lng": -1.73,
+          "capacityMl": 27500,
+          "capacityBnL": 27.5,
+          "use": "Water supply",
+          "year": 1945
+        },
+        {
+          "id": "longdendale",
+          "name": "Longdendale",
+          "lat": 53.455,
+          "lng": -1.87,
+          "capacityMl": 15500,
+          "capacityBnL": 15.5,
+          "use": "Water supply",
+          "year": 1877
+        },
+        {
+          "id": "carsington-water",
+          "name": "Carsington Water",
+          "lat": 53.05,
+          "lng": -1.63,
+          "capacityMl": 36000,
+          "capacityBnL": 36,
+          "use": "Water supply",
+          "year": 1991
+        },
+        {
+          "id": "rutland-water",
+          "name": "Rutland Water",
+          "lat": 52.655,
+          "lng": -0.645,
+          "capacityMl": 124000,
+          "capacityBnL": 124,
+          "use": "Water supply",
+          "year": 1976
+        },
+        {
+          "id": "grafham-water",
+          "name": "Grafham Water",
+          "lat": 52.31,
+          "lng": -0.32,
+          "capacityMl": 58600,
+          "capacityBnL": 58.6,
+          "use": "Water supply",
+          "year": 1966
+        },
+        {
+          "id": "pitsford-water",
+          "name": "Pitsford Water",
+          "lat": 52.34,
+          "lng": -0.9,
+          "capacityMl": 17800,
+          "capacityBnL": 17.8,
+          "use": "Water supply",
+          "year": 1956
+        },
+        {
+          "id": "llyn-brianne",
+          "name": "Llyn Brianne",
+          "lat": 52.13,
+          "lng": -3.76,
+          "capacityMl": 62140,
+          "capacityBnL": 62.1,
+          "use": "Water supply",
+          "year": 1972
+        },
+        {
+          "id": "claerwen",
+          "name": "Claerwen",
+          "lat": 52.29,
+          "lng": -3.65,
+          "capacityMl": 48300,
+          "capacityBnL": 48.3,
+          "use": "Water supply",
+          "year": 1952
+        },
+        {
+          "id": "llyn-celyn",
+          "name": "Llyn Celyn",
+          "lat": 52.87,
+          "lng": -3.725,
+          "capacityMl": 72700,
+          "capacityBnL": 72.7,
+          "use": "Water supply",
+          "year": 1965
+        },
+        {
+          "id": "lake-vyrnwy",
+          "name": "Lake Vyrnwy",
+          "lat": 52.78,
+          "lng": -3.465,
+          "capacityMl": 59700,
+          "capacityBnL": 59.7,
+          "use": "Water supply",
+          "year": 1888
+        },
+        {
+          "id": "elan-valley",
+          "name": "Elan Valley",
+          "lat": 52.28,
+          "lng": -3.58,
+          "capacityMl": 99000,
+          "capacityBnL": 99,
+          "use": "Water supply",
+          "year": 1904
+        },
+        {
+          "id": "llandegfedd",
+          "name": "Llandegfedd",
+          "lat": 51.7,
+          "lng": -3,
+          "capacityMl": 24000,
+          "capacityBnL": 24,
+          "use": "Water supply",
+          "year": 1963
+        },
+        {
+          "id": "llyn-clywedog",
+          "name": "Llyn Clywedog",
+          "lat": 52.51,
+          "lng": -3.56,
+          "capacityMl": 50000,
+          "capacityBnL": 50,
+          "use": "Water supply",
+          "year": 1967
+        },
+        {
+          "id": "roadford-lake",
+          "name": "Roadford Lake",
+          "lat": 50.7,
+          "lng": -4.17,
+          "capacityMl": 34500,
+          "capacityBnL": 34.5,
+          "use": "Water supply",
+          "year": 1989
+        },
+        {
+          "id": "wimbleball-lake",
+          "name": "Wimbleball Lake",
+          "lat": 51.055,
+          "lng": -3.475,
+          "capacityMl": 21300,
+          "capacityBnL": 21.3,
+          "use": "Water supply",
+          "year": 1979
+        },
+        {
+          "id": "colliford-lake",
+          "name": "Colliford Lake",
+          "lat": 50.505,
+          "lng": -4.59,
+          "capacityMl": 28540,
+          "capacityBnL": 28.5,
+          "use": "Water supply",
+          "year": 1983
+        },
+        {
+          "id": "stithians",
+          "name": "Stithians",
+          "lat": 50.185,
+          "lng": -5.19,
+          "capacityMl": 5200,
+          "capacityBnL": 5.2,
+          "use": "Water supply",
+          "year": 1965
+        },
+        {
+          "id": "bewl-water",
+          "name": "Bewl Water",
+          "lat": 51.09,
+          "lng": 0.405,
+          "capacityMl": 31300,
+          "capacityBnL": 31.3,
+          "use": "Water supply",
+          "year": 1975
+        },
+        {
+          "id": "ardingly",
+          "name": "Ardingly",
+          "lat": 51.05,
+          "lng": -0.08,
+          "capacityMl": 4680,
+          "capacityBnL": 4.7,
+          "use": "Water supply",
+          "year": 1978
+        },
+        {
+          "id": "farmoor",
+          "name": "Farmoor",
+          "lat": 51.73,
+          "lng": -1.355,
+          "capacityMl": 13850,
+          "capacityBnL": 13.8,
+          "use": "Water supply",
+          "year": 1967
+        },
+        {
+          "id": "blithfield",
+          "name": "Blithfield",
+          "lat": 52.77,
+          "lng": -1.87,
+          "capacityMl": 18200,
+          "capacityBnL": 18.2,
+          "use": "Water supply",
+          "year": 1953
+        },
+        {
+          "id": "tittesworth",
+          "name": "Tittesworth",
+          "lat": 53.12,
+          "lng": -1.96,
+          "capacityMl": 6300,
+          "capacityBnL": 6.3,
+          "use": "Water supply",
+          "year": 1963
+        },
+        {
+          "id": "lake-bala-llyn-tegid",
+          "name": "Lake Bala (Llyn Tegid)",
+          "lat": 52.9,
+          "lng": -3.605,
+          "capacityMl": 43000,
+          "capacityBnL": 43,
+          "use": "Water supply",
+          "year": 1955
+        },
+        {
+          "id": "havant-thicket-2031",
+          "name": "Havant Thicket (2031)",
+          "lat": 50.91,
+          "lng": -0.95,
+          "capacityMl": 8700,
+          "capacityBnL": 8.7,
+          "use": "Planned",
+          "year": 2031
+        },
+        {
+          "id": "sesro-abingdon-2040",
+          "name": "SESRO Abingdon (2040)",
+          "lat": 51.65,
+          "lng": -1.33,
+          "capacityMl": 150000,
+          "capacityBnL": 150,
+          "use": "Planned",
+          "year": 2040
+        },
+        {
+          "id": "fens-reservoir-2036",
+          "name": "Fens Reservoir (2036)",
+          "lat": 52.5,
+          "lng": 0.13,
+          "capacityMl": 55000,
+          "capacityBnL": 55,
+          "use": "Planned",
+          "year": 2036
+        }
+      ]
     }
   }
 }
