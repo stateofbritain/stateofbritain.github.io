@@ -1,17 +1,17 @@
 import { useState, useMemo } from "react";
 import {
   AreaChart, Area, BarChart, Bar, LineChart, Line,
-  XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
+  XAxis, YAxis, CartesianGrid, Tooltip,
   ReferenceLine } from "recharts";
 import P from "../../theme/palette";
-import { SECTION_HEADING, SECTION_NOTE, CHART_TITLE, CHART_SUBTITLE, AXIS_TICK, yAxisLabel, GRID_PROPS, toggleBtn } from "../../theme/chartStyles";
+import { SECTION_HEADING, SECTION_NOTE, AXIS_TICK_MONO, yAxisLabel, GRID_PROPS } from "../../theme/chartStyles";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
-import ShareableChart from "../../components/ShareableChart";
-import { useJsonDataset } from "../../hooks/useDataset";
+import ChartCard from "../../components/ChartCard";
+import { useJsonDataset, sourceFrom } from "../../hooks/useDataset";
 
 export default function Rail() {
-  const { data, loading, error } = useJsonDataset("infrastructure.json");
+  const { data, loading, error, raw } = useJsonDataset("infrastructure.json");
   const [railView, setRailView] = useState("journeys");
   const [netView, setNetView] = useState("change");
 
@@ -86,50 +86,48 @@ export default function Rail() {
             ? "Annual passenger journeys in Great Britain (millions). Collapsed during Covid-19 (2020-21: 388m) and has recovered to 1,729m in 2024-25."
             : "Public Performance Measure (PPM): weighted average across all operators. A train meets PPM if it arrives within 5 minutes (commuter) or 10 minutes (long-distance) of schedule."}
         </p>
-        <div style={{ display: "flex", gap: 6, marginBottom: 14 }}>
-          <button style={toggleBtn(railView === "journeys")} onClick={() => setRailView("journeys")}>Passenger journeys</button>
-          <button style={toggleBtn(railView === "punctuality")} onClick={() => setRailView("punctuality")}>Punctuality</button>
-        </div>
 
         {railView === "journeys" && (
-          <ShareableChart title="Rail Passenger Journeys">
-          <div>
-            <div style={{ marginBottom: 10 }}>
-              <div style={CHART_TITLE}>Rail Passenger Journeys</div>
-              <div style={CHART_SUBTITLE}>Annual passenger journeys, Great Britain (billions)</div>
-            </div>
-            <ResponsiveContainer width="100%" height={340}>
-              <AreaChart data={railJourneys}>
-                <CartesianGrid {...GRID_PROPS} />
-                <XAxis dataKey="fy" tick={AXIS_TICK} interval={2} />
-                <YAxis tick={AXIS_TICK} tickFormatter={(v) => `${(v / 1000).toFixed(1)}bn`} label={yAxisLabel("Passenger journeys (bn)")} />
-                <Tooltip content={<CustomTooltip labelFormatter={(l) => `FY ${l}`} formatter={(v) => `${v.toLocaleString()}m`} />} />
-                <Area type="monotone" dataKey="journeysMn" stroke={P.teal} fill={P.teal} fillOpacity={0.3} name="Journeys (millions)" />
-              </AreaChart>
-            </ResponsiveContainer>
-          </div>
-          </ShareableChart>
+          <ChartCard
+            title="Rail Passenger Journeys"
+            subtitle="Annual passenger journeys, Great Britain (billions)"
+            source={sourceFrom(raw, "rail.journeys")}
+            views={["journeys", "punctuality"]}
+            viewLabels={{ journeys: "Passenger journeys", punctuality: "Punctuality" }}
+            activeView={railView}
+            onViewChange={setRailView}
+            height={340}
+          >
+            <AreaChart data={railJourneys}>
+              <CartesianGrid {...GRID_PROPS} />
+              <XAxis dataKey="fy" tick={AXIS_TICK_MONO} tickLine={false} interval={2} />
+              <YAxis tick={AXIS_TICK_MONO} tickLine={false} axisLine={false} tickFormatter={(v) => `${(v / 1000).toFixed(1)}bn`} label={yAxisLabel("Passenger journeys (bn)")} />
+              <Tooltip content={<CustomTooltip labelFormatter={(l) => `FY ${l}`} formatter={(v) => `${v.toLocaleString()}m`} />} />
+              <Area type="monotone" dataKey="journeysMn" stroke={P.teal} fill={P.teal} fillOpacity={0.3} name="Journeys (millions)" />
+            </AreaChart>
+          </ChartCard>
         )}
 
         {railView === "punctuality" && (
-          <ShareableChart title="Rail Punctuality (PPM)">
-          <div>
-            <div style={{ marginBottom: 10 }}>
-              <div style={CHART_TITLE}>Rail Punctuality (PPM)</div>
-              <div style={CHART_SUBTITLE}>Public performance measure, Great Britain</div>
-            </div>
-            <ResponsiveContainer width="100%" height={340}>
-              <LineChart data={data.rail.punctuality}>
-                <CartesianGrid {...GRID_PROPS} />
-                <XAxis dataKey="fy" tick={AXIS_TICK} interval={2} />
-                <YAxis tick={AXIS_TICK} tickFormatter={(v) => `${v}%`} domain={[70, 100]} label={yAxisLabel("% on time (PPM)")} />
-                <Tooltip content={<CustomTooltip labelFormatter={(l) => `FY ${l}`} formatter={(v) => `${v}%`} />} />
-                <Line type="monotone" dataKey="ppm" stroke={P.teal} strokeWidth={2} dot={false} name="PPM" />
-                <ReferenceLine y={92.5} stroke={P.textLight} strokeDasharray="4 4" label={{ value: "Historic target 92.5%", fontSize: 11, fill: P.textLight, position: "top" }} />
-              </LineChart>
-            </ResponsiveContainer>
-          </div>
-          </ShareableChart>
+          <ChartCard
+            title="Rail Punctuality (PPM)"
+            subtitle="Public performance measure, Great Britain"
+            source={sourceFrom(raw, "rail.punctuality")}
+            views={["journeys", "punctuality"]}
+            viewLabels={{ journeys: "Passenger journeys", punctuality: "Punctuality" }}
+            activeView={railView}
+            onViewChange={setRailView}
+            height={340}
+          >
+            <LineChart data={data.rail.punctuality}>
+              <CartesianGrid {...GRID_PROPS} />
+              <XAxis dataKey="fy" tick={AXIS_TICK_MONO} tickLine={false} interval={2} />
+              <YAxis tick={AXIS_TICK_MONO} tickLine={false} axisLine={false} tickFormatter={(v) => `${v}%`} domain={[70, 100]} label={yAxisLabel("% on time (PPM)")} />
+              <Tooltip content={<CustomTooltip labelFormatter={(l) => `FY ${l}`} formatter={(v) => `${v}%`} />} />
+              <Line type="monotone" dataKey="ppm" stroke={P.teal} strokeWidth={2} dot={false} name="PPM" />
+              <ReferenceLine y={92.5} stroke={P.textLight} strokeDasharray="4 4" label={{ value: "Historic target 92.5%", fontSize: 11, fill: P.textLight, position: "top" }} />
+            </LineChart>
+          </ChartCard>
         )}
       </section>
 
@@ -142,61 +140,56 @@ export default function Rail() {
               ? "Year-on-year change in rail route length in miles. Negative values indicate net closures."
               : "Total rail route open for traffic in Great Britain (miles), and electrified route length."}
           </p>
-          <div style={{ display: "flex", gap: 6, marginBottom: 14 }}>
-            <button style={toggleBtn(netView === "change")} onClick={() => setNetView("change")}>Annual change</button>
-            <button style={toggleBtn(netView === "total")} onClick={() => setNetView("total")}>Total network</button>
-          </div>
 
           {netView === "change" && (
-            <ShareableChart title="Rail Network Length (Annual Change)">
-            <div>
-              <div style={{ marginBottom: 10 }}>
-                <div style={CHART_TITLE}>Rail Network Length (Annual Change)</div>
-                <div style={CHART_SUBTITLE}>Year-on-year change in rail route, Great Britain (miles)</div>
-              </div>
-              <ResponsiveContainer width="100%" height={340}>
-                <BarChart data={networkChange}>
-                  <CartesianGrid {...GRID_PROPS} />
-                  <XAxis dataKey="year" tick={AXIS_TICK} />
-                  <YAxis tick={AXIS_TICK} label={yAxisLabel("Miles (annual change)")} />
-                  <Tooltip content={<CustomTooltip formatter={(v) => `${v} mi`} />} />
-                  <ReferenceLine y={0} stroke={P.textLight} />
-                  <Bar dataKey="railChangeMi" fill={P.sienna} name="Rail route" isAnimationActive={false} />
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
-            </ShareableChart>
+            <ChartCard
+              title="Rail Network Length (Annual Change)"
+              subtitle="Year-on-year change in rail route, Great Britain (miles)"
+              source={sourceFrom(raw, "rail.infrastructure")}
+              views={["change", "total"]}
+              viewLabels={{ change: "Annual change", total: "Total network" }}
+              activeView={netView}
+              onViewChange={setNetView}
+              height={340}
+            >
+              <BarChart data={networkChange}>
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" tick={AXIS_TICK_MONO} tickLine={false} />
+                <YAxis tick={AXIS_TICK_MONO} tickLine={false} axisLine={false} label={yAxisLabel("Miles (annual change)")} />
+                <Tooltip content={<CustomTooltip formatter={(v) => `${v} mi`} />} />
+                <ReferenceLine y={0} stroke={P.textLight} />
+                <Bar dataKey="railChangeMi" fill={P.sienna} name="Rail route" isAnimationActive={false} />
+              </BarChart>
+            </ChartCard>
           )}
 
           {netView === "total" && (
-            <ShareableChart title="Total Rail Network">
-            <div>
-              <div style={{ marginBottom: 10 }}>
-                <div style={CHART_TITLE}>Total Rail Network</div>
-                <div style={CHART_SUBTITLE}>Route open for traffic, Great Britain (miles)</div>
-              </div>
-              <ResponsiveContainer width="100%" height={340}>
-                <LineChart data={networkChange}>
-                  <CartesianGrid {...GRID_PROPS} />
-                  <XAxis dataKey="year" tick={AXIS_TICK} />
-                  <YAxis tick={AXIS_TICK} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} label={yAxisLabel("Miles")} />
-                  <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toLocaleString()} mi`} />} />
-                  <Line type="monotone" dataKey="railTotalMi" stroke={P.sienna} strokeWidth={2} dot={false} name="Rail route" />
-                  <Line type="monotone" dataKey="railElectMi" stroke={P.yellow} strokeWidth={2} dot={false} name="Electrified" connectNulls />
-                </LineChart>
-              </ResponsiveContainer>
-            </div>
-            </ShareableChart>
+            <ChartCard
+              title="Total Rail Network"
+              subtitle="Route open for traffic, Great Britain (miles)"
+              source={sourceFrom(raw, "rail.infrastructure")}
+              views={["change", "total"]}
+              viewLabels={{ change: "Annual change", total: "Total network" }}
+              activeView={netView}
+              onViewChange={setNetView}
+              legend={[
+                { key: "rail", label: "Rail route", color: P.sienna },
+                { key: "elect", label: "Electrified", color: P.yellow },
+              ]}
+              height={340}
+            >
+              <LineChart data={networkChange}>
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" tick={AXIS_TICK_MONO} tickLine={false} />
+                <YAxis tick={AXIS_TICK_MONO} tickLine={false} axisLine={false} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} label={yAxisLabel("Miles")} />
+                <Tooltip content={<CustomTooltip formatter={(v) => `${v?.toLocaleString()} mi`} />} />
+                <Line type="monotone" dataKey="railTotalMi" stroke={P.sienna} strokeWidth={2} dot={false} name="Rail route" />
+                <Line type="monotone" dataKey="railElectMi" stroke={P.yellow} strokeWidth={2} dot={false} name="Electrified" connectNulls />
+              </LineChart>
+            </ChartCard>
           )}
         </section>
       )}
-
-      <div style={{ marginTop: 24, fontSize: "12px", color: P.textLight, fontFamily: "'DM Mono', monospace", lineHeight: 1.8 }}>
-        <strong>Sources:</strong>{" "}
-        <a href="https://dataportal.orr.gov.uk/" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight }}>
-          ORR Data Portal (Tables 3103, 1220, 6320)
-        </a>
-      </div>
     </div>
   );
 }

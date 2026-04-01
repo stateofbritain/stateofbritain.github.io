@@ -1,17 +1,17 @@
 import { useState, useMemo } from "react";
 import {
   AreaChart, Area, BarChart, Bar, LineChart, Line,
-  XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
+  XAxis, YAxis, CartesianGrid, Tooltip,
 } from "recharts";
 import P from "../../theme/palette";
-import { SECTION_HEADING, SECTION_NOTE, CHART_TITLE, CHART_SUBTITLE, AXIS_TICK, yAxisLabel, GRID_PROPS, toggleBtn } from "../../theme/chartStyles";
+import { SECTION_HEADING, SECTION_NOTE, AXIS_TICK_MONO, yAxisLabel, GRID_PROPS } from "../../theme/chartStyles";
 import MetricCard from "../../components/MetricCard";
 import CustomTooltip from "../../components/CustomTooltip";
-import ShareableChart from "../../components/ShareableChart";
-import { useJsonDataset } from "../../hooks/useDataset";
+import ChartCard from "../../components/ChartCard";
+import { useJsonDataset, sourceFrom } from "../../hooks/useDataset";
 
 export default function Broadband() {
-  const { data, loading, error } = useJsonDataset("infrastructure.json");
+  const { data, loading, error, raw } = useJsonDataset("infrastructure.json");
   const [bbView, setBbView] = useState("coverage");
 
   const coverageSeries = useMemo(() => {
@@ -73,81 +73,80 @@ export default function Broadband() {
               ? "Median download and upload speeds in Mbit/s from Ofcom UK Home Broadband Performance reports."
               : "4G geographic coverage as a percentage of UK landmass (all operators combined)."}
         </p>
-        <div style={{ display: "flex", gap: 6, marginBottom: 14 }}>
-          <button style={toggleBtn(bbView === "coverage")} onClick={() => setBbView("coverage")}>Coverage</button>
-          <button style={toggleBtn(bbView === "speeds")} onClick={() => setBbView("speeds")}>Speeds</button>
-          <button style={toggleBtn(bbView === "mobile")} onClick={() => setBbView("mobile")}>Mobile 4G</button>
-        </div>
 
         {bbView === "coverage" && (
-          <ShareableChart title="Broadband Coverage (FTTP & Gigabit)">
-          <div>
-            <div style={{ marginBottom: 10 }}>
-              <div style={CHART_TITLE}>Broadband Coverage (FTTP & Gigabit)</div>
-              <div style={CHART_SUBTITLE}>% of UK premises with full fibre / gigabit</div>
-            </div>
-            <ResponsiveContainer width="100%" height={340}>
-              <AreaChart data={coverageSeries}>
-                <CartesianGrid {...GRID_PROPS} />
-                <XAxis dataKey="year" tick={AXIS_TICK} />
-                <YAxis tick={AXIS_TICK} tickFormatter={(v) => `${v}%`} domain={[0, 100]} label={yAxisLabel("Broadband coverage (% of premises)")} />
-                <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
-                <Area type="monotone" dataKey="gigabit" stackId="1" stroke={P.grey} fill={P.grey} fillOpacity={0.3} name="Gigabit (non-FTTP)" />
-                <Area type="monotone" dataKey="fttp" stackId="0" stroke={P.teal} fill={P.teal} fillOpacity={0.4} name="Full Fibre (FTTP)" />
-              </AreaChart>
-            </ResponsiveContainer>
-          </div>
-          </ShareableChart>
+          <ChartCard
+            title="Broadband Coverage (FTTP & Gigabit)"
+            subtitle="% of UK premises with full fibre / gigabit"
+            source={sourceFrom(raw, "broadband.fttp")}
+            views={["coverage", "speeds", "mobile"]}
+            viewLabels={{ coverage: "Coverage", speeds: "Speeds", mobile: "Mobile 4G" }}
+            activeView={bbView}
+            onViewChange={setBbView}
+            legend={[
+              { key: "fttp", label: "Full Fibre (FTTP)", color: P.teal },
+              { key: "gigabit", label: "Gigabit (non-FTTP)", color: P.grey },
+            ]}
+            height={340}
+          >
+            <AreaChart data={coverageSeries}>
+              <CartesianGrid {...GRID_PROPS} />
+              <XAxis dataKey="year" tick={AXIS_TICK_MONO} tickLine={false} />
+              <YAxis tick={AXIS_TICK_MONO} tickLine={false} axisLine={false} tickFormatter={(v) => `${v}%`} domain={[0, 100]} label={yAxisLabel("Broadband coverage (% of premises)")} />
+              <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
+              <Area type="monotone" dataKey="gigabit" stackId="1" stroke={P.grey} fill={P.grey} fillOpacity={0.3} name="Gigabit (non-FTTP)" />
+              <Area type="monotone" dataKey="fttp" stackId="0" stroke={P.teal} fill={P.teal} fillOpacity={0.4} name="Full Fibre (FTTP)" />
+            </AreaChart>
+          </ChartCard>
         )}
 
         {bbView === "speeds" && (
-          <ShareableChart title="Broadband Speeds">
-          <div>
-            <div style={{ marginBottom: 10 }}>
-              <div style={CHART_TITLE}>Broadband Speeds</div>
-              <div style={CHART_SUBTITLE}>Average download speeds, UK (Mbit/s)</div>
-            </div>
-            <ResponsiveContainer width="100%" height={340}>
-              <LineChart data={data.broadband.speeds}>
-                <CartesianGrid {...GRID_PROPS} />
-                <XAxis dataKey="year" tick={AXIS_TICK} />
-                <YAxis tick={AXIS_TICK} tickFormatter={(v) => `${v} Mb/s`} label={yAxisLabel("Download speed (Mbit/s)")} />
-                <Tooltip content={<CustomTooltip formatter={(v) => `${v} Mbit/s`} />} />
-                <Line type="monotone" dataKey="medianDown" stroke={P.teal} strokeWidth={2} dot={{ r: 3 }} name="Download" />
-                <Line type="monotone" dataKey="medianUp" stroke={P.sienna} strokeWidth={2} dot={{ r: 3 }} name="Upload" />
-              </LineChart>
-            </ResponsiveContainer>
-          </div>
-          </ShareableChart>
+          <ChartCard
+            title="Broadband Speeds"
+            subtitle="Average download speeds, UK (Mbit/s)"
+            source={sourceFrom(raw, "broadband.speeds")}
+            views={["coverage", "speeds", "mobile"]}
+            viewLabels={{ coverage: "Coverage", speeds: "Speeds", mobile: "Mobile 4G" }}
+            activeView={bbView}
+            onViewChange={setBbView}
+            legend={[
+              { key: "down", label: "Download", color: P.teal },
+              { key: "up", label: "Upload", color: P.sienna },
+            ]}
+            height={340}
+          >
+            <LineChart data={data.broadband.speeds}>
+              <CartesianGrid {...GRID_PROPS} />
+              <XAxis dataKey="year" tick={AXIS_TICK_MONO} tickLine={false} />
+              <YAxis tick={AXIS_TICK_MONO} tickLine={false} axisLine={false} tickFormatter={(v) => `${v} Mb/s`} label={yAxisLabel("Download speed (Mbit/s)")} />
+              <Tooltip content={<CustomTooltip formatter={(v) => `${v} Mbit/s`} />} />
+              <Line type="monotone" dataKey="medianDown" stroke={P.teal} strokeWidth={2} dot={{ r: 3 }} name="Download" />
+              <Line type="monotone" dataKey="medianUp" stroke={P.sienna} strokeWidth={2} dot={{ r: 3 }} name="Upload" />
+            </LineChart>
+          </ChartCard>
         )}
 
         {bbView === "mobile" && (
-          <ShareableChart title="Mobile 4G Coverage">
-          <div>
-            <div style={{ marginBottom: 10 }}>
-              <div style={CHART_TITLE}>Mobile 4G Coverage</div>
-              <div style={CHART_SUBTITLE}>% geographic coverage by operator, UK</div>
-            </div>
-            <ResponsiveContainer width="100%" height={340}>
-              <BarChart data={data.broadband.mobile4g}>
-                <CartesianGrid {...GRID_PROPS} />
-                <XAxis dataKey="year" tick={AXIS_TICK} />
-                <YAxis tick={AXIS_TICK} tickFormatter={(v) => `${v}%`} domain={[80, 100]} label={yAxisLabel("4G coverage (% of landmass)")} />
-                <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
-                <Bar dataKey="landmassPct" fill={P.teal} name="4G landmass coverage" isAnimationActive={false} />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-          </ShareableChart>
+          <ChartCard
+            title="Mobile 4G Coverage"
+            subtitle="% geographic coverage by operator, UK"
+            source={sourceFrom(raw, "broadband.mobile4g")}
+            views={["coverage", "speeds", "mobile"]}
+            viewLabels={{ coverage: "Coverage", speeds: "Speeds", mobile: "Mobile 4G" }}
+            activeView={bbView}
+            onViewChange={setBbView}
+            height={340}
+          >
+            <BarChart data={data.broadband.mobile4g}>
+              <CartesianGrid {...GRID_PROPS} />
+              <XAxis dataKey="year" tick={AXIS_TICK_MONO} tickLine={false} />
+              <YAxis tick={AXIS_TICK_MONO} tickLine={false} axisLine={false} tickFormatter={(v) => `${v}%`} domain={[80, 100]} label={yAxisLabel("4G coverage (% of landmass)")} />
+              <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
+              <Bar dataKey="landmassPct" fill={P.teal} name="4G landmass coverage" isAnimationActive={false} />
+            </BarChart>
+          </ChartCard>
         )}
       </section>
-
-      <div style={{ marginTop: 24, fontSize: "12px", color: P.textLight, fontFamily: "'DM Mono', monospace", lineHeight: 1.8 }}>
-        <strong>Sources:</strong>{" "}
-        <a href="https://www.ofcom.org.uk/research-and-data/telecoms-research/connected-nations" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight }}>
-          Ofcom Connected Nations 2018-2025
-        </a>
-      </div>
     </div>
   );
 }
