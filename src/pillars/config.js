@@ -104,13 +104,19 @@ const PILLARS = {
       },
       education:      { label: "Education",            icon: "▲" },
       industrial:     { label: "Industrial Production", icon: "⚙" },
-      infrastructure: {
-        label: "Infrastructure",
+      transport: {
+        label: "Transport",
         icon: "≡",
         subtopics: {
-          roads:     { label: "Roads" },
-          rail:      { label: "Rail" },
-          airports:  { label: "Airports" },
+          roads:    { label: "Roads" },
+          rail:     { label: "Rail" },
+          airports: { label: "Airports" },
+        },
+      },
+      digital: {
+        label: "Digital Infrastructure",
+        icon: "◎",
+        subtopics: {
           broadband: { label: "Broadband" },
         },
       },
