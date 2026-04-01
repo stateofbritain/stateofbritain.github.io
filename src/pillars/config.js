@@ -102,8 +102,14 @@ const PILLARS = {
       },
       education:      { label: "Education",            icon: "▲" },
       industrial:     { label: "Industrial Production", icon: "⚙" },
-      infrastructure: { label: "Infrastructure",     icon: "≡" },
-      airports:       { label: "Airports",            icon: "✈" },
+      infrastructure: {
+        label: "Infrastructure",
+        icon: "≡",
+        subtopics: {
+          overview: { label: "Overview" },
+          airports: { label: "Airports" },
+        },
+      },
       investment:     { label: "Investment & Capital",  icon: "£" },
       productivity:   { label: "Productivity",         icon: "→" },
       pq:             { label: "Frontline Ratio",  icon: "◑" },
