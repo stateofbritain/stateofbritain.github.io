@@ -19,6 +19,7 @@ const PILLARS = {
           borrowing:   { label: "Borrowing & Debt" },
           taxation:    { label: "Taxation" },
           moneySupply: { label: "Money & Inflation" },
+          welfare:     { label: "Welfare" },
         },
       },
       personalFinance: { label: "Personal Finance", icon: "£" },

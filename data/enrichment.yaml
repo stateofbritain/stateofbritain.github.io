@@ -800,3 +800,18 @@ adult-social-care:
       title: "Self-funders"
       summary: "37% of care home residents self-fund, 26% of community care users. Self-funders pay ~40% more than publicly funded clients."
       unit: "%"
+
+welfare:
+  title: "Welfare Spending"
+  geography: "United Kingdom"
+  summary: "DWP benefit expenditure by category (children, working age, pensioners) and by individual benefit type (State Pension, housing, disability, incapacity, unemployment, Pension Credit, Carer's Allowance). Covers 1999/00 to 2024/25 outturn plus OBR forecast to 2030/31. Total spending reached £289bn in 2024/25, with pensioner benefits accounting for 57%."
+  tags: [welfare, benefits, state pension, housing benefit, disability, incapacity, unemployment, universal credit, pension credit, carers allowance, DWP, OBR, triple lock]
+  series:
+    byCategory:
+      title: "Welfare Spending by Category"
+      summary: "Total benefit expenditure split by children, working age, and pensioners. Pensioner benefits grew from £67bn in 1999/00 to £165bn in 2024/25. Includes OBR forecast years to 2030/31."
+      unit: "£bn"
+    byBenefit:
+      title: "Spending by Benefit Type"
+      summary: "Annual expenditure on individual benefits. State Pension is largest at £124bn, followed by housing benefits and disability payments. Covers 1999/00 to 2024/25."
+      unit: "£bn"

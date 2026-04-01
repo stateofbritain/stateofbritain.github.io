@@ -1,0 +1,620 @@
+{
+  "$schema": "sob-dataset-v1",
+  "id": "welfare",
+  "pillar": "state",
+  "topic": "spending",
+  "generated": "2026-04-01",
+  "sources": [
+    {
+      "id": "dwp-benefit-expenditure",
+      "name": "DWP Benefit Expenditure and Caseload Tables (Autumn Budget 2025)",
+      "url": "https://www.gov.uk/government/publications/benefit-expenditure-and-caseload-tables-2025",
+      "publisher": "Department for Work and Pensions",
+      "note": "Outturn and forecast benefit expenditure consistent with current DWP coverage, £ billion nominal. GB data uprated to UK."
+    }
+  ],
+  "snapshot": {
+    "latestYear": "2024/25",
+    "totalBn": 289.19,
+    "pensionersBn": 164.91,
+    "workingAgeBn": 119.72,
+    "statePensionBn": 136.58,
+    "pensionShare": 57
+  },
+  "series": {
+    "byCategory": {
+      "sourceId": "dwp-benefit-expenditure",
+      "label": "Welfare Spending by Category",
+      "unit": "£ billion (nominal)",
+      "timeField": "year",
+      "description": "DWP benefit expenditure by recipient category: children, working age, pensioners. Includes outturn and OBR forecast years.",
+      "data": [
+        {
+          "year": "1999/00",
+          "children": 0.57,
+          "workingAge": 29.6,
+          "pensioners": 50.59,
+          "total": 80.76,
+          "forecast": false
+        },
+        {
+          "year": "2000/01",
+          "children": 0.67,
+          "workingAge": 29.68,
+          "pensioners": 53.27,
+          "total": 83.62,
+          "forecast": false
+        },
+        {
+          "year": "2001/02",
+          "children": 0.68,
+          "workingAge": 30.37,
+          "pensioners": 57.42,
+          "total": 88.47,
+          "forecast": false
+        },
+        {
+          "year": "2002/03",
+          "children": 0.76,
+          "workingAge": 31.77,
+          "pensioners": 60.92,
+          "total": 93.45,
+          "forecast": false
+        },
+        {
+          "year": "2003/04",
+          "children": 0.79,
+          "workingAge": 32.95,
+          "pensioners": 64.1,
+          "total": 97.84,
+          "forecast": false
+        },
+        {
+          "year": "2004/05",
+          "children": 0.84,
+          "workingAge": 33.97,
+          "pensioners": 68.87,
+          "total": 103.68,
+          "forecast": false
+        },
+        {
+          "year": "2005/06",
+          "children": 0.92,
+          "workingAge": 35,
+          "pensioners": 73.07,
+          "total": 109,
+          "forecast": false
+        },
+        {
+          "year": "2006/07",
+          "children": 0.97,
+          "workingAge": 36.31,
+          "pensioners": 75.44,
+          "total": 112.72,
+          "forecast": false
+        },
+        {
+          "year": "2007/08",
+          "children": 1.04,
+          "workingAge": 38.26,
+          "pensioners": 80.66,
+          "total": 119.97,
+          "forecast": false
+        },
+        {
+          "year": "2008/09",
+          "children": 1.11,
+          "workingAge": 40.74,
+          "pensioners": 87.69,
+          "total": 129.54,
+          "forecast": false
+        },
+        {
+          "year": "2009/10",
+          "children": 1.19,
+          "workingAge": 46.96,
+          "pensioners": 93.82,
+          "total": 141.97,
+          "forecast": false
+        },
+        {
+          "year": "2010/11",
+          "children": 1.22,
+          "workingAge": 48.63,
+          "pensioners": 97.48,
+          "total": 147.33,
+          "forecast": false
+        },
+        {
+          "year": "2011/12",
+          "children": 1.31,
+          "workingAge": 50.39,
+          "pensioners": 101.39,
+          "total": 153.09,
+          "forecast": false
+        },
+        {
+          "year": "2012/13",
+          "children": 1.39,
+          "workingAge": 52.32,
+          "pensioners": 107.13,
+          "total": 160.84,
+          "forecast": false
+        },
+        {
+          "year": "2013/14",
+          "children": 1.46,
+          "workingAge": 51.91,
+          "pensioners": 110.08,
+          "total": 163.46,
+          "forecast": false
+        },
+        {
+          "year": "2014/15",
+          "children": 1.72,
+          "workingAge": 52.43,
+          "pensioners": 113.5,
+          "total": 167.65,
+          "forecast": false
+        },
+        {
+          "year": "2015/16",
+          "children": 1.83,
+          "workingAge": 53.76,
+          "pensioners": 115.6,
+          "total": 171.19,
+          "forecast": false
+        },
+        {
+          "year": "2016/17",
+          "children": 1.9,
+          "workingAge": 54.24,
+          "pensioners": 117.11,
+          "total": 173.24,
+          "forecast": false
+        },
+        {
+          "year": "2017/18",
+          "children": 1.97,
+          "workingAge": 56.77,
+          "pensioners": 118.71,
+          "total": 177.45,
+          "forecast": false
+        },
+        {
+          "year": "2018/19",
+          "children": 2.11,
+          "workingAge": 60.1,
+          "pensioners": 121.13,
+          "total": 183.35,
+          "forecast": false
+        },
+        {
+          "year": "2019/20",
+          "children": 2.3,
+          "workingAge": 66.57,
+          "pensioners": 123.43,
+          "total": 192.3,
+          "forecast": false
+        },
+        {
+          "year": "2020/21",
+          "children": 2.25,
+          "workingAge": 85.17,
+          "pensioners": 125.81,
+          "total": 213.23,
+          "forecast": false
+        },
+        {
+          "year": "2021/22",
+          "children": 2.45,
+          "workingAge": 86.25,
+          "pensioners": 128.86,
+          "total": 217.55,
+          "forecast": false
+        },
+        {
+          "year": "2022/23",
+          "children": 2.95,
+          "workingAge": 93.12,
+          "pensioners": 137.06,
+          "total": 233.14,
+          "forecast": false
+        },
+        {
+          "year": "2023/24",
+          "children": 3.76,
+          "workingAge": 108.89,
+          "pensioners": 155.2,
+          "total": 267.85,
+          "forecast": false
+        },
+        {
+          "year": "2024/25",
+          "children": 4.56,
+          "workingAge": 119.72,
+          "pensioners": 164.91,
+          "total": 289.19,
+          "forecast": false
+        },
+        {
+          "year": "2025/26",
+          "children": 5.17,
+          "workingAge": 126.55,
+          "pensioners": 177.81,
+          "total": 309.53,
+          "forecast": true
+        },
+        {
+          "year": "2026/27",
+          "children": 5.82,
+          "workingAge": 135.57,
+          "pensioners": 186.73,
+          "total": 328.13,
+          "forecast": true
+        },
+        {
+          "year": "2027/28",
+          "children": 6.42,
+          "workingAge": 139.9,
+          "pensioners": 191.63,
+          "total": 337.95,
+          "forecast": true
+        },
+        {
+          "year": "2028/29",
+          "children": 6.94,
+          "workingAge": 143.97,
+          "pensioners": 197.5,
+          "total": 348.41,
+          "forecast": true
+        },
+        {
+          "year": "2029/30",
+          "children": 7.45,
+          "workingAge": 149.6,
+          "pensioners": 207.4,
+          "total": 364.45,
+          "forecast": true
+        },
+        {
+          "year": "2030/31",
+          "children": 7.96,
+          "workingAge": 155.48,
+          "pensioners": 217.47,
+          "total": 380.9,
+          "forecast": true
+        }
+      ]
+    },
+    "byBenefit": {
+      "sourceId": "dwp-benefit-expenditure",
+      "label": "Welfare Spending by Benefit Type",
+      "unit": "£ billion (nominal)",
+      "timeField": "year",
+      "description": "Expenditure on individual benefits: State Pension, housing benefits, disability, incapacity, unemployment, Pension Credit, Carer's Allowance.",
+      "data": [
+        {
+          "year": "1999/00",
+          "statePension": 37.8,
+          "housing": 11.06,
+          "disability": 8.48,
+          "incapacity": 11.85,
+          "unemployment": 3.26,
+          "pensionCredit": 3.78,
+          "carersAllowance": 0.83
+        },
+        {
+          "year": "2000/01",
+          "statePension": 38.75,
+          "housing": 11.16,
+          "disability": 9,
+          "incapacity": 12.18,
+          "unemployment": 2.88,
+          "pensionCredit": 4.09,
+          "carersAllowance": 0.87
+        },
+        {
+          "year": "2001/02",
+          "statePension": 41.92,
+          "housing": 11.59,
+          "disability": 9.7,
+          "incapacity": 12.56,
+          "unemployment": 2.61,
+          "pensionCredit": 4.49,
+          "carersAllowance": 0.93
+        },
+        {
+          "year": "2002/03",
+          "statePension": 44.37,
+          "housing": 12.64,
+          "disability": 10.3,
+          "incapacity": 12.49,
+          "unemployment": 2.62,
+          "pensionCredit": 4.48,
+          "carersAllowance": 0.99
+        },
+        {
+          "year": "2003/04",
+          "statePension": 46.51,
+          "housing": 12.35,
+          "disability": 11.04,
+          "incapacity": 12.67,
+          "unemployment": 2.56,
+          "pensionCredit": 4.85,
+          "carersAllowance": 1.05
+        },
+        {
+          "year": "2004/05",
+          "statePension": 48.8,
+          "housing": 13.16,
+          "disability": 11.75,
+          "incapacity": 12.3,
+          "unemployment": 2.2,
+          "pensionCredit": 6.1,
+          "carersAllowance": 1.1
+        },
+        {
+          "year": "2005/06",
+          "statePension": 51.42,
+          "housing": 13.93,
+          "disability": 12.54,
+          "incapacity": 12.08,
+          "unemployment": 2.31,
+          "pensionCredit": 6.51,
+          "carersAllowance": 1.15
+        },
+        {
+          "year": "2006/07",
+          "statePension": 53.66,
+          "housing": 14.84,
+          "disability": 13.3,
+          "incapacity": 12.04,
+          "unemployment": 2.44,
+          "pensionCredit": 6.95,
+          "carersAllowance": 1.18
+        },
+        {
+          "year": "2007/08",
+          "statePension": 57.59,
+          "housing": 15.73,
+          "disability": 14.31,
+          "incapacity": 12.61,
+          "unemployment": 2.24,
+          "pensionCredit": 7.46,
+          "carersAllowance": 1.28
+        },
+        {
+          "year": "2008/09",
+          "statePension": 61.58,
+          "housing": 17.1,
+          "disability": 15.26,
+          "incapacity": 12.63,
+          "unemployment": 2.86,
+          "pensionCredit": 7.79,
+          "carersAllowance": 1.36
+        },
+        {
+          "year": "2009/10",
+          "statePension": 66.9,
+          "housing": 19.99,
+          "disability": 16.66,
+          "incapacity": 13.27,
+          "unemployment": 4.68,
+          "pensionCredit": 8.23,
+          "carersAllowance": 1.49
+        },
+        {
+          "year": "2010/11",
+          "statePension": 69.84,
+          "housing": 21.43,
+          "disability": 17.21,
+          "incapacity": 13.31,
+          "unemployment": 4.47,
+          "pensionCredit": 8.24,
+          "carersAllowance": 1.57
+        },
+        {
+          "year": "2011/12",
+          "statePension": 74.15,
+          "housing": 22.82,
+          "disability": 18,
+          "incapacity": 13.41,
+          "unemployment": 4.93,
+          "pensionCredit": 8.05,
+          "carersAllowance": 1.73
+        },
+        {
+          "year": "2012/13",
+          "statePension": 79.81,
+          "housing": 23.9,
+          "disability": 19,
+          "incapacity": 13.43,
+          "unemployment": 5.17,
+          "pensionCredit": 7.51,
+          "carersAllowance": 1.93
+        },
+        {
+          "year": "2013/14",
+          "statePension": 83.11,
+          "housing": 24.17,
+          "disability": 19.39,
+          "incapacity": 13.47,
+          "unemployment": 4.34,
+          "pensionCredit": 7.04,
+          "carersAllowance": 2.09
+        },
+        {
+          "year": "2014/15",
+          "statePension": 86.52,
+          "housing": 24.32,
+          "disability": 20.88,
+          "incapacity": 14.28,
+          "unemployment": 3.12,
+          "pensionCredit": 6.58,
+          "carersAllowance": 2.32
+        },
+        {
+          "year": "2015/16",
+          "statePension": 89.37,
+          "housing": 24.24,
+          "disability": 21.83,
+          "incapacity": 15.05,
+          "unemployment": 2.77,
+          "pensionCredit": 6.08,
+          "carersAllowance": 2.55
+        },
+        {
+          "year": "2016/17",
+          "statePension": 91.58,
+          "housing": 23.44,
+          "disability": 22.26,
+          "incapacity": 15.4,
+          "unemployment": 2.77,
+          "pensionCredit": 5.67,
+          "carersAllowance": 2.67
+        },
+        {
+          "year": "2017/18",
+          "statePension": 93.8,
+          "housing": 22.3,
+          "disability": 23.66,
+          "incapacity": 15.92,
+          "unemployment": 2.99,
+          "pensionCredit": 5.37,
+          "carersAllowance": 2.83
+        },
+        {
+          "year": "2018/19",
+          "statePension": 96.74,
+          "housing": 20.73,
+          "disability": 24.56,
+          "incapacity": 16.32,
+          "unemployment": 3.26,
+          "pensionCredit": 5.14,
+          "carersAllowance": 2.89
+        },
+        {
+          "year": "2019/20",
+          "statePension": 98.81,
+          "housing": 24.42,
+          "disability": 25.8,
+          "incapacity": 17.16,
+          "unemployment": 3.74,
+          "pensionCredit": 5.06,
+          "carersAllowance": 2.94
+        },
+        {
+          "year": "2020/21",
+          "statePension": 102.03,
+          "housing": 29.08,
+          "disability": 24.96,
+          "incapacity": 19.18,
+          "unemployment": 17.6,
+          "pensionCredit": 5.07,
+          "carersAllowance": 3.04
+        },
+        {
+          "year": "2021/22",
+          "statePension": 104.69,
+          "housing": 29.52,
+          "disability": 26.36,
+          "incapacity": 20.71,
+          "unemployment": 13.45,
+          "pensionCredit": 4.83,
+          "carersAllowance": 3.07
+        },
+        {
+          "year": "2022/23",
+          "statePension": 110.53,
+          "housing": 29.74,
+          "disability": 29.46,
+          "incapacity": 21.44,
+          "unemployment": 10.17,
+          "pensionCredit": 4.94,
+          "carersAllowance": 3.25
+        },
+        {
+          "year": "2023/24",
+          "statePension": 124.11,
+          "housing": 32.24,
+          "disability": 35.5,
+          "incapacity": 25.28,
+          "unemployment": 11.44,
+          "pensionCredit": 5.47,
+          "carersAllowance": 3.74
+        },
+        {
+          "year": "2024/25",
+          "statePension": 136.58,
+          "housing": 36.06,
+          "disability": 41.69,
+          "incapacity": 29.57,
+          "unemployment": 13.64,
+          "pensionCredit": 6.01,
+          "carersAllowance": 4.24
+        },
+        {
+          "year": "2025/26",
+          "statePension": 146.14,
+          "housing": 37.34,
+          "disability": 45.71,
+          "incapacity": 31.38,
+          "unemployment": 15.24,
+          "pensionCredit": 6.17,
+          "carersAllowance": 4.57
+        },
+        {
+          "year": "2026/27",
+          "statePension": 154.06,
+          "housing": 38.72,
+          "disability": 50.39,
+          "incapacity": 33.02,
+          "unemployment": 18.62,
+          "pensionCredit": 6.08,
+          "carersAllowance": 4.99
+        },
+        {
+          "year": "2027/28",
+          "statePension": 158.46,
+          "housing": 39.57,
+          "disability": 54.22,
+          "incapacity": 33.87,
+          "unemployment": 17.56,
+          "pensionCredit": 5.9,
+          "carersAllowance": 5.38
+        },
+        {
+          "year": "2028/29",
+          "statePension": 163.5,
+          "housing": 40.54,
+          "disability": 57.72,
+          "incapacity": 34.34,
+          "unemployment": 16.52,
+          "pensionCredit": 5.71,
+          "carersAllowance": 5.66
+        },
+        {
+          "year": "2029/30",
+          "statePension": 171.7,
+          "housing": 42.08,
+          "disability": 61.65,
+          "incapacity": 35.08,
+          "unemployment": 16.59,
+          "pensionCredit": 5.79,
+          "carersAllowance": 5.95
+        },
+        {
+          "year": "2030/31",
+          "statePension": 180.15,
+          "housing": 43.48,
+          "disability": 65.98,
+          "incapacity": 35.87,
+          "unemployment": 17.06,
+          "pensionCredit": 5.79,
+          "carersAllowance": 6.22
+        }
+      ]
+    }
+  }
+}

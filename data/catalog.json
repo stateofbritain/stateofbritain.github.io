@@ -4785,8 +4785,8 @@
             "capacityMl": {
               "label": "capacityMl"
             },
-            "capacityBnL": {
-              "label": "capacityBnL"
+            "areaSqKm": {
+              "label": "areaSqKm"
             },
             "use": {
               "label": "use"
@@ -4796,8 +4796,8 @@
             }
           },
           "timeRange": {
-            "start": "loch-ericht",
-            "end": "fens-reservoir-2036"
+            "start": "chard-reservoir",
+            "end": "fens-reservoir-planned"
           }
         }
       }
@@ -5536,6 +5536,89 @@
       }
     },
     {
+      "id": "welfare",
+      "title": "Welfare Spending",
+      "pillar": "state",
+      "geography": "United Kingdom",
+      "summary": "DWP benefit expenditure by category (children, working age, pensioners) and by individual benefit type (State Pension, housing, disability, incapacity, unemployment, Pension Credit, Carer's Allowance). Covers 1999/00 to 2024/25 outturn plus OBR forecast to 2030/31. Total spending reached £289bn in 2024/25, with pensioner benefits accounting for 57%.",
+      "tags": [
+        "welfare",
+        "benefits",
+        "state pension",
+        "housing benefit",
+        "disability",
+        "incapacity",
+        "unemployment",
+        "universal credit",
+        "pension credit",
+        "carers allowance",
+        "DWP",
+        "OBR",
+        "triple lock"
+      ],
+      "dataFile": "/data/welfare.json",
+      "series": {
+        "byCategory": {
+          "title": "Welfare Spending by Category",
+          "summary": "Total benefit expenditure split by children, working age, and pensioners. Pensioner benefits grew from £67bn in 1999/00 to £165bn in 2024/25. Includes OBR forecast years to 2030/31.",
+          "unit": "£bn",
+          "fields": {
+            "children": {
+              "label": "children"
+            },
+            "workingAge": {
+              "label": "workingAge"
+            },
+            "pensioners": {
+              "label": "pensioners"
+            },
+            "total": {
+              "label": "total"
+            },
+            "forecast": {
+              "label": "forecast"
+            }
+          },
+          "timeRange": {
+            "start": "1999/00",
+            "end": "2030/31"
+          }
+        },
+        "byBenefit": {
+          "title": "Spending by Benefit Type",
+          "summary": "Annual expenditure on individual benefits. State Pension is largest at £124bn, followed by housing benefits and disability payments. Covers 1999/00 to 2024/25.",
+          "unit": "£bn",
+          "fields": {
+            "statePension": {
+              "label": "statePension"
+            },
+            "housing": {
+              "label": "housing"
+            },
+            "disability": {
+              "label": "disability"
+            },
+            "incapacity": {
+              "label": "incapacity"
+            },
+            "unemployment": {
+              "label": "unemployment"
+            },
+            "pensionCredit": {
+              "label": "pensionCredit"
+            },
+            "carersAllowance": {
+              "label": "carersAllowance"
+            }
+          },
+          "timeRange": {
+            "start": "1999/00",
+            "end": "2030/31"
+          }
+        }
+      }
+    },
+    {
       "id": "workforce",
       "title": "Public Sector Workforce",
       "pillar": "foundations",
@@ -5699,7 +5782,8 @@
         "local-government",
         "money-supply",
         "spending",
-        "taxation"
+        "taxation",
+        "welfare"
       ]
     },
     "byTag": {
@@ -5799,7 +5883,8 @@
       ],
       "OBR": [
         "borrowing",
-        "taxation"
+        "taxation",
+        "welfare"
       ],
       "bonds": [
         "borrowing"
@@ -6436,6 +6521,42 @@
       ],
       "leakage": [
         "water"
+      ],
+      "welfare": [
+        "welfare"
+      ],
+      "benefits": [
+        "welfare"
+      ],
+      "state pension": [
+        "welfare"
+      ],
+      "housing benefit": [
+        "welfare"
+      ],
+      "disability": [
+        "welfare"
+      ],
+      "incapacity": [
+        "welfare"
+      ],
+      "unemployment": [
+        "welfare"
+      ],
+      "universal credit": [
+        "welfare"
+      ],
+      "pension credit": [
+        "welfare"
+      ],
+      "carers allowance": [
+        "welfare"
+      ],
+      "DWP": [
+        "welfare"
+      ],
+      "triple lock": [
+        "welfare"
       ],
       "public sector": [
         "workforce"
