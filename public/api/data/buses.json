@@ -1,0 +1,1230 @@
+{
+  "$schema": "sob-dataset-v1",
+  "id": "buses",
+  "pillar": "growth",
+  "topic": "transport",
+  "generated": "2026-04-01",
+  "sources": [
+    {
+      "id": "dft-bus-statistics",
+      "name": "DfT Annual Bus Statistics (England)",
+      "url": "https://www.gov.uk/government/statistical-data-sets/bus-statistics-data-tables",
+      "publisher": "Department for Transport",
+      "note": "Annual and quarterly bus statistics. England data from 2004/05; Scotland and Wales from respective transport bodies. Fleet data is GB-wide."
+    }
+  ],
+  "snapshot": {
+    "latestYear": "2024/25",
+    "latestTotal": 4078.2,
+    "latestLondon": 1821.5,
+    "latestFleet": 35065
+  },
+  "series": {
+    "journeysByRegion": {
+      "sourceId": "dft-bus-statistics",
+      "label": "Passenger Journeys by Region",
+      "unit": "millions",
+      "timeField": "year",
+      "description": "Annual bus passenger journeys (millions) by region: London, English metropolitan areas, English non-metropolitan areas, Scotland, Wales, and GB total.",
+      "data": [
+        {
+          "year": "2004/05",
+          "london": 1802.5,
+          "englishMetro": 1047.3,
+          "englishNonMetro": 1176.5,
+          "scotland": 459.3,
+          "wales": 123,
+          "total": 4608.6
+        },
+        {
+          "year": "2005/06",
+          "london": 1881.2,
+          "englishMetro": 1049,
+          "englishNonMetro": 1183.8,
+          "scotland": 465.4,
+          "wales": 120.1,
+          "total": 4699.5
+        },
+        {
+          "year": "2006/07",
+          "london": 1993.5,
+          "englishMetro": 1051.5,
+          "englishNonMetro": 1253,
+          "scotland": 475.9,
+          "wales": 118.8,
+          "total": 4892.6
+        },
+        {
+          "year": "2007/08",
+          "london": 2160.4,
+          "englishMetro": 1067.2,
+          "englishNonMetro": 1302.6,
+          "scotland": 487.3,
+          "wales": 125.3,
+          "total": 5142.8
+        },
+        {
+          "year": "2008/09",
+          "london": 2228.2,
+          "englishMetro": 1074.2,
+          "englishNonMetro": 1334,
+          "scotland": 483.6,
+          "wales": 129.8,
+          "total": 5249.9
+        },
+        {
+          "year": "2009/10",
+          "london": 2238.2,
+          "englishMetro": 1062.1,
+          "englishNonMetro": 1313.1,
+          "scotland": 458,
+          "wales": 116.9,
+          "total": 5188.2
+        },
+        {
+          "year": "2010/11",
+          "london": 2269.2,
+          "englishMetro": 1032.4,
+          "englishNonMetro": 1316.8,
+          "scotland": 430.2,
+          "wales": 115.7,
+          "total": 5164.3
+        },
+        {
+          "year": "2011/12",
+          "london": 2323.9,
+          "englishMetro": 1004,
+          "englishNonMetro": 1311.7,
+          "scotland": 435.7,
+          "wales": 115.7,
+          "total": 5190.9
+        },
+        {
+          "year": "2012/13",
+          "london": 2314.6,
+          "englishMetro": 976.8,
+          "englishNonMetro": 1278.8,
+          "scotland": 420.3,
+          "wales": 108.8,
+          "total": 5099.2
+        },
+        {
+          "year": "2013/14",
+          "london": 2384.1,
+          "englishMetro": 990.4,
+          "englishNonMetro": 1298,
+          "scotland": 421,
+          "wales": 107.2,
+          "total": 5200.7
+        },
+        {
+          "year": "2014/15",
+          "london": 2363.6,
+          "englishMetro": 975.3,
+          "englishNonMetro": 1288.1,
+          "scotland": 414.3,
+          "wales": 101.1,
+          "total": 5142.5
+        },
+        {
+          "year": "2015/16",
+          "london": 2292.6,
+          "englishMetro": 948,
+          "englishNonMetro": 1270.2,
+          "scotland": 409.7,
+          "wales": 102.3,
+          "total": 5022.9
+        },
+        {
+          "year": "2016/17",
+          "london": 2240.3,
+          "englishMetro": 936.2,
+          "englishNonMetro": 1262.2,
+          "scotland": 392.2,
+          "wales": 99.4,
+          "total": 4930.5
+        },
+        {
+          "year": "2017/18",
+          "london": 2225.3,
+          "englishMetro": 908.4,
+          "englishNonMetro": 1214.2,
+          "scotland": 386,
+          "wales": 98.9,
+          "total": 4832.8
+        },
+        {
+          "year": "2018/19",
+          "london": 2197.8,
+          "englishMetro": 904.2,
+          "englishNonMetro": 1209.2,
+          "scotland": 374.6,
+          "wales": 101,
+          "total": 4786.9
+        },
+        {
+          "year": "2019/20",
+          "london": 2090.6,
+          "englishMetro": 845.9,
+          "englishNonMetro": 1138.5,
+          "scotland": 361.2,
+          "wales": 92.4,
+          "total": 4528.5
+        },
+        {
+          "year": "2020/21",
+          "london": 856.2,
+          "englishMetro": 329.4,
+          "englishNonMetro": 396.4,
+          "scotland": 124.9,
+          "wales": 27.2,
+          "total": 1734.2
+        },
+        {
+          "year": "2021/22",
+          "london": 1476.1,
+          "englishMetro": 586.3,
+          "englishNonMetro": 777.7,
+          "scotland": 228.4,
+          "wales": 53.3,
+          "total": 3121.7
+        },
+        {
+          "year": "2022/23",
+          "london": 1766.1,
+          "englishMetro": 689.8,
+          "englishNonMetro": 933.1,
+          "scotland": 293,
+          "wales": 61.2,
+          "total": 3743.1
+        },
+        {
+          "year": "2023/24",
+          "london": 1848.5,
+          "englishMetro": 741.4,
+          "englishNonMetro": 1039.5,
+          "scotland": 329.1,
+          "wales": 71.4,
+          "total": 4030
+        },
+        {
+          "year": "2024/25",
+          "london": 1821.5,
+          "englishMetro": 776.6,
+          "englishNonMetro": 1073.9,
+          "scotland": 334.5,
+          "wales": 71.7,
+          "total": 4078.2
+        }
+      ]
+    },
+    "journeysHistorical": {
+      "sourceId": "dft-bus-statistics",
+      "label": "Historical GB Bus Passenger Journeys",
+      "unit": "millions",
+      "timeField": "year",
+      "description": "Long-run Great Britain total bus passenger journeys from 1950, combining local authority and private operator data.",
+      "data": [
+        {
+          "year": "1949/50",
+          "total": 12734
+        },
+        {
+          "year": "1954/55",
+          "total": 13225
+        },
+        {
+          "year": "1955/56",
+          "total": 13059
+        },
+        {
+          "year": "1956/57",
+          "total": 12491
+        },
+        {
+          "year": "1957/58",
+          "total": 11879
+        },
+        {
+          "year": "1958/59",
+          "total": 12152
+        },
+        {
+          "year": "1959/60",
+          "total": 12166
+        },
+        {
+          "year": "1960/61",
+          "total": 12159
+        },
+        {
+          "year": "1961/62",
+          "total": 12045
+        },
+        {
+          "year": "1962/63",
+          "total": 11860
+        },
+        {
+          "year": "1963/64",
+          "total": 11497
+        },
+        {
+          "year": "1964/65",
+          "total": 10938
+        },
+        {
+          "year": "1965/66",
+          "total": 10407
+        },
+        {
+          "year": "1966/67",
+          "total": 10047
+        },
+        {
+          "year": "1967/68",
+          "total": 9699
+        },
+        {
+          "year": "1968/69",
+          "total": 9303
+        },
+        {
+          "year": "1969/70",
+          "total": 8643
+        },
+        {
+          "year": "1970/71",
+          "total": 8128
+        },
+        {
+          "year": "1971/72",
+          "total": 7901
+        },
+        {
+          "year": "1972/73",
+          "total": 7866
+        },
+        {
+          "year": "1973/74",
+          "total": 7706
+        },
+        {
+          "year": "1974/75",
+          "total": 7524
+        },
+        {
+          "year": "1975/76",
+          "total": 7141
+        },
+        {
+          "year": "1976/77",
+          "total": 6856
+        },
+        {
+          "year": "1977/78",
+          "total": 6617
+        },
+        {
+          "year": "1978/79",
+          "total": 6463
+        },
+        {
+          "year": "1979/80",
+          "total": 6216
+        },
+        {
+          "year": "1980/81",
+          "total": 5688
+        },
+        {
+          "year": "1981/82",
+          "total": 5512
+        },
+        {
+          "year": "1982/83",
+          "total": 5581
+        },
+        {
+          "year": "1983/84",
+          "total": 5644
+        },
+        {
+          "year": "1985/86",
+          "total": 5635
+        },
+        {
+          "year": "1986/87",
+          "total": 5335
+        },
+        {
+          "year": "1987/88",
+          "total": 5287
+        },
+        {
+          "year": "1988/89",
+          "total": 5210
+        },
+        {
+          "year": "1989/90",
+          "total": 5068
+        },
+        {
+          "year": "1990/91",
+          "total": 4845
+        },
+        {
+          "year": "1991/92",
+          "total": 4660
+        },
+        {
+          "year": "1992/93",
+          "total": 4475
+        },
+        {
+          "year": "1993/94",
+          "total": 4381
+        },
+        {
+          "year": "1994/95",
+          "total": 4403
+        },
+        {
+          "year": "1995/96",
+          "total": 4489
+        },
+        {
+          "year": "1996/97",
+          "total": 4455
+        },
+        {
+          "year": "1997/98",
+          "total": 4430
+        },
+        {
+          "year": "1998/99",
+          "total": 4350
+        },
+        {
+          "year": "1999/00",
+          "total": 4376
+        },
+        {
+          "year": "2000/01",
+          "total": 4420
+        },
+        {
+          "year": "2001/02",
+          "total": 4455
+        },
+        {
+          "year": "2002/03",
+          "total": 4550
+        },
+        {
+          "year": "2003/04",
+          "total": 4681
+        },
+        {
+          "year": "2004/05",
+          "total": 4737
+        }
+      ]
+    },
+    "faresIndex": {
+      "sourceId": "dft-bus-statistics",
+      "label": "Bus Fares Index",
+      "unit": "index (March 2005 = 100)",
+      "timeField": "quarter",
+      "description": "Quarterly bus fares index for London, England outside London, and Great Britain, with CPI comparator. Base: March 2005 = 100.",
+      "data": [
+        {
+          "quarter": "2005-Q1",
+          "london": 100,
+          "englandOutsideLondon": 100,
+          "gb": 100,
+          "cpi": 100
+        },
+        {
+          "quarter": "2005-Q2",
+          "london": 100,
+          "englandOutsideLondon": 101.9,
+          "gb": 101.4,
+          "cpi": 100.8
+        },
+        {
+          "quarter": "2005-Q3",
+          "london": 93.6,
+          "englandOutsideLondon": 104.5,
+          "gb": 101.2,
+          "cpi": 101.3
+        },
+        {
+          "quarter": "2005-Q4",
+          "london": 93.6,
+          "englandOutsideLondon": 108,
+          "gb": 103.4,
+          "cpi": 101.9
+        },
+        {
+          "quarter": "2006-Q1",
+          "london": 105.7,
+          "englandOutsideLondon": 109.6,
+          "gb": 107.9,
+          "cpi": 102
+        },
+        {
+          "quarter": "2006-Q2",
+          "london": 105.7,
+          "englandOutsideLondon": 101.6,
+          "gb": 103.8,
+          "cpi": 103.4
+        },
+        {
+          "quarter": "2006-Q3",
+          "london": 103.6,
+          "englandOutsideLondon": 102.3,
+          "gb": 103.6,
+          "cpi": 103.9
+        },
+        {
+          "quarter": "2006-Q4",
+          "london": 103.6,
+          "englandOutsideLondon": 103.7,
+          "gb": 104.6,
+          "cpi": 104.8
+        },
+        {
+          "quarter": "2007-Q1",
+          "london": 116.6,
+          "englandOutsideLondon": 106.9,
+          "gb": 110.4,
+          "cpi": 105
+        },
+        {
+          "quarter": "2007-Q2",
+          "london": 116.6,
+          "englandOutsideLondon": 108.9,
+          "gb": 112,
+          "cpi": 106
+        },
+        {
+          "quarter": "2007-Q3",
+          "london": 114.8,
+          "englandOutsideLondon": 109.8,
+          "gb": 112.2,
+          "cpi": 105.9
+        },
+        {
+          "quarter": "2007-Q4",
+          "london": 109.8,
+          "englandOutsideLondon": 111,
+          "gb": 111.6,
+          "cpi": 107.2
+        },
+        {
+          "quarter": "2008-Q1",
+          "london": 111.2,
+          "englandOutsideLondon": 113,
+          "gb": 113.4,
+          "cpi": 107.8
+        },
+        {
+          "quarter": "2008-Q2",
+          "london": 111.2,
+          "englandOutsideLondon": 116.1,
+          "gb": 115.6,
+          "cpi": 109.9
+        },
+        {
+          "quarter": "2008-Q3",
+          "london": 112.7,
+          "englandOutsideLondon": 119.6,
+          "gb": 118.1,
+          "cpi": 111
+        },
+        {
+          "quarter": "2008-Q4",
+          "london": 112.7,
+          "englandOutsideLondon": 120.1,
+          "gb": 118.4,
+          "cpi": 110.5
+        },
+        {
+          "quarter": "2009-Q1",
+          "london": 120,
+          "englandOutsideLondon": 123.2,
+          "gb": 123.1,
+          "cpi": 110.8
+        },
+        {
+          "quarter": "2009-Q2",
+          "london": 120,
+          "englandOutsideLondon": 123.9,
+          "gb": 123.8,
+          "cpi": 111.8
+        },
+        {
+          "quarter": "2009-Q3",
+          "london": 120,
+          "englandOutsideLondon": 124.4,
+          "gb": 124.1,
+          "cpi": 112.1
+        },
+        {
+          "quarter": "2009-Q4",
+          "london": 120,
+          "englandOutsideLondon": 124.5,
+          "gb": 124.2,
+          "cpi": 112.9
+        },
+        {
+          "quarter": "2010-Q1",
+          "london": 135.2,
+          "englandOutsideLondon": 124.7,
+          "gb": 129,
+          "cpi": 113.5
+        },
+        {
+          "quarter": "2010-Q2",
+          "london": 135.2,
+          "englandOutsideLondon": 126.4,
+          "gb": 130.2,
+          "cpi": 114.4
+        },
+        {
+          "quarter": "2010-Q3",
+          "london": 135.2,
+          "englandOutsideLondon": 127.7,
+          "gb": 131.1,
+          "cpi": 114.8
+        },
+        {
+          "quarter": "2010-Q4",
+          "london": 135.2,
+          "englandOutsideLondon": 128.3,
+          "gb": 131.4,
+          "cpi": 116.3
+        },
+        {
+          "quarter": "2011-Q1",
+          "london": 144.5,
+          "englandOutsideLondon": 130.3,
+          "gb": 135.2,
+          "cpi": 117.5
+        },
+        {
+          "quarter": "2011-Q2",
+          "london": 144.5,
+          "englandOutsideLondon": 133,
+          "gb": 137.3,
+          "cpi": 118.6
+        },
+        {
+          "quarter": "2011-Q3",
+          "london": 144.5,
+          "englandOutsideLondon": 134.1,
+          "gb": 138,
+          "cpi": 119.9
+        },
+        {
+          "quarter": "2011-Q4",
+          "london": 144.5,
+          "englandOutsideLondon": 135.1,
+          "gb": 138.7,
+          "cpi": 120.6
+        },
+        {
+          "quarter": "2012-Q1",
+          "london": 151.7,
+          "englandOutsideLondon": 138.7,
+          "gb": 143.1,
+          "cpi": 121.1
+        },
+        {
+          "quarter": "2012-Q2",
+          "london": 151.7,
+          "englandOutsideLondon": 142.5,
+          "gb": 146,
+          "cpi": 121.3
+        },
+        {
+          "quarter": "2012-Q3",
+          "london": 151.7,
+          "englandOutsideLondon": 142.5,
+          "gb": 146,
+          "cpi": 122.4
+        },
+        {
+          "quarter": "2012-Q4",
+          "london": 151.7,
+          "englandOutsideLondon": 143.1,
+          "gb": 146.4,
+          "cpi": 123.5
+        },
+        {
+          "quarter": "2013-Q1",
+          "london": 158.1,
+          "englandOutsideLondon": 145.1,
+          "gb": 149.6,
+          "cpi": 124.1
+        },
+        {
+          "quarter": "2013-Q2",
+          "london": 158.1,
+          "englandOutsideLondon": 147.3,
+          "gb": 151.3,
+          "cpi": 124.4
+        },
+        {
+          "quarter": "2013-Q3",
+          "london": 158.1,
+          "englandOutsideLondon": 148,
+          "gb": 151.7,
+          "cpi": 125.2
+        },
+        {
+          "quarter": "2013-Q4",
+          "london": 158.1,
+          "englandOutsideLondon": 148.3,
+          "gb": 151.9,
+          "cpi": 125.9
+        },
+        {
+          "quarter": "2014-Q1",
+          "london": 162.3,
+          "englandOutsideLondon": 149.4,
+          "gb": 153.9,
+          "cpi": 126
+        },
+        {
+          "quarter": "2014-Q2",
+          "london": 162.3,
+          "englandOutsideLondon": 151.6,
+          "gb": 155.5,
+          "cpi": 126.6
+        },
+        {
+          "quarter": "2014-Q3",
+          "london": 162.3,
+          "englandOutsideLondon": 152.4,
+          "gb": 156,
+          "cpi": 126.8
+        },
+        {
+          "quarter": "2014-Q4",
+          "london": 162.3,
+          "englandOutsideLondon": 153,
+          "gb": 156.3,
+          "cpi": 126.8
+        },
+        {
+          "quarter": "2015-Q1",
+          "london": 166.1,
+          "englandOutsideLondon": 154.7,
+          "gb": 158.6,
+          "cpi": 126.4
+        },
+        {
+          "quarter": "2015-Q2",
+          "london": 166.1,
+          "englandOutsideLondon": 156.4,
+          "gb": 160,
+          "cpi": 127.1
+        },
+        {
+          "quarter": "2015-Q3",
+          "london": 166.1,
+          "englandOutsideLondon": 156.9,
+          "gb": 160.3,
+          "cpi": 127.2
+        },
+        {
+          "quarter": "2015-Q4",
+          "london": 166.1,
+          "englandOutsideLondon": 156.8,
+          "gb": 160.2,
+          "cpi": 127.4
+        },
+        {
+          "quarter": "2016-Q1",
+          "london": 167.4,
+          "englandOutsideLondon": 157.7,
+          "gb": 161.1,
+          "cpi": 127.4
+        },
+        {
+          "quarter": "2016-Q2",
+          "london": 167.4,
+          "englandOutsideLondon": 158.9,
+          "gb": 162.3,
+          "cpi": 128.1
+        },
+        {
+          "quarter": "2016-Q3",
+          "london": 162.7,
+          "englandOutsideLondon": 159.6,
+          "gb": 161.1,
+          "cpi": 128.8
+        },
+        {
+          "quarter": "2016-Q4",
+          "london": 162.7,
+          "englandOutsideLondon": 161.2,
+          "gb": 162,
+          "cpi": 129.7
+        },
+        {
+          "quarter": "2017-Q1",
+          "london": 163.7,
+          "englandOutsideLondon": 163.3,
+          "gb": 163.6,
+          "cpi": 130.4
+        },
+        {
+          "quarter": "2017-Q2",
+          "london": 163.7,
+          "englandOutsideLondon": 166,
+          "gb": 165.3,
+          "cpi": 131.4
+        },
+        {
+          "quarter": "2017-Q3",
+          "london": 163.7,
+          "englandOutsideLondon": 166.7,
+          "gb": 165.8,
+          "cpi": 132.4
+        },
+        {
+          "quarter": "2017-Q4",
+          "london": 163.7,
+          "englandOutsideLondon": 167.5,
+          "gb": 166.2,
+          "cpi": 133.2
+        },
+        {
+          "quarter": "2018-Q1",
+          "london": 166,
+          "englandOutsideLondon": 169.1,
+          "gb": 168.4,
+          "cpi": 133.3
+        },
+        {
+          "quarter": "2018-Q2",
+          "london": 166,
+          "englandOutsideLondon": 171.3,
+          "gb": 169.9,
+          "cpi": 134.4
+        },
+        {
+          "quarter": "2018-Q3",
+          "london": 166,
+          "englandOutsideLondon": 172.1,
+          "gb": 170.3,
+          "cpi": 135.3
+        },
+        {
+          "quarter": "2018-Q4",
+          "london": 166,
+          "englandOutsideLondon": 173.8,
+          "gb": 171.4,
+          "cpi": 135.9
+        },
+        {
+          "quarter": "2019-Q1",
+          "london": 167.6,
+          "englandOutsideLondon": 176.2,
+          "gb": 173.3,
+          "cpi": 135.8
+        },
+        {
+          "quarter": "2019-Q2",
+          "london": 167.6,
+          "englandOutsideLondon": 178.2,
+          "gb": 174.5,
+          "cpi": 136.9
+        },
+        {
+          "quarter": "2019-Q3",
+          "london": 167.6,
+          "englandOutsideLondon": 179.6,
+          "gb": 175.4,
+          "cpi": 137.6
+        },
+        {
+          "quarter": "2019-Q4",
+          "london": 167.6,
+          "englandOutsideLondon": 180.7,
+          "gb": 176,
+          "cpi": 137.7
+        },
+        {
+          "quarter": "2020-Q1",
+          "london": 167.6,
+          "englandOutsideLondon": 183.2,
+          "gb": 177.8,
+          "cpi": 137.9
+        },
+        {
+          "quarter": "2020-Q2",
+          "london": 167.6,
+          "englandOutsideLondon": 183.7,
+          "gb": 178,
+          "cpi": 138
+        },
+        {
+          "quarter": "2020-Q3",
+          "london": 167.6,
+          "englandOutsideLondon": 184.2,
+          "gb": 178.3,
+          "cpi": 138.6
+        },
+        {
+          "quarter": "2020-Q4",
+          "london": 167.6,
+          "englandOutsideLondon": 184.3,
+          "gb": 178.4,
+          "cpi": 138.8
+        },
+        {
+          "quarter": "2021-Q1",
+          "london": 173.2,
+          "englandOutsideLondon": 184.3,
+          "gb": 180.3,
+          "cpi": 139.2
+        },
+        {
+          "quarter": "2021-Q2",
+          "london": 173.2,
+          "englandOutsideLondon": 184.3,
+          "gb": 180.3,
+          "cpi": 141.4
+        },
+        {
+          "quarter": "2021-Q3",
+          "london": 173.2,
+          "englandOutsideLondon": 183.2,
+          "gb": 179.7,
+          "cpi": 142.6
+        },
+        {
+          "quarter": "2021-Q4",
+          "london": 173.2,
+          "englandOutsideLondon": 183.7,
+          "gb": 180,
+          "cpi": 145.5
+        },
+        {
+          "quarter": "2022-Q1",
+          "london": 183.3,
+          "englandOutsideLondon": 187.2,
+          "gb": 185.8,
+          "cpi": 147.8
+        },
+        {
+          "quarter": "2022-Q2",
+          "london": 183.3,
+          "englandOutsideLondon": 189.4,
+          "gb": 187.1,
+          "cpi": 153
+        },
+        {
+          "quarter": "2022-Q3",
+          "london": 183.3,
+          "englandOutsideLondon": 189.8,
+          "gb": 187.4,
+          "cpi": 155.2
+        },
+        {
+          "quarter": "2022-Q4",
+          "london": 183.3,
+          "englandOutsideLondon": 190.5,
+          "gb": 187.8,
+          "cpi": 159
+        },
+        {
+          "quarter": "2023-Q1",
+          "london": 194.3,
+          "englandOutsideLondon": 173.1,
+          "gb": 183.1,
+          "cpi": 160.9
+        },
+        {
+          "quarter": "2023-Q2",
+          "london": 194.3,
+          "englandOutsideLondon": 175.6,
+          "gb": 186.1,
+          "cpi": 164.2
+        },
+        {
+          "quarter": "2023-Q3",
+          "london": 194.3,
+          "englandOutsideLondon": 177.8,
+          "gb": 187.3,
+          "cpi": 165.1
+        },
+        {
+          "quarter": "2023-Q4",
+          "london": 194.3,
+          "englandOutsideLondon": 178.8,
+          "gb": 187.9,
+          "cpi": 165.7
+        },
+        {
+          "quarter": "2024-Q1",
+          "london": 196.1,
+          "englandOutsideLondon": 179.9,
+          "gb": 189,
+          "cpi": 167
+        },
+        {
+          "quarter": "2024-Q2",
+          "london": 196.1,
+          "englandOutsideLondon": 181.6,
+          "gb": 190.3,
+          "cpi": 168.8
+        },
+        {
+          "quarter": "2024-Q3",
+          "london": 196.1,
+          "englandOutsideLondon": 185.7,
+          "gb": 192.8,
+          "cpi": 169.4
+        },
+        {
+          "quarter": "2024-Q4",
+          "london": 196.1,
+          "englandOutsideLondon": 185.9,
+          "gb": 192.9,
+          "cpi": 171.4
+        },
+        {
+          "quarter": "2025-Q1",
+          "london": 196.1,
+          "englandOutsideLondon": 206.4,
+          "gb": 202.6,
+          "cpi": 172.7
+        },
+        {
+          "quarter": "2025-Q2",
+          "london": 196.1,
+          "englandOutsideLondon": 210.5,
+          "gb": 206,
+          "cpi": 175.7
+        },
+        {
+          "quarter": "2025-Q3",
+          "london": 196.1,
+          "englandOutsideLondon": 213.6,
+          "gb": 207.4,
+          "cpi": 176.3
+        },
+        {
+          "quarter": "2025-Q4",
+          "london": 196.1,
+          "englandOutsideLondon": 214.3,
+          "gb": 207.7,
+          "cpi": 177.4
+        }
+      ]
+    },
+    "fleetSize": {
+      "sourceId": "dft-bus-statistics",
+      "label": "Bus Fleet Size by Region",
+      "unit": "vehicles",
+      "timeField": "year",
+      "description": "Number of buses by region: London, English metropolitan areas, English non-metropolitan areas, Scotland, Wales, and GB total.",
+      "data": [
+        {
+          "year": "2004/05",
+          "london": 7981,
+          "englishMetro": 10522,
+          "englishNonMetro": 16307,
+          "scotland": 5048,
+          "wales": 1942,
+          "total": 41800
+        },
+        {
+          "year": "2005/06",
+          "london": 7838,
+          "englishMetro": 10626,
+          "englishNonMetro": 16674,
+          "scotland": 5093,
+          "wales": 1903,
+          "total": 42134
+        },
+        {
+          "year": "2006/07",
+          "london": 8151,
+          "englishMetro": 10666,
+          "englishNonMetro": 16731,
+          "scotland": 5292,
+          "wales": 1892,
+          "total": 42732
+        },
+        {
+          "year": "2007/08",
+          "london": 8664,
+          "englishMetro": 9844,
+          "englishNonMetro": 16895,
+          "scotland": 5355,
+          "wales": 1833,
+          "total": 42592
+        },
+        {
+          "year": "2008/09",
+          "london": 8860,
+          "englishMetro": 10010,
+          "englishNonMetro": 16654,
+          "scotland": 5390,
+          "wales": 1875,
+          "total": 42790
+        },
+        {
+          "year": "2009/10",
+          "london": 9168,
+          "englishMetro": 9760,
+          "englishNonMetro": 16902,
+          "scotland": 5005,
+          "wales": 1894,
+          "total": 42728
+        },
+        {
+          "year": "2010/11",
+          "london": 9168,
+          "englishMetro": 9753,
+          "englishNonMetro": 16719,
+          "scotland": 4790,
+          "wales": 1946,
+          "total": 42376
+        },
+        {
+          "year": "2011/12",
+          "london": 9196,
+          "englishMetro": 9781,
+          "englishNonMetro": 16700,
+          "scotland": 4792,
+          "wales": 1847,
+          "total": 42316
+        },
+        {
+          "year": "2012/13",
+          "london": 9086,
+          "englishMetro": 9800,
+          "englishNonMetro": 16646,
+          "scotland": 4634,
+          "wales": 1797,
+          "total": 41963
+        },
+        {
+          "year": "2013/14",
+          "london": 9184,
+          "englishMetro": 9727,
+          "englishNonMetro": 16861,
+          "scotland": 4562,
+          "wales": 1736,
+          "total": 42071
+        },
+        {
+          "year": "2014/15",
+          "london": 9582,
+          "englishMetro": 9538,
+          "englishNonMetro": 16610,
+          "scotland": 4307,
+          "wales": 1626,
+          "total": 41663
+        },
+        {
+          "year": "2015/16",
+          "london": 9484,
+          "englishMetro": 9287,
+          "englishNonMetro": 16041,
+          "scotland": 4252,
+          "wales": 1687,
+          "total": 40752
+        },
+        {
+          "year": "2016/17",
+          "london": 10191,
+          "englishMetro": 9076,
+          "englishNonMetro": 15644,
+          "scotland": 4041,
+          "wales": 1462,
+          "total": 40413
+        },
+        {
+          "year": "2017/18",
+          "london": 10109,
+          "englishMetro": 8971,
+          "englishNonMetro": 15466,
+          "scotland": 4174,
+          "wales": 1455,
+          "total": 40175
+        },
+        {
+          "year": "2018/19",
+          "london": 9749,
+          "englishMetro": 9227,
+          "englishNonMetro": 15106,
+          "scotland": 4117,
+          "wales": 1450,
+          "total": 39649
+        },
+        {
+          "year": "2019/20",
+          "london": 9292,
+          "englishMetro": 8884,
+          "englishNonMetro": 15088,
+          "scotland": 3927,
+          "wales": 1465,
+          "total": 38656
+        },
+        {
+          "year": "2020/21",
+          "london": 9346,
+          "englishMetro": 8718,
+          "englishNonMetro": 14803,
+          "scotland": 3703,
+          "wales": 1479,
+          "total": 38048
+        },
+        {
+          "year": "2021/22",
+          "london": 9021,
+          "englishMetro": 8082,
+          "englishNonMetro": 14395,
+          "scotland": 3708,
+          "wales": 1447,
+          "total": 36652
+        },
+        {
+          "year": "2022/23",
+          "london": 8784,
+          "englishMetro": 7694,
+          "englishNonMetro": 13779,
+          "scotland": 3375,
+          "wales": 1444,
+          "total": 35076
+        },
+        {
+          "year": "2023/24",
+          "london": 8713,
+          "englishMetro": 7554,
+          "englishNonMetro": 13778,
+          "scotland": 3389,
+          "wales": 1348,
+          "total": 34782
+        },
+        {
+          "year": "2024/25",
+          "london": 8913,
+          "englishMetro": 7899,
+          "englishNonMetro": 13745,
+          "scotland": 3280,
+          "wales": 1227,
+          "total": 35065
+        }
+      ]
+    }
+  }
+}

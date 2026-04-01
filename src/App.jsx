@@ -45,6 +45,7 @@ import ProductiveQuotient from "./pillars/growth/ProductiveQuotient";
 import Investment from "./pillars/growth/Investment";
 import Roads from "./pillars/growth/Roads";
 import Rail from "./pillars/growth/Rail";
+import Buses from "./pillars/growth/Buses";
 import Airports from "./pillars/growth/Airports";
 import Broadband from "./pillars/growth/Broadband";
 import IndustrialProduction from "./pillars/growth/IndustrialProduction";
@@ -118,6 +119,7 @@ const TOPIC_COMPONENTS = {
   "growth/investment": Investment,
   "growth/transport/roads": Roads,
   "growth/transport/rail": Rail,
+  "growth/transport/buses": Buses,
   "growth/transport/airports": Airports,
   "growth/digital/broadband": Broadband,
   "growth/industrial": IndustrialProduction,

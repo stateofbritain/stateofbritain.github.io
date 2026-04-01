@@ -29,7 +29,7 @@ var SITE_BASE = "https://stateofbritain.uk";
 var ENRICHMENT_SUMMARY_URL = SITE_BASE + "/data/enrichment-summary.json";
 var GEMINI_MODEL = "gemini-2.5-flash";
 var MAX_REQUESTS_PER_HOUR = 20;
-var MAX_REQUESTS_PER_DAY = 50;
+var MAX_REQUESTS_PER_DAY = 100;
 
 // ── Export Ask Log (GET) ────────────────────────────────────────────
 // Returns logged questions as JSON. Requires EXPORT_KEY script property.

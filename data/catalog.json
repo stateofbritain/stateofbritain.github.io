@@ -578,6 +578,126 @@
       }
     },
     {
+      "id": "buses",
+      "title": "Buses",
+      "pillar": "growth",
+      "geography": "Great Britain",
+      "summary": "Bus passenger journeys, fares, and fleet size. GB total journeys fell from 4.9bn (2006/07) to 4.1bn (2024/25). London accounts for 45% of all journeys. Bus fares have risen 108% since 2005, compared to 77% for CPI. The GB bus fleet fell from 52,190 to 35,065 vehicles over the same period.",
+      "tags": [
+        "buses",
+        "bus",
+        "coach",
+        "public transport",
+        "passenger journeys",
+        "bus fares",
+        "fleet",
+        "London",
+        "metropolitan",
+        "transport",
+        "DfT",
+        "patronage",
+        "ridership"
+      ],
+      "dataFile": "/data/buses.json",
+      "series": {
+        "journeysByRegion": {
+          "title": "Passenger Journeys by Region",
+          "summary": "Annual bus journeys by area from 2004/05. London grew from 1.8bn to 1.8bn (stable). English metro areas fell from 1.0bn to 0.8bn. Scotland fell from 459M to 335M. Wales fell from 123M to 72M.",
+          "unit": "millions",
+          "fields": {
+            "london": {
+              "label": "london"
+            },
+            "englishMetro": {
+              "label": "englishMetro"
+            },
+            "englishNonMetro": {
+              "label": "englishNonMetro"
+            },
+            "scotland": {
+              "label": "scotland"
+            },
+            "wales": {
+              "label": "wales"
+            },
+            "total": {
+              "label": "total"
+            }
+          },
+          "timeRange": {
+            "start": "2004/05",
+            "end": "2024/25"
+          }
+        },
+        "journeysHistorical": {
+          "title": "Bus Patronage Since 1950",
+          "summary": "Long-run GB bus journeys from 1949/50. Peaked at 13.2bn in 1954/55, declined to 4.1bn by 2024/25. Car ownership drove the decline from the 1960s.",
+          "unit": "millions",
+          "fields": {
+            "total": {
+              "label": "total"
+            }
+          },
+          "timeRange": {
+            "start": "1949/50",
+            "end": "2004/05"
+          }
+        },
+        "faresIndex": {
+          "title": "Bus Fares Index",
+          "summary": "Quarterly fares index (March 2005 = 100). GB fares index reached 208 by Q4 2025. England outside London rose to 214, London to 196. CPI comparison included at 177.",
+          "unit": "index (2005=100)",
+          "fields": {
+            "london": {
+              "label": "london"
+            },
+            "englandOutsideLondon": {
+              "label": "englandOutsideLondon"
+            },
+            "gb": {
+              "label": "gb"
+            },
+            "cpi": {
+              "label": "cpi"
+            }
+          },
+          "timeRange": {
+            "start": "2005-Q1",
+            "end": "2025-Q4"
+          }
+        },
+        "fleetSize": {
+          "title": "Fleet Size by Area",
+          "summary": "Number of registered buses by area. GB fleet fell from 52,190 (2004/05) to 35,065 (2024/25). London fleet stable at ~9,000. Largest decline in English non-metro areas.",
+          "unit": "vehicles",
+          "fields": {
+            "london": {
+              "label": "london"
+            },
+            "englishMetro": {
+              "label": "englishMetro"
+            },
+            "englishNonMetro": {
+              "label": "englishNonMetro"
+            },
+            "scotland": {
+              "label": "scotland"
+            },
+            "wales": {
+              "label": "wales"
+            },
+            "total": {
+              "label": "total"
+            }
+          },
+          "timeRange": {
+            "start": "2004/05",
+            "end": "2024/25"
+          }
+        }
+      }
+    },
+    {
       "id": "childrens-social-care",
       "title": "Children's Social Care",
       "pillar": "foundations",
@@ -6098,6 +6218,7 @@
       ],
       "growth": [
         "airports",
+        "buses",
         "education",
         "exchange-rates",
         "gdp",
@@ -6178,6 +6299,7 @@
       ],
       "transport": [
         "airports",
+        "buses",
         "infrastructure",
         "transport-fares"
       ],
@@ -6244,6 +6366,45 @@
       ],
       "credit rating": [
         "borrowing"
+      ],
+      "buses": [
+        "buses"
+      ],
+      "bus": [
+        "buses"
+      ],
+      "coach": [
+        "buses",
+        "transport-fares"
+      ],
+      "public transport": [
+        "buses",
+        "transport-fares"
+      ],
+      "passenger journeys": [
+        "buses"
+      ],
+      "bus fares": [
+        "buses",
+        "transport-fares"
+      ],
+      "fleet": [
+        "buses"
+      ],
+      "London": [
+        "buses"
+      ],
+      "metropolitan": [
+        "buses"
+      ],
+      "DfT": [
+        "buses"
+      ],
+      "patronage": [
+        "buses"
+      ],
+      "ridership": [
+        "buses"
       ],
       "children": [
         "childrens-social-care"
@@ -7042,13 +7203,7 @@
       "rail fares": [
         "transport-fares"
       ],
-      "bus fares": [
-        "transport-fares"
-      ],
       "train": [
-        "transport-fares"
-      ],
-      "coach": [
         "transport-fares"
       ],
       "ticket prices": [
@@ -7058,9 +7213,6 @@
         "transport-fares"
       ],
       "commuting": [
-        "transport-fares"
-      ],
-      "public transport": [
         "transport-fares"
       ],
       "cost of travel": [
