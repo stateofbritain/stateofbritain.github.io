@@ -1,0 +1,540 @@
+{
+  "$schema": "sob-dataset-v1",
+  "id": "airports",
+  "pillar": "growth",
+  "topic": "airports",
+  "generated": "2026-04-01",
+  "sources": [
+    {
+      "id": "caa-airport-data",
+      "name": "CAA Annual Airport Statistics",
+      "url": "https://www.caa.co.uk/data-and-analysis/uk-aviation-market/airports/uk-airport-data/",
+      "publisher": "Civil Aviation Authority",
+      "note": "Annual airport data including terminal passengers, air transport movements, and aircraft movements by airport"
+    }
+  ],
+  "snapshot": {
+    "totalPassengers": 292488416,
+    "totalPassengersYear": 2024,
+    "totalATM": 2128895,
+    "flightsPerDay": 5833,
+    "numAirports": 47,
+    "heathrowPassengers": 83857297,
+    "prePandemicPeak": 296839124,
+    "prePandemicPeakYear": 2019
+  },
+  "series": {
+    "annualPassengers": {
+      "sourceId": "caa-airport-data",
+      "label": "Total Terminal Passengers",
+      "unit": "passengers",
+      "timeField": "year",
+      "data": [
+        {
+          "year": 2005,
+          "passengers": 228152279
+        },
+        {
+          "year": 2006,
+          "passengers": 235139030
+        },
+        {
+          "year": 2007,
+          "passengers": 240676696
+        },
+        {
+          "year": 2008,
+          "passengers": 235360997
+        },
+        {
+          "year": 2009,
+          "passengers": 218118264
+        },
+        {
+          "year": 2010,
+          "passengers": 210634816
+        },
+        {
+          "year": 2011,
+          "passengers": 219335488
+        },
+        {
+          "year": 2012,
+          "passengers": 221063479
+        },
+        {
+          "year": 2013,
+          "passengers": 228425357
+        },
+        {
+          "year": 2014,
+          "passengers": 238472791
+        },
+        {
+          "year": 2015,
+          "passengers": 251478321
+        },
+        {
+          "year": 2016,
+          "passengers": 268373670
+        },
+        {
+          "year": 2017,
+          "passengers": 284570301
+        },
+        {
+          "year": 2018,
+          "passengers": 292244781
+        },
+        {
+          "year": 2019,
+          "passengers": 296839124
+        },
+        {
+          "year": 2020,
+          "passengers": 73761978
+        },
+        {
+          "year": 2021,
+          "passengers": 64383158
+        },
+        {
+          "year": 2022,
+          "passengers": 221778105
+        },
+        {
+          "year": 2023,
+          "passengers": 272829990
+        },
+        {
+          "year": 2024,
+          "passengers": 292488416
+        }
+      ]
+    },
+    "passengersByAirport": {
+      "sourceId": "caa-airport-data",
+      "label": "Passengers by Airport (2024)",
+      "unit": "passengers",
+      "timeField": "airport",
+      "data": [
+        {
+          "airport": "HEATHROW",
+          "passengers": 83857297
+        },
+        {
+          "airport": "GATWICK",
+          "passengers": 43242155
+        },
+        {
+          "airport": "MANCHESTER",
+          "passengers": 30755578
+        },
+        {
+          "airport": "STANSTED",
+          "passengers": 29694312
+        },
+        {
+          "airport": "LUTON",
+          "passengers": 16937118
+        },
+        {
+          "airport": "EDINBURGH",
+          "passengers": 15779491
+        },
+        {
+          "airport": "BIRMINGHAM",
+          "passengers": 12847682
+        },
+        {
+          "airport": "BRISTOL",
+          "passengers": 10614415
+        },
+        {
+          "airport": "GLASGOW",
+          "passengers": 8064791
+        },
+        {
+          "airport": "BELFAST INTERNATIONAL",
+          "passengers": 6750440
+        },
+        {
+          "airport": "NEWCASTLE",
+          "passengers": 5142738
+        },
+        {
+          "airport": "LIVERPOOL (JOHN LENNON)",
+          "passengers": 5074088
+        },
+        {
+          "airport": "LEEDS BRADFORD",
+          "passengers": 4222256
+        },
+        {
+          "airport": "EAST MIDLANDS INTERNATIONAL",
+          "passengers": 4133198
+        },
+        {
+          "airport": "LONDON CITY",
+          "passengers": 3573250
+        },
+        {
+          "airport": "BELFAST CITY (GEORGE BEST)",
+          "passengers": 2391042
+        },
+        {
+          "airport": "ABERDEEN",
+          "passengers": 2300657
+        },
+        {
+          "airport": "BOURNEMOUTH",
+          "passengers": 1088370
+        },
+        {
+          "airport": "CARDIFF WALES",
+          "passengers": 874714
+        },
+        {
+          "airport": "SOUTHAMPTON",
+          "passengers": 852501
+        },
+        {
+          "airport": "INVERNESS",
+          "passengers": 796408
+        },
+        {
+          "airport": "PRESTWICK",
+          "passengers": 535101
+        },
+        {
+          "airport": "EXETER",
+          "passengers": 449722
+        },
+        {
+          "airport": "NEWQUAY",
+          "passengers": 415989
+        },
+        {
+          "airport": "NORWICH",
+          "passengers": 415099
+        },
+        {
+          "airport": "SOUTHEND",
+          "passengers": 287758
+        },
+        {
+          "airport": "SUMBURGH",
+          "passengers": 287211
+        },
+        {
+          "airport": "TEESSIDE INTERNATIONAL AIRPORT",
+          "passengers": 227784
+        },
+        {
+          "airport": "CITY OF DERRY (EGLINTON)",
+          "passengers": 179095
+        },
+        {
+          "airport": "HUMBERSIDE",
+          "passengers": 150615
+        },
+        {
+          "airport": "KIRKWALL",
+          "passengers": 135580
+        },
+        {
+          "airport": "STORNOWAY",
+          "passengers": 100807
+        },
+        {
+          "airport": "ISLES OF SCILLY (ST.MARYS)",
+          "passengers": 68086
+        },
+        {
+          "airport": "LANDS END (ST JUST)",
+          "passengers": 49580
+        },
+        {
+          "airport": "FARNBOROUGH",
+          "passengers": 38342
+        },
+        {
+          "airport": "ISLAY",
+          "passengers": 30535
+        },
+        {
+          "airport": "DUNDEE",
+          "passengers": 30355
+        },
+        {
+          "airport": "BENBECULA",
+          "passengers": 26471
+        },
+        {
+          "airport": "BLACKPOOL",
+          "passengers": 18729
+        },
+        {
+          "airport": "BARRA",
+          "passengers": 11057
+        },
+        {
+          "airport": "WICK JOHN O GROATS",
+          "passengers": 9963
+        },
+        {
+          "airport": "TIREE",
+          "passengers": 9829
+        },
+        {
+          "airport": "BIGGIN HILL",
+          "passengers": 8353
+        },
+        {
+          "airport": "CAMPBELTOWN",
+          "passengers": 7007
+        },
+        {
+          "airport": "LERWICK (TINGWALL)",
+          "passengers": 2840
+        },
+        {
+          "airport": "LYDD",
+          "passengers": 5
+        },
+        {
+          "airport": "OXFORD (KIDLINGTON)",
+          "passengers": 2
+        }
+      ]
+    },
+    "movementsByAirport": {
+      "sourceId": "caa-airport-data",
+      "label": "Air Transport Movements by Airport (2024)",
+      "unit": "movements",
+      "timeField": "airport",
+      "data": [
+        {
+          "airport": "HEATHROW",
+          "movements": 473902
+        },
+        {
+          "airport": "GATWICK",
+          "movements": 261561
+        },
+        {
+          "airport": "MANCHESTER",
+          "movements": 188120
+        },
+        {
+          "airport": "STANSTED",
+          "movements": 187926
+        },
+        {
+          "airport": "EDINBURGH",
+          "movements": 115654
+        },
+        {
+          "airport": "LUTON",
+          "movements": 101998
+        },
+        {
+          "airport": "BIRMINGHAM",
+          "movements": 88331
+        },
+        {
+          "airport": "BRISTOL",
+          "movements": 71625
+        },
+        {
+          "airport": "GLASGOW",
+          "movements": 67732
+        },
+        {
+          "airport": "ABERDEEN",
+          "movements": 62307
+        },
+        {
+          "airport": "BELFAST INTERNATIONAL",
+          "movements": 52012
+        },
+        {
+          "airport": "LONDON CITY",
+          "movements": 50000
+        },
+        {
+          "airport": "EAST MIDLANDS INTERNATIONAL",
+          "movements": 45295
+        },
+        {
+          "airport": "NEWCASTLE",
+          "movements": 36839
+        },
+        {
+          "airport": "LIVERPOOL (JOHN LENNON)",
+          "movements": 36168
+        },
+        {
+          "airport": "LEEDS BRADFORD",
+          "movements": 31851
+        },
+        {
+          "airport": "BELFAST CITY (GEORGE BEST)",
+          "movements": 29582
+        },
+        {
+          "airport": "GUERNSEY",
+          "movements": 17433
+        },
+        {
+          "airport": "JERSEY",
+          "movements": 17399
+        },
+        {
+          "airport": "SOUTHAMPTON",
+          "movements": 17068
+        },
+        {
+          "airport": "BIGGIN HILL",
+          "movements": 15872
+        },
+        {
+          "airport": "FARNBOROUGH",
+          "movements": 15183
+        },
+        {
+          "airport": "SUMBURGH",
+          "movements": 14988
+        },
+        {
+          "airport": "NORWICH",
+          "movements": 13212
+        },
+        {
+          "airport": "INVERNESS",
+          "movements": 10688
+        },
+        {
+          "airport": "ISLE OF MAN",
+          "movements": 10602
+        },
+        {
+          "airport": "KIRKWALL",
+          "movements": 9656
+        },
+        {
+          "airport": "ISLES OF SCILLY (ST.MARYS)",
+          "movements": 7718
+        },
+        {
+          "airport": "BOURNEMOUTH",
+          "movements": 7671
+        },
+        {
+          "airport": "CARDIFF WALES",
+          "movements": 7048
+        },
+        {
+          "airport": "EXETER",
+          "movements": 6042
+        },
+        {
+          "airport": "BLACKPOOL",
+          "movements": 5585
+        },
+        {
+          "airport": "NEWQUAY",
+          "movements": 5465
+        },
+        {
+          "airport": "LANDS END (ST JUST)",
+          "movements": 5356
+        },
+        {
+          "airport": "STORNOWAY",
+          "movements": 4992
+        },
+        {
+          "airport": "HUMBERSIDE",
+          "movements": 4935
+        },
+        {
+          "airport": "ALDERNEY",
+          "movements": 3987
+        },
+        {
+          "airport": "PRESTWICK",
+          "movements": 3860
+        },
+        {
+          "airport": "TEESSIDE INTERNATIONAL AIRPORT",
+          "movements": 3449
+        },
+        {
+          "airport": "CITY OF DERRY (EGLINTON)",
+          "movements": 3057
+        },
+        {
+          "airport": "EDMISTON LONDON HELIPORT",
+          "movements": 2896
+        },
+        {
+          "airport": "SOUTHEND",
+          "movements": 2528
+        },
+        {
+          "airport": "BENBECULA",
+          "movements": 1919
+        },
+        {
+          "airport": "DUNDEE",
+          "movements": 1667
+        },
+        {
+          "airport": "TIREE",
+          "movements": 1413
+        },
+        {
+          "airport": "ISLAY",
+          "movements": 1179
+        },
+        {
+          "airport": "BARRA",
+          "movements": 1170
+        },
+        {
+          "airport": "CAMPBELTOWN",
+          "movements": 950
+        },
+        {
+          "airport": "WICK JOHN O GROATS",
+          "movements": 941
+        },
+        {
+          "airport": "LERWICK (TINGWALL)",
+          "movements": 860
+        },
+        {
+          "airport": "SHOREHAM",
+          "movements": 461
+        },
+        {
+          "airport": "GLOUCESTERSHIRE",
+          "movements": 332
+        },
+        {
+          "airport": "OXFORD (KIDLINGTON)",
+          "movements": 225
+        },
+        {
+          "airport": "LYDD",
+          "movements": 101
+        },
+        {
+          "airport": "COVENTRY",
+          "movements": 84
+        }
+      ]
+    }
+  }
+}

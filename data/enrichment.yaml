@@ -249,6 +249,25 @@ infrastructure:
   summary: "Broadband (FTTP, gigabit coverage), rail (punctuality, journeys), and road (traffic, condition) metrics."
   tags: [infrastructure, broadband, rail, roads, transport, digital]
 
+airports:
+  title: "Airports"
+  geography: "United Kingdom"
+  summary: "UK airport passenger traffic, air transport movements, and airport rankings. 292 million passengers across 49 airports in 2024, with ~5,800 commercial flights per day. COVID collapsed traffic to 74 million in 2020."
+  tags: [airports, aviation, flights, passengers, Heathrow, Gatwick, air travel, transport, CAA]
+  series:
+    annualPassengers:
+      title: "Total Terminal Passengers"
+      summary: "UK airport passengers grew from 228M (2005) to 297M (2019), collapsed to 74M (2020), recovered to 292M (2024)."
+      unit: "passengers"
+    passengersByAirport:
+      title: "Passengers by Airport (2024)"
+      summary: "Heathrow leads with 84M passengers (29% of UK total). Gatwick 43M, Manchester 31M, Stansted 30M. 49 airports reported traffic."
+      unit: "passengers"
+    movementsByAirport:
+      title: "Air Transport Movements by Airport (2024)"
+      summary: "Total 2.1M air transport movements in 2024. Heathrow 474k, Gatwick 262k, Stansted 188k."
+      unit: "movements"
+
 energy:
   title: "Energy"
   geography: "United Kingdom"

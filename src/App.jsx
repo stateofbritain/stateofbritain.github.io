@@ -44,6 +44,7 @@ import Productivity from "./pillars/growth/Productivity";
 import ProductiveQuotient from "./pillars/growth/ProductiveQuotient";
 import Investment from "./pillars/growth/Investment";
 import Infrastructure from "./pillars/growth/Infrastructure";
+import Airports from "./pillars/growth/Airports";
 import IndustrialProduction from "./pillars/growth/IndustrialProduction";
 import Education from "./pillars/growth/Education";
 import JobsOverview from "./pillars/growth/JobsOverview";
@@ -110,6 +111,7 @@ const TOPIC_COMPONENTS = {
   "growth/pq": ProductiveQuotient,
   "growth/investment": Investment,
   "growth/infrastructure": Infrastructure,
+  "growth/airports": Airports,
   "growth/industrial": IndustrialProduction,
   "growth/education": Education,
   "state/justice": Justice,
