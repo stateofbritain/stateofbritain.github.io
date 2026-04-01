@@ -220,7 +220,7 @@
     {
       "id": "airports",
       "title": "Airports",
-      "summary": "UK airport passenger traffic, air transport movements, and airport rankings. 292 million passengers across 49 airports in 2024, with ~5,800 commercial flights per day. COVID collapsed traffic to 74 million in 2020.",
+      "summary": "UK airport passenger traffic, air transport movements, capacity trends, and airport rankings. 292 million passengers across 49 airports in 2024, with ~5,800 commercial flights per day. Flights peaked at 2.35M in 2007 and have not recovered to that level. COVID collapsed traffic to 74 million passengers in 2020.",
       "tags": [
         "airports",
         "aviation",
@@ -230,10 +230,15 @@
         "Gatwick",
         "air travel",
         "transport",
-        "CAA"
+        "CAA",
+        "capacity",
+        "runway",
+        "movements"
       ],
       "seriesSummaries": [
         "UK airport passengers grew from 228M (2005) to 297M (2019), collapsed to 74M (2020), recovered to 292M (2024).",
+        "Flights peaked at 2.35M in 2007, declined post-financial crisis, plateaued at 2.2M (2017-19), collapsed to 812K (2020), recovered to 2.01M (2024) — still 86% of 2007 peak. No major new runway capacity added.",
+        "Average passengers per air transport movement rose from 101 (2005) to 145 (2024), reflecting larger aircraft and higher load factors. COVID distorted the metric (2020-21).",
         "Heathrow leads with 84M passengers (29% of UK total). Gatwick 43M, Manchester 31M, Stansted 30M. 49 airports reported traffic.",
         "Total 2.1M air transport movements in 2024. Heathrow 474k, Gatwick 262k, Stansted 188k."
       ]

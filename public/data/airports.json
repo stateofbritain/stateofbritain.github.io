@@ -11,6 +11,13 @@
       "url": "https://www.caa.co.uk/data-and-analysis/uk-aviation-market/airports/uk-airport-data/",
       "publisher": "Civil Aviation Authority",
       "note": "Annual airport data including terminal passengers, air transport movements, and aircraft movements by airport"
+    },
+    {
+      "id": "dft-avi0101",
+      "name": "DfT Aviation Statistics AVI0101",
+      "url": "https://www.gov.uk/government/statistical-data-sets/aviation-statistics-data-tables-avi",
+      "publisher": "Department for Transport",
+      "note": "Air traffic at UK airports: 2000 onwards. Full reporting airports, UK (excl. Channel Islands; excl. Isle of Man from 1990)."
     }
   ],
   "snapshot": {
@@ -21,7 +28,12 @@
     "numAirports": 47,
     "heathrowPassengers": 83857297,
     "prePandemicPeak": 296839124,
-    "prePandemicPeakYear": 2019
+    "prePandemicPeakYear": 2019,
+    "peakATM": 2345525,
+    "peakATMYear": 2007,
+    "heathrowCap": 480000,
+    "heathrowATM": 473799,
+    "heathrowUtilPct": 99
   },
   "series": {
     "annualPassengers": {
@@ -109,6 +121,202 @@
         {
           "year": 2024,
           "passengers": 292488416
+        }
+      ]
+    },
+    "annualMovements": {
+      "sourceId": "dft-avi0101",
+      "label": "Air Transport Movements",
+      "unit": "movements",
+      "timeField": "year",
+      "data": [
+        {
+          "year": 2000,
+          "movements": 1927468
+        },
+        {
+          "year": 2001,
+          "movements": 1972155
+        },
+        {
+          "year": 2002,
+          "movements": 1967298
+        },
+        {
+          "year": 2003,
+          "movements": 2026870
+        },
+        {
+          "year": 2004,
+          "movements": 2138609
+        },
+        {
+          "year": 2005,
+          "movements": 2266205
+        },
+        {
+          "year": 2006,
+          "movements": 2313943
+        },
+        {
+          "year": 2007,
+          "movements": 2345525
+        },
+        {
+          "year": 2008,
+          "movements": 2294881
+        },
+        {
+          "year": 2009,
+          "movements": 2092277
+        },
+        {
+          "year": 2010,
+          "movements": 1972495
+        },
+        {
+          "year": 2011,
+          "movements": 2020951
+        },
+        {
+          "year": 2012,
+          "movements": 1993711
+        },
+        {
+          "year": 2013,
+          "movements": 2012652
+        },
+        {
+          "year": 2014,
+          "movements": 2043274
+        },
+        {
+          "year": 2015,
+          "movements": 2091774
+        },
+        {
+          "year": 2016,
+          "movements": 2180311
+        },
+        {
+          "year": 2017,
+          "movements": 2233004
+        },
+        {
+          "year": 2018,
+          "movements": 2215180
+        },
+        {
+          "year": 2019,
+          "movements": 2214451
+        },
+        {
+          "year": 2020,
+          "movements": 812103
+        },
+        {
+          "year": 2021,
+          "movements": 779996
+        },
+        {
+          "year": 2022,
+          "movements": 1675143
+        },
+        {
+          "year": 2023,
+          "movements": 1925815
+        },
+        {
+          "year": 2024,
+          "movements": 2013491
+        }
+      ]
+    },
+    "paxPerFlight": {
+      "sourceId": "dft-avi0101",
+      "label": "Passengers per Flight",
+      "unit": "passengers/movement",
+      "timeField": "year",
+      "data": [
+        {
+          "year": 2005,
+          "paxPerFlight": 101
+        },
+        {
+          "year": 2006,
+          "paxPerFlight": 102
+        },
+        {
+          "year": 2007,
+          "paxPerFlight": 103
+        },
+        {
+          "year": 2008,
+          "paxPerFlight": 103
+        },
+        {
+          "year": 2009,
+          "paxPerFlight": 104
+        },
+        {
+          "year": 2010,
+          "paxPerFlight": 107
+        },
+        {
+          "year": 2011,
+          "paxPerFlight": 109
+        },
+        {
+          "year": 2012,
+          "paxPerFlight": 111
+        },
+        {
+          "year": 2013,
+          "paxPerFlight": 113
+        },
+        {
+          "year": 2014,
+          "paxPerFlight": 117
+        },
+        {
+          "year": 2015,
+          "paxPerFlight": 120
+        },
+        {
+          "year": 2016,
+          "paxPerFlight": 123
+        },
+        {
+          "year": 2017,
+          "paxPerFlight": 127
+        },
+        {
+          "year": 2018,
+          "paxPerFlight": 132
+        },
+        {
+          "year": 2019,
+          "paxPerFlight": 134
+        },
+        {
+          "year": 2020,
+          "paxPerFlight": 91
+        },
+        {
+          "year": 2021,
+          "paxPerFlight": 83
+        },
+        {
+          "year": 2022,
+          "paxPerFlight": 132
+        },
+        {
+          "year": 2023,
+          "paxPerFlight": 142
+        },
+        {
+          "year": 2024,
+          "paxPerFlight": 145
         }
       ]
     },
@@ -533,6 +741,678 @@
         {
           "airport": "COVENTRY",
           "movements": 84
+        }
+      ]
+    },
+    "airportMovementsTrend": {
+      "sourceId": "dft-avi0101",
+      "label": "Air Transport Movements by Airport (2014-2024)",
+      "unit": "movements",
+      "timeField": "year",
+      "data": [
+        {
+          "year": 2014,
+          "heathrow": 470708,
+          "gatwick": 254540,
+          "manchester": 162919,
+          "stansted": 143230,
+          "edinburgh": 101407,
+          "luton": 75616,
+          "birmingham": 89056,
+          "bristol": 52574
+        },
+        {
+          "year": 2015,
+          "heathrow": 472060,
+          "gatwick": 262571,
+          "manchester": 164709,
+          "stansted": 154478,
+          "edinburgh": 107211,
+          "luton": 87440,
+          "birmingham": 89837,
+          "bristol": 54741
+        },
+        {
+          "year": 2016,
+          "heathrow": 473199,
+          "gatwick": 275577,
+          "manchester": 183550,
+          "stansted": 163990,
+          "edinburgh": 115564,
+          "luton": 102948,
+          "birmingham": 104158,
+          "bristol": 60764
+        },
+        {
+          "year": 2017,
+          "heathrow": 474015,
+          "gatwick": 281851,
+          "manchester": 194493,
+          "stansted": 171965,
+          "edinburgh": 121788,
+          "luton": 106074,
+          "birmingham": 111784,
+          "bristol": 63336
+        },
+        {
+          "year": 2018,
+          "heathrow": 475608,
+          "gatwick": 279772,
+          "manchester": 192208,
+          "stansted": 183840,
+          "edinburgh": 123758,
+          "luton": 105884,
+          "birmingham": 103248,
+          "bristol": 65220
+        },
+        {
+          "year": 2019,
+          "heathrow": 475859,
+          "gatwick": 280713,
+          "manchester": 194135,
+          "stansted": 183090,
+          "edinburgh": 126377,
+          "luton": 112230,
+          "birmingham": 101738,
+          "bristol": 62286
+        },
+        {
+          "year": 2020,
+          "heathrow": 200937,
+          "gatwick": 76477,
+          "manchester": 60465,
+          "stansted": 72908,
+          "edinburgh": 42570,
+          "luton": 46147,
+          "birmingham": 29844,
+          "bristol": 21087
+        },
+        {
+          "year": 2021,
+          "heathrow": 190021,
+          "gatwick": 52137,
+          "manchester": 59286,
+          "stansted": 77001,
+          "edinburgh": 39092,
+          "luton": 40809,
+          "birmingham": 28172,
+          "bristol": 20832
+        },
+        {
+          "year": 2022,
+          "heathrow": 376822,
+          "gatwick": 214018,
+          "manchester": 149465,
+          "stansted": 158754,
+          "edinburgh": 91632,
+          "luton": 86848,
+          "birmingham": 70998,
+          "bristol": 55674
+        },
+        {
+          "year": 2023,
+          "heathrow": 454065,
+          "gatwick": 253011,
+          "manchester": 171369,
+          "stansted": 178049,
+          "edinburgh": 109587,
+          "luton": 99323,
+          "birmingham": 80101,
+          "bristol": 67759
+        },
+        {
+          "year": 2024,
+          "heathrow": 473799,
+          "gatwick": 261522,
+          "manchester": 188116,
+          "stansted": 187505,
+          "edinburgh": 115302,
+          "luton": 101998,
+          "birmingham": 87472,
+          "bristol": 70661
+        }
+      ]
+    },
+    "activeAirports": {
+      "sourceId": "dft-avi0101",
+      "label": "Number of Active UK Airports",
+      "unit": "airports",
+      "timeField": "year",
+      "data": [
+        {
+          "year": 1990,
+          "count": 60
+        },
+        {
+          "year": 1991,
+          "count": 60
+        },
+        {
+          "year": 1992,
+          "count": 59,
+          "closed": "Swansea"
+        },
+        {
+          "year": 1993,
+          "count": 61,
+          "opened": "Biggin Hill, Sheffield City"
+        },
+        {
+          "year": 1994,
+          "count": 61,
+          "opened": "Barra",
+          "closed": "Bembridge"
+        },
+        {
+          "year": 1995,
+          "count": 60
+        },
+        {
+          "year": 1996,
+          "count": 61,
+          "opened": "Campbeltown"
+        },
+        {
+          "year": 1997,
+          "count": 61
+        },
+        {
+          "year": 1998,
+          "count": 61
+        },
+        {
+          "year": 1999,
+          "count": 62
+        },
+        {
+          "year": 2000,
+          "count": 62
+        },
+        {
+          "year": 2001,
+          "count": 62
+        },
+        {
+          "year": 2002,
+          "count": 62
+        },
+        {
+          "year": 2003,
+          "count": 61
+        },
+        {
+          "year": 2004,
+          "count": 63,
+          "opened": "Newquay, Swansea"
+        },
+        {
+          "year": 2005,
+          "count": 64,
+          "opened": "Doncaster Sheffield"
+        },
+        {
+          "year": 2006,
+          "count": 63
+        },
+        {
+          "year": 2007,
+          "count": 62
+        },
+        {
+          "year": 2008,
+          "count": 62
+        },
+        {
+          "year": 2009,
+          "count": 63,
+          "opened": "Oxford (Kidlington)"
+        },
+        {
+          "year": 2010,
+          "count": 63
+        },
+        {
+          "year": 2011,
+          "count": 63
+        },
+        {
+          "year": 2012,
+          "count": 62
+        },
+        {
+          "year": 2013,
+          "count": 60
+        },
+        {
+          "year": 2014,
+          "count": 60
+        },
+        {
+          "year": 2015,
+          "count": 58,
+          "closed": "Manston, Plymouth"
+        },
+        {
+          "year": 2016,
+          "count": 59
+        },
+        {
+          "year": 2017,
+          "count": 58,
+          "closed": "Cambridge, Coventry"
+        },
+        {
+          "year": 2018,
+          "count": 58
+        },
+        {
+          "year": 2019,
+          "count": 58
+        },
+        {
+          "year": 2020,
+          "count": 56
+        },
+        {
+          "year": 2021,
+          "count": 54
+        },
+        {
+          "year": 2022,
+          "count": 55
+        },
+        {
+          "year": 2023,
+          "count": 55,
+          "closed": "Doncaster Sheffield"
+        },
+        {
+          "year": 2024,
+          "count": 55
+        }
+      ]
+    },
+    "airportLocations": {
+      "sourceId": "caa-airport-data",
+      "label": "UK Airport Locations with Traffic Data (2024)",
+      "unit": "mixed",
+      "timeField": "id",
+      "data": [
+        {
+          "id": "heathrow",
+          "airport": "Heathrow",
+          "lat": 51.47,
+          "lng": -0.4543,
+          "passengers": 83857297,
+          "movements": 473902
+        },
+        {
+          "id": "gatwick",
+          "airport": "Gatwick",
+          "lat": 51.1537,
+          "lng": -0.1821,
+          "passengers": 43242155,
+          "movements": 261561
+        },
+        {
+          "id": "manchester",
+          "airport": "Manchester",
+          "lat": 53.3537,
+          "lng": -2.275,
+          "passengers": 30755578,
+          "movements": 188120
+        },
+        {
+          "id": "stansted",
+          "airport": "Stansted",
+          "lat": 51.886,
+          "lng": 0.2389,
+          "passengers": 29694312,
+          "movements": 187926
+        },
+        {
+          "id": "luton",
+          "airport": "Luton",
+          "lat": 51.8747,
+          "lng": -0.3684,
+          "passengers": 16937118,
+          "movements": 101998
+        },
+        {
+          "id": "edinburgh",
+          "airport": "Edinburgh",
+          "lat": 55.9502,
+          "lng": -3.3725,
+          "passengers": 15779491,
+          "movements": 115654
+        },
+        {
+          "id": "birmingham",
+          "airport": "Birmingham",
+          "lat": 52.4539,
+          "lng": -1.748,
+          "passengers": 12847682,
+          "movements": 88331
+        },
+        {
+          "id": "bristol",
+          "airport": "Bristol",
+          "lat": 51.3827,
+          "lng": -2.7191,
+          "passengers": 10614415,
+          "movements": 71625
+        },
+        {
+          "id": "glasgow",
+          "airport": "Glasgow",
+          "lat": 55.8642,
+          "lng": -4.4331,
+          "passengers": 8064791,
+          "movements": 67732
+        },
+        {
+          "id": "belfast-international",
+          "airport": "Belfast International",
+          "lat": 54.6575,
+          "lng": -6.2158,
+          "passengers": 6750440,
+          "movements": 52012
+        },
+        {
+          "id": "newcastle",
+          "airport": "Newcastle",
+          "lat": 55.0374,
+          "lng": -1.6917,
+          "passengers": 5142738,
+          "movements": 36839
+        },
+        {
+          "id": "liverpool-john-lennon",
+          "airport": "Liverpool (John Lennon)",
+          "lat": 53.3336,
+          "lng": -2.8497,
+          "passengers": 5074088,
+          "movements": 36168
+        },
+        {
+          "id": "leeds-bradford",
+          "airport": "Leeds Bradford",
+          "lat": 53.8659,
+          "lng": -1.6606,
+          "passengers": 4222256,
+          "movements": 31851
+        },
+        {
+          "id": "east-midlands-international",
+          "airport": "East Midlands International",
+          "lat": 52.8311,
+          "lng": -1.3281,
+          "passengers": 4133198,
+          "movements": 45295
+        },
+        {
+          "id": "london-city",
+          "airport": "London City",
+          "lat": 51.5048,
+          "lng": 0.0495,
+          "passengers": 3573250,
+          "movements": 50000
+        },
+        {
+          "id": "belfast-city-george-best",
+          "airport": "Belfast City (George Best)",
+          "lat": 54.6181,
+          "lng": -5.8725,
+          "passengers": 2391042,
+          "movements": 29582
+        },
+        {
+          "id": "aberdeen",
+          "airport": "Aberdeen",
+          "lat": 57.2019,
+          "lng": -2.1978,
+          "passengers": 2300657,
+          "movements": 62307
+        },
+        {
+          "id": "bournemouth",
+          "airport": "Bournemouth",
+          "lat": 50.78,
+          "lng": -1.8425,
+          "passengers": 1088370,
+          "movements": 7671
+        },
+        {
+          "id": "cardiff-wales",
+          "airport": "Cardiff Wales",
+          "lat": 51.3967,
+          "lng": -3.3433,
+          "passengers": 874714,
+          "movements": 7048
+        },
+        {
+          "id": "southampton",
+          "airport": "Southampton",
+          "lat": 50.9503,
+          "lng": -1.3568,
+          "passengers": 852501,
+          "movements": 17068
+        },
+        {
+          "id": "inverness",
+          "airport": "Inverness",
+          "lat": 57.5425,
+          "lng": -4.0475,
+          "passengers": 796408,
+          "movements": 10688
+        },
+        {
+          "id": "prestwick",
+          "airport": "Prestwick",
+          "lat": 55.5094,
+          "lng": -4.5867,
+          "passengers": 535101,
+          "movements": 3860
+        },
+        {
+          "id": "exeter",
+          "airport": "Exeter",
+          "lat": 50.7344,
+          "lng": -3.4139,
+          "passengers": 449722,
+          "movements": 6042
+        },
+        {
+          "id": "newquay",
+          "airport": "Newquay",
+          "lat": 50.4406,
+          "lng": -4.9954,
+          "passengers": 415989,
+          "movements": 5465
+        },
+        {
+          "id": "norwich",
+          "airport": "Norwich",
+          "lat": 52.6758,
+          "lng": 1.2828,
+          "passengers": 415099,
+          "movements": 13212
+        },
+        {
+          "id": "southend",
+          "airport": "Southend",
+          "lat": 51.5714,
+          "lng": 0.6956,
+          "passengers": 287758,
+          "movements": 2528
+        },
+        {
+          "id": "sumburgh",
+          "airport": "Sumburgh",
+          "lat": 59.8789,
+          "lng": -1.2956,
+          "passengers": 287211,
+          "movements": 14988
+        },
+        {
+          "id": "teesside-international-airport",
+          "airport": "Teesside International Airport",
+          "lat": 54.5092,
+          "lng": -1.4294,
+          "passengers": 227784,
+          "movements": 3449
+        },
+        {
+          "id": "city-of-derry-eglinton",
+          "airport": "City OF Derry (Eglinton)",
+          "lat": 55.0428,
+          "lng": -7.1611,
+          "passengers": 179095,
+          "movements": 3057
+        },
+        {
+          "id": "humberside",
+          "airport": "Humberside",
+          "lat": 53.5744,
+          "lng": -0.3508,
+          "passengers": 150615,
+          "movements": 4935
+        },
+        {
+          "id": "kirkwall",
+          "airport": "Kirkwall",
+          "lat": 58.9578,
+          "lng": -2.905,
+          "passengers": 135580,
+          "movements": 9656
+        },
+        {
+          "id": "stornoway",
+          "airport": "Stornoway",
+          "lat": 58.2156,
+          "lng": -6.3314,
+          "passengers": 100807,
+          "movements": 4992
+        },
+        {
+          "id": "isles-of-scilly-st-marys",
+          "airport": "Isles OF Scilly (St.marys)",
+          "lat": 49.9133,
+          "lng": -6.2917,
+          "passengers": 68086,
+          "movements": 7718
+        },
+        {
+          "id": "lands-end-st-just",
+          "airport": "Lands End (St Just)",
+          "lat": 50.1028,
+          "lng": -5.6706,
+          "passengers": 49580,
+          "movements": 5356
+        },
+        {
+          "id": "farnborough",
+          "airport": "Farnborough",
+          "lat": 51.2758,
+          "lng": -0.7764,
+          "passengers": 38342,
+          "movements": 15183
+        },
+        {
+          "id": "islay",
+          "airport": "Islay",
+          "lat": 55.6819,
+          "lng": -6.2567,
+          "passengers": 30535,
+          "movements": 1179
+        },
+        {
+          "id": "dundee",
+          "airport": "Dundee",
+          "lat": 56.4525,
+          "lng": -3.0258,
+          "passengers": 30355,
+          "movements": 1667
+        },
+        {
+          "id": "benbecula",
+          "airport": "Benbecula",
+          "lat": 57.4811,
+          "lng": -7.3628,
+          "passengers": 26471,
+          "movements": 1919
+        },
+        {
+          "id": "blackpool",
+          "airport": "Blackpool",
+          "lat": 53.7717,
+          "lng": -3.0286,
+          "passengers": 18729,
+          "movements": 5585
+        },
+        {
+          "id": "barra",
+          "airport": "Barra",
+          "lat": 57.0228,
+          "lng": -7.4472,
+          "passengers": 11057,
+          "movements": 1170
+        },
+        {
+          "id": "wick-john-o-groats",
+          "airport": "Wick John O Groats",
+          "lat": 58.4589,
+          "lng": -3.0931,
+          "passengers": 9963,
+          "movements": 941
+        },
+        {
+          "id": "tiree",
+          "airport": "Tiree",
+          "lat": 56.4992,
+          "lng": -6.8692,
+          "passengers": 9829,
+          "movements": 1413
+        },
+        {
+          "id": "biggin-hill",
+          "airport": "Biggin Hill",
+          "lat": 51.3308,
+          "lng": 0.0325,
+          "passengers": 8353,
+          "movements": 15872
+        },
+        {
+          "id": "campbeltown",
+          "airport": "Campbeltown",
+          "lat": 55.4372,
+          "lng": -5.6864,
+          "passengers": 7007,
+          "movements": 950
+        },
+        {
+          "id": "lerwick-tingwall",
+          "airport": "Lerwick (Tingwall)",
+          "lat": 60.1922,
+          "lng": -1.2436,
+          "passengers": 2840,
+          "movements": 860
+        },
+        {
+          "id": "lydd",
+          "airport": "Lydd",
+          "lat": 50.9561,
+          "lng": 0.9392,
+          "passengers": 5,
+          "movements": 101
+        },
+        {
+          "id": "oxford-kidlington",
+          "airport": "Oxford (Kidlington)",
+          "lat": 51.8369,
+          "lng": -1.32,
+          "passengers": 2,
+          "movements": 225
         }
       ]
     }
