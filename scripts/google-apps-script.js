@@ -31,6 +31,44 @@ var GEMINI_MODEL = "gemini-2.5-flash";
 var MAX_REQUESTS_PER_HOUR = 20;
 var MAX_REQUESTS_PER_DAY = 50;
 
+// ── Export Ask Log (GET) ────────────────────────────────────────────
+// Returns logged questions as JSON. Requires EXPORT_KEY script property.
+// Usage: GET ?key=<EXPORT_KEY>&depth=no_match  (depth filter is optional)
+function doGet(e) {
+  var key = (e && e.parameter && e.parameter.key) || "";
+  var exportKey = PropertiesService.getScriptProperties().getProperty("EXPORT_KEY");
+  if (!exportKey || key !== exportKey) {
+    return ContentService.createTextOutput(JSON.stringify({ error: "Unauthorized" }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var logSheet = ss.getSheetByName("Ask Log");
+  if (!logSheet) {
+    return ContentService.createTextOutput(JSON.stringify({ questions: [] }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+
+  var data = logSheet.getDataRange().getValues();
+  var headers = data[0];
+  var rows = [];
+  for (var i = 1; i < data.length; i++) {
+    var row = {};
+    for (var j = 0; j < headers.length; j++) {
+      row[headers[j].toString().toLowerCase().replace(/\s+/g, "_")] = data[i][j];
+    }
+    rows.push(row);
+  }
+
+  var depthFilter = (e && e.parameter && e.parameter.depth) || "";
+  if (depthFilter) {
+    rows = rows.filter(function(r) { return r.depth === depthFilter; });
+  }
+
+  return ContentService.createTextOutput(JSON.stringify({ questions: rows }))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
 function doPost(e) {
   try {
     var data = JSON.parse(e.postData.contents);

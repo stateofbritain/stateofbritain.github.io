@@ -1,0 +1,715 @@
+{
+  "$schema": "sob-dataset-v1",
+  "id": "youth-unemployment",
+  "pillar": "growth",
+  "topic": "employment",
+  "generated": "2026-04-01",
+  "sources": [
+    {
+      "id": "ons-lfs",
+      "name": "ONS Labour Force Survey",
+      "url": "https://www.ons.gov.uk/employmentandlabourmarket/peoplenotinwork/unemployment/timeseries/mgwy/lms",
+      "publisher": "Office for National Statistics",
+      "note": "Seasonally adjusted, rolling three-month average. Ages 16-24, UK."
+    }
+  ],
+  "snapshot": {
+    "latestQuarter": "2025-Q4",
+    "unemploymentRate": 16.1,
+    "inactivityRate": 38.8
+  },
+  "series": {
+    "quarterly": {
+      "sourceId": "ons-lfs",
+      "label": "Youth Labour Market (16-24)",
+      "unit": "%",
+      "timeField": "quarter",
+      "description": "Youth (16-24) unemployment rate and economic inactivity rate, seasonally adjusted, quarterly.",
+      "methodologyBreaks": [
+        {
+          "at": "2020-Q1",
+          "label": "COVID-19 impact",
+          "description": "Labour Force Survey response rates fell sharply from March 2020, affecting headline estimates. ONS introduced weighting adjustments but advises caution interpreting levels during 2020-2021.",
+          "severity": "major"
+        }
+      ],
+      "data": [
+        {
+          "quarter": "1992-Q2",
+          "unemploymentRate": 16.2,
+          "inactivityRate": 25.8
+        },
+        {
+          "quarter": "1992-Q3",
+          "unemploymentRate": 16.7,
+          "inactivityRate": 26.2
+        },
+        {
+          "quarter": "1992-Q4",
+          "unemploymentRate": 17.3,
+          "inactivityRate": 26.4
+        },
+        {
+          "quarter": "1993-Q1",
+          "unemploymentRate": 18.1,
+          "inactivityRate": 26.4
+        },
+        {
+          "quarter": "1993-Q2",
+          "unemploymentRate": 18,
+          "inactivityRate": 27
+        },
+        {
+          "quarter": "1993-Q3",
+          "unemploymentRate": 17.6,
+          "inactivityRate": 27.3
+        },
+        {
+          "quarter": "1993-Q4",
+          "unemploymentRate": 17.9,
+          "inactivityRate": 27.3
+        },
+        {
+          "quarter": "1994-Q1",
+          "unemploymentRate": 17,
+          "inactivityRate": 27.7
+        },
+        {
+          "quarter": "1994-Q2",
+          "unemploymentRate": 16.9,
+          "inactivityRate": 27.9
+        },
+        {
+          "quarter": "1994-Q3",
+          "unemploymentRate": 16.9,
+          "inactivityRate": 28
+        },
+        {
+          "quarter": "1994-Q4",
+          "unemploymentRate": 16.1,
+          "inactivityRate": 28.9
+        },
+        {
+          "quarter": "1995-Q1",
+          "unemploymentRate": 16.2,
+          "inactivityRate": 28.8
+        },
+        {
+          "quarter": "1995-Q2",
+          "unemploymentRate": 15.9,
+          "inactivityRate": 28.5
+        },
+        {
+          "quarter": "1995-Q3",
+          "unemploymentRate": 15.5,
+          "inactivityRate": 27.5
+        },
+        {
+          "quarter": "1995-Q4",
+          "unemploymentRate": 15.1,
+          "inactivityRate": 27.6
+        },
+        {
+          "quarter": "1996-Q1",
+          "unemploymentRate": 15.3,
+          "inactivityRate": 27.7
+        },
+        {
+          "quarter": "1996-Q2",
+          "unemploymentRate": 15.4,
+          "inactivityRate": 27.5
+        },
+        {
+          "quarter": "1996-Q3",
+          "unemploymentRate": 15.4,
+          "inactivityRate": 27.9
+        },
+        {
+          "quarter": "1996-Q4",
+          "unemploymentRate": 15.4,
+          "inactivityRate": 27.5
+        },
+        {
+          "quarter": "1997-Q1",
+          "unemploymentRate": 14.6,
+          "inactivityRate": 27.5
+        },
+        {
+          "quarter": "1997-Q2",
+          "unemploymentRate": 14.5,
+          "inactivityRate": 27.1
+        },
+        {
+          "quarter": "1997-Q3",
+          "unemploymentRate": 14,
+          "inactivityRate": 27.8
+        },
+        {
+          "quarter": "1997-Q4",
+          "unemploymentRate": 13.4,
+          "inactivityRate": 27.6
+        },
+        {
+          "quarter": "1998-Q1",
+          "unemploymentRate": 13.4,
+          "inactivityRate": 28.1
+        },
+        {
+          "quarter": "1998-Q2",
+          "unemploymentRate": 13.5,
+          "inactivityRate": 28
+        },
+        {
+          "quarter": "1998-Q3",
+          "unemploymentRate": 13.5,
+          "inactivityRate": 27.3
+        },
+        {
+          "quarter": "1998-Q4",
+          "unemploymentRate": 13.6,
+          "inactivityRate": 27.9
+        },
+        {
+          "quarter": "1999-Q1",
+          "unemploymentRate": 13.4,
+          "inactivityRate": 27.7
+        },
+        {
+          "quarter": "1999-Q2",
+          "unemploymentRate": 13.2,
+          "inactivityRate": 28.5
+        },
+        {
+          "quarter": "1999-Q3",
+          "unemploymentRate": 12.6,
+          "inactivityRate": 28.1
+        },
+        {
+          "quarter": "1999-Q4",
+          "unemploymentRate": 12.5,
+          "inactivityRate": 28
+        },
+        {
+          "quarter": "2000-Q1",
+          "unemploymentRate": 12.9,
+          "inactivityRate": 27.9
+        },
+        {
+          "quarter": "2000-Q2",
+          "unemploymentRate": 12.3,
+          "inactivityRate": 28.6
+        },
+        {
+          "quarter": "2000-Q3",
+          "unemploymentRate": 12.1,
+          "inactivityRate": 28.6
+        },
+        {
+          "quarter": "2000-Q4",
+          "unemploymentRate": 12.3,
+          "inactivityRate": 29.5
+        },
+        {
+          "quarter": "2001-Q1",
+          "unemploymentRate": 12,
+          "inactivityRate": 29.4
+        },
+        {
+          "quarter": "2001-Q2",
+          "unemploymentRate": 11.7,
+          "inactivityRate": 29
+        },
+        {
+          "quarter": "2001-Q3",
+          "unemploymentRate": 11.9,
+          "inactivityRate": 29.2
+        },
+        {
+          "quarter": "2001-Q4",
+          "unemploymentRate": 12.4,
+          "inactivityRate": 28.6
+        },
+        {
+          "quarter": "2002-Q1",
+          "unemploymentRate": 12.3,
+          "inactivityRate": 29.2
+        },
+        {
+          "quarter": "2002-Q2",
+          "unemploymentRate": 11.9,
+          "inactivityRate": 29.4
+        },
+        {
+          "quarter": "2002-Q3",
+          "unemploymentRate": 12.2,
+          "inactivityRate": 29.7
+        },
+        {
+          "quarter": "2002-Q4",
+          "unemploymentRate": 12.3,
+          "inactivityRate": 29.3
+        },
+        {
+          "quarter": "2003-Q1",
+          "unemploymentRate": 12.8,
+          "inactivityRate": 29.9
+        },
+        {
+          "quarter": "2003-Q2",
+          "unemploymentRate": 12.4,
+          "inactivityRate": 30.6
+        },
+        {
+          "quarter": "2003-Q3",
+          "unemploymentRate": 12.4,
+          "inactivityRate": 30.5
+        },
+        {
+          "quarter": "2003-Q4",
+          "unemploymentRate": 11.8,
+          "inactivityRate": 30.5
+        },
+        {
+          "quarter": "2004-Q1",
+          "unemploymentRate": 12.1,
+          "inactivityRate": 29.9
+        },
+        {
+          "quarter": "2004-Q2",
+          "unemploymentRate": 12.1,
+          "inactivityRate": 30.5
+        },
+        {
+          "quarter": "2004-Q3",
+          "unemploymentRate": 12.4,
+          "inactivityRate": 30.6
+        },
+        {
+          "quarter": "2004-Q4",
+          "unemploymentRate": 12.5,
+          "inactivityRate": 30.6
+        },
+        {
+          "quarter": "2005-Q1",
+          "unemploymentRate": 12.3,
+          "inactivityRate": 31.1
+        },
+        {
+          "quarter": "2005-Q2",
+          "unemploymentRate": 12.8,
+          "inactivityRate": 31.4
+        },
+        {
+          "quarter": "2005-Q3",
+          "unemploymentRate": 12.7,
+          "inactivityRate": 31.9
+        },
+        {
+          "quarter": "2005-Q4",
+          "unemploymentRate": 13.9,
+          "inactivityRate": 32.4
+        },
+        {
+          "quarter": "2006-Q1",
+          "unemploymentRate": 13.6,
+          "inactivityRate": 31.8
+        },
+        {
+          "quarter": "2006-Q2",
+          "unemploymentRate": 14.3,
+          "inactivityRate": 31.4
+        },
+        {
+          "quarter": "2006-Q3",
+          "unemploymentRate": 14.3,
+          "inactivityRate": 31.3
+        },
+        {
+          "quarter": "2006-Q4",
+          "unemploymentRate": 14.1,
+          "inactivityRate": 31.5
+        },
+        {
+          "quarter": "2007-Q1",
+          "unemploymentRate": 14.5,
+          "inactivityRate": 32
+        },
+        {
+          "quarter": "2007-Q2",
+          "unemploymentRate": 14.7,
+          "inactivityRate": 32.6
+        },
+        {
+          "quarter": "2007-Q3",
+          "unemploymentRate": 14.5,
+          "inactivityRate": 32.6
+        },
+        {
+          "quarter": "2007-Q4",
+          "unemploymentRate": 13.9,
+          "inactivityRate": 32.5
+        },
+        {
+          "quarter": "2008-Q1",
+          "unemploymentRate": 14,
+          "inactivityRate": 32.7
+        },
+        {
+          "quarter": "2008-Q2",
+          "unemploymentRate": 14.6,
+          "inactivityRate": 33
+        },
+        {
+          "quarter": "2008-Q3",
+          "unemploymentRate": 15.5,
+          "inactivityRate": 33
+        },
+        {
+          "quarter": "2008-Q4",
+          "unemploymentRate": 16.5,
+          "inactivityRate": 33.3
+        },
+        {
+          "quarter": "2009-Q1",
+          "unemploymentRate": 18.1,
+          "inactivityRate": 34.1
+        },
+        {
+          "quarter": "2009-Q2",
+          "unemploymentRate": 19.4,
+          "inactivityRate": 34.8
+        },
+        {
+          "quarter": "2009-Q3",
+          "unemploymentRate": 20,
+          "inactivityRate": 35.8
+        },
+        {
+          "quarter": "2009-Q4",
+          "unemploymentRate": 19.5,
+          "inactivityRate": 36.6
+        },
+        {
+          "quarter": "2010-Q1",
+          "unemploymentRate": 20.3,
+          "inactivityRate": 36.5
+        },
+        {
+          "quarter": "2010-Q2",
+          "unemploymentRate": 19.9,
+          "inactivityRate": 36.2
+        },
+        {
+          "quarter": "2010-Q3",
+          "unemploymentRate": 19.3,
+          "inactivityRate": 35.9
+        },
+        {
+          "quarter": "2010-Q4",
+          "unemploymentRate": 20.6,
+          "inactivityRate": 36.5
+        },
+        {
+          "quarter": "2011-Q1",
+          "unemploymentRate": 20.3,
+          "inactivityRate": 36.7
+        },
+        {
+          "quarter": "2011-Q2",
+          "unemploymentRate": 20.6,
+          "inactivityRate": 36.4
+        },
+        {
+          "quarter": "2011-Q3",
+          "unemploymentRate": 22.3,
+          "inactivityRate": 36.7
+        },
+        {
+          "quarter": "2011-Q4",
+          "unemploymentRate": 22.3,
+          "inactivityRate": 36.6
+        },
+        {
+          "quarter": "2012-Q1",
+          "unemploymentRate": 21.9,
+          "inactivityRate": 36.5
+        },
+        {
+          "quarter": "2012-Q2",
+          "unemploymentRate": 21.5,
+          "inactivityRate": 35.6
+        },
+        {
+          "quarter": "2012-Q3",
+          "unemploymentRate": 21,
+          "inactivityRate": 36.1
+        },
+        {
+          "quarter": "2012-Q4",
+          "unemploymentRate": 21,
+          "inactivityRate": 35.7
+        },
+        {
+          "quarter": "2013-Q1",
+          "unemploymentRate": 20.8,
+          "inactivityRate": 36.6
+        },
+        {
+          "quarter": "2013-Q2",
+          "unemploymentRate": 21.4,
+          "inactivityRate": 37.1
+        },
+        {
+          "quarter": "2013-Q3",
+          "unemploymentRate": 21.2,
+          "inactivityRate": 36.2
+        },
+        {
+          "quarter": "2013-Q4",
+          "unemploymentRate": 20.1,
+          "inactivityRate": 36.5
+        },
+        {
+          "quarter": "2014-Q1",
+          "unemploymentRate": 18.9,
+          "inactivityRate": 37
+        },
+        {
+          "quarter": "2014-Q2",
+          "unemploymentRate": 16.7,
+          "inactivityRate": 37.4
+        },
+        {
+          "quarter": "2014-Q3",
+          "unemploymentRate": 16.4,
+          "inactivityRate": 37.3
+        },
+        {
+          "quarter": "2014-Q4",
+          "unemploymentRate": 16.4,
+          "inactivityRate": 37.1
+        },
+        {
+          "quarter": "2015-Q1",
+          "unemploymentRate": 15.9,
+          "inactivityRate": 36.7
+        },
+        {
+          "quarter": "2015-Q2",
+          "unemploymentRate": 15.7,
+          "inactivityRate": 36.6
+        },
+        {
+          "quarter": "2015-Q3",
+          "unemploymentRate": 14.2,
+          "inactivityRate": 36.2
+        },
+        {
+          "quarter": "2015-Q4",
+          "unemploymentRate": 13.6,
+          "inactivityRate": 36.6
+        },
+        {
+          "quarter": "2016-Q1",
+          "unemploymentRate": 13.7,
+          "inactivityRate": 36.5
+        },
+        {
+          "quarter": "2016-Q2",
+          "unemploymentRate": 13.6,
+          "inactivityRate": 36.7
+        },
+        {
+          "quarter": "2016-Q3",
+          "unemploymentRate": 13.3,
+          "inactivityRate": 37.2
+        },
+        {
+          "quarter": "2016-Q4",
+          "unemploymentRate": 12.5,
+          "inactivityRate": 37.2
+        },
+        {
+          "quarter": "2017-Q1",
+          "unemploymentRate": 12.4,
+          "inactivityRate": 37.1
+        },
+        {
+          "quarter": "2017-Q2",
+          "unemploymentRate": 12.3,
+          "inactivityRate": 37.5
+        },
+        {
+          "quarter": "2017-Q3",
+          "unemploymentRate": 12,
+          "inactivityRate": 38.7
+        },
+        {
+          "quarter": "2017-Q4",
+          "unemploymentRate": 12.4,
+          "inactivityRate": 38.2
+        },
+        {
+          "quarter": "2018-Q1",
+          "unemploymentRate": 12,
+          "inactivityRate": 37.8
+        },
+        {
+          "quarter": "2018-Q2",
+          "unemploymentRate": 11.3,
+          "inactivityRate": 38.2
+        },
+        {
+          "quarter": "2018-Q3",
+          "unemploymentRate": 11.2,
+          "inactivityRate": 38.7
+        },
+        {
+          "quarter": "2018-Q4",
+          "unemploymentRate": 11.8,
+          "inactivityRate": 37.6
+        },
+        {
+          "quarter": "2019-Q1",
+          "unemploymentRate": 11,
+          "inactivityRate": 38.5
+        },
+        {
+          "quarter": "2019-Q2",
+          "unemploymentRate": 11.6,
+          "inactivityRate": 38
+        },
+        {
+          "quarter": "2019-Q3",
+          "unemploymentRate": 11.9,
+          "inactivityRate": 38.6
+        },
+        {
+          "quarter": "2019-Q4",
+          "unemploymentRate": 11.2,
+          "inactivityRate": 38.2
+        },
+        {
+          "quarter": "2020-Q1",
+          "unemploymentRate": 12.4,
+          "inactivityRate": 37.8
+        },
+        {
+          "quarter": "2020-Q2",
+          "unemploymentRate": 13,
+          "inactivityRate": 39.1
+        },
+        {
+          "quarter": "2020-Q3",
+          "unemploymentRate": 15.2,
+          "inactivityRate": 40.6
+        },
+        {
+          "quarter": "2020-Q4",
+          "unemploymentRate": 14.8,
+          "inactivityRate": 41.1
+        },
+        {
+          "quarter": "2021-Q1",
+          "unemploymentRate": 13.7,
+          "inactivityRate": 42.1
+        },
+        {
+          "quarter": "2021-Q2",
+          "unemploymentRate": 12.9,
+          "inactivityRate": 41
+        },
+        {
+          "quarter": "2021-Q3",
+          "unemploymentRate": 11.9,
+          "inactivityRate": 39.6
+        },
+        {
+          "quarter": "2021-Q4",
+          "unemploymentRate": 11.2,
+          "inactivityRate": 39.4
+        },
+        {
+          "quarter": "2022-Q1",
+          "unemploymentRate": 10.7,
+          "inactivityRate": 40
+        },
+        {
+          "quarter": "2022-Q2",
+          "unemploymentRate": 10.3,
+          "inactivityRate": 40
+        },
+        {
+          "quarter": "2022-Q3",
+          "unemploymentRate": 10.1,
+          "inactivityRate": 40.2
+        },
+        {
+          "quarter": "2022-Q4",
+          "unemploymentRate": 11.7,
+          "inactivityRate": 39.2
+        },
+        {
+          "quarter": "2023-Q1",
+          "unemploymentRate": 11.7,
+          "inactivityRate": 38.2
+        },
+        {
+          "quarter": "2023-Q2",
+          "unemploymentRate": 12.3,
+          "inactivityRate": 38.6
+        },
+        {
+          "quarter": "2023-Q3",
+          "unemploymentRate": 12,
+          "inactivityRate": 41.3
+        },
+        {
+          "quarter": "2023-Q4",
+          "unemploymentRate": 11.9,
+          "inactivityRate": 41.3
+        },
+        {
+          "quarter": "2024-Q1",
+          "unemploymentRate": 13.2,
+          "inactivityRate": 41.6
+        },
+        {
+          "quarter": "2024-Q2",
+          "unemploymentRate": 13.4,
+          "inactivityRate": 41.3
+        },
+        {
+          "quarter": "2024-Q3",
+          "unemploymentRate": 14.8,
+          "inactivityRate": 40.7
+        },
+        {
+          "quarter": "2024-Q4",
+          "unemploymentRate": 14.7,
+          "inactivityRate": 40.9
+        },
+        {
+          "quarter": "2025-Q1",
+          "unemploymentRate": 14.2,
+          "inactivityRate": 40.9
+        },
+        {
+          "quarter": "2025-Q2",
+          "unemploymentRate": 14.1,
+          "inactivityRate": 39.6
+        },
+        {
+          "quarter": "2025-Q3",
+          "unemploymentRate": 15.3,
+          "inactivityRate": 38.4
+        },
+        {
+          "quarter": "2025-Q4",
+          "unemploymentRate": 16.1,
+          "inactivityRate": 38.8
+        }
+      ]
+    }
+  }
+}

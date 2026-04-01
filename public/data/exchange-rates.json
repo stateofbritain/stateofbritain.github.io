@@ -1,0 +1,1917 @@
+{
+  "$schema": "sob-dataset-v1",
+  "id": "exchange-rates",
+  "pillar": "growth",
+  "topic": "economy",
+  "generated": "2026-04-01",
+  "sources": [
+    {
+      "id": "boe-exchange-rates",
+      "name": "Bank of England Statistical Database",
+      "url": "https://www.bankofengland.co.uk/boeapps/database/",
+      "publisher": "Bank of England",
+      "note": "Monthly average spot rates and Sterling Effective Exchange Rate Index."
+    }
+  ],
+  "snapshot": {
+    "latestMonth": "2026-02",
+    "gbpUsd": 1.36,
+    "gbpEur": 1.15,
+    "sterlingIndex": 84.8
+  },
+  "series": {
+    "monthly": {
+      "sourceId": "boe-exchange-rates",
+      "label": "Sterling Exchange Rates (Monthly Average)",
+      "unit": "rate",
+      "timeField": "month",
+      "description": "Monthly average GBP/USD, GBP/EUR spot rates and Sterling Effective Exchange Rate Index (trade-weighted, Jan 2005 = 100).",
+      "data": [
+        {
+          "month": "2000-01",
+          "gbpUsd": 1.64,
+          "gbpEur": 1.62,
+          "sterlingIndex": 102.5
+        },
+        {
+          "month": "2000-02",
+          "gbpUsd": 1.6,
+          "gbpEur": 1.63,
+          "sterlingIndex": 102.1
+        },
+        {
+          "month": "2000-03",
+          "gbpUsd": 1.58,
+          "gbpEur": 1.64,
+          "sterlingIndex": 101.9
+        },
+        {
+          "month": "2000-04",
+          "gbpUsd": 1.58,
+          "gbpEur": 1.67,
+          "sterlingIndex": 103.3
+        },
+        {
+          "month": "2000-05",
+          "gbpUsd": 1.51,
+          "gbpEur": 1.67,
+          "sterlingIndex": 101.3
+        },
+        {
+          "month": "2000-06",
+          "gbpUsd": 1.51,
+          "gbpEur": 1.59,
+          "sterlingIndex": 98.3
+        },
+        {
+          "month": "2000-07",
+          "gbpUsd": 1.51,
+          "gbpEur": 1.61,
+          "sterlingIndex": 99.1
+        },
+        {
+          "month": "2000-08",
+          "gbpUsd": 1.49,
+          "gbpEur": 1.65,
+          "sterlingIndex": 100.2
+        },
+        {
+          "month": "2000-09",
+          "gbpUsd": 1.44,
+          "gbpEur": 1.65,
+          "sterlingIndex": 98.7
+        },
+        {
+          "month": "2000-10",
+          "gbpUsd": 1.45,
+          "gbpEur": 1.7,
+          "sterlingIndex": 101.3
+        },
+        {
+          "month": "2000-11",
+          "gbpUsd": 1.43,
+          "gbpEur": 1.67,
+          "sterlingIndex": 99.7
+        },
+        {
+          "month": "2000-12",
+          "gbpUsd": 1.46,
+          "gbpEur": 1.63,
+          "sterlingIndex": 99.4
+        },
+        {
+          "month": "2001-01",
+          "gbpUsd": 1.48,
+          "gbpEur": 1.58,
+          "sterlingIndex": 98.2
+        },
+        {
+          "month": "2001-02",
+          "gbpUsd": 1.45,
+          "gbpEur": 1.58,
+          "sterlingIndex": 97.7
+        },
+        {
+          "month": "2001-03",
+          "gbpUsd": 1.45,
+          "gbpEur": 1.59,
+          "sterlingIndex": 98.5
+        },
+        {
+          "month": "2001-04",
+          "gbpUsd": 1.44,
+          "gbpEur": 1.61,
+          "sterlingIndex": 99.1
+        },
+        {
+          "month": "2001-05",
+          "gbpUsd": 1.43,
+          "gbpEur": 1.63,
+          "sterlingIndex": 99.4
+        },
+        {
+          "month": "2001-06",
+          "gbpUsd": 1.4,
+          "gbpEur": 1.64,
+          "sterlingIndex": 99.2
+        },
+        {
+          "month": "2001-07",
+          "gbpUsd": 1.41,
+          "gbpEur": 1.64,
+          "sterlingIndex": 99.8
+        },
+        {
+          "month": "2001-08",
+          "gbpUsd": 1.44,
+          "gbpEur": 1.6,
+          "sterlingIndex": 98.4
+        },
+        {
+          "month": "2001-09",
+          "gbpUsd": 1.46,
+          "gbpEur": 1.61,
+          "sterlingIndex": 99.6
+        },
+        {
+          "month": "2001-10",
+          "gbpUsd": 1.45,
+          "gbpEur": 1.6,
+          "sterlingIndex": 99.4
+        },
+        {
+          "month": "2001-11",
+          "gbpUsd": 1.44,
+          "gbpEur": 1.62,
+          "sterlingIndex": 99.5
+        },
+        {
+          "month": "2001-12",
+          "gbpUsd": 1.44,
+          "gbpEur": 1.62,
+          "sterlingIndex": 100.1
+        },
+        {
+          "month": "2002-01",
+          "gbpUsd": 1.43,
+          "gbpEur": 1.62,
+          "sterlingIndex": 100.3
+        },
+        {
+          "month": "2002-02",
+          "gbpUsd": 1.42,
+          "gbpEur": 1.63,
+          "sterlingIndex": 100.5
+        },
+        {
+          "month": "2002-03",
+          "gbpUsd": 1.42,
+          "gbpEur": 1.62,
+          "sterlingIndex": 99.8
+        },
+        {
+          "month": "2002-04",
+          "gbpUsd": 1.44,
+          "gbpEur": 1.63,
+          "sterlingIndex": 100.5
+        },
+        {
+          "month": "2002-05",
+          "gbpUsd": 1.46,
+          "gbpEur": 1.59,
+          "sterlingIndex": 99.2
+        },
+        {
+          "month": "2002-06",
+          "gbpUsd": 1.49,
+          "gbpEur": 1.55,
+          "sterlingIndex": 98
+        },
+        {
+          "month": "2002-07",
+          "gbpUsd": 1.55,
+          "gbpEur": 1.57,
+          "sterlingIndex": 100.2
+        },
+        {
+          "month": "2002-08",
+          "gbpUsd": 1.54,
+          "gbpEur": 1.57,
+          "sterlingIndex": 100.1
+        },
+        {
+          "month": "2002-09",
+          "gbpUsd": 1.56,
+          "gbpEur": 1.59,
+          "sterlingIndex": 101.2
+        },
+        {
+          "month": "2002-10",
+          "gbpUsd": 1.56,
+          "gbpEur": 1.59,
+          "sterlingIndex": 101.4
+        },
+        {
+          "month": "2002-11",
+          "gbpUsd": 1.57,
+          "gbpEur": 1.57,
+          "sterlingIndex": 100.9
+        },
+        {
+          "month": "2002-12",
+          "gbpUsd": 1.59,
+          "gbpEur": 1.56,
+          "sterlingIndex": 100.7
+        },
+        {
+          "month": "2003-01",
+          "gbpUsd": 1.62,
+          "gbpEur": 1.52,
+          "sterlingIndex": 99.9
+        },
+        {
+          "month": "2003-02",
+          "gbpUsd": 1.61,
+          "gbpEur": 1.49,
+          "sterlingIndex": 98.5
+        },
+        {
+          "month": "2003-03",
+          "gbpUsd": 1.58,
+          "gbpEur": 1.46,
+          "sterlingIndex": 96.8
+        },
+        {
+          "month": "2003-04",
+          "gbpUsd": 1.57,
+          "gbpEur": 1.45,
+          "sterlingIndex": 96
+        },
+        {
+          "month": "2003-05",
+          "gbpUsd": 1.62,
+          "gbpEur": 1.4,
+          "sterlingIndex": 94.9
+        },
+        {
+          "month": "2003-06",
+          "gbpUsd": 1.66,
+          "gbpEur": 1.42,
+          "sterlingIndex": 96.6
+        },
+        {
+          "month": "2003-07",
+          "gbpUsd": 1.62,
+          "gbpEur": 1.43,
+          "sterlingIndex": 95.9
+        },
+        {
+          "month": "2003-08",
+          "gbpUsd": 1.6,
+          "gbpEur": 1.43,
+          "sterlingIndex": 95.2
+        },
+        {
+          "month": "2003-09",
+          "gbpUsd": 1.61,
+          "gbpEur": 1.43,
+          "sterlingIndex": 95.6
+        },
+        {
+          "month": "2003-10",
+          "gbpUsd": 1.68,
+          "gbpEur": 1.43,
+          "sterlingIndex": 96.7
+        },
+        {
+          "month": "2003-11",
+          "gbpUsd": 1.69,
+          "gbpEur": 1.44,
+          "sterlingIndex": 97.3
+        },
+        {
+          "month": "2003-12",
+          "gbpUsd": 1.75,
+          "gbpEur": 1.42,
+          "sterlingIndex": 97.9
+        },
+        {
+          "month": "2004-01",
+          "gbpUsd": 1.82,
+          "gbpEur": 1.44,
+          "sterlingIndex": 100.2
+        },
+        {
+          "month": "2004-02",
+          "gbpUsd": 1.87,
+          "gbpEur": 1.48,
+          "sterlingIndex": 102.5
+        },
+        {
+          "month": "2004-03",
+          "gbpUsd": 1.83,
+          "gbpEur": 1.49,
+          "sterlingIndex": 102.2
+        },
+        {
+          "month": "2004-04",
+          "gbpUsd": 1.8,
+          "gbpEur": 1.5,
+          "sterlingIndex": 102.1
+        },
+        {
+          "month": "2004-05",
+          "gbpUsd": 1.79,
+          "gbpEur": 1.49,
+          "sterlingIndex": 101.8
+        },
+        {
+          "month": "2004-06",
+          "gbpUsd": 1.83,
+          "gbpEur": 1.51,
+          "sterlingIndex": 103.1
+        },
+        {
+          "month": "2004-07",
+          "gbpUsd": 1.84,
+          "gbpEur": 1.5,
+          "sterlingIndex": 103.2
+        },
+        {
+          "month": "2004-08",
+          "gbpUsd": 1.82,
+          "gbpEur": 1.49,
+          "sterlingIndex": 102.4
+        },
+        {
+          "month": "2004-09",
+          "gbpUsd": 1.79,
+          "gbpEur": 1.47,
+          "sterlingIndex": 100.7
+        },
+        {
+          "month": "2004-10",
+          "gbpUsd": 1.81,
+          "gbpEur": 1.45,
+          "sterlingIndex": 99.8
+        },
+        {
+          "month": "2004-11",
+          "gbpUsd": 1.86,
+          "gbpEur": 1.43,
+          "sterlingIndex": 99.8
+        },
+        {
+          "month": "2004-12",
+          "gbpUsd": 1.93,
+          "gbpEur": 1.44,
+          "sterlingIndex": 101.3
+        },
+        {
+          "month": "2005-01",
+          "gbpUsd": 1.88,
+          "gbpEur": 1.43,
+          "sterlingIndex": 100
+        },
+        {
+          "month": "2005-02",
+          "gbpUsd": 1.89,
+          "gbpEur": 1.45,
+          "sterlingIndex": 101
+        },
+        {
+          "month": "2005-03",
+          "gbpUsd": 1.91,
+          "gbpEur": 1.44,
+          "sterlingIndex": 101.1
+        },
+        {
+          "month": "2005-04",
+          "gbpUsd": 1.9,
+          "gbpEur": 1.47,
+          "sterlingIndex": 102
+        },
+        {
+          "month": "2005-05",
+          "gbpUsd": 1.85,
+          "gbpEur": 1.46,
+          "sterlingIndex": 101
+        },
+        {
+          "month": "2005-06",
+          "gbpUsd": 1.82,
+          "gbpEur": 1.5,
+          "sterlingIndex": 101.8
+        },
+        {
+          "month": "2005-07",
+          "gbpUsd": 1.75,
+          "gbpEur": 1.45,
+          "sterlingIndex": 98.8
+        },
+        {
+          "month": "2005-08",
+          "gbpUsd": 1.79,
+          "gbpEur": 1.46,
+          "sterlingIndex": 99.7
+        },
+        {
+          "month": "2005-09",
+          "gbpUsd": 1.81,
+          "gbpEur": 1.48,
+          "sterlingIndex": 100.6
+        },
+        {
+          "month": "2005-10",
+          "gbpUsd": 1.76,
+          "gbpEur": 1.47,
+          "sterlingIndex": 99.6
+        },
+        {
+          "month": "2005-11",
+          "gbpUsd": 1.73,
+          "gbpEur": 1.47,
+          "sterlingIndex": 99.4
+        },
+        {
+          "month": "2005-12",
+          "gbpUsd": 1.75,
+          "gbpEur": 1.47,
+          "sterlingIndex": 99.5
+        },
+        {
+          "month": "2006-01",
+          "gbpUsd": 1.77,
+          "gbpEur": 1.46,
+          "sterlingIndex": 99.1
+        },
+        {
+          "month": "2006-02",
+          "gbpUsd": 1.75,
+          "gbpEur": 1.46,
+          "sterlingIndex": 98.9
+        },
+        {
+          "month": "2006-03",
+          "gbpUsd": 1.74,
+          "gbpEur": 1.45,
+          "sterlingIndex": 98.4
+        },
+        {
+          "month": "2006-04",
+          "gbpUsd": 1.77,
+          "gbpEur": 1.44,
+          "sterlingIndex": 98.4
+        },
+        {
+          "month": "2006-05",
+          "gbpUsd": 1.87,
+          "gbpEur": 1.46,
+          "sterlingIndex": 101.3
+        },
+        {
+          "month": "2006-06",
+          "gbpUsd": 1.84,
+          "gbpEur": 1.46,
+          "sterlingIndex": 101
+        },
+        {
+          "month": "2006-07",
+          "gbpUsd": 1.84,
+          "gbpEur": 1.45,
+          "sterlingIndex": 100.9
+        },
+        {
+          "month": "2006-08",
+          "gbpUsd": 1.89,
+          "gbpEur": 1.48,
+          "sterlingIndex": 103
+        },
+        {
+          "month": "2006-09",
+          "gbpUsd": 1.88,
+          "gbpEur": 1.48,
+          "sterlingIndex": 103
+        },
+        {
+          "month": "2006-10",
+          "gbpUsd": 1.88,
+          "gbpEur": 1.49,
+          "sterlingIndex": 103.1
+        },
+        {
+          "month": "2006-11",
+          "gbpUsd": 1.91,
+          "gbpEur": 1.48,
+          "sterlingIndex": 103.5
+        },
+        {
+          "month": "2006-12",
+          "gbpUsd": 1.96,
+          "gbpEur": 1.49,
+          "sterlingIndex": 104.5
+        },
+        {
+          "month": "2007-01",
+          "gbpUsd": 1.96,
+          "gbpEur": 1.51,
+          "sterlingIndex": 105.6
+        },
+        {
+          "month": "2007-02",
+          "gbpUsd": 1.96,
+          "gbpEur": 1.5,
+          "sterlingIndex": 105
+        },
+        {
+          "month": "2007-03",
+          "gbpUsd": 1.95,
+          "gbpEur": 1.47,
+          "sterlingIndex": 103.6
+        },
+        {
+          "month": "2007-04",
+          "gbpUsd": 1.99,
+          "gbpEur": 1.47,
+          "sterlingIndex": 104.3
+        },
+        {
+          "month": "2007-05",
+          "gbpUsd": 1.98,
+          "gbpEur": 1.47,
+          "sterlingIndex": 103.9
+        },
+        {
+          "month": "2007-06",
+          "gbpUsd": 1.99,
+          "gbpEur": 1.48,
+          "sterlingIndex": 104.5
+        },
+        {
+          "month": "2007-07",
+          "gbpUsd": 2.03,
+          "gbpEur": 1.48,
+          "sterlingIndex": 105.2
+        },
+        {
+          "month": "2007-08",
+          "gbpUsd": 2.01,
+          "gbpEur": 1.48,
+          "sterlingIndex": 104.5
+        },
+        {
+          "month": "2007-09",
+          "gbpUsd": 2.02,
+          "gbpEur": 1.45,
+          "sterlingIndex": 103.3
+        },
+        {
+          "month": "2007-10",
+          "gbpUsd": 2.04,
+          "gbpEur": 1.44,
+          "sterlingIndex": 102.8
+        },
+        {
+          "month": "2007-11",
+          "gbpUsd": 2.07,
+          "gbpEur": 1.41,
+          "sterlingIndex": 101.9
+        },
+        {
+          "month": "2007-12",
+          "gbpUsd": 2.02,
+          "gbpEur": 1.39,
+          "sterlingIndex": 99.9
+        },
+        {
+          "month": "2008-01",
+          "gbpUsd": 1.97,
+          "gbpEur": 1.34,
+          "sterlingIndex": 96.7
+        },
+        {
+          "month": "2008-02",
+          "gbpUsd": 1.96,
+          "gbpEur": 1.33,
+          "sterlingIndex": 96.2
+        },
+        {
+          "month": "2008-03",
+          "gbpUsd": 2,
+          "gbpEur": 1.29,
+          "sterlingIndex": 94.8
+        },
+        {
+          "month": "2008-04",
+          "gbpUsd": 1.98,
+          "gbpEur": 1.26,
+          "sterlingIndex": 93
+        },
+        {
+          "month": "2008-05",
+          "gbpUsd": 1.96,
+          "gbpEur": 1.26,
+          "sterlingIndex": 93
+        },
+        {
+          "month": "2008-06",
+          "gbpUsd": 1.97,
+          "gbpEur": 1.26,
+          "sterlingIndex": 93.1
+        },
+        {
+          "month": "2008-07",
+          "gbpUsd": 1.99,
+          "gbpEur": 1.26,
+          "sterlingIndex": 93.3
+        },
+        {
+          "month": "2008-08",
+          "gbpUsd": 1.89,
+          "gbpEur": 1.26,
+          "sterlingIndex": 91.7
+        },
+        {
+          "month": "2008-09",
+          "gbpUsd": 1.8,
+          "gbpEur": 1.25,
+          "sterlingIndex": 90
+        },
+        {
+          "month": "2008-10",
+          "gbpUsd": 1.69,
+          "gbpEur": 1.27,
+          "sterlingIndex": 89.6
+        },
+        {
+          "month": "2008-11",
+          "gbpUsd": 1.53,
+          "gbpEur": 1.2,
+          "sterlingIndex": 83.8
+        },
+        {
+          "month": "2008-12",
+          "gbpUsd": 1.49,
+          "gbpEur": 1.1,
+          "sterlingIndex": 78.5
+        },
+        {
+          "month": "2009-01",
+          "gbpUsd": 1.45,
+          "gbpEur": 1.09,
+          "sterlingIndex": 77.3
+        },
+        {
+          "month": "2009-02",
+          "gbpUsd": 1.44,
+          "gbpEur": 1.13,
+          "sterlingIndex": 79.2
+        },
+        {
+          "month": "2009-03",
+          "gbpUsd": 1.42,
+          "gbpEur": 1.09,
+          "sterlingIndex": 77.2
+        },
+        {
+          "month": "2009-04",
+          "gbpUsd": 1.47,
+          "gbpEur": 1.12,
+          "sterlingIndex": 79.1
+        },
+        {
+          "month": "2009-05",
+          "gbpUsd": 1.54,
+          "gbpEur": 1.13,
+          "sterlingIndex": 80.7
+        },
+        {
+          "month": "2009-06",
+          "gbpUsd": 1.64,
+          "gbpEur": 1.17,
+          "sterlingIndex": 84.2
+        },
+        {
+          "month": "2009-07",
+          "gbpUsd": 1.64,
+          "gbpEur": 1.16,
+          "sterlingIndex": 83.8
+        },
+        {
+          "month": "2009-08",
+          "gbpUsd": 1.65,
+          "gbpEur": 1.16,
+          "sterlingIndex": 83.7
+        },
+        {
+          "month": "2009-09",
+          "gbpUsd": 1.63,
+          "gbpEur": 1.12,
+          "sterlingIndex": 81.3
+        },
+        {
+          "month": "2009-10",
+          "gbpUsd": 1.62,
+          "gbpEur": 1.09,
+          "sterlingIndex": 79.6
+        },
+        {
+          "month": "2009-11",
+          "gbpUsd": 1.66,
+          "gbpEur": 1.11,
+          "sterlingIndex": 81.1
+        },
+        {
+          "month": "2009-12",
+          "gbpUsd": 1.62,
+          "gbpEur": 1.11,
+          "sterlingIndex": 80.5
+        },
+        {
+          "month": "2010-01",
+          "gbpUsd": 1.62,
+          "gbpEur": 1.13,
+          "sterlingIndex": 81
+        },
+        {
+          "month": "2010-02",
+          "gbpUsd": 1.56,
+          "gbpEur": 1.14,
+          "sterlingIndex": 80.3
+        },
+        {
+          "month": "2010-03",
+          "gbpUsd": 1.51,
+          "gbpEur": 1.11,
+          "sterlingIndex": 77.5
+        },
+        {
+          "month": "2010-04",
+          "gbpUsd": 1.53,
+          "gbpEur": 1.14,
+          "sterlingIndex": 79.4
+        },
+        {
+          "month": "2010-05",
+          "gbpUsd": 1.46,
+          "gbpEur": 1.17,
+          "sterlingIndex": 79.3
+        },
+        {
+          "month": "2010-06",
+          "gbpUsd": 1.48,
+          "gbpEur": 1.21,
+          "sterlingIndex": 81
+        },
+        {
+          "month": "2010-07",
+          "gbpUsd": 1.53,
+          "gbpEur": 1.2,
+          "sterlingIndex": 81.4
+        },
+        {
+          "month": "2010-08",
+          "gbpUsd": 1.57,
+          "gbpEur": 1.21,
+          "sterlingIndex": 82.6
+        },
+        {
+          "month": "2010-09",
+          "gbpUsd": 1.56,
+          "gbpEur": 1.19,
+          "sterlingIndex": 81.2
+        },
+        {
+          "month": "2010-10",
+          "gbpUsd": 1.59,
+          "gbpEur": 1.14,
+          "sterlingIndex": 79.5
+        },
+        {
+          "month": "2010-11",
+          "gbpUsd": 1.6,
+          "gbpEur": 1.17,
+          "sterlingIndex": 81
+        },
+        {
+          "month": "2010-12",
+          "gbpUsd": 1.56,
+          "gbpEur": 1.18,
+          "sterlingIndex": 80.4
+        },
+        {
+          "month": "2011-01",
+          "gbpUsd": 1.58,
+          "gbpEur": 1.18,
+          "sterlingIndex": 80.7
+        },
+        {
+          "month": "2011-02",
+          "gbpUsd": 1.61,
+          "gbpEur": 1.18,
+          "sterlingIndex": 81.5
+        },
+        {
+          "month": "2011-03",
+          "gbpUsd": 1.62,
+          "gbpEur": 1.15,
+          "sterlingIndex": 80.3
+        },
+        {
+          "month": "2011-04",
+          "gbpUsd": 1.63,
+          "gbpEur": 1.13,
+          "sterlingIndex": 79.7
+        },
+        {
+          "month": "2011-05",
+          "gbpUsd": 1.63,
+          "gbpEur": 1.14,
+          "sterlingIndex": 79.8
+        },
+        {
+          "month": "2011-06",
+          "gbpUsd": 1.62,
+          "gbpEur": 1.13,
+          "sterlingIndex": 78.9
+        },
+        {
+          "month": "2011-07",
+          "gbpUsd": 1.61,
+          "gbpEur": 1.13,
+          "sterlingIndex": 78.8
+        },
+        {
+          "month": "2011-08",
+          "gbpUsd": 1.63,
+          "gbpEur": 1.14,
+          "sterlingIndex": 79.6
+        },
+        {
+          "month": "2011-09",
+          "gbpUsd": 1.58,
+          "gbpEur": 1.15,
+          "sterlingIndex": 79.3
+        },
+        {
+          "month": "2011-10",
+          "gbpUsd": 1.58,
+          "gbpEur": 1.15,
+          "sterlingIndex": 79.5
+        },
+        {
+          "month": "2011-11",
+          "gbpUsd": 1.58,
+          "gbpEur": 1.17,
+          "sterlingIndex": 80.5
+        },
+        {
+          "month": "2011-12",
+          "gbpUsd": 1.56,
+          "gbpEur": 1.18,
+          "sterlingIndex": 80.9
+        },
+        {
+          "month": "2012-01",
+          "gbpUsd": 1.55,
+          "gbpEur": 1.2,
+          "sterlingIndex": 81.1
+        },
+        {
+          "month": "2012-02",
+          "gbpUsd": 1.58,
+          "gbpEur": 1.19,
+          "sterlingIndex": 81
+        },
+        {
+          "month": "2012-03",
+          "gbpUsd": 1.58,
+          "gbpEur": 1.2,
+          "sterlingIndex": 81.4
+        },
+        {
+          "month": "2012-04",
+          "gbpUsd": 1.6,
+          "gbpEur": 1.22,
+          "sterlingIndex": 82.6
+        },
+        {
+          "month": "2012-05",
+          "gbpUsd": 1.59,
+          "gbpEur": 1.24,
+          "sterlingIndex": 83.8
+        },
+        {
+          "month": "2012-06",
+          "gbpUsd": 1.56,
+          "gbpEur": 1.24,
+          "sterlingIndex": 83.1
+        },
+        {
+          "month": "2012-07",
+          "gbpUsd": 1.56,
+          "gbpEur": 1.27,
+          "sterlingIndex": 84
+        },
+        {
+          "month": "2012-08",
+          "gbpUsd": 1.57,
+          "gbpEur": 1.27,
+          "sterlingIndex": 84
+        },
+        {
+          "month": "2012-09",
+          "gbpUsd": 1.61,
+          "gbpEur": 1.25,
+          "sterlingIndex": 84.2
+        },
+        {
+          "month": "2012-10",
+          "gbpUsd": 1.61,
+          "gbpEur": 1.24,
+          "sterlingIndex": 83.6
+        },
+        {
+          "month": "2012-11",
+          "gbpUsd": 1.6,
+          "gbpEur": 1.24,
+          "sterlingIndex": 83.7
+        },
+        {
+          "month": "2012-12",
+          "gbpUsd": 1.61,
+          "gbpEur": 1.23,
+          "sterlingIndex": 83.6
+        },
+        {
+          "month": "2013-01",
+          "gbpUsd": 1.6,
+          "gbpEur": 1.2,
+          "sterlingIndex": 82.2
+        },
+        {
+          "month": "2013-02",
+          "gbpUsd": 1.55,
+          "gbpEur": 1.16,
+          "sterlingIndex": 79.7
+        },
+        {
+          "month": "2013-03",
+          "gbpUsd": 1.51,
+          "gbpEur": 1.16,
+          "sterlingIndex": 79.1
+        },
+        {
+          "month": "2013-04",
+          "gbpUsd": 1.53,
+          "gbpEur": 1.18,
+          "sterlingIndex": 80.1
+        },
+        {
+          "month": "2013-05",
+          "gbpUsd": 1.53,
+          "gbpEur": 1.18,
+          "sterlingIndex": 80.4
+        },
+        {
+          "month": "2013-06",
+          "gbpUsd": 1.55,
+          "gbpEur": 1.17,
+          "sterlingIndex": 81
+        },
+        {
+          "month": "2013-07",
+          "gbpUsd": 1.52,
+          "gbpEur": 1.16,
+          "sterlingIndex": 80
+        },
+        {
+          "month": "2013-08",
+          "gbpUsd": 1.55,
+          "gbpEur": 1.16,
+          "sterlingIndex": 81
+        },
+        {
+          "month": "2013-09",
+          "gbpUsd": 1.59,
+          "gbpEur": 1.19,
+          "sterlingIndex": 82.7
+        },
+        {
+          "month": "2013-10",
+          "gbpUsd": 1.61,
+          "gbpEur": 1.18,
+          "sterlingIndex": 82.7
+        },
+        {
+          "month": "2013-11",
+          "gbpUsd": 1.61,
+          "gbpEur": 1.19,
+          "sterlingIndex": 83.6
+        },
+        {
+          "month": "2013-12",
+          "gbpUsd": 1.64,
+          "gbpEur": 1.19,
+          "sterlingIndex": 84.4
+        },
+        {
+          "month": "2014-01",
+          "gbpUsd": 1.65,
+          "gbpEur": 1.21,
+          "sterlingIndex": 85.4
+        },
+        {
+          "month": "2014-02",
+          "gbpUsd": 1.66,
+          "gbpEur": 1.21,
+          "sterlingIndex": 85.7
+        },
+        {
+          "month": "2014-03",
+          "gbpUsd": 1.66,
+          "gbpEur": 1.2,
+          "sterlingIndex": 85.5
+        },
+        {
+          "month": "2014-04",
+          "gbpUsd": 1.67,
+          "gbpEur": 1.21,
+          "sterlingIndex": 86.2
+        },
+        {
+          "month": "2014-05",
+          "gbpUsd": 1.68,
+          "gbpEur": 1.23,
+          "sterlingIndex": 86.8
+        },
+        {
+          "month": "2014-06",
+          "gbpUsd": 1.69,
+          "gbpEur": 1.24,
+          "sterlingIndex": 87.7
+        },
+        {
+          "month": "2014-07",
+          "gbpUsd": 1.71,
+          "gbpEur": 1.26,
+          "sterlingIndex": 88.7
+        },
+        {
+          "month": "2014-08",
+          "gbpUsd": 1.67,
+          "gbpEur": 1.25,
+          "sterlingIndex": 87.8
+        },
+        {
+          "month": "2014-09",
+          "gbpUsd": 1.63,
+          "gbpEur": 1.26,
+          "sterlingIndex": 87.5
+        },
+        {
+          "month": "2014-10",
+          "gbpUsd": 1.61,
+          "gbpEur": 1.27,
+          "sterlingIndex": 87.4
+        },
+        {
+          "month": "2014-11",
+          "gbpUsd": 1.58,
+          "gbpEur": 1.26,
+          "sterlingIndex": 87
+        },
+        {
+          "month": "2014-12",
+          "gbpUsd": 1.56,
+          "gbpEur": 1.27,
+          "sterlingIndex": 87.5
+        },
+        {
+          "month": "2015-01",
+          "gbpUsd": 1.51,
+          "gbpEur": 1.3,
+          "sterlingIndex": 87.7
+        },
+        {
+          "month": "2015-02",
+          "gbpUsd": 1.53,
+          "gbpEur": 1.35,
+          "sterlingIndex": 90
+        },
+        {
+          "month": "2015-03",
+          "gbpUsd": 1.5,
+          "gbpEur": 1.38,
+          "sterlingIndex": 90.4
+        },
+        {
+          "month": "2015-04",
+          "gbpUsd": 1.5,
+          "gbpEur": 1.39,
+          "sterlingIndex": 90.1
+        },
+        {
+          "month": "2015-05",
+          "gbpUsd": 1.55,
+          "gbpEur": 1.39,
+          "sterlingIndex": 91.3
+        },
+        {
+          "month": "2015-06",
+          "gbpUsd": 1.56,
+          "gbpEur": 1.39,
+          "sterlingIndex": 92.1
+        },
+        {
+          "month": "2015-07",
+          "gbpUsd": 1.56,
+          "gbpEur": 1.41,
+          "sterlingIndex": 93.3
+        },
+        {
+          "month": "2015-08",
+          "gbpUsd": 1.56,
+          "gbpEur": 1.4,
+          "sterlingIndex": 93.4
+        },
+        {
+          "month": "2015-09",
+          "gbpUsd": 1.53,
+          "gbpEur": 1.37,
+          "sterlingIndex": 91.8
+        },
+        {
+          "month": "2015-10",
+          "gbpUsd": 1.53,
+          "gbpEur": 1.37,
+          "sterlingIndex": 91.6
+        },
+        {
+          "month": "2015-11",
+          "gbpUsd": 1.52,
+          "gbpEur": 1.42,
+          "sterlingIndex": 93.3
+        },
+        {
+          "month": "2015-12",
+          "gbpUsd": 1.5,
+          "gbpEur": 1.38,
+          "sterlingIndex": 91.5
+        },
+        {
+          "month": "2016-01",
+          "gbpUsd": 1.44,
+          "gbpEur": 1.33,
+          "sterlingIndex": 88.5
+        },
+        {
+          "month": "2016-02",
+          "gbpUsd": 1.43,
+          "gbpEur": 1.29,
+          "sterlingIndex": 86.7
+        },
+        {
+          "month": "2016-03",
+          "gbpUsd": 1.43,
+          "gbpEur": 1.28,
+          "sterlingIndex": 85.7
+        },
+        {
+          "month": "2016-04",
+          "gbpUsd": 1.43,
+          "gbpEur": 1.26,
+          "sterlingIndex": 84.9
+        },
+        {
+          "month": "2016-05",
+          "gbpUsd": 1.45,
+          "gbpEur": 1.28,
+          "sterlingIndex": 86.7
+        },
+        {
+          "month": "2016-06",
+          "gbpUsd": 1.42,
+          "gbpEur": 1.26,
+          "sterlingIndex": 84.9
+        },
+        {
+          "month": "2016-07",
+          "gbpUsd": 1.31,
+          "gbpEur": 1.19,
+          "sterlingIndex": 79.4
+        },
+        {
+          "month": "2016-08",
+          "gbpUsd": 1.31,
+          "gbpEur": 1.17,
+          "sterlingIndex": 78.4
+        },
+        {
+          "month": "2016-09",
+          "gbpUsd": 1.31,
+          "gbpEur": 1.17,
+          "sterlingIndex": 78.7
+        },
+        {
+          "month": "2016-10",
+          "gbpUsd": 1.23,
+          "gbpEur": 1.12,
+          "sterlingIndex": 74.7
+        },
+        {
+          "month": "2016-11",
+          "gbpUsd": 1.24,
+          "gbpEur": 1.15,
+          "sterlingIndex": 76.7
+        },
+        {
+          "month": "2016-12",
+          "gbpUsd": 1.25,
+          "gbpEur": 1.18,
+          "sterlingIndex": 78.3
+        },
+        {
+          "month": "2017-01",
+          "gbpUsd": 1.24,
+          "gbpEur": 1.16,
+          "sterlingIndex": 77
+        },
+        {
+          "month": "2017-02",
+          "gbpUsd": 1.25,
+          "gbpEur": 1.17,
+          "sterlingIndex": 77.6
+        },
+        {
+          "month": "2017-03",
+          "gbpUsd": 1.23,
+          "gbpEur": 1.15,
+          "sterlingIndex": 76.5
+        },
+        {
+          "month": "2017-04",
+          "gbpUsd": 1.27,
+          "gbpEur": 1.18,
+          "sterlingIndex": 78.2
+        },
+        {
+          "month": "2017-05",
+          "gbpUsd": 1.29,
+          "gbpEur": 1.17,
+          "sterlingIndex": 78.6
+        },
+        {
+          "month": "2017-06",
+          "gbpUsd": 1.28,
+          "gbpEur": 1.14,
+          "sterlingIndex": 77
+        },
+        {
+          "month": "2017-07",
+          "gbpUsd": 1.3,
+          "gbpEur": 1.13,
+          "sterlingIndex": 77
+        },
+        {
+          "month": "2017-08",
+          "gbpUsd": 1.3,
+          "gbpEur": 1.1,
+          "sterlingIndex": 75.5
+        },
+        {
+          "month": "2017-09",
+          "gbpUsd": 1.33,
+          "gbpEur": 1.12,
+          "sterlingIndex": 77.2
+        },
+        {
+          "month": "2017-10",
+          "gbpUsd": 1.32,
+          "gbpEur": 1.12,
+          "sterlingIndex": 77.3
+        },
+        {
+          "month": "2017-11",
+          "gbpUsd": 1.32,
+          "gbpEur": 1.13,
+          "sterlingIndex": 77.6
+        },
+        {
+          "month": "2017-12",
+          "gbpUsd": 1.34,
+          "gbpEur": 1.13,
+          "sterlingIndex": 78.2
+        },
+        {
+          "month": "2018-01",
+          "gbpUsd": 1.38,
+          "gbpEur": 1.13,
+          "sterlingIndex": 78.9
+        },
+        {
+          "month": "2018-02",
+          "gbpUsd": 1.4,
+          "gbpEur": 1.13,
+          "sterlingIndex": 79
+        },
+        {
+          "month": "2018-03",
+          "gbpUsd": 1.4,
+          "gbpEur": 1.13,
+          "sterlingIndex": 79.2
+        },
+        {
+          "month": "2018-04",
+          "gbpUsd": 1.41,
+          "gbpEur": 1.15,
+          "sterlingIndex": 80.2
+        },
+        {
+          "month": "2018-05",
+          "gbpUsd": 1.35,
+          "gbpEur": 1.14,
+          "sterlingIndex": 78.7
+        },
+        {
+          "month": "2018-06",
+          "gbpUsd": 1.33,
+          "gbpEur": 1.14,
+          "sterlingIndex": 78.4
+        },
+        {
+          "month": "2018-07",
+          "gbpUsd": 1.32,
+          "gbpEur": 1.13,
+          "sterlingIndex": 78.1
+        },
+        {
+          "month": "2018-08",
+          "gbpUsd": 1.29,
+          "gbpEur": 1.12,
+          "sterlingIndex": 77.3
+        },
+        {
+          "month": "2018-09",
+          "gbpUsd": 1.31,
+          "gbpEur": 1.12,
+          "sterlingIndex": 78.1
+        },
+        {
+          "month": "2018-10",
+          "gbpUsd": 1.3,
+          "gbpEur": 1.13,
+          "sterlingIndex": 78.5
+        },
+        {
+          "month": "2018-11",
+          "gbpUsd": 1.29,
+          "gbpEur": 1.14,
+          "sterlingIndex": 78.2
+        },
+        {
+          "month": "2018-12",
+          "gbpUsd": 1.27,
+          "gbpEur": 1.11,
+          "sterlingIndex": 76.6
+        },
+        {
+          "month": "2019-01",
+          "gbpUsd": 1.29,
+          "gbpEur": 1.13,
+          "sterlingIndex": 77.7
+        },
+        {
+          "month": "2019-02",
+          "gbpUsd": 1.3,
+          "gbpEur": 1.15,
+          "sterlingIndex": 78.7
+        },
+        {
+          "month": "2019-03",
+          "gbpUsd": 1.32,
+          "gbpEur": 1.17,
+          "sterlingIndex": 79.8
+        },
+        {
+          "month": "2019-04",
+          "gbpUsd": 1.3,
+          "gbpEur": 1.16,
+          "sterlingIndex": 79.3
+        },
+        {
+          "month": "2019-05",
+          "gbpUsd": 1.28,
+          "gbpEur": 1.15,
+          "sterlingIndex": 78.7
+        },
+        {
+          "month": "2019-06",
+          "gbpUsd": 1.27,
+          "gbpEur": 1.12,
+          "sterlingIndex": 77.1
+        },
+        {
+          "month": "2019-07",
+          "gbpUsd": 1.25,
+          "gbpEur": 1.11,
+          "sterlingIndex": 76
+        },
+        {
+          "month": "2019-08",
+          "gbpUsd": 1.22,
+          "gbpEur": 1.09,
+          "sterlingIndex": 74.8
+        },
+        {
+          "month": "2019-09",
+          "gbpUsd": 1.24,
+          "gbpEur": 1.12,
+          "sterlingIndex": 76.5
+        },
+        {
+          "month": "2019-10",
+          "gbpUsd": 1.26,
+          "gbpEur": 1.14,
+          "sterlingIndex": 78.1
+        },
+        {
+          "month": "2019-11",
+          "gbpUsd": 1.29,
+          "gbpEur": 1.17,
+          "sterlingIndex": 79.5
+        },
+        {
+          "month": "2019-12",
+          "gbpUsd": 1.31,
+          "gbpEur": 1.18,
+          "sterlingIndex": 80.6
+        },
+        {
+          "month": "2020-01",
+          "gbpUsd": 1.31,
+          "gbpEur": 1.18,
+          "sterlingIndex": 80.3
+        },
+        {
+          "month": "2020-02",
+          "gbpUsd": 1.3,
+          "gbpEur": 1.19,
+          "sterlingIndex": 80.6
+        },
+        {
+          "month": "2020-03",
+          "gbpUsd": 1.24,
+          "gbpEur": 1.12,
+          "sterlingIndex": 76.8
+        },
+        {
+          "month": "2020-04",
+          "gbpUsd": 1.24,
+          "gbpEur": 1.14,
+          "sterlingIndex": 78.1
+        },
+        {
+          "month": "2020-05",
+          "gbpUsd": 1.23,
+          "gbpEur": 1.13,
+          "sterlingIndex": 77.2
+        },
+        {
+          "month": "2020-06",
+          "gbpUsd": 1.25,
+          "gbpEur": 1.11,
+          "sterlingIndex": 76.9
+        },
+        {
+          "month": "2020-07",
+          "gbpUsd": 1.27,
+          "gbpEur": 1.11,
+          "sterlingIndex": 77
+        },
+        {
+          "month": "2020-08",
+          "gbpUsd": 1.31,
+          "gbpEur": 1.11,
+          "sterlingIndex": 78.2
+        },
+        {
+          "month": "2020-09",
+          "gbpUsd": 1.3,
+          "gbpEur": 1.1,
+          "sterlingIndex": 77.2
+        },
+        {
+          "month": "2020-10",
+          "gbpUsd": 1.3,
+          "gbpEur": 1.1,
+          "sterlingIndex": 77.4
+        },
+        {
+          "month": "2020-11",
+          "gbpUsd": 1.32,
+          "gbpEur": 1.12,
+          "sterlingIndex": 78.3
+        },
+        {
+          "month": "2020-12",
+          "gbpUsd": 1.34,
+          "gbpEur": 1.1,
+          "sterlingIndex": 78.1
+        },
+        {
+          "month": "2021-01",
+          "gbpUsd": 1.36,
+          "gbpEur": 1.12,
+          "sterlingIndex": 79.1
+        },
+        {
+          "month": "2021-02",
+          "gbpUsd": 1.39,
+          "gbpEur": 1.15,
+          "sterlingIndex": 80.6
+        },
+        {
+          "month": "2021-03",
+          "gbpUsd": 1.39,
+          "gbpEur": 1.16,
+          "sterlingIndex": 81.7
+        },
+        {
+          "month": "2021-04",
+          "gbpUsd": 1.38,
+          "gbpEur": 1.16,
+          "sterlingIndex": 81.4
+        },
+        {
+          "month": "2021-05",
+          "gbpUsd": 1.41,
+          "gbpEur": 1.16,
+          "sterlingIndex": 82
+        },
+        {
+          "month": "2021-06",
+          "gbpUsd": 1.4,
+          "gbpEur": 1.16,
+          "sterlingIndex": 82
+        },
+        {
+          "month": "2021-07",
+          "gbpUsd": 1.38,
+          "gbpEur": 1.17,
+          "sterlingIndex": 81.8
+        },
+        {
+          "month": "2021-08",
+          "gbpUsd": 1.38,
+          "gbpEur": 1.17,
+          "sterlingIndex": 82
+        },
+        {
+          "month": "2021-09",
+          "gbpUsd": 1.37,
+          "gbpEur": 1.17,
+          "sterlingIndex": 81.5
+        },
+        {
+          "month": "2021-10",
+          "gbpUsd": 1.37,
+          "gbpEur": 1.18,
+          "sterlingIndex": 82
+        },
+        {
+          "month": "2021-11",
+          "gbpUsd": 1.34,
+          "gbpEur": 1.18,
+          "sterlingIndex": 81.5
+        },
+        {
+          "month": "2021-12",
+          "gbpUsd": 1.33,
+          "gbpEur": 1.18,
+          "sterlingIndex": 81.4
+        },
+        {
+          "month": "2022-01",
+          "gbpUsd": 1.36,
+          "gbpEur": 1.2,
+          "sterlingIndex": 82.7
+        },
+        {
+          "month": "2022-02",
+          "gbpUsd": 1.35,
+          "gbpEur": 1.19,
+          "sterlingIndex": 82.6
+        },
+        {
+          "month": "2022-03",
+          "gbpUsd": 1.32,
+          "gbpEur": 1.2,
+          "sterlingIndex": 81.8
+        },
+        {
+          "month": "2022-04",
+          "gbpUsd": 1.29,
+          "gbpEur": 1.2,
+          "sterlingIndex": 81.3
+        },
+        {
+          "month": "2022-05",
+          "gbpUsd": 1.24,
+          "gbpEur": 1.18,
+          "sterlingIndex": 79.9
+        },
+        {
+          "month": "2022-06",
+          "gbpUsd": 1.23,
+          "gbpEur": 1.17,
+          "sterlingIndex": 79.4
+        },
+        {
+          "month": "2022-07",
+          "gbpUsd": 1.2,
+          "gbpEur": 1.18,
+          "sterlingIndex": 79
+        },
+        {
+          "month": "2022-08",
+          "gbpUsd": 1.2,
+          "gbpEur": 1.18,
+          "sterlingIndex": 79.1
+        },
+        {
+          "month": "2022-09",
+          "gbpUsd": 1.13,
+          "gbpEur": 1.14,
+          "sterlingIndex": 76.4
+        },
+        {
+          "month": "2022-10",
+          "gbpUsd": 1.13,
+          "gbpEur": 1.15,
+          "sterlingIndex": 77
+        },
+        {
+          "month": "2022-11",
+          "gbpUsd": 1.17,
+          "gbpEur": 1.15,
+          "sterlingIndex": 78.2
+        },
+        {
+          "month": "2022-12",
+          "gbpUsd": 1.22,
+          "gbpEur": 1.15,
+          "sterlingIndex": 79.1
+        },
+        {
+          "month": "2023-01",
+          "gbpUsd": 1.22,
+          "gbpEur": 1.14,
+          "sterlingIndex": 78.3
+        },
+        {
+          "month": "2023-02",
+          "gbpUsd": 1.21,
+          "gbpEur": 1.13,
+          "sterlingIndex": 77.8
+        },
+        {
+          "month": "2023-03",
+          "gbpUsd": 1.21,
+          "gbpEur": 1.13,
+          "sterlingIndex": 78.4
+        },
+        {
+          "month": "2023-04",
+          "gbpUsd": 1.25,
+          "gbpEur": 1.13,
+          "sterlingIndex": 79.4
+        },
+        {
+          "month": "2023-05",
+          "gbpUsd": 1.25,
+          "gbpEur": 1.15,
+          "sterlingIndex": 80.2
+        },
+        {
+          "month": "2023-06",
+          "gbpUsd": 1.26,
+          "gbpEur": 1.17,
+          "sterlingIndex": 81.8
+        },
+        {
+          "month": "2023-07",
+          "gbpUsd": 1.29,
+          "gbpEur": 1.17,
+          "sterlingIndex": 82.7
+        },
+        {
+          "month": "2023-08",
+          "gbpUsd": 1.27,
+          "gbpEur": 1.16,
+          "sterlingIndex": 82.4
+        },
+        {
+          "month": "2023-09",
+          "gbpUsd": 1.24,
+          "gbpEur": 1.16,
+          "sterlingIndex": 81.5
+        },
+        {
+          "month": "2023-10",
+          "gbpUsd": 1.22,
+          "gbpEur": 1.15,
+          "sterlingIndex": 80.6
+        },
+        {
+          "month": "2023-11",
+          "gbpUsd": 1.24,
+          "gbpEur": 1.15,
+          "sterlingIndex": 81.2
+        },
+        {
+          "month": "2023-12",
+          "gbpUsd": 1.27,
+          "gbpEur": 1.16,
+          "sterlingIndex": 81.9
+        },
+        {
+          "month": "2024-01",
+          "gbpUsd": 1.27,
+          "gbpEur": 1.17,
+          "sterlingIndex": 82.4
+        },
+        {
+          "month": "2024-02",
+          "gbpUsd": 1.26,
+          "gbpEur": 1.17,
+          "sterlingIndex": 82.5
+        },
+        {
+          "month": "2024-03",
+          "gbpUsd": 1.27,
+          "gbpEur": 1.17,
+          "sterlingIndex": 82.9
+        },
+        {
+          "month": "2024-04",
+          "gbpUsd": 1.25,
+          "gbpEur": 1.17,
+          "sterlingIndex": 82.5
+        },
+        {
+          "month": "2024-05",
+          "gbpUsd": 1.26,
+          "gbpEur": 1.17,
+          "sterlingIndex": 82.9
+        },
+        {
+          "month": "2024-06",
+          "gbpUsd": 1.27,
+          "gbpEur": 1.18,
+          "sterlingIndex": 83.5
+        },
+        {
+          "month": "2024-07",
+          "gbpUsd": 1.29,
+          "gbpEur": 1.19,
+          "sterlingIndex": 84.3
+        },
+        {
+          "month": "2024-08",
+          "gbpUsd": 1.29,
+          "gbpEur": 1.17,
+          "sterlingIndex": 83.7
+        },
+        {
+          "month": "2024-09",
+          "gbpUsd": 1.32,
+          "gbpEur": 1.19,
+          "sterlingIndex": 84.9
+        },
+        {
+          "month": "2024-10",
+          "gbpUsd": 1.3,
+          "gbpEur": 1.2,
+          "sterlingIndex": 84.9
+        },
+        {
+          "month": "2024-11",
+          "gbpUsd": 1.27,
+          "gbpEur": 1.2,
+          "sterlingIndex": 84.4
+        },
+        {
+          "month": "2024-12",
+          "gbpUsd": 1.26,
+          "gbpEur": 1.21,
+          "sterlingIndex": 84.5
+        },
+        {
+          "month": "2025-01",
+          "gbpUsd": 1.23,
+          "gbpEur": 1.19,
+          "sterlingIndex": 83.2
+        },
+        {
+          "month": "2025-02",
+          "gbpUsd": 1.25,
+          "gbpEur": 1.2,
+          "sterlingIndex": 84.1
+        },
+        {
+          "month": "2025-03",
+          "gbpUsd": 1.29,
+          "gbpEur": 1.19,
+          "sterlingIndex": 84.9
+        },
+        {
+          "month": "2025-04",
+          "gbpUsd": 1.31,
+          "gbpEur": 1.17,
+          "sterlingIndex": 84.7
+        },
+        {
+          "month": "2025-05",
+          "gbpUsd": 1.34,
+          "gbpEur": 1.19,
+          "sterlingIndex": 85.7
+        },
+        {
+          "month": "2025-06",
+          "gbpUsd": 1.36,
+          "gbpEur": 1.18,
+          "sterlingIndex": 86
+        },
+        {
+          "month": "2025-07",
+          "gbpUsd": 1.35,
+          "gbpEur": 1.16,
+          "sterlingIndex": 85.1
+        },
+        {
+          "month": "2025-08",
+          "gbpUsd": 1.35,
+          "gbpEur": 1.16,
+          "sterlingIndex": 85
+        },
+        {
+          "month": "2025-09",
+          "gbpUsd": 1.35,
+          "gbpEur": 1.15,
+          "sterlingIndex": 84.9
+        },
+        {
+          "month": "2025-10",
+          "gbpUsd": 1.34,
+          "gbpEur": 1.15,
+          "sterlingIndex": 84.4
+        },
+        {
+          "month": "2025-11",
+          "gbpUsd": 1.31,
+          "gbpEur": 1.14,
+          "sterlingIndex": 83.5
+        },
+        {
+          "month": "2025-12",
+          "gbpUsd": 1.34,
+          "gbpEur": 1.14,
+          "sterlingIndex": 84.5
+        },
+        {
+          "month": "2026-01",
+          "gbpUsd": 1.35,
+          "gbpEur": 1.15,
+          "sterlingIndex": 85.1
+        },
+        {
+          "month": "2026-02",
+          "gbpUsd": 1.36,
+          "gbpEur": 1.15,
+          "sterlingIndex": 84.8
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,895 @@
+{
+  "$schema": "sob-dataset-v1",
+  "id": "gdp",
+  "pillar": "growth",
+  "topic": "economy",
+  "generated": "2026-04-01",
+  "sources": [
+    {
+      "id": "ons-gdp",
+      "name": "ONS Gross Domestic Product (PN2)",
+      "url": "https://www.ons.gov.uk/economy/grossdomesticproductgdp",
+      "publisher": "Office for National Statistics"
+    }
+  ],
+  "snapshot": {
+    "latestQuarter": "2025-Q4",
+    "gdpRealBn": 705.6,
+    "gdpPerCapita": 10127,
+    "qoqGrowth": 0.1
+  },
+  "series": {
+    "quarterly": {
+      "sourceId": "ons-gdp",
+      "label": "UK GDP (Real Terms)",
+      "unit": "£ billion (chained volume)",
+      "timeField": "quarter",
+      "data": [
+        {
+          "quarter": "1990-Q1",
+          "gdpBn": 379.5,
+          "perCapita": 6634,
+          "qoqGrowth": 0.5
+        },
+        {
+          "quarter": "1990-Q2",
+          "gdpBn": 382,
+          "perCapita": 6674,
+          "qoqGrowth": 0.7
+        },
+        {
+          "quarter": "1990-Q3",
+          "gdpBn": 377.8,
+          "perCapita": 6595,
+          "qoqGrowth": -1.1
+        },
+        {
+          "quarter": "1990-Q4",
+          "gdpBn": 375.9,
+          "perCapita": 6556,
+          "qoqGrowth": -0.5
+        },
+        {
+          "quarter": "1991-Q1",
+          "gdpBn": 374.1,
+          "perCapita": 6518,
+          "qoqGrowth": -0.5
+        },
+        {
+          "quarter": "1991-Q2",
+          "gdpBn": 373.6,
+          "perCapita": 6504,
+          "qoqGrowth": -0.1
+        },
+        {
+          "quarter": "1991-Q3",
+          "gdpBn": 372.9,
+          "perCapita": 6488,
+          "qoqGrowth": -0.2
+        },
+        {
+          "quarter": "1991-Q4",
+          "gdpBn": 373.4,
+          "perCapita": 6492,
+          "qoqGrowth": 0.1
+        },
+        {
+          "quarter": "1992-Q1",
+          "gdpBn": 373.3,
+          "perCapita": 6487,
+          "qoqGrowth": 0
+        },
+        {
+          "quarter": "1992-Q2",
+          "gdpBn": 372.8,
+          "perCapita": 6473,
+          "qoqGrowth": -0.2
+        },
+        {
+          "quarter": "1992-Q3",
+          "gdpBn": 374.5,
+          "perCapita": 6500,
+          "qoqGrowth": 0.5
+        },
+        {
+          "quarter": "1992-Q4",
+          "gdpBn": 377.4,
+          "perCapita": 6547,
+          "qoqGrowth": 0.8
+        },
+        {
+          "quarter": "1993-Q1",
+          "gdpBn": 379.4,
+          "perCapita": 6577,
+          "qoqGrowth": 0.5
+        },
+        {
+          "quarter": "1993-Q2",
+          "gdpBn": 381,
+          "perCapita": 6602,
+          "qoqGrowth": 0.4
+        },
+        {
+          "quarter": "1993-Q3",
+          "gdpBn": 384.5,
+          "perCapita": 6658,
+          "qoqGrowth": 0.9
+        },
+        {
+          "quarter": "1993-Q4",
+          "gdpBn": 387.1,
+          "perCapita": 6699,
+          "qoqGrowth": 0.7
+        },
+        {
+          "quarter": "1994-Q1",
+          "gdpBn": 391,
+          "perCapita": 6762,
+          "qoqGrowth": 1
+        },
+        {
+          "quarter": "1994-Q2",
+          "gdpBn": 394.6,
+          "perCapita": 6819,
+          "qoqGrowth": 0.9
+        },
+        {
+          "quarter": "1994-Q3",
+          "gdpBn": 398.6,
+          "perCapita": 6883,
+          "qoqGrowth": 1
+        },
+        {
+          "quarter": "1994-Q4",
+          "gdpBn": 400.3,
+          "perCapita": 6908,
+          "qoqGrowth": 0.4
+        },
+        {
+          "quarter": "1995-Q1",
+          "gdpBn": 402.4,
+          "perCapita": 6940,
+          "qoqGrowth": 0.5
+        },
+        {
+          "quarter": "1995-Q2",
+          "gdpBn": 403.3,
+          "perCapita": 6950,
+          "qoqGrowth": 0.2
+        },
+        {
+          "quarter": "1995-Q3",
+          "gdpBn": 407.8,
+          "perCapita": 7024,
+          "qoqGrowth": 1.1
+        },
+        {
+          "quarter": "1995-Q4",
+          "gdpBn": 409.1,
+          "perCapita": 7042,
+          "qoqGrowth": 0.3
+        },
+        {
+          "quarter": "1996-Q1",
+          "gdpBn": 412,
+          "perCapita": 7088,
+          "qoqGrowth": 0.7
+        },
+        {
+          "quarter": "1996-Q2",
+          "gdpBn": 413.3,
+          "perCapita": 7106,
+          "qoqGrowth": 0.3
+        },
+        {
+          "quarter": "1996-Q3",
+          "gdpBn": 417,
+          "perCapita": 7165,
+          "qoqGrowth": 0.9
+        },
+        {
+          "quarter": "1996-Q4",
+          "gdpBn": 422.6,
+          "perCapita": 7257,
+          "qoqGrowth": 1.3
+        },
+        {
+          "quarter": "1997-Q1",
+          "gdpBn": 429.4,
+          "perCapita": 7369,
+          "qoqGrowth": 1.6
+        },
+        {
+          "quarter": "1997-Q2",
+          "gdpBn": 434.2,
+          "perCapita": 7446,
+          "qoqGrowth": 1.1
+        },
+        {
+          "quarter": "1997-Q3",
+          "gdpBn": 438.1,
+          "perCapita": 7508,
+          "qoqGrowth": 0.9
+        },
+        {
+          "quarter": "1997-Q4",
+          "gdpBn": 444.5,
+          "perCapita": 7613,
+          "qoqGrowth": 1.5
+        },
+        {
+          "quarter": "1998-Q1",
+          "gdpBn": 447.7,
+          "perCapita": 7662,
+          "qoqGrowth": 0.7
+        },
+        {
+          "quarter": "1998-Q2",
+          "gdpBn": 450.3,
+          "perCapita": 7701,
+          "qoqGrowth": 0.6
+        },
+        {
+          "quarter": "1998-Q3",
+          "gdpBn": 451,
+          "perCapita": 7706,
+          "qoqGrowth": 0.2
+        },
+        {
+          "quarter": "1998-Q4",
+          "gdpBn": 453.9,
+          "perCapita": 7749,
+          "qoqGrowth": 0.7
+        },
+        {
+          "quarter": "1999-Q1",
+          "gdpBn": 457,
+          "perCapita": 7795,
+          "qoqGrowth": 0.7
+        },
+        {
+          "quarter": "1999-Q2",
+          "gdpBn": 458.7,
+          "perCapita": 7817,
+          "qoqGrowth": 0.4
+        },
+        {
+          "quarter": "1999-Q3",
+          "gdpBn": 466.4,
+          "perCapita": 7941,
+          "qoqGrowth": 1.7
+        },
+        {
+          "quarter": "1999-Q4",
+          "gdpBn": 473.9,
+          "perCapita": 8061,
+          "qoqGrowth": 1.6
+        },
+        {
+          "quarter": "2000-Q1",
+          "gdpBn": 480.2,
+          "perCapita": 8162,
+          "qoqGrowth": 1.3
+        },
+        {
+          "quarter": "2000-Q2",
+          "gdpBn": 483.7,
+          "perCapita": 8214,
+          "qoqGrowth": 0.7
+        },
+        {
+          "quarter": "2000-Q3",
+          "gdpBn": 486.6,
+          "perCapita": 8256,
+          "qoqGrowth": 0.6
+        },
+        {
+          "quarter": "2000-Q4",
+          "gdpBn": 489.5,
+          "perCapita": 8297,
+          "qoqGrowth": 0.6
+        },
+        {
+          "quarter": "2001-Q1",
+          "gdpBn": 493.6,
+          "perCapita": 8358,
+          "qoqGrowth": 0.8
+        },
+        {
+          "quarter": "2001-Q2",
+          "gdpBn": 495.6,
+          "perCapita": 8384,
+          "qoqGrowth": 0.4
+        },
+        {
+          "quarter": "2001-Q3",
+          "gdpBn": 497.9,
+          "perCapita": 8415,
+          "qoqGrowth": 0.5
+        },
+        {
+          "quarter": "2001-Q4",
+          "gdpBn": 499.3,
+          "perCapita": 8428,
+          "qoqGrowth": 0.3
+        },
+        {
+          "quarter": "2002-Q1",
+          "gdpBn": 500.8,
+          "perCapita": 8445,
+          "qoqGrowth": 0.3
+        },
+        {
+          "quarter": "2002-Q2",
+          "gdpBn": 503.4,
+          "perCapita": 8480,
+          "qoqGrowth": 0.5
+        },
+        {
+          "quarter": "2002-Q3",
+          "gdpBn": 506.4,
+          "perCapita": 8520,
+          "qoqGrowth": 0.6
+        },
+        {
+          "quarter": "2002-Q4",
+          "gdpBn": 509.7,
+          "perCapita": 8567,
+          "qoqGrowth": 0.7
+        },
+        {
+          "quarter": "2003-Q1",
+          "gdpBn": 514,
+          "perCapita": 8629,
+          "qoqGrowth": 0.8
+        },
+        {
+          "quarter": "2003-Q2",
+          "gdpBn": 518.8,
+          "perCapita": 8699,
+          "qoqGrowth": 0.9
+        },
+        {
+          "quarter": "2003-Q3",
+          "gdpBn": 524.2,
+          "perCapita": 8779,
+          "qoqGrowth": 1
+        },
+        {
+          "quarter": "2003-Q4",
+          "gdpBn": 528.3,
+          "perCapita": 8836,
+          "qoqGrowth": 0.8
+        },
+        {
+          "quarter": "2004-Q1",
+          "gdpBn": 530,
+          "perCapita": 8852,
+          "qoqGrowth": 0.3
+        },
+        {
+          "quarter": "2004-Q2",
+          "gdpBn": 532.5,
+          "perCapita": 8883,
+          "qoqGrowth": 0.5
+        },
+        {
+          "quarter": "2004-Q3",
+          "gdpBn": 534.4,
+          "perCapita": 8898,
+          "qoqGrowth": 0.4
+        },
+        {
+          "quarter": "2004-Q4",
+          "gdpBn": 536.9,
+          "perCapita": 8921,
+          "qoqGrowth": 0.5
+        },
+        {
+          "quarter": "2005-Q1",
+          "gdpBn": 541,
+          "perCapita": 8973,
+          "qoqGrowth": 0.8
+        },
+        {
+          "quarter": "2005-Q2",
+          "gdpBn": 545.5,
+          "perCapita": 9030,
+          "qoqGrowth": 0.8
+        },
+        {
+          "quarter": "2005-Q3",
+          "gdpBn": 550.6,
+          "perCapita": 9097,
+          "qoqGrowth": 0.9
+        },
+        {
+          "quarter": "2005-Q4",
+          "gdpBn": 556.3,
+          "perCapita": 9177,
+          "qoqGrowth": 1
+        },
+        {
+          "quarter": "2006-Q1",
+          "gdpBn": 558.3,
+          "perCapita": 9194,
+          "qoqGrowth": 0.4
+        },
+        {
+          "quarter": "2006-Q2",
+          "gdpBn": 559.8,
+          "perCapita": 9203,
+          "qoqGrowth": 0.3
+        },
+        {
+          "quarter": "2006-Q3",
+          "gdpBn": 560.7,
+          "perCapita": 9199,
+          "qoqGrowth": 0.2
+        },
+        {
+          "quarter": "2006-Q4",
+          "gdpBn": 562.7,
+          "perCapita": 9213,
+          "qoqGrowth": 0.4
+        },
+        {
+          "quarter": "2007-Q1",
+          "gdpBn": 568.8,
+          "perCapita": 9295,
+          "qoqGrowth": 1.1
+        },
+        {
+          "quarter": "2007-Q2",
+          "gdpBn": 574.2,
+          "perCapita": 9364,
+          "qoqGrowth": 0.9
+        },
+        {
+          "quarter": "2007-Q3",
+          "gdpBn": 579.6,
+          "perCapita": 9433,
+          "qoqGrowth": 0.9
+        },
+        {
+          "quarter": "2007-Q4",
+          "gdpBn": 584.5,
+          "perCapita": 9493,
+          "qoqGrowth": 0.8
+        },
+        {
+          "quarter": "2008-Q1",
+          "gdpBn": 586.7,
+          "perCapita": 9509,
+          "qoqGrowth": 0.4
+        },
+        {
+          "quarter": "2008-Q2",
+          "gdpBn": 583.5,
+          "perCapita": 9439,
+          "qoqGrowth": -0.5
+        },
+        {
+          "quarter": "2008-Q3",
+          "gdpBn": 574,
+          "perCapita": 9267,
+          "qoqGrowth": -1.6
+        },
+        {
+          "quarter": "2008-Q4",
+          "gdpBn": 561.8,
+          "perCapita": 9055,
+          "qoqGrowth": -2.1
+        },
+        {
+          "quarter": "2009-Q1",
+          "gdpBn": 550.5,
+          "perCapita": 8857,
+          "qoqGrowth": -2
+        },
+        {
+          "quarter": "2009-Q2",
+          "gdpBn": 548.9,
+          "perCapita": 8815,
+          "qoqGrowth": -0.3
+        },
+        {
+          "quarter": "2009-Q3",
+          "gdpBn": 549.5,
+          "perCapita": 8809,
+          "qoqGrowth": 0.1
+        },
+        {
+          "quarter": "2009-Q4",
+          "gdpBn": 551.4,
+          "perCapita": 8821,
+          "qoqGrowth": 0.3
+        },
+        {
+          "quarter": "2010-Q1",
+          "gdpBn": 556,
+          "perCapita": 8877,
+          "qoqGrowth": 0.8
+        },
+        {
+          "quarter": "2010-Q2",
+          "gdpBn": 562.4,
+          "perCapita": 8960,
+          "qoqGrowth": 1.1
+        },
+        {
+          "quarter": "2010-Q3",
+          "gdpBn": 565.7,
+          "perCapita": 8994,
+          "qoqGrowth": 0.6
+        },
+        {
+          "quarter": "2010-Q4",
+          "gdpBn": 565.9,
+          "perCapita": 8980,
+          "qoqGrowth": 0.1
+        },
+        {
+          "quarter": "2011-Q1",
+          "gdpBn": 566.9,
+          "perCapita": 8976,
+          "qoqGrowth": 0.2
+        },
+        {
+          "quarter": "2011-Q2",
+          "gdpBn": 566.6,
+          "perCapita": 8953,
+          "qoqGrowth": 0
+        },
+        {
+          "quarter": "2011-Q3",
+          "gdpBn": 567.6,
+          "perCapita": 8954,
+          "qoqGrowth": 0.2
+        },
+        {
+          "quarter": "2011-Q4",
+          "gdpBn": 568.1,
+          "perCapita": 8946,
+          "qoqGrowth": 0.1
+        },
+        {
+          "quarter": "2012-Q1",
+          "gdpBn": 573.4,
+          "perCapita": 9015,
+          "qoqGrowth": 0.9
+        },
+        {
+          "quarter": "2012-Q2",
+          "gdpBn": 573.1,
+          "perCapita": 8995,
+          "qoqGrowth": -0.1
+        },
+        {
+          "quarter": "2012-Q3",
+          "gdpBn": 579.1,
+          "perCapita": 9074,
+          "qoqGrowth": 1
+        },
+        {
+          "quarter": "2012-Q4",
+          "gdpBn": 578.2,
+          "perCapita": 9045,
+          "qoqGrowth": -0.1
+        },
+        {
+          "quarter": "2013-Q1",
+          "gdpBn": 579.7,
+          "perCapita": 9054,
+          "qoqGrowth": 0.3
+        },
+        {
+          "quarter": "2013-Q2",
+          "gdpBn": 583.6,
+          "perCapita": 9099,
+          "qoqGrowth": 0.7
+        },
+        {
+          "quarter": "2013-Q3",
+          "gdpBn": 588.1,
+          "perCapita": 9152,
+          "qoqGrowth": 0.8
+        },
+        {
+          "quarter": "2013-Q4",
+          "gdpBn": 592,
+          "perCapita": 9195,
+          "qoqGrowth": 0.7
+        },
+        {
+          "quarter": "2014-Q1",
+          "gdpBn": 596.7,
+          "perCapita": 9251,
+          "qoqGrowth": 0.8
+        },
+        {
+          "quarter": "2014-Q2",
+          "gdpBn": 602.3,
+          "perCapita": 9321,
+          "qoqGrowth": 0.9
+        },
+        {
+          "quarter": "2014-Q3",
+          "gdpBn": 607.2,
+          "perCapita": 9380,
+          "qoqGrowth": 0.8
+        },
+        {
+          "quarter": "2014-Q4",
+          "gdpBn": 611.2,
+          "perCapita": 9425,
+          "qoqGrowth": 0.7
+        },
+        {
+          "quarter": "2015-Q1",
+          "gdpBn": 613.1,
+          "perCapita": 9436,
+          "qoqGrowth": 0.3
+        },
+        {
+          "quarter": "2015-Q2",
+          "gdpBn": 615.9,
+          "perCapita": 9462,
+          "qoqGrowth": 0.5
+        },
+        {
+          "quarter": "2015-Q3",
+          "gdpBn": 618.3,
+          "perCapita": 9480,
+          "qoqGrowth": 0.4
+        },
+        {
+          "quarter": "2015-Q4",
+          "gdpBn": 622,
+          "perCapita": 9518,
+          "qoqGrowth": 0.6
+        },
+        {
+          "quarter": "2016-Q1",
+          "gdpBn": 625.1,
+          "perCapita": 9547,
+          "qoqGrowth": 0.5
+        },
+        {
+          "quarter": "2016-Q2",
+          "gdpBn": 629.7,
+          "perCapita": 9598,
+          "qoqGrowth": 0.7
+        },
+        {
+          "quarter": "2016-Q3",
+          "gdpBn": 632.5,
+          "perCapita": 9627,
+          "qoqGrowth": 0.4
+        },
+        {
+          "quarter": "2016-Q4",
+          "gdpBn": 636.4,
+          "perCapita": 9674,
+          "qoqGrowth": 0.6
+        },
+        {
+          "quarter": "2017-Q1",
+          "gdpBn": 642.5,
+          "perCapita": 9753,
+          "qoqGrowth": 1
+        },
+        {
+          "quarter": "2017-Q2",
+          "gdpBn": 647.9,
+          "perCapita": 9823,
+          "qoqGrowth": 0.9
+        },
+        {
+          "quarter": "2017-Q3",
+          "gdpBn": 652.3,
+          "perCapita": 9877,
+          "qoqGrowth": 0.7
+        },
+        {
+          "quarter": "2017-Q4",
+          "gdpBn": 657.2,
+          "perCapita": 9939,
+          "qoqGrowth": 0.8
+        },
+        {
+          "quarter": "2018-Q1",
+          "gdpBn": 657.7,
+          "perCapita": 9935,
+          "qoqGrowth": 0.1
+        },
+        {
+          "quarter": "2018-Q2",
+          "gdpBn": 659.2,
+          "perCapita": 9944,
+          "qoqGrowth": 0.2
+        },
+        {
+          "quarter": "2018-Q3",
+          "gdpBn": 661.3,
+          "perCapita": 9963,
+          "qoqGrowth": 0.3
+        },
+        {
+          "quarter": "2018-Q4",
+          "gdpBn": 662.1,
+          "perCapita": 9963,
+          "qoqGrowth": 0.1
+        },
+        {
+          "quarter": "2019-Q1",
+          "gdpBn": 665.5,
+          "perCapita": 10001,
+          "qoqGrowth": 0.5
+        },
+        {
+          "quarter": "2019-Q2",
+          "gdpBn": 666.9,
+          "perCapita": 10009,
+          "qoqGrowth": 0.2
+        },
+        {
+          "quarter": "2019-Q3",
+          "gdpBn": 670.5,
+          "perCapita": 10060,
+          "qoqGrowth": 0.6
+        },
+        {
+          "quarter": "2019-Q4",
+          "gdpBn": 670.6,
+          "perCapita": 10056,
+          "qoqGrowth": 0
+        },
+        {
+          "quarter": "2020-Q1",
+          "gdpBn": 652.2,
+          "perCapita": 9776,
+          "qoqGrowth": -2.7
+        },
+        {
+          "quarter": "2020-Q2",
+          "gdpBn": 522.4,
+          "perCapita": 7827,
+          "qoqGrowth": -19.9
+        },
+        {
+          "quarter": "2020-Q3",
+          "gdpBn": 611,
+          "perCapita": 9146,
+          "qoqGrowth": 17
+        },
+        {
+          "quarter": "2020-Q4",
+          "gdpBn": 619.3,
+          "perCapita": 9263,
+          "qoqGrowth": 1.4
+        },
+        {
+          "quarter": "2021-Q1",
+          "gdpBn": 612.7,
+          "perCapita": 9155,
+          "qoqGrowth": -1.1
+        },
+        {
+          "quarter": "2021-Q2",
+          "gdpBn": 655.4,
+          "perCapita": 9786,
+          "qoqGrowth": 7
+        },
+        {
+          "quarter": "2021-Q3",
+          "gdpBn": 666.5,
+          "perCapita": 9927,
+          "qoqGrowth": 1.7
+        },
+        {
+          "quarter": "2021-Q4",
+          "gdpBn": 675.7,
+          "perCapita": 10039,
+          "qoqGrowth": 1.4
+        },
+        {
+          "quarter": "2022-Q1",
+          "gdpBn": 682.5,
+          "perCapita": 10116,
+          "qoqGrowth": 1
+        },
+        {
+          "quarter": "2022-Q2",
+          "gdpBn": 686.3,
+          "perCapita": 10147,
+          "qoqGrowth": 0.6
+        },
+        {
+          "quarter": "2022-Q3",
+          "gdpBn": 687,
+          "perCapita": 10124,
+          "qoqGrowth": 0.1
+        },
+        {
+          "quarter": "2022-Q4",
+          "gdpBn": 688.8,
+          "perCapita": 10118,
+          "qoqGrowth": 0.3
+        },
+        {
+          "quarter": "2023-Q1",
+          "gdpBn": 689.2,
+          "perCapita": 10090,
+          "qoqGrowth": 0.1
+        },
+        {
+          "quarter": "2023-Q2",
+          "gdpBn": 689.5,
+          "perCapita": 10062,
+          "qoqGrowth": 0
+        },
+        {
+          "quarter": "2023-Q3",
+          "gdpBn": 687.8,
+          "perCapita": 10010,
+          "qoqGrowth": -0.2
+        },
+        {
+          "quarter": "2023-Q4",
+          "gdpBn": 685.6,
+          "perCapita": 9950,
+          "qoqGrowth": -0.3
+        },
+        {
+          "quarter": "2024-Q1",
+          "gdpBn": 691.2,
+          "perCapita": 10004,
+          "qoqGrowth": 0.8
+        },
+        {
+          "quarter": "2024-Q2",
+          "gdpBn": 695.3,
+          "perCapita": 10036,
+          "qoqGrowth": 0.6
+        },
+        {
+          "quarter": "2024-Q3",
+          "gdpBn": 696.9,
+          "perCapita": 10051,
+          "qoqGrowth": 0.2
+        },
+        {
+          "quarter": "2024-Q4",
+          "gdpBn": 698.8,
+          "perCapita": 10071,
+          "qoqGrowth": 0.3
+        },
+        {
+          "quarter": "2025-Q1",
+          "gdpBn": 703.4,
+          "perCapita": 10130,
+          "qoqGrowth": 0.7
+        },
+        {
+          "quarter": "2025-Q2",
+          "gdpBn": 704.8,
+          "perCapita": 10143,
+          "qoqGrowth": 0.2
+        },
+        {
+          "quarter": "2025-Q3",
+          "gdpBn": 705.2,
+          "perCapita": 10135,
+          "qoqGrowth": 0.1
+        },
+        {
+          "quarter": "2025-Q4",
+          "gdpBn": 705.6,
+          "perCapita": 10127,
+          "qoqGrowth": 0.1
+        }
+      ]
+    }
+  }
+}

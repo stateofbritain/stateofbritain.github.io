@@ -9,6 +9,9 @@
         "religion",
         "faith",
         "Christianity",
+        "Christian",
+        "Christians",
+        "percentage",
         "Islam",
         "Muslim",
         "Hindu",
@@ -18,7 +21,9 @@
         "census",
         "culture",
         "secularism",
-        "no religion"
+        "no religion",
+        "church",
+        "worship"
       ],
       "seriesSummaries": [
         "Share of population by religion across three census years. Christian fell from 71.7% (2001) to 46.2% (2021). No religion rose from 14.8% to 37.2%.",
@@ -233,14 +238,19 @@
         "CAA",
         "capacity",
         "runway",
-        "movements"
+        "movements",
+        "commercial flights",
+        "scheduled flights",
+        "how many airports",
+        "plane"
       ],
       "seriesSummaries": [
         "UK airport passengers grew from 228M (2005) to 297M (2019), collapsed to 74M (2020), recovered to 292M (2024).",
         "Flights peaked at 2.35M in 2007, declined post-financial crisis, plateaued at 2.2M (2017-19), collapsed to 812K (2020), recovered to 2.01M (2024) — still 86% of 2007 peak. No major new runway capacity added.",
         "Average passengers per air transport movement rose from 101 (2005) to 145 (2024), reflecting larger aircraft and higher load factors. COVID distorted the metric (2020-21).",
         "Heathrow leads with 84M passengers (29% of UK total). Gatwick 43M, Manchester 31M, Stansted 30M. 49 airports reported traffic.",
-        "Total 2.1M air transport movements in 2024. Heathrow 474k, Gatwick 262k, Stansted 188k."
+        "Total 2.1M air transport movements in 2024. Heathrow 474k, Gatwick 262k, Stansted 188k.",
+        "Geographic coordinates, passenger counts, and movement figures for 47 UK airports. Used for map visualization. Heathrow (51.47N, 0.45W) leads with 84M passengers."
       ]
     },
     {
@@ -726,6 +736,152 @@
         "82% of adult social care providers rated Good or Outstanding in 2024. 16% Requires Improvement, 1% Inadequate.",
         "4.7 million unpaid carers in England (Census 2021). 1.4 million provide 50+ hours per week.",
         "37% of care home residents self-fund, 26% of community care users. Self-funders pay ~40% more than publicly funded clients."
+      ]
+    },
+    {
+      "id": "welfare",
+      "title": "Welfare Spending",
+      "summary": "DWP benefit expenditure by category (children, working age, pensioners) and by individual benefit type (State Pension, housing, disability, incapacity, unemployment, Pension Credit, Carer's Allowance). Covers 1999/00 to 2024/25 outturn plus OBR forecast to 2030/31. Total spending reached £289bn in 2024/25, with pensioner benefits accounting for 57%.",
+      "tags": [
+        "welfare",
+        "benefits",
+        "state pension",
+        "housing benefit",
+        "disability",
+        "incapacity",
+        "unemployment",
+        "universal credit",
+        "pension credit",
+        "carers allowance",
+        "DWP",
+        "OBR",
+        "triple lock"
+      ],
+      "seriesSummaries": [
+        "Total benefit expenditure split by children, working age, and pensioners. Pensioner benefits grew from £67bn in 1999/00 to £165bn in 2024/25. Includes OBR forecast years to 2030/31.",
+        "Annual expenditure on individual benefits. State Pension is largest at £124bn, followed by housing benefits and disability payments. Covers 1999/00 to 2024/25."
+      ]
+    },
+    {
+      "id": "ethnicity",
+      "title": "Ethnicity & Demographics",
+      "summary": "Census ethnicity data across 2001, 2011, and 2021. White British fell from 87.5% (2001) to 74.4% (2021). Asian population grew from 4.4% to 9.3%. Black population grew from 2.2% to 4.0%. Mixed grew from 1.3% to 2.9%. Total population rose from 52.0M to 59.6M.",
+      "tags": [
+        "ethnicity",
+        "ethnic",
+        "race",
+        "demographics",
+        "census",
+        "population",
+        "White British",
+        "Asian",
+        "Black",
+        "Mixed",
+        "Indian",
+        "Pakistani",
+        "Bangladeshi",
+        "Chinese",
+        "African",
+        "Caribbean",
+        "Arab",
+        "Roma",
+        "diversity",
+        "multicultural",
+        "ethnic makeup"
+      ],
+      "seriesSummaries": [
+        "Population share by broad ethnic group (White, Asian, Black, Mixed, Other) across 2001, 2011, and 2021 censuses. White fell from 91.3% to 81.7%, Asian rose from 4.4% to 9.3%.",
+        "All 16 ethnic group categories from Census 2021 with counts and percentages. Largest groups: White British (44.4M, 74.4%), White Other (3.7M, 6.2%), Asian Indian (1.9M, 3.1%)."
+      ]
+    },
+    {
+      "id": "gdp",
+      "title": "Gross Domestic Product (GDP)",
+      "summary": "Quarterly GDP in real terms (chained volume measures), GDP per capita, and quarter-on-quarter growth. Real GDP reached £706bn in 2025 Q4. GDP per capita was £10,127. Quarterly data from 1990 to present.",
+      "tags": [
+        "GDP",
+        "gross domestic product",
+        "economy",
+        "growth",
+        "recession",
+        "per capita",
+        "economic growth",
+        "output",
+        "national income",
+        "living standards",
+        "economic output"
+      ],
+      "seriesSummaries": [
+        "Real GDP (chained volume, £bn), GDP per capita (£), and quarter-on-quarter growth (%). GDP grew from £355bn in 1990-Q1 to £706bn in 2025-Q4. Contracted during 1991, 2008-09, and 2020 recessions."
+      ]
+    },
+    {
+      "id": "exchange-rates",
+      "title": "Sterling Exchange Rates",
+      "summary": "Monthly average GBP/USD and GBP/EUR exchange rates and the Sterling Effective Exchange Rate Index (trade-weighted). GBP/USD fell from 1.62 in Jan 2000 to around 1.29 in 2026. The pound fell sharply after the 2016 EU referendum and during the 2022 mini-budget.",
+      "tags": [
+        "exchange rate",
+        "pound",
+        "sterling",
+        "dollar",
+        "euro",
+        "GBP",
+        "USD",
+        "EUR",
+        "currency",
+        "forex",
+        "devaluation",
+        "strong pound",
+        "weak pound",
+        "Brexit"
+      ],
+      "seriesSummaries": [
+        "GBP/USD, GBP/EUR spot rates and Sterling ERI from Jan 2000. GBP/USD fell from 1.62 (2000) to 1.29 (2026). GBP/EUR fell from 1.61 (2000) to 1.19 (2026). Sterling ERI declined from 107 to 83."
+      ]
+    },
+    {
+      "id": "youth-unemployment",
+      "title": "Youth Unemployment",
+      "summary": "Youth (16-24) unemployment rate and economic inactivity rate from 1992 to present. Unemployment rate was 16.1% in 2025 Q4, with 38.8% economically inactive (mostly in education). Youth unemployment peaked at 22.5% in 2011 during the post-financial crisis recovery.",
+      "tags": [
+        "youth",
+        "unemployment",
+        "young people",
+        "NEET",
+        "16-24",
+        "out of work",
+        "economic inactivity",
+        "education",
+        "employment",
+        "training",
+        "jobs",
+        "teenagers",
+        "students",
+        "school leavers"
+      ],
+      "seriesSummaries": [
+        "Youth unemployment rate peaked at 22.5% in 2011-Q4, fell to 10.5% in 2019-Q4, spiked to 15.3% during COVID, and reached 16.1% in 2025-Q4. Economic inactivity for 16-24s is around 38.8%, mostly due to education participation."
+      ]
+    },
+    {
+      "id": "transport-fares",
+      "title": "Transport Fares",
+      "summary": "Rail and bus & coach fare price indices from ONS CPIH and RPI. Since 2015, bus fares rose 89% (index 188.7) vs rail fares up 45% (index 145.2) vs general inflation of 40% (CPIH 140.0). RPI series goes back to 1987 showing bus fares rose 571% and rail fares 450% since Jan 1987.",
+      "tags": [
+        "rail fares",
+        "bus fares",
+        "transport",
+        "train",
+        "coach",
+        "ticket prices",
+        "fare inflation",
+        "commuting",
+        "public transport",
+        "cost of travel"
+      ],
+      "seriesSummaries": [
+        "Monthly CPIH indices from Jan 2015. Bus fares index reached 188.7 by Feb 2026, rail fares 145.2, overall CPIH 140.0. Bus fares have risen nearly twice as fast as general inflation.",
+        "Monthly RPI indices from Jan 1987. Bus fares reached index 670.7 by Feb 2026, rail fares 550.3. Both far outpaced general RPI inflation over this period."
       ]
     }
   ]
