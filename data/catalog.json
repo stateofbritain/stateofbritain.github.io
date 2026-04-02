@@ -5944,6 +5944,75 @@
       }
     },
     {
+      "id": "unemployment",
+      "title": "Unemployment & Labour Market",
+      "pillar": "growth",
+      "geography": "United Kingdom",
+      "summary": "UK labour market rates from 1992 to present. Unemployment rate 5.2%, employment rate 75.0%, economic inactivity rate 20.8% (latest quarter). Long-term sickness is the fastest-growing reason for inactivity, rising from around 600k in 1993 to over 1 million. 1.88 million people are unemployed.",
+      "tags": [
+        "unemployment",
+        "employment",
+        "inactivity",
+        "jobless",
+        "out of work",
+        "unemployment rate",
+        "labour market",
+        "LFS",
+        "jobs",
+        "economically inactive",
+        "long-term sick",
+        "sickness",
+        "students",
+        "job seekers",
+        "claimant count",
+        "redundancy",
+        "labour force survey"
+      ],
+      "dataFile": "/data/unemployment.json",
+      "series": {
+        "quarterly": {
+          "title": "Labour Market Rates (quarterly)",
+          "summary": "Unemployment rate (16+), employment rate (16-64), and economic inactivity rate (16-64), seasonally adjusted from 1992. Unemployment peaked at 10.7% in 1993 and 8.5% in 2011. Current rate is 5.2%.",
+          "unit": "%",
+          "fields": {
+            "unemploymentRate": {
+              "label": "unemploymentRate"
+            },
+            "employmentRate": {
+              "label": "employmentRate"
+            },
+            "inactivityRate": {
+              "label": "inactivityRate"
+            },
+            "unemployedThousands": {
+              "label": "unemployedThousands"
+            }
+          },
+          "timeRange": {
+            "start": "1992-Q1",
+            "end": "2025-Q4"
+          }
+        },
+        "inactivityReasons": {
+          "title": "Economic Inactivity by Reason",
+          "summary": "Long-term sick and student populations among 16-64 year olds from 1993. Long-term sickness has risen sharply since 2019, while the student population grew substantially from the mid-2000s.",
+          "unit": "thousands",
+          "fields": {
+            "longTermSick": {
+              "label": "longTermSick"
+            },
+            "students": {
+              "label": "students"
+            }
+          },
+          "timeRange": {
+            "start": "1993-Q2",
+            "end": "2025-Q4"
+          }
+        }
+      }
+    },
+    {
       "id": "water",
       "title": "Water Industry",
       "pillar": "foundations",
@@ -6303,6 +6372,7 @@
         "productivity",
         "research",
         "startups",
+        "unemployment",
         "youth-unemployment"
       ],
       "state": [
@@ -7175,7 +7245,8 @@
         "nhs-workforce"
       ],
       "sickness": [
-        "nhs-workforce"
+        "nhs-workforce",
+        "unemployment"
       ],
       "staffing": [
         "nhs-workforce"
@@ -7316,6 +7387,61 @@
       "cost of travel": [
         "transport-fares"
       ],
+      "unemployment": [
+        "unemployment",
+        "welfare",
+        "youth-unemployment"
+      ],
+      "employment": [
+        "unemployment",
+        "workforce",
+        "youth-unemployment"
+      ],
+      "inactivity": [
+        "unemployment"
+      ],
+      "jobless": [
+        "unemployment"
+      ],
+      "out of work": [
+        "unemployment",
+        "youth-unemployment"
+      ],
+      "unemployment rate": [
+        "unemployment"
+      ],
+      "labour market": [
+        "unemployment"
+      ],
+      "LFS": [
+        "unemployment"
+      ],
+      "jobs": [
+        "unemployment",
+        "youth-unemployment"
+      ],
+      "economically inactive": [
+        "unemployment"
+      ],
+      "long-term sick": [
+        "unemployment"
+      ],
+      "students": [
+        "unemployment",
+        "youth-unemployment"
+      ],
+      "job seekers": [
+        "unemployment"
+      ],
+      "claimant count": [
+        "unemployment"
+      ],
+      "redundancy": [
+        "unemployment"
+      ],
+      "labour force survey": [
+        "unemployment"
+      ],
       "water": [
         "water"
       ],
@@ -7346,10 +7472,6 @@
       "incapacity": [
         "welfare"
       ],
-      "unemployment": [
-        "welfare",
-        "youth-unemployment"
-      ],
       "universal credit": [
         "welfare"
       ],
@@ -7371,10 +7493,6 @@
       "NHS staff": [
         "workforce"
       ],
-      "employment": [
-        "workforce",
-        "youth-unemployment"
-      ],
       "youth": [
         "youth-unemployment"
       ],
@@ -7387,19 +7505,10 @@
       "16-24": [
         "youth-unemployment"
       ],
-      "out of work": [
-        "youth-unemployment"
-      ],
       "economic inactivity": [
         "youth-unemployment"
       ],
-      "jobs": [
-        "youth-unemployment"
-      ],
       "teenagers": [
-        "youth-unemployment"
-      ],
-      "students": [
         "youth-unemployment"
       ],
       "school leavers": [

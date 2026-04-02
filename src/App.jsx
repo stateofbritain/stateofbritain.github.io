@@ -55,6 +55,7 @@ import JobsNature from "./pillars/growth/JobsNature";
 import JobsSkills from "./pillars/growth/JobsSkills";
 import JobsSectors from "./pillars/growth/JobsSectors";
 import JobsEarnings from "./pillars/growth/JobsEarnings";
+import Unemployment from "./pillars/growth/Unemployment";
 import Justice from "./pillars/state/Justice";
 import DefenceSpending from "./pillars/state/DefenceSpending";
 import DefencePersonnel from "./pillars/state/DefencePersonnel";
@@ -107,6 +108,7 @@ const TOPIC_COMPONENTS = {
   "foundations/socialCare/children": ChildrensSocialCare,
   "foundations/socialCare/adults": AdultSocialCare,
   "growth/jobs/overview": JobsOverview,
+  "growth/jobs/unemployment": Unemployment,
   "growth/jobs/nature": JobsNature,
   "growth/jobs/skills": JobsSkills,
   "growth/jobs/sectors": JobsSectors,

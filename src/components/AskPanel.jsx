@@ -27,6 +27,7 @@ const DATASET_ROUTES = {
   "childrens-social-care": { path: "/foundations/socialCare/children", label: "Children's Social Care" },
   "adult-social-care": { path: "/foundations/socialCare/adults", label: "Adult Social Care" },
   "jobs": { path: "/growth/jobs/overview", label: "Jobs & Employment" },
+  "unemployment": { path: "/growth/jobs/unemployment", label: "Unemployment" },
   "startups": { path: "/growth/startups", label: "Startups" },
   "research": { path: "/growth/research", label: "Research & Development" },
   "productivity": { path: "/growth/productivity", label: "Productivity" },
@@ -453,7 +454,8 @@ export default function AskPanel({ open, onClose, isMobile }) {
           }}
         >
           Answers are AI-generated from official statistics. Always verify
-          important claims against the source data.
+          important claims against the source data. Questions and answers are
+          recorded anonymously to improve the site's data coverage.
         </div>
       </div>
 

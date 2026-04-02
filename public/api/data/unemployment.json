@@ -1,0 +1,1666 @@
+{
+  "$schema": "sob-dataset-v1",
+  "id": "unemployment",
+  "pillar": "growth",
+  "topic": "employment",
+  "generated": "2026-04-02",
+  "sources": [
+    {
+      "id": "ons-lfs-unemployment",
+      "name": "ONS Labour Force Survey",
+      "url": "https://www.ons.gov.uk/employmentandlabourmarket/peoplenotinwork/unemployment",
+      "publisher": "Office for National Statistics",
+      "note": "Seasonally adjusted, rolling three-month average. UK."
+    }
+  ],
+  "snapshot": {
+    "latestQuarter": "2025-Q4",
+    "unemploymentRate": 5.2,
+    "employmentRate": 75,
+    "inactivityRate": 20.8,
+    "unemployedThousands": 1883
+  },
+  "series": {
+    "quarterly": {
+      "sourceId": "ons-lfs-unemployment",
+      "label": "UK Labour Market",
+      "unit": "% / thousands",
+      "timeField": "quarter",
+      "description": "Unemployment rate (16+), employment rate (16-64), economic inactivity rate (16-64), and unemployed level (16+, thousands). All seasonally adjusted, quarterly.",
+      "methodologyBreaks": [
+        {
+          "at": "2020-Q1",
+          "label": "COVID-19 impact",
+          "description": "Labour Force Survey response rates fell sharply from March 2020, affecting headline estimates. ONS introduced weighting adjustments but advises caution interpreting levels during 2020-2021.",
+          "severity": "major"
+        }
+      ],
+      "data": [
+        {
+          "quarter": "1992-Q1",
+          "unemploymentRate": 9.7,
+          "employmentRate": 69.4,
+          "inactivityRate": 23.1,
+          "unemployedThousands": 2762
+        },
+        {
+          "quarter": "1992-Q2",
+          "unemploymentRate": 9.8,
+          "employmentRate": 69.1,
+          "inactivityRate": 23.3,
+          "unemployedThousands": 2777
+        },
+        {
+          "quarter": "1992-Q3",
+          "unemploymentRate": 9.9,
+          "employmentRate": 68.9,
+          "inactivityRate": 23.4,
+          "unemployedThousands": 2815
+        },
+        {
+          "quarter": "1992-Q4",
+          "unemploymentRate": 10.4,
+          "employmentRate": 68.5,
+          "inactivityRate": 23.5,
+          "unemployedThousands": 2932
+        },
+        {
+          "quarter": "1993-Q1",
+          "unemploymentRate": 10.6,
+          "employmentRate": 68.4,
+          "inactivityRate": 23.4,
+          "unemployedThousands": 3004
+        },
+        {
+          "quarter": "1993-Q2",
+          "unemploymentRate": 10.4,
+          "employmentRate": 68.4,
+          "inactivityRate": 23.6,
+          "unemployedThousands": 2931
+        },
+        {
+          "quarter": "1993-Q3",
+          "unemploymentRate": 10.2,
+          "employmentRate": 68.5,
+          "inactivityRate": 23.6,
+          "unemployedThousands": 2890
+        },
+        {
+          "quarter": "1993-Q4",
+          "unemploymentRate": 10.3,
+          "employmentRate": 68.5,
+          "inactivityRate": 23.6,
+          "unemployedThousands": 2892
+        },
+        {
+          "quarter": "1994-Q1",
+          "unemploymentRate": 9.9,
+          "employmentRate": 68.7,
+          "inactivityRate": 23.6,
+          "unemployedThousands": 2806
+        },
+        {
+          "quarter": "1994-Q2",
+          "unemploymentRate": 9.7,
+          "employmentRate": 68.8,
+          "inactivityRate": 23.7,
+          "unemployedThousands": 2736
+        },
+        {
+          "quarter": "1994-Q3",
+          "unemploymentRate": 9.4,
+          "employmentRate": 69,
+          "inactivityRate": 23.7,
+          "unemployedThousands": 2639
+        },
+        {
+          "quarter": "1994-Q4",
+          "unemploymentRate": 9,
+          "employmentRate": 69.1,
+          "inactivityRate": 24.1,
+          "unemployedThousands": 2521
+        },
+        {
+          "quarter": "1995-Q1",
+          "unemploymentRate": 8.9,
+          "employmentRate": 69.2,
+          "inactivityRate": 24,
+          "unemployedThousands": 2497
+        },
+        {
+          "quarter": "1995-Q2",
+          "unemploymentRate": 8.7,
+          "employmentRate": 69.4,
+          "inactivityRate": 23.9,
+          "unemployedThousands": 2445
+        },
+        {
+          "quarter": "1995-Q3",
+          "unemploymentRate": 8.6,
+          "employmentRate": 69.6,
+          "inactivityRate": 23.7,
+          "unemployedThousands": 2447
+        },
+        {
+          "quarter": "1995-Q4",
+          "unemploymentRate": 8.3,
+          "employmentRate": 69.9,
+          "inactivityRate": 23.7,
+          "unemployedThousands": 2353
+        },
+        {
+          "quarter": "1996-Q1",
+          "unemploymentRate": 8.2,
+          "employmentRate": 69.9,
+          "inactivityRate": 23.8,
+          "unemployedThousands": 2330
+        },
+        {
+          "quarter": "1996-Q2",
+          "unemploymentRate": 8.3,
+          "employmentRate": 69.9,
+          "inactivityRate": 23.7,
+          "unemployedThousands": 2340
+        },
+        {
+          "quarter": "1996-Q3",
+          "unemploymentRate": 8.1,
+          "employmentRate": 70,
+          "inactivityRate": 23.8,
+          "unemployedThousands": 2285
+        },
+        {
+          "quarter": "1996-Q4",
+          "unemploymentRate": 7.8,
+          "employmentRate": 70.3,
+          "inactivityRate": 23.6,
+          "unemployedThousands": 2229
+        },
+        {
+          "quarter": "1997-Q1",
+          "unemploymentRate": 7.3,
+          "employmentRate": 70.8,
+          "inactivityRate": 23.6,
+          "unemployedThousands": 2085
+        },
+        {
+          "quarter": "1997-Q2",
+          "unemploymentRate": 7.2,
+          "employmentRate": 71,
+          "inactivityRate": 23.4,
+          "unemployedThousands": 2051
+        },
+        {
+          "quarter": "1997-Q3",
+          "unemploymentRate": 6.8,
+          "employmentRate": 71.1,
+          "inactivityRate": 23.6,
+          "unemployedThousands": 1951
+        },
+        {
+          "quarter": "1997-Q4",
+          "unemploymentRate": 6.5,
+          "employmentRate": 71.2,
+          "inactivityRate": 23.8,
+          "unemployedThousands": 1864
+        },
+        {
+          "quarter": "1998-Q1",
+          "unemploymentRate": 6.4,
+          "employmentRate": 71.3,
+          "inactivityRate": 23.8,
+          "unemployedThousands": 1813
+        },
+        {
+          "quarter": "1998-Q2",
+          "unemploymentRate": 6.3,
+          "employmentRate": 71.3,
+          "inactivityRate": 23.9,
+          "unemployedThousands": 1791
+        },
+        {
+          "quarter": "1998-Q3",
+          "unemploymentRate": 6.2,
+          "employmentRate": 71.6,
+          "inactivityRate": 23.6,
+          "unemployedThousands": 1786
+        },
+        {
+          "quarter": "1998-Q4",
+          "unemploymentRate": 6.1,
+          "employmentRate": 71.8,
+          "inactivityRate": 23.5,
+          "unemployedThousands": 1764
+        },
+        {
+          "quarter": "1999-Q1",
+          "unemploymentRate": 6.2,
+          "employmentRate": 71.9,
+          "inactivityRate": 23.4,
+          "unemployedThousands": 1780
+        },
+        {
+          "quarter": "1999-Q2",
+          "unemploymentRate": 6,
+          "employmentRate": 71.9,
+          "inactivityRate": 23.4,
+          "unemployedThousands": 1743
+        },
+        {
+          "quarter": "1999-Q3",
+          "unemploymentRate": 5.9,
+          "employmentRate": 72.1,
+          "inactivityRate": 23.3,
+          "unemployedThousands": 1702
+        },
+        {
+          "quarter": "1999-Q4",
+          "unemploymentRate": 5.8,
+          "employmentRate": 72.3,
+          "inactivityRate": 23.2,
+          "unemployedThousands": 1684
+        },
+        {
+          "quarter": "2000-Q1",
+          "unemploymentRate": 5.8,
+          "employmentRate": 72.3,
+          "inactivityRate": 23.2,
+          "unemployedThousands": 1682
+        },
+        {
+          "quarter": "2000-Q2",
+          "unemploymentRate": 5.5,
+          "employmentRate": 72.5,
+          "inactivityRate": 23.3,
+          "unemployedThousands": 1599
+        },
+        {
+          "quarter": "2000-Q3",
+          "unemploymentRate": 5.3,
+          "employmentRate": 72.6,
+          "inactivityRate": 23.2,
+          "unemployedThousands": 1548
+        },
+        {
+          "quarter": "2000-Q4",
+          "unemploymentRate": 5.2,
+          "employmentRate": 72.5,
+          "inactivityRate": 23.5,
+          "unemployedThousands": 1520
+        },
+        {
+          "quarter": "2001-Q1",
+          "unemploymentRate": 5.1,
+          "employmentRate": 72.6,
+          "inactivityRate": 23.4,
+          "unemployedThousands": 1481
+        },
+        {
+          "quarter": "2001-Q2",
+          "unemploymentRate": 5,
+          "employmentRate": 72.7,
+          "inactivityRate": 23.4,
+          "unemployedThousands": 1468
+        },
+        {
+          "quarter": "2001-Q3",
+          "unemploymentRate": 5.1,
+          "employmentRate": 72.5,
+          "inactivityRate": 23.5,
+          "unemployedThousands": 1487
+        },
+        {
+          "quarter": "2001-Q4",
+          "unemploymentRate": 5.2,
+          "employmentRate": 72.6,
+          "inactivityRate": 23.4,
+          "unemployedThousands": 1520
+        },
+        {
+          "quarter": "2002-Q1",
+          "unemploymentRate": 5.2,
+          "employmentRate": 72.5,
+          "inactivityRate": 23.6,
+          "unemployedThousands": 1515
+        },
+        {
+          "quarter": "2002-Q2",
+          "unemploymentRate": 5.2,
+          "employmentRate": 72.7,
+          "inactivityRate": 23.3,
+          "unemployedThousands": 1520
+        },
+        {
+          "quarter": "2002-Q3",
+          "unemploymentRate": 5.3,
+          "employmentRate": 72.6,
+          "inactivityRate": 23.3,
+          "unemployedThousands": 1566
+        },
+        {
+          "quarter": "2002-Q4",
+          "unemploymentRate": 5.1,
+          "employmentRate": 72.9,
+          "inactivityRate": 23.2,
+          "unemployedThousands": 1516
+        },
+        {
+          "quarter": "2003-Q1",
+          "unemploymentRate": 5.2,
+          "employmentRate": 72.7,
+          "inactivityRate": 23.3,
+          "unemployedThousands": 1531
+        },
+        {
+          "quarter": "2003-Q2",
+          "unemploymentRate": 4.9,
+          "employmentRate": 72.9,
+          "inactivityRate": 23.3,
+          "unemployedThousands": 1467
+        },
+        {
+          "quarter": "2003-Q3",
+          "unemploymentRate": 5,
+          "employmentRate": 72.8,
+          "inactivityRate": 23.3,
+          "unemployedThousands": 1502
+        },
+        {
+          "quarter": "2003-Q4",
+          "unemploymentRate": 4.9,
+          "employmentRate": 72.8,
+          "inactivityRate": 23.5,
+          "unemployedThousands": 1457
+        },
+        {
+          "quarter": "2004-Q1",
+          "unemploymentRate": 4.8,
+          "employmentRate": 73,
+          "inactivityRate": 23.2,
+          "unemployedThousands": 1434
+        },
+        {
+          "quarter": "2004-Q2",
+          "unemploymentRate": 4.8,
+          "employmentRate": 72.9,
+          "inactivityRate": 23.4,
+          "unemployedThousands": 1437
+        },
+        {
+          "quarter": "2004-Q3",
+          "unemploymentRate": 4.7,
+          "employmentRate": 72.9,
+          "inactivityRate": 23.5,
+          "unemployedThousands": 1401
+        },
+        {
+          "quarter": "2004-Q4",
+          "unemploymentRate": 4.7,
+          "employmentRate": 73,
+          "inactivityRate": 23.3,
+          "unemployedThousands": 1423
+        },
+        {
+          "quarter": "2005-Q1",
+          "unemploymentRate": 4.7,
+          "employmentRate": 73.1,
+          "inactivityRate": 23.3,
+          "unemployedThousands": 1416
+        },
+        {
+          "quarter": "2005-Q2",
+          "unemploymentRate": 4.8,
+          "employmentRate": 72.9,
+          "inactivityRate": 23.4,
+          "unemployedThousands": 1437
+        },
+        {
+          "quarter": "2005-Q3",
+          "unemploymentRate": 4.7,
+          "employmentRate": 73,
+          "inactivityRate": 23.3,
+          "unemployedThousands": 1437
+        },
+        {
+          "quarter": "2005-Q4",
+          "unemploymentRate": 5.1,
+          "employmentRate": 72.7,
+          "inactivityRate": 23.3,
+          "unemployedThousands": 1567
+        },
+        {
+          "quarter": "2006-Q1",
+          "unemploymentRate": 5.2,
+          "employmentRate": 72.9,
+          "inactivityRate": 23,
+          "unemployedThousands": 1604
+        },
+        {
+          "quarter": "2006-Q2",
+          "unemploymentRate": 5.5,
+          "employmentRate": 72.8,
+          "inactivityRate": 22.9,
+          "unemployedThousands": 1685
+        },
+        {
+          "quarter": "2006-Q3",
+          "unemploymentRate": 5.5,
+          "employmentRate": 72.8,
+          "inactivityRate": 22.9,
+          "unemployedThousands": 1693
+        },
+        {
+          "quarter": "2006-Q4",
+          "unemploymentRate": 5.5,
+          "employmentRate": 72.7,
+          "inactivityRate": 23,
+          "unemployedThousands": 1701
+        },
+        {
+          "quarter": "2007-Q1",
+          "unemploymentRate": 5.5,
+          "employmentRate": 72.5,
+          "inactivityRate": 23.2,
+          "unemployedThousands": 1704
+        },
+        {
+          "quarter": "2007-Q2",
+          "unemploymentRate": 5.4,
+          "employmentRate": 72.7,
+          "inactivityRate": 23.2,
+          "unemployedThousands": 1658
+        },
+        {
+          "quarter": "2007-Q3",
+          "unemploymentRate": 5.3,
+          "employmentRate": 72.7,
+          "inactivityRate": 23.2,
+          "unemployedThousands": 1650
+        },
+        {
+          "quarter": "2007-Q4",
+          "unemploymentRate": 5.2,
+          "employmentRate": 72.9,
+          "inactivityRate": 23.1,
+          "unemployedThousands": 1608
+        },
+        {
+          "quarter": "2008-Q1",
+          "unemploymentRate": 5.2,
+          "employmentRate": 73,
+          "inactivityRate": 23,
+          "unemployedThousands": 1622
+        },
+        {
+          "quarter": "2008-Q2",
+          "unemploymentRate": 5.4,
+          "employmentRate": 72.9,
+          "inactivityRate": 22.9,
+          "unemployedThousands": 1680
+        },
+        {
+          "quarter": "2008-Q3",
+          "unemploymentRate": 5.9,
+          "employmentRate": 72.4,
+          "inactivityRate": 23,
+          "unemployedThousands": 1840
+        },
+        {
+          "quarter": "2008-Q4",
+          "unemploymentRate": 6.4,
+          "employmentRate": 72.2,
+          "inactivityRate": 22.9,
+          "unemployedThousands": 2003
+        },
+        {
+          "quarter": "2009-Q1",
+          "unemploymentRate": 7.1,
+          "employmentRate": 71.7,
+          "inactivityRate": 22.8,
+          "unemployedThousands": 2235
+        },
+        {
+          "quarter": "2009-Q2",
+          "unemploymentRate": 7.8,
+          "employmentRate": 70.8,
+          "inactivityRate": 23.1,
+          "unemployedThousands": 2448
+        },
+        {
+          "quarter": "2009-Q3",
+          "unemploymentRate": 7.8,
+          "employmentRate": 70.6,
+          "inactivityRate": 23.3,
+          "unemployedThousands": 2475
+        },
+        {
+          "quarter": "2009-Q4",
+          "unemploymentRate": 7.8,
+          "employmentRate": 70.6,
+          "inactivityRate": 23.4,
+          "unemployedThousands": 2453
+        },
+        {
+          "quarter": "2010-Q1",
+          "unemploymentRate": 8,
+          "employmentRate": 70.2,
+          "inactivityRate": 23.6,
+          "unemployedThousands": 2526
+        },
+        {
+          "quarter": "2010-Q2",
+          "unemploymentRate": 7.9,
+          "employmentRate": 70.4,
+          "inactivityRate": 23.5,
+          "unemployedThousands": 2488
+        },
+        {
+          "quarter": "2010-Q3",
+          "unemploymentRate": 7.8,
+          "employmentRate": 70.7,
+          "inactivityRate": 23.2,
+          "unemployedThousands": 2470
+        },
+        {
+          "quarter": "2010-Q4",
+          "unemploymentRate": 7.9,
+          "employmentRate": 70.4,
+          "inactivityRate": 23.5,
+          "unemployedThousands": 2503
+        },
+        {
+          "quarter": "2011-Q1",
+          "unemploymentRate": 7.8,
+          "employmentRate": 70.5,
+          "inactivityRate": 23.4,
+          "unemployedThousands": 2483
+        },
+        {
+          "quarter": "2011-Q2",
+          "unemploymentRate": 7.9,
+          "employmentRate": 70.5,
+          "inactivityRate": 23.3,
+          "unemployedThousands": 2540
+        },
+        {
+          "quarter": "2011-Q3",
+          "unemploymentRate": 8.3,
+          "employmentRate": 70.1,
+          "inactivityRate": 23.4,
+          "unemployedThousands": 2661
+        },
+        {
+          "quarter": "2011-Q4",
+          "unemploymentRate": 8.4,
+          "employmentRate": 70.2,
+          "inactivityRate": 23.2,
+          "unemployedThousands": 2688
+        },
+        {
+          "quarter": "2012-Q1",
+          "unemploymentRate": 8.2,
+          "employmentRate": 70.5,
+          "inactivityRate": 23.1,
+          "unemployedThousands": 2633
+        },
+        {
+          "quarter": "2012-Q2",
+          "unemploymentRate": 8,
+          "employmentRate": 70.9,
+          "inactivityRate": 22.8,
+          "unemployedThousands": 2575
+        },
+        {
+          "quarter": "2012-Q3",
+          "unemploymentRate": 7.8,
+          "employmentRate": 71.1,
+          "inactivityRate": 22.7,
+          "unemployedThousands": 2537
+        },
+        {
+          "quarter": "2012-Q4",
+          "unemploymentRate": 7.8,
+          "employmentRate": 71.4,
+          "inactivityRate": 22.4,
+          "unemployedThousands": 2534
+        },
+        {
+          "quarter": "2013-Q1",
+          "unemploymentRate": 7.8,
+          "employmentRate": 71.2,
+          "inactivityRate": 22.6,
+          "unemployedThousands": 2540
+        },
+        {
+          "quarter": "2013-Q2",
+          "unemploymentRate": 7.7,
+          "employmentRate": 71.3,
+          "inactivityRate": 22.5,
+          "unemployedThousands": 2515
+        },
+        {
+          "quarter": "2013-Q3",
+          "unemploymentRate": 7.6,
+          "employmentRate": 71.6,
+          "inactivityRate": 22.3,
+          "unemployedThousands": 2483
+        },
+        {
+          "quarter": "2013-Q4",
+          "unemploymentRate": 7.2,
+          "employmentRate": 72,
+          "inactivityRate": 22.3,
+          "unemployedThousands": 2358
+        },
+        {
+          "quarter": "2014-Q1",
+          "unemploymentRate": 6.7,
+          "employmentRate": 72.5,
+          "inactivityRate": 22.2,
+          "unemployedThousands": 2212
+        },
+        {
+          "quarter": "2014-Q2",
+          "unemploymentRate": 6.3,
+          "employmentRate": 72.8,
+          "inactivityRate": 22.2,
+          "unemployedThousands": 2061
+        },
+        {
+          "quarter": "2014-Q3",
+          "unemploymentRate": 6,
+          "employmentRate": 73,
+          "inactivityRate": 22.2,
+          "unemployedThousands": 1962
+        },
+        {
+          "quarter": "2014-Q4",
+          "unemploymentRate": 5.7,
+          "employmentRate": 73.2,
+          "inactivityRate": 22.3,
+          "unemployedThousands": 1870
+        },
+        {
+          "quarter": "2015-Q1",
+          "unemploymentRate": 5.5,
+          "employmentRate": 73.4,
+          "inactivityRate": 22.2,
+          "unemployedThousands": 1826
+        },
+        {
+          "quarter": "2015-Q2",
+          "unemploymentRate": 5.6,
+          "employmentRate": 73.4,
+          "inactivityRate": 22.2,
+          "unemployedThousands": 1848
+        },
+        {
+          "quarter": "2015-Q3",
+          "unemploymentRate": 5.3,
+          "employmentRate": 73.7,
+          "inactivityRate": 22,
+          "unemployedThousands": 1760
+        },
+        {
+          "quarter": "2015-Q4",
+          "unemploymentRate": 5.1,
+          "employmentRate": 74.1,
+          "inactivityRate": 21.9,
+          "unemployedThousands": 1688
+        },
+        {
+          "quarter": "2016-Q1",
+          "unemploymentRate": 5.1,
+          "employmentRate": 74.1,
+          "inactivityRate": 21.9,
+          "unemployedThousands": 1688
+        },
+        {
+          "quarter": "2016-Q2",
+          "unemploymentRate": 4.9,
+          "employmentRate": 74.4,
+          "inactivityRate": 21.7,
+          "unemployedThousands": 1645
+        },
+        {
+          "quarter": "2016-Q3",
+          "unemploymentRate": 4.8,
+          "employmentRate": 74.4,
+          "inactivityRate": 21.7,
+          "unemployedThousands": 1619
+        },
+        {
+          "quarter": "2016-Q4",
+          "unemploymentRate": 4.7,
+          "employmentRate": 74.5,
+          "inactivityRate": 21.7,
+          "unemployedThousands": 1587
+        },
+        {
+          "quarter": "2017-Q1",
+          "unemploymentRate": 4.6,
+          "employmentRate": 74.7,
+          "inactivityRate": 21.6,
+          "unemployedThousands": 1530
+        },
+        {
+          "quarter": "2017-Q2",
+          "unemploymentRate": 4.4,
+          "employmentRate": 75,
+          "inactivityRate": 21.4,
+          "unemployedThousands": 1488
+        },
+        {
+          "quarter": "2017-Q3",
+          "unemploymentRate": 4.3,
+          "employmentRate": 74.9,
+          "inactivityRate": 21.7,
+          "unemployedThousands": 1432
+        },
+        {
+          "quarter": "2017-Q4",
+          "unemploymentRate": 4.4,
+          "employmentRate": 75.1,
+          "inactivityRate": 21.4,
+          "unemployedThousands": 1467
+        },
+        {
+          "quarter": "2018-Q1",
+          "unemploymentRate": 4.2,
+          "employmentRate": 75.5,
+          "inactivityRate": 21.2,
+          "unemployedThousands": 1422
+        },
+        {
+          "quarter": "2018-Q2",
+          "unemploymentRate": 4,
+          "employmentRate": 75.4,
+          "inactivityRate": 21.3,
+          "unemployedThousands": 1367
+        },
+        {
+          "quarter": "2018-Q3",
+          "unemploymentRate": 4.1,
+          "employmentRate": 75.4,
+          "inactivityRate": 21.3,
+          "unemployedThousands": 1382
+        },
+        {
+          "quarter": "2018-Q4",
+          "unemploymentRate": 4,
+          "employmentRate": 75.7,
+          "inactivityRate": 21.1,
+          "unemployedThousands": 1369
+        },
+        {
+          "quarter": "2019-Q1",
+          "unemploymentRate": 3.8,
+          "employmentRate": 75.9,
+          "inactivityRate": 21,
+          "unemployedThousands": 1304
+        },
+        {
+          "quarter": "2019-Q2",
+          "unemploymentRate": 3.9,
+          "employmentRate": 76.1,
+          "inactivityRate": 20.7,
+          "unemployedThousands": 1332
+        },
+        {
+          "quarter": "2019-Q3",
+          "unemploymentRate": 3.9,
+          "employmentRate": 76,
+          "inactivityRate": 20.8,
+          "unemployedThousands": 1325
+        },
+        {
+          "quarter": "2019-Q4",
+          "unemploymentRate": 3.7,
+          "employmentRate": 76.4,
+          "inactivityRate": 20.6,
+          "unemployedThousands": 1283
+        },
+        {
+          "quarter": "2020-Q1",
+          "unemploymentRate": 4.1,
+          "employmentRate": 75.9,
+          "inactivityRate": 20.7,
+          "unemployedThousands": 1411
+        },
+        {
+          "quarter": "2020-Q2",
+          "unemploymentRate": 4.1,
+          "employmentRate": 75.4,
+          "inactivityRate": 21.3,
+          "unemployedThousands": 1390
+        },
+        {
+          "quarter": "2020-Q3",
+          "unemploymentRate": 5,
+          "employmentRate": 74.6,
+          "inactivityRate": 21.4,
+          "unemployedThousands": 1688
+        },
+        {
+          "quarter": "2020-Q4",
+          "unemploymentRate": 5.3,
+          "employmentRate": 74.3,
+          "inactivityRate": 21.5,
+          "unemployedThousands": 1791
+        },
+        {
+          "quarter": "2021-Q1",
+          "unemploymentRate": 4.9,
+          "employmentRate": 74.4,
+          "inactivityRate": 21.7,
+          "unemployedThousands": 1667
+        },
+        {
+          "quarter": "2021-Q2",
+          "unemploymentRate": 4.7,
+          "employmentRate": 74.7,
+          "inactivityRate": 21.6,
+          "unemployedThousands": 1589
+        },
+        {
+          "quarter": "2021-Q3",
+          "unemploymentRate": 4.4,
+          "employmentRate": 75,
+          "inactivityRate": 21.4,
+          "unemployedThousands": 1497
+        },
+        {
+          "quarter": "2021-Q4",
+          "unemploymentRate": 4.2,
+          "employmentRate": 75.1,
+          "inactivityRate": 21.6,
+          "unemployedThousands": 1426
+        },
+        {
+          "quarter": "2022-Q1",
+          "unemploymentRate": 3.8,
+          "employmentRate": 75.1,
+          "inactivityRate": 21.9,
+          "unemployedThousands": 1292
+        },
+        {
+          "quarter": "2022-Q2",
+          "unemploymentRate": 3.8,
+          "employmentRate": 75.1,
+          "inactivityRate": 21.9,
+          "unemployedThousands": 1298
+        },
+        {
+          "quarter": "2022-Q3",
+          "unemploymentRate": 3.7,
+          "employmentRate": 75,
+          "inactivityRate": 22.1,
+          "unemployedThousands": 1275
+        },
+        {
+          "quarter": "2022-Q4",
+          "unemploymentRate": 3.9,
+          "employmentRate": 75.1,
+          "inactivityRate": 21.7,
+          "unemployedThousands": 1350
+        },
+        {
+          "quarter": "2023-Q1",
+          "unemploymentRate": 4,
+          "employmentRate": 75.3,
+          "inactivityRate": 21.5,
+          "unemployedThousands": 1389
+        },
+        {
+          "quarter": "2023-Q2",
+          "unemploymentRate": 4.2,
+          "employmentRate": 75.2,
+          "inactivityRate": 21.4,
+          "unemployedThousands": 1472
+        },
+        {
+          "quarter": "2023-Q3",
+          "unemploymentRate": 4.1,
+          "employmentRate": 74.9,
+          "inactivityRate": 21.8,
+          "unemployedThousands": 1428
+        },
+        {
+          "quarter": "2023-Q4",
+          "unemploymentRate": 3.9,
+          "employmentRate": 74.9,
+          "inactivityRate": 22.1,
+          "unemployedThousands": 1339
+        },
+        {
+          "quarter": "2024-Q1",
+          "unemploymentRate": 4.3,
+          "employmentRate": 74.5,
+          "inactivityRate": 22.1,
+          "unemployedThousands": 1513
+        },
+        {
+          "quarter": "2024-Q2",
+          "unemploymentRate": 4.2,
+          "employmentRate": 74.6,
+          "inactivityRate": 22.1,
+          "unemployedThousands": 1467
+        },
+        {
+          "quarter": "2024-Q3",
+          "unemploymentRate": 4.3,
+          "employmentRate": 74.9,
+          "inactivityRate": 21.6,
+          "unemployedThousands": 1507
+        },
+        {
+          "quarter": "2024-Q4",
+          "unemploymentRate": 4.4,
+          "employmentRate": 75,
+          "inactivityRate": 21.5,
+          "unemployedThousands": 1552
+        },
+        {
+          "quarter": "2025-Q1",
+          "unemploymentRate": 4.5,
+          "employmentRate": 75,
+          "inactivityRate": 21.4,
+          "unemployedThousands": 1614
+        },
+        {
+          "quarter": "2025-Q2",
+          "unemploymentRate": 4.7,
+          "employmentRate": 75.3,
+          "inactivityRate": 21,
+          "unemployedThousands": 1672
+        },
+        {
+          "quarter": "2025-Q3",
+          "unemploymentRate": 5,
+          "employmentRate": 75,
+          "inactivityRate": 21,
+          "unemployedThousands": 1789
+        },
+        {
+          "quarter": "2025-Q4",
+          "unemploymentRate": 5.2,
+          "employmentRate": 75,
+          "inactivityRate": 20.8,
+          "unemployedThousands": 1883
+        }
+      ]
+    },
+    "inactivityReasons": {
+      "sourceId": "ons-lfs-unemployment",
+      "label": "Economic Inactivity Reasons",
+      "unit": "thousands",
+      "timeField": "quarter",
+      "description": "Long-term sick and students as reasons for economic inactivity (16-64), seasonally adjusted, quarterly, in thousands.",
+      "methodologyBreaks": [
+        {
+          "at": "2020-Q1",
+          "label": "COVID-19 impact",
+          "description": "Labour Force Survey response rates fell sharply from March 2020, affecting headline estimates. ONS introduced weighting adjustments but advises caution interpreting levels during 2020-2021.",
+          "severity": "major"
+        }
+      ],
+      "data": [
+        {
+          "quarter": "1993-Q2",
+          "longTermSick": 1834,
+          "students": 1441
+        },
+        {
+          "quarter": "1993-Q3",
+          "longTermSick": 1884,
+          "students": 1455
+        },
+        {
+          "quarter": "1993-Q4",
+          "longTermSick": 1930,
+          "students": 1428
+        },
+        {
+          "quarter": "1994-Q1",
+          "longTermSick": 1911,
+          "students": 1436
+        },
+        {
+          "quarter": "1994-Q2",
+          "longTermSick": 1952,
+          "students": 1481
+        },
+        {
+          "quarter": "1994-Q3",
+          "longTermSick": 1971,
+          "students": 1475
+        },
+        {
+          "quarter": "1994-Q4",
+          "longTermSick": 2031,
+          "students": 1513
+        },
+        {
+          "quarter": "1995-Q1",
+          "longTermSick": 2080,
+          "students": 1496
+        },
+        {
+          "quarter": "1995-Q2",
+          "longTermSick": 2120,
+          "students": 1479
+        },
+        {
+          "quarter": "1995-Q3",
+          "longTermSick": 2133,
+          "students": 1423
+        },
+        {
+          "quarter": "1995-Q4",
+          "longTermSick": 2152,
+          "students": 1433
+        },
+        {
+          "quarter": "1996-Q1",
+          "longTermSick": 2165,
+          "students": 1427
+        },
+        {
+          "quarter": "1996-Q2",
+          "longTermSick": 2193,
+          "students": 1404
+        },
+        {
+          "quarter": "1996-Q3",
+          "longTermSick": 2265,
+          "students": 1438
+        },
+        {
+          "quarter": "1996-Q4",
+          "longTermSick": 2301,
+          "students": 1419
+        },
+        {
+          "quarter": "1997-Q1",
+          "longTermSick": 2318,
+          "students": 1406
+        },
+        {
+          "quarter": "1997-Q2",
+          "longTermSick": 2280,
+          "students": 1384
+        },
+        {
+          "quarter": "1997-Q3",
+          "longTermSick": 2328,
+          "students": 1434
+        },
+        {
+          "quarter": "1997-Q4",
+          "longTermSick": 2346,
+          "students": 1415
+        },
+        {
+          "quarter": "1998-Q1",
+          "longTermSick": 2372,
+          "students": 1443
+        },
+        {
+          "quarter": "1998-Q2",
+          "longTermSick": 2367,
+          "students": 1427
+        },
+        {
+          "quarter": "1998-Q3",
+          "longTermSick": 2369,
+          "students": 1401
+        },
+        {
+          "quarter": "1998-Q4",
+          "longTermSick": 2343,
+          "students": 1455
+        },
+        {
+          "quarter": "1999-Q1",
+          "longTermSick": 2337,
+          "students": 1437
+        },
+        {
+          "quarter": "1999-Q2",
+          "longTermSick": 2349,
+          "students": 1456
+        },
+        {
+          "quarter": "1999-Q3",
+          "longTermSick": 2339,
+          "students": 1422
+        },
+        {
+          "quarter": "1999-Q4",
+          "longTermSick": 2286,
+          "students": 1398
+        },
+        {
+          "quarter": "2000-Q1",
+          "longTermSick": 2306,
+          "students": 1397
+        },
+        {
+          "quarter": "2000-Q2",
+          "longTermSick": 2290,
+          "students": 1449
+        },
+        {
+          "quarter": "2000-Q3",
+          "longTermSick": 2310,
+          "students": 1444
+        },
+        {
+          "quarter": "2000-Q4",
+          "longTermSick": 2341,
+          "students": 1493
+        },
+        {
+          "quarter": "2001-Q1",
+          "longTermSick": 2342,
+          "students": 1503
+        },
+        {
+          "quarter": "2001-Q2",
+          "longTermSick": 2341,
+          "students": 1522
+        },
+        {
+          "quarter": "2001-Q3",
+          "longTermSick": 2370,
+          "students": 1524
+        },
+        {
+          "quarter": "2001-Q4",
+          "longTermSick": 2384,
+          "students": 1496
+        },
+        {
+          "quarter": "2002-Q1",
+          "longTermSick": 2384,
+          "students": 1536
+        },
+        {
+          "quarter": "2002-Q2",
+          "longTermSick": 2362,
+          "students": 1522
+        },
+        {
+          "quarter": "2002-Q3",
+          "longTermSick": 2307,
+          "students": 1560
+        },
+        {
+          "quarter": "2002-Q4",
+          "longTermSick": 2283,
+          "students": 1554
+        },
+        {
+          "quarter": "2003-Q1",
+          "longTermSick": 2307,
+          "students": 1595
+        },
+        {
+          "quarter": "2003-Q2",
+          "longTermSick": 2261,
+          "students": 1659
+        },
+        {
+          "quarter": "2003-Q3",
+          "longTermSick": 2266,
+          "students": 1673
+        },
+        {
+          "quarter": "2003-Q4",
+          "longTermSick": 2301,
+          "students": 1685
+        },
+        {
+          "quarter": "2004-Q1",
+          "longTermSick": 2279,
+          "students": 1668
+        },
+        {
+          "quarter": "2004-Q2",
+          "longTermSick": 2315,
+          "students": 1709
+        },
+        {
+          "quarter": "2004-Q3",
+          "longTermSick": 2339,
+          "students": 1729
+        },
+        {
+          "quarter": "2004-Q4",
+          "longTermSick": 2307,
+          "students": 1729
+        },
+        {
+          "quarter": "2005-Q1",
+          "longTermSick": 2285,
+          "students": 1750
+        },
+        {
+          "quarter": "2005-Q2",
+          "longTermSick": 2296,
+          "students": 1799
+        },
+        {
+          "quarter": "2005-Q3",
+          "longTermSick": 2248,
+          "students": 1882
+        },
+        {
+          "quarter": "2005-Q4",
+          "longTermSick": 2255,
+          "students": 1871
+        },
+        {
+          "quarter": "2006-Q1",
+          "longTermSick": 2223,
+          "students": 1842
+        },
+        {
+          "quarter": "2006-Q2",
+          "longTermSick": 2242,
+          "students": 1815
+        },
+        {
+          "quarter": "2006-Q3",
+          "longTermSick": 2194,
+          "students": 1809
+        },
+        {
+          "quarter": "2006-Q4",
+          "longTermSick": 2228,
+          "students": 1833
+        },
+        {
+          "quarter": "2007-Q1",
+          "longTermSick": 2242,
+          "students": 1876
+        },
+        {
+          "quarter": "2007-Q2",
+          "longTermSick": 2209,
+          "students": 1916
+        },
+        {
+          "quarter": "2007-Q3",
+          "longTermSick": 2200,
+          "students": 1930
+        },
+        {
+          "quarter": "2007-Q4",
+          "longTermSick": 2220,
+          "students": 1950
+        },
+        {
+          "quarter": "2008-Q1",
+          "longTermSick": 2224,
+          "students": 1946
+        },
+        {
+          "quarter": "2008-Q2",
+          "longTermSick": 2174,
+          "students": 1977
+        },
+        {
+          "quarter": "2008-Q3",
+          "longTermSick": 2227,
+          "students": 1999
+        },
+        {
+          "quarter": "2008-Q4",
+          "longTermSick": 2149,
+          "students": 2060
+        },
+        {
+          "quarter": "2009-Q1",
+          "longTermSick": 2160,
+          "students": 2083
+        },
+        {
+          "quarter": "2009-Q2",
+          "longTermSick": 2144,
+          "students": 2150
+        },
+        {
+          "quarter": "2009-Q3",
+          "longTermSick": 2191,
+          "students": 2207
+        },
+        {
+          "quarter": "2009-Q4",
+          "longTermSick": 2178,
+          "students": 2296
+        },
+        {
+          "quarter": "2010-Q1",
+          "longTermSick": 2205,
+          "students": 2322
+        },
+        {
+          "quarter": "2010-Q2",
+          "longTermSick": 2246,
+          "students": 2288
+        },
+        {
+          "quarter": "2010-Q3",
+          "longTermSick": 2224,
+          "students": 2241
+        },
+        {
+          "quarter": "2010-Q4",
+          "longTermSick": 2230,
+          "students": 2245
+        },
+        {
+          "quarter": "2011-Q1",
+          "longTermSick": 2190,
+          "students": 2312
+        },
+        {
+          "quarter": "2011-Q2",
+          "longTermSick": 2189,
+          "students": 2300
+        },
+        {
+          "quarter": "2011-Q3",
+          "longTermSick": 2189,
+          "students": 2331
+        },
+        {
+          "quarter": "2011-Q4",
+          "longTermSick": 2139,
+          "students": 2329
+        },
+        {
+          "quarter": "2012-Q1",
+          "longTermSick": 2156,
+          "students": 2320
+        },
+        {
+          "quarter": "2012-Q2",
+          "longTermSick": 2140,
+          "students": 2229
+        },
+        {
+          "quarter": "2012-Q3",
+          "longTermSick": 2064,
+          "students": 2259
+        },
+        {
+          "quarter": "2012-Q4",
+          "longTermSick": 2052,
+          "students": 2266
+        },
+        {
+          "quarter": "2013-Q1",
+          "longTermSick": 2070,
+          "students": 2319
+        },
+        {
+          "quarter": "2013-Q2",
+          "longTermSick": 2064,
+          "students": 2367
+        },
+        {
+          "quarter": "2013-Q3",
+          "longTermSick": 1984,
+          "students": 2323
+        },
+        {
+          "quarter": "2013-Q4",
+          "longTermSick": 2043,
+          "students": 2324
+        },
+        {
+          "quarter": "2014-Q1",
+          "longTermSick": 1996,
+          "students": 2327
+        },
+        {
+          "quarter": "2014-Q2",
+          "longTermSick": 1991,
+          "students": 2337
+        },
+        {
+          "quarter": "2014-Q3",
+          "longTermSick": 2022,
+          "students": 2333
+        },
+        {
+          "quarter": "2014-Q4",
+          "longTermSick": 2036,
+          "students": 2348
+        },
+        {
+          "quarter": "2015-Q1",
+          "longTermSick": 2026,
+          "students": 2328
+        },
+        {
+          "quarter": "2015-Q2",
+          "longTermSick": 2085,
+          "students": 2305
+        },
+        {
+          "quarter": "2015-Q3",
+          "longTermSick": 2111,
+          "students": 2300
+        },
+        {
+          "quarter": "2015-Q4",
+          "longTermSick": 2074,
+          "students": 2291
+        },
+        {
+          "quarter": "2016-Q1",
+          "longTermSick": 2100,
+          "students": 2263
+        },
+        {
+          "quarter": "2016-Q2",
+          "longTermSick": 2042,
+          "students": 2302
+        },
+        {
+          "quarter": "2016-Q3",
+          "longTermSick": 2007,
+          "students": 2305
+        },
+        {
+          "quarter": "2016-Q4",
+          "longTermSick": 1959,
+          "students": 2317
+        },
+        {
+          "quarter": "2017-Q1",
+          "longTermSick": 1991,
+          "students": 2314
+        },
+        {
+          "quarter": "2017-Q2",
+          "longTermSick": 1982,
+          "students": 2312
+        },
+        {
+          "quarter": "2017-Q3",
+          "longTermSick": 2055,
+          "students": 2383
+        },
+        {
+          "quarter": "2017-Q4",
+          "longTermSick": 1997,
+          "students": 2358
+        },
+        {
+          "quarter": "2018-Q1",
+          "longTermSick": 1977,
+          "students": 2313
+        },
+        {
+          "quarter": "2018-Q2",
+          "longTermSick": 2043,
+          "students": 2335
+        },
+        {
+          "quarter": "2018-Q3",
+          "longTermSick": 2000,
+          "students": 2373
+        },
+        {
+          "quarter": "2018-Q4",
+          "longTermSick": 2007,
+          "students": 2270
+        },
+        {
+          "quarter": "2019-Q1",
+          "longTermSick": 2012,
+          "students": 2297
+        },
+        {
+          "quarter": "2019-Q2",
+          "longTermSick": 2030,
+          "students": 2291
+        },
+        {
+          "quarter": "2019-Q3",
+          "longTermSick": 2062,
+          "students": 2291
+        },
+        {
+          "quarter": "2019-Q4",
+          "longTermSick": 2080,
+          "students": 2301
+        },
+        {
+          "quarter": "2020-Q1",
+          "longTermSick": 2232,
+          "students": 2210
+        },
+        {
+          "quarter": "2020-Q2",
+          "longTermSick": 2230,
+          "students": 2190
+        },
+        {
+          "quarter": "2020-Q3",
+          "longTermSick": 2318,
+          "students": 2407
+        },
+        {
+          "quarter": "2020-Q4",
+          "longTermSick": 2327,
+          "students": 2448
+        },
+        {
+          "quarter": "2021-Q1",
+          "longTermSick": 2308,
+          "students": 2560
+        },
+        {
+          "quarter": "2021-Q2",
+          "longTermSick": 2293,
+          "students": 2550
+        },
+        {
+          "quarter": "2021-Q3",
+          "longTermSick": 2389,
+          "students": 2373
+        },
+        {
+          "quarter": "2021-Q4",
+          "longTermSick": 2434,
+          "students": 2376
+        },
+        {
+          "quarter": "2022-Q1",
+          "longTermSick": 2440,
+          "students": 2434
+        },
+        {
+          "quarter": "2022-Q2",
+          "longTermSick": 2503,
+          "students": 2440
+        },
+        {
+          "quarter": "2022-Q3",
+          "longTermSick": 2633,
+          "students": 2480
+        },
+        {
+          "quarter": "2022-Q4",
+          "longTermSick": 2582,
+          "students": 2372
+        },
+        {
+          "quarter": "2023-Q1",
+          "longTermSick": 2699,
+          "students": 2321
+        },
+        {
+          "quarter": "2023-Q2",
+          "longTermSick": 2708,
+          "students": 2335
+        },
+        {
+          "quarter": "2023-Q3",
+          "longTermSick": 2739,
+          "students": 2480
+        },
+        {
+          "quarter": "2023-Q4",
+          "longTermSick": 2845,
+          "students": 2533
+        },
+        {
+          "quarter": "2024-Q1",
+          "longTermSick": 2820,
+          "students": 2535
+        },
+        {
+          "quarter": "2024-Q2",
+          "longTermSick": 2826,
+          "students": 2559
+        },
+        {
+          "quarter": "2024-Q3",
+          "longTermSick": 2792,
+          "students": 2483
+        },
+        {
+          "quarter": "2024-Q4",
+          "longTermSick": 2771,
+          "students": 2467
+        },
+        {
+          "quarter": "2025-Q1",
+          "longTermSick": 2779,
+          "students": 2457
+        },
+        {
+          "quarter": "2025-Q2",
+          "longTermSick": 2785,
+          "students": 2336
+        },
+        {
+          "quarter": "2025-Q3",
+          "longTermSick": 2822,
+          "students": 2304
+        },
+        {
+          "quarter": "2025-Q4",
+          "longTermSick": 2779,
+          "students": 2421
+        }
+      ]
+    }
+  }
+}

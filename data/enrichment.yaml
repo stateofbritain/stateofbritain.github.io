@@ -924,3 +924,18 @@ transport-fares:
       title: "Transport Fare Indices (RPI, 1987=100)"
       summary: "Monthly RPI indices from Jan 1987. Bus fares reached index 670.7 by Feb 2026, rail fares 550.3. Both far outpaced general RPI inflation over this period."
       unit: "index (Jan 1987=100)"
+
+unemployment:
+  title: "Unemployment & Labour Market"
+  geography: "United Kingdom"
+  summary: "UK labour market rates from 1992 to present. Unemployment rate 5.2%, employment rate 75.0%, economic inactivity rate 20.8% (latest quarter). Long-term sickness is the fastest-growing reason for inactivity, rising from around 600k in 1993 to over 1 million. 1.88 million people are unemployed."
+  tags: [unemployment, employment, inactivity, jobless, out of work, unemployment rate, labour market, LFS, jobs, economically inactive, long-term sick, sickness, students, job seekers, claimant count, redundancy, labour force survey]
+  series:
+    quarterly:
+      title: "Labour Market Rates (quarterly)"
+      summary: "Unemployment rate (16+), employment rate (16-64), and economic inactivity rate (16-64), seasonally adjusted from 1992. Unemployment peaked at 10.7% in 1993 and 8.5% in 2011. Current rate is 5.2%."
+      unit: "%"
+    inactivityReasons:
+      title: "Economic Inactivity by Reason"
+      summary: "Long-term sick and student populations among 16-64 year olds from 1993. Long-term sickness has risen sharply since 2019, while the student population grew substantially from the mid-2000s."
+      unit: "thousands"
