@@ -1,6 +1,6 @@
 {
   "$schema": "sob-catalog-v1",
-  "generated": "2026-04-01",
+  "generated": "2026-04-02",
   "datasets": [
     {
       "id": "adult-social-care",
@@ -596,7 +596,15 @@
         "transport",
         "DfT",
         "patronage",
-        "ridership"
+        "ridership",
+        "concessionary",
+        "free bus pass",
+        "bus pass",
+        "older persons",
+        "disabled",
+        "ENCTS",
+        "freedom pass",
+        "free travel"
       ],
       "dataFile": "/data/buses.json",
       "series": {
@@ -692,6 +700,72 @@
           },
           "timeRange": {
             "start": "2004/05",
+            "end": "2024/25"
+          }
+        },
+        "concessionaryPct": {
+          "title": "Concessionary Journeys as % of Total",
+          "summary": "Share of bus journeys made using free concessionary passes. England 28%, Scotland 55% (after under-22s scheme in 2022), Wales 45%. England's share fell from 32% pre-pandemic.",
+          "unit": "%",
+          "fields": {
+            "london": {
+              "label": "london"
+            },
+            "england": {
+              "label": "england"
+            },
+            "scotland": {
+              "label": "scotland"
+            },
+            "wales": {
+              "label": "wales"
+            },
+            "gb": {
+              "label": "gb"
+            },
+            "englandOutsideLondon": {
+              "label": "englandOutsideLondon"
+            }
+          },
+          "timeRange": {
+            "start": "2007/08",
+            "end": "2024/25"
+          }
+        },
+        "passHolders": {
+          "title": "Concessionary Pass Holders (England)",
+          "summary": "8.9 million concessionary passes in England (2024/25). 89% older persons, 11% disabled. Average 70 journeys per pass, down from 110 in 2010/11.",
+          "unit": "thousands",
+          "fields": {
+            "totalPasses": {
+              "label": "totalPasses"
+            },
+            "olderPasses": {
+              "label": "olderPasses"
+            },
+            "disabledPasses": {
+              "label": "disabledPasses"
+            },
+            "journeysPerPass": {
+              "label": "journeysPerPass"
+            }
+          },
+          "timeRange": {
+            "start": "2010/11",
+            "end": "2024/25"
+          }
+        },
+        "expenditure": {
+          "title": "Concessionary Travel Expenditure",
+          "summary": "Net local authority expenditure on concessionary travel in England: £1.02bn in 2024/25. Operator reimbursement £795m. Average reimbursement £1.27 per journey.",
+          "unit": "£ million",
+          "fields": {
+            "netExpenditure": {
+              "label": "netExpenditure"
+            }
+          },
+          "timeRange": {
+            "start": "2000/01",
             "end": "2024/25"
           }
         }
@@ -6404,6 +6478,30 @@
         "buses"
       ],
       "ridership": [
+        "buses"
+      ],
+      "concessionary": [
+        "buses"
+      ],
+      "free bus pass": [
+        "buses"
+      ],
+      "bus pass": [
+        "buses"
+      ],
+      "older persons": [
+        "buses"
+      ],
+      "disabled": [
+        "buses"
+      ],
+      "ENCTS": [
+        "buses"
+      ],
+      "freedom pass": [
+        "buses"
+      ],
+      "free travel": [
         "buses"
       ],
       "children": [

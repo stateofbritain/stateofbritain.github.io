@@ -40,6 +40,11 @@ const DOWNLOADS = [
     dest: "/tmp/dft-bus06.ods",
     label: "BUS06 (fleet size)",
   },
+  {
+    url: "https://assets.publishing.service.gov.uk/media/69c040b61263ce46c3690c77/bus08.ods",
+    dest: "/tmp/dft-bus08.ods",
+    label: "BUS08 (concessionary travel)",
+  },
 ];
 
 const OUT_PATH = join(__dirname, "..", "public", "data", "buses.json");
@@ -80,7 +85,8 @@ async function main() {
   // Parse via Python
   console.log("\nParsing ODS files...");
   const pyScript = join(__dirname, "parse-bus-ods.py");
-  const raw = execSync("python3 " + JSON.stringify(pyScript), {
+  const args = DOWNLOADS.map((dl) => JSON.stringify(dl.dest)).join(" ");
+  const raw = execSync("python3 " + JSON.stringify(pyScript) + " " + args, {
     encoding: "utf-8",
     maxBuffer: 10 * 1024 * 1024,
   });
@@ -90,10 +96,15 @@ async function main() {
   console.log("  journeysHistorical: " + parsed.journeysHistorical.length + " rows");
   console.log("  faresIndex: " + parsed.faresIndex.length + " rows");
   console.log("  fleetSize: " + parsed.fleetSize.length + " rows");
+  console.log("  concessionaryPct: " + parsed.concessionaryPct.length + " rows");
+  console.log("  passHolders: " + parsed.passHolders.length + " rows");
+  console.log("  expenditure: " + parsed.expenditure.length + " rows");
   console.log("  Latest year: " + parsed.latestYear);
   console.log("  Latest total journeys: " + parsed.latestTotal + "m");
   console.log("  Latest London journeys: " + parsed.latestLondon + "m");
   console.log("  Latest fleet size: " + parsed.latestFleet);
+  console.log("  Latest concessionary %: " + parsed.latestConcessionaryPct);
+  console.log("  Latest pass holders: " + parsed.latestPassHolders + "k");
 
   // Build sob-dataset-v1 output
   const dataset = {
@@ -118,6 +129,8 @@ async function main() {
       latestTotal: parsed.latestTotal,
       latestLondon: parsed.latestLondon,
       latestFleet: parsed.latestFleet,
+      latestConcessionaryPct: parsed.latestConcessionaryPct,
+      latestPassHolders: parsed.latestPassHolders,
     },
 
     series: {
@@ -156,6 +169,33 @@ async function main() {
         description:
           "Number of buses by region: London, English metropolitan areas, English non-metropolitan areas, Scotland, Wales, and GB total.",
         data: parsed.fleetSize,
+      },
+      concessionaryPct: {
+        sourceId: "dft-bus-statistics",
+        label: "Concessionary Journeys as % of Total",
+        unit: "percent",
+        timeField: "year",
+        description:
+          "Total concessionary bus journeys as a percentage of all bus journeys, by region: England, London, England outside London, Scotland, Wales, and GB total.",
+        data: parsed.concessionaryPct,
+      },
+      passHolders: {
+        sourceId: "dft-bus-statistics",
+        label: "Concessionary Pass Holders",
+        unit: "thousands",
+        timeField: "year",
+        description:
+          "Number of concessionary bus passes (older persons and disabled) in England, and average journeys per pass.",
+        data: parsed.passHolders,
+      },
+      expenditure: {
+        sourceId: "dft-bus-statistics",
+        label: "Concessionary Travel Expenditure",
+        unit: "£ millions",
+        timeField: "year",
+        description:
+          "Net current expenditure on concessionary travel in England at current prices, including reimbursement to operators and cost per journey.",
+        data: parsed.expenditure,
       },
     },
   };

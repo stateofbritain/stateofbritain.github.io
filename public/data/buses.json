@@ -3,7 +3,7 @@
   "id": "buses",
   "pillar": "growth",
   "topic": "transport",
-  "generated": "2026-04-01",
+  "generated": "2026-04-02",
   "sources": [
     {
       "id": "dft-bus-statistics",
@@ -17,7 +17,9 @@
     "latestYear": "2024/25",
     "latestTotal": 4078.2,
     "latestLondon": 1821.5,
-    "latestFleet": 35065
+    "latestFleet": 35065,
+    "latestConcessionaryPct": 30.2,
+    "latestPassHolders": 8876.5
   },
   "series": {
     "journeysByRegion": {
@@ -1223,6 +1225,429 @@
           "scotland": 3280,
           "wales": 1227,
           "total": 35065
+        }
+      ]
+    },
+    "concessionaryPct": {
+      "sourceId": "dft-bus-statistics",
+      "label": "Concessionary Journeys as % of Total",
+      "unit": "percent",
+      "timeField": "year",
+      "description": "Total concessionary bus journeys as a percentage of all bus journeys, by region: England, London, England outside London, Scotland, Wales, and GB total.",
+      "data": [
+        {
+          "year": "2007/08",
+          "london": 30.9,
+          "england": 31.7,
+          "scotland": 31.6,
+          "wales": 41.5,
+          "gb": 31.9,
+          "englandOutsideLondon": 32.4
+        },
+        {
+          "year": "2008/09",
+          "london": 31.4,
+          "england": 33,
+          "scotland": 32.1,
+          "wales": 42.7,
+          "gb": 33.1,
+          "englandOutsideLondon": 34.4
+        },
+        {
+          "year": "2009/10",
+          "london": 32.2,
+          "england": 34,
+          "scotland": 33.5,
+          "wales": 43.2,
+          "gb": 34.2,
+          "englandOutsideLondon": 35.7
+        },
+        {
+          "year": "2010/11",
+          "london": 32.3,
+          "england": 34.1,
+          "scotland": 34.2,
+          "wales": 42.5,
+          "gb": 34.3,
+          "englandOutsideLondon": 35.8
+        },
+        {
+          "year": "2011/12",
+          "london": 32.7,
+          "england": 34.5,
+          "scotland": 34.3,
+          "wales": 44.1,
+          "gb": 34.7,
+          "englandOutsideLondon": 36.4
+        },
+        {
+          "year": "2012/13",
+          "london": 32.4,
+          "england": 34.2,
+          "scotland": 34.8,
+          "wales": 45.4,
+          "gb": 34.5,
+          "englandOutsideLondon": 36.1
+        },
+        {
+          "year": "2013/14",
+          "london": 32,
+          "england": 33.8,
+          "scotland": 35.4,
+          "wales": 45.2,
+          "gb": 34.1,
+          "englandOutsideLondon": 35.6
+        },
+        {
+          "year": "2014/15",
+          "london": 31.4,
+          "england": 33.3,
+          "scotland": 35.2,
+          "wales": 46,
+          "gb": 33.7,
+          "englandOutsideLondon": 35.2
+        },
+        {
+          "year": "2015/16",
+          "london": 31.5,
+          "england": 33,
+          "scotland": 34.9,
+          "wales": 45.8,
+          "gb": 33.4,
+          "englandOutsideLondon": 34.6
+        },
+        {
+          "year": "2016/17",
+          "london": 31.6,
+          "england": 32.8,
+          "scotland": 36.2,
+          "wales": 45.2,
+          "gb": 33.3,
+          "englandOutsideLondon": 34.1
+        },
+        {
+          "year": "2017/18",
+          "london": 31.1,
+          "england": 32.2,
+          "scotland": 35.1,
+          "wales": 45.6,
+          "gb": 32.7,
+          "englandOutsideLondon": 33.3
+        },
+        {
+          "year": "2018/19",
+          "london": 30.8,
+          "england": 31.8,
+          "scotland": 37.8,
+          "wales": 46.8,
+          "gb": 32.6,
+          "englandOutsideLondon": 32.9
+        },
+        {
+          "year": "2019/20",
+          "london": 30.1,
+          "england": 31.7,
+          "scotland": 38.1,
+          "wales": 49.7,
+          "gb": 32.5,
+          "englandOutsideLondon": 33.3
+        },
+        {
+          "year": "2020/21",
+          "london": 27.6,
+          "england": 28.8,
+          "scotland": 38.6,
+          "wales": 45.7,
+          "gb": 29.8,
+          "englandOutsideLondon": 30.2
+        },
+        {
+          "year": "2021/22",
+          "london": 30.5,
+          "england": 30.5,
+          "scotland": 37.2,
+          "wales": 46,
+          "gb": 31.3,
+          "englandOutsideLondon": 30.6
+        },
+        {
+          "year": "2022/23",
+          "london": 28.7,
+          "england": 28.8,
+          "scotland": 49.3,
+          "wales": 43.4,
+          "gb": 30.7,
+          "englandOutsideLondon": 29
+        },
+        {
+          "year": "2023/24",
+          "london": 28.1,
+          "england": 28.1,
+          "scotland": 53.4,
+          "wales": 43.5,
+          "gb": 30.4,
+          "englandOutsideLondon": 28.1
+        },
+        {
+          "year": "2024/25",
+          "london": 27.3,
+          "england": 27.7,
+          "scotland": 54.9,
+          "wales": 45,
+          "gb": 30.2,
+          "englandOutsideLondon": 28.1
+        }
+      ]
+    },
+    "passHolders": {
+      "sourceId": "dft-bus-statistics",
+      "label": "Concessionary Pass Holders",
+      "unit": "thousands",
+      "timeField": "year",
+      "description": "Number of concessionary bus passes (older persons and disabled) in England, and average journeys per pass.",
+      "data": [
+        {
+          "year": "2010/11",
+          "totalPasses": 9515.4,
+          "olderPasses": 8755.9,
+          "disabledPasses": 759.5,
+          "journeysPerPass": 110.2
+        },
+        {
+          "year": "2011/12",
+          "totalPasses": 9678.2,
+          "olderPasses": 8870.6,
+          "disabledPasses": 807.5,
+          "journeysPerPass": 108.9
+        },
+        {
+          "year": "2012/13",
+          "totalPasses": 9770.2,
+          "olderPasses": 8906.3,
+          "disabledPasses": 863.9,
+          "journeysPerPass": 103.3
+        },
+        {
+          "year": "2013/14",
+          "totalPasses": 9734.4,
+          "olderPasses": 8854.9,
+          "disabledPasses": 879.5,
+          "journeysPerPass": 103.5
+        },
+        {
+          "year": "2014/15",
+          "totalPasses": 9830.7,
+          "olderPasses": 8941.6,
+          "disabledPasses": 889.2,
+          "journeysPerPass": 100.6
+        },
+        {
+          "year": "2015/16",
+          "totalPasses": 9917.9,
+          "olderPasses": 9006,
+          "disabledPasses": 911.9,
+          "journeysPerPass": 96.6
+        },
+        {
+          "year": "2016/17",
+          "totalPasses": 9797.4,
+          "olderPasses": 8867,
+          "disabledPasses": 930.4,
+          "journeysPerPass": 94.4
+        },
+        {
+          "year": "2017/18",
+          "totalPasses": 9422.9,
+          "olderPasses": 8494,
+          "disabledPasses": 929,
+          "journeysPerPass": 93.5
+        },
+        {
+          "year": "2018/19",
+          "totalPasses": 9135.3,
+          "olderPasses": 8203.6,
+          "disabledPasses": 931.7,
+          "journeysPerPass": 94.2
+        },
+        {
+          "year": "2019/20",
+          "totalPasses": 9095.8,
+          "olderPasses": 8176.1,
+          "disabledPasses": 919.7,
+          "journeysPerPass": 88.1
+        },
+        {
+          "year": "2020/21",
+          "totalPasses": 8959.8,
+          "olderPasses": 8059.3,
+          "disabledPasses": 900.4,
+          "journeysPerPass": 29.9
+        },
+        {
+          "year": "2021/22",
+          "totalPasses": 8731,
+          "olderPasses": 7867.2,
+          "disabledPasses": 863.7,
+          "journeysPerPass": 56.3
+        },
+        {
+          "year": "2022/23",
+          "totalPasses": 8677.2,
+          "olderPasses": 7791,
+          "disabledPasses": 886.2,
+          "journeysPerPass": 65.3
+        },
+        {
+          "year": "2023/24",
+          "totalPasses": 8761.6,
+          "olderPasses": 7822,
+          "disabledPasses": 927.3,
+          "journeysPerPass": 68.6
+        },
+        {
+          "year": "2024/25",
+          "totalPasses": 8876.5,
+          "olderPasses": 7927,
+          "disabledPasses": 949.5,
+          "journeysPerPass": 70.3
+        }
+      ]
+    },
+    "expenditure": {
+      "sourceId": "dft-bus-statistics",
+      "label": "Concessionary Travel Expenditure",
+      "unit": "£ millions",
+      "timeField": "year",
+      "description": "Net current expenditure on concessionary travel in England at current prices, including reimbursement to operators and cost per journey.",
+      "data": [
+        {
+          "year": "2000/01",
+          "netExpenditure": 468
+        },
+        {
+          "year": "2001/02",
+          "netExpenditure": 487
+        },
+        {
+          "year": "2002/03",
+          "netExpenditure": 487
+        },
+        {
+          "year": "2003/04",
+          "netExpenditure": 510
+        },
+        {
+          "year": "2004/05",
+          "netExpenditure": 539
+        },
+        {
+          "year": "2005/06",
+          "netExpenditure": 532
+        },
+        {
+          "year": "2006/07",
+          "netExpenditure": 784
+        },
+        {
+          "year": "2007/08",
+          "netExpenditure": 873
+        },
+        {
+          "year": "2008/09",
+          "netExpenditure": 1048
+        },
+        {
+          "year": "2009/10",
+          "netExpenditure": 1056
+        },
+        {
+          "year": "2010/11",
+          "netExpenditure": 1100,
+          "reimbursement": 903,
+          "reimbursementPerJourney": 86.2
+        },
+        {
+          "year": "2011/12",
+          "netExpenditure": 1109,
+          "reimbursement": 899,
+          "reimbursementPerJourney": 85.3
+        },
+        {
+          "year": "2012/13",
+          "netExpenditure": 1126.5,
+          "reimbursement": 905.6,
+          "reimbursementPerJourney": 89.8
+        },
+        {
+          "year": "2013/14",
+          "netExpenditure": 1166.5,
+          "reimbursement": 936.4,
+          "reimbursementPerJourney": 93
+        },
+        {
+          "year": "2014/15",
+          "netExpenditure": 1186.3,
+          "reimbursement": 940.7,
+          "reimbursementPerJourney": 95.1
+        },
+        {
+          "year": "2015/16",
+          "netExpenditure": 1190.6,
+          "reimbursement": 940.2,
+          "reimbursementPerJourney": 98.1
+        },
+        {
+          "year": "2016/17",
+          "netExpenditure": 1160.7,
+          "reimbursement": 917.4,
+          "reimbursementPerJourney": 99.2
+        },
+        {
+          "year": "2017/18",
+          "netExpenditure": 1138.4,
+          "reimbursement": 886.1,
+          "reimbursementPerJourney": 100.6
+        },
+        {
+          "year": "2018/19",
+          "netExpenditure": 1129.3,
+          "reimbursement": 879.4,
+          "reimbursementPerJourney": 102.1
+        },
+        {
+          "year": "2019/20",
+          "netExpenditure": 1134.8,
+          "reimbursement": 882.5,
+          "reimbursementPerJourney": 110.1
+        },
+        {
+          "year": "2020/21",
+          "netExpenditure": 1094.1,
+          "reimbursement": 851.8
+        },
+        {
+          "year": "2021/22",
+          "netExpenditure": 1006,
+          "reimbursement": 803.4,
+          "reimbursementPerJourney": 163.5
+        },
+        {
+          "year": "2022/23",
+          "netExpenditure": 907.4,
+          "reimbursement": 708,
+          "reimbursementPerJourney": 124.9
+        },
+        {
+          "year": "2023/24",
+          "netExpenditure": 890.5,
+          "reimbursement": 708.6,
+          "reimbursementPerJourney": 117.8
+        },
+        {
+          "year": "2024/25",
+          "netExpenditure": 1021.9,
+          "reimbursement": 794.5,
+          "reimbursementPerJourney": 127.3
         }
       ]
     }

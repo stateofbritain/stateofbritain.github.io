@@ -253,7 +253,7 @@ buses:
   title: "Buses"
   geography: "Great Britain"
   summary: "Bus passenger journeys, fares, and fleet size. GB total journeys fell from 4.9bn (2006/07) to 4.1bn (2024/25). London accounts for 45% of all journeys. Bus fares have risen 108% since 2005, compared to 77% for CPI. The GB bus fleet fell from 52,190 to 35,065 vehicles over the same period."
-  tags: [buses, bus, coach, public transport, passenger journeys, bus fares, fleet, London, metropolitan, transport, DfT, patronage, ridership]
+  tags: [buses, bus, coach, public transport, passenger journeys, bus fares, fleet, London, metropolitan, transport, DfT, patronage, ridership, concessionary, free bus pass, bus pass, older persons, disabled, ENCTS, freedom pass, free travel]
   series:
     journeysByRegion:
       title: "Passenger Journeys by Region"
@@ -271,6 +271,18 @@ buses:
       title: "Fleet Size by Area"
       summary: "Number of registered buses by area. GB fleet fell from 52,190 (2004/05) to 35,065 (2024/25). London fleet stable at ~9,000. Largest decline in English non-metro areas."
       unit: "vehicles"
+    concessionaryPct:
+      title: "Concessionary Journeys as % of Total"
+      summary: "Share of bus journeys made using free concessionary passes. England 28%, Scotland 55% (after under-22s scheme in 2022), Wales 45%. England's share fell from 32% pre-pandemic."
+      unit: "%"
+    passHolders:
+      title: "Concessionary Pass Holders (England)"
+      summary: "8.9 million concessionary passes in England (2024/25). 89% older persons, 11% disabled. Average 70 journeys per pass, down from 110 in 2010/11."
+      unit: "thousands"
+    expenditure:
+      title: "Concessionary Travel Expenditure"
+      summary: "Net local authority expenditure on concessionary travel in England: £1.02bn in 2024/25. Operator reimbursement £795m. Average reimbursement £1.27 per journey."
+      unit: "£ million"
 
 airports:
   title: "Airports"

@@ -59,6 +59,9 @@ export default function Buses() {
   const historical = data.journeysHistorical ?? [];
   const fares = data.faresIndex ?? [];
   const fleet = data.fleetSize ?? [];
+  const concPct = data.concessionaryPct ?? [];
+  const passHolders = data.passHolders ?? [];
+  const expenditure = data.expenditure ?? [];
 
   return (
     <div style={{ animation: "fadeSlideIn 0.4s ease both" }}>
@@ -224,6 +227,92 @@ export default function Buses() {
             <Area type="monotone" dataKey="scotland" stackId="1" stroke={P.red} fill={P.red} fillOpacity={0.3} name="Scotland" />
             <Area type="monotone" dataKey="wales" stackId="1" stroke={P.yellow} fill={P.yellow} fillOpacity={0.3} name="Wales" />
           </AreaChart>
+        </ChartCard>
+      </section>
+
+      {/* ── Section 4: Concessionary Travel ────────────────────────────── */}
+      <section style={{ marginBottom: 32 }}>
+        <h3 style={SECTION_HEADING}>Concessionary Travel</h3>
+        <p style={SECTION_NOTE}>
+          Share of bus journeys made using concessionary (free) passes, by country and area. England's national scheme covers those at state pension age (66) and disabled people. Scotland extended free travel to under-22s in January 2022, which raised its concessionary share from 38% to 55%. Wales offers free travel from age 60.
+        </p>
+
+        <ChartCard
+          title="Concessionary Journeys as % of Total"
+          subtitle="% of all bus journeys, by country"
+          source={sourceFrom(raw, "concessionaryPct")}
+          legend={[
+            { key: "scotland", label: "Scotland", color: P.red },
+            { key: "wales", label: "Wales", color: P.yellow },
+            { key: "england", label: "England", color: P.navy },
+          ]}
+          height={380}
+        >
+          <LineChart data={concPct} margin={{ top: 5, right: 10, left: -5, bottom: 0 }}>
+            <CartesianGrid {...GRID_PROPS} />
+            <XAxis dataKey="year" tick={AXIS_TICK_MONO} tickLine={false} interval={isMobile ? 4 : 2} />
+            <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} tickFormatter={v => `${v}%`} domain={[0, 70]} label={yAxisLabel("%")} />
+            <Tooltip content={<CustomTooltip formatter={v => `${v.toFixed(1)}%`} />} />
+            <Line type="monotone" dataKey="scotland" stroke={P.red} strokeWidth={2} dot={false} name="Scotland" />
+            <Line type="monotone" dataKey="wales" stroke={P.yellow} strokeWidth={2} dot={false} name="Wales" />
+            <Line type="monotone" dataKey="england" stroke={P.navy} strokeWidth={2} dot={false} name="England" />
+          </LineChart>
+        </ChartCard>
+      </section>
+
+      {/* ── Section 5: Pass Holders & Usage ────────────────────────────── */}
+      <section style={{ marginBottom: 32 }}>
+        <h3 style={SECTION_HEADING}>Pass Holders and Usage</h3>
+        <p style={SECTION_NOTE}>
+          Number of concessionary bus passes issued in England and average journeys per pass. There are {passHolders.length > 0 ? `${(passHolders[passHolders.length - 1].totalPasses / 1000).toFixed(1)} million` : "—"} pass holders, of whom 89% hold older persons passes and 11% hold disability passes. Average usage has declined from {passHolders[0] ? Math.round(passHolders[0].journeysPerPass) : "—"} journeys per pass in {passHolders[0]?.year} to {passHolders.length > 0 ? Math.round(passHolders[passHolders.length - 1].journeysPerPass) : "—"} in {s.latestYear}.
+        </p>
+
+        <ChartCard
+          title="Concessionary Pass Holders (England)"
+          subtitle="Thousands of passes issued"
+          source={sourceFrom(raw, "passHolders")}
+          legend={[
+            { key: "olderPasses", label: "Older persons", color: P.navy },
+            { key: "disabledPasses", label: "Disabled", color: P.teal },
+          ]}
+          height={380}
+        >
+          <AreaChart data={passHolders} margin={{ top: 5, right: 10, left: -5, bottom: 0 }}>
+            <CartesianGrid {...GRID_PROPS} />
+            <XAxis dataKey="year" tick={AXIS_TICK_MONO} tickLine={false} interval={isMobile ? 3 : 1} />
+            <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} tickFormatter={v => `${(v / 1000).toFixed(1)}m`} domain={[0, "auto"]} label={yAxisLabel("thousands")} />
+            <Tooltip content={<CustomTooltip formatter={v => `${(v / 1000).toFixed(1)}m (${Math.round(v * 1000).toLocaleString()})`} />} />
+            <Area type="monotone" dataKey="olderPasses" stackId="1" stroke={P.navy} fill={P.navy} fillOpacity={0.3} name="Older persons" />
+            <Area type="monotone" dataKey="disabledPasses" stackId="1" stroke={P.teal} fill={P.teal} fillOpacity={0.3} name="Disabled" />
+          </AreaChart>
+        </ChartCard>
+      </section>
+
+      {/* ── Section 6: Concessionary Expenditure ───────────────────────── */}
+      <section style={{ marginBottom: 32 }}>
+        <h3 style={SECTION_HEADING}>Concessionary Travel Expenditure</h3>
+        <p style={SECTION_NOTE}>
+          Net current expenditure by local authorities on concessionary travel in England, and reimbursement paid to bus operators. Expenditure peaked at over £1.1 billion in the mid-2010s and has not returned to that level in nominal terms. The average reimbursement per concessionary journey was £{expenditure.length > 0 ? (expenditure[expenditure.length - 1].reimbursementPerJourney / 100).toFixed(2) : "—"} in {s.latestYear}.
+        </p>
+
+        <ChartCard
+          title="Concessionary Travel Expenditure (England)"
+          subtitle="£ million, current prices"
+          source={sourceFrom(raw, "expenditure")}
+          legend={[
+            { key: "netExpenditure", label: "Net expenditure", color: P.navy },
+            { key: "reimbursement", label: "Operator reimbursement", color: P.sienna },
+          ]}
+          height={380}
+        >
+          <LineChart data={expenditure} margin={{ top: 5, right: 10, left: -5, bottom: 0 }}>
+            <CartesianGrid {...GRID_PROPS} />
+            <XAxis dataKey="year" tick={AXIS_TICK_MONO} tickLine={false} interval={isMobile ? 4 : 2} />
+            <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} tickFormatter={v => `£${v}m`} domain={[0, "auto"]} label={yAxisLabel("£ million")} />
+            <Tooltip content={<CustomTooltip formatter={v => `£${v.toFixed(1)}m`} />} />
+            <Line type="monotone" dataKey="netExpenditure" stroke={P.navy} strokeWidth={2} dot={false} name="Net expenditure" />
+            <Line type="monotone" dataKey="reimbursement" stroke={P.sienna} strokeWidth={2} dot={false} name="Operator reimbursement" />
+          </LineChart>
         </ChartCard>
       </section>
     </div>
