@@ -144,7 +144,7 @@ export default function Unemployment() {
       <section style={{ marginBottom: 32 }}>
         <h3 style={SECTION_HEADING}>Economic Inactivity</h3>
         <p style={SECTION_NOTE}>
-          Key reasons for economic inactivity among 16-64 year olds, quarterly from 1993. Long-term sickness has risen from {inactivity[0] ? `${Math.round(inactivity[0].longTermSick).toLocaleString()}k` : "—"} to {inactivity.length > 0 ? `${Math.round(inactivity[inactivity.length - 1].longTermSick).toLocaleString()}k` : "—"}, while the student population has also grown substantially. These are the two largest categories of economic inactivity.
+          Reasons for economic inactivity among 16-64 year olds, quarterly from 1993. Long-term sickness has grown from {inactivity[0] ? `${Math.round(inactivity[0].longTermSick).toLocaleString()}k` : "—"} to {inactivity.length > 0 ? `${Math.round(inactivity[inactivity.length - 1].longTermSick).toLocaleString()}k` : "—"} and is now the single largest reason for inactivity, overtaking students. Looking after family/home has declined over the period, while the student population grew substantially from the mid-2000s.
         </p>
 
         <ChartCard
@@ -154,8 +154,11 @@ export default function Unemployment() {
           legend={[
             { key: "longTermSick", label: "Long-term sick", color: P.red },
             { key: "students", label: "Students", color: P.navy },
+            { key: "lookingAfterFamily", label: "Looking after family/home", color: P.teal },
+            { key: "retired", label: "Retired", color: P.sienna },
+            { key: "other", label: "Other", color: P.grey },
           ]}
-          height={380}
+          height={420}
         >
           <LineChart data={inactivity} margin={{ top: 5, right: 10, left: -5, bottom: 0 }}>
             <CartesianGrid {...GRID_PROPS} />
@@ -164,6 +167,9 @@ export default function Unemployment() {
             <Tooltip content={<CustomTooltip formatter={v => `${Math.round(v).toLocaleString()}k`} />} />
             <Line type="monotone" dataKey="longTermSick" stroke={P.red} strokeWidth={2} dot={false} name="Long-term sick" />
             <Line type="monotone" dataKey="students" stroke={P.navy} strokeWidth={2} dot={false} name="Students" />
+            <Line type="monotone" dataKey="lookingAfterFamily" stroke={P.teal} strokeWidth={1.5} dot={false} name="Looking after family/home" />
+            <Line type="monotone" dataKey="retired" stroke={P.sienna} strokeWidth={1.5} dot={false} name="Retired" />
+            <Line type="monotone" dataKey="other" stroke={P.grey} strokeWidth={1.5} dot={false} name="Other" />
           </LineChart>
         </ChartCard>
       </section>

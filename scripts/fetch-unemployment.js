@@ -11,6 +11,9 @@
  *  - MGSC: Unemployed level (16+, SA, thousands)
  *  - LF69: Long-term sick (inactive, 16-64, SA, thousands)
  *  - LF63: Students (inactive, 16-64, SA, thousands)
+ *  - LF66: Looking after family/home (inactive, 16-64, SA, thousands)
+ *  - LF6B: Retired (inactive, 16-64, SA, thousands)
+ *  - LF6E: Other (inactive, 16-64, SA, thousands)
  *
  * Extracts quarterly data only, merges into two series, and outputs
  * public/data/unemployment.json in sob-dataset-v1 schema.
@@ -36,6 +39,12 @@ const URLS = {
     "https://www.ons.gov.uk/generator?format=csv&uri=/employmentandlabourmarket/peoplenotinwork/economicinactivity/timeseries/lf69/lms",
   students:
     "https://www.ons.gov.uk/generator?format=csv&uri=/employmentandlabourmarket/peoplenotinwork/economicinactivity/timeseries/lf63/lms",
+  lookingAfterFamily:
+    "https://www.ons.gov.uk/generator?format=csv&uri=/employmentandlabourmarket/peoplenotinwork/economicinactivity/timeseries/lf66/lms",
+  retired:
+    "https://www.ons.gov.uk/generator?format=csv&uri=/employmentandlabourmarket/peoplenotinwork/economicinactivity/timeseries/lf6b/lms",
+  other:
+    "https://www.ons.gov.uk/generator?format=csv&uri=/employmentandlabourmarket/peoplenotinwork/economicinactivity/timeseries/lf6e/lms",
 };
 
 const SERIES_LABELS = {
@@ -45,6 +54,9 @@ const SERIES_LABELS = {
   unemployedThousands: "MGSC",
   longTermSick: "LF69",
   students: "LF63",
+  lookingAfterFamily: "LF66",
+  retired: "LF6B",
+  other: "LF6E",
 };
 
 /**
@@ -125,17 +137,30 @@ function sleep(ms) {
 }
 
 async function main() {
-  // Download all series with a 1-second delay between requests
+  // Download all series with delays between requests and retry on 429
   const rawData = {};
   const keys = Object.keys(URLS);
 
   for (let i = 0; i < keys.length; i++) {
     const key = keys[i];
-    console.log(`Downloading ${key} (${SERIES_LABELS[key]})...`);
-    const csv = await download(URLS[key]);
+    let csv;
+    for (let attempt = 0; attempt < 3; attempt++) {
+      try {
+        console.log(`Downloading ${key} (${SERIES_LABELS[key]})${attempt > 0 ? ` [retry ${attempt}]` : ""}...`);
+        csv = await download(URLS[key]);
+        break;
+      } catch (err) {
+        if (attempt < 2 && err.message.includes("429")) {
+          console.log(`  Rate limited, waiting 10s...`);
+          await sleep(10000);
+        } else {
+          throw err;
+        }
+      }
+    }
     rawData[key] = parseQuarterly(csv);
     console.log(`  → ${rawData[key].size} quarterly values`);
-    if (i < keys.length - 1) await sleep(1000);
+    if (i < keys.length - 1) await sleep(2000);
   }
 
   // --- Series 1: quarterly ---
@@ -164,8 +189,8 @@ async function main() {
   console.log(`\nSeries "quarterly": ${quarterlyData.length} rows (${quarterlyData[0]?.quarter} to ${quarterlyData[quarterlyData.length - 1]?.quarter})`);
 
   // --- Series 2: inactivityReasons ---
-  // Long-term sick and students, quarterly from 1993 onwards
-  const reasonsSeries = ["longTermSick", "students"];
+  // All reasons for economic inactivity (16-64), quarterly from 1993 onwards
+  const reasonsSeries = ["longTermSick", "students", "lookingAfterFamily", "retired", "other"];
   const allReasonQuarters = new Set();
   for (const key of reasonsSeries) {
     for (const q of rawData[key].keys()) allReasonQuarters.add(q);
@@ -181,6 +206,9 @@ async function main() {
       quarter: q,
       longTermSick: Math.round(rawData.longTermSick.get(q)),
       students: Math.round(rawData.students.get(q)),
+      lookingAfterFamily: Math.round(rawData.lookingAfterFamily.get(q)),
+      retired: Math.round(rawData.retired.get(q)),
+      other: Math.round(rawData.other.get(q)),
     }));
 
   console.log(`Series "inactivityReasons": ${inactivityReasonsData.length} rows (${inactivityReasonsData[0]?.quarter} to ${inactivityReasonsData[inactivityReasonsData.length - 1]?.quarter})`);
@@ -239,7 +267,7 @@ async function main() {
         unit: "thousands",
         timeField: "quarter",
         description:
-          "Long-term sick and students as reasons for economic inactivity (16-64), seasonally adjusted, quarterly, in thousands.",
+          "Reasons for economic inactivity (16-64): long-term sick, students, looking after family/home, retired, and other. Seasonally adjusted, quarterly, in thousands.",
         methodologyBreaks: [
           {
             at: "2020-Q1",

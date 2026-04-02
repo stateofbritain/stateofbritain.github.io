@@ -995,7 +995,7 @@
       "label": "Economic Inactivity Reasons",
       "unit": "thousands",
       "timeField": "quarter",
-      "description": "Long-term sick and students as reasons for economic inactivity (16-64), seasonally adjusted, quarterly, in thousands.",
+      "description": "Reasons for economic inactivity (16-64): long-term sick, students, looking after family/home, retired, and other. Seasonally adjusted, quarterly, in thousands.",
       "methodologyBreaks": [
         {
           "at": "2020-Q1",
@@ -1008,657 +1008,1050 @@
         {
           "quarter": "1993-Q2",
           "longTermSick": 1834,
-          "students": 1441
+          "students": 1441,
+          "lookingAfterFamily": 2898,
+          "retired": 1100,
+          "other": 555
         },
         {
           "quarter": "1993-Q3",
           "longTermSick": 1884,
-          "students": 1455
+          "students": 1455,
+          "lookingAfterFamily": 2858,
+          "retired": 1101,
+          "other": 559
         },
         {
           "quarter": "1993-Q4",
           "longTermSick": 1930,
-          "students": 1428
+          "students": 1428,
+          "lookingAfterFamily": 2867,
+          "retired": 1086,
+          "other": 536
         },
         {
           "quarter": "1994-Q1",
           "longTermSick": 1911,
-          "students": 1436
+          "students": 1436,
+          "lookingAfterFamily": 2873,
+          "retired": 1087,
+          "other": 522
         },
         {
           "quarter": "1994-Q2",
           "longTermSick": 1952,
-          "students": 1481
+          "students": 1481,
+          "lookingAfterFamily": 2875,
+          "retired": 1090,
+          "other": 512
         },
         {
           "quarter": "1994-Q3",
           "longTermSick": 1971,
-          "students": 1475
+          "students": 1475,
+          "lookingAfterFamily": 2865,
+          "retired": 1117,
+          "other": 491
         },
         {
           "quarter": "1994-Q4",
           "longTermSick": 2031,
-          "students": 1513
+          "students": 1513,
+          "lookingAfterFamily": 2824,
+          "retired": 1124,
+          "other": 529
         },
         {
           "quarter": "1995-Q1",
           "longTermSick": 2080,
-          "students": 1496
+          "students": 1496,
+          "lookingAfterFamily": 2761,
+          "retired": 1133,
+          "other": 534
         },
         {
           "quarter": "1995-Q2",
           "longTermSick": 2120,
-          "students": 1479
+          "students": 1479,
+          "lookingAfterFamily": 2764,
+          "retired": 1100,
+          "other": 528
         },
         {
           "quarter": "1995-Q3",
           "longTermSick": 2133,
-          "students": 1423
+          "students": 1423,
+          "lookingAfterFamily": 2734,
+          "retired": 1103,
+          "other": 511
         },
         {
           "quarter": "1995-Q4",
           "longTermSick": 2152,
-          "students": 1433
+          "students": 1433,
+          "lookingAfterFamily": 2709,
+          "retired": 1107,
+          "other": 501
         },
         {
           "quarter": "1996-Q1",
           "longTermSick": 2165,
-          "students": 1427
+          "students": 1427,
+          "lookingAfterFamily": 2699,
+          "retired": 1127,
+          "other": 507
         },
         {
           "quarter": "1996-Q2",
           "longTermSick": 2193,
-          "students": 1404
+          "students": 1404,
+          "lookingAfterFamily": 2639,
+          "retired": 1149,
+          "other": 517
         },
         {
           "quarter": "1996-Q3",
           "longTermSick": 2265,
-          "students": 1438
+          "students": 1438,
+          "lookingAfterFamily": 2611,
+          "retired": 1136,
+          "other": 536
         },
         {
           "quarter": "1996-Q4",
           "longTermSick": 2301,
-          "students": 1419
+          "students": 1419,
+          "lookingAfterFamily": 2552,
+          "retired": 1161,
+          "other": 500
         },
         {
           "quarter": "1997-Q1",
           "longTermSick": 2318,
-          "students": 1406
+          "students": 1406,
+          "lookingAfterFamily": 2553,
+          "retired": 1144,
+          "other": 529
         },
         {
           "quarter": "1997-Q2",
           "longTermSick": 2280,
-          "students": 1384
+          "students": 1384,
+          "lookingAfterFamily": 2493,
+          "retired": 1167,
+          "other": 537
         },
         {
           "quarter": "1997-Q3",
           "longTermSick": 2328,
-          "students": 1434
+          "students": 1434,
+          "lookingAfterFamily": 2467,
+          "retired": 1173,
+          "other": 556
         },
         {
           "quarter": "1997-Q4",
           "longTermSick": 2346,
-          "students": 1415
+          "students": 1415,
+          "lookingAfterFamily": 2490,
+          "retired": 1207,
+          "other": 546
         },
         {
           "quarter": "1998-Q1",
           "longTermSick": 2372,
-          "students": 1443
+          "students": 1443,
+          "lookingAfterFamily": 2499,
+          "retired": 1229,
+          "other": 491
         },
         {
           "quarter": "1998-Q2",
           "longTermSick": 2367,
-          "students": 1427
+          "students": 1427,
+          "lookingAfterFamily": 2492,
+          "retired": 1258,
+          "other": 528
         },
         {
           "quarter": "1998-Q3",
           "longTermSick": 2369,
-          "students": 1401
+          "students": 1401,
+          "lookingAfterFamily": 2471,
+          "retired": 1270,
+          "other": 509
         },
         {
           "quarter": "1998-Q4",
           "longTermSick": 2343,
-          "students": 1455
+          "students": 1455,
+          "lookingAfterFamily": 2408,
+          "retired": 1261,
+          "other": 517
         },
         {
           "quarter": "1999-Q1",
           "longTermSick": 2337,
-          "students": 1437
+          "students": 1437,
+          "lookingAfterFamily": 2363,
+          "retired": 1260,
+          "other": 524
         },
         {
           "quarter": "1999-Q2",
           "longTermSick": 2349,
-          "students": 1456
+          "students": 1456,
+          "lookingAfterFamily": 2375,
+          "retired": 1263,
+          "other": 533
         },
         {
           "quarter": "1999-Q3",
           "longTermSick": 2339,
-          "students": 1422
+          "students": 1422,
+          "lookingAfterFamily": 2358,
+          "retired": 1304,
+          "other": 535
         },
         {
           "quarter": "1999-Q4",
           "longTermSick": 2286,
-          "students": 1398
+          "students": 1398,
+          "lookingAfterFamily": 2331,
+          "retired": 1326,
+          "other": 546
         },
         {
           "quarter": "2000-Q1",
           "longTermSick": 2306,
-          "students": 1397
+          "students": 1397,
+          "lookingAfterFamily": 2318,
+          "retired": 1304,
+          "other": 582
         },
         {
           "quarter": "2000-Q2",
           "longTermSick": 2290,
-          "students": 1449
+          "students": 1449,
+          "lookingAfterFamily": 2310,
+          "retired": 1306,
+          "other": 575
         },
         {
           "quarter": "2000-Q3",
           "longTermSick": 2310,
-          "students": 1444
+          "students": 1444,
+          "lookingAfterFamily": 2269,
+          "retired": 1322,
+          "other": 565
         },
         {
           "quarter": "2000-Q4",
           "longTermSick": 2341,
-          "students": 1493
+          "students": 1493,
+          "lookingAfterFamily": 2290,
+          "retired": 1321,
+          "other": 581
         },
         {
           "quarter": "2001-Q1",
           "longTermSick": 2342,
-          "students": 1503
+          "students": 1503,
+          "lookingAfterFamily": 2310,
+          "retired": 1332,
+          "other": 557
         },
         {
           "quarter": "2001-Q2",
           "longTermSick": 2341,
-          "students": 1522
+          "students": 1522,
+          "lookingAfterFamily": 2299,
+          "retired": 1372,
+          "other": 534
         },
         {
           "quarter": "2001-Q3",
           "longTermSick": 2370,
-          "students": 1524
+          "students": 1524,
+          "lookingAfterFamily": 2306,
+          "retired": 1375,
+          "other": 548
         },
         {
           "quarter": "2001-Q4",
           "longTermSick": 2384,
-          "students": 1496
+          "students": 1496,
+          "lookingAfterFamily": 2303,
+          "retired": 1357,
+          "other": 525
         },
         {
           "quarter": "2002-Q1",
           "longTermSick": 2384,
-          "students": 1536
+          "students": 1536,
+          "lookingAfterFamily": 2299,
+          "retired": 1380,
+          "other": 528
         },
         {
           "quarter": "2002-Q2",
           "longTermSick": 2362,
-          "students": 1522
+          "students": 1522,
+          "lookingAfterFamily": 2292,
+          "retired": 1365,
+          "other": 524
         },
         {
           "quarter": "2002-Q3",
           "longTermSick": 2307,
-          "students": 1560
+          "students": 1560,
+          "lookingAfterFamily": 2311,
+          "retired": 1362,
+          "other": 523
         },
         {
           "quarter": "2002-Q4",
           "longTermSick": 2283,
-          "students": 1554
+          "students": 1554,
+          "lookingAfterFamily": 2303,
+          "retired": 1364,
+          "other": 525
         },
         {
           "quarter": "2003-Q1",
           "longTermSick": 2307,
-          "students": 1595
+          "students": 1595,
+          "lookingAfterFamily": 2293,
+          "retired": 1387,
+          "other": 517
         },
         {
           "quarter": "2003-Q2",
           "longTermSick": 2261,
-          "students": 1659
+          "students": 1659,
+          "lookingAfterFamily": 2305,
+          "retired": 1357,
+          "other": 519
         },
         {
           "quarter": "2003-Q3",
           "longTermSick": 2266,
-          "students": 1673
+          "students": 1673,
+          "lookingAfterFamily": 2287,
+          "retired": 1369,
+          "other": 527
         },
         {
           "quarter": "2003-Q4",
           "longTermSick": 2301,
-          "students": 1685
+          "students": 1685,
+          "lookingAfterFamily": 2265,
+          "retired": 1380,
+          "other": 529
         },
         {
           "quarter": "2004-Q1",
           "longTermSick": 2279,
-          "students": 1668
+          "students": 1668,
+          "lookingAfterFamily": 2257,
+          "retired": 1366,
+          "other": 545
         },
         {
           "quarter": "2004-Q2",
           "longTermSick": 2315,
-          "students": 1709
+          "students": 1709,
+          "lookingAfterFamily": 2234,
+          "retired": 1386,
+          "other": 552
         },
         {
           "quarter": "2004-Q3",
           "longTermSick": 2339,
-          "students": 1729
+          "students": 1729,
+          "lookingAfterFamily": 2247,
+          "retired": 1378,
+          "other": 556
         },
         {
           "quarter": "2004-Q4",
           "longTermSick": 2307,
-          "students": 1729
+          "students": 1729,
+          "lookingAfterFamily": 2238,
+          "retired": 1397,
+          "other": 542
         },
         {
           "quarter": "2005-Q1",
           "longTermSick": 2285,
-          "students": 1750
+          "students": 1750,
+          "lookingAfterFamily": 2234,
+          "retired": 1386,
+          "other": 539
         },
         {
           "quarter": "2005-Q2",
           "longTermSick": 2296,
-          "students": 1799
+          "students": 1799,
+          "lookingAfterFamily": 2245,
+          "retired": 1432,
+          "other": 519
         },
         {
           "quarter": "2005-Q3",
           "longTermSick": 2248,
-          "students": 1882
+          "students": 1882,
+          "lookingAfterFamily": 2212,
+          "retired": 1429,
+          "other": 500
         },
         {
           "quarter": "2005-Q4",
           "longTermSick": 2255,
-          "students": 1871
+          "students": 1871,
+          "lookingAfterFamily": 2265,
+          "retired": 1382,
+          "other": 501
         },
         {
           "quarter": "2006-Q1",
           "longTermSick": 2223,
-          "students": 1842
+          "students": 1842,
+          "lookingAfterFamily": 2229,
+          "retired": 1403,
+          "other": 495
         },
         {
           "quarter": "2006-Q2",
           "longTermSick": 2242,
-          "students": 1815
+          "students": 1815,
+          "lookingAfterFamily": 2209,
+          "retired": 1396,
+          "other": 503
         },
         {
           "quarter": "2006-Q3",
           "longTermSick": 2194,
-          "students": 1809
+          "students": 1809,
+          "lookingAfterFamily": 2268,
+          "retired": 1402,
+          "other": 529
         },
         {
           "quarter": "2006-Q4",
           "longTermSick": 2228,
-          "students": 1833
+          "students": 1833,
+          "lookingAfterFamily": 2224,
+          "retired": 1431,
+          "other": 533
         },
         {
           "quarter": "2007-Q1",
           "longTermSick": 2242,
-          "students": 1876
+          "students": 1876,
+          "lookingAfterFamily": 2232,
+          "retired": 1458,
+          "other": 527
         },
         {
           "quarter": "2007-Q2",
           "longTermSick": 2209,
-          "students": 1916
+          "students": 1916,
+          "lookingAfterFamily": 2239,
+          "retired": 1477,
+          "other": 535
         },
         {
           "quarter": "2007-Q3",
           "longTermSick": 2200,
-          "students": 1930
+          "students": 1930,
+          "lookingAfterFamily": 2227,
+          "retired": 1482,
+          "other": 528
         },
         {
           "quarter": "2007-Q4",
           "longTermSick": 2220,
-          "students": 1950
+          "students": 1950,
+          "lookingAfterFamily": 2185,
+          "retired": 1490,
+          "other": 516
         },
         {
           "quarter": "2008-Q1",
           "longTermSick": 2224,
-          "students": 1946
+          "students": 1946,
+          "lookingAfterFamily": 2185,
+          "retired": 1489,
+          "other": 512
         },
         {
           "quarter": "2008-Q2",
           "longTermSick": 2174,
-          "students": 1977
+          "students": 1977,
+          "lookingAfterFamily": 2200,
+          "retired": 1518,
+          "other": 490
         },
         {
           "quarter": "2008-Q3",
           "longTermSick": 2227,
-          "students": 1999
+          "students": 1999,
+          "lookingAfterFamily": 2160,
+          "retired": 1542,
+          "other": 475
         },
         {
           "quarter": "2008-Q4",
           "longTermSick": 2149,
-          "students": 2060
+          "students": 2060,
+          "lookingAfterFamily": 2166,
+          "retired": 1537,
+          "other": 467
         },
         {
           "quarter": "2009-Q1",
           "longTermSick": 2160,
-          "students": 2083
+          "students": 2083,
+          "lookingAfterFamily": 2149,
+          "retired": 1508,
+          "other": 472
         },
         {
           "quarter": "2009-Q2",
           "longTermSick": 2144,
-          "students": 2150
+          "students": 2150,
+          "lookingAfterFamily": 2163,
+          "retired": 1517,
+          "other": 475
         },
         {
           "quarter": "2009-Q3",
           "longTermSick": 2191,
-          "students": 2207
+          "students": 2207,
+          "lookingAfterFamily": 2150,
+          "retired": 1527,
+          "other": 464
         },
         {
           "quarter": "2009-Q4",
           "longTermSick": 2178,
-          "students": 2296
+          "students": 2296,
+          "lookingAfterFamily": 2122,
+          "retired": 1546,
+          "other": 445
         },
         {
           "quarter": "2010-Q1",
           "longTermSick": 2205,
-          "students": 2322
+          "students": 2322,
+          "lookingAfterFamily": 2154,
+          "retired": 1540,
+          "other": 464
         },
         {
           "quarter": "2010-Q2",
           "longTermSick": 2246,
-          "students": 2288
+          "students": 2288,
+          "lookingAfterFamily": 2123,
+          "retired": 1505,
+          "other": 483
         },
         {
           "quarter": "2010-Q3",
           "longTermSick": 2224,
-          "students": 2241
+          "students": 2241,
+          "lookingAfterFamily": 2111,
+          "retired": 1533,
+          "other": 462
         },
         {
           "quarter": "2010-Q4",
           "longTermSick": 2230,
-          "students": 2245
+          "students": 2245,
+          "lookingAfterFamily": 2118,
+          "retired": 1582,
+          "other": 500
         },
         {
           "quarter": "2011-Q1",
           "longTermSick": 2190,
-          "students": 2312
+          "students": 2312,
+          "lookingAfterFamily": 2138,
+          "retired": 1555,
+          "other": 463
         },
         {
           "quarter": "2011-Q2",
           "longTermSick": 2189,
-          "students": 2300
+          "students": 2300,
+          "lookingAfterFamily": 2146,
+          "retired": 1568,
+          "other": 476
         },
         {
           "quarter": "2011-Q3",
           "longTermSick": 2189,
-          "students": 2331
+          "students": 2331,
+          "lookingAfterFamily": 2141,
+          "retired": 1572,
+          "other": 467
         },
         {
           "quarter": "2011-Q4",
           "longTermSick": 2139,
-          "students": 2329
+          "students": 2329,
+          "lookingAfterFamily": 2119,
+          "retired": 1546,
+          "other": 476
         },
         {
           "quarter": "2012-Q1",
           "longTermSick": 2156,
-          "students": 2320
+          "students": 2320,
+          "lookingAfterFamily": 2125,
+          "retired": 1482,
+          "other": 435
         },
         {
           "quarter": "2012-Q2",
           "longTermSick": 2140,
-          "students": 2229
+          "students": 2229,
+          "lookingAfterFamily": 2128,
+          "retired": 1465,
+          "other": 439
         },
         {
           "quarter": "2012-Q3",
           "longTermSick": 2064,
-          "students": 2259
+          "students": 2259,
+          "lookingAfterFamily": 2137,
+          "retired": 1434,
+          "other": 460
         },
         {
           "quarter": "2012-Q4",
           "longTermSick": 2052,
-          "students": 2266
+          "students": 2266,
+          "lookingAfterFamily": 2113,
+          "retired": 1396,
+          "other": 447
         },
         {
           "quarter": "2013-Q1",
           "longTermSick": 2070,
-          "students": 2319
+          "students": 2319,
+          "lookingAfterFamily": 2089,
+          "retired": 1393,
+          "other": 486
         },
         {
           "quarter": "2013-Q2",
           "longTermSick": 2064,
-          "students": 2367
+          "students": 2367,
+          "lookingAfterFamily": 2078,
+          "retired": 1377,
+          "other": 488
         },
         {
           "quarter": "2013-Q3",
           "longTermSick": 1984,
-          "students": 2323
+          "students": 2323,
+          "lookingAfterFamily": 2102,
+          "retired": 1351,
+          "other": 478
         },
         {
           "quarter": "2013-Q4",
           "longTermSick": 2043,
-          "students": 2324
+          "students": 2324,
+          "lookingAfterFamily": 2066,
+          "retired": 1333,
+          "other": 467
         },
         {
           "quarter": "2014-Q1",
           "longTermSick": 1996,
-          "students": 2327
+          "students": 2327,
+          "lookingAfterFamily": 2059,
+          "retired": 1330,
+          "other": 479
         },
         {
           "quarter": "2014-Q2",
           "longTermSick": 1991,
-          "students": 2337
+          "students": 2337,
+          "lookingAfterFamily": 2077,
+          "retired": 1321,
+          "other": 474
         },
         {
           "quarter": "2014-Q3",
           "longTermSick": 2022,
-          "students": 2333
+          "students": 2333,
+          "lookingAfterFamily": 2060,
+          "retired": 1309,
+          "other": 479
         },
         {
           "quarter": "2014-Q4",
           "longTermSick": 2036,
-          "students": 2348
+          "students": 2348,
+          "lookingAfterFamily": 2068,
+          "retired": 1289,
+          "other": 497
         },
         {
           "quarter": "2015-Q1",
           "longTermSick": 2026,
-          "students": 2328
+          "students": 2328,
+          "lookingAfterFamily": 2046,
+          "retired": 1283,
+          "other": 509
         },
         {
           "quarter": "2015-Q2",
           "longTermSick": 2085,
-          "students": 2305
+          "students": 2305,
+          "lookingAfterFamily": 2037,
+          "retired": 1251,
+          "other": 516
         },
         {
           "quarter": "2015-Q3",
           "longTermSick": 2111,
-          "students": 2300
+          "students": 2300,
+          "lookingAfterFamily": 1997,
+          "retired": 1211,
+          "other": 520
         },
         {
           "quarter": "2015-Q4",
           "longTermSick": 2074,
-          "students": 2291
+          "students": 2291,
+          "lookingAfterFamily": 2009,
+          "retired": 1166,
+          "other": 549
         },
         {
           "quarter": "2016-Q1",
           "longTermSick": 2100,
-          "students": 2263
+          "students": 2263,
+          "lookingAfterFamily": 2009,
+          "retired": 1159,
+          "other": 562
         },
         {
           "quarter": "2016-Q2",
           "longTermSick": 2042,
-          "students": 2302
+          "students": 2302,
+          "lookingAfterFamily": 1963,
+          "retired": 1155,
+          "other": 561
         },
         {
           "quarter": "2016-Q3",
           "longTermSick": 2007,
-          "students": 2305
+          "students": 2305,
+          "lookingAfterFamily": 1984,
+          "retired": 1151,
+          "other": 571
         },
         {
           "quarter": "2016-Q4",
           "longTermSick": 1959,
-          "students": 2317
+          "students": 2317,
+          "lookingAfterFamily": 1948,
+          "retired": 1189,
+          "other": 576
         },
         {
           "quarter": "2017-Q1",
           "longTermSick": 1991,
-          "students": 2314
+          "students": 2314,
+          "lookingAfterFamily": 1945,
+          "retired": 1177,
+          "other": 549
         },
         {
           "quarter": "2017-Q2",
           "longTermSick": 1982,
-          "students": 2312
+          "students": 2312,
+          "lookingAfterFamily": 1887,
+          "retired": 1218,
+          "other": 538
         },
         {
           "quarter": "2017-Q3",
           "longTermSick": 2055,
-          "students": 2383
+          "students": 2383,
+          "lookingAfterFamily": 1839,
+          "retired": 1186,
+          "other": 549
         },
         {
           "quarter": "2017-Q4",
           "longTermSick": 1997,
-          "students": 2358
+          "students": 2358,
+          "lookingAfterFamily": 1850,
+          "retired": 1159,
+          "other": 521
         },
         {
           "quarter": "2018-Q1",
           "longTermSick": 1977,
-          "students": 2313
+          "students": 2313,
+          "lookingAfterFamily": 1812,
+          "retired": 1161,
+          "other": 544
         },
         {
           "quarter": "2018-Q2",
           "longTermSick": 2043,
-          "students": 2335
+          "students": 2335,
+          "lookingAfterFamily": 1805,
+          "retired": 1136,
+          "other": 567
         },
         {
           "quarter": "2018-Q3",
           "longTermSick": 2000,
-          "students": 2373
+          "students": 2373,
+          "lookingAfterFamily": 1819,
+          "retired": 1118,
+          "other": 575
         },
         {
           "quarter": "2018-Q4",
           "longTermSick": 2007,
-          "students": 2270
+          "students": 2270,
+          "lookingAfterFamily": 1806,
+          "retired": 1120,
+          "other": 586
         },
         {
           "quarter": "2019-Q1",
           "longTermSick": 2012,
-          "students": 2297
+          "students": 2297,
+          "lookingAfterFamily": 1842,
+          "retired": 1123,
+          "other": 589
         },
         {
           "quarter": "2019-Q2",
           "longTermSick": 2030,
-          "students": 2291
+          "students": 2291,
+          "lookingAfterFamily": 1808,
+          "retired": 1099,
+          "other": 550
         },
         {
           "quarter": "2019-Q3",
           "longTermSick": 2062,
-          "students": 2291
+          "students": 2291,
+          "lookingAfterFamily": 1782,
+          "retired": 1115,
+          "other": 573
         },
         {
           "quarter": "2019-Q4",
           "longTermSick": 2080,
-          "students": 2301
+          "students": 2301,
+          "lookingAfterFamily": 1695,
+          "retired": 1126,
+          "other": 559
         },
         {
           "quarter": "2020-Q1",
           "longTermSick": 2232,
-          "students": 2210
+          "students": 2210,
+          "lookingAfterFamily": 1640,
+          "retired": 1101,
+          "other": 561
         },
         {
           "quarter": "2020-Q2",
           "longTermSick": 2230,
-          "students": 2190
+          "students": 2190,
+          "lookingAfterFamily": 1581,
+          "retired": 1085,
+          "other": 728
         },
         {
           "quarter": "2020-Q3",
           "longTermSick": 2318,
-          "students": 2407
+          "students": 2407,
+          "lookingAfterFamily": 1445,
+          "retired": 1120,
+          "other": 676
         },
         {
           "quarter": "2020-Q4",
           "longTermSick": 2327,
-          "students": 2448
+          "students": 2448,
+          "lookingAfterFamily": 1437,
+          "retired": 1087,
+          "other": 626
         },
         {
           "quarter": "2021-Q1",
           "longTermSick": 2308,
-          "students": 2560
+          "students": 2560,
+          "lookingAfterFamily": 1400,
+          "retired": 1137,
+          "other": 619
         },
         {
           "quarter": "2021-Q2",
           "longTermSick": 2293,
-          "students": 2550
+          "students": 2550,
+          "lookingAfterFamily": 1410,
+          "retired": 1170,
+          "other": 607
         },
         {
           "quarter": "2021-Q3",
           "longTermSick": 2389,
-          "students": 2373
+          "students": 2373,
+          "lookingAfterFamily": 1467,
+          "retired": 1168,
+          "other": 614
         },
         {
           "quarter": "2021-Q4",
           "longTermSick": 2434,
-          "students": 2376
+          "students": 2376,
+          "lookingAfterFamily": 1475,
+          "retired": 1154,
+          "other": 642
         },
         {
           "quarter": "2022-Q1",
           "longTermSick": 2440,
-          "students": 2434
+          "students": 2434,
+          "lookingAfterFamily": 1551,
+          "retired": 1170,
+          "other": 626
         },
         {
           "quarter": "2022-Q2",
           "longTermSick": 2503,
-          "students": 2440
+          "students": 2440,
+          "lookingAfterFamily": 1536,
+          "retired": 1190,
+          "other": 603
         },
         {
           "quarter": "2022-Q3",
           "longTermSick": 2633,
-          "students": 2480
+          "students": 2480,
+          "lookingAfterFamily": 1516,
+          "retired": 1158,
+          "other": 581
         },
         {
           "quarter": "2022-Q4",
           "longTermSick": 2582,
-          "students": 2372
+          "students": 2372,
+          "lookingAfterFamily": 1547,
+          "retired": 1089,
+          "other": 571
         },
         {
           "quarter": "2023-Q1",
           "longTermSick": 2699,
-          "students": 2321
+          "students": 2321,
+          "lookingAfterFamily": 1515,
+          "retired": 1070,
+          "other": 575
         },
         {
           "quarter": "2023-Q2",
           "longTermSick": 2708,
-          "students": 2335
+          "students": 2335,
+          "lookingAfterFamily": 1435,
+          "retired": 1084,
+          "other": 596
         },
         {
           "quarter": "2023-Q3",
           "longTermSick": 2739,
-          "students": 2480
+          "students": 2480,
+          "lookingAfterFamily": 1447,
+          "retired": 1079,
+          "other": 583
         },
         {
           "quarter": "2023-Q4",
           "longTermSick": 2845,
-          "students": 2533
+          "students": 2533,
+          "lookingAfterFamily": 1405,
+          "retired": 1093,
+          "other": 560
         },
         {
           "quarter": "2024-Q1",
           "longTermSick": 2820,
-          "students": 2535
+          "students": 2535,
+          "lookingAfterFamily": 1403,
+          "retired": 1109,
+          "other": 576
         },
         {
           "quarter": "2024-Q2",
           "longTermSick": 2826,
-          "students": 2559
+          "students": 2559,
+          "lookingAfterFamily": 1489,
+          "retired": 1070,
+          "other": 509
         },
         {
           "quarter": "2024-Q3",
           "longTermSick": 2792,
-          "students": 2483
+          "students": 2483,
+          "lookingAfterFamily": 1427,
+          "retired": 1079,
+          "other": 539
         },
         {
           "quarter": "2024-Q4",
           "longTermSick": 2771,
-          "students": 2467
+          "students": 2467,
+          "lookingAfterFamily": 1432,
+          "retired": 1075,
+          "other": 590
         },
         {
           "quarter": "2025-Q1",
           "longTermSick": 2779,
-          "students": 2457
+          "students": 2457,
+          "lookingAfterFamily": 1390,
+          "retired": 1063,
+          "other": 578
         },
         {
           "quarter": "2025-Q2",
           "longTermSick": 2785,
-          "students": 2336
+          "students": 2336,
+          "lookingAfterFamily": 1388,
+          "retired": 1020,
+          "other": 579
         },
         {
           "quarter": "2025-Q3",
           "longTermSick": 2822,
-          "students": 2304
+          "students": 2304,
+          "lookingAfterFamily": 1361,
+          "retired": 1036,
+          "other": 617
         },
         {
           "quarter": "2025-Q4",
           "longTermSick": 2779,
-          "students": 2421
+          "students": 2421,
+          "lookingAfterFamily": 1325,
+          "retired": 1019,
+          "other": 592
         }
       ]
     }

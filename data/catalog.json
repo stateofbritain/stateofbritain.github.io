@@ -5995,7 +5995,7 @@
         },
         "inactivityReasons": {
           "title": "Economic Inactivity by Reason",
-          "summary": "Long-term sick and student populations among 16-64 year olds from 1993. Long-term sickness has risen sharply since 2019, while the student population grew substantially from the mid-2000s.",
+          "summary": "Reasons for inactivity among 16-64 year olds from 1993: long-term sick (2.8m, largest category), students (2.4m), looking after family/home (1.3m, declining), retired (1.0m), and other (592k). Long-term sickness overtook students as the largest reason and has risen sharply since 2019.",
           "unit": "thousands",
           "fields": {
             "longTermSick": {
@@ -6003,6 +6003,15 @@
             },
             "students": {
               "label": "students"
+            },
+            "lookingAfterFamily": {
+              "label": "lookingAfterFamily"
+            },
+            "retired": {
+              "label": "retired"
+            },
+            "other": {
+              "label": "other"
             }
           },
           "timeRange": {
