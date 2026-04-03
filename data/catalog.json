@@ -1,6 +1,6 @@
 {
   "$schema": "sob-catalog-v1",
-  "generated": "2026-04-02",
+  "generated": "2026-04-03",
   "datasets": [
     {
       "id": "adult-social-care",
@@ -2276,6 +2276,91 @@
           "timeRange": {
             "start": 2015,
             "end": 2024
+          }
+        }
+      }
+    },
+    {
+      "id": "hate-crime",
+      "title": "Hate Crime",
+      "pillar": "state",
+      "geography": "England & Wales",
+      "summary": "Police-recorded hate crimes by monitored strand from 2011/12 to 2024/25 (excl. Metropolitan Police for comparability). 115,990 total offences in 2024/25. Race is the largest strand (82,490), followed by sexual orientation (18,702), disability (10,224), religion (7,164), and transgender (3,809). Recording improvements since 2014 mean increases partly reflect better police practice, not necessarily higher prevalence. Religious hate crimes are broken down by perceived religion: Muslim (3,199), Jewish (1,715), Christian (401), Sikh (202), Hindu (118).",
+      "tags": [
+        "hate crime",
+        "racism",
+        "racist",
+        "racial",
+        "religion",
+        "antisemitism",
+        "antisemitic",
+        "Islamophobia",
+        "homophobia",
+        "transphobia",
+        "disability",
+        "hate",
+        "prejudice",
+        "discrimination",
+        "violence",
+        "police",
+        "recorded crime",
+        "Home Office",
+        "bigotry",
+        "intolerance",
+        "targeted"
+      ],
+      "dataFile": "/data/hate-crime.json",
+      "series": {
+        "byStrand": {
+          "title": "Hate Crimes by Monitored Strand",
+          "summary": "Police-recorded hate crimes by strand (race, religion, sexual orientation, disability, transgender) from 2011/12 to 2024/25. Excludes Metropolitan Police. Race accounts for 71% of all hate crime motivating factors. Total rose from 33,950 in 2011/12 to 122,389 in 2024/25, partly due to improved recording.",
+          "unit": "offences",
+          "fields": {
+            "race": {
+              "label": "race"
+            },
+            "religion": {
+              "label": "religion"
+            },
+            "sexualOrientation": {
+              "label": "sexualOrientation"
+            },
+            "disability": {
+              "label": "disability"
+            },
+            "transgender": {
+              "label": "transgender"
+            },
+            "totalOffences": {
+              "label": "totalOffences"
+            }
+          },
+          "timeRange": {
+            "start": "2011/12",
+            "end": "2024/25"
+          }
+        },
+        "byReligion": {
+          "title": "Religious Hate Crimes by Perceived Religion",
+          "summary": "Religious hate crimes by perceived religion of the victim (2021/22-2024/25, excl. Met Police). Muslim victims account for 46% of religious hate crimes (3,199), Jewish victims 24% (1,715). Jewish hate crimes peaked at 2,093 in 2023/24 following events in the Middle East.",
+          "unit": "offences",
+          "fields": {
+            "2021/22": {
+              "label": "2021/22"
+            },
+            "2022/23": {
+              "label": "2022/23"
+            },
+            "2023/24": {
+              "label": "2023/24"
+            },
+            "2024/25": {
+              "label": "2024/25"
+            }
+          },
+          "timeRange": {
+            "start": "Buddhist",
+            "end": "Unknown"
           }
         }
       }
@@ -6388,6 +6473,7 @@
         "borrowing",
         "cpih",
         "defence",
+        "hate-crime",
         "immigration",
         "justice",
         "local-government",
@@ -6627,7 +6713,8 @@
         "money-supply"
       ],
       "religion": [
-        "culture"
+        "culture",
+        "hate-crime"
       ],
       "faith": [
         "culture"
@@ -6954,6 +7041,71 @@
         "gp-access",
         "youth-unemployment"
       ],
+      "hate crime": [
+        "hate-crime"
+      ],
+      "racism": [
+        "hate-crime"
+      ],
+      "racist": [
+        "hate-crime"
+      ],
+      "racial": [
+        "hate-crime"
+      ],
+      "antisemitism": [
+        "hate-crime"
+      ],
+      "antisemitic": [
+        "hate-crime"
+      ],
+      "Islamophobia": [
+        "hate-crime"
+      ],
+      "homophobia": [
+        "hate-crime"
+      ],
+      "transphobia": [
+        "hate-crime"
+      ],
+      "disability": [
+        "hate-crime",
+        "welfare"
+      ],
+      "hate": [
+        "hate-crime"
+      ],
+      "prejudice": [
+        "hate-crime"
+      ],
+      "discrimination": [
+        "hate-crime"
+      ],
+      "violence": [
+        "hate-crime",
+        "safety"
+      ],
+      "police": [
+        "hate-crime",
+        "justice",
+        "safety",
+        "workforce"
+      ],
+      "recorded crime": [
+        "hate-crime"
+      ],
+      "Home Office": [
+        "hate-crime"
+      ],
+      "bigotry": [
+        "hate-crime"
+      ],
+      "intolerance": [
+        "hate-crime"
+      ],
+      "targeted": [
+        "hate-crime"
+      ],
       "health": [
         "health-outcomes"
       ],
@@ -7108,11 +7260,6 @@
       ],
       "justice": [
         "justice"
-      ],
-      "police": [
-        "justice",
-        "safety",
-        "workforce"
       ],
       "prisons": [
         "justice"
@@ -7320,9 +7467,6 @@
       "homicide": [
         "safety"
       ],
-      "violence": [
-        "safety"
-      ],
       "fraud": [
         "safety"
       ],
@@ -7473,9 +7617,6 @@
         "welfare"
       ],
       "housing benefit": [
-        "welfare"
-      ],
-      "disability": [
         "welfare"
       ],
       "incapacity": [

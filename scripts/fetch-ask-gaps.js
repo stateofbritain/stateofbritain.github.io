@@ -152,6 +152,8 @@ async function main() {
   // may map the Answer column header to an empty key depending on sheet state)
   const getAnswer = q => q.answer || q[""] || "";
   const unanswered = questions.filter(q => {
+    // Skip rows marked as done in the spreadsheet
+    if (q.done && q.done.toString().toLowerCase() === "done") return false;
     const ans = getAnswer(q);
     return q.depth === "no_match" ||
       ans.includes("don't have data on that topic") ||

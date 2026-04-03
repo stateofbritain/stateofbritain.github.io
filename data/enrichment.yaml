@@ -243,6 +243,21 @@ justice:
   summary: "Crime trends, police workforce, prison population, court backlog, and charge rates."
   tags: [crime, justice, police, prisons, courts]
 
+hate-crime:
+  title: "Hate Crime"
+  geography: "England & Wales"
+  summary: "Police-recorded hate crimes by monitored strand from 2011/12 to 2024/25 (excl. Metropolitan Police for comparability). 115,990 total offences in 2024/25. Race is the largest strand (82,490), followed by sexual orientation (18,702), disability (10,224), religion (7,164), and transgender (3,809). Recording improvements since 2014 mean increases partly reflect better police practice, not necessarily higher prevalence. Religious hate crimes are broken down by perceived religion: Muslim (3,199), Jewish (1,715), Christian (401), Sikh (202), Hindu (118)."
+  tags: [hate crime, racism, racist, racial, religion, antisemitism, antisemitic, Islamophobia, homophobia, transphobia, disability, hate, prejudice, discrimination, violence, police, recorded crime, Home Office, bigotry, intolerance, targeted]
+  series:
+    byStrand:
+      title: "Hate Crimes by Monitored Strand"
+      summary: "Police-recorded hate crimes by strand (race, religion, sexual orientation, disability, transgender) from 2011/12 to 2024/25. Excludes Metropolitan Police. Race accounts for 71% of all hate crime motivating factors. Total rose from 33,950 in 2011/12 to 122,389 in 2024/25, partly due to improved recording."
+      unit: "offences"
+    byReligion:
+      title: "Religious Hate Crimes by Perceived Religion"
+      summary: "Religious hate crimes by perceived religion of the victim (2021/22-2024/25, excl. Met Police). Muslim victims account for 46% of religious hate crimes (3,199), Jewish victims 24% (1,715). Jewish hate crimes peaked at 2,093 in 2023/24 following events in the Middle East."
+      unit: "offences"
+
 infrastructure:
   title: "Infrastructure"
   geography: "United Kingdom"

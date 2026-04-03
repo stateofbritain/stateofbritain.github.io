@@ -1,0 +1,241 @@
+{
+  "$schema": "sob-dataset-v1",
+  "id": "hate-crime",
+  "pillar": "state",
+  "topic": "justice",
+  "generated": "2026-04-03",
+  "sources": [
+    {
+      "id": "home-office-hate-crime",
+      "name": "Home Office — Hate crime, England and Wales",
+      "url": "https://www.gov.uk/government/statistics/hate-crime-england-and-wales-year-ending-march-2025",
+      "publisher": "Home Office",
+      "note": "Police-recorded hate crimes, England and Wales. Time series excludes Metropolitan Police for year-on-year comparability. One offence can have multiple motivating strands."
+    }
+  ],
+  "snapshot": {
+    "latestYear": "2024/25",
+    "raceHateCrimes": 82490,
+    "religionHateCrimes": 7164,
+    "sexualOrientationHateCrimes": 18702,
+    "disabilityHateCrimes": 10224,
+    "transgenderHateCrimes": 3809
+  },
+  "series": {
+    "byStrand": {
+      "sourceId": "home-office-hate-crime",
+      "label": "Hate Crimes by Strand",
+      "unit": "offences",
+      "timeField": "year",
+      "description": "Police-recorded hate crimes by monitored strand (race, religion, sexual orientation, disability, transgender). Excludes Metropolitan Police for comparability. One offence may be counted under multiple strands. England and Wales.",
+      "methodologyBreaks": [
+        {
+          "at": "2014/15",
+          "label": "Recording improvements",
+          "description": "Police forces improved their recording of hate crimes following HMIC inspections in 2014, leading to increases in recorded numbers that do not necessarily reflect changes in underlying prevalence.",
+          "severity": "major"
+        }
+      ],
+      "data": [
+        {
+          "year": "2011/12",
+          "race": 27961,
+          "religion": 1011,
+          "sexualOrientation": 3111,
+          "disability": 1628,
+          "transgender": 239,
+          "totalOffences": null
+        },
+        {
+          "year": "2012/13",
+          "race": 26462,
+          "religion": 941,
+          "sexualOrientation": 3109,
+          "disability": 1803,
+          "transgender": 314,
+          "totalOffences": 31884
+        },
+        {
+          "year": "2013/14",
+          "race": 27826,
+          "religion": 1349,
+          "sexualOrientation": 3375,
+          "disability": 1896,
+          "transgender": 480,
+          "totalOffences": 33829
+        },
+        {
+          "year": "2014/15",
+          "race": 31322,
+          "religion": 1922,
+          "sexualOrientation": 4042,
+          "disability": 2337,
+          "transgender": 500,
+          "totalOffences": 38576
+        },
+        {
+          "year": "2015/16",
+          "race": 36121,
+          "religion": 2637,
+          "sexualOrientation": 5350,
+          "disability": 3272,
+          "transgender": 706,
+          "totalOffences": 46071
+        },
+        {
+          "year": "2016/17",
+          "race": 46762,
+          "religion": 3833,
+          "sexualOrientation": 7111,
+          "disability": 4892,
+          "transgender": 1046,
+          "totalOffences": 60650
+        },
+        {
+          "year": "2017/18",
+          "race": 55793,
+          "religion": 5833,
+          "sexualOrientation": 9491,
+          "disability": 6759,
+          "transgender": 1523,
+          "totalOffences": 74674
+        },
+        {
+          "year": "2018/19",
+          "race": 62992,
+          "religion": 6344,
+          "sexualOrientation": 12080,
+          "disability": 7837,
+          "transgender": 2089,
+          "totalOffences": 86593
+        },
+        {
+          "year": "2019/20",
+          "race": null,
+          "religion": null,
+          "sexualOrientation": null,
+          "disability": null,
+          "transgender": null,
+          "totalOffences": null
+        },
+        {
+          "year": "2020/21",
+          "race": 71995,
+          "religion": 4527,
+          "sexualOrientation": 15668,
+          "disability": 9418,
+          "transgender": 2510,
+          "totalOffences": 99813
+        },
+        {
+          "year": "2021/22",
+          "race": 87905,
+          "religion": 6510,
+          "sexualOrientation": 22317,
+          "disability": 13611,
+          "transgender": 3920,
+          "totalOffences": 128485
+        },
+        {
+          "year": "2022/23",
+          "race": 84039,
+          "religion": 6513,
+          "sexualOrientation": 21306,
+          "disability": 13637,
+          "transgender": 4477,
+          "totalOffences": 123033
+        },
+        {
+          "year": "2023/24",
+          "race": 77901,
+          "religion": 6973,
+          "sexualOrientation": 19127,
+          "disability": 11131,
+          "transgender": 4258,
+          "totalOffences": 113166
+        },
+        {
+          "year": "2024/25",
+          "race": 82490,
+          "religion": 7164,
+          "sexualOrientation": 18702,
+          "disability": 10224,
+          "transgender": 3809,
+          "totalOffences": 115990
+        }
+      ]
+    },
+    "byReligion": {
+      "sourceId": "home-office-hate-crime",
+      "label": "Religious Hate Crimes by Perceived Religion",
+      "unit": "offences",
+      "timeField": "religion",
+      "description": "Police-recorded religious hate crimes broken down by the perceived religion of the victim. Excludes Metropolitan Police. England and Wales.",
+      "data": [
+        {
+          "religion": "Buddhist",
+          "2021/22": 36,
+          "2022/23": 16,
+          "2023/24": 18,
+          "2024/25": 23
+        },
+        {
+          "religion": "Christian",
+          "2021/22": 512,
+          "2022/23": 500,
+          "2023/24": 431,
+          "2024/25": 401
+        },
+        {
+          "religion": "Hindu",
+          "2021/22": 90,
+          "2022/23": 218,
+          "2023/24": 107,
+          "2024/25": 118
+        },
+        {
+          "religion": "Jewish",
+          "2021/22": 1375,
+          "2022/23": 1172,
+          "2023/24": 2093,
+          "2024/25": 1715
+        },
+        {
+          "religion": "Muslim",
+          "2021/22": 2688,
+          "2022/23": 2661,
+          "2023/24": 2690,
+          "2024/25": 3199
+        },
+        {
+          "religion": "Sikh",
+          "2021/22": 242,
+          "2022/23": 241,
+          "2023/24": 159,
+          "2024/25": 202
+        },
+        {
+          "religion": "Other",
+          "2021/22": 374,
+          "2022/23": 438,
+          "2023/24": 459,
+          "2024/25": 480
+        },
+        {
+          "religion": "No religion",
+          "2021/22": 169,
+          "2022/23": 138,
+          "2023/24": 123,
+          "2024/25": 137
+        },
+        {
+          "religion": "Unknown",
+          "2021/22": 1079,
+          "2022/23": 1235,
+          "2023/24": 925,
+          "2024/25": 919
+        }
+      ]
+    }
+  }
+}

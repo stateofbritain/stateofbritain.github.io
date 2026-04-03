@@ -353,7 +353,11 @@ function logQuestion(question, depth, datasets, cached, answer) {
     var logSheet = ss.getSheetByName("Ask Log");
     if (!logSheet) {
       logSheet = ss.insertSheet("Ask Log");
-      logSheet.appendRow(["Timestamp", "Question", "Depth", "Datasets", "Cached", "Answer"]);
+      logSheet.appendRow(["Timestamp", "Question", "Depth", "Datasets", "Cached", "Answer", "Done"]);
+    }
+    // Ensure "Done" header exists in column G
+    if (logSheet.getRange("G1").getValue() !== "Done") {
+      logSheet.getRange("G1").setValue("Done");
     }
     logSheet.appendRow([
       new Date().toISOString(),
@@ -361,7 +365,8 @@ function logQuestion(question, depth, datasets, cached, answer) {
       depth,
       (datasets || []).join(", "),
       cached ? "yes" : "no",
-      answer || ""
+      answer || "",
+      ""
     ]);
   } catch (e) {
     // Non-critical
