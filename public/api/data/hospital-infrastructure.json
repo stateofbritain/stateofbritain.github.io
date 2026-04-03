@@ -1,0 +1,503 @@
+{
+  "$schema": "sob-dataset-v1",
+  "id": "hospital-infrastructure",
+  "pillar": "foundations",
+  "topic": "healthcare",
+  "generated": "2026-04-03",
+  "sources": [
+    {
+      "id": "ons-construction-output",
+      "name": "ONS — Output in the Construction Industry",
+      "url": "https://www.ons.gov.uk/businessindustryandtrade/constructionindustry/datasets/outputintheconstructionindustry",
+      "publisher": "Office for National Statistics",
+      "note": "Volume measure, seasonally adjusted, chained volume (£m). 'Public other new work' includes hospitals, schools, and other public buildings."
+    },
+    {
+      "id": "ons-construction-orders",
+      "name": "ONS — New Orders in the Construction Industry",
+      "url": "https://www.ons.gov.uk/businessindustryandtrade/constructionindustry/datasets/newordersintheconstructionindustry",
+      "publisher": "Office for National Statistics / Barbour ABI",
+      "note": "New orders value, current prices. Health sub-category includes public health construction new orders."
+    }
+  ],
+  "snapshot": {
+    "latestYear": 2025,
+    "publicOtherNewWork": 14325,
+    "infrastructure": 34610,
+    "allNewWork": 132937
+  },
+  "series": {
+    "constructionOutput": {
+      "sourceId": "ons-construction-output",
+      "label": "Construction Output by Sector",
+      "unit": "£m (SA, chained volume)",
+      "timeField": "year",
+      "description": "Annual average monthly construction output by sector. Volume measure, seasonally adjusted, chained volume (£ millions). 'Public other new work' covers hospitals, schools, and other public non-housing buildings. Great Britain.",
+      "data": [
+        {
+          "year": 1997,
+          "publicNewHousing": 2615,
+          "privateNewHousing": 21319,
+          "infrastructure": 16988,
+          "publicOtherNewWork": 7285,
+          "privateIndustrial": 10571,
+          "privateCommercial": 30930,
+          "allNewWork": 89032
+        },
+        {
+          "year": 1998,
+          "publicNewHousing": 2118,
+          "privateNewHousing": 21533,
+          "infrastructure": 16518,
+          "publicOtherNewWork": 7677,
+          "privateIndustrial": 10770,
+          "privateCommercial": 33521,
+          "allNewWork": 91374
+        },
+        {
+          "year": 1999,
+          "publicNewHousing": 1837,
+          "privateNewHousing": 19370,
+          "infrastructure": 16057,
+          "publicOtherNewWork": 8641,
+          "privateIndustrial": 11112,
+          "privateCommercial": 37532,
+          "allNewWork": 94110
+        },
+        {
+          "year": 2000,
+          "publicNewHousing": 2305,
+          "privateNewHousing": 21640,
+          "infrastructure": 15066,
+          "publicOtherNewWork": 8186,
+          "privateIndustrial": 9917,
+          "privateCommercial": 37818,
+          "allNewWork": 94282
+        },
+        {
+          "year": 2001,
+          "publicNewHousing": 2359,
+          "privateNewHousing": 20200,
+          "infrastructure": 16134,
+          "publicOtherNewWork": 8262,
+          "privateIndustrial": 10132,
+          "privateCommercial": 37546,
+          "allNewWork": 94195
+        },
+        {
+          "year": 2002,
+          "publicNewHousing": 2669,
+          "privateNewHousing": 22014,
+          "infrastructure": 18243,
+          "publicOtherNewWork": 10456,
+          "privateIndustrial": 8038,
+          "privateCommercial": 38786,
+          "allNewWork": 99988
+        },
+        {
+          "year": 2003,
+          "publicNewHousing": 3038,
+          "privateNewHousing": 27481,
+          "infrastructure": 17198,
+          "publicOtherNewWork": 13119,
+          "privateIndustrial": 8488,
+          "privateCommercial": 37376,
+          "allNewWork": 106004
+        },
+        {
+          "year": 2004,
+          "publicNewHousing": 3648,
+          "privateNewHousing": 33391,
+          "infrastructure": 15008,
+          "publicOtherNewWork": 14731,
+          "privateIndustrial": 8742,
+          "privateCommercial": 41220,
+          "allNewWork": 116043
+        },
+        {
+          "year": 2005,
+          "publicNewHousing": 3432,
+          "privateNewHousing": 34367,
+          "infrastructure": 14395,
+          "publicOtherNewWork": 13256,
+          "privateIndustrial": 8569,
+          "privateCommercial": 39431,
+          "allNewWork": 112688
+        },
+        {
+          "year": 2006,
+          "publicNewHousing": 4045,
+          "privateNewHousing": 34472,
+          "infrastructure": 13271,
+          "publicOtherNewWork": 12176,
+          "privateIndustrial": 9290,
+          "privateCommercial": 42797,
+          "allNewWork": 115619
+        },
+        {
+          "year": 2007,
+          "publicNewHousing": 4672,
+          "privateNewHousing": 33910,
+          "infrastructure": 13087,
+          "publicOtherNewWork": 11971,
+          "privateIndustrial": 9068,
+          "privateCommercial": 47104,
+          "allNewWork": 119692
+        },
+        {
+          "year": 2008,
+          "publicNewHousing": 4221,
+          "privateNewHousing": 26314,
+          "infrastructure": 14547,
+          "publicOtherNewWork": 13316,
+          "privateIndustrial": 7018,
+          "privateCommercial": 47659,
+          "allNewWork": 113311
+        },
+        {
+          "year": 2009,
+          "publicNewHousing": 4307,
+          "privateNewHousing": 18082,
+          "infrastructure": 16663,
+          "publicOtherNewWork": 16115,
+          "privateIndustrial": 4925,
+          "privateCommercial": 35704,
+          "allNewWork": 95953
+        },
+        {
+          "year": 2010,
+          "publicNewHousing": 6738,
+          "privateNewHousing": 21951,
+          "infrastructure": 21220,
+          "publicOtherNewWork": 21251,
+          "privateIndustrial": 5461,
+          "privateCommercial": 34955,
+          "allNewWork": 111575
+        },
+        {
+          "year": 2011,
+          "publicNewHousing": 6905,
+          "privateNewHousing": 23844,
+          "infrastructure": 21941,
+          "publicOtherNewWork": 19616,
+          "privateIndustrial": 4921,
+          "privateCommercial": 35451,
+          "allNewWork": 112678
+        },
+        {
+          "year": 2012,
+          "publicNewHousing": 5763,
+          "privateNewHousing": 22907,
+          "infrastructure": 19490,
+          "publicOtherNewWork": 15448,
+          "privateIndustrial": 5244,
+          "privateCommercial": 31861,
+          "allNewWork": 100713
+        },
+        {
+          "year": 2013,
+          "publicNewHousing": 6114,
+          "privateNewHousing": 25150,
+          "infrastructure": 19829,
+          "publicOtherNewWork": 14053,
+          "privateIndustrial": 4821,
+          "privateCommercial": 32117,
+          "allNewWork": 102084
+        },
+        {
+          "year": 2014,
+          "publicNewHousing": 8107,
+          "privateNewHousing": 32050,
+          "infrastructure": 19655,
+          "publicOtherNewWork": 14181,
+          "privateIndustrial": 5680,
+          "privateCommercial": 34231,
+          "allNewWork": 113905
+        },
+        {
+          "year": 2015,
+          "publicNewHousing": 6794,
+          "privateNewHousing": 35197,
+          "infrastructure": 23433,
+          "publicOtherNewWork": 14279,
+          "privateIndustrial": 6371,
+          "privateCommercial": 35146,
+          "allNewWork": 121219
+        },
+        {
+          "year": 2016,
+          "publicNewHousing": 6456,
+          "privateNewHousing": 39775,
+          "infrastructure": 23153,
+          "publicOtherNewWork": 14856,
+          "privateIndustrial": 5959,
+          "privateCommercial": 37863,
+          "allNewWork": 128063
+        },
+        {
+          "year": 2017,
+          "publicNewHousing": 7521,
+          "privateNewHousing": 43002,
+          "infrastructure": 26005,
+          "publicOtherNewWork": 14519,
+          "privateIndustrial": 6018,
+          "privateCommercial": 40219,
+          "allNewWork": 137284
+        },
+        {
+          "year": 2018,
+          "publicNewHousing": 7323,
+          "privateNewHousing": 45392,
+          "infrastructure": 26933,
+          "publicOtherNewWork": 12891,
+          "privateIndustrial": 6626,
+          "privateCommercial": 37411,
+          "allNewWork": 136576
+        },
+        {
+          "year": 2019,
+          "publicNewHousing": 8505,
+          "privateNewHousing": 47593,
+          "infrastructure": 27755,
+          "publicOtherNewWork": 12651,
+          "privateIndustrial": 6941,
+          "privateCommercial": 36702,
+          "allNewWork": 140148
+        },
+        {
+          "year": 2020,
+          "publicNewHousing": 5741,
+          "privateNewHousing": 38722,
+          "infrastructure": 26432,
+          "publicOtherNewWork": 11663,
+          "privateIndustrial": 5701,
+          "privateCommercial": 28741,
+          "allNewWork": 117001
+        },
+        {
+          "year": 2021,
+          "publicNewHousing": 6005,
+          "privateNewHousing": 45049,
+          "infrastructure": 34442,
+          "publicOtherNewWork": 11498,
+          "privateIndustrial": 5752,
+          "privateCommercial": 26605,
+          "allNewWork": 129351
+        },
+        {
+          "year": 2022,
+          "publicNewHousing": 11112,
+          "privateNewHousing": 49428,
+          "infrastructure": 35448,
+          "publicOtherNewWork": 10312,
+          "privateIndustrial": 8123,
+          "privateCommercial": 26064,
+          "allNewWork": 140486
+        },
+        {
+          "year": 2023,
+          "publicNewHousing": 11530,
+          "privateNewHousing": 42349,
+          "infrastructure": 36991,
+          "publicOtherNewWork": 11360,
+          "privateIndustrial": 7982,
+          "privateCommercial": 27227,
+          "allNewWork": 137438
+        },
+        {
+          "year": 2024,
+          "publicNewHousing": 9929,
+          "privateNewHousing": 40270,
+          "infrastructure": 33958,
+          "publicOtherNewWork": 12080,
+          "privateIndustrial": 8028,
+          "privateCommercial": 26352,
+          "allNewWork": 130618
+        },
+        {
+          "year": 2025,
+          "publicNewHousing": 9273,
+          "privateNewHousing": 41047,
+          "infrastructure": 34610,
+          "publicOtherNewWork": 14325,
+          "privateIndustrial": 9597,
+          "privateCommercial": 24084,
+          "allNewWork": 132937
+        }
+      ]
+    },
+    "healthOrders": {
+      "sourceId": "ons-construction-orders",
+      "label": "Health Construction New Orders",
+      "unit": "£m (current prices)",
+      "timeField": "year",
+      "description": "Annual total of new orders for public health construction (hospitals, clinics). Current prices, Great Britain. Aggregated from quarterly data.",
+      "data": [
+        {
+          "year": 1985,
+          "healthOrders": 778
+        },
+        {
+          "year": 1986,
+          "healthOrders": 683
+        },
+        {
+          "year": 1987,
+          "healthOrders": 785
+        },
+        {
+          "year": 1988,
+          "healthOrders": 1095
+        },
+        {
+          "year": 1989,
+          "healthOrders": 1256
+        },
+        {
+          "year": 1990,
+          "healthOrders": 1017
+        },
+        {
+          "year": 1991,
+          "healthOrders": 910
+        },
+        {
+          "year": 1992,
+          "healthOrders": 1047
+        },
+        {
+          "year": 1993,
+          "healthOrders": 1144
+        },
+        {
+          "year": 1994,
+          "healthOrders": 1212
+        },
+        {
+          "year": 1995,
+          "healthOrders": 1139
+        },
+        {
+          "year": 1996,
+          "healthOrders": 1088
+        },
+        {
+          "year": 1997,
+          "healthOrders": 772
+        },
+        {
+          "year": 1998,
+          "healthOrders": 1188
+        },
+        {
+          "year": 1999,
+          "healthOrders": 985
+        },
+        {
+          "year": 2000,
+          "healthOrders": 1066
+        },
+        {
+          "year": 2001,
+          "healthOrders": 1268
+        },
+        {
+          "year": 2002,
+          "healthOrders": 1676
+        },
+        {
+          "year": 2003,
+          "healthOrders": 1769
+        },
+        {
+          "year": 2004,
+          "healthOrders": 2172
+        },
+        {
+          "year": 2005,
+          "healthOrders": 1666
+        },
+        {
+          "year": 2006,
+          "healthOrders": 1392
+        },
+        {
+          "year": 2007,
+          "healthOrders": 1538
+        },
+        {
+          "year": 2008,
+          "healthOrders": 2257
+        },
+        {
+          "year": 2009,
+          "healthOrders": 2359
+        },
+        {
+          "year": 2010,
+          "healthOrders": 2443
+        },
+        {
+          "year": 2011,
+          "healthOrders": 1331
+        },
+        {
+          "year": 2012,
+          "healthOrders": 1296
+        },
+        {
+          "year": 2013,
+          "healthOrders": 1979
+        },
+        {
+          "year": 2014,
+          "healthOrders": 1432
+        },
+        {
+          "year": 2015,
+          "healthOrders": 1609
+        },
+        {
+          "year": 2016,
+          "healthOrders": 1293
+        },
+        {
+          "year": 2017,
+          "healthOrders": 586
+        },
+        {
+          "year": 2018,
+          "healthOrders": 1580
+        },
+        {
+          "year": 2019,
+          "healthOrders": 1063
+        },
+        {
+          "year": 2020,
+          "healthOrders": 1496
+        },
+        {
+          "year": 2021,
+          "healthOrders": 1937
+        },
+        {
+          "year": 2022,
+          "healthOrders": 2200
+        },
+        {
+          "year": 2023,
+          "healthOrders": 2348
+        },
+        {
+          "year": 2024,
+          "healthOrders": 2227
+        },
+        {
+          "year": 2025,
+          "healthOrders": 2412
+        }
+      ]
+    }
+  }
+}

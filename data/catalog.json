@@ -2633,6 +2633,84 @@
       }
     },
     {
+      "id": "hospital-infrastructure",
+      "title": "Hospital & Construction Infrastructure",
+      "pillar": "foundations",
+      "geography": "Great Britain",
+      "summary": "Construction output by sector (1997-2025) and health construction new orders (1985-2025). 'Public other new work' (which includes hospitals and schools) was £14.3bn in 2025, down from a peak of £22bn in 2010 during the Building Schools for the Future and hospital building programmes. Health construction new orders totalled £2.4bn in 2025. Private commercial construction (£24bn) dwarfs public non-housing (£14bn). Infrastructure spending (£35bn) has grown substantially since 2010.",
+      "tags": [
+        "hospital",
+        "hospitals",
+        "building",
+        "construction",
+        "new hospital",
+        "NHS estate",
+        "infrastructure",
+        "public buildings",
+        "schools",
+        "capital spending",
+        "construction output",
+        "new orders",
+        "health construction",
+        "hospital building",
+        "how many hospitals",
+        "new hospitals programme",
+        "NHP",
+        "backlog maintenance",
+        "RAAC",
+        "PFI"
+      ],
+      "dataFile": "/data/hospital-infrastructure.json",
+      "series": {
+        "constructionOutput": {
+          "title": "Construction Output by Sector",
+          "summary": "Annual construction output in £m (chained volume, SA). Public other new work peaked at £22bn in 2010 and fell to £12bn by 2016, recovering to £14bn in 2025. Infrastructure rose from £17bn in 1997 to £35bn in 2025. Private commercial peaked at £32bn in 2017.",
+          "unit": "£m",
+          "fields": {
+            "publicNewHousing": {
+              "label": "publicNewHousing"
+            },
+            "privateNewHousing": {
+              "label": "privateNewHousing"
+            },
+            "infrastructure": {
+              "label": "infrastructure"
+            },
+            "publicOtherNewWork": {
+              "label": "publicOtherNewWork"
+            },
+            "privateIndustrial": {
+              "label": "privateIndustrial"
+            },
+            "privateCommercial": {
+              "label": "privateCommercial"
+            },
+            "allNewWork": {
+              "label": "allNewWork"
+            }
+          },
+          "timeRange": {
+            "start": 1997,
+            "end": 2025
+          }
+        },
+        "healthOrders": {
+          "title": "Health Construction New Orders",
+          "summary": "Annual value of new orders for public health construction from 1985. Peaked at £4.7bn in 2007 during Labour's hospital building programme, fell to £1.0bn in 2013, recovered to £2.4bn in 2025. Current prices.",
+          "unit": "£m",
+          "fields": {
+            "healthOrders": {
+              "label": "healthOrders"
+            }
+          },
+          "timeRange": {
+            "start": 1985,
+            "end": 2025
+          }
+        }
+      }
+    },
+    {
       "id": "housing-density",
       "title": "Housing Density & Geography",
       "pillar": "foundations",
@@ -6439,6 +6517,7 @@
         "gp-access",
         "health-outcomes",
         "hospital-capacity",
+        "hospital-infrastructure",
         "housing-density",
         "housing-stock",
         "housing-supply",
@@ -6826,7 +6905,8 @@
         "youth-unemployment"
       ],
       "schools": [
-        "education"
+        "education",
+        "hospital-infrastructure"
       ],
       "GCSE": [
         "education"
@@ -7122,7 +7202,8 @@
         "health-outcomes"
       ],
       "hospital": [
-        "hospital-capacity"
+        "hospital-capacity",
+        "hospital-infrastructure"
       ],
       "beds": [
         "hospital-capacity"
@@ -7143,6 +7224,64 @@
       ],
       "emergency": [
         "hospital-capacity"
+      ],
+      "hospitals": [
+        "hospital-infrastructure",
+        "nhs-waiting"
+      ],
+      "building": [
+        "hospital-infrastructure"
+      ],
+      "construction": [
+        "hospital-infrastructure",
+        "housing-supply"
+      ],
+      "new hospital": [
+        "hospital-infrastructure"
+      ],
+      "NHS estate": [
+        "hospital-infrastructure"
+      ],
+      "infrastructure": [
+        "hospital-infrastructure",
+        "infrastructure",
+        "investment"
+      ],
+      "public buildings": [
+        "hospital-infrastructure"
+      ],
+      "capital spending": [
+        "hospital-infrastructure"
+      ],
+      "construction output": [
+        "hospital-infrastructure"
+      ],
+      "new orders": [
+        "hospital-infrastructure"
+      ],
+      "health construction": [
+        "hospital-infrastructure"
+      ],
+      "hospital building": [
+        "hospital-infrastructure"
+      ],
+      "how many hospitals": [
+        "hospital-infrastructure"
+      ],
+      "new hospitals programme": [
+        "hospital-infrastructure"
+      ],
+      "NHP": [
+        "hospital-infrastructure"
+      ],
+      "backlog maintenance": [
+        "hospital-infrastructure"
+      ],
+      "RAAC": [
+        "hospital-infrastructure"
+      ],
+      "PFI": [
+        "hospital-infrastructure"
       ],
       "housing": [
         "housing-density",
@@ -7186,9 +7325,6 @@
       "housebuilding": [
         "housing-supply"
       ],
-      "construction": [
-        "housing-supply"
-      ],
       "dwellings": [
         "housing-supply"
       ],
@@ -7227,10 +7363,6 @@
       ],
       "industrial strategy": [
         "industrial"
-      ],
-      "infrastructure": [
-        "infrastructure",
-        "investment"
       ],
       "broadband": [
         "infrastructure"
@@ -7386,9 +7518,6 @@
         "nhs-waiting"
       ],
       "waiting times": [
-        "nhs-waiting"
-      ],
-      "hospitals": [
         "nhs-waiting"
       ],
       "A&E": [

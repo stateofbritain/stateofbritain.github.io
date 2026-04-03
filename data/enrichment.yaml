@@ -367,6 +367,21 @@ health-outcomes:
       summary: "Age-standardised avoidable mortality rate fell from 257 per 100k in 2001 to 201 in 2019, spiked during COVID."
       unit: "per 100,000"
 
+hospital-infrastructure:
+  title: "Hospital & Construction Infrastructure"
+  geography: "Great Britain"
+  summary: "Construction output by sector (1997-2025) and health construction new orders (1985-2025). 'Public other new work' (which includes hospitals and schools) was £14.3bn in 2025, down from a peak of £22bn in 2010 during the Building Schools for the Future and hospital building programmes. Health construction new orders totalled £2.4bn in 2025. Private commercial construction (£24bn) dwarfs public non-housing (£14bn). Infrastructure spending (£35bn) has grown substantially since 2010."
+  tags: [hospital, hospitals, building, construction, new hospital, NHS estate, infrastructure, public buildings, schools, capital spending, construction output, new orders, health construction, hospital building, how many hospitals, new hospitals programme, NHP, backlog maintenance, RAAC, PFI]
+  series:
+    constructionOutput:
+      title: "Construction Output by Sector"
+      summary: "Annual construction output in £m (chained volume, SA). Public other new work peaked at £22bn in 2010 and fell to £12bn by 2016, recovering to £14bn in 2025. Infrastructure rose from £17bn in 1997 to £35bn in 2025. Private commercial peaked at £32bn in 2017."
+      unit: "£m"
+    healthOrders:
+      title: "Health Construction New Orders"
+      summary: "Annual value of new orders for public health construction from 1985. Peaked at £4.7bn in 2007 during Labour's hospital building programme, fell to £1.0bn in 2013, recovered to £2.4bn in 2025. Current prices."
+      unit: "£m"
+
 hospital-capacity:
   title: "Hospital Capacity"
   geography: "England"
