@@ -68,6 +68,28 @@ function normalise(q) {
   return q.toLowerCase().replace(/[^a-z0-9\s]/g, "").replace(/\s+/g, " ").trim();
 }
 
+// Filter out questions that are clearly off-topic for the site
+const OFF_TOPIC_PATTERNS = [
+  /who is (the )?(prime minister|pm|king|queen|leader)/i,
+  /what party/i,
+  /labour|conservative|lib dem|reform|green party/i,
+  /^(hi|hello|hey|test|testing)/i,
+  /what is the capital/i,
+  /^how do i/i,
+  /weather|forecast/i,
+  /recipe|cook/i,
+  /what time/i,
+  /^why (do|does|is|are|did|should|would|can)/i,
+  /opinion|think about|your view/i,
+  /predict|will .+ happen/i,
+];
+
+function isRelevant(q) {
+  const text = q.question || q;
+  if (text.length < 10) return false;
+  return !OFF_TOPIC_PATTERNS.some(p => p.test(text));
+}
+
 function dedup(questions) {
   const seen = new Map();
   for (const q of questions) {
@@ -159,16 +181,21 @@ async function main() {
       (q.datasets === "" && ans === "");
   });
 
+  // Filter off-topic questions
+  const relevant = unanswered.filter(isRelevant);
+
   console.log(`Total questions: ${questions.length}`);
   console.log(`Unanswered (no_match): ${unanswered.length}`);
+  console.log(`Relevant after filtering: ${relevant.length}`);
 
-  if (unanswered.length === 0) {
-    console.log("No unanswered questions found.");
+  if (relevant.length === 0) {
+    console.log("No relevant unanswered questions found.");
+    writeFileSync(OUT_PATH, JSON.stringify({ generated: new Date().toISOString().slice(0, 10), totalQuestions: questions.length, unansweredCount: unanswered.length, uniqueUnanswered: 0, partialCoverage: [], newTopics: [] }, null, 2));
     return;
   }
 
   // Deduplicate
-  const deduped = dedup(unanswered);
+  const deduped = dedup(relevant);
   console.log(`Unique questions after dedup: ${deduped.length}`);
 
   // Load catalog for tag-based grouping

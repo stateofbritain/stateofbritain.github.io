@@ -1,0 +1,48 @@
+name: Fill Data Gaps
+
+on:
+  schedule:
+    - cron: "23 8 * * 1-5"  # Weekdays ~8:23 AM UTC
+  workflow_dispatch:          # Manual trigger from Actions tab
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  fill-gap:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      # Pull the latest unanswered questions from the Ask Log
+      - name: Fetch ask gaps
+        id: gaps
+        env:
+          ASK_EXPORT_KEY: ${{ secrets.ASK_EXPORT_KEY }}
+        run: |
+          node scripts/fetch-ask-gaps.js
+          UNIQUE=$(node -e "const g=require('./data/ask-gaps.json'); console.log(g.uniqueUnanswered || 0)")
+          echo "count=$UNIQUE" >> "$GITHUB_OUTPUT"
+
+      # Skip if no gaps to fill
+      - name: Check for gaps
+        if: steps.gaps.outputs.count == '0'
+        run: echo "No data gaps to fill. Exiting." && exit 0
+
+      # Let Claude research the top gap and build the dataset
+      - uses: anthropics/claude-code-action@v1
+        if: steps.gaps.outputs.count != '0'
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt_file: .github/prompts/fill-data-gap.md
+          claude_args: "--max-turns 30 --model claude-sonnet-4-6"
