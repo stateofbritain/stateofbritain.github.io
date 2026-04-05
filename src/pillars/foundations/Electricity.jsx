@@ -1,8 +1,8 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import P from "../../theme/palette";
 import {
-  ComposedChart, AreaChart, Area, Line,
-  XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine,
+  ComposedChart, AreaChart, BarChart, Bar, Area, Line,
+  XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine, Cell,
 } from "recharts";
 import {
   SECTION_HEADING, SECTION_NOTE, AXIS_TICK_MONO, GRID_PROPS, yAxisLabel,
@@ -104,6 +104,107 @@ const ELEC_FUELS = [
   { key: "renewables", label: "Renewables", color: P.teal },
 ];
 
+// ── Electricity prices ───────────────────────────────────────────
+// Domestic: DESNZ QEP Table 2.2.4, average variable unit rate, all payment types
+// Industrial: DESNZ QEP Table 3.4.1, medium non-domestic consumer, excluding CCL
+const PRICE_ANNUAL = [
+  { year: 2004, domestic: 7.0 }, { year: 2005, domestic: 7.5 }, { year: 2006, domestic: 8.7 },
+  { year: 2007, domestic: 9.9 }, { year: 2008, domestic: 11.0 }, { year: 2009, domestic: 11.8 },
+  { year: 2010, domestic: 11.8, industrial: 7.2 }, { year: 2011, domestic: 12.5, industrial: 7.6 },
+  { year: 2012, domestic: 13.7, industrial: 8.3 }, { year: 2013, domestic: 14.4, industrial: 8.9 },
+  { year: 2014, domestic: 15.3, industrial: 9.4 }, { year: 2015, domestic: 15.1, industrial: 9.8 },
+  { year: 2016, domestic: 14.3, industrial: 9.6 }, { year: 2017, domestic: 14.4, industrial: 10.1 },
+  { year: 2018, domestic: 15.2, industrial: 11.1 }, { year: 2019, domestic: 16.1, industrial: 11.9 },
+  { year: 2020, domestic: 17.2, industrial: 12.6 }, { year: 2021, domestic: 18.9, industrial: 13.6 },
+  { year: 2022, domestic: 29.3, industrial: 19.5 }, { year: 2023, domestic: 30.2, industrial: 28.5 },
+  { year: 2024, domestic: 25.5, industrial: 28.2 }, { year: 2025, domestic: 24.5, industrial: 25.4 },
+];
+
+// Ofgem default tariff cap — electricity unit rate, p/kWh, direct debit
+// Semi-annual before Q4 2022, quarterly after. EPG applied Q4 2022-Q2 2023.
+const PRICE_QUARTERLY = [
+  { q: "2019-Q1", domestic: 15.1 }, { q: "2019-Q2", domestic: 14.4 },
+  { q: "2019-Q3", domestic: 14.4 }, { q: "2019-Q4", domestic: 15.1 },
+  { q: "2020-Q1", domestic: 15.1 }, { q: "2020-Q2", domestic: 16.3 },
+  { q: "2020-Q3", domestic: 16.3 }, { q: "2020-Q4", domestic: 17.2 },
+  { q: "2021-Q1", domestic: 17.2 }, { q: "2021-Q2", domestic: 18.9 },
+  { q: "2021-Q3", domestic: 18.9 }, { q: "2021-Q4", domestic: 20.8 },
+  { q: "2022-Q1", domestic: 20.8 }, { q: "2022-Q2", domestic: 28.3 },
+  { q: "2022-Q3", domestic: 34.0 }, { q: "2022-Q4", domestic: 34.0 },
+  { q: "2023-Q1", domestic: 33.2 }, { q: "2023-Q2", domestic: 30.1 },
+  { q: "2023-Q3", domestic: 30.1 }, { q: "2023-Q4", domestic: 27.4 },
+  { q: "2024-Q1", domestic: 28.6 }, { q: "2024-Q2", domestic: 24.5 },
+  { q: "2024-Q3", domestic: 24.5 }, { q: "2024-Q4", domestic: 24.5 },
+  { q: "2025-Q1", domestic: 24.5 }, { q: "2025-Q2", domestic: 24.7 },
+];
+
+// ── Ofgem cap component breakdown (£/year per customer, exc. VAT) ─
+// Source: Ofgem Annex 9 — Levelised cap levels v1.8
+// Wholesale = Wholesale (direct fuel) + Capacity Market
+// Supplier = Operating + Smart Meter + EBIT + Headroom
+// Semi-annual periods are repeated per quarter for consistent spacing
+const COST_BREAKDOWN = [
+  { q: "2019-Q2", wholesale: 259, network: 139, policy: 110, supplier: 115 },
+  { q: "2019-Q3", wholesale: 259, network: 139, policy: 110, supplier: 115 },
+  { q: "2019-Q4", wholesale: 236, network: 140, policy: 112, supplier: 115 },
+  { q: "2020-Q1", wholesale: 236, network: 140, policy: 112, supplier: 115 },
+  { q: "2020-Q2", wholesale: 231, network: 141, policy: 115, supplier: 118 },
+  { q: "2020-Q3", wholesale: 231, network: 141, policy: 115, supplier: 118 },
+  { q: "2020-Q4", wholesale: 205, network: 144, policy: 114, supplier: 118 },
+  { q: "2021-Q1", wholesale: 205, network: 144, policy: 114, supplier: 118 },
+  { q: "2021-Q2", wholesale: 235, network: 153, policy: 121, supplier: 120 },
+  { q: "2021-Q3", wholesale: 235, network: 153, policy: 121, supplier: 120 },
+  { q: "2021-Q4", wholesale: 293, network: 153, policy: 121, supplier: 123 },
+  { q: "2022-Q1", wholesale: 293, network: 153, policy: 121, supplier: 123 },
+  { q: "2022-Q2", wholesale: 524, network: 202, policy: 127, supplier: 133 },
+  { q: "2022-Q3", wholesale: 524, network: 202, policy: 127, supplier: 133 },
+  { q: "2022-Q4", wholesale: 1167, network: 207, policy: 126, supplier: 161 },
+  { q: "2023-Q1", wholesale: 1609, network: 207, policy: 126, supplier: 177 },
+  { q: "2023-Q2", wholesale: 1108, network: 226, policy: 140, supplier: 166 },
+  { q: "2023-Q3", wholesale: 511, network: 232, policy: 140, supplier: 146 },
+  { q: "2023-Q4", wholesale: 454, network: 233, policy: 141, supplier: 149 },
+  { q: "2024-Q1", wholesale: 491, network: 233, policy: 141, supplier: 150 },
+  { q: "2024-Q2", wholesale: 377, network: 217, policy: 162, supplier: 149 },
+  { q: "2024-Q3", wholesale: 322, network: 211, policy: 162, supplier: 147 },
+  { q: "2024-Q4", wholesale: 367, network: 225, policy: 161, supplier: 155 },
+  { q: "2025-Q1", wholesale: 377, network: 225, policy: 161, supplier: 155 },
+  { q: "2025-Q2", wholesale: 415, network: 213, policy: 169, supplier: 160 },
+];
+
+const COST_COMPONENTS = [
+  { key: "wholesale", label: "Wholesale energy (marginal)", color: P.yellow },
+  { key: "network", label: "Network (fixed infrastructure)", color: P.navy },
+  { key: "policy", label: "Policy levies (RO, CfD, ECO)", color: "#9B6ED0" },
+  { key: "supplier", label: "Supplier costs + margin", color: P.textLight },
+];
+
+// ── International comparison (2024, inc. taxes, p/kWh) ──────────
+// DESNZ QEP Tables 5.3.1 (industrial) and 5.5.1 (domestic), derived from IEA
+const INTL_PRICES = [
+  { country: "Germany", domestic: 33.5, industrial: 21.0 },
+  { country: "UK", domestic: 30.5, industrial: 26.6 },
+  { country: "Italy", domestic: 30.3, industrial: 23.5 },
+  { country: "Ireland", domestic: 29.3, industrial: 24.8 },
+  { country: "France", domestic: 23.7, industrial: 16.3 },
+  { country: "Spain", domestic: 22.5, industrial: 13.3 },
+  { country: "Sweden", domestic: 17.1, industrial: 8.8 },
+  { country: "Japan", domestic: 16.5, industrial: 13.2 },
+  { country: "USA", domestic: 12.9, industrial: 7.4 },
+  { country: "Canada", domestic: 10.3, industrial: 7.4 },
+];
+
+const DESNZ_INTL_SOURCE = (
+  <>SOURCE: <a href="https://www.gov.uk/government/statistical-data-sets/international-industrial-energy-prices" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>DESNZ International Energy Prices</a> (derived from IEA Energy Prices and Taxes, 2024)</>
+);
+
+const DESNZ_QEP_SOURCE = (
+  <>SOURCE: <a href="https://www.gov.uk/government/collections/quarterly-energy-prices" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>DESNZ Quarterly Energy Prices</a>; <a href="https://www.ofgem.gov.uk/check-if-energy-price-cap-affects-you" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>Ofgem Price Cap</a></>
+);
+
+const OFGEM_ANNEX_SOURCE = (
+  <>SOURCE: <a href="https://www.ofgem.gov.uk/energy-policy-and-regulation/policy-and-regulatory-programmes/energy-price-cap/energy-price-cap-default-tariff-levels" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>Ofgem Annex 9 (Levelised cap levels v1.8)</a></>
+);
+
 const NESO_SOURCE = (
   <>SOURCE: <a href="https://www.nationalgrideso.com/future-energy/future-energy-scenarios" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>NESO Future Energy Scenarios 2024</a></>
 );
@@ -129,7 +230,22 @@ const tableBox = (border, bgCard) => ({
 
 export default function Electricity() {
   const isMobile = useIsMobile();
+  const [priceView, setPriceView] = useState("annual");
+  const [costView, setCostView] = useState("absolute");
   const { data: energyData } = useJsonDataset("energy.json");
+
+  const costPctData = useMemo(() => {
+    return COST_BREAKDOWN.map((row) => {
+      const total = row.wholesale + row.network + row.policy + row.supplier;
+      return {
+        q: row.q,
+        wholesale: Math.round((row.wholesale / total) * 1000) / 10,
+        network: Math.round((row.network / total) * 1000) / 10,
+        policy: Math.round((row.policy / total) * 1000) / 10,
+        supplier: Math.round((row.supplier / total) * 1000) / 10,
+      };
+    });
+  }, []);
 
   const elecPctData = useMemo(() => {
     if (!energyData?.electricity) return [];
@@ -259,6 +375,153 @@ export default function Electricity() {
           </ChartCard>
         </section>
       )}
+
+      {/* ── Electricity Prices ─────────────────────────────────── */}
+      <section style={{ marginBottom: 48 }}>
+        <h3 style={SECTION_HEADING}>Electricity Prices</h3>
+        <p style={SECTION_NOTE}>
+          Domestic prices from DESNZ Quarterly Energy Prices, industrial from DESNZ
+          Table 3.4.1 (medium consumers, excluding Climate Change Levy). Domestic consumers
+          are protected by the Ofgem price cap (from January 2019) and were further shielded
+          by the Energy Price Guarantee (October 2022 to June 2023). Industrial consumers
+          have no price cap, which is why industrial prices exceeded domestic in 2023-2024:
+          businesses were fully exposed to wholesale market rates while households were not.
+        </p>
+
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 12, marginBottom: 20 }}>
+          <MetricCard label="Domestic" value="24.5p" change="per kWh, Q1 2025 Ofgem cap" up={false} color={P.sienna} delay={0.1} />
+          <MetricCard label="Industrial" value="25.4p" change="per kWh, medium consumer, 2025 avg" up={false} color={P.navy} delay={0.18} />
+          <MetricCard label="Annual Bill" value="\u00A31,063" change="average domestic electricity, 2025" up={false} color={P.grey} delay={0.26} />
+        </div>
+
+        <ChartCard
+          title="Electricity Unit Rate"
+          subtitle={priceView === "annual" ? "p/kWh, annual average, 2004\u20132025 (industrial from 2010)" : "p/kWh, quarterly Ofgem cap rate, 2019\u20132025"}
+          source={DESNZ_QEP_SOURCE}
+          legend={priceView === "annual" ? [
+            { key: "domestic", label: "Domestic (inc. 5% VAT)", color: P.sienna },
+            { key: "industrial", label: "Industrial (exc. CCL)", color: P.navy },
+          ] : [
+            { key: "domestic", label: "Domestic (Ofgem cap rate)", color: P.sienna },
+          ]}
+          views={["annual", "quarterly"]}
+          viewLabels={["Annual", "Quarterly"]}
+          activeView={priceView}
+          onViewChange={setPriceView}
+          height={340}
+        >
+          {priceView === "annual" ? (
+            <ComposedChart data={PRICE_ANNUAL} margin={{ top: 10, right: 20, left: 10, bottom: 5 }}>
+              <CartesianGrid {...GRID_PROPS} />
+              <XAxis dataKey="year" type="number" domain={[2004, 2025]} tick={AXIS_TICK_MONO} tickLine={false} tickFormatter={(v) => String(v)} />
+              <YAxis tick={AXIS_TICK_MONO} tickLine={false} axisLine={false} domain={[0, 35]} label={yAxisLabel("p/kWh")} />
+              <Tooltip content={<CustomTooltip formatter={(v) => `${v.toFixed(1)}p/kWh`} />} />
+              <Line type="monotone" dataKey="domestic" stroke={P.sienna} strokeWidth={2.5} dot={{ r: 3, fill: P.sienna }} name="Domestic" />
+              <Line type="monotone" dataKey="industrial" stroke={P.navy} strokeWidth={2.5} dot={{ r: 3, fill: P.navy }} name="Industrial" connectNulls={false} />
+            </ComposedChart>
+          ) : (
+            <ComposedChart data={PRICE_QUARTERLY} margin={{ top: 10, right: 20, left: 10, bottom: 5 }}>
+              <CartesianGrid {...GRID_PROPS} />
+              <XAxis dataKey="q" tick={AXIS_TICK_MONO} tickLine={false} tickFormatter={(v) => v.slice(0, 4)} interval={isMobile ? 7 : 3} />
+              <YAxis tick={AXIS_TICK_MONO} tickLine={false} axisLine={false} domain={[0, 40]} label={yAxisLabel("p/kWh")} />
+              <Tooltip content={<CustomTooltip formatter={(v) => `${v.toFixed(1)}p/kWh`} />} />
+              <Line type="monotone" dataKey="domestic" stroke={P.sienna} strokeWidth={2.5} dot={{ r: 2.5, fill: P.sienna }} name="Domestic (cap rate)" />
+            </ComposedChart>
+          )}
+        </ChartCard>
+      </section>
+
+      {/* ── Cost Breakdown ────────────────────────────────────────── */}
+      <section style={{ marginBottom: 48 }}>
+        <h3 style={SECTION_HEADING}>What Drives the Price</h3>
+        <p style={SECTION_NOTE}>
+          Ofgem price cap component breakdown for domestic electricity. Wholesale energy
+          is the marginal cost, set by the most expensive generator running (usually gas
+          CCGT). Even when renewables generate over half of output, the wholesale price is
+          set at the gas clearing price under current GB market design. Network costs cover
+          transmission and distribution infrastructure, and have risen as the grid is
+          upgraded for offshore wind and distributed generation. Policy levies (Renewables
+          Obligation, Contracts for Difference, Energy Company Obligation, Warm Home
+          Discount) fall almost entirely on electricity bills, not gas, which makes
+          electricity relatively more expensive and discourages electrification of heating.
+          Figures exclude 5% VAT.
+        </p>
+
+        <ChartCard
+          title="Domestic Electricity Cost Components"
+          subtitle={costView === "absolute" ? "\u00A3 per customer per year (exc. VAT), Ofgem cap periods, 2019\u20132025" : "% share of total cost (exc. VAT), Ofgem cap periods, 2019\u20132025"}
+          source={OFGEM_ANNEX_SOURCE}
+          legend={COST_COMPONENTS}
+          views={["absolute", "share"]}
+          viewLabels={["\u00A3/year", "% Share"]}
+          activeView={costView}
+          onViewChange={setCostView}
+          height={360}
+        >
+          {costView === "absolute" ? (
+            <AreaChart data={COST_BREAKDOWN} margin={{ top: 10, right: 20, left: 10, bottom: 5 }}>
+              <CartesianGrid {...GRID_PROPS} />
+              <XAxis dataKey="q" tick={AXIS_TICK_MONO} tickLine={false} tickFormatter={(v) => v.slice(0, 4)} interval={isMobile ? 7 : 3} />
+              <YAxis tick={AXIS_TICK_MONO} tickLine={false} axisLine={false} domain={[0, 2200]} label={yAxisLabel("\u00A3/year")} />
+              <Tooltip content={<CustomTooltip formatter={(v) => `\u00A3${v}`} />} />
+              {COST_COMPONENTS.map((c) => (
+                <Area key={c.key} type="monotone" dataKey={c.key} stackId="cost" fill={c.color} fillOpacity={0.7} stroke={c.color} strokeWidth={1} name={c.label} />
+              ))}
+            </AreaChart>
+          ) : (
+            <AreaChart data={costPctData} margin={{ top: 10, right: 20, left: 10, bottom: 5 }}>
+              <CartesianGrid {...GRID_PROPS} />
+              <XAxis dataKey="q" tick={AXIS_TICK_MONO} tickLine={false} tickFormatter={(v) => v.slice(0, 4)} interval={isMobile ? 7 : 3} />
+              <YAxis tick={AXIS_TICK_MONO} tickLine={false} axisLine={false} domain={[0, 100]} unit="%" label={yAxisLabel("Share (%)")} />
+              <Tooltip content={<CustomTooltip formatter={(v) => `${v.toFixed(1)}%`} />} />
+              {COST_COMPONENTS.map((c) => (
+                <Area key={c.key} type="monotone" dataKey={c.key} stackId="cost" fill={c.color} fillOpacity={0.7} stroke={c.color} strokeWidth={1} name={c.label} />
+              ))}
+            </AreaChart>
+          )}
+        </ChartCard>
+      </section>
+
+      {/* ── International Comparison ─────────────────────────────── */}
+      <section style={{ marginBottom: 48 }}>
+        <h3 style={SECTION_HEADING}>International Comparison</h3>
+        <p style={SECTION_NOTE}>
+          Electricity prices across IEA member states, including all non-refundable taxes,
+          converted to pence per kWh at annual average exchange rates. The UK has the second
+          highest domestic electricity price in the IEA after Germany, and the highest
+          industrial price among major economies. The gap between domestic and industrial
+          prices in the UK is unusually narrow: UK industrial consumers pay 87% of the
+          domestic rate, compared to 63% in Germany and 69% in France.
+        </p>
+
+        <ChartCard
+          title="Electricity Prices by Country"
+          subtitle="p/kWh, including taxes, 2024"
+          source={DESNZ_INTL_SOURCE}
+          legend={[
+            { key: "domestic", label: "Domestic (household)", color: P.sienna },
+            { key: "industrial", label: "Industrial (medium)", color: P.navy },
+          ]}
+          height={360}
+        >
+          <BarChart data={INTL_PRICES} margin={{ top: 10, right: 20, left: 10, bottom: 5 }}>
+            <CartesianGrid {...GRID_PROPS} />
+            <XAxis dataKey="country" tick={AXIS_TICK_MONO} tickLine={false} interval={0} angle={isMobile ? -45 : 0} textAnchor={isMobile ? "end" : "middle"} height={isMobile ? 60 : 30} />
+            <YAxis tick={AXIS_TICK_MONO} tickLine={false} axisLine={false} domain={[0, 40]} label={yAxisLabel("p/kWh")} />
+            <Tooltip content={<CustomTooltip formatter={(v) => `${v.toFixed(1)}p/kWh`} />} />
+            <Bar dataKey="domestic" name="Domestic" fill={P.sienna} radius={[2, 2, 0, 0]} isAnimationActive={false}>
+              {INTL_PRICES.map((d, i) => (
+                <Cell key={i} fillOpacity={d.country === "UK" ? 1 : 0.5} />
+              ))}
+            </Bar>
+            <Bar dataKey="industrial" name="Industrial" fill={P.navy} radius={[2, 2, 0, 0]} isAnimationActive={false}>
+              {INTL_PRICES.map((d, i) => (
+                <Cell key={i} fillOpacity={d.country === "UK" ? 1 : 0.5} />
+              ))}
+            </Bar>
+          </BarChart>
+        </ChartCard>
+      </section>
 
       {/* ── Capacity Projections ──────────────────────────────── */}
       <section style={{ marginBottom: 48 }}>
