@@ -969,3 +969,110 @@ unemployment:
       title: "Economic Inactivity by Reason"
       summary: "Reasons for inactivity among 16-64 year olds from 1993: long-term sick (2.8m, largest category), students (2.4m), looking after family/home (1.3m, declining), retired (1.0m), and other (592k). Long-term sickness overtook students as the largest reason and has risen sharply since 2019."
       unit: "thousands"
+
+asylum-statistics:
+  title: "Asylum & Irregular Migration Statistics"
+  geography: "United Kingdom"
+  summary: "Comprehensive asylum system data: Channel crossings (299 in 2018 to 36,816 in 2024), asylum applications and decisions (back to 2001), backlog (peaked at 170k in Q1 2023, now 97k), grant rates by nationality and over time, returns and removals (halved since 2013), appeals (49% overturn rate), accommodation costs (£4.7bn peak), international per-capita comparison, processing times, detention, resettlement schemes, demographics, modern slavery referrals, and caseworker staffing."
+  tags: [asylum, refugees, immigration, Channel crossings, small boats, backlog, grant rate, deportation, returns, removals, Rwanda, accommodation, hotel, detention, resettlement, VPRS, ARAP, ACRS, UASC, unaccompanied children, modern slavery, NRM, appeals, tribunal, processing time, irregular migration, overstayers, Albania, Afghanistan, Iran, Iraq, Eritrea, Syria, Sudan, Dublin, caseworker]
+  series:
+    channelCrossings:
+      title: "Channel Crossings (Small Boats)"
+      summary: "Annual small boat crossings of the English Channel, 2018-2024. Rose from 299 in 2018 to peak of 45,774 in 2022, then 36,816 in 2024."
+      unit: "persons"
+    channelCrossingsQuarterly:
+      title: "Channel Crossings Quarterly"
+      summary: "Quarterly small boat crossings showing seasonal pattern — crossings peak in Q3 (summer). Range from 476 (Q1 2020) to 18,754 (Q3 2022)."
+      unit: "persons"
+    asylumDecisions:
+      title: "Asylum Applications and Initial Decisions"
+      summary: "Applications, decisions, grants and refusals 2001-2024. Applications peaked at 84k in 2002 and 75k in 2022. Grant rate rose from 8% (2004) to 93% (2021), now 58% (2024)."
+      unit: "persons"
+    grantRateByNationality:
+      title: "Asylum Grant Rate by Nationality (2023)"
+      summary: "Grant rates vary dramatically by nationality: Afghanistan 98%, Syria 98%, Albania 53%, India 18%. Based on initial decisions year ending December 2023."
+      unit: "%"
+    grantRateTimeSeries:
+      title: "Grant Rates by Nationality Over Time"
+      summary: "How grant rates shifted 2019-2024 for key nationalities. Albania dropped from 47% to 21%. Afghanistan remained above 95%. Iran fell from 62% to 52%."
+      unit: "%"
+    applicationsByNationality:
+      title: "Asylum Applications by Nationality"
+      summary: "Top nationalities applying for asylum 2018-2024. Albanian applications surged to 16,052 in 2022, fell to 2,147 by 2024. Afghan applications rose steadily."
+      unit: "persons"
+    asylumBacklog:
+      title: "Asylum Cases Awaiting Initial Decision"
+      summary: "Backlog grew from 18,195 (2010) to peak 160,919 (2022), now reducing to 96,577 (2024). The surge reflects applications outpacing decisions."
+      unit: "cases"
+    asylumBacklogQuarterly:
+      title: "Asylum Backlog Quarterly"
+      summary: "Quarterly backlog 2019-2024. Peaked at 170,865 in Q1 2023. Steady reduction since as decision-making ramped up."
+      unit: "cases"
+    asylumAppeals:
+      title: "Asylum Appeals (First-tier Tribunal)"
+      summary: "Appeals lodged, determined, and outcomes 2014-2024. Overturn rate rose from 29% (2014) to 63% (2022), now 49% (2024). Many initial refusals are reversed."
+      unit: "cases"
+    dublinTransfers:
+      title: "Dublin III Transfers"
+      summary: "UK Dublin transfers 2015-2020 (ceased with Brexit). UK was consistently a net recipient — more transfers in than out every year."
+      unit: "persons"
+    returns:
+      title: "Returns and Removals"
+      summary: "Total returns halved from 41,017 (2013) to 20,040 (2024). Enforced removals fell from 18,280 (2006) to 7,102 (2024). FNO removals around 4,000/year."
+      unit: "persons"
+    internationalComparison:
+      title: "Asylum Applications per 100,000 Population"
+      summary: "Per-capita asylum applications 2015-2023 for UK, Germany, France, Sweden, Italy, Austria, Netherlands, Spain. UK consistently among lowest in Europe."
+      unit: "per 100k population"
+    accommodationCosts:
+      title: "Asylum Accommodation Costs"
+      summary: "Annual accommodation costs rose from £540m (2015-16) to £4.7bn (2023-24) peak. Hotel use peaked at 51,000 in 2022-23, now declining."
+      unit: "£m"
+    processingTimes:
+      title: "Asylum Processing Times"
+      summary: "Median weeks to initial decision, 2014-2024. Rose from 14 weeks (2015) to 60 weeks (2022), now reduced to 32 weeks (2024)."
+      unit: "weeks"
+    processingComparison:
+      title: "Processing Times International (2023)"
+      summary: "UK median 52 weeks vs Sweden 14, Netherlands 17, France 21, Germany 28 in 2023."
+      unit: "weeks"
+    irregularRoutes:
+      title: "Irregular Migration by Route"
+      summary: "Visa overstayers (49-62k) exceed Channel crossings (2-46k) every year. Lorry detections declining (6.1k to 2.4k)."
+      unit: "persons (estimated)"
+    detention:
+      title: "Immigration Detention"
+      summary: "Persons entering detention fell from 32k (2015) to 23k (2024). Detention population snapshot from 3,030 (2015) to 1,842 (2024)."
+      unit: "persons"
+    resettlement:
+      title: "Resettlement Schemes (Safe/Legal Routes)"
+      summary: "VPRS peaked at 5,241 (2019). Afghan schemes (ARAP+ACRS) brought 6,532 in 2021. Total around 5,500/year. Does not include Homes for Ukraine."
+      unit: "persons"
+    crossingsDemographics:
+      title: "Channel Crossings Demographics"
+      summary: "Adult men share fell from 87% (2020) to 74% (2024). Children rose from 8% to 16%. Women from 5% to 10%."
+      unit: "%"
+    modernSlaveryReferrals:
+      title: "Modern Slavery NRM Referrals"
+      summary: "National Referral Mechanism referrals rose from 3,805 (2016) to 17,004 (2023). Many referrals come from individuals in the asylum system."
+      unit: "referrals"
+    uasc:
+      title: "Unaccompanied Asylum-Seeking Children"
+      summary: "UASC applications from 1,945 (2014) to 5,242 peak (2022), now 3,817 (2024). Local authorities bear accommodation costs."
+      unit: "applications"
+    caseworkerStaffing:
+      title: "Asylum Caseworker Staffing"
+      summary: "FTE decision-makers surged from 340 (2020) to 2,150 (2024). This sixfold increase is driving faster backlog reduction."
+      unit: "FTE"
+    globalDisplacement:
+      title: "Global Forced Displacement"
+      summary: "Total forcibly displaced people worldwide rose from 40m (2001) to 123m (2024), nearly tripling. Driven by Syria (13.8m), Ukraine (11.7m), Sudan (10.8m), Afghanistan (6.4m). This global surge is the structural context behind rising asylum applications across all European countries."
+      unit: "millions"
+    conflictDisplacement:
+      title: "Major Conflicts Driving Displacement"
+      summary: "Ten largest displacement crises: Syria (13.8m), Ukraine (11.7m), Sudan (10.8m), DR Congo (7.3m), Afghanistan (6.4m), Iraq (4.6m), Yemen (4.5m), South Sudan (4.4m), Myanmar (1.3m), Eritrea (0.6m)."
+      unit: "millions displaced"
+    conflictVsNonConflict:
+      title: "UK Asylum: Conflict vs Non-Conflict Origin"
+      summary: "Applicants from conflict-origin countries (>70% grant rate) rose from 45% of applications in 2004 to 52-64% in recent years. This compositional shift towards genuine refugees is the primary driver of rising overall grant rates."
+      unit: "persons"

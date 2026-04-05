@@ -1,7 +1,8 @@
 import { useState, useEffect, useMemo } from "react";
 import {
-  LineChart, Line, BarChart, Bar,
+  LineChart, Line, BarChart, Bar, AreaChart, Area, ComposedChart,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend,
+  ReferenceLine,
 } from "recharts";
 import P from "../../theme/palette";
 import {
@@ -10,9 +11,13 @@ import {
 } from "../../theme/chartStyles";
 import useIsMobile from "../../hooks/useIsMobile";
 import MetricCard from "../../components/MetricCard";
+import ChartCard from "../../components/ChartCard";
 import CustomTooltip from "../../components/CustomTooltip";
+import { sourceFrom } from "../../hooks/useDataset";
 import { track } from "../../analytics";
 import ShareableChart from "../../components/ShareableChart";
+import DebateHeader from "../../components/DebateHeader";
+import DebateTabs from "../../components/DebateTabs";
 
 const PURPLE = "#7B4B8A";
 
@@ -323,18 +328,23 @@ function ScenarioCard({ scenario, isOpen, onToggle }) {
 // ── Main component ───────────────────────────────────────────────────
 export default function AsylumImmigration() {
   const [data, setData] = useState(null);
+  const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedInstrument, setSelectedInstrument] = useState(null);
   const [openKnots, setOpenKnots] = useState({});
   const [openScenarios, setOpenScenarios] = useState({});
   const [decisionsView, setDecisionsView] = useState("volume");
+  const [backlogView, setBacklogView] = useState("annual");
+  const [activeTab, setActiveTab] = useState("data");
   const isMobile = useIsMobile();
 
   useEffect(() => {
-    fetch("/data/asylum-framework.json")
-      .then((r) => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
-      .then(setData)
+    Promise.all([
+      fetch("/data/asylum-framework.json").then((r) => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); }),
+      fetch("/data/asylum-statistics.json").then((r) => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); }).catch(() => null),
+    ])
+      .then(([framework, statistics]) => { setData(framework); setStats(statistics); })
       .catch((e) => setError(e.message))
       .finally(() => setLoading(false));
   }, []);
@@ -367,12 +377,9 @@ export default function AsylumImmigration() {
   const selected = selectedInstrument ? instrumentMap[selectedInstrument] : null;
   const crossings = data.context.channelCrossings;
   const backlog = data.context.asylumBacklog;
-  const dublinReturns = data.context.dublinReturns;
   const fnosInCommunity = data.context.fnosInCommunity;
   const latestCrossing = crossings[crossings.length - 1];
   const latestBacklog = backlog[backlog.length - 1];
-  const peakDublin = Math.max(...dublinReturns.map((d) => d.value));
-  const latestFno = fnosInCommunity[fnosInCommunity.length - 1];
 
   const layers = {
     international: data.instruments.filter((i) => i.type === "international"),
@@ -390,329 +397,566 @@ export default function AsylumImmigration() {
     setOpenScenarios((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
+  const TABS = [
+    { key: "data", label: "Data" },
+    { key: "legislation", label: "Legislation" },
+  ];
+
   return (
     <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
-      <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: 600, color: P.text, margin: "0 0 6px" }}>
-        Asylum & Immigration
-      </h2>
-      <p style={{ ...SECTION_NOTE, margin: "0 0 10px" }}>
-        Irregular migration to the UK across the English Channel is not a new problem.
-        Before small boat crossings began in 2018, people arrived concealed in lorries
-        and freight trains through the Channel Tunnel, a route that prompted the closure
-        of the Sangatte refugee camp in 2002 and the construction of security fencing
-        at Calais and Coquelles. The shift to small boats changed the mode of arrival,
-        not the underlying dynamic.
-      </p>
-      <p style={{ ...SECTION_NOTE, margin: "0 0 10px" }}>
-        Successive governments, Labour, Coalition, Conservative, and Labour again, have
-        each attempted to reduce irregular crossings and accelerate asylum processing.
-        The same legal framework also prevents the deportation of foreign nationals
-        convicted of serious criminal offences, including violent and sexual crimes,
-        where conditions in their home country or their family ties in the UK engage
-        Convention rights. As of 2024, approximately 11,000 foreign national offenders
-        cannot be removed from the UK.
-      </p>
-      <p style={{ ...SECTION_NOTE, margin: "0 0 10px" }}>
-        Each government has encountered the same structural constraint: the UK's
-        obligations under international treaties, bilateral agreements, and domestic
-        statutes create interlocking legal commitments that limit the available policy
-        options. Changing one instrument often has consequences for others.
-        A common assumption is that refugees must claim asylum in the first safe
-        country they enter. The 1951 Refugee Convention contains no such requirement,
-        and UK courts have interpreted its protections to cover refugees who transit
-        through intermediate countries.
-      </p>
-      <p style={{ ...SECTION_NOTE, margin: "0 0 24px" }}>
-        This page maps those instruments, their key provisions, and the trade-offs
-        involved in changing them.
-      </p>
+      <DebateHeader
+        title="Asylum & Immigration"
+        subtitle="Irregular migration to the UK across the English Channel is not a new problem. Before small boat crossings began in 2018, people arrived concealed in lorries and freight trains through the Channel Tunnel. Successive governments have each encountered the same structural constraint: the UK's obligations under international treaties, bilateral agreements, and domestic statutes create interlocking legal commitments that limit the available policy options."
+        status="archive"
+        updatedDate="March 2025"
+      />
 
-      {/* ── Context metrics ──────────────────────────────────────────── */}
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 14, marginBottom: 32 }}>
-        <MetricCard label="Channel crossings" value={latestCrossing.value.toLocaleString()} sub={`${latestCrossing.year}`} />
-        <MetricCard label="Asylum backlog" value={`~${(latestBacklog.value / 1000).toFixed(0)}k`} sub={`${latestBacklog.year} cases pending`} />
-        <MetricCard label="Peak Dublin returns" value={peakDublin.toLocaleString()} sub="2016 · highest annual total" />
-        <MetricCard label="FNOs not removable" value="~11,000" sub="Foreign national offenders (2024)" />
-      </div>
+      <DebateTabs tabs={TABS} activeTab={activeTab} onTabChange={setActiveTab}>
 
-      {/* ── Channel crossings + backlog charts ───────────────────────── */}
-      <section style={{ marginBottom: 48 }}>
-        <h3 style={SECTION_HEADING}>The Scale</h3>
-        <p style={SECTION_NOTE}>
-          Channel crossings, asylum backlog, foreign national offenders in the community,
-          and Dublin III returns. Charts are on independent scales.
-        </p>
-        <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: 20 }}>
-          <ShareableChart title="Channel Crossings by Year">
-          <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 4, padding: "18px 18px 14px" }}>
-            <div style={{ marginBottom: 10 }}>
-              <div style={CHART_TITLE}>Channel Crossings</div>
-              <div style={CHART_SUBTITLE}>Small boat arrivals by year</div>
-            </div>
-            <ResponsiveContainer width="100%" height={180}>
-              <BarChart data={crossings}>
+      {activeTab === "data" && (
+        <>
+          {/* ── Headline metrics ─────────────────────────────────────────── */}
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 14, marginBottom: 32 }}>
+            <MetricCard label="Channel crossings" value={latestCrossing.value.toLocaleString()} sub={`${latestCrossing.year}`} accent={PURPLE} />
+            <MetricCard label="Asylum backlog" value={`~${(latestBacklog.value / 1000).toFixed(0)}k`} sub={`${latestBacklog.year} cases pending`} accent={P.sienna} />
+            {stats?.snapshot && <MetricCard label="Grant rate" value={`${stats.snapshot.grantRatePct}%`} sub={`${stats.snapshot.grantRateYear} initial decisions`} accent={P.teal} />}
+            {stats?.snapshot && <MetricCard label="Processing time" value={`${stats.snapshot.processingWeeksUK} wks`} sub={`${stats.snapshot.processingWeeksYear} median`} accent={PURPLE} />}
+            {stats?.snapshot && <MetricCard label="Accommodation cost" value={`£${(stats.snapshot.accommodationCostMn / 1000).toFixed(1)}bn`} sub={stats.snapshot.accommodationCostYear} accent={P.sienna} />}
+            {stats?.snapshot && <MetricCard label="Appeal overturn rate" value={`${stats.snapshot.appealOverturnPct}%`} sub={`${stats.snapshot.appealOverturnYear}`} accent={P.teal} />}
+          </div>
+
+          {/* ── Channel Crossings ────────────────────────────────────────── */}
+          {stats?.series?.channelCrossings && (
+            <ChartCard
+              title="Channel Crossings"
+              subtitle="UK, small boat arrivals, 2018-2024"
+              source={sourceFrom(stats, "channelCrossings")}
+              height={240}
+            >
+              <BarChart data={stats.series.channelCrossings.data}>
                 <CartesianGrid {...GRID_PROPS} />
                 <XAxis dataKey="year" tick={AXIS_TICK} />
-                <YAxis tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v} width={32} />
+                <YAxis tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v} width={36} />
                 <Tooltip content={<CustomTooltip formatter={(v) => v.toLocaleString()} />} />
-                <Bar dataKey="value" name="Crossings" fill={PURPLE} radius={[2, 2, 0, 0]} isAnimationActive={false} />
+                <Bar dataKey="crossings" name="Crossings" fill={PURPLE} radius={[2, 2, 0, 0]} isAnimationActive={false} />
               </BarChart>
-            </ResponsiveContainer>
-          </div>
-          </ShareableChart>
-          <ShareableChart title="Asylum Backlog (Cases Pending)">
-          <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 4, padding: "18px 18px 14px" }}>
-            <div style={{ marginBottom: 10 }}>
-              <div style={CHART_TITLE}>Asylum Backlog</div>
-              <div style={CHART_SUBTITLE}>Cases pending initial decision</div>
-            </div>
-            <ResponsiveContainer width="100%" height={180}>
-              <LineChart data={backlog}>
+            </ChartCard>
+          )}
+
+          {/* ── Applications vs Decisions ────────────────────────────────── */}
+          {stats?.series?.asylumDecisions && (
+            <ChartCard
+              title="Asylum Applications and Decisions"
+              subtitle="UK, 2001-2024, persons"
+              source={sourceFrom(stats, "asylumDecisions")}
+              legend={[
+                { key: "applications", label: "Applications", color: PURPLE },
+                { key: "initialDecisions", label: "Initial decisions", color: P.teal },
+                { key: "grants", label: "Grants", color: "#4A7A58" },
+              ]}
+              height={280}
+            >
+              <LineChart data={stats.series.asylumDecisions.data}>
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK} />
+                <YAxis tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v} width={36} />
+                <Tooltip content={<CustomTooltip formatter={(v) => v.toLocaleString()} />} />
+                <Line type="monotone" dataKey="applications" name="Applications" stroke={PURPLE} strokeWidth={2} dot={false} isAnimationActive={false} />
+                <Line type="monotone" dataKey="initialDecisions" name="Decisions" stroke={P.teal} strokeWidth={2} dot={false} isAnimationActive={false} />
+                <Line type="monotone" dataKey="grants" name="Grants" stroke="#4A7A58" strokeWidth={1.5} strokeDasharray="4 3" dot={false} isAnimationActive={false} />
+              </LineChart>
+            </ChartCard>
+          )}
+
+          {/* ── Grant Rate Over Time ─────────────────────────────────────── */}
+          {stats?.series?.asylumDecisions && (
+            <ChartCard
+              title="Overall Grant Rate"
+              subtitle="UK, initial decisions, 2001-2024"
+              source={sourceFrom(stats, "asylumDecisions")}
+              height={220}
+            >
+              <AreaChart data={stats.series.asylumDecisions.data}>
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK} />
+                <YAxis tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} width={36} domain={[0, 100]} />
+                <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
+                <Area type="monotone" dataKey="grantRatePct" name="Grant rate" stroke={P.teal} fill="rgba(30,107,94,0.12)" strokeWidth={2} dot={false} isAnimationActive={false} />
+              </AreaChart>
+            </ChartCard>
+          )}
+
+          {/* ── Grant Rate by Nationality Over Time ──────────────────────── */}
+          {stats?.series?.grantRateTimeSeries && (
+            <ChartCard
+              title="Grant Rates by Nationality"
+              subtitle="UK, initial decision grant rate (%), 2019-2024"
+              source={sourceFrom(stats, "grantRateTimeSeries")}
+              legend={[
+                { key: "afghanistan", label: "Afghanistan", color: "#2E5B9E" },
+                { key: "syria", label: "Syria", color: "#4A7A58" },
+                { key: "iran", label: "Iran", color: PURPLE },
+                { key: "albania", label: "Albania", color: P.sienna },
+                { key: "eritrea", label: "Eritrea", color: P.teal },
+                { key: "iraq", label: "Iraq", color: P.yellow },
+              ]}
+              height={260}
+            >
+              <LineChart data={stats.series.grantRateTimeSeries.data}>
                 <CartesianGrid {...GRID_PROPS} />
                 <XAxis dataKey="year" tick={AXIS_TICK} />
-                <YAxis tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} width={32} />
-                <Tooltip content={<CustomTooltip formatter={(v) => `${(v / 1000).toFixed(0)}k cases`} />} />
-                <Line type="monotone" dataKey="value" name="Backlog" stroke={P.sienna} strokeWidth={2.5} dot={{ r: 3 }} isAnimationActive={false} />
+                <YAxis tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} width={36} domain={[0, 100]} />
+                <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
+                <Line type="monotone" dataKey="afghanistan" name="Afghanistan" stroke="#2E5B9E" strokeWidth={2} dot={{ r: 2.5 }} isAnimationActive={false} />
+                <Line type="monotone" dataKey="syria" name="Syria" stroke="#4A7A58" strokeWidth={2} dot={{ r: 2.5 }} isAnimationActive={false} />
+                <Line type="monotone" dataKey="iran" name="Iran" stroke={PURPLE} strokeWidth={2} dot={{ r: 2.5 }} isAnimationActive={false} />
+                <Line type="monotone" dataKey="albania" name="Albania" stroke={P.sienna} strokeWidth={2} dot={{ r: 2.5 }} isAnimationActive={false} />
+                <Line type="monotone" dataKey="eritrea" name="Eritrea" stroke={P.teal} strokeWidth={1.5} strokeDasharray="4 3" dot={{ r: 2 }} isAnimationActive={false} />
+                <Line type="monotone" dataKey="iraq" name="Iraq" stroke={P.yellow} strokeWidth={1.5} strokeDasharray="4 3" dot={{ r: 2 }} isAnimationActive={false} />
               </LineChart>
-            </ResponsiveContainer>
-          </div>
-          </ShareableChart>
+            </ChartCard>
+          )}
+
+          {/* ── Decisions by Nationality (table) ─────────────────────────── */}
+          {data.context.decisionsByNationality && (() => {
+            const dbn = data.context.decisionsByNationality;
+            const byTotal = [...dbn.data].sort((a, b) => b.decisions - a.decisions);
+            const byRate = [...dbn.data].sort((a, b) => b.grantRate - a.grantRate);
+            const viewMode = decisionsView;
+            return (
+              <ChartCard
+                title={viewMode === "volume" ? "Asylum Decisions by Nationality" : "Grant Rates by Nationality"}
+                subtitle={`Initial decisions, main applicants, ${dbn.year}`}
+                source={<>{dbn.source}</>}
+                views={["volume", "rate"]}
+                viewLabels={{ volume: "Decisions", rate: "Grant rate" }}
+                activeView={decisionsView}
+                onViewChange={setDecisionsView}
+              >
+                {viewMode === "volume" ? (
+                  <ResponsiveContainer width="100%" height={byTotal.length * 32 + 40}>
+                    <BarChart
+                      data={byTotal}
+                      layout="vertical"
+                      margin={{ top: 4, right: 10, bottom: 4, left: isMobile ? 70 : 100 }}
+                    >
+                      <CartesianGrid {...GRID_PROPS} horizontal={false} />
+                      <XAxis
+                        type="number"
+                        tick={{ fontSize: 10, fill: P.textMuted, fontFamily: "'DM Mono', monospace" }}
+                        tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v}
+                      />
+                      <YAxis
+                        type="category"
+                        dataKey="nationality"
+                        tick={{ fontSize: isMobile ? 9 : 10, fill: P.text, fontFamily: "'DM Mono', monospace" }}
+                        width={isMobile ? 65 : 95}
+                      />
+                      <Tooltip content={<CustomTooltip />} />
+                      <Legend wrapperStyle={{ fontSize: "11px", fontFamily: "'DM Mono', monospace" }} iconSize={8} />
+                      <Bar dataKey="grants" name="Granted" stackId="a" fill="#4A7A58" isAnimationActive={false} />
+                      <Bar dataKey="refusals" name="Refused" stackId="a" fill="#A83428" isAnimationActive={false} />
+                      <Bar dataKey="withdrawn" name="Withdrawn" stackId="a" fill={P.textLight} radius={[0, 2, 2, 0]} isAnimationActive={false} />
+                    </BarChart>
+                  </ResponsiveContainer>
+                ) : (
+                  <div>
+                    <div style={{
+                      display: "grid",
+                      gridTemplateColumns: isMobile ? "1fr 50px" : "140px 1fr 70px 70px 70px 60px",
+                      gap: 4, padding: "0 0 8px", borderBottom: `1px solid ${P.border}`,
+                      fontSize: "10px", fontWeight: 600, color: P.textLight,
+                      fontFamily: "'DM Mono', monospace", textTransform: "uppercase",
+                      letterSpacing: "0.06em",
+                    }}>
+                      <span>Nationality</span>
+                      {!isMobile && <span>Grant rate</span>}
+                      {!isMobile && <span style={{ textAlign: "right" }}>Granted</span>}
+                      {!isMobile && <span style={{ textAlign: "right" }}>Refused</span>}
+                      {!isMobile && <span style={{ textAlign: "right" }}>Withdrawn</span>}
+                      <span style={{ textAlign: "right" }}>{isMobile ? "Grant%" : "Rate"}</span>
+                    </div>
+                    {byRate.map((row) => {
+                      const isHighGrant = row.grantRate >= 70;
+                      const isLowGrant = row.grantRate <= 10;
+                      return (
+                        <div key={row.nationality} style={{
+                          display: "grid",
+                          gridTemplateColumns: isMobile ? "1fr 50px" : "140px 1fr 70px 70px 70px 60px",
+                          gap: 4, padding: "6px 0", borderBottom: `1px solid rgba(28,43,69,0.04)`,
+                          alignItems: "center",
+                        }}>
+                          <span style={{ fontSize: "12px", color: P.text, fontFamily: "'DM Mono', monospace", fontWeight: 500 }}>{row.nationality}</span>
+                          {!isMobile && (
+                            <div style={{ position: "relative", height: 14, background: "rgba(28,43,69,0.03)", borderRadius: 2, overflow: "hidden" }}>
+                              <div style={{
+                                position: "absolute", left: 0, top: 0, bottom: 0,
+                                width: `${row.grantRate}%`,
+                                background: isHighGrant ? "rgba(30,107,94,0.5)" : isLowGrant ? "rgba(168,52,40,0.3)" : "rgba(123,75,138,0.35)",
+                                borderRadius: 2, transition: "width 0.3s",
+                              }} />
+                            </div>
+                          )}
+                          {!isMobile && <span style={{ fontSize: "11px", color: "#4A7A58", fontFamily: "'DM Mono', monospace", textAlign: "right" }}>{row.grants.toLocaleString()}</span>}
+                          {!isMobile && <span style={{ fontSize: "11px", color: "#A83428", fontFamily: "'DM Mono', monospace", textAlign: "right" }}>{row.refusals.toLocaleString()}</span>}
+                          {!isMobile && <span style={{ fontSize: "11px", color: P.textLight, fontFamily: "'DM Mono', monospace", textAlign: "right" }}>{row.withdrawn.toLocaleString()}</span>}
+                          <span style={{
+                            fontSize: "12px", fontWeight: 600,
+                            color: isHighGrant ? "#1E6B5E" : isLowGrant ? "#A83428" : P.text,
+                            fontFamily: "'DM Mono', monospace", textAlign: "right",
+                          }}>
+                            {row.grantRate}%
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </ChartCard>
+            );
+          })()}
+
+          {/* ── Global Displacement Context ────────────────────────────── */}
+          {stats?.series?.globalDisplacement && (
+            <ChartCard
+              title="Global Forced Displacement"
+              subtitle="Worldwide, millions of people, 2001-2024"
+              source={sourceFrom(stats, "globalDisplacement")}
+              legend={[
+                { key: "displacedMn", label: "Total forcibly displaced", color: PURPLE },
+                { key: "refugeesMn", label: "Refugees (UNHCR mandate)", color: P.teal },
+              ]}
+              height={260}
+            >
+              <AreaChart data={stats.series.globalDisplacement.data}>
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK} />
+                <YAxis tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => `${v}m`} width={36} />
+                <Tooltip content={<CustomTooltip formatter={(v) => `${v}m`} />} />
+                <Area type="monotone" dataKey="displacedMn" name="Total displaced" stroke={PURPLE} fill="rgba(123,75,138,0.15)" strokeWidth={2} dot={false} isAnimationActive={false} />
+                <Area type="monotone" dataKey="refugeesMn" name="Refugees" stroke={P.teal} fill="rgba(30,107,94,0.15)" strokeWidth={2} dot={false} isAnimationActive={false} />
+              </AreaChart>
+            </ChartCard>
+          )}
+
+          {/* ── Conflict vs Non-Conflict Origin ──────────────────────────── */}
+          {stats?.series?.conflictVsNonConflict && (
+            <ChartCard
+              title="UK Asylum Applications: Conflict vs Non-Conflict Origin"
+              subtitle="UK, 2004-2024, persons (conflict = nationalities with >70% grant rate)"
+              source={sourceFrom(stats, "conflictVsNonConflict")}
+              legend={[
+                { key: "conflictOrigin", label: "Conflict-origin", color: P.sienna },
+                { key: "nonConflictOrigin", label: "Non-conflict origin", color: P.textLight },
+              ]}
+              height={260}
+            >
+              <AreaChart data={stats.series.conflictVsNonConflict.data}>
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK} />
+                <YAxis tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v} width={36} />
+                <Tooltip content={<CustomTooltip formatter={(v) => v.toLocaleString()} />} />
+                <Area type="monotone" dataKey="conflictOrigin" name="Conflict-origin" stackId="a" stroke={P.sienna} fill="rgba(184,115,51,0.3)" strokeWidth={1.5} isAnimationActive={false} />
+                <Area type="monotone" dataKey="nonConflictOrigin" name="Non-conflict origin" stackId="a" stroke={P.textLight} fill="rgba(139,155,176,0.2)" strokeWidth={1.5} isAnimationActive={false} />
+              </AreaChart>
+            </ChartCard>
+          )}
+
+          {/* ── Asylum Backlog ───────────────────────────────────────────── */}
+          {stats?.series?.asylumBacklog && (
+            <ChartCard
+              title="Asylum Backlog"
+              subtitle={`UK, cases awaiting initial decision, ${backlogView === "annual" ? "2010-2024" : "quarterly 2019-2024"}`}
+              source={sourceFrom(stats, "asylumBacklog")}
+              views={["annual", "quarterly"]}
+              viewLabels={{ annual: "Annual", quarterly: "Quarterly" }}
+              activeView={backlogView}
+              onViewChange={setBacklogView}
+              height={240}
+            >
+              {backlogView === "annual" ? (
+                <AreaChart data={stats.series.asylumBacklog.data}>
+                  <CartesianGrid {...GRID_PROPS} />
+                  <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK} />
+                  <YAxis tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} width={36} />
+                  <Tooltip content={<CustomTooltip formatter={(v) => `${v.toLocaleString()} cases`} />} />
+                  <Area type="monotone" dataKey="pending" name="Pending cases" stroke={P.sienna} fill="rgba(184,115,51,0.15)" strokeWidth={2} dot={{ r: 2.5 }} isAnimationActive={false} />
+                </AreaChart>
+              ) : (
+                <AreaChart data={stats.series.asylumBacklogQuarterly.data}>
+                  <CartesianGrid {...GRID_PROPS} />
+                  <XAxis dataKey="quarter" tick={AXIS_TICK} tickFormatter={(v) => v.slice(0, 4)} interval={isMobile ? 7 : 3} />
+                  <YAxis tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} width={36} />
+                  <Tooltip content={<CustomTooltip formatter={(v) => `${v.toLocaleString()} cases`} />} />
+                  <Area type="monotone" dataKey="pending" name="Pending cases" stroke={P.sienna} fill="rgba(184,115,51,0.15)" strokeWidth={2} dot={false} isAnimationActive={false} />
+                </AreaChart>
+              )}
+            </ChartCard>
+          )}
+
+          {/* ── Returns and Removals ─────────────────────────────────────── */}
+          {stats?.series?.returns && (
+            <ChartCard
+              title="Returns and Removals"
+              subtitle="UK, 2004-2024, persons"
+              source={sourceFrom(stats, "returns")}
+              legend={[
+                { key: "enforced", label: "Enforced", color: P.sienna },
+                { key: "voluntary", label: "Voluntary", color: P.teal },
+              ]}
+              height={260}
+            >
+              <AreaChart data={stats.series.returns.data}>
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} tick={AXIS_TICK} />
+                <YAxis tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v} width={36} />
+                <Tooltip content={<CustomTooltip formatter={(v) => v.toLocaleString()} />} />
+                <ReferenceLine x={2020} stroke={P.grey} strokeDasharray="4 4" label={{ value: "COVID", fontSize: 9, fill: P.grey, position: "insideTopRight", fontFamily: "'DM Mono', monospace" }} />
+                <Area type="monotone" dataKey="enforced" name="Enforced" stackId="a" stroke={P.sienna} fill="rgba(184,115,51,0.25)" strokeWidth={1.5} isAnimationActive={false} />
+                <Area type="monotone" dataKey="voluntary" name="Voluntary" stackId="a" stroke={P.teal} fill="rgba(30,107,94,0.2)" strokeWidth={1.5} isAnimationActive={false} />
+              </AreaChart>
+            </ChartCard>
+          )}
+
+          {/* ── Foreign National Offenders ─────────────────────────────── */}
           {(() => {
             const fnoChart = fnosInCommunity.map(d => ({
               year: d.year,
               criteria: d.broader ? undefined : d.value,
               broader: d.broader ? d.value : undefined,
             }));
-            // Add a bridge point so the lines connect: repeat 2022's value as the start of the broader series
             const last = fnosInCommunity.find(d => d.year === 2022);
             if (last) {
               const idx = fnoChart.findIndex(d => d.year === 2022);
               if (idx !== -1) fnoChart[idx].broader = last.value;
             }
             return (
-              <ShareableChart title="Foreign National Offenders in the Community">
-              <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 4, padding: "18px 18px 14px" }}>
-                <div style={{ marginBottom: 10 }}>
-                  <div style={CHART_TITLE}>Foreign National Offenders</div>
-                  <div style={CHART_SUBTITLE}>FNOs living in the community, not removable</div>
-                </div>
-                <ResponsiveContainer width="100%" height={180}>
-                  <LineChart data={fnoChart}>
-                    <CartesianGrid {...GRID_PROPS} />
-                    <XAxis dataKey="year" tick={AXIS_TICK} />
-                    <YAxis tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v} width={32} />
-                    <Tooltip content={<CustomTooltip />} />
-                    <Line type="monotone" dataKey="criteria" name="Criteria only" stroke={P.red || "#A83428"} strokeWidth={2.5} dot={{ r: 3 }} connectNulls={false} isAnimationActive={false} />
-                    <Line type="monotone" dataKey="broader" name="Broader measure" stroke={P.red || "#A83428"} strokeWidth={2.5} strokeDasharray="6 3" dot={{ r: 3 }} connectNulls={false} isAnimationActive={false} />
-                  </LineChart>
-                </ResponsiveContainer>
-                <div style={{ fontSize: "10px", color: P.textLight, fontFamily: "'DM Mono', monospace", marginTop: 6, lineHeight: 1.5 }}>
-                  Solid: criteria cases only (12+ month sentence). Dashed: broader measure (criteria + non-criteria, from 2022). Source: Home Office Immigration Enforcement transparency data, Q2 snapshots.
-                </div>
-              </div>
-              </ShareableChart>
+              <ChartCard
+                title="Foreign National Offenders in the Community"
+                subtitle="UK, FNOs not removable, by year"
+                source={<>Home Office Immigration Enforcement transparency data</>}
+                legend={[
+                  { key: "criteria", label: "Criteria (12+ month sentence)", color: "#A83428" },
+                  { key: "broader", label: "Broader measure (from 2022)", color: "#A83428" },
+                ]}
+                height={220}
+              >
+                <LineChart data={fnoChart}>
+                  <CartesianGrid {...GRID_PROPS} />
+                  <XAxis dataKey="year" tick={AXIS_TICK} />
+                  <YAxis tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v} width={36} />
+                  <Tooltip content={<CustomTooltip />} />
+                  <Line type="monotone" dataKey="criteria" name="Criteria only" stroke="#A83428" strokeWidth={2.5} dot={{ r: 3 }} connectNulls={false} isAnimationActive={false} />
+                  <Line type="monotone" dataKey="broader" name="Broader measure" stroke="#A83428" strokeWidth={2.5} strokeDasharray="6 3" dot={{ r: 3 }} connectNulls={false} isAnimationActive={false} />
+                </LineChart>
+              </ChartCard>
             );
           })()}
-          <ShareableChart title="Dublin III Returns (Actual)">
-          <div style={{ background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 4, padding: "18px 18px 14px" }}>
-            <div style={{ marginBottom: 10 }}>
-              <div style={CHART_TITLE}>Dublin III Returns</div>
-              <div style={CHART_SUBTITLE}>Actual transfers to EU member states</div>
-            </div>
-            <ResponsiveContainer width="100%" height={180}>
-              <BarChart data={dublinReturns}>
+
+          {/* ── Dublin III Transfers ──────────────────────────────────────── */}
+          {stats?.series?.dublinTransfers && (
+            <ChartCard
+              title="Dublin III Transfers"
+              subtitle="UK, persons transferred to/from EU states, 2015-2020 (ceased at Brexit)"
+              source={sourceFrom(stats, "dublinTransfers")}
+              legend={[
+                { key: "outgoing", label: "UK → EU (outgoing)", color: P.sienna },
+                { key: "incoming", label: "EU → UK (incoming)", color: P.teal },
+              ]}
+              height={220}
+            >
+              <BarChart data={stats.series.dublinTransfers.data}>
                 <CartesianGrid {...GRID_PROPS} />
                 <XAxis dataKey="year" tick={AXIS_TICK} />
                 <YAxis tick={{ fontSize: 10, fill: P.textMuted }} width={32} />
-                <Tooltip content={<CustomTooltip formatter={(v) => `${v} people`} />} />
-                <Bar dataKey="value" name="Dublin returns" fill={P.textLight} radius={[2, 2, 0, 0]} isAnimationActive={false} />
+                <Tooltip content={<CustomTooltip formatter={(v) => `${v} persons`} />} />
+                <Bar dataKey="outgoing" name="UK → EU" fill={P.sienna} isAnimationActive={false} />
+                <Bar dataKey="incoming" name="EU → UK" fill={P.teal} radius={[2, 2, 0, 0]} isAnimationActive={false} />
               </BarChart>
-            </ResponsiveContainer>
-          </div>
-          </ShareableChart>
-        </div>
-      </section>
+            </ChartCard>
+          )}
 
-      {/* ── Decisions by nationality ─────────────────────────────────── */}
-      {data.context.decisionsByNationality && (() => {
-        const dbn = data.context.decisionsByNationality;
-        const byTotal = [...dbn.data].sort((a, b) => b.decisions - a.decisions);
-        const byRate = [...dbn.data].sort((a, b) => b.grantRate - a.grantRate);
-        const viewMode = decisionsView;
-        return (
-          <section style={{ marginBottom: 48 }}>
-            <h3 style={SECTION_HEADING}>Initial Decisions by Nationality</h3>
-            <p style={SECTION_NOTE}>
-              {viewMode === "volume"
-                ? "Total initial decisions by nationality, broken down by outcome. Countries with the highest claim volumes are not necessarily those with the highest grant rates."
-                : "Grant rates at initial decision vary from under 3% to over 98% depending on the applicant's country of origin. Grant rate is calculated as grants divided by decided cases (excluding withdrawn). Countries with the highest grant rates (Afghanistan, Eritrea, Sudan, Syria) are the same countries where ECHR Article 3 prevents deportation of refused claimants, because conditions in those countries engage the absolute prohibition on return to torture or inhuman treatment."
-              } Data: {dbn.year}, main applicants.
-            </p>
+          {/* ── Appeals ──────────────────────────────────────────────────── */}
+          {stats?.series?.asylumAppeals && (
+            <ChartCard
+              title="Asylum Appeals"
+              subtitle="UK, First-tier Tribunal, 2014-2024"
+              source={sourceFrom(stats, "asylumAppeals")}
+              legend={[
+                { key: "allowed", label: "Allowed (overturned)", color: P.teal },
+                { key: "dismissed", label: "Dismissed", color: P.sienna },
+                { key: "overturnPct", label: "Overturn rate %", color: PURPLE },
+              ]}
+              height={260}
+            >
+              <ComposedChart data={stats.series.asylumAppeals.data}>
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" tick={AXIS_TICK} />
+                <YAxis yAxisId="left" tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v} width={36} />
+                <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => `${v}%`} width={36} domain={[0, 100]} />
+                <Tooltip content={<CustomTooltip />} />
+                <Bar yAxisId="left" dataKey="allowed" name="Allowed" stackId="a" fill="rgba(30,107,94,0.6)" isAnimationActive={false} />
+                <Bar yAxisId="left" dataKey="dismissed" name="Dismissed" stackId="a" fill="rgba(184,115,51,0.5)" radius={[2, 2, 0, 0]} isAnimationActive={false} />
+                <Line yAxisId="right" type="monotone" dataKey="overturnPct" name="Overturn rate" stroke={PURPLE} strokeWidth={2.5} dot={{ r: 3 }} isAnimationActive={false} />
+              </ComposedChart>
+            </ChartCard>
+          )}
 
-            {/* Toggle */}
-            <div style={{ display: "flex", gap: 0, marginBottom: 14 }}>
-              {[["volume", "Decisions"], ["rate", "Grant rate"]].map(([key, label]) => (
-                <button
-                  key={key}
-                  onClick={() => setDecisionsView(key)}
-                  style={{
-                    background: viewMode === key ? PURPLE : "transparent",
-                    color: viewMode === key ? "#fff" : P.textMuted,
-                    border: `1px solid ${viewMode === key ? PURPLE : P.border}`,
-                    padding: "5px 14px",
-                    fontSize: "11px",
-                    fontFamily: "'DM Mono', monospace",
-                    fontWeight: 600,
-                    cursor: "pointer",
-                    borderRadius: key === "volume" ? "3px 0 0 3px" : "0 3px 3px 0",
-                    marginLeft: key === "rate" ? -1 : 0,
-                  }}
-                >
-                  {label}
-                </button>
-              ))}
-            </div>
+          {/* ── International Comparison ──────────────────────────────────── */}
+          {stats?.series?.internationalComparison && (
+            <ChartCard
+              title="Asylum Applications per 100,000 Population"
+              subtitle="Selected European countries, 2015-2023"
+              source={sourceFrom(stats, "internationalComparison")}
+              legend={[
+                { key: "uk", label: "UK", color: PURPLE },
+                { key: "germany", label: "Germany", color: "#2E5B9E" },
+                { key: "france", label: "France", color: P.teal },
+                { key: "sweden", label: "Sweden", color: P.yellow },
+                { key: "italy", label: "Italy", color: P.sienna },
+              ]}
+              height={280}
+            >
+              <LineChart data={stats.series.internationalComparison.data}>
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" tick={AXIS_TICK} />
+                <YAxis tick={{ fontSize: 10, fill: P.textMuted }} width={40} />
+                <Tooltip content={<CustomTooltip formatter={(v) => `${v} per 100k`} />} />
+                <Line type="monotone" dataKey="uk" name="UK" stroke={PURPLE} strokeWidth={2.5} dot={{ r: 3 }} isAnimationActive={false} />
+                <Line type="monotone" dataKey="germany" name="Germany" stroke="#2E5B9E" strokeWidth={1.5} dot={{ r: 2 }} isAnimationActive={false} />
+                <Line type="monotone" dataKey="france" name="France" stroke={P.teal} strokeWidth={1.5} dot={{ r: 2 }} isAnimationActive={false} />
+                <Line type="monotone" dataKey="sweden" name="Sweden" stroke={P.yellow} strokeWidth={1.5} dot={{ r: 2 }} isAnimationActive={false} />
+                <Line type="monotone" dataKey="italy" name="Italy" stroke={P.sienna} strokeWidth={1.5} dot={{ r: 2 }} isAnimationActive={false} />
+              </LineChart>
+            </ChartCard>
+          )}
 
-            {viewMode === "volume" ? (
-              /* ── Stacked bar chart: raw numbers ── */
-              <ShareableChart title="Asylum Decisions by Nationality">
-              <div style={{
-                background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 4,
-                padding: isMobile ? "14px 10px" : "18px 22px 14px",
-              }}>
-                <div style={{ marginBottom: 10 }}>
-                  <div style={CHART_TITLE}>Asylum Decisions by Nationality</div>
-                  <div style={CHART_SUBTITLE}>Initial decisions, main applicants, by outcome</div>
-                </div>
-                <ResponsiveContainer width="100%" height={byTotal.length * 32 + 40}>
-                  <BarChart
-                    data={byTotal}
-                    layout="vertical"
-                    margin={{ top: 4, right: 10, bottom: 4, left: isMobile ? 70 : 100 }}
-                  >
-                    <CartesianGrid {...GRID_PROPS} horizontal={false} />
-                    <XAxis
-                      type="number"
-                      tick={{ fontSize: 10, fill: P.textMuted, fontFamily: "'DM Mono', monospace" }}
-                      tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v}
-                    />
-                    <YAxis
-                      type="category"
-                      dataKey="nationality"
-                      tick={{ fontSize: isMobile ? 9 : 10, fill: P.text, fontFamily: "'DM Mono', monospace" }}
-                      width={isMobile ? 65 : 95}
-                    />
-                    <Tooltip content={<CustomTooltip />} />
-                    <Legend
-                      wrapperStyle={{ fontSize: "11px", fontFamily: "'DM Mono', monospace" }}
-                      iconSize={8}
-                    />
-                    <Bar dataKey="grants" name="Granted" stackId="a" fill="#4A7A58" isAnimationActive={false} />
-                    <Bar dataKey="refusals" name="Refused" stackId="a" fill={P.red || "#A83428"} isAnimationActive={false} />
-                    <Bar dataKey="withdrawn" name="Withdrawn" stackId="a" fill={P.textLight} radius={[0, 2, 2, 0]} isAnimationActive={false} />
-                  </BarChart>
-                </ResponsiveContainer>
-                <div style={{
-                  marginTop: 10, fontSize: "10px", color: P.textLight,
-                  fontFamily: "'DM Mono', monospace", lineHeight: 1.6,
-                }}>
-                  Source: {dbn.source}
-                </div>
-              </div>
-              </ShareableChart>
-            ) : (
-              /* ── Grant rate table (existing) ── */
-              <ShareableChart title="Asylum Grant Rates by Nationality">
-              <div style={{
-                background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 4,
-                padding: isMobile ? "14px 10px" : "18px 22px 14px",
-              }}>
-                <div style={{ marginBottom: 10 }}>
-                  <div style={CHART_TITLE}>Grant Rates by Nationality</div>
-                  <div style={CHART_SUBTITLE}>Initial decision grant rate, main applicants</div>
-                </div>
-                {/* Header */}
-                <div style={{
-                  display: "grid",
-                  gridTemplateColumns: isMobile ? "1fr 50px" : "140px 1fr 70px 70px 70px 60px",
-                  gap: 4, padding: "0 0 8px", borderBottom: `1px solid ${P.border}`,
-                  fontSize: "10px", fontWeight: 600, color: P.textLight,
-                  fontFamily: "'DM Mono', monospace", textTransform: "uppercase",
-                  letterSpacing: "0.06em",
-                }}>
-                  <span>Nationality</span>
-                  {!isMobile && <span>Grant rate</span>}
-                  {!isMobile && <span style={{ textAlign: "right" }}>Granted</span>}
-                  {!isMobile && <span style={{ textAlign: "right" }}>Refused</span>}
-                  {!isMobile && <span style={{ textAlign: "right" }}>Withdrawn</span>}
-                  <span style={{ textAlign: "right" }}>{isMobile ? "Grant%" : "Rate"}</span>
-                </div>
-                {/* Rows */}
-                {byRate.map((row) => {
-                  const isHighGrant = row.grantRate >= 70;
-                  const isLowGrant = row.grantRate <= 10;
-                  return (
-                    <div key={row.nationality} style={{
-                      display: "grid",
-                      gridTemplateColumns: isMobile ? "1fr 50px" : "140px 1fr 70px 70px 70px 60px",
-                      gap: 4, padding: "6px 0", borderBottom: `1px solid rgba(28,43,69,0.04)`,
-                      alignItems: "center",
-                    }}>
-                      <span style={{
-                        fontSize: "12px", color: P.text,
-                        fontFamily: "'DM Mono', monospace", fontWeight: 500,
-                      }}>
-                        {row.nationality}
-                      </span>
-                      {!isMobile && (
-                        <div style={{ position: "relative", height: 14, background: "rgba(28,43,69,0.03)", borderRadius: 2, overflow: "hidden" }}>
-                          <div style={{
-                            position: "absolute", left: 0, top: 0, bottom: 0,
-                            width: `${row.grantRate}%`,
-                            background: isHighGrant ? "rgba(30,107,94,0.5)" : isLowGrant ? "rgba(168,52,40,0.3)" : "rgba(123,75,138,0.35)",
-                            borderRadius: 2,
-                            transition: "width 0.3s",
-                          }} />
-                        </div>
-                      )}
-                      {!isMobile && (
-                        <span style={{ fontSize: "11px", color: "#4A7A58", fontFamily: "'DM Mono', monospace", textAlign: "right" }}>
-                          {row.grants.toLocaleString()}
-                        </span>
-                      )}
-                      {!isMobile && (
-                        <span style={{ fontSize: "11px", color: P.red, fontFamily: "'DM Mono', monospace", textAlign: "right" }}>
-                          {row.refusals.toLocaleString()}
-                        </span>
-                      )}
-                      {!isMobile && (
-                        <span style={{ fontSize: "11px", color: P.textLight, fontFamily: "'DM Mono', monospace", textAlign: "right" }}>
-                          {row.withdrawn.toLocaleString()}
-                        </span>
-                      )}
-                      <span style={{
-                        fontSize: "12px", fontWeight: 600,
-                        color: isHighGrant ? "#1E6B5E" : isLowGrant ? P.red : P.text,
-                        fontFamily: "'DM Mono', monospace", textAlign: "right",
-                      }}>
-                        {row.grantRate}%
-                      </span>
-                    </div>
-                  );
-                })}
-                <div style={{
-                  marginTop: 10, fontSize: "10px", color: P.textLight,
-                  fontFamily: "'DM Mono', monospace", lineHeight: 1.6,
-                }}>
-                  Source: {dbn.source}
-                </div>
-              </div>
-              </ShareableChart>
-            )}
-          </section>
-        );
-      })()}
+          {/* ── Accommodation Costs ──────────────────────────────────────── */}
+          {stats?.series?.accommodationCosts && (
+            <ChartCard
+              title="Asylum Accommodation Costs"
+              subtitle="UK, £ millions, by financial year"
+              source={sourceFrom(stats, "accommodationCosts")}
+              height={240}
+            >
+              <BarChart data={stats.series.accommodationCosts.data}>
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" tick={AXIS_TICK} tickFormatter={(v) => v.slice(0, 4)} />
+                <YAxis tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => v >= 1000 ? `£${(v / 1000).toFixed(1)}bn` : `£${v}m`} width={48} />
+                <Tooltip content={<CustomTooltip formatter={(v) => `£${v}m`} />} />
+                <Bar dataKey="costMnGBP" name="Total cost" fill={P.sienna} radius={[2, 2, 0, 0]} isAnimationActive={false} />
+              </BarChart>
+            </ChartCard>
+          )}
 
+          {/* ── Processing Times ─────────────────────────────────────────── */}
+          {stats?.series?.processingTimes && (
+            <ChartCard
+              title="Asylum Processing Times"
+              subtitle="UK, median weeks to initial decision, 2014-2024"
+              source={sourceFrom(stats, "processingTimes")}
+              height={220}
+            >
+              <LineChart data={stats.series.processingTimes.data}>
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" tick={AXIS_TICK} />
+                <YAxis tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => `${v}w`} width={32} />
+                <Tooltip content={<CustomTooltip formatter={(v) => `${v} weeks`} />} />
+                <Line type="monotone" dataKey="medianWeeksUK" name="Median weeks" stroke={PURPLE} strokeWidth={2.5} dot={{ r: 3 }} isAnimationActive={false} />
+              </LineChart>
+            </ChartCard>
+          )}
+
+          {/* ── Irregular Routes Comparison ───────────────────────────────── */}
+          {stats?.series?.irregularRoutes && (
+            <ChartCard
+              title="Irregular Migration by Route"
+              subtitle="UK, estimated persons, 2019-2024"
+              source={sourceFrom(stats, "irregularRoutes")}
+              legend={[
+                { key: "channelCrossings", label: "Channel crossings", color: PURPLE },
+                { key: "estimatedOverstayers", label: "Visa overstayers (est.)", color: P.teal },
+                { key: "lorryDetections", label: "Lorry detections", color: P.textLight },
+              ]}
+              height={260}
+            >
+              <BarChart data={stats.series.irregularRoutes.data}>
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" tick={AXIS_TICK} />
+                <YAxis tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v} width={36} />
+                <Tooltip content={<CustomTooltip formatter={(v) => v.toLocaleString()} />} />
+                <Bar dataKey="channelCrossings" name="Channel crossings" fill={PURPLE} isAnimationActive={false} />
+                <Bar dataKey="estimatedOverstayers" name="Visa overstayers" fill={P.teal} isAnimationActive={false} />
+                <Bar dataKey="lorryDetections" name="Lorry detections" fill={P.textLight} isAnimationActive={false} />
+              </BarChart>
+            </ChartCard>
+          )}
+
+          {/* ── Caseworker Staffing vs Backlog ───────────────────────────── */}
+          {stats?.series?.caseworkerStaffing && (
+            <ChartCard
+              title="Caseworker Staffing"
+              subtitle="UK, full-time equivalent asylum decision-makers, 2018-2024"
+              source={sourceFrom(stats, "caseworkerStaffing")}
+              height={220}
+            >
+              <BarChart data={stats.series.caseworkerStaffing.data}>
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" tick={AXIS_TICK} />
+                <YAxis tick={{ fontSize: 10, fill: P.textMuted }} width={36} />
+                <Tooltip content={<CustomTooltip formatter={(v) => `${v.toLocaleString()} FTE`} />} />
+                <Bar dataKey="fte" name="Decision-makers (FTE)" fill={P.teal} radius={[2, 2, 0, 0]} isAnimationActive={false} />
+              </BarChart>
+            </ChartCard>
+          )}
+
+          {/* ── Resettlement Schemes ─────────────────────────────────────── */}
+          {stats?.series?.resettlement && (
+            <ChartCard
+              title="Resettlement via Safe/Legal Routes"
+              subtitle="UK, persons, 2014-2024"
+              source={sourceFrom(stats, "resettlement")}
+              height={240}
+            >
+              <BarChart data={stats.series.resettlement.data}>
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" tick={AXIS_TICK} />
+                <YAxis tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v} width={32} />
+                <Tooltip content={<CustomTooltip formatter={(v) => v !== null ? v.toLocaleString() : "N/A"} />} />
+                <Bar dataKey="total" name="Total resettled" fill="#4A7A58" radius={[2, 2, 0, 0]} isAnimationActive={false} />
+              </BarChart>
+            </ChartCard>
+          )}
+
+
+          {/* ── Detention ────────────────────────────────────────────────── */}
+          {stats?.series?.detention && (
+            <ChartCard
+              title="Immigration Detention"
+              subtitle="UK, persons entering detention and year-end population, 2010-2024"
+              source={sourceFrom(stats, "detention")}
+              legend={[
+                { key: "entering", label: "Entering detention", color: PURPLE },
+                { key: "population", label: "Detained (year-end)", color: P.sienna },
+              ]}
+              height={240}
+            >
+              <ComposedChart data={stats.series.detention.data}>
+                <CartesianGrid {...GRID_PROPS} />
+                <XAxis dataKey="year" tick={AXIS_TICK} />
+                <YAxis yAxisId="left" tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v} width={36} />
+                <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 10, fill: P.textMuted }} tickFormatter={(v) => v >= 1000 ? `${(v / 1000).toFixed(1)}k` : v} width={36} />
+                <Tooltip content={<CustomTooltip formatter={(v) => v.toLocaleString()} />} />
+                <Bar yAxisId="left" dataKey="entering" name="Entering detention" fill={PURPLE} opacity={0.6} radius={[2, 2, 0, 0]} isAnimationActive={false} />
+                <Line yAxisId="right" type="monotone" dataKey="population" name="Population (year-end)" stroke={P.sienna} strokeWidth={2.5} dot={{ r: 3 }} isAnimationActive={false} />
+              </ComposedChart>
+            </ChartCard>
+          )}
+        </>
+      )}
+
+      {activeTab === "legislation" && (
+        <>
       {/* ── Legal Framework ──────────────────────────────────────────── */}
       <section style={{ marginBottom: 48 }}>
         <h3 style={SECTION_HEADING}>The Legal Framework</h3>
@@ -1028,6 +1272,10 @@ export default function AsylumImmigration() {
           );
         })()}
       </section>
+        </>
+      )}
+
+      </DebateTabs>
 
       {/* ── Sources ──────────────────────────────────────────────────── */}
       <div style={{ marginTop: 24, fontSize: "12px", color: P.textLight, fontFamily: "'DM Mono', monospace", lineHeight: 1.8 }}>
