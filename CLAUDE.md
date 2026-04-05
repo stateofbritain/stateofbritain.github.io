@@ -99,3 +99,6 @@ Other standard components:
 - `node scripts/validate-data.js` — validate all data files
 - `node scripts/generate-catalog.js` — regenerate data/catalog.json
 - `node scripts/sync-api-data.js` — sync public/data/ → public/api/data/ (run after any data update)
+
+## Guidance
+- write single-line commands instead of multiline (e.g., using && or ; instead of newlines) to avoid warning.

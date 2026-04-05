@@ -150,15 +150,15 @@ const PILLARS = {
     },
   },
   challenges: {
-    label: "Policy Challenges",
-    description: "Legal and regulatory frameworks on issues with significant public interest",
+    label: "Policy",
+    description: "Adversarial analysis of policy debates, grounded in verifiable evidence and official data",
     color: "#7B4B8A",
     topics: {
       overview:    { label: "Overview",              icon: "◈" },
-      asylum:      { label: "Asylum & Immigration",  icon: "⊘" },
-      university:  { label: "University Funding",    icon: "△" },
-      hs2:         { label: "HS2",                   icon: "▬" },
-      energy:      { label: "Energy Security",       icon: "⚡" },
+      asylum:      { label: "Asylum & Immigration",  icon: "⊘", status: "archive" },
+      university:  { label: "University Funding",    icon: "△", status: "archive" },
+      hs2:         { label: "HS2",                   icon: "▬", status: "archive" },
+      energy:      { label: "Energy Security",       icon: "⚡", status: "archive" },
     },
   },
 };
