@@ -365,6 +365,26 @@
       "coverage": "2010–2025",
       "frequency": "annual",
       "pillar": "state"
+    },
+    {
+      "id": "local-gov-spending",
+      "name": "Local Authority Spending by Council Area",
+      "description": "Per-authority net current expenditure for 218 upper-tier local authorities across England, Scotland, Wales, and Northern Ireland. Breakdown by 12 service areas including education, social care, transport, housing.",
+      "url": "/api/data/local-gov-spending.json",
+      "source": "MHCLG Revenue Outturn, Scottish Government LGFS, StatsWales, NI Audit Office",
+      "coverage": "2017–2025",
+      "frequency": "annual",
+      "pillar": "state"
+    },
+    {
+      "id": "mayoral-spending",
+      "name": "Mayoral & Combined Authority Spending",
+      "description": "Per-authority net current expenditure and revenue sources for 12 combined/mayoral authorities and the Greater London Authority. Includes service breakdown (police, transport, fire) and funding sources (grants, council tax, levies, earned income).",
+      "url": "/api/data/mayoral-spending.json",
+      "source": "MHCLG Revenue Outturn",
+      "coverage": "2017–2025",
+      "frequency": "annual",
+      "pillar": "state"
     }
   ]
 }

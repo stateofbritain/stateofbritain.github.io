@@ -1,0 +1,35 @@
+# State of Britain
+
+> Open data on Britain's public services, economy, and society. All datasets sourced from official UK government statistics, licensed under the Open Government Licence v3.0.
+
+The State of Britain data API provides machine-readable JSON datasets covering public spending, healthcare, housing, energy, education, transport, justice, defence, immigration, local government, and more.
+
+## API
+
+- [API Index](https://stateofbritain.uk/api/index.json): Full list of available datasets with descriptions, sources, and download URLs.
+- [Data Catalog](https://stateofbritain.uk/api/data/catalog.json): Searchable catalog with tags, summaries, and series-level metadata for all 50+ datasets.
+
+All datasets follow the `sob-dataset-v1` schema with consistent structure: metadata, snapshot values, and time series data.
+
+## Key Datasets
+
+- [Public Spending](https://stateofbritain.uk/api/data/spending.json): TME, receipts, borrowing, debt, departmental breakdown (1978-2030)
+- [Borrowing & Debt](https://stateofbritain.uk/api/data/borrowing.json): Gilt yields, monthly borrowing, debt interest, debt/GDP
+- [Taxation](https://stateofbritain.uk/api/data/taxation.json): Tax receipts by type, tax burden, international comparison, tax gap
+- [NHS Waiting Times](https://stateofbritain.uk/api/data/nhs-waiting.json): RTT waiting times, A&E performance (2012-2026)
+- [Health Outcomes](https://stateofbritain.uk/api/data/health-outcomes.json): Life expectancy, cancer survival, avoidable mortality
+- [Housing Supply](https://stateofbritain.uk/api/data/housing-supply.json): Net additional dwellings, completions by tenure
+- [Housing Stock](https://stateofbritain.uk/api/data/housing-stock.json): Dwelling stock by age, type, tenure, EPC ratings
+- [Energy](https://stateofbritain.uk/api/data/energy.json): UK primary energy composition by fuel type (1990-2024)
+- [Jobs & Employment](https://stateofbritain.uk/api/data/jobs.json): Employment, unemployment, inactivity, earnings
+- [Productivity](https://stateofbritain.uk/api/data/productivity.json): Output per hour, sector breakdown, OECD comparison
+- [Education](https://stateofbritain.uk/api/data/education.json): Per-pupil spending, GCSE/A-level, PISA scores
+- [Immigration](https://stateofbritain.uk/api/data/immigration.json): Net migration, asylum applications, population projections
+- [Defence](https://stateofbritain.uk/api/data/defence.json): Spending (% GDP), personnel, equipment
+- [Local Authority Spending](https://stateofbritain.uk/api/data/local-gov-spending.json): 218 councils across UK, spending by service area
+- [Mayoral Authority Spending](https://stateofbritain.uk/api/data/mayoral-spending.json): 12 combined authorities and GLA, spending and funding sources
+- [Local Government Finance](https://stateofbritain.uk/api/data/local-government.json): Council tax, funding mix, Section 114 notices
+
+## Attribution
+
+Contains public sector information licensed under the Open Government Licence v3.0.
