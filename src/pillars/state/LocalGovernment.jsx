@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import {
   LineChart, Line, BarChart, Bar, AreaChart, Area,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
@@ -14,6 +14,7 @@ import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import MethodologyBreak, { getMethodologyBreaks } from "../../components/MethodologyBreak";
 import { useJsonDataset, getBreaks } from "../../hooks/useDataset";
+import UKChoroplethMap from "../../components/UKChoroplethMap";
 
 const SERVICE_COLORS = {
   adultSocialCare: P.teal,
@@ -57,16 +58,120 @@ const FUNDING_LABELS = {
   other: "Other income",
 };
 
+// Service areas for the per-authority stacked chart (keys match spending data fields)
+const DETAIL_SERVICES = [
+  { key: "education",           label: "Education",              color: "#6B8EC2" },
+  { key: "adultSocialCare",     label: "Adult social care",      color: P.teal },
+  { key: "childrenSocialCare",  label: "Children's social care", color: P.sienna },
+  { key: "transport",           label: "Highways & transport",   color: P.navy },
+  { key: "publicHealth",        label: "Public health",          color: P.red },
+  { key: "housing",             label: "Housing",                color: "#4A7A58" },
+  { key: "environment",         label: "Environmental",          color: "#5B8A6B" },
+  { key: "cultural",            label: "Cultural",               color: P.yellow },
+  { key: "planning",            label: "Planning",               color: "#7A5B8A" },
+  { key: "central",             label: "Central",                color: P.grey },
+];
+
 const SOURCE_LINK = (url, name) => (
   <a href={url} target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>
     {name}
   </a>
 );
 
+const MAP_METRICS = {
+  totalService: { label: "Total service spending", unit: "£", divisor: 1000, suffix: "m" },
+  adultSocialCare: { label: "Adult social care", unit: "£", divisor: 1000, suffix: "m" },
+  childrenSocialCare: { label: "Children's social care", unit: "£", divisor: 1000, suffix: "m" },
+  education: { label: "Education", unit: "£", divisor: 1000, suffix: "m" },
+  transport: { label: "Highways & transport", unit: "£", divisor: 1000, suffix: "m" },
+  socialCarePct: { label: "Social care (% of total)", unit: "", divisor: 1, suffix: "%" },
+};
+
 export default function LocalGovernment() {
   const { data, loading, error, raw } = useJsonDataset("local-government.json");
   const isMobile = useIsMobile();
   const [spendingView, setSpendingView] = useState("stacked");
+  const [mapMetric, setMapMetric] = useState("totalService");
+  const [mapYear, setMapYear] = useState("2024-25");
+  const [selectedAuth, setSelectedAuth] = useState(null); // { code, name }
+  const [detailView, setDetailView] = useState("absolute"); // "absolute" | "perCap" | "pct"
+  const [perCapita, setPerCapita] = useState(false);
+
+  // Load per-authority spending data
+  const [spendingByAuth, setSpendingByAuth] = useState(null);
+  useEffect(() => {
+    fetch("/data/local-gov-spending.json")
+      .then(r => r.json())
+      .then(d => setSpendingByAuth(d.series.authorities.data))
+      .catch(() => {});
+  }, []);
+
+  // Build map data: { code: value } for current metric/year
+  const mapData = useMemo(() => {
+    if (!spendingByAuth) return {};
+    const result = {};
+    for (const auth of spendingByAuth) {
+      const yr = auth.years[mapYear];
+      if (!yr) continue;
+      if (mapMetric === "socialCarePct") {
+        const total = yr.totalService || 0;
+        if (total > 0) {
+          result[auth.code] = Math.round(((yr.adultSocialCare + yr.childrenSocialCare) / total) * 100);
+        }
+      } else {
+        let val = yr[mapMetric] || 0;
+        if (perCapita && auth.population > 0) {
+          val = Math.round((val * 1000) / auth.population); // £ thousands → £ per person
+        }
+        result[auth.code] = val;
+      }
+    }
+    return result;
+  }, [spendingByAuth, mapMetric, mapYear, perCapita]);
+
+  // Build lookup for tooltip
+  const authLookup = useMemo(() => {
+    if (!spendingByAuth) return {};
+    return Object.fromEntries(spendingByAuth.map(a => [a.code, a]));
+  }, [spendingByAuth]);
+
+  // Build stacked chart data for selected authority (absolute £m, per capita £, and % of total)
+  const { selectedChartData, selectedChartPerCap, selectedChartPct } = useMemo(() => {
+    if (!selectedAuth || !authLookup[selectedAuth.code]) return { selectedChartData: null, selectedChartPerCap: null, selectedChartPct: null };
+    const auth = authLookup[selectedAuth.code];
+    const pop = auth.population || 0;
+    const years = ["2017-18", "2018-19", "2019-20", "2020-21", "2021-22", "2022-23", "2023-24", "2024-25"];
+    const keys = DETAIL_SERVICES.map(s => s.key);
+    const abs = years.filter(y => auth.years[y]).map(y => {
+      const yr = auth.years[y];
+      const row = { year: y };
+      keys.forEach(k => { row[k] = Math.max(0, (yr[k] || 0) / 1000); });
+      return row;
+    });
+    const pc = pop > 0 ? abs.map(row => {
+      const out = { year: row.year };
+      keys.forEach(k => { out[k] = Math.round((row[k] * 1e6) / pop); }); // £m → £ per person
+      return out;
+    }) : null;
+    const pct = abs.map(row => {
+      const total = keys.reduce((s, k) => s + row[k], 0);
+      const out = { year: row.year };
+      if (total <= 0) { keys.forEach(k => { out[k] = 0; }); return out; }
+      const activeKeys = keys.filter(k => row[k] > 0);
+      let sum = 0;
+      activeKeys.forEach((k, i) => {
+        if (i < activeKeys.length - 1) {
+          out[k] = Math.round((row[k] / total) * 1000) / 10;
+          sum += out[k];
+        } else {
+          out[k] = Math.round((100 - sum) * 10) / 10;
+        }
+      });
+      keys.filter(k => row[k] <= 0).forEach(k => { out[k] = 0; });
+      return out;
+    });
+    return { selectedChartData: abs, selectedChartPerCap: pc, selectedChartPct: pct };
+  }, [selectedAuth, authLookup]);
 
   // Compute latest service breakdown for bar chart
   const latestServiceBreakdown = useMemo(() => {
@@ -147,6 +252,248 @@ export default function LocalGovernment() {
         />
       </div>
 
+      {/* Spending map by authority */}
+      {spendingByAuth && (
+        <section style={{ marginBottom: 32 }}>
+          <h3 style={SECTION_HEADING}>Spending by Council Area</h3>
+          <p style={SECTION_NOTE}>
+            Net current expenditure by upper-tier local authority in England, including county
+            councils, unitary authorities, metropolitan districts, and London boroughs. Values
+            are in £ thousands from MHCLG Revenue Outturn returns. Click an area to see its
+            spending breakdown over time.
+          </p>
+
+          {/* Metric selector + per-capita toggle */}
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 4, marginBottom: 8, alignItems: "center" }}>
+            {Object.entries(MAP_METRICS).map(([key, { label }]) => (
+              <button
+                key={key}
+                onClick={() => setMapMetric(key)}
+                style={{
+                  background: mapMetric === key ? "rgba(28,43,69,0.06)" : "transparent",
+                  border: "none",
+                  color: mapMetric === key ? P.text : P.textLight,
+                  padding: "4px 10px",
+                  fontSize: "10px",
+                  fontWeight: 500,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.08em",
+                  cursor: "pointer",
+                  fontFamily: "'DM Mono', monospace",
+                  transition: "all 0.15s",
+                  borderRadius: 2,
+                }}
+              >
+                {label}
+              </button>
+            ))}
+            <span style={{ width: 1, height: 16, background: P.border, margin: "0 4px" }} />
+            <button
+              onClick={() => setPerCapita(p => !p)}
+              style={{
+                background: perCapita ? P.navy : "transparent",
+                border: `1px solid ${perCapita ? P.navy : P.borderStrong}`,
+                color: perCapita ? P.parchment : P.textLight,
+                padding: "3px 10px",
+                fontSize: "10px",
+                fontWeight: 500,
+                textTransform: "uppercase",
+                letterSpacing: "0.08em",
+                cursor: "pointer",
+                fontFamily: "'DM Mono', monospace",
+                transition: "all 0.15s",
+                borderRadius: 2,
+              }}
+            >
+              Per capita
+            </button>
+          </div>
+
+          {mapMetric === "education" && (
+            <p style={{ fontSize: 11, fontFamily: "'DM Mono', monospace", color: P.textMuted, margin: "0 0 10px", lineHeight: 1.5 }}>
+              Education spending varies widely because schools that converted to academy status are funded directly by central government and no longer appear in local authority accounts. Shire counties with more maintained schools (Hampshire, Kent, Lancashire) show higher figures than heavily academised areas.
+            </p>
+          )}
+          {mapMetric === "totalService" && (
+            <p style={{ fontSize: 11, fontFamily: "'DM Mono', monospace", color: P.textMuted, margin: "0 0 10px", lineHeight: 1.5 }}>
+              Totals include education, which varies by academy conversion rate rather than actual provision. Shire counties with maintained schools appear larger relative to academised metropolitan areas.
+            </p>
+          )}
+
+          {/* Map + detail chart side by side */}
+          <div style={{ display: "flex", gap: 16, flexDirection: isMobile ? "column" : "row" }}>
+            {/* Map */}
+            <div style={{ flex: selectedAuth && !isMobile ? "0 0 45%" : "1 1 100%", transition: "flex 0.3s" }}>
+              <ChartCard
+                title="Local Authority Spending"
+                subtitle={`${MAP_METRICS[mapMetric].label}${perCapita && mapMetric !== "socialCarePct" ? " per capita" : ""}, England, ${mapYear}`}
+                source={<>SOURCE: <a href="https://www.gov.uk/government/collections/local-authority-revenue-expenditure-and-financing" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>MHCLG Revenue Outturn</a> · <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>ONS Mid-Year Estimates</a></>}
+              >
+                {/* Year selector */}
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 4, marginBottom: 8 }}>
+                  {["2017-18", "2018-19", "2019-20", "2020-21", "2021-22", "2022-23", "2023-24", "2024-25"].map(yr => (
+                    <button
+                      key={yr}
+                      onClick={() => setMapYear(yr)}
+                      style={{
+                        background: mapYear === yr ? "rgba(28,43,69,0.06)" : "transparent",
+                        border: "none",
+                        color: mapYear === yr ? P.text : P.textLight,
+                        padding: "3px 8px",
+                        fontSize: "10px",
+                        cursor: "pointer",
+                        fontFamily: "'DM Mono', monospace",
+                        transition: "all 0.15s",
+                        borderRadius: 2,
+                      }}
+                    >
+                      {yr}
+                    </button>
+                  ))}
+                </div>
+
+                <UKChoroplethMap
+                  data={mapData}
+                  colorScale={mapMetric === "socialCarePct" ? ["#fde8d0", "#C94B1A"] : ["#d4ede8", "#0d4a3e"]}
+                  formatLegend={
+                    mapMetric === "socialCarePct" ? (v) => `${Math.round(v)}%`
+                    : perCapita ? (v) => `£${Math.round(v)}`
+                    : undefined
+                  }
+                  selectedCode={selectedAuth?.code}
+                  onClickArea={(area) => setSelectedAuth(prev => prev?.code === area.code ? null : area)}
+                  renderTooltip={({ code, name, value }) => {
+                    const auth = authLookup[code];
+                    const yr = auth?.years[mapYear];
+                    const fmtVal = (v) => v != null && v > 0 ? `£${(v / 1000).toFixed(0)}m` : "—";
+                    return (
+                      <div>
+                        <div style={{ fontWeight: 600, marginBottom: 4, color: P.parchment }}>{name}</div>
+                        {mapMetric === "socialCarePct" ? (
+                          <div>{value}% of spending on social care</div>
+                        ) : perCapita ? (
+                          <div style={{ color: P.teal }}>£{Math.round(value).toLocaleString()} per person</div>
+                        ) : (
+                          <div style={{ color: P.teal }}>£{Math.round(value / 1000).toLocaleString()}m</div>
+                        )}
+                        {yr && mapMetric === "totalService" && !perCapita && (
+                          <div style={{ marginTop: 4, opacity: 0.7, lineHeight: 1.6 }}>
+                            <div>Adult social care: {fmtVal(yr.adultSocialCare)}</div>
+                            <div>Children's social care: {fmtVal(yr.childrenSocialCare)}</div>
+                            <div>Education: {fmtVal(yr.education)}</div>
+                            <div>Highways: {fmtVal(yr.transport)}</div>
+                          </div>
+                        )}
+                        {auth?.population && <div style={{ marginTop: 4, opacity: 0.5 }}>Pop: {auth.population.toLocaleString()}</div>}
+                      </div>
+                    );
+                  }}
+                />
+              </ChartCard>
+            </div>
+
+            {/* Detail chart for selected authority */}
+            {selectedAuth && selectedChartData && (
+              <div style={{ flex: isMobile ? "1 1 auto" : "1 1 55%", minWidth: 0 }}>
+                <ChartCard
+                  title={selectedAuth.name}
+                  subtitle={detailView === "pct" ? "Spending share by service, %, 2017-18 to 2024-25" : detailView === "perCap" ? "Spending by service per capita, £, 2017-18 to 2024-25" : "Spending by service, £m, 2017-18 to 2024-25"}
+                  source={<>SOURCE: <a href="https://www.gov.uk/government/collections/local-authority-revenue-expenditure-and-financing" target="_blank" rel="noopener noreferrer" style={{ color: P.textLight, textDecoration: "underline" }}>MHCLG Revenue Outturn</a></>}
+                >
+                  {/* Close + view toggle */}
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
+                    <div style={{ display: "flex", gap: 0, border: `1px solid ${P.borderStrong}`, borderRadius: 3 }}>
+                      {[["absolute", "£m"], ...(selectedChartPerCap ? [["perCap", "per cap"]] : []), ["pct", "%"]].map(([key, label]) => (
+                        <button
+                          key={key}
+                          onClick={() => setDetailView(key)}
+                          style={{
+                            background: detailView === key ? "rgba(28,43,69,0.06)" : "transparent",
+                            border: "none",
+                            color: detailView === key ? P.text : P.textLight,
+                            padding: "3px 10px",
+                            fontSize: "10px",
+                            cursor: "pointer",
+                            fontFamily: "'DM Mono', monospace",
+                            borderRadius: 2,
+                          }}
+                        >
+                          {label}
+                        </button>
+                      ))}
+                    </div>
+                    <button
+                      onClick={() => setSelectedAuth(null)}
+                      style={{
+                        background: "none", border: "none", cursor: "pointer",
+                        fontSize: 14, color: P.textMuted, lineHeight: 1,
+                        fontFamily: "'DM Mono', monospace", padding: "2px 4px",
+                      }}
+                      title="Close"
+                    >
+                      ✕
+                    </button>
+                  </div>
+
+                  {/* Compact legend */}
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: "4px 12px", marginBottom: 10 }}>
+                    {DETAIL_SERVICES.filter(s => selectedChartData.some(d => d[s.key] > 0)).map(s => (
+                      <div key={s.key} style={{ display: "flex", alignItems: "center", gap: 4 }}>
+                        <div style={{ width: 8, height: 8, borderRadius: 1, background: s.color, opacity: 0.7 }} />
+                        <span style={{ fontSize: 9, fontFamily: "'DM Mono', monospace", color: P.textMuted }}>{s.label}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <ResponsiveContainer width="100%" height={380}>
+                    <AreaChart data={detailView === "pct" ? selectedChartPct : detailView === "perCap" ? selectedChartPerCap : selectedChartData} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
+                      <CartesianGrid {...GRID_PROPS} />
+                      <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} />
+                      <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} domain={detailView === "pct" ? [0, 100] : [0, "auto"]} allowDataOverflow={detailView === "pct"} label={yAxisLabel(detailView === "pct" ? "Share of spending (%)" : detailView === "perCap" ? "Spending per person (£)" : "Total spending (£m)")} />
+                      <Tooltip
+                        content={({ active, payload, label }) => {
+                          if (!active || !payload?.length) return null;
+                          const isPct = detailView === "pct";
+                          const isPC = detailView === "perCap";
+                          const total = isPct ? 100 : payload.reduce((s, p) => s + (p.value || 0), 0);
+                          const fmtV = (v) => isPct ? `${v.toFixed(1)}%` : isPC ? `£${Math.round(v).toLocaleString()}` : `£${v.toFixed(0)}m`;
+                          return (
+                            <div style={{ background: P.bg, border: `1px solid ${P.navy}`, borderRadius: 3, padding: "10px 14px", fontFamily: "'DM Mono', monospace", fontSize: 11, color: P.text, lineHeight: 1.7 }}>
+                              <div style={{ fontWeight: 600, marginBottom: 4 }}>{selectedAuth.name}, {label}</div>
+                              {!isPct && <div style={{ marginBottom: 4 }}>Total: {isPC ? `£${Math.round(total).toLocaleString()}/person` : `£${total.toFixed(0)}m`}</div>}
+                              {payload.filter(p => p.value > 0).reverse().map(p => (
+                                <div key={p.dataKey} style={{ display: "flex", gap: 8, justifyContent: "space-between" }}>
+                                  <span style={{ color: p.fill, fontWeight: 600 }}>{DETAIL_SERVICES.find(s => s.key === p.dataKey)?.label}</span>
+                                  <span>{fmtV(p.value)}</span>
+                                </div>
+                              ))}
+                            </div>
+                          );
+                        }}
+                      />
+                      {DETAIL_SERVICES.filter(s => selectedChartData.some(d => d[s.key] > 0)).map(s => (
+                        <Area
+                          key={s.key}
+                          type="monotone"
+                          dataKey={s.key}
+                          name={s.label}
+                          stackId="1"
+                          fill={s.color}
+                          fillOpacity={0.7}
+                          stroke={s.color}
+                          strokeWidth={0.5}
+                          isAnimationActive={false}
+                        />
+                      ))}
+                    </AreaChart>
+                  </ResponsiveContainer>
+                </ChartCard>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
       {/* Section 1: Spending by service */}
       {data.serviceSpending && (
         <section style={{ marginBottom: 32 }}>
@@ -214,7 +561,7 @@ export default function LocalGovernment() {
             <AreaChart data={data.socialCareShare} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
               <CartesianGrid {...GRID_PROPS} />
               <XAxis dataKey="year" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} interval={isMobile ? 3 : 2} />
-              <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} unit="%" domain={[0, 60]} label={yAxisLabel("%")} />
+              <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} unit="%" domain={[0, 100]} label={yAxisLabel("%")} />
               <Tooltip content={<CustomTooltip formatter={(v) => `${v}%`} />} />
               <Area type="monotone" dataKey="adultPct" name="Adult social care" stackId="1" fill={P.teal} fillOpacity={0.6} stroke={P.teal} strokeWidth={1.5} />
               <Area type="monotone" dataKey="childrenPct" name="Children's social care" stackId="1" fill={P.sienna} fillOpacity={0.5} stroke={P.sienna} strokeWidth={1.5} />

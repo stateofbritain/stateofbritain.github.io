@@ -532,6 +532,17 @@ local-government:
       summary: "Real-terms core spending power per person fell 27% from 2010-11 to 2015-16. In 2024-25 it remains 18% below 2010-11 levels."
       unit: "index"
 
+local-gov-spending:
+  title: "Local Authority Spending by Council Area"
+  geography: "England"
+  summary: "Per-authority net current expenditure for 153 upper-tier English local authorities (county councils, unitary authorities, metropolitan districts, London boroughs), 2017-18 to 2024-25. Breakdown by service area: education, adult social care, children's social care, highways, housing, environment, cultural, planning, public health, police, fire, central services. From MHCLG Revenue Outturn returns."
+  tags: [local authority, council, spending, expenditure, social care, education, highways, county council, unitary authority, London borough, metropolitan district, MHCLG, revenue outturn, by council, by area, map]
+  series:
+    authorities:
+      title: "Per-Authority Service Spending"
+      summary: "Net current expenditure by service for each upper-tier English authority. Kent highest at £2.7bn total, typical authority ~£660m. Social care accounts for 30-60% of spending depending on area."
+      unit: "£ thousands"
+
 money-supply:
   title: "Money Supply & Inflation"
   geography: "United Kingdom"

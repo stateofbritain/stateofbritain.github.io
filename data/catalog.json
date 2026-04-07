@@ -1,6 +1,6 @@
 {
   "$schema": "sob-catalog-v1",
-  "generated": "2026-04-05",
+  "generated": "2026-04-06",
   "datasets": [
     {
       "id": "adult-social-care",
@@ -4531,6 +4531,57 @@
       }
     },
     {
+      "id": "local-gov-spending",
+      "title": "Local Authority Spending by Council Area",
+      "pillar": "state",
+      "geography": "England",
+      "summary": "Per-authority net current expenditure for 153 upper-tier English local authorities (county councils, unitary authorities, metropolitan districts, London boroughs), 2017-18 to 2024-25. Breakdown by service area: education, adult social care, children's social care, highways, housing, environment, cultural, planning, public health, police, fire, central services. From MHCLG Revenue Outturn returns.",
+      "tags": [
+        "local authority",
+        "council",
+        "spending",
+        "expenditure",
+        "social care",
+        "education",
+        "highways",
+        "county council",
+        "unitary authority",
+        "London borough",
+        "metropolitan district",
+        "MHCLG",
+        "revenue outturn",
+        "by council",
+        "by area",
+        "map"
+      ],
+      "dataFile": "/data/local-gov-spending.json",
+      "series": {
+        "authorities": {
+          "title": "Per-Authority Service Spending",
+          "summary": "Net current expenditure by service for each upper-tier English authority. Kent highest at £2.7bn total, typical authority ~£660m. Social care accounts for 30-60% of spending depending on area.",
+          "unit": "£ thousands",
+          "fields": {
+            "name": {
+              "label": "name"
+            },
+            "class": {
+              "label": "class"
+            },
+            "years": {
+              "label": "years"
+            },
+            "population": {
+              "label": "population"
+            }
+          },
+          "timeRange": {
+            "start": "E06000001",
+            "end": "W06000015"
+          }
+        }
+      }
+    },
+    {
       "id": "local-government",
       "title": "Local Government Finance",
       "pillar": "state",
@@ -7106,6 +7157,7 @@
         "hate-crime",
         "immigration",
         "justice",
+        "local-gov-spending",
         "local-government",
         "money-supply",
         "spending",
@@ -7415,6 +7467,7 @@
       ],
       "social care": [
         "childrens-social-care",
+        "local-gov-spending",
         "local-government"
       ],
       "looked after children": [
@@ -7522,6 +7575,7 @@
       "spending": [
         "defence",
         "education",
+        "local-gov-spending",
         "local-government",
         "nhs-funding",
         "spending"
@@ -7564,6 +7618,7 @@
       ],
       "education": [
         "education",
+        "local-gov-spending",
         "youth-unemployment"
       ],
       "schools": [
@@ -8055,6 +8110,46 @@
       "courts": [
         "justice"
       ],
+      "local authority": [
+        "local-gov-spending",
+        "local-government"
+      ],
+      "council": [
+        "local-gov-spending"
+      ],
+      "expenditure": [
+        "local-gov-spending"
+      ],
+      "highways": [
+        "local-gov-spending"
+      ],
+      "county council": [
+        "local-gov-spending"
+      ],
+      "unitary authority": [
+        "local-gov-spending"
+      ],
+      "London borough": [
+        "local-gov-spending"
+      ],
+      "metropolitan district": [
+        "local-gov-spending"
+      ],
+      "MHCLG": [
+        "local-gov-spending"
+      ],
+      "revenue outturn": [
+        "local-gov-spending"
+      ],
+      "by council": [
+        "local-gov-spending"
+      ],
+      "by area": [
+        "local-gov-spending"
+      ],
+      "map": [
+        "local-gov-spending"
+      ],
       "local government": [
         "local-government"
       ],
@@ -8072,9 +8167,6 @@
         "local-government"
       ],
       "audit": [
-        "local-government"
-      ],
-      "local authority": [
         "local-government"
       ],
       "DLUHC": [
