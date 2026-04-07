@@ -164,6 +164,46 @@ async function fetchSpending(boundaryCodes) {
   const INC_NONTMA = col("RS_incnontma_net_exp");     // non-TMA income (negative)
   const REV_TOT = col("RS_revenuetot_net_exp");       // total revenue
 
+  // Transport sub-category columns (RO2)
+  const T_BUS       = col("RO2_transpblopr_bus_net_cur_exp");
+  const T_RAIL      = col("RO2_transpblopr_rail_net_cur_exp");
+  const T_OTHER_OPS = col("RO2_transpblopr_oth_net_cur_exp");
+  const T_CONC      = col("RO2_transpblcrd_net_cur_exp");
+  const T_STATIONS  = col("RO2_transpblstt_net_cur_exp");
+  const T_DEMAND    = col("RO2_transpbldsc_net_cur_exp");
+  const T_HWY_PLAN  = col("RO2_transpln_hghwys_mnt_net_cur_exp");
+  const T_PT_PLAN   = col("RO2_transpln_pub_oth_net_cur_exp");
+  const T_RDS_PRN   = col("RO2_transrdsmnt_prn_rds_net_cur_exp");
+  const T_RDS_OTH   = col("RO2_transrdsmnt_oth_rds_net_cur_exp");
+  const T_RDS_BRD   = col("RO2_transrdsmnt_brd_net_cur_exp");
+  const T_ENV_PRN   = col("RO2_transrdsenv_prn_rds_net_cur_exp");
+  const T_ENV_OTH   = col("RO2_transrdsenv_oth_rds_net_cur_exp");
+  const T_WINTER    = col("RO2_transrdswnt_net_cur_exp");
+  const T_LIGHT     = col("RO2_transrdslgh_net_cur_exp");
+  const T_CONG      = col("RO2_transrdstrfcng_net_cur_exp");
+  const T_TRF_BS    = col("RO2_transrdstrfbs_net_cur_exp");
+  const T_TRF_SFT   = col("RO2_transrdstrfsft_net_cur_exp");
+  const T_TRF_OTH   = col("RO2_transrdstrfoth_net_cur_exp");
+  const T_PRK_ON    = col("RO2_transprk_on_str_prk_net_cur_exp");
+  const T_PRK_OFF   = col("RO2_transprk_off_str_prk_net_cur_exp");
+  const T_ACCESS    = col("RO2_transaht_net_cur_exp");
+
+  // Planning sub-category columns (RO5)
+  const PL_ECONDEV  = col("RO5_planecndev_net_cur_exp");
+  const PL_BUSINESS = col("RO5_planbsn_net_cur_exp");
+  const PL_ENVINI   = col("RO5_planenv_net_cur_exp");
+  const PL_COMM     = col("RO5_plancmm_net_cur_exp");
+  const PL_RESEARCH = col("RO5_planecnrsr_net_cur_exp");
+  const PL_DEVCTRL  = col("RO5_plandvl_net_cur_exp");
+  const PL_BLDCTRL  = col("RO5_planbld_net_cur_exp");
+  const PL_CONSERV  = col("RO5_planplc_cns_lst_bld_net_cur_exp");
+  const PL_POLICY   = col("RO5_planplc_oth_net_cur_exp");
+
+  // Fire sub-category columns (RO6)
+  const F_FIGHTING  = col("RO6_frs_ffr_opr_net_cur_exp");
+  const F_COMMFS    = col("RO6_frs_cmm_fs_net_cur_exp");
+  const F_EMERGENCY = col("RO6_frs_frs_emr_pln_net_cur_exp");
+
   // Valid combined authority / GLA codes
   const caSet = new Set(["E12000007"]);
   for (let i = 1; i <= 18; i++) caSet.add(`E4700000${i}`);
@@ -217,7 +257,42 @@ async function fetchSpending(boundaryCodes) {
       earnedIncome: Math.round(Math.abs(num(INC_TMA)) + Math.abs(num(INC_NONTMA))),
       totalRevenue: Math.round(num(REV_TOT)),
     };
-    authorities[ons].years[yearLabel] = { ...services, totalService: total, ...funding };
+    // Transport sub-category breakdown
+    const tb = {
+      bus:       Math.round(num(T_BUS)),
+      rail:      Math.round(num(T_RAIL)),
+      otherOps:  Math.round(num(T_OTHER_OPS)),
+      concessionary: Math.round(num(T_CONC)),
+      stations:  Math.round(num(T_STATIONS) + num(T_DEMAND)),
+      roads:     Math.round(num(T_HWY_PLAN) + num(T_RDS_PRN) + num(T_RDS_OTH) + num(T_RDS_BRD) + num(T_ENV_PRN) + num(T_ENV_OTH) + num(T_WINTER) + num(T_LIGHT)),
+      traffic:   Math.round(num(T_CONG) + num(T_TRF_BS) + num(T_TRF_SFT) + num(T_TRF_OTH) + num(T_PRK_ON) + num(T_PRK_OFF)),
+      planning:  Math.round(num(T_PT_PLAN) + num(T_ACCESS)),
+    };
+    // Planning sub-category breakdown
+    const pb = {
+      econDev:     Math.round(num(PL_ECONDEV)),
+      business:    Math.round(num(PL_BUSINESS)),
+      envInitiatives: Math.round(num(PL_ENVINI)),
+      community:   Math.round(num(PL_COMM)),
+      research:    Math.round(num(PL_RESEARCH)),
+      devControl:  Math.round(num(PL_DEVCTRL) + num(PL_BLDCTRL) + num(PL_CONSERV) + num(PL_POLICY)),
+    };
+    // Fire sub-category breakdown
+    const fb = {
+      firefighting:    Math.round(num(F_FIGHTING)),
+      communitySafety: Math.round(num(F_COMMFS)),
+      emergencyPlan:   Math.round(num(F_EMERGENCY)),
+    };
+    // Only include breakdowns where any sub-category is non-zero
+    const hasTransBd = Object.values(tb).some(v => v !== 0);
+    const hasPlanBd = Object.values(pb).some(v => v !== 0);
+    const hasFireBd = Object.values(fb).some(v => v !== 0);
+    authorities[ons].years[yearLabel] = {
+      ...services, totalService: total, ...funding,
+      ...(hasTransBd ? { transportBreakdown: tb } : {}),
+      ...(hasPlanBd  ? { planningBreakdown: pb } : {}),
+      ...(hasFireBd  ? { fireBreakdown: fb } : {}),
+    };
   }
 
   console.log(`  Parsed ${Object.keys(authorities).length} combined/mayoral authorities`);

@@ -14,6 +14,42 @@ import AnalysisBox from "../../components/AnalysisBox";
 import CustomTooltip from "../../components/CustomTooltip";
 import UKChoroplethMap from "../../components/UKChoroplethMap";
 
+// Transport sub-category breakdown
+const TRANSPORT_SUBS = [
+  { key: "bus",            label: "Bus",                  color: "#2A6496" },
+  { key: "rail",           label: "Rail",                 color: "#4E5D6C" },
+  { key: "otherOps",       label: "Tram & other transit", color: "#6B8EC2" },
+  { key: "concessionary",  label: "Concessionary fares",  color: P.teal },
+  { key: "stations",       label: "Stations & interchanges", color: P.sienna },
+  { key: "roads",          label: "Roads & highways",     color: "#5B8A6B" },
+  { key: "traffic",        label: "Traffic & parking",    color: P.yellow },
+  { key: "planning",       label: "Planning & other",     color: P.grey },
+];
+
+// Planning sub-category breakdown
+const PLANNING_SUBS = [
+  { key: "econDev",        label: "Economic development", color: "#7A5B8A" },
+  { key: "business",       label: "Business support",     color: "#6B8EC2" },
+  { key: "envInitiatives", label: "Environmental initiatives", color: "#5B8A6B" },
+  { key: "community",      label: "Community development", color: P.teal },
+  { key: "research",       label: "Economic research",    color: P.yellow },
+  { key: "devControl",     label: "Development & building control", color: P.grey },
+];
+
+// Fire sub-category breakdown
+const FIRE_SUBS = [
+  { key: "firefighting",    label: "Firefighting operations", color: "#C25454" },
+  { key: "emergencyPlan",   label: "Emergency planning",      color: "#D4914E" },
+  { key: "communitySafety", label: "Community fire safety",   color: P.yellow },
+];
+
+// Generic config for all breakdowns
+const BREAKDOWN_CONFIG = [
+  { dataKey: "transportBreakdown", subs: TRANSPORT_SUBS, title: "Transport Breakdown" },
+  { dataKey: "planningBreakdown",  subs: PLANNING_SUBS,  title: "Planning & Development Breakdown" },
+  { dataKey: "fireBreakdown",      subs: FIRE_SUBS,      title: "Fire & Rescue Breakdown" },
+];
+
 // Service areas for the per-authority stacked chart
 const DETAIL_SERVICES = [
   { key: "police",              label: "Police",                 color: "#4E5D6C" },
@@ -124,7 +160,18 @@ export default function MayoralAuthorities() {
           key: s.key, label: s.label, color: s.color, value: abs[0][s.key],
         }))
       : null;
-    return { chartAbs: abs, chartPerCap: pc, chartPct: pct, pieData: pie, singleYear };
+    // Service sub-breakdowns for the latest year with data
+    const breakdowns = BREAKDOWN_CONFIG.map(({ dataKey, subs, title }) => {
+      const yr = [...ALL_YEARS].reverse().find(y => auth.years[y]?.[dataKey]);
+      if (!yr) return null;
+      const bd = auth.years[yr][dataKey];
+      const pie = subs
+        .filter(s => (bd[s.key] || 0) > 0)
+        .map(s => ({ key: s.key, label: s.label, color: s.color, value: bd[s.key] / 1000 }))
+        .sort((a, b) => b.value - a.value);
+      return pie.length > 1 ? { title, pie, year: yr } : null;
+    }).filter(Boolean);
+    return { chartAbs: abs, chartPerCap: pc, chartPct: pct, pieData: pie, singleYear, breakdowns };
   }, [selectedAuth, authLookup]);
 
   // Summary stats
@@ -462,6 +509,64 @@ export default function MayoralAuthorities() {
                   </>
                 )}
               </ChartCard>
+
+              {/* Service sub-breakdowns (transport, planning, fire) */}
+              {breakdowns?.map(({ title, pie, year }) => (
+                <ChartCard
+                  key={title}
+                  title={title}
+                  subtitle={`${selectedAuth.name.replace(/ Combined Authority$/, "").replace(/ Mayoral Combined Authority$/, "")}, £m, ${year}`}
+                  source={SOURCE}
+                >
+                  <ResponsiveContainer width="100%" height={260}>
+                    <PieChart>
+                      <Pie
+                        data={pie}
+                        dataKey="value"
+                        nameKey="label"
+                        cx="50%"
+                        cy="50%"
+                        outerRadius={100}
+                        innerRadius={40}
+                        strokeWidth={1}
+                        stroke={P.bg}
+                        isAnimationActive={false}
+                      >
+                        {pie.map((d, i) => (
+                          <Cell key={i} fill={d.color} fillOpacity={0.8} />
+                        ))}
+                      </Pie>
+                      <Tooltip
+                        content={({ active, payload }) => {
+                          if (!active || !payload?.length) return null;
+                          const d = payload[0].payload;
+                          const total = pie.reduce((s, p) => s + p.value, 0);
+                          const pct = total > 0 ? ((d.value / total) * 100).toFixed(1) : 0;
+                          return (
+                            <div style={{ background: P.bg, border: `1px solid ${P.navy}`, borderRadius: 3, padding: "8px 12px", fontFamily: "'DM Mono', monospace", fontSize: 11, color: P.text, lineHeight: 1.7 }}>
+                              <div style={{ fontWeight: 600, color: d.color }}>{d.label}</div>
+                              <div>£{d.value.toFixed(0)}m ({pct}%)</div>
+                            </div>
+                          );
+                        }}
+                      />
+                    </PieChart>
+                  </ResponsiveContainer>
+                  <div style={{ display: "flex", flexDirection: "column", gap: 4, marginTop: 4 }}>
+                    {pie.map(d => {
+                      const total = pie.reduce((s, p) => s + p.value, 0);
+                      return (
+                        <div key={d.key} style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                          <div style={{ width: 10, height: 10, borderRadius: 2, background: d.color, opacity: 0.8, flexShrink: 0 }} />
+                          <span style={{ fontSize: 11, fontFamily: "'DM Mono', monospace", color: P.textMuted, flex: 1 }}>{d.label}</span>
+                          <span style={{ fontSize: 11, fontFamily: "'DM Mono', monospace", color: P.text }}>£{d.value.toFixed(0)}m</span>
+                          <span style={{ fontSize: 10, fontFamily: "'DM Mono', monospace", color: P.textLight, width: 40, textAlign: "right" }}>{total > 0 ? ((d.value / total) * 100).toFixed(0) : 0}%</span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </ChartCard>
+              ))}
             </div>
           )}
         </div>
