@@ -120,7 +120,7 @@ export default function MayoralAuthorities() {
   }, [spendingByAuth]);
 
   // Build detail chart data for selected authority
-  const { chartAbs, chartPerCap, chartPct, pieData, singleYear } = useMemo(() => {
+  const { chartAbs, chartPerCap, chartPct, pieData, singleYear, breakdowns } = useMemo(() => {
     if (!selectedAuth || !authLookup[selectedAuth.code]) return {};
     const auth = authLookup[selectedAuth.code];
     const pop = auth.population || 0;
