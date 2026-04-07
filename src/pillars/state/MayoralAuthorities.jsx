@@ -510,63 +510,53 @@ export default function MayoralAuthorities() {
                 )}
               </ChartCard>
 
-              {/* Service sub-breakdowns (transport, planning, fire) */}
-              {breakdowns?.map(({ title, pie, year }) => (
-                <ChartCard
-                  key={title}
-                  title={title}
-                  subtitle={`${selectedAuth.name.replace(/ Combined Authority$/, "").replace(/ Mayoral Combined Authority$/, "")}, £m, ${year}`}
-                  source={SOURCE}
-                >
-                  <ResponsiveContainer width="100%" height={260}>
-                    <PieChart>
-                      <Pie
-                        data={pie}
-                        dataKey="value"
-                        nameKey="label"
-                        cx="50%"
-                        cy="50%"
-                        outerRadius={100}
-                        innerRadius={40}
-                        strokeWidth={1}
-                        stroke={P.bg}
-                        isAnimationActive={false}
-                      >
-                        {pie.map((d, i) => (
-                          <Cell key={i} fill={d.color} fillOpacity={0.8} />
-                        ))}
-                      </Pie>
-                      <Tooltip
-                        content={({ active, payload }) => {
-                          if (!active || !payload?.length) return null;
-                          const d = payload[0].payload;
+              {/* Service sub-breakdowns — compact grid */}
+              {breakdowns?.length > 0 && (
+                <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : `repeat(${Math.min(breakdowns.length, 3)}, 1fr)`, gap: 10, marginTop: 6 }}>
+                  {breakdowns.map(({ title, pie, year }) => (
+                    <ChartCard key={title} title={title} subtitle={`£m, ${year}`} source={SOURCE}>
+                      <ResponsiveContainer width="100%" height={140}>
+                        <PieChart>
+                          <Pie
+                            data={pie} dataKey="value" nameKey="label"
+                            cx="50%" cy="50%" outerRadius={55} innerRadius={22}
+                            strokeWidth={1} stroke={P.bg} isAnimationActive={false}
+                          >
+                            {pie.map((d, i) => <Cell key={i} fill={d.color} fillOpacity={0.8} />)}
+                          </Pie>
+                          <Tooltip
+                            content={({ active, payload }) => {
+                              if (!active || !payload?.length) return null;
+                              const d = payload[0].payload;
+                              const total = pie.reduce((s, p) => s + p.value, 0);
+                              const pct = total > 0 ? ((d.value / total) * 100).toFixed(1) : 0;
+                              return (
+                                <div style={{ background: P.bg, border: `1px solid ${P.navy}`, borderRadius: 3, padding: "6px 10px", fontFamily: "'DM Mono', monospace", fontSize: 10, color: P.text, lineHeight: 1.6 }}>
+                                  <div style={{ fontWeight: 600, color: d.color }}>{d.label}</div>
+                                  <div>£{d.value.toFixed(0)}m ({pct}%)</div>
+                                </div>
+                              );
+                            }}
+                          />
+                        </PieChart>
+                      </ResponsiveContainer>
+                      <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                        {pie.map(d => {
                           const total = pie.reduce((s, p) => s + p.value, 0);
-                          const pct = total > 0 ? ((d.value / total) * 100).toFixed(1) : 0;
                           return (
-                            <div style={{ background: P.bg, border: `1px solid ${P.navy}`, borderRadius: 3, padding: "8px 12px", fontFamily: "'DM Mono', monospace", fontSize: 11, color: P.text, lineHeight: 1.7 }}>
-                              <div style={{ fontWeight: 600, color: d.color }}>{d.label}</div>
-                              <div>£{d.value.toFixed(0)}m ({pct}%)</div>
+                            <div key={d.key} style={{ display: "flex", alignItems: "center", gap: 5 }}>
+                              <div style={{ width: 7, height: 7, borderRadius: 1, background: d.color, opacity: 0.8, flexShrink: 0 }} />
+                              <span style={{ fontSize: 9, fontFamily: "'DM Mono', monospace", color: P.textMuted, flex: 1, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{d.label}</span>
+                              <span style={{ fontSize: 9, fontFamily: "'DM Mono', monospace", color: P.text, flexShrink: 0 }}>£{d.value.toFixed(0)}m</span>
+                              <span style={{ fontSize: 9, fontFamily: "'DM Mono', monospace", color: P.textLight, width: 28, textAlign: "right", flexShrink: 0 }}>{total > 0 ? ((d.value / total) * 100).toFixed(0) : 0}%</span>
                             </div>
                           );
-                        }}
-                      />
-                    </PieChart>
-                  </ResponsiveContainer>
-                  <div style={{ display: "flex", flexDirection: "column", gap: 4, marginTop: 4 }}>
-                    {pie.map(d => {
-                      const total = pie.reduce((s, p) => s + p.value, 0);
-                      return (
-                        <div key={d.key} style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                          <div style={{ width: 10, height: 10, borderRadius: 2, background: d.color, opacity: 0.8, flexShrink: 0 }} />
-                          <span style={{ fontSize: 11, fontFamily: "'DM Mono', monospace", color: P.textMuted, flex: 1 }}>{d.label}</span>
-                          <span style={{ fontSize: 11, fontFamily: "'DM Mono', monospace", color: P.text }}>£{d.value.toFixed(0)}m</span>
-                          <span style={{ fontSize: 10, fontFamily: "'DM Mono', monospace", color: P.textLight, width: 40, textAlign: "right" }}>{total > 0 ? ((d.value / total) * 100).toFixed(0) : 0}%</span>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </ChartCard>
-              ))}
+                        })}
+                      </div>
+                    </ChartCard>
+                  ))}
+                </div>
+              )}
             </div>
           )}
         </div>
