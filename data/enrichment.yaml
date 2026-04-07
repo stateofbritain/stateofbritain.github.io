@@ -534,13 +534,24 @@ local-government:
 
 local-gov-spending:
   title: "Local Authority Spending by Council Area"
-  geography: "England"
-  summary: "Per-authority net current expenditure for 153 upper-tier English local authorities (county councils, unitary authorities, metropolitan districts, London boroughs), 2017-18 to 2024-25. Breakdown by service area: education, adult social care, children's social care, highways, housing, environment, cultural, planning, public health, police, fire, central services. From MHCLG Revenue Outturn returns."
-  tags: [local authority, council, spending, expenditure, social care, education, highways, county council, unitary authority, London borough, metropolitan district, MHCLG, revenue outturn, by council, by area, map]
+  geography: "United Kingdom"
+  summary: "Per-authority net current expenditure for 218 upper-tier local authorities across all four UK nations (England, Scotland, Wales, Northern Ireland), 2017-18 to 2024-25. Breakdown by service area: education, adult social care, children's social care, highways, housing, environment, cultural, planning, public health, police, fire, central services. England from MHCLG Revenue Outturn, Scotland from LGFS, Wales from StatsWales, NI from Audit Office."
+  tags: [local authority, council, spending, expenditure, social care, education, highways, county council, unitary authority, London borough, metropolitan district, MHCLG, revenue outturn, by council, by area, map, Scotland, Wales, Northern Ireland]
   series:
     authorities:
       title: "Per-Authority Service Spending"
-      summary: "Net current expenditure by service for each upper-tier English authority. Kent highest at £2.7bn total, typical authority ~£660m. Social care accounts for 30-60% of spending depending on area."
+      summary: "Net current expenditure by service for each upper-tier authority across the UK. Kent highest at £2.7bn total, typical authority ~£660m. Social care accounts for 30-60% of spending depending on area."
+      unit: "£ thousands"
+
+mayoral-spending:
+  title: "Mayoral & Combined Authority Spending"
+  geography: "England"
+  summary: "Per-authority net current expenditure and revenue sources for 12 combined/mayoral authorities and the Greater London Authority, 2017-18 to 2024-25. Total spending grew from £5.7bn to £10.8bn. GLA accounts for 72% including Metropolitan Police (£4.4bn) and TfL (£1.8bn). Funding breakdown: government grants, council tax/mayoral precept, levies on constituent councils, earned income."
+  tags: [combined authority, mayoral, mayor, GLA, Greater London Authority, Transport for London, TfL, MOPAC, police, transport, fire, devolution, Greater Manchester, West Midlands, Liverpool, West Yorkshire, South Yorkshire, Tees Valley, funding, grants, precept, levy]
+  series:
+    authorities:
+      title: "Per-Authority Service Spending and Revenue"
+      summary: "Net current expenditure by service plus funding sources (government grants, council tax, levies, earned income) for each combined authority. GLA largest at £7.8bn, GMCA second at £862m."
       unit: "£ thousands"
 
 money-supply:

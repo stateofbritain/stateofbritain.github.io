@@ -24,7 +24,14 @@ const PILLARS = {
         },
       },
       personalFinance: { label: "Personal Finance", icon: "£" },
-      localGov:        { label: "Local Government",  icon: "◈" },
+      localGov: {
+        label: "Local Government",
+        icon: "◈",
+        subtopics: {
+          overview: { label: "Council Spending" },
+          mayoral:  { label: "Mayoral Authorities" },
+        },
+      },
     },
   },
   foundations: {

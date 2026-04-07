@@ -1,6 +1,6 @@
 {
   "$schema": "sob-catalog-v1",
-  "generated": "2026-04-06",
+  "generated": "2026-04-07",
   "datasets": [
     {
       "id": "adult-social-care",
@@ -4534,8 +4534,8 @@
       "id": "local-gov-spending",
       "title": "Local Authority Spending by Council Area",
       "pillar": "state",
-      "geography": "England",
-      "summary": "Per-authority net current expenditure for 153 upper-tier English local authorities (county councils, unitary authorities, metropolitan districts, London boroughs), 2017-18 to 2024-25. Breakdown by service area: education, adult social care, children's social care, highways, housing, environment, cultural, planning, public health, police, fire, central services. From MHCLG Revenue Outturn returns.",
+      "geography": "United Kingdom",
+      "summary": "Per-authority net current expenditure for 218 upper-tier local authorities across all four UK nations (England, Scotland, Wales, Northern Ireland), 2017-18 to 2024-25. Breakdown by service area: education, adult social care, children's social care, highways, housing, environment, cultural, planning, public health, police, fire, central services. England from MHCLG Revenue Outturn, Scotland from LGFS, Wales from StatsWales, NI from Audit Office.",
       "tags": [
         "local authority",
         "council",
@@ -4552,13 +4552,16 @@
         "revenue outturn",
         "by council",
         "by area",
-        "map"
+        "map",
+        "Scotland",
+        "Wales",
+        "Northern Ireland"
       ],
       "dataFile": "/data/local-gov-spending.json",
       "series": {
         "authorities": {
           "title": "Per-Authority Service Spending",
-          "summary": "Net current expenditure by service for each upper-tier English authority. Kent highest at £2.7bn total, typical authority ~£660m. Social care accounts for 30-60% of spending depending on area.",
+          "summary": "Net current expenditure by service for each upper-tier authority across the UK. Kent highest at £2.7bn total, typical authority ~£660m. Social care accounts for 30-60% of spending depending on area.",
           "unit": "£ thousands",
           "fields": {
             "name": {
@@ -4576,7 +4579,7 @@
           },
           "timeRange": {
             "start": "E06000001",
-            "end": "W06000015"
+            "end": "N09000011"
           }
         }
       }
@@ -4787,6 +4790,60 @@
           "timeRange": {
             "start": "2010-11",
             "end": "2024-25"
+          }
+        }
+      }
+    },
+    {
+      "id": "mayoral-spending",
+      "title": "Mayoral & Combined Authority Spending",
+      "pillar": "spending",
+      "geography": "England",
+      "summary": "Per-authority net current expenditure and revenue sources for 12 combined/mayoral authorities and the Greater London Authority, 2017-18 to 2024-25. Total spending grew from £5.7bn to £10.8bn. GLA accounts for 72% including Metropolitan Police (£4.4bn) and TfL (£1.8bn). Funding breakdown: government grants, council tax/mayoral precept, levies on constituent councils, earned income.",
+      "tags": [
+        "combined authority",
+        "mayoral",
+        "mayor",
+        "GLA",
+        "Greater London Authority",
+        "Transport for London",
+        "TfL",
+        "MOPAC",
+        "police",
+        "transport",
+        "fire",
+        "devolution",
+        "Greater Manchester",
+        "West Midlands",
+        "Liverpool",
+        "West Yorkshire",
+        "South Yorkshire",
+        "Tees Valley",
+        "funding",
+        "grants",
+        "precept",
+        "levy"
+      ],
+      "dataFile": "/data/mayoral-spending.json",
+      "series": {
+        "authorities": {
+          "title": "Per-Authority Service Spending and Revenue",
+          "summary": "Net current expenditure by service plus funding sources (government grants, council tax, levies, earned income) for each combined authority. GLA largest at £7.8bn, GMCA second at £862m.",
+          "unit": "£ thousands",
+          "fields": {
+            "name": {
+              "label": "name"
+            },
+            "years": {
+              "label": "years"
+            },
+            "population": {
+              "label": "population"
+            }
+          },
+          "timeRange": {
+            "start": "E12000007",
+            "end": "E47000014"
           }
         }
       }
@@ -7163,6 +7220,9 @@
         "spending",
         "taxation",
         "welfare"
+      ],
+      "spending": [
+        "mayoral-spending"
       ]
     },
     "byTag": {
@@ -7222,6 +7282,7 @@
         "airports",
         "buses",
         "infrastructure",
+        "mayoral-spending",
         "transport-fares"
       ],
       "CAA": [
@@ -7885,6 +7946,7 @@
       "police": [
         "hate-crime",
         "justice",
+        "mayoral-spending",
         "safety",
         "workforce"
       ],
@@ -8150,6 +8212,15 @@
       "map": [
         "local-gov-spending"
       ],
+      "Scotland": [
+        "local-gov-spending"
+      ],
+      "Wales": [
+        "local-gov-spending"
+      ],
+      "Northern Ireland": [
+        "local-gov-spending"
+      ],
       "local government": [
         "local-government"
       ],
@@ -8171,6 +8242,67 @@
       ],
       "DLUHC": [
         "local-government"
+      ],
+      "combined authority": [
+        "mayoral-spending"
+      ],
+      "mayoral": [
+        "mayoral-spending"
+      ],
+      "mayor": [
+        "mayoral-spending"
+      ],
+      "GLA": [
+        "mayoral-spending"
+      ],
+      "Greater London Authority": [
+        "mayoral-spending"
+      ],
+      "Transport for London": [
+        "mayoral-spending"
+      ],
+      "TfL": [
+        "mayoral-spending"
+      ],
+      "MOPAC": [
+        "mayoral-spending"
+      ],
+      "fire": [
+        "mayoral-spending"
+      ],
+      "devolution": [
+        "mayoral-spending"
+      ],
+      "Greater Manchester": [
+        "mayoral-spending"
+      ],
+      "West Midlands": [
+        "mayoral-spending"
+      ],
+      "Liverpool": [
+        "mayoral-spending"
+      ],
+      "West Yorkshire": [
+        "mayoral-spending"
+      ],
+      "South Yorkshire": [
+        "mayoral-spending"
+      ],
+      "Tees Valley": [
+        "mayoral-spending"
+      ],
+      "funding": [
+        "mayoral-spending",
+        "nhs-funding"
+      ],
+      "grants": [
+        "mayoral-spending"
+      ],
+      "precept": [
+        "mayoral-spending"
+      ],
+      "levy": [
+        "mayoral-spending"
       ],
       "mental health": [
         "mental-health"
@@ -8245,9 +8377,6 @@
         "nhs-funding",
         "nhs-waiting",
         "nhs-workforce"
-      ],
-      "funding": [
-        "nhs-funding"
       ],
       "health expenditure": [
         "nhs-funding"
