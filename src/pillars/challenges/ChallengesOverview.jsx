@@ -189,7 +189,7 @@ export default function ChallengesOverview({ navigate }) {
 function TopicCard({ topicKey, topic, meta, navigate, isLive, isMobile, delay }) {
   return (
     <div
-      onClick={() => navigate("challenges", topicKey)}
+      onClick={() => navigate(topicKey)}
       style={{
         background: P.bgCard,
         border: `1px solid ${P.border}`,

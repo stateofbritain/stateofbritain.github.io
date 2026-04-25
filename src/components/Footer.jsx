@@ -32,10 +32,10 @@ export default function Footer() {
         Personal project by Jack Aspinall &middot; Data sourced from official UK government statistics
         &middot;{" "}
         <a
-          href="/data"
+          href="/data/api"
           onClick={(e) => {
             e.preventDefault();
-            window.history.pushState(null, "", "/data");
+            window.history.pushState(null, "", "/data/api");
             window.dispatchEvent(new PopStateEvent("popstate"));
           }}
           style={{ color: P.textLight, textDecoration: "underline" }}

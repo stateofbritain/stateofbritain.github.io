@@ -4,10 +4,12 @@ import PILLARS from "./pillars/config";
 import useHashRoute from "./hooks/useHashRoute";
 import useIsMobile from "./hooks/useIsMobile";
 import Header from "./components/Header";
+import TopNav from "./components/TopNav";
 import PillarNav from "./components/PillarNav";
 import TopicSidebar from "./components/TopicSidebar";
 import Footer from "./components/Footer";
 import AskPanel from "./components/AskPanel";
+import Dashboard from "./pillars/Dashboard";
 import Landing from "./pillars/Landing";
 import DataPage from "./pillars/DataPage";
 import About from "./pillars/About";
@@ -75,8 +77,7 @@ import AsylumImmigration from "./pillars/challenges/AsylumImmigration";
 import UniversityFunding from "./pillars/challenges/UniversityFunding";
 import HS2 from "./pillars/challenges/HS2";
 
-// Map of pillar/topic keys to their React components.
-// Topics with subtopics use 3-part keys: "pillar/topic/subtopic"
+// Map pillar/topic/subtopic keys to React components.
 const TOPIC_COMPONENTS = {
   "spending/spending/overview": SpendingOverview,
   "spending/spending/borrowing": Borrowing,
@@ -148,58 +149,157 @@ function getTopicComponent(pillarKey, topicKey, subtopicKey) {
   return TOPIC_COMPONENTS[`${pillarKey}/${topicKey}`] ?? null;
 }
 
+// Pillars that live under the Data tab.
+const DATA_PILLARS = ["foundations", "spending", "growth", "state"];
+const OLD_DATA_PILLAR_SET = new Set(DATA_PILLARS);
+// Pillar key in PILLARS config that powers the Policy tab.
+const POLICY_PILLAR_KEY = "challenges";
+
 export default function App() {
-  const { pillar, topic, subtopic, navigate } = useHashRoute();
+  const { segments, section, navigate, replace } = useHashRoute();
   const isMobile = useIsMobile();
   const [askOpen, setAskOpen] = useState(false);
 
-  const activePillar = pillar && PILLARS[pillar] ? pillar : null;
-  const pillarConfig = activePillar ? PILLARS[activePillar] : null;
-
-  // Default to first topic if pillar selected but no topic
-  const activeTopic =
-    pillarConfig && topic && pillarConfig.topics[topic]
-      ? topic
-      : pillarConfig
-        ? Object.keys(pillarConfig.topics)[0]
-        : null;
-
-  const topicConfig = pillarConfig?.topics[activeTopic];
-
-  // Resolve subtopic: if topic has subtopics, default to first one
-  const activeSubtopic =
-    topicConfig?.subtopics
-      ? (subtopic && topicConfig.subtopics[subtopic] ? subtopic : Object.keys(topicConfig.subtopics)[0])
-      : null;
-
-  // Auto-redirect: if topic has subtopics but URL doesn't include one, fix the URL
+  // ── Old-URL redirects ─────────────────────────────────────────────
+  // /<old-data-pillar>/...  → /data/<old-data-pillar>/...
+  // /challenges/...         → /policy/...
+  // /data                   → first data pillar's first topic
+  // /policy                 → policy "overview" topic (or first available)
   useEffect(() => {
-    if (activePillar && activeTopic && activeSubtopic) {
-      const currentPath = window.location.pathname.replace(/^\/+|\/+$/g, "");
-      const expectedPath = `${activePillar}/${activeTopic}/${activeSubtopic}`;
-      if (currentPath !== expectedPath) {
-        window.history.replaceState(null, "", `/${expectedPath}`);
-      }
+    if (segments.length === 0) return;
+    const first = segments[0];
+    if (OLD_DATA_PILLAR_SET.has(first)) {
+      replace("data", ...segments);
+      return;
     }
-  }, [activePillar, activeTopic, activeSubtopic]);
+    if (first === "challenges") {
+      replace("policy", ...segments.slice(1));
+      return;
+    }
+    if (first === "data" && segments.length === 1) {
+      const firstPillar = DATA_PILLARS[0];
+      const cfg = PILLARS[firstPillar];
+      const firstTopic = Object.keys(cfg.topics)[0];
+      const topicDef = cfg.topics[firstTopic];
+      const firstSub = topicDef?.subtopics ? Object.keys(topicDef.subtopics)[0] : null;
+      replace("data", firstPillar, firstTopic, firstSub);
+      return;
+    }
+    if (first === "policy" && segments.length === 1) {
+      const cfg = PILLARS[POLICY_PILLAR_KEY];
+      const firstTopic = Object.keys(cfg.topics)[0];
+      replace("policy", firstTopic);
+      return;
+    }
+  }, [segments, replace]);
 
-  // Resolve component
-  const TopicComponent = activePillar && activeTopic
-    ? getTopicComponent(activePillar, activeTopic, activeSubtopic)
+  // ── Section / page resolution ─────────────────────────────────────
+  const isDashboard = !section || section === "dashboard";
+  const isData = section === "data";
+  const isPolicy = section === "policy";
+  const isAbout = section === "about";
+  const isContribute = section === "contribute";
+
+  // Data section: derive pillar / topic / subtopic from segments[1..3]
+  const dataPillarKey = isData && segments[1] && PILLARS[segments[1]] ? segments[1] : null;
+  const dataPillarConfig = dataPillarKey ? PILLARS[dataPillarKey] : null;
+  const dataTopic = dataPillarConfig
+    ? (segments[2] && dataPillarConfig.topics[segments[2]]
+        ? segments[2]
+        : Object.keys(dataPillarConfig.topics)[0])
+    : null;
+  const dataTopicConfig = dataTopic ? dataPillarConfig.topics[dataTopic] : null;
+  const dataSubtopic = dataTopicConfig?.subtopics
+    ? (segments[3] && dataTopicConfig.subtopics[segments[3]]
+        ? segments[3]
+        : Object.keys(dataTopicConfig.subtopics)[0])
+    : null;
+  const dataSubtopicConfig = dataSubtopic ? dataTopicConfig.subtopics[dataSubtopic] : null;
+
+  // Auto-canonicalise: if URL is missing implicit defaults, replace it
+  useEffect(() => {
+    if (!isData || !dataPillarKey) return;
+    if (segments[1] === "api" || segments[1] === "overview") return;
+    const expectedParts = ["data", dataPillarKey, dataTopic];
+    if (dataSubtopic) expectedParts.push(dataSubtopic);
+    const expected = "/" + expectedParts.filter(Boolean).join("/");
+    if (window.location.pathname !== expected) {
+      window.history.replaceState(null, "", expected);
+    }
+  }, [isData, dataPillarKey, dataTopic, dataSubtopic, segments]);
+
+  // Policy section: derive topic from segments[1]
+  const policyPillarConfig = PILLARS[POLICY_PILLAR_KEY];
+  const policyTopicKey = isPolicy
+    ? (segments[1] && policyPillarConfig.topics[segments[1]]
+        ? segments[1]
+        : Object.keys(policyPillarConfig.topics)[0])
+    : null;
+  const policyTopicConfig = policyTopicKey ? policyPillarConfig.topics[policyTopicKey] : null;
+
+  // Resolve dynamic page components
+  const DataTopicComp = isData && dataPillarKey
+    ? getTopicComponent(dataPillarKey, dataTopic, dataSubtopic)
+    : null;
+  const PolicyTopicComp = isPolicy && policyTopicKey
+    ? getTopicComponent(POLICY_PILLAR_KEY, policyTopicKey, null)
     : null;
 
-  const subtopicConfig = topicConfig?.subtopics?.[activeSubtopic];
-
+  // Document title
   useEffect(() => {
     const base = "State of Britain";
-    if (pillar === "data") document.title = `Data & API — ${base}`;
-    else if (pillar === "about") document.title = `About — ${base}`;
-    else if (pillar === "contribute") document.title = `Contribute — ${base}`;
-    else if (subtopicConfig && topicConfig) document.title = `${subtopicConfig.label} — ${topicConfig.label} — ${base}`;
-    else if (topicConfig) document.title = `${topicConfig.label} — ${base}`;
-    else if (pillarConfig) document.title = `${pillarConfig.label} — ${base}`;
-    else document.title = base;
-  }, [pillar, pillarConfig, topicConfig, subtopicConfig]);
+    if (isDashboard) {
+      const sub = segments[1];
+      const map = {
+        "service-delivery": "Service Delivery",
+        "sovereign-capability": "Sovereign Capability",
+        construction: "Construction",
+        "quality-of-life": "Quality of Life",
+      };
+      document.title = sub && map[sub]
+        ? `Dashboard — ${map[sub]} — ${base}`
+        : `Dashboard — ${base}`;
+    } else if (isData) {
+      if (segments[1] === "api") document.title = `Data & API — ${base}`;
+      else if (segments[1] === "overview") document.title = `Data Overview — ${base}`;
+      else if (dataSubtopicConfig && dataTopicConfig) document.title = `${dataSubtopicConfig.label} — ${dataTopicConfig.label} — ${base}`;
+      else if (dataTopicConfig) document.title = `${dataTopicConfig.label} — ${base}`;
+      else if (dataPillarConfig) document.title = `${dataPillarConfig.label} — ${base}`;
+      else document.title = `Data — ${base}`;
+    } else if (isPolicy) {
+      document.title = policyTopicConfig
+        ? `${policyTopicConfig.label} — Policy — ${base}`
+        : `Policy — ${base}`;
+    } else if (isAbout) {
+      document.title = `About — ${base}`;
+    } else if (isContribute) {
+      document.title = `Contribute — ${base}`;
+    } else {
+      document.title = base;
+    }
+  }, [
+    segments, isDashboard, isData, isPolicy, isAbout, isContribute,
+    dataPillarConfig, dataTopicConfig, dataSubtopicConfig, policyTopicConfig,
+  ]);
+
+  // ── Section-aware navigation helpers ──────────────────────────────
+  // Used by sub-tree components that still call the old (pillar, topic, sub) signature.
+  const dataNavigate = (p, t, s) => navigate("data", p, t, s);
+  const policyNavigate = (t) => navigate("policy", t);
+
+  // Search uses the pillar key embedded in its index. Translate to current routing.
+  const searchNavigate = (pillar, topic, subtopic) => {
+    if (!pillar) { navigate("dashboard"); return; }
+    if (pillar === "about")      { navigate("about"); return; }
+    if (pillar === "contribute") { navigate("contribute"); return; }
+    if (pillar === "data")       { navigate("data", "api"); return; }
+    if (pillar === POLICY_PILLAR_KEY) { navigate("policy", topic); return; }
+    if (OLD_DATA_PILLAR_SET.has(pillar)) {
+      navigate("data", pillar, topic, subtopic);
+      return;
+    }
+    navigate(pillar, topic, subtopic);
+  };
 
   return (
     <div
@@ -211,30 +311,87 @@ export default function App() {
       }}
     >
       <div style={{ maxWidth: 1280, margin: "0 auto", padding: isMobile ? "0 12px" : "0 28px" }}>
-        <Header onHome={() => navigate(null)} onNavigate={navigate} onAskOpen={() => setAskOpen(true)} isMobile={isMobile} />
-        <AskPanel open={askOpen} onClose={() => setAskOpen(false)} isMobile={isMobile} />
-        <PillarNav
-          activePillar={activePillar}
-          onSelect={(p, t, s) => navigate(p, t, s)}
+        <Header
+          onHome={() => navigate("dashboard")}
+          onNavigate={searchNavigate}
+          onAskOpen={() => setAskOpen(true)}
           isMobile={isMobile}
         />
+        <AskPanel open={askOpen} onClose={() => setAskOpen(false)} isMobile={isMobile} />
+        <TopNav section={section} onNavigate={(...parts) => navigate(...parts)} isMobile={isMobile} />
 
-        {pillar === "data" ? (
-          <DataPage />
-        ) : pillar === "about" ? (
-          <About />
-        ) : pillar === "contribute" ? (
-          <Contribute />
-        ) : !activePillar ? (
-          <Landing
-            onNavigate={(p) => {
-              const firstTopic = Object.keys(PILLARS[p].topics)[0];
-              const topicDef = PILLARS[p].topics[firstTopic];
-              const firstSub = topicDef?.subtopics ? Object.keys(topicDef.subtopics)[0] : null;
-              navigate(p, firstTopic, firstSub);
-            }}
-          />
-        ) : (
+        {/* Dashboard */}
+        {isDashboard && (
+          <Dashboard subtab={segments[1]} navigate={navigate} isMobile={isMobile} />
+        )}
+
+        {/* Data — API page */}
+        {isData && segments[1] === "api" && <DataPage />}
+
+        {/* Data — parked overview (deprecated Landing) */}
+        {isData && segments[1] === "overview" && (
+          <Landing onNavigate={(k) => {
+            if (!k || !PILLARS[k]) { navigate("data"); return; }
+            const cfg = PILLARS[k];
+            const firstTopic = Object.keys(cfg.topics)[0];
+            const topicDef = cfg.topics[firstTopic];
+            const firstSub = topicDef?.subtopics ? Object.keys(topicDef.subtopics)[0] : null;
+            if (k === POLICY_PILLAR_KEY) navigate("policy", firstTopic);
+            else navigate("data", k, firstTopic, firstSub);
+          }} />
+        )}
+
+        {/* Data — pillar content */}
+        {isData && segments[1] !== "api" && segments[1] !== "overview" && dataPillarConfig && (
+          <>
+            <PillarNav
+              activePillar={dataPillarKey}
+              onSelect={(p, t, s) => navigate("data", p, t, s)}
+              pillarKeys={DATA_PILLARS}
+              isMobile={isMobile}
+            />
+            <div
+              style={{
+                display: "flex",
+                flexDirection: isMobile ? "column" : "row",
+                gap: 0,
+                marginTop: isMobile ? 10 : 20,
+                minHeight: isMobile ? "auto" : 500,
+              }}
+            >
+              {(Object.keys(dataPillarConfig.topics).length > 1 || dataTopicConfig?.subtopics) && (
+                <TopicSidebar
+                  pillar={dataPillarConfig}
+                  topics={dataPillarConfig.topics}
+                  activeTopic={dataTopic}
+                  activeSubtopic={dataSubtopic}
+                  onSelect={(t, s) => navigate("data", dataPillarKey, t, s)}
+                  isMobile={isMobile}
+                />
+              )}
+              <main
+                style={{
+                  flex: 1,
+                  paddingLeft: isMobile
+                    ? 0
+                    : ((Object.keys(dataPillarConfig.topics).length > 1 || dataTopicConfig?.subtopics) ? 24 : 0),
+                }}
+              >
+                {DataTopicComp ? (
+                  <DataTopicComp navigate={dataNavigate} />
+                ) : (
+                  <Placeholder
+                    pillarColor={dataPillarConfig.color}
+                    topicLabel={dataSubtopicConfig?.label ?? dataTopicConfig?.label ?? ""}
+                  />
+                )}
+              </main>
+            </div>
+          </>
+        )}
+
+        {/* Policy */}
+        {isPolicy && policyPillarConfig && (
           <div
             style={{
               display: "flex",
@@ -244,28 +401,30 @@ export default function App() {
               minHeight: isMobile ? "auto" : 500,
             }}
           >
-            {(Object.keys(pillarConfig.topics).length > 1 || topicConfig?.subtopics) && (
-              <TopicSidebar
-                pillar={pillarConfig}
-                topics={pillarConfig.topics}
-                activeTopic={activeTopic}
-                activeSubtopic={activeSubtopic}
-                onSelect={(t, s) => navigate(activePillar, t, s)}
-                isMobile={isMobile}
-              />
-            )}
-            <main style={{ flex: 1, paddingLeft: isMobile ? 0 : ((Object.keys(pillarConfig.topics).length > 1 || topicConfig?.subtopics) ? 24 : 0) }}>
-              {TopicComponent ? (
-                <TopicComponent navigate={navigate} />
+            <TopicSidebar
+              pillar={policyPillarConfig}
+              topics={policyPillarConfig.topics}
+              activeTopic={policyTopicKey}
+              activeSubtopic={null}
+              onSelect={(t) => navigate("policy", t)}
+              isMobile={isMobile}
+            />
+            <main style={{ flex: 1, paddingLeft: isMobile ? 0 : 24 }}>
+              {PolicyTopicComp ? (
+                <PolicyTopicComp navigate={policyNavigate} />
               ) : (
                 <Placeholder
-                  pillarColor={pillarConfig.color}
-                  topicLabel={subtopicConfig?.label ?? topicConfig?.label ?? ""}
+                  pillarColor={policyPillarConfig.color}
+                  topicLabel={policyTopicConfig?.label ?? ""}
                 />
               )}
             </main>
           </div>
         )}
+
+        {/* Static pages */}
+        {isAbout && <About />}
+        {isContribute && <Contribute />}
 
         <Footer />
       </div>

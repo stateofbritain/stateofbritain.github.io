@@ -1,40 +1,53 @@
 import { useState, useEffect, useCallback } from "react";
 
 /**
- * Minimal path-based router using History API.
- * URL format: /pillar/topic  or  /pillar/topic/subtopic
+ * Path-based router using the History API.
  *
- * Works on GitHub Pages via a 404.html redirect trick.
+ * Returns:
+ *   segments[]   — the path split on "/", with empty entries dropped
+ *                  e.g. /data/foundations/housing/prices → ["data","foundations","housing","prices"]
+ *   section      — segments[0] (the top-level area: "dashboard", "data", "policy", etc.)
+ *   navigate(...parts)  — pushState; parts are joined with "/" (null/undefined/"" are dropped)
+ *   replace(...parts)   — replaceState; same arg semantics. Used for soft redirects.
  *
- * @returns {{ pillar: string|null, topic: string|null, subtopic: string|null, navigate: (pillar, topic, subtopic?) => void }}
+ * Example:
+ *   navigate("data", "foundations", "housing", "prices")  → /data/foundations/housing/prices
+ *   navigate()                                            → /
  */
 export default function useHashRoute() {
   const parse = () => {
     const path = window.location.pathname.replace(/^\/+|\/+$/g, "");
-    const [pillar = null, topic = null, subtopic = null] = path.split("/");
-    return { pillar: pillar || null, topic: topic || null, subtopic: subtopic || null };
+    return path === "" ? [] : path.split("/");
   };
 
-  const [route, setRoute] = useState(parse);
+  const [segments, setSegments] = useState(parse);
 
   useEffect(() => {
-    const onPop = () => setRoute(parse());
+    const onPop = () => setSegments(parse());
     window.addEventListener("popstate", onPop);
     return () => window.removeEventListener("popstate", onPop);
   }, []);
 
-  const navigate = useCallback((pillar, topic, subtopic) => {
-    let path = "/";
-    if (pillar && topic && subtopic) {
-      path = `/${pillar}/${topic}/${subtopic}`;
-    } else if (pillar && topic) {
-      path = `/${pillar}/${topic}`;
-    } else if (pillar) {
-      path = `/${pillar}`;
-    }
+  const navigate = useCallback((...parts) => {
+    const filtered = parts.filter((p) => p !== null && p !== undefined && p !== "");
+    const path = filtered.length === 0 ? "/" : "/" + filtered.join("/");
+    if (window.location.pathname === path) return;
     window.history.pushState(null, "", path);
-    setRoute({ pillar: pillar || null, topic: topic || null, subtopic: subtopic || null });
+    setSegments(filtered);
   }, []);
 
-  return { ...route, navigate };
+  const replace = useCallback((...parts) => {
+    const filtered = parts.filter((p) => p !== null && p !== undefined && p !== "");
+    const path = filtered.length === 0 ? "/" : "/" + filtered.join("/");
+    if (window.location.pathname === path) return;
+    window.history.replaceState(null, "", path);
+    setSegments(filtered);
+  }, []);
+
+  return {
+    segments,
+    section: segments[0] || null,
+    navigate,
+    replace,
+  };
 }
