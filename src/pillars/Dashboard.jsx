@@ -251,6 +251,10 @@ function ServiceDelivery() {
       <div style={noticeStyle}>Some tiles still illustrative; live tiles wire as fetch scripts land.</div>
       <TileGrid>
         <MetricTile metric={METRICS["sd-nhs-rtt-waiting-list"]} />
+        <MetricTile metric={METRICS["sd-gp-appointments"]} />
+        <MetricTile metric={METRICS["sd-court-backlog"]} />
+        <MetricTile metric={METRICS["sd-rail-punctuality"]} />
+        <MetricTile metric={METRICS["sd-water-leakage"]} />
         <MetricTile metric={METRICS["sd-public-sector-debt"]} />
         <Tile
           title="A&E 4-hour standard"
@@ -294,6 +298,8 @@ function SovereignCapability() {
       <TileGrid>
         <MetricTile metric={METRICS["sc-co2-intensity"]} />
         <MetricTile metric={METRICS["sc-iop-chemicals"]} />
+        <MetricTile metric={METRICS["sc-defence-spending"]} />
+        <MetricTile metric={METRICS["sc-ghg-emissions"]} />
         <Tile
           title="UK gas storage"
           value={2.1}
@@ -345,6 +351,8 @@ function Construction() {
       <div style={noticeStyle}>Some tiles still illustrative; live tiles wire as fetch scripts land.</div>
       <TileGrid>
         <MetricTile metric={METRICS["bd-housing-completions"]} />
+        <MetricTile metric={METRICS["bd-brick-deliveries"]} />
+        <MetricTile metric={METRICS["bd-epc-new-builds"]} />
         <MetricTile metric={METRICS["bd-battery-storage"]} />
         <Tile
           title="Brick deliveries"
@@ -407,6 +415,8 @@ function QualityOfLife() {
         <MetricTile metric={METRICS["ql-house-price"]} />
         <MetricTile metric={METRICS["ql-unemployment-rate"]} />
         <MetricTile metric={METRICS["qol-monthly-gdp"]} />
+        <MetricTile metric={METRICS["ql-gilt-yield-10y"]} />
+        <MetricTile metric={METRICS["ql-pm25"]} />
         <Tile
           title="House price to earnings"
           value={8.1}
