@@ -263,6 +263,8 @@ function ServiceDelivery() {
         <MetricTile metric={METRICS["sd-water-leakage"]} />
         <MetricTile metric={METRICS["sd-hospital-occupancy"]} />
         <MetricTile metric={METRICS["sd-mental-health-iapt"]} />
+        <MetricTile metric={METRICS["sd-police-officers"]} />
+        <MetricTile metric={METRICS["sd-prison-population"]} />
         <MetricTile metric={METRICS["sd-public-sector-debt"]} />
         <MetricTile metric={METRICS["sd-asylum-backlog"]} />
       </TileGrid>
@@ -305,6 +307,7 @@ function Construction() {
         <MetricTile metric={METRICS["bd-brick-deliveries"]} />
         <MetricTile metric={METRICS["bd-epc-new-builds"]} />
         <MetricTile metric={METRICS["bd-fttp-coverage"]} />
+        <MetricTile metric={METRICS["bd-gigabit-coverage"]} />
         <MetricTile metric={METRICS["bd-rail-electrification"]} />
         <MetricTile metric={METRICS["bd-motorway-km"]} />
         <MetricTile metric={METRICS["bd-reservoir-capacity"]} />
@@ -338,6 +341,9 @@ function QualityOfLife() {
         <MetricTile metric={METRICS["ql-violent-crime"]} />
         <MetricTile metric={METRICS["ql-fear-of-crime"]} />
         <MetricTile metric={METRICS["ql-suicide-rate"]} />
+        <MetricTile metric={METRICS["ql-mortgage-rate"]} />
+        <MetricTile metric={METRICS["ql-mortgage-approvals"]} />
+        <MetricTile metric={METRICS["ql-net-migration"]} />
         <MetricTile metric={METRICS["qol-services-output"]} />
         <MetricTile metric={METRICS["ql-avg-hours"]} />
       </TileGrid>
