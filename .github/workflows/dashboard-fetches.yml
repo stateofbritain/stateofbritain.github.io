@@ -101,6 +101,7 @@ jobs:
           node scripts/fetch-services-output.js             || echo "services-output failed"
           node scripts/fetch-construction-output.js         || echo "construction-output failed"
           node scripts/fetch-avg-weekly-hours.js            || echo "avg-hours failed"
+          node scripts/fetch-heat-pumps-bus.js              || echo "heat-pumps failed"
 
       - name: Monthly fetches — existing v1 dataset refresh
         if: steps.cadence.outputs.bucket == 'monthly'
@@ -149,6 +150,7 @@ jobs:
           node scripts/fetch-ofgem-price-cap.js             || echo "ofgem-cap failed"
           node scripts/fetch-court-backlog-quarterly.js     || echo "court failed"
           node scripts/fetch-knife-crime-quarterly.js       || echo "knife-crime failed"
+          node scripts/fetch-births-quarterly.js            || echo "births failed"
           # node scripts/fetch-qep-industrial.js            || echo "qep-industrial failed"
           # node scripts/fetch-births-quarterly.js          || echo "births failed"
 

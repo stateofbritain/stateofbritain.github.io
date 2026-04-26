@@ -482,6 +482,23 @@ export const METRICS = {
     periodLabel: { mom: "vs prior year", q: "vs prior year", y: "vs prior year" },
   },
 
+  "bd-heat-pumps-bus": {
+    id: "bd-heat-pumps-bus",
+    subtab: "construction",
+    title: "Heat pump installations (BUS)",
+    dataset: "heat-pumps-bus.json",
+    seriesKey: "monthly",
+    timeKey: "month",
+    valueKey: "redemptions",
+    cadence: "monthly",
+    direction: "up-good",
+    unit: "grants / month",
+    format: "number",
+    source: "DESNZ Boiler Upgrade Scheme",
+    href: "/data/foundations/energy",
+    periodLabel: { mom: "vs prior month", q: "vs 3 months ago", y: "vs prior year" },
+  },
+
   "bd-fttp-coverage": {
     id: "bd-fttp-coverage",
     subtab: "construction",
@@ -988,6 +1005,23 @@ export const METRICS = {
     source: "ONS Suicides in the UK",
     href: "/data/foundations/healthcare/mental",
     periodLabel: { mom: "vs prior year", q: "vs prior year", y: "vs prior year" },
+  },
+
+  "ql-births-quarterly": {
+    id: "ql-births-quarterly",
+    subtab: "quality-of-life",
+    title: "Live births (quarterly)",
+    dataset: "births-quarterly.json",
+    seriesKey: "quarterly",
+    timeKey: "quarter",
+    valueKey: "births",
+    cadence: "quarterly",
+    direction: "up-good",
+    unit: "births / quarter",
+    format: "number",
+    source: "ONS Quarterly births",
+    href: "/data/foundations/family",
+    periodLabel: { mom: "vs prior quarter", q: "vs prior quarter", y: "vs prior year" },
   },
 
   "ql-tfr": {

@@ -291,6 +291,7 @@ function Construction({ period }) {
       <div style={noticeStyle}>Some tiles still illustrative; live tiles wire as fetch scripts land.</div>
       <TileGrid>
         <MetricTile period={period} metric={METRICS["bd-housing-completions"]} />
+        <MetricTile period={period} metric={METRICS["bd-heat-pumps-bus"]} />
         <MetricTile period={period} metric={METRICS["bd-brick-deliveries"]} />
         <MetricTile period={period} metric={METRICS["bd-epc-new-builds"]} />
         <MetricTile period={period} metric={METRICS["bd-fttp-coverage"]} />
@@ -321,6 +322,7 @@ function QualityOfLife({ period }) {
         <MetricTile period={period} metric={METRICS["ql-gilt-yield-10y"]} />
         <MetricTile period={period} metric={METRICS["ql-pm25"]} />
         <MetricTile period={period} metric={METRICS["ql-tfr"]} />
+        <MetricTile period={period} metric={METRICS["ql-births-quarterly"]} />
         <MetricTile period={period} metric={METRICS["ql-household-size"]} />
         <MetricTile period={period} metric={METRICS["ql-life-expectancy"]} />
         <MetricTile period={period} metric={METRICS["ql-healthy-life-expectancy"]} />
