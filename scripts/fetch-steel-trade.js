@@ -87,10 +87,32 @@ async function fetchTonnes(monthId, flowTypeIds) {
   const url = `${BASE}?${new URLSearchParams({ "$filter": filter, "$top": "10000" })}`;
   const json = await fetchJson(url);
   const rows = json.value || [];
-  // NetMass is in kg; convert to tonnes.
-  const totalKg = rows.reduce((s, r) => s + (r.NetMass || 0), 0);
-  const totalGbp = rows.reduce((s, r) => s + (r.Value || 0), 0);
-  return { tonnes: Math.round(totalKg / 1000), gbp: Math.round(totalGbp), rows: rows.length };
+  // NetMass is in kg; convert to tonnes. Also subset to HS4 7208-7229
+  // (finished steel — flat products, bars, rods, sections, alloys).
+  // Excludes scrap (7204), pig iron (7201), ferro-alloys (7202),
+  // semi-finished (7206-7207). This is the apparent-consumption slice.
+  let allKg = 0;
+  let allGbp = 0;
+  let finishedKg = 0;
+  let finishedGbp = 0;
+  for (const r of rows) {
+    const kg = r.NetMass || 0;
+    const gbp = r.Value || 0;
+    allKg += kg;
+    allGbp += gbp;
+    const hs4 = Math.floor((r.CommodityId || 0) / 10000);
+    if (hs4 >= 7208 && hs4 <= 7229) {
+      finishedKg += kg;
+      finishedGbp += gbp;
+    }
+  }
+  return {
+    tonnes: Math.round(allKg / 1000),
+    gbp: Math.round(allGbp),
+    finishedTonnes: Math.round(finishedKg / 1000),
+    finishedGbp: Math.round(finishedGbp),
+    rows: rows.length,
+  };
 }
 
 async function main() {
@@ -115,11 +137,14 @@ async function main() {
         imports: imports.tonnes,
         exports: exports.tonnes,
         netImports: imports.tonnes - exports.tonnes,
+        finishedImports: imports.finishedTonnes,
+        finishedExports: exports.finishedTonnes,
+        finishedNetImports: imports.finishedTonnes - exports.finishedTonnes,
         importValueGbp: imports.gbp,
         exportValueGbp: exports.gbp,
       });
       console.log(
-        `  ${period}: imports ${imports.tonnes.toLocaleString()}t / exports ${exports.tonnes.toLocaleString()}t / net ${(imports.tonnes - exports.tonnes).toLocaleString()}t`
+        `  ${period}: HS72 imp ${imports.tonnes.toLocaleString()}t / exp ${exports.tonnes.toLocaleString()}t  |  finished imp ${imports.finishedTonnes.toLocaleString()}t / exp ${exports.finishedTonnes.toLocaleString()}t / net ${(imports.finishedTonnes - exports.finishedTonnes).toLocaleString()}t`
       );
     } catch (err) {
       console.warn(`  ${id} failed: ${err.message}`);
