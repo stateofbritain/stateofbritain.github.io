@@ -1,0 +1,26 @@
+{
+  "$schema": "sob-dataset-v1",
+  "id": "epc-newbuild",
+  "pillar": "foundations",
+  "topic": "housing",
+  "generated": "2026-04-26",
+  "sources": [
+    {
+      "id": "epc-open-data",
+      "name": "EPC Open Data — domestic certificates (new dwellings)",
+      "url": "https://epc.opendatacommunities.org/",
+      "publisher": "DLUHC",
+      "note": "EPC env vars not set this run; series empty."
+    }
+  ],
+  "snapshot": {},
+  "series": {
+    "monthly": {
+      "sourceId": "epc-open-data",
+      "timeField": "month",
+      "unit": "lodgements / month",
+      "description": "Monthly count of new-dwelling EPC lodgements.",
+      "data": []
+    }
+  }
+}

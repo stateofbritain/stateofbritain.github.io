@@ -1,0 +1,26 @@
+{
+  "$schema": "sob-dataset-v1",
+  "id": "school-absence",
+  "pillar": "foundations",
+  "topic": "education",
+  "generated": "2026-04-26",
+  "sources": [
+    {
+      "id": "dfe-pupil-attendance",
+      "name": "DfE — Pupil attendance in schools (weekly)",
+      "url": "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-attendance-in-schools",
+      "publisher": "DfE",
+      "note": "Live discovery did not succeed this run; series empty."
+    }
+  ],
+  "snapshot": {},
+  "series": {
+    "weekly": {
+      "sourceId": "dfe-pupil-attendance",
+      "timeField": "weekEnding",
+      "unit": "%",
+      "description": "Weekly overall absence rate, state-funded primary and secondary schools, England.",
+      "data": []
+    }
+  }
+}

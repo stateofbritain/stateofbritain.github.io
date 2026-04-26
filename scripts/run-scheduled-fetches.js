@@ -70,6 +70,10 @@ function matches(rule, today) {
   switch (rule.type) {
     case "daily":
       return true;
+    case "weekly":
+      // Fires every week on rule.weekday (0=Sun..6=Sat). Optional months filter.
+      if (rule.months && !rule.months.includes(m0 + 1)) return false;
+      return today.getUTCDay() === rule.weekday;
     case "fixed-dom":
       if (!monthFilter(rule)) return false;
       return dom === rule.dom;

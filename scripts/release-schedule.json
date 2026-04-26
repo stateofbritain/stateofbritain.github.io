@@ -2,6 +2,7 @@
   "_comment": "Maps each fetch script to its upstream-release pattern. The dispatcher (run-scheduled-fetches.js) runs daily and triggers every fetch whose rule matches today. Patterns target the day AFTER expected release for buffer. Weekday: 0=Sun, 1=Mon, 2=Tue, 3=Wed, 4=Thu, 5=Fri, 6=Sat. Months: 1-12.",
   "_legend": {
     "daily": "run every day",
+    "weekly": "run every week on weekday N",
     "nth-weekday": "n-th weekday of month, optionally + offsetDays",
     "last-weekday": "last weekday of month, optionally + offsetDays",
     "fixed-dom": "fixed day-of-month",
@@ -55,6 +56,10 @@
   "money-supply":           { "type": "fixed-dom", "dom": 2, "release": "BoE Money & Credit ~21st-working-day; fetch 2nd of next month" },
 
   "exchange-rates":         { "type": "daily", "release": "BoE daily fixing" },
+
+  "school-absence":         { "type": "weekly", "weekday": 5, "release": "DfE EES Pupil attendance — Thu morning + 1d (Fri)" },
+  "train-ppm":              { "type": "fixed-dom", "dom": 26, "release": "ORR Passenger rail performance ~last Wed of period" },
+  "epc-newbuild":           { "type": "fixed-dom", "dom": 5, "release": "EPC Open Data continuous; aggregate 5th of month" },
 
   "_curated_quarterly_or_static": {
     "_comment": "Datasets that don't have a clean public release calendar OR are curated/hardcoded. Refresh on a fixed monthly cadence — pick a quiet day.",

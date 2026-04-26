@@ -23,7 +23,9 @@ const schema = JSON.parse(readFileSync(SCHEMA_PATH, "utf-8"));
 
 function validate(id, data) {
   const errors = [];
+  const warnings = [];
   const warn = (msg) => errors.push(msg);
+  const note = (msg) => warnings.push(msg);
 
   // Check v1 marker
   if (data.$schema !== "sob-dataset-v1") {
@@ -79,7 +81,10 @@ function validate(id, data) {
           warn(`series.${seriesId}.data is missing`);
         } else if (Array.isArray(seriesDef.data)) {
           if (seriesDef.data.length === 0) {
-            warn(`series.${seriesId}.data is empty`);
+            // Empty arrays are a soft warning — when an upstream fetch
+            // discovers nothing, the v1 file is still structurally valid
+            // and the tile renders "no data" honestly.
+            note(`series.${seriesId}.data is empty (live discovery yielded no rows)`);
           } else if (seriesDef.timeField && typeof seriesDef.data[0] === "object" && !(seriesDef.timeField in seriesDef.data[0])) {
             warn(`series.${seriesId}.data[0] missing timeField "${seriesDef.timeField}"`);
           }
@@ -121,7 +126,7 @@ function validate(id, data) {
     }
   }
 
-  return { id, v1: true, errors, valid: errors.length === 0 };
+  return { id, v1: true, errors, warnings, valid: errors.length === 0 };
 }
 
 // ─── CLI ─────────────────────────────────────────────────────────────
@@ -159,7 +164,11 @@ for (const id of targetIds) {
   if (result.valid) {
     const seriesCount = Object.keys(data.series ?? {}).length;
     const snapCount = Object.keys(data.snapshot ?? {}).length;
-    console.log(`✓ ${id}: valid (${seriesCount} series, ${snapCount} snapshot values)`);
+    const warnNote = result.warnings?.length ? ` — ${result.warnings.length} warning(s)` : "";
+    console.log(`✓ ${id}: valid (${seriesCount} series, ${snapCount} snapshot values)${warnNote}`);
+    if (result.warnings?.length) {
+      for (const w of result.warnings) console.log(`    ⚠ ${w}`);
+    }
     passed++;
   } else {
     console.error(`✗ ${id}: ${result.errors.length} error(s)`);

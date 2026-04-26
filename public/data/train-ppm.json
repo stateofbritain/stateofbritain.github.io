@@ -1,0 +1,26 @@
+{
+  "$schema": "sob-dataset-v1",
+  "id": "train-ppm",
+  "pillar": "growth",
+  "topic": "transport",
+  "generated": "2026-04-26",
+  "sources": [
+    {
+      "id": "orr-ppm",
+      "name": "ORR — Passenger rail performance (PPM)",
+      "url": "https://dataportal.orr.gov.uk/statistics/performance/passenger-rail-performance/",
+      "publisher": "Office of Rail and Road",
+      "note": "Live discovery did not succeed this run; series empty."
+    }
+  ],
+  "snapshot": {},
+  "series": {
+    "periodic": {
+      "sourceId": "orr-ppm",
+      "timeField": "period",
+      "unit": "% on time",
+      "description": "Public Performance Measure: % of trains arriving on time, GB national rail.",
+      "data": []
+    }
+  }
+}
