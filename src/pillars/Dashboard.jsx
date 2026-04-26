@@ -335,6 +335,9 @@ function QualityOfLife({ period }) {
         <MetricTile period={period} metric={METRICS["ql-mortgage-rate"]} />
         <MetricTile period={period} metric={METRICS["ql-mortgage-approvals"]} />
         <MetricTile period={period} metric={METRICS["ql-net-migration"]} />
+        <MetricTile period={period} metric={METRICS["ql-tax-burden"]} />
+        <MetricTile period={period} metric={METRICS["ql-gbp-usd"]} />
+        <MetricTile period={period} metric={METRICS["ql-hate-crime"]} />
         <MetricTile period={period} metric={METRICS["qol-services-output"]} />
         <MetricTile period={period} metric={METRICS["ql-avg-hours"]} />
       </TileGrid>
