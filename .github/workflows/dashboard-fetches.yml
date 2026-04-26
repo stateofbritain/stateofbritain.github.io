@@ -67,7 +67,7 @@ jobs:
         if: steps.cadence.outputs.bucket == 'daily'
         run: |
           node scripts/fetch-co2-intensity.js               || echo "co2-intensity failed"
-          # node scripts/fetch-battery-storage.js           || echo "battery-storage failed"
+          node scripts/fetch-battery-storage-neso.js        || echo "battery-storage failed"
           # node scripts/fetch-tech-incorporations.js       || echo "tech-incorporations failed"
 
       # ── WEEKLY ──────────────────────────────────────────────────────
@@ -87,6 +87,13 @@ jobs:
           node scripts/fetch-real-wages-monthly.js          || echo "real-wages failed"
           node scripts/fetch-house-price-index.js           || echo "hpi failed"
           node scripts/fetch-cpih.js                        || echo "cpih failed"
+          node scripts/fetch-unemployment-rate.js           || echo "unemployment failed"
+          node scripts/fetch-monthly-gdp.js                 || echo "monthly-gdp failed"
+          node scripts/fetch-public-sector-debt.js          || echo "psnd failed"
+          node scripts/fetch-employment-rate.js             || echo "employment failed"
+          node scripts/fetch-cpi-inflation.js               || echo "cpi failed"
+          node scripts/fetch-economic-inactivity.js         || echo "inactivity failed"
+          node scripts/fetch-retail-sales.js                || echo "retail-sales failed"
           # node scripts/fetch-nhs.js                       || echo "nhs failed"
           # node scripts/fetch-brick-deliveries.js          || echo "brick-deliveries failed"
           # node scripts/fetch-heat-pumps-bus.js            || echo "heat-pumps failed"
