@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import P from "../theme/palette";
 import useIsMobile from "../hooks/useIsMobile";
 import Tile, { MiniTile } from "../components/Tile";
-import MetricTile from "../dashboard/MetricTile";
+import MetricTile, { OverviewMiniTile } from "../dashboard/MetricTile";
 import { METRICS } from "../dashboard/metrics";
 import { track } from "../analytics";
 
@@ -54,41 +54,49 @@ const RANGE_QUARTERLY_2Y = { start: "Q2 2024", end: "Q1 2026" };
 
 // ── Overview ────────────────────────────────────────────────────────
 
-// Each metric carries deltas across the three available windows; the
-// Overview's period toggle picks which one is shown.
-const OVERVIEW_SERVICE_DELIVERY = [
-  { title: "NHS RTT waiting list",     direction: "up-bad",  deltas: { mom: { percent: -1.2 }, q:  { percent: -3.5 },  y: { percent: -6.4 } } },
-  { title: "A&E 4-hour standard",      direction: "up-good", deltas: { mom: { percent: 1.8 },  q:  { percent: 3.2 },   y: { percent: 5.5 } } },
-  { title: "Police 999 answer time",   direction: "up-bad",  deltas: { mom: { percent: -1.0 }, q:  { percent: -3.5 },  y: { percent: -8.2 } } },
-  { title: "Asylum decisions backlog", direction: "up-bad",  deltas: { mom: { percent: -4.2 }, q:  { percent: -12.5 }, y: { percent: -41.3 } } },
-];
-
-const OVERVIEW_SOVEREIGN_CAPABILITY = [
-  { title: "Renewable share of generation", direction: "up-good", deltas: { mom: { percent: 2.1 },  q: { percent: 4.8 },   y: { percent: 9.3 } } },
-  { title: "UK gas storage",                direction: "neutral", deltas: { mom: { percent: -8.4 }, q: { percent: -32.0 }, y: { percent: -10.0 } } },
-  { title: "UK regular forces",             direction: "up-good", deltas: { mom: { percent: -0.7 }, q: { percent: -1.5 },  y: { percent: -3.4 } } },
-  { title: "Food self-sufficiency",         direction: "up-good", deltas: { mom: { percent: -0.3 }, q: { percent: -0.5 },  y: { percent: -1.8 } } },
-];
-
-const OVERVIEW_CONSTRUCTION = [
-  { title: "Housing completions", direction: "up-good", deltas: { mom: { percent: 3.8 },  q: { percent: 9.2 },  y: { percent: 14.5 } } },
-  { title: "Brick deliveries",    direction: "up-good", deltas: { mom: { percent: 5.2 },  q: { percent: 12.4 }, y: { percent: 21.0 } } },
-  { title: "Planning approvals",  direction: "up-good", deltas: { mom: { percent: -1.8 }, q: { percent: -3.2 }, y: { percent: -7.0 } } },
-  { title: "NSIP consents (24m)", direction: "up-good", deltas: { mom: { value: 1 },      q: { value: 2 },      y: { value: 3 } } },
-];
-
-const OVERVIEW_QUALITY_OF_LIFE = [
-  { title: "Real wages",               direction: "up-good", deltas: { mom: { percent: 0.3 },  q: { percent: 0.4 },  y: { percent: 1.1 } } },
-  { title: "CPIH inflation",           direction: "up-bad",  deltas: { mom: { percent: -0.2 }, q: { percent: -0.4 }, y: { percent: -0.8 } } },
-  { title: "House price to earnings",  direction: "up-bad",  deltas: { mom: { percent: -0.2 }, q: { percent: -0.6 }, y: { percent: -1.5 } } },
-  { title: "Life expectancy at birth", direction: "up-good", deltas: { mom: { percent: 0.05 }, q: { percent: 0.07 }, y: { percent: 0.1 } } },
-];
-
+// Overview pulls live deltas from the metric registry. Pick four
+// distinctive metrics per sub-tab — the rest live in the sub-tab itself.
 const OVERVIEW_SECTIONS = [
-  { key: "service-delivery",     label: "Service Delivery",     items: OVERVIEW_SERVICE_DELIVERY },
-  { key: "sovereign-capability", label: "Sovereign Capability", items: OVERVIEW_SOVEREIGN_CAPABILITY },
-  { key: "construction",         label: "Construction",         items: OVERVIEW_CONSTRUCTION },
-  { key: "quality-of-life",      label: "Quality of Life",      items: OVERVIEW_QUALITY_OF_LIFE },
+  {
+    key: "service-delivery",
+    label: "Service Delivery",
+    metricIds: [
+      "sd-nhs-rtt-waiting-list",
+      "sd-gp-appointments",
+      "sd-court-backlog",
+      "sd-asylum-backlog",
+    ],
+  },
+  {
+    key: "sovereign-capability",
+    label: "Sovereign Capability",
+    metricIds: [
+      "sc-co2-intensity",
+      "sc-defence-spending",
+      "sc-ghg-emissions",
+      "sc-iop-chemicals",
+    ],
+  },
+  {
+    key: "construction",
+    label: "Construction",
+    metricIds: [
+      "bd-housing-completions",
+      "bd-brick-deliveries",
+      "bd-epc-new-builds",
+      "bd-battery-storage",
+    ],
+  },
+  {
+    key: "quality-of-life",
+    label: "Quality of Life",
+    metricIds: [
+      "ql-cpih-inflation",
+      "ql-real-wages-monthly",
+      "ql-house-price",
+      "ql-gilt-yield-10y",
+    ],
+  },
 ];
 
 const PERIOD_OPTIONS = [
@@ -208,15 +216,18 @@ function Overview({ navigate }) {
               gap: 6,
             }}
           >
-            {section.items.map((item) => (
-              <MiniTile
-                key={item.title}
-                title={item.title}
-                delta={item.deltas[period]}
-                direction={item.direction}
-                href={`/dashboard/${section.key}`}
-              />
-            ))}
+            {section.metricIds.map((id) => {
+              const metric = METRICS[id];
+              if (!metric) return null;
+              return (
+                <OverviewMiniTile
+                  key={id}
+                  metric={metric}
+                  period={period}
+                  href={`/dashboard/${section.key}`}
+                />
+              );
+            })}
           </div>
         </div>
       ))}

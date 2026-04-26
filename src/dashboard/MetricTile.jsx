@@ -94,3 +94,26 @@ export function metricToOverviewEntry(metric, data) {
     deltas,
   };
 }
+
+/**
+ * MiniTile that loads a metric's dataset and shows the active-period delta.
+ *
+ * Used by Overview where the period toggle (MoM / 3M / 1Y) is shared across
+ * many metrics. Each MiniTile loads its own dataset; useJsonDataset's caching
+ * means metrics that share a dataset don't refetch.
+ */
+import { MiniTile } from "../components/Tile";
+
+export function OverviewMiniTile({ metric, period, href }) {
+  const { data, loading } = useJsonDataset(metric.dataset);
+  const entry = !loading ? metricToOverviewEntry(metric, data) : null;
+
+  return (
+    <MiniTile
+      title={metric.title}
+      delta={entry?.deltas?.[period]}
+      direction={entry?.direction ?? metric.direction}
+      href={href}
+    />
+  );
+}
