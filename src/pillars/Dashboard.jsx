@@ -178,24 +178,10 @@ function SectionHeader({ label, onClick }) {
   );
 }
 
-function Overview({ navigate }) {
-  const [period, setPeriod] = useState("mom");
-
+function Overview({ navigate, period }) {
   return (
     <div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "baseline",
-          flexWrap: "wrap",
-          gap: 12,
-          marginBottom: 18,
-        }}
-      >
-        <h2 style={{ ...h2Style, margin: 0 }}>Dashboard</h2>
-        <PeriodToggle value={period} onChange={setPeriod} />
-      </div>
+      <h2 style={{ ...h2Style, margin: "0 0 18px" }}>Dashboard</h2>
       <div style={noticeStyle}>{PLACEHOLDER_NOTICE}</div>
 
       {OVERVIEW_SECTIONS.map((section) => (
@@ -249,104 +235,104 @@ function TileGrid({ children }) {
   );
 }
 
-function ServiceDelivery() {
+function ServiceDelivery({ period }) {
   return (
     <div>
       <h2 style={h2Style}>Service Delivery</h2>
       <p style={subStyle}>How well the state runs the services it provides.</p>
       <div style={noticeStyle}>Some tiles still illustrative; live tiles wire as fetch scripts land.</div>
       <TileGrid>
-        <MetricTile metric={METRICS["sd-nhs-rtt-waiting-list"]} />
-        <MetricTile metric={METRICS["sd-gp-appointments"]} />
-        <MetricTile metric={METRICS["sd-court-backlog"]} />
-        <MetricTile metric={METRICS["sd-rail-punctuality"]} />
-        <MetricTile metric={METRICS["sd-water-leakage"]} />
-        <MetricTile metric={METRICS["sd-hospital-occupancy"]} />
-        <MetricTile metric={METRICS["sd-mental-health-iapt"]} />
-        <MetricTile metric={METRICS["sd-police-officers"]} />
-        <MetricTile metric={METRICS["sd-prison-population"]} />
-        <MetricTile metric={METRICS["sd-energy-bill"]} />
-        <MetricTile metric={METRICS["sd-public-sector-debt"]} />
-        <MetricTile metric={METRICS["sd-asylum-backlog"]} />
+        <MetricTile period={period} metric={METRICS["sd-nhs-rtt-waiting-list"]} />
+        <MetricTile period={period} metric={METRICS["sd-gp-appointments"]} />
+        <MetricTile period={period} metric={METRICS["sd-court-backlog"]} />
+        <MetricTile period={period} metric={METRICS["sd-rail-punctuality"]} />
+        <MetricTile period={period} metric={METRICS["sd-water-leakage"]} />
+        <MetricTile period={period} metric={METRICS["sd-hospital-occupancy"]} />
+        <MetricTile period={period} metric={METRICS["sd-mental-health-iapt"]} />
+        <MetricTile period={period} metric={METRICS["sd-police-officers"]} />
+        <MetricTile period={period} metric={METRICS["sd-prison-population"]} />
+        <MetricTile period={period} metric={METRICS["sd-energy-bill"]} />
+        <MetricTile period={period} metric={METRICS["sd-public-sector-debt"]} />
+        <MetricTile period={period} metric={METRICS["sd-asylum-backlog"]} />
       </TileGrid>
     </div>
   );
 }
 
-function SovereignCapability() {
+function SovereignCapability({ period }) {
   return (
     <div>
       <h2 style={h2Style}>Sovereign Capability</h2>
       <p style={subStyle}>What Britain can produce, defend, and supply on its own.</p>
       <div style={noticeStyle}>Some tiles still illustrative; live tiles wire as fetch scripts land.</div>
       <TileGrid>
-        <MetricTile metric={METRICS["sc-co2-intensity"]} />
-        <MetricTile metric={METRICS["sc-mfg-output"]} />
-        <MetricTile metric={METRICS["sc-iop-chemicals"]} />
-        <MetricTile metric={METRICS["sc-defence-spending"]} />
-        <MetricTile metric={METRICS["sc-army-personnel"]} />
-        <MetricTile metric={METRICS["sc-naval-escorts"]} />
-        <MetricTile metric={METRICS["sc-combat-aircraft"]} />
-        <MetricTile metric={METRICS["sc-ghg-emissions"]} />
-        <MetricTile metric={METRICS["sc-rd-pct-gdp"]} />
-        <MetricTile metric={METRICS["sc-vc-investment"]} />
-        <MetricTile metric={METRICS["sc-high-growth-firms"]} />
-        <MetricTile metric={METRICS["sc-productivity"]} />
+        <MetricTile period={period} metric={METRICS["sc-co2-intensity"]} />
+        <MetricTile period={period} metric={METRICS["sc-mfg-output"]} />
+        <MetricTile period={period} metric={METRICS["sc-iop-chemicals"]} />
+        <MetricTile period={period} metric={METRICS["sc-defence-spending"]} />
+        <MetricTile period={period} metric={METRICS["sc-army-personnel"]} />
+        <MetricTile period={period} metric={METRICS["sc-naval-escorts"]} />
+        <MetricTile period={period} metric={METRICS["sc-combat-aircraft"]} />
+        <MetricTile period={period} metric={METRICS["sc-ghg-emissions"]} />
+        <MetricTile period={period} metric={METRICS["sc-rd-pct-gdp"]} />
+        <MetricTile period={period} metric={METRICS["sc-vc-investment"]} />
+        <MetricTile period={period} metric={METRICS["sc-high-growth-firms"]} />
+        <MetricTile period={period} metric={METRICS["sc-productivity"]} />
       </TileGrid>
     </div>
   );
 }
 
-function Construction() {
+function Construction({ period }) {
   return (
     <div>
       <h2 style={h2Style}>Construction</h2>
       <p style={subStyle}>What the country is physically building.</p>
       <div style={noticeStyle}>Some tiles still illustrative; live tiles wire as fetch scripts land.</div>
       <TileGrid>
-        <MetricTile metric={METRICS["bd-housing-completions"]} />
-        <MetricTile metric={METRICS["bd-brick-deliveries"]} />
-        <MetricTile metric={METRICS["bd-epc-new-builds"]} />
-        <MetricTile metric={METRICS["bd-fttp-coverage"]} />
-        <MetricTile metric={METRICS["bd-gigabit-coverage"]} />
-        <MetricTile metric={METRICS["bd-rail-electrification"]} />
-        <MetricTile metric={METRICS["bd-motorway-km"]} />
-        <MetricTile metric={METRICS["bd-reservoir-capacity"]} />
-        <MetricTile metric={METRICS["bd-battery-storage"]} />
-        <MetricTile metric={METRICS["qol-construction-output"]} />
+        <MetricTile period={period} metric={METRICS["bd-housing-completions"]} />
+        <MetricTile period={period} metric={METRICS["bd-brick-deliveries"]} />
+        <MetricTile period={period} metric={METRICS["bd-epc-new-builds"]} />
+        <MetricTile period={period} metric={METRICS["bd-fttp-coverage"]} />
+        <MetricTile period={period} metric={METRICS["bd-gigabit-coverage"]} />
+        <MetricTile period={period} metric={METRICS["bd-rail-electrification"]} />
+        <MetricTile period={period} metric={METRICS["bd-motorway-km"]} />
+        <MetricTile period={period} metric={METRICS["bd-reservoir-capacity"]} />
+        <MetricTile period={period} metric={METRICS["bd-battery-storage"]} />
+        <MetricTile period={period} metric={METRICS["qol-construction-output"]} />
       </TileGrid>
     </div>
   );
 }
 
-function QualityOfLife() {
+function QualityOfLife({ period }) {
   return (
     <div>
       <h2 style={h2Style}>Quality of Life</h2>
       <p style={subStyle}>What daily life in Britain looks like.</p>
       <div style={noticeStyle}>Some tiles still illustrative; live tiles wire as fetch scripts land.</div>
       <TileGrid>
-        <MetricTile metric={METRICS["ql-real-wages-annual"]} />
-        <MetricTile metric={METRICS["ql-real-wages-monthly"]} />
-        <MetricTile metric={METRICS["ql-cpih-inflation"]} />
-        <MetricTile metric={METRICS["ql-house-price"]} />
-        <MetricTile metric={METRICS["ql-unemployment-rate"]} />
-        <MetricTile metric={METRICS["qol-monthly-gdp"]} />
-        <MetricTile metric={METRICS["ql-gilt-yield-10y"]} />
-        <MetricTile metric={METRICS["ql-pm25"]} />
-        <MetricTile metric={METRICS["ql-tfr"]} />
-        <MetricTile metric={METRICS["ql-household-size"]} />
-        <MetricTile metric={METRICS["ql-life-expectancy"]} />
-        <MetricTile metric={METRICS["ql-healthy-life-expectancy"]} />
-        <MetricTile metric={METRICS["ql-knife-crime"]} />
-        <MetricTile metric={METRICS["ql-violent-crime"]} />
-        <MetricTile metric={METRICS["ql-fear-of-crime"]} />
-        <MetricTile metric={METRICS["ql-suicide-rate"]} />
-        <MetricTile metric={METRICS["ql-mortgage-rate"]} />
-        <MetricTile metric={METRICS["ql-mortgage-approvals"]} />
-        <MetricTile metric={METRICS["ql-net-migration"]} />
-        <MetricTile metric={METRICS["qol-services-output"]} />
-        <MetricTile metric={METRICS["ql-avg-hours"]} />
+        <MetricTile period={period} metric={METRICS["ql-real-wages-annual"]} />
+        <MetricTile period={period} metric={METRICS["ql-real-wages-monthly"]} />
+        <MetricTile period={period} metric={METRICS["ql-cpih-inflation"]} />
+        <MetricTile period={period} metric={METRICS["ql-house-price"]} />
+        <MetricTile period={period} metric={METRICS["ql-unemployment-rate"]} />
+        <MetricTile period={period} metric={METRICS["qol-monthly-gdp"]} />
+        <MetricTile period={period} metric={METRICS["ql-gilt-yield-10y"]} />
+        <MetricTile period={period} metric={METRICS["ql-pm25"]} />
+        <MetricTile period={period} metric={METRICS["ql-tfr"]} />
+        <MetricTile period={period} metric={METRICS["ql-household-size"]} />
+        <MetricTile period={period} metric={METRICS["ql-life-expectancy"]} />
+        <MetricTile period={period} metric={METRICS["ql-healthy-life-expectancy"]} />
+        <MetricTile period={period} metric={METRICS["ql-knife-crime"]} />
+        <MetricTile period={period} metric={METRICS["ql-violent-crime"]} />
+        <MetricTile period={period} metric={METRICS["ql-fear-of-crime"]} />
+        <MetricTile period={period} metric={METRICS["ql-suicide-rate"]} />
+        <MetricTile period={period} metric={METRICS["ql-mortgage-rate"]} />
+        <MetricTile period={period} metric={METRICS["ql-mortgage-approvals"]} />
+        <MetricTile period={period} metric={METRICS["ql-net-migration"]} />
+        <MetricTile period={period} metric={METRICS["qol-services-output"]} />
+        <MetricTile period={period} metric={METRICS["ql-avg-hours"]} />
       </TileGrid>
     </div>
   );
@@ -356,70 +342,84 @@ function QualityOfLife() {
 
 export default function Dashboard({ subtab, navigate, isMobile: parentIsMobile }) {
   const isMobile = useIsMobile() || parentIsMobile;
+  const [period, setPeriod] = useState("mom");
 
   useEffect(() => { window.scrollTo(0, 0); }, [subtab]);
 
   const renderContent = () => {
-    if (!subtab) return <Overview navigate={navigate} />;
-    if (subtab === "service-delivery") return <ServiceDelivery />;
-    if (subtab === "sovereign-capability") return <SovereignCapability />;
-    if (subtab === "construction") return <Construction />;
-    if (subtab === "quality-of-life") return <QualityOfLife />;
-    return <Overview navigate={navigate} />;
+    if (!subtab) return <Overview navigate={navigate} period={period} />;
+    if (subtab === "service-delivery") return <ServiceDelivery period={period} />;
+    if (subtab === "sovereign-capability") return <SovereignCapability period={period} />;
+    if (subtab === "construction") return <Construction period={period} />;
+    if (subtab === "quality-of-life") return <QualityOfLife period={period} />;
+    return <Overview navigate={navigate} period={period} />;
   };
 
   return (
     <div style={{ padding: "8px 0 40px", animation: "fadeSlideIn 0.4s ease both" }}>
-      <nav
-        className={isMobile ? "scroll-hide" : undefined}
+      <div
         style={{
           display: "flex",
-          gap: 0,
+          alignItems: "flex-end",
+          justifyContent: "space-between",
+          gap: 12,
           marginBottom: 32,
           borderBottom: `1px solid ${P.border}`,
-          ...(isMobile && { overflowX: "auto" }),
+          flexWrap: isMobile ? "wrap" : "nowrap",
         }}
       >
-        {SUBTABS.map((tab) => {
-          const active = subtab === tab.key || (!subtab && tab.key === null);
-          return (
-            <button
-              key={tab.label}
-              onClick={() => {
-                track("dashboard_subtab", { subtab: tab.label });
-                navigate("dashboard", ...tab.path);
-              }}
-              style={{
-                background: "none",
-                border: "none",
-                cursor: "pointer",
-                padding: isMobile ? "8px 12px 10px" : "10px 18px 12px",
-                borderBottom: active
-                  ? `2px solid ${ACCENT}`
-                  : "2px solid transparent",
-                transition: "all 0.2s",
-                position: "relative",
-                top: 1,
-                flexShrink: 0,
-              }}
-            >
-              <span
+        <nav
+          className={isMobile ? "scroll-hide" : undefined}
+          style={{
+            display: "flex",
+            gap: 0,
+            ...(isMobile && { overflowX: "auto", width: "100%" }),
+          }}
+        >
+          {SUBTABS.map((tab) => {
+            const active = subtab === tab.key || (!subtab && tab.key === null);
+            return (
+              <button
+                key={tab.label}
+                onClick={() => {
+                  track("dashboard_subtab", { subtab: tab.label });
+                  navigate("dashboard", ...tab.path);
+                }}
                 style={{
-                  fontSize: "12px",
-                  fontWeight: active ? 500 : 400,
-                  color: active ? P.text : P.textLight,
-                  letterSpacing: "0.06em",
-                  textTransform: "uppercase",
-                  fontFamily: "'DM Mono', monospace",
-                  whiteSpace: "nowrap",
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  padding: isMobile ? "8px 12px 10px" : "10px 18px 12px",
+                  borderBottom: active
+                    ? `2px solid ${ACCENT}`
+                    : "2px solid transparent",
+                  transition: "all 0.2s",
+                  position: "relative",
+                  top: 1,
+                  flexShrink: 0,
                 }}
               >
-                {tab.label}
-              </span>
-            </button>
-          );
-        })}
-      </nav>
+                <span
+                  style={{
+                    fontSize: "12px",
+                    fontWeight: active ? 500 : 400,
+                    color: active ? P.text : P.textLight,
+                    letterSpacing: "0.06em",
+                    textTransform: "uppercase",
+                    fontFamily: "'DM Mono', monospace",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {tab.label}
+                </span>
+              </button>
+            );
+          })}
+        </nav>
+        <div style={{ paddingBottom: 8, paddingRight: isMobile ? 0 : 4 }}>
+          <PeriodToggle value={period} onChange={setPeriod} />
+        </div>
+      </div>
 
       {renderContent()}
     </div>

@@ -14,10 +14,11 @@ import {
  * Wrapper around <Tile /> that loads a v1 dataset, extracts the configured
  * series, and renders the tile with computed sparkline / longSeries / delta.
  *
+ * `period` controls which delta window the tile shows: "mom" / "q" / "y".
  * If the dataset is loading or the series is missing, renders a Tile with
  * a neutral placeholder.
  */
-export default function MetricTile({ metric }) {
+export default function MetricTile({ metric, period = "mom" }) {
   const { data, loading, error } = useJsonDataset(metric.dataset);
 
   if (loading || error || !data) {
@@ -52,7 +53,9 @@ export default function MetricTile({ metric }) {
   const range = sparklineRange(series, metric.timeKey, 24, formatPeriod);
   const long = toLongSeries(series, metric.valueKey, metric.timeKey, metric.cadence, 10);
 
-  const periodLabel = metric.periodLabel?.mom ?? "vs prior period";
+  const activeDelta = deltas[period] ?? deltas.mom;
+  const periodLabel =
+    metric.periodLabel?.[period] ?? metric.periodLabel?.mom ?? "vs prior period";
 
   return (
     <Tile
@@ -60,7 +63,7 @@ export default function MetricTile({ metric }) {
       value={value}
       unit={metric.unit}
       format={metric.format}
-      delta={{ percent: deltas.mom.percent, period: periodLabel }}
+      delta={{ percent: activeDelta.percent, period: periodLabel }}
       direction={metric.direction}
       sparkline={spark}
       sparklineRange={range}
