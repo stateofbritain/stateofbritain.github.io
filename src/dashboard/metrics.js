@@ -96,6 +96,27 @@ export const METRICS = {
 
   // ── Sovereign Capability ──────────────────────────────────────────
 
+  "sc-iop-chemicals": {
+    id: "sc-iop-chemicals",
+    subtab: "sovereign-capability",
+    title: "Chemicals manufacturing index",
+    dataset: "iop-chemicals.json",
+    seriesKey: "monthly",
+    timeKey: "period",
+    valueKey: "value",
+    cadence: "monthly",
+    direction: "up-good",
+    unit: "index (2022=100)",
+    format: "raw",
+    source: "ONS Index of Production (K226)",
+    href: "/data/growth/industrial",
+    periodLabel: {
+      mom: "vs prior month",
+      q: "vs 3 months ago",
+      y: "vs prior year",
+    },
+  },
+
   "sc-co2-intensity": {
     id: "sc-co2-intensity",
     subtab: "sovereign-capability",
@@ -119,8 +140,8 @@ export const METRICS = {
 
   // ── Quality of Life ───────────────────────────────────────────────
 
-  "ql-real-wages": {
-    id: "ql-real-wages",
+  "ql-real-wages-annual": {
+    id: "ql-real-wages-annual",
     subtab: "quality-of-life",
     title: "Real median pay",
     dataset: "jobs.json",
@@ -136,6 +157,48 @@ export const METRICS = {
     periodLabel: {
       mom: "vs prior year",
       q: "vs prior year",
+      y: "vs prior year",
+    },
+  },
+
+  "ql-real-wages-monthly": {
+    id: "ql-real-wages-monthly",
+    subtab: "quality-of-life",
+    title: "Real wages YoY",
+    dataset: "real-wages-monthly.json",
+    seriesKey: "monthly",
+    timeKey: "period",
+    valueKey: "realYoY",
+    cadence: "monthly",
+    direction: "up-good",
+    unit: "% YoY",
+    format: "percent",
+    source: "ONS AWE / CPIH",
+    href: "/data/growth/jobs/earnings",
+    periodLabel: {
+      mom: "vs prior month",
+      q: "vs 3 months ago",
+      y: "vs prior year",
+    },
+  },
+
+  "ql-house-price": {
+    id: "ql-house-price",
+    subtab: "quality-of-life",
+    title: "UK average house price",
+    dataset: "house-price-index.json",
+    seriesKey: "monthly",
+    timeKey: "period",
+    valueKey: "avgPrice",
+    cadence: "monthly",
+    direction: "neutral",
+    unit: "£",
+    format: "currency",
+    source: "HM Land Registry, UK HPI",
+    href: "/data/foundations/housing/prices",
+    periodLabel: {
+      mom: "vs prior month",
+      q: "vs 3 months ago",
       y: "vs prior year",
     },
   },

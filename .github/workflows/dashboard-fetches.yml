@@ -1,0 +1,122 @@
+name: Dashboard data refresh
+
+# Cadence-bucketed fetches for the Command Dashboard. Each cron handles one
+# cadence; failed scripts within a job don't block siblings (uses `|| true`).
+# After fetches, sync to public/api/data and commit the diff. Push only
+# happens when JSON actually changed.
+#
+# Secrets required (Settings → Secrets and variables → Actions):
+#   EPC_EMAIL                 — registration email for EPC Open Data
+#   EPC_API_KEY               — EPC API key
+#   COMPANIES_HOUSE_API_KEY   — Companies House public data API key
+
+on:
+  schedule:
+    - cron: "0 5 * * *"          # daily 05:00 UTC
+    - cron: "0 6 * * 1"          # weekly Mon 06:00 UTC
+    - cron: "0 7 5 * *"          # monthly 5th 07:00 UTC
+    - cron: "0 8 5 1,4,7,10 *"   # quarterly Jan/Apr/Jul/Oct 5th 08:00 UTC
+  workflow_dispatch:
+    inputs:
+      cadence:
+        description: "Which cadence bucket to run"
+        required: true
+        default: "monthly"
+        type: choice
+        options: [daily, weekly, monthly, quarterly]
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      EPC_EMAIL: ${{ secrets.EPC_EMAIL }}
+      EPC_API_KEY: ${{ secrets.EPC_API_KEY }}
+      COMPANIES_HOUSE_API_KEY: ${{ secrets.COMPANIES_HOUSE_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install deps
+        run: npm ci
+
+      # Determine which bucket. For scheduled triggers, branch on cron
+      # expression. For manual dispatch, use the inputs.cadence.
+      - name: Resolve cadence
+        id: cadence
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "bucket=${{ github.event.inputs.cadence }}" >> $GITHUB_OUTPUT
+          else
+            case "${{ github.event.schedule }}" in
+              "0 5 * * *")        echo "bucket=daily"     >> $GITHUB_OUTPUT ;;
+              "0 6 * * 1")        echo "bucket=weekly"    >> $GITHUB_OUTPUT ;;
+              "0 7 5 * *")        echo "bucket=monthly"   >> $GITHUB_OUTPUT ;;
+              "0 8 5 1,4,7,10 *") echo "bucket=quarterly" >> $GITHUB_OUTPUT ;;
+              *)                  echo "bucket=monthly"   >> $GITHUB_OUTPUT ;;
+            esac
+          fi
+
+      # ── DAILY ───────────────────────────────────────────────────────
+      - name: Daily fetches
+        if: steps.cadence.outputs.bucket == 'daily'
+        run: |
+          node scripts/fetch-co2-intensity.js               || echo "co2-intensity failed"
+          # node scripts/fetch-battery-storage.js           || echo "battery-storage failed"
+          # node scripts/fetch-tech-incorporations.js       || echo "tech-incorporations failed"
+
+      # ── WEEKLY ──────────────────────────────────────────────────────
+      - name: Weekly fetches
+        if: steps.cadence.outputs.bucket == 'weekly'
+        run: |
+          # node scripts/fetch-school-absence.js            || echo "school-absence failed"
+          # node scripts/fetch-train-ppm.js                 || echo "train-ppm failed"
+          # node scripts/fetch-epc-newbuild.js              || echo "epc-newbuild failed"
+          echo "no weekly fetches yet"
+
+      # ── MONTHLY ─────────────────────────────────────────────────────
+      - name: Monthly fetches
+        if: steps.cadence.outputs.bucket == 'monthly'
+        run: |
+          node scripts/fetch-iop-chemicals.js               || echo "iop-chemicals failed"
+          node scripts/fetch-real-wages-monthly.js          || echo "real-wages failed"
+          node scripts/fetch-house-price-index.js           || echo "hpi failed"
+          node scripts/fetch-cpih.js                        || echo "cpih failed"
+          # node scripts/fetch-nhs.js                       || echo "nhs failed"
+          # node scripts/fetch-brick-deliveries.js          || echo "brick-deliveries failed"
+          # node scripts/fetch-heat-pumps-bus.js            || echo "heat-pumps failed"
+          # node scripts/fetch-gas-imports.js               || echo "gas-imports failed"
+          # node scripts/fetch-knife-crime.js               || echo "knife-crime failed"
+
+      # ── QUARTERLY ───────────────────────────────────────────────────
+      - name: Quarterly fetches
+        if: steps.cadence.outputs.bucket == 'quarterly'
+        run: |
+          node scripts/fetch-asylum-statistics.js           || echo "asylum failed"
+          # node scripts/fetch-court-backlog.js             || echo "court failed"
+          # node scripts/fetch-ofgem-price-cap.js           || echo "ofgem-cap failed"
+          # node scripts/fetch-qep-industrial.js            || echo "qep-industrial failed"
+          # node scripts/fetch-births-quarterly.js          || echo "births failed"
+
+      - name: Validate fetched data
+        run: node scripts/validate-data.js || true
+
+      - name: Sync to API directory
+        run: node scripts/sync-api-data.js || true
+
+      - name: Commit changes
+        run: |
+          if git diff --quiet -- public/data public/api/data; then
+            echo "No data changes; nothing to commit"
+            exit 0
+          fi
+          git config user.name  "dashboard-bot"
+          git config user.email "dashboard-bot@stateofbritain.uk"
+          git add public/data public/api/data
+          git commit -m "Auto: dashboard data refresh ($(date -u +%Y-%m-%d), bucket=${{ steps.cadence.outputs.bucket }})"
+          git push
