@@ -281,6 +281,9 @@ function SovereignCapability() {
         <MetricTile metric={METRICS["sc-mfg-output"]} />
         <MetricTile metric={METRICS["sc-iop-chemicals"]} />
         <MetricTile metric={METRICS["sc-defence-spending"]} />
+        <MetricTile metric={METRICS["sc-army-personnel"]} />
+        <MetricTile metric={METRICS["sc-naval-escorts"]} />
+        <MetricTile metric={METRICS["sc-combat-aircraft"]} />
         <MetricTile metric={METRICS["sc-ghg-emissions"]} />
         <MetricTile metric={METRICS["sc-rd-pct-gdp"]} />
         <MetricTile metric={METRICS["sc-vc-investment"]} />
@@ -301,6 +304,10 @@ function Construction() {
         <MetricTile metric={METRICS["bd-housing-completions"]} />
         <MetricTile metric={METRICS["bd-brick-deliveries"]} />
         <MetricTile metric={METRICS["bd-epc-new-builds"]} />
+        <MetricTile metric={METRICS["bd-fttp-coverage"]} />
+        <MetricTile metric={METRICS["bd-rail-electrification"]} />
+        <MetricTile metric={METRICS["bd-motorway-km"]} />
+        <MetricTile metric={METRICS["bd-reservoir-capacity"]} />
         <MetricTile metric={METRICS["bd-battery-storage"]} />
         <MetricTile metric={METRICS["qol-construction-output"]} />
       </TileGrid>
