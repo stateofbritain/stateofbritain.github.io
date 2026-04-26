@@ -68,7 +68,7 @@ jobs:
         run: |
           node scripts/fetch-co2-intensity.js               || echo "co2-intensity failed"
           node scripts/fetch-battery-storage-neso.js        || echo "battery-storage failed"
-          # node scripts/fetch-tech-incorporations.js       || echo "tech-incorporations failed"
+          node scripts/fetch-tech-incorporations.js         || echo "tech-incorporations failed"
 
       # ── WEEKLY ──────────────────────────────────────────────────────
       - name: Weekly fetches

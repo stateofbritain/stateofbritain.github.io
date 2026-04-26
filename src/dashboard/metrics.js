@@ -406,6 +406,23 @@ export const METRICS = {
     periodLabel: { mom: "vs prior year", q: "vs prior year", y: "vs prior year" },
   },
 
+  "sc-tech-incorporations": {
+    id: "sc-tech-incorporations",
+    subtab: "sovereign-capability",
+    title: "New tech-sector incorporations",
+    dataset: "tech-incorporations.json",
+    seriesKey: "monthly",
+    timeKey: "month",
+    valueKey: "count",
+    cadence: "monthly",
+    direction: "up-good",
+    unit: "/ month",
+    format: "number",
+    source: "Companies House Advanced Search",
+    href: "/data/growth/startups",
+    periodLabel: { mom: "vs prior month", q: "vs 3 months ago", y: "vs prior year" },
+  },
+
   "sc-high-growth-firms": {
     id: "sc-high-growth-firms",
     subtab: "sovereign-capability",

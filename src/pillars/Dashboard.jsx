@@ -277,6 +277,7 @@ function SovereignCapability({ period }) {
         <MetricTile period={period} metric={METRICS["sc-rd-pct-gdp"]} />
         <MetricTile period={period} metric={METRICS["sc-vc-investment"]} />
         <MetricTile period={period} metric={METRICS["sc-high-growth-firms"]} />
+        <MetricTile period={period} metric={METRICS["sc-tech-incorporations"]} />
         <MetricTile period={period} metric={METRICS["sc-productivity"]} />
       </TileGrid>
     </div>
