@@ -440,6 +440,23 @@ export const METRICS = {
     periodLabel: { mom: "vs prior year", q: "vs prior year", y: "vs prior year" },
   },
 
+  "sc-gas-import-concentration": {
+    id: "sc-gas-import-concentration",
+    subtab: "sovereign-capability",
+    title: "Gas import concentration",
+    dataset: "gas-imports.json",
+    seriesKey: "monthly",
+    timeKey: "month",
+    valueKey: "hhi",
+    cadence: "monthly",
+    direction: "up-bad",
+    unit: "HHI (×10000)",
+    format: "number",
+    source: "DESNZ Energy Trends — gas trade",
+    href: "/data/foundations/energy",
+    periodLabel: { mom: "vs prior month", q: "vs 3 months ago", y: "vs prior year" },
+  },
+
   "sc-iop-chemicals": {
     id: "sc-iop-chemicals",
     subtab: "sovereign-capability",

@@ -102,6 +102,7 @@ jobs:
           node scripts/fetch-construction-output.js         || echo "construction-output failed"
           node scripts/fetch-avg-weekly-hours.js            || echo "avg-hours failed"
           node scripts/fetch-heat-pumps-bus.js              || echo "heat-pumps failed"
+          node scripts/fetch-gas-imports.js                 || echo "gas-imports failed"
 
       - name: Monthly fetches — existing v1 dataset refresh
         if: steps.cadence.outputs.bucket == 'monthly'

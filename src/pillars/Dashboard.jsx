@@ -269,6 +269,7 @@ function SovereignCapability({ period }) {
         <MetricTile period={period} metric={METRICS["sc-co2-intensity"]} />
         <MetricTile period={period} metric={METRICS["sc-mfg-output"]} />
         <MetricTile period={period} metric={METRICS["sc-iop-chemicals"]} />
+        <MetricTile period={period} metric={METRICS["sc-gas-import-concentration"]} />
         <MetricTile period={period} metric={METRICS["sc-defence-spending"]} />
         <MetricTile period={period} metric={METRICS["sc-army-personnel"]} />
         <MetricTile period={period} metric={METRICS["sc-naval-escorts"]} />
