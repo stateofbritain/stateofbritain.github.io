@@ -1,0 +1,82 @@
+{
+  "_comment": "Maps each fetch script to its upstream-release pattern. The dispatcher (run-scheduled-fetches.js) runs daily and triggers every fetch whose rule matches today. Patterns target the day AFTER expected release for buffer. Weekday: 0=Sun, 1=Mon, 2=Tue, 3=Wed, 4=Thu, 5=Fri, 6=Sat. Months: 1-12.",
+  "_legend": {
+    "daily": "run every day",
+    "nth-weekday": "n-th weekday of month, optionally + offsetDays",
+    "last-weekday": "last weekday of month, optionally + offsetDays",
+    "fixed-dom": "fixed day-of-month",
+    "months": "optional 1-12 array — only run in these months (for quarterly)"
+  },
+
+  "co2-intensity":          { "type": "daily", "release": "NESO real-time API" },
+  "tech-incorporations":    { "type": "daily", "release": "Companies House daily API" },
+  "battery-storage-neso":   { "type": "daily", "release": "NESO Data Portal (irregular; poll daily)" },
+
+  "cpih":                   { "type": "nth-weekday", "n": 3, "weekday": 3, "offsetDays": 1, "release": "ONS CPI 3rd Wed 07:00 UK + 1d" },
+  "cpi-inflation":          { "type": "nth-weekday", "n": 3, "weekday": 3, "offsetDays": 1, "release": "ONS CPI 3rd Wed 07:00 UK + 1d" },
+  "house-price-index":      { "type": "nth-weekday", "n": 3, "weekday": 3, "offsetDays": 1, "release": "ONS HPI mid-month + 1d" },
+
+  "real-wages-monthly":     { "type": "nth-weekday", "n": 3, "weekday": 2, "offsetDays": 1, "release": "ONS Labour Market 3rd Tue 07:00 UK + 1d" },
+  "employment-rate":        { "type": "nth-weekday", "n": 3, "weekday": 2, "offsetDays": 1, "release": "ONS Labour Market 3rd Tue + 1d" },
+  "unemployment-rate":      { "type": "nth-weekday", "n": 3, "weekday": 2, "offsetDays": 1, "release": "ONS Labour Market 3rd Tue + 1d" },
+  "economic-inactivity":    { "type": "nth-weekday", "n": 3, "weekday": 2, "offsetDays": 1, "release": "ONS Labour Market 3rd Tue + 1d" },
+  "avg-weekly-hours":       { "type": "nth-weekday", "n": 3, "weekday": 2, "offsetDays": 1, "release": "ONS Labour Market 3rd Tue + 1d" },
+  "jobs":                   { "type": "nth-weekday", "n": 3, "weekday": 2, "offsetDays": 1, "release": "ONS Labour Market 3rd Tue + 1d" },
+
+  "monthly-gdp":            { "type": "nth-weekday", "n": 2, "weekday": 4, "offsetDays": 1, "release": "ONS GDP 2nd Thu 07:00 UK + 1d" },
+  "iop-chemicals":          { "type": "nth-weekday", "n": 2, "weekday": 4, "offsetDays": 1, "release": "ONS Index of Production (GDP day) + 1d" },
+  "mfg-output":             { "type": "nth-weekday", "n": 2, "weekday": 4, "offsetDays": 1, "release": "ONS Manufacturing (GDP day) + 1d" },
+  "construction-output":    { "type": "nth-weekday", "n": 2, "weekday": 4, "offsetDays": 1, "release": "ONS Construction (GDP day) + 1d" },
+  "services-output":        { "type": "nth-weekday", "n": 2, "weekday": 4, "offsetDays": 1, "release": "ONS Services (GDP day) + 1d" },
+
+  "borrowing":              { "type": "nth-weekday", "n": 4, "weekday": 3, "offsetDays": 1, "release": "ONS Public Sector Finances ~4th Wed + 1d" },
+  "public-sector-debt":     { "type": "nth-weekday", "n": 4, "weekday": 3, "offsetDays": 1, "release": "ONS Public Sector Finances ~4th Wed + 1d" },
+
+  "retail-sales":           { "type": "nth-weekday", "n": 4, "weekday": 5, "offsetDays": 3, "release": "ONS Retail ~4th Fri + 3d (skip weekend)" },
+
+  "nhs":                    { "type": "nth-weekday", "n": 2, "weekday": 4, "offsetDays": 1, "release": "NHS England 2nd Thu 09:30 UK + 1d (RTT/A&E/cancer)" },
+  "gp-access":              { "type": "last-weekday", "weekday": 4, "offsetDays": 1, "release": "NHS Digital last Thu + 1d (GP appointments)" },
+
+  "heat-pumps-bus":         { "type": "last-weekday", "weekday": 4, "offsetDays": 1, "release": "DESNZ BUS last Thu 09:30 UK + 1d" },
+  "energy":                 { "type": "last-weekday", "weekday": 4, "offsetDays": 1, "release": "DESNZ Energy Trends last Thu + 1d" },
+  "gas-imports":            { "type": "last-weekday", "weekday": 4, "offsetDays": 1, "release": "DESNZ Energy Trends 4.x last Thu + 1d" },
+
+  "asylum-statistics":      { "type": "last-weekday", "weekday": 4, "offsetDays": 1, "months": [2,5,8,11], "release": "Home Office quarterly last Thu Feb/May/Aug/Nov + 1d" },
+  "immigration":            { "type": "last-weekday", "weekday": 4, "offsetDays": 1, "months": [2,5,8,11], "release": "Home Office quarterly + 1d" },
+
+  "knife-crime-quarterly":  { "type": "last-weekday", "weekday": 4, "offsetDays": 1, "months": [1,4,7,10], "release": "ONS Crime in E&W quarterly last Thu Jan/Apr/Jul/Oct + 1d" },
+
+  "court-backlog-quarterly":{ "type": "last-weekday", "weekday": 4, "offsetDays": 1, "months": [3,6,9,12], "release": "MoJ Criminal Courts quarterly last Thu Mar/Jun/Sep/Dec + 1d" },
+
+  "births-quarterly":       { "type": "last-weekday", "weekday": 4, "offsetDays": 1, "months": [2,5,8,11], "release": "ONS Quarterly Births Feb/May/Aug/Nov + 1d" },
+
+  "ofgem-price-cap":        { "type": "fixed-dom", "dom": 28, "months": [2,5,8,11], "release": "Ofgem cap announcement ~26th of Feb/May/Aug/Nov; fetch 28th" },
+
+  "money-supply":           { "type": "fixed-dom", "dom": 2, "release": "BoE Money & Credit ~21st-working-day; fetch 2nd of next month" },
+
+  "exchange-rates":         { "type": "daily", "release": "BoE daily fixing" },
+
+  "_curated_quarterly_or_static": {
+    "_comment": "Datasets that don't have a clean public release calendar OR are curated/hardcoded. Refresh on a fixed monthly cadence — pick a quiet day.",
+    "housing-supply":            { "type": "fixed-dom", "dom": 7, "release": "DLUHC quarterly; refresh monthly to catch revisions" },
+    "environment":               { "type": "fixed-dom", "dom": 8 },
+    "infrastructure":            { "type": "fixed-dom", "dom": 8 },
+    "water":                     { "type": "fixed-dom", "dom": 8 },
+    "justice":                   { "type": "fixed-dom", "dom": 9 },
+    "investment":                { "type": "fixed-dom", "dom": 9 },
+    "productivity":              { "type": "fixed-dom", "dom": 9 },
+    "research":                  { "type": "fixed-dom", "dom": 10 },
+    "startups":                  { "type": "fixed-dom", "dom": 10 },
+    "workforce":                 { "type": "fixed-dom", "dom": 10 },
+    "family":                    { "type": "fixed-dom", "dom": 11 },
+    "health-outcomes":           { "type": "fixed-dom", "dom": 11 },
+    "hospital-infrastructure":   { "type": "fixed-dom", "dom": 11 },
+    "safety":                    { "type": "fixed-dom", "dom": 12 },
+    "defence":                   { "type": "fixed-dom", "dom": 12 },
+    "taxation":                  { "type": "fixed-dom", "dom": 12 },
+    "industrial":                { "type": "fixed-dom", "dom": 13 },
+    "population":                { "type": "fixed-dom", "dom": 13 },
+    "education":                 { "type": "fixed-dom", "dom": 14 },
+    "culture":                   { "type": "fixed-dom", "dom": 14 }
+  }
+}
