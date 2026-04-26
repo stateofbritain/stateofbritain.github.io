@@ -553,33 +553,135 @@ node scripts/sync-api-data.js        # mirror to public/api/data
 
 ---
 
-## Status summary (Phase 3 implementation order)
+## Current state (live tiles + staged fetches)
 
-| Status | Metric | Sub-tab |
+Implementation has gone past the original 24-tile shortlist. Tile counts:
+Service Delivery 12, Sovereign Capability 12, Construction 11, Quality
+of Life 22 — about 57 tiles total wired through `src/dashboard/metrics.js`.
+
+Status taxonomy:
+- **Live** = data already in `public/data/{file}.json` (existing v1 dataset)
+  and the tile renders with real values today.
+- **Staged** = metric defined and tile placed; waiting on its fetch
+  script to run once to populate `public/data/{file}.json`.
+
+### Service Delivery (12 tiles)
+
+| Tile | Status | Source / dataset |
 |---|---|---|
-| Phase 3a | NHS RTT | Service Delivery |
-| Phase 3a | Asylum backlog | Service Delivery |
-| Phase 3a | Housing completions | Building |
-| Phase 3a | CPIH inflation | Quality of Life |
-| Phase 3a | Real wages | Quality of Life |
-| Phase 3a | HPI house prices | Quality of Life |
-| Phase 3b | School absence | Service Delivery |
-| Phase 3b | Train PPM | Service Delivery |
-| Phase 3b | Brick deliveries | Building |
-| Phase 3b | EPC new-build | Building |
-| Phase 3b | Heat pumps (BUS) | Building |
-| Phase 3b | CO₂ intensity | Sovereign |
-| Phase 3b | IoP chemicals | Sovereign |
-| Phase 3b | Tech incorporations | Sovereign |
-| Phase 3b | HomeLet/IPHRP rent | Quality of Life |
-| Phase 3b | Knife crime | Quality of Life |
-| Phase 3b | Quarterly births | Quality of Life |
-| Phase 3c | Domestic electricity bill | Service Delivery |
-| Phase 3c | Crown Court backlog | Service Delivery |
-| Phase 3c | FTTP premises | Building |
-| Phase 3c | Battery storage | Building |
-| Phase 3c | Industrial electricity | Sovereign |
-| Phase 3c | Gas import concentration | Sovereign |
-| Phase 3c | Food self-sufficiency | Sovereign |
+| NHS RTT waiting list | Live | nhs-waiting.json |
+| GP appointments per month | Live | gp-access.json |
+| Hospital bed occupancy | Live | hospital-capacity.json |
+| Mental health IAPT referrals | Live | mental-health.json |
+| Crown Court outstanding cases | Live (q'ly) | court-backlog-quarterly.json |
+| Rail PPM | Live | infrastructure.json |
+| Water leakage | Live | water.json |
+| Police officers (workforce) | Live | workforce.json |
+| Prison population | Live | justice.json |
+| Domestic energy bill (Ofgem cap) | Live (q'ly) | ofgem-price-cap.json |
+| Public sector net debt | Staged | fetch-public-sector-debt.js → ONS HF6X |
+| Asylum decisions backlog | Live | asylum-statistics.json |
 
-24 core. Bonus metrics added in Phase 4 expansion.
+### Sovereign Capability (12 tiles)
+
+| Tile | Status | Source / dataset |
+|---|---|---|
+| CO₂ intensity of generation | Staged | fetch-co2-intensity.js → NESO Carbon Intensity API |
+| Manufacturing output (K222) | Staged | fetch-mfg-output.js → ONS |
+| IoP chemicals (K226) | Staged | fetch-iop-chemicals.js → ONS |
+| Defence spending % GDP | Live | defence.json |
+| British Army personnel | Live | defence.json |
+| Royal Navy escort fleet | Live | defence.json |
+| RAF combat aircraft | Live | defence.json |
+| Greenhouse gas emissions | Live | environment.json |
+| R&D as % of GDP | Live | research.json |
+| UK VC investment | Live | startups.json |
+| High-growth firms | Live | startups.json |
+| Output per hour | Live | productivity.json |
+
+### Construction (11 tiles)
+
+| Tile | Status | Source / dataset |
+|---|---|---|
+| Housing completions (England) | Live | housing-supply.json |
+| Brick deliveries (SA) | Live | housing-supply.json |
+| EPC new-build lodgements | Live | housing-supply.json |
+| FTTP coverage | Live | infrastructure.json |
+| Gigabit broadband coverage | Live | infrastructure.json |
+| Rail route km electrified | Live | infrastructure.json |
+| Motorway network length | Live | infrastructure.json |
+| Reservoir capacity | Live | reservoirs.json |
+| Battery storage capacity | Staged | fetch-battery-storage-neso.js → NESO CKAN |
+| Construction output (KFAP) | Staged | fetch-construction-output.js → ONS |
+
+### Quality of Life (22 tiles)
+
+| Tile | Status | Source / dataset |
+|---|---|---|
+| CPIH inflation | Live | cpih.json (YoY enrichment) |
+| Real wages YoY (monthly) | Staged | fetch-real-wages-monthly.js → ONS AWE × CPIH |
+| Real median pay (annual) | Live | jobs.json realEarningsTrend |
+| House Price Index | Staged | fetch-house-price-index.js → HM Land Registry SPARQL |
+| Average mortgage rate | Live | money-supply.json |
+| Mortgage approvals | Live | money-supply.json |
+| Unemployment rate | Staged | fetch-unemployment-rate.js → ONS MGSX |
+| Employment rate | Staged | fetch-employment-rate.js → ONS LF24 |
+| Economic inactivity | Staged | fetch-economic-inactivity.js → ONS LF2S |
+| CPI inflation | Staged | fetch-cpi-inflation.js → ONS D7G7 |
+| Monthly GDP | Staged | fetch-monthly-gdp.js → ONS ECY2 |
+| Services output | Staged | fetch-services-output.js → ONS S2KU |
+| Retail sales | Staged | fetch-retail-sales.js → ONS J5EL |
+| Average weekly hours | Staged | fetch-avg-weekly-hours.js → ONS YBUS |
+| 10-year gilt yield | Live | borrowing.json giltYields |
+| Air quality (PM2.5) | Live | environment.json |
+| Total fertility rate | Live | family.json |
+| Average household size | Live | family.json |
+| Life expectancy at birth | Live | health-outcomes.json |
+| Healthy life expectancy | Live | health-outcomes.json |
+| Knife crime | Live (q'ly) | knife-crime-quarterly.json |
+| Violent crime | Live | safety.json |
+| Fear of crime | Live | safety.json |
+| Suicide rate | Live | mental-health.json |
+| Net migration | Live | immigration.json |
+
+### Fetch scripts written (committed; need one-time run to populate)
+
+```
+scripts/fetch-co2-intensity.js
+scripts/fetch-iop-chemicals.js
+scripts/fetch-real-wages-monthly.js
+scripts/fetch-house-price-index.js
+scripts/fetch-unemployment-rate.js
+scripts/fetch-employment-rate.js
+scripts/fetch-economic-inactivity.js
+scripts/fetch-monthly-gdp.js
+scripts/fetch-cpi-inflation.js
+scripts/fetch-public-sector-debt.js
+scripts/fetch-retail-sales.js
+scripts/fetch-mfg-output.js
+scripts/fetch-services-output.js
+scripts/fetch-construction-output.js
+scripts/fetch-avg-weekly-hours.js
+scripts/fetch-battery-storage-neso.js
+scripts/fetch-ofgem-price-cap.js          (hardcoded historical)
+scripts/fetch-knife-crime-quarterly.js    (hardcoded historical)
+scripts/fetch-court-backlog-quarterly.js  (hardcoded historical)
+scripts/lib/ons-fetch.js                  (shared helper)
+```
+
+The first 16 hit live ONS / NESO / Land Registry endpoints. The last
+three hold hardcoded historical series until XLSX-discovery routines are
+written. All work via the cadence-bucketed `.github/workflows/dashboard-fetches.yml`.
+
+### Future (post-Phase-3)
+
+- XLSX-discovery routines for Ofgem cap latest, MoJ court tools, ONS
+  CSEW knife crime quarterly — replace hardcoded fallbacks.
+- EPC API migration before 30 May 2026 sunset.
+- Companies House tech-SIC incorporations (free API key needed).
+- HomeLet rents scrape, falling back to ONS IPHRP.
+- Heat pumps via DESNZ Boiler Upgrade Scheme ODS.
+- DESNZ gas-import country concentration via Energy Trends.
+- Hero tile (`size="hero"`) for the headline metric of each sub-tab.
+- Cross-tab period toggle.
+- Freshness-coloured dots on tiles.

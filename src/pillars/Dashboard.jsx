@@ -265,6 +265,7 @@ function ServiceDelivery() {
         <MetricTile metric={METRICS["sd-mental-health-iapt"]} />
         <MetricTile metric={METRICS["sd-police-officers"]} />
         <MetricTile metric={METRICS["sd-prison-population"]} />
+        <MetricTile metric={METRICS["sd-energy-bill"]} />
         <MetricTile metric={METRICS["sd-public-sector-debt"]} />
         <MetricTile metric={METRICS["sd-asylum-backlog"]} />
       </TileGrid>

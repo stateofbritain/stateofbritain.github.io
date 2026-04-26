@@ -80,7 +80,10 @@ jobs:
           echo "no weekly fetches yet"
 
       # ── MONTHLY ─────────────────────────────────────────────────────
-      - name: Monthly fetches
+      # Two groups: new ONS/NESO fetches written for the dashboard, plus
+      # the broader v1-dataset refreshes that update existing public/data
+      # JSON files used elsewhere on the site.
+      - name: Monthly fetches — dashboard ONS/NESO/HMLR
         if: steps.cadence.outputs.bucket == 'monthly'
         run: |
           node scripts/fetch-iop-chemicals.js               || echo "iop-chemicals failed"
@@ -98,7 +101,41 @@ jobs:
           node scripts/fetch-services-output.js             || echo "services-output failed"
           node scripts/fetch-construction-output.js         || echo "construction-output failed"
           node scripts/fetch-avg-weekly-hours.js            || echo "avg-hours failed"
-          # node scripts/fetch-nhs.js                       || echo "nhs failed"
+
+      - name: Monthly fetches — existing v1 dataset refresh
+        if: steps.cadence.outputs.bucket == 'monthly'
+        run: |
+          # Datasets sourced via APIs / live downloads — refresh fully.
+          node scripts/fetch-money-supply.js                || echo "money-supply failed"
+          node scripts/fetch-borrowing.js                   || echo "borrowing failed"
+          node scripts/fetch-exchange-rates.js              || echo "exchange-rates failed"
+          node scripts/fetch-housing-supply.js              || echo "housing-supply failed"
+          node scripts/fetch-nhs.js                         || echo "nhs failed"
+          node scripts/fetch-gp-access.js                   || echo "gp-access failed"
+          node scripts/fetch-energy.js                      || echo "energy failed"
+          node scripts/fetch-environment.js                 || echo "environment failed"
+          node scripts/fetch-infrastructure.js              || echo "infrastructure failed"
+          node scripts/fetch-water.js                       || echo "water failed"
+          node scripts/fetch-immigration.js                 || echo "immigration failed"
+          node scripts/fetch-justice.js                     || echo "justice failed"
+          node scripts/fetch-jobs.js                        || echo "jobs failed"
+          node scripts/fetch-investment.js                  || echo "investment failed"
+          node scripts/fetch-productivity.js                || echo "productivity failed"
+          node scripts/fetch-research.js                    || echo "research failed"
+          node scripts/fetch-startups.js                    || echo "startups failed"
+          node scripts/fetch-workforce.js                   || echo "workforce failed"
+          node scripts/fetch-family.js                      || echo "family failed"
+          node scripts/fetch-health-outcomes.js             || echo "health-outcomes failed"
+          node scripts/fetch-hospital-infrastructure.js     || echo "hospital-infra failed"
+          node scripts/fetch-safety.js                      || echo "safety failed"
+          node scripts/fetch-defence.js                     || echo "defence failed"
+          node scripts/fetch-taxation.js                    || echo "taxation failed"
+          node scripts/fetch-industrial.js                  || echo "industrial failed"
+          node scripts/fetch-population.js                  || echo "population failed"
+          # Curated / hardcoded datasets — re-running just regenerates same JSON.
+          node scripts/fetch-asylum-statistics.js           || echo "asylum-statistics failed"
+          node scripts/fetch-education.js                   || echo "education failed"
+          node scripts/fetch-culture.js                     || echo "culture failed"
           # node scripts/fetch-brick-deliveries.js          || echo "brick-deliveries failed"
           # node scripts/fetch-heat-pumps-bus.js            || echo "heat-pumps failed"
           # node scripts/fetch-gas-imports.js               || echo "gas-imports failed"
@@ -109,8 +146,9 @@ jobs:
         if: steps.cadence.outputs.bucket == 'quarterly'
         run: |
           node scripts/fetch-asylum-statistics.js           || echo "asylum failed"
-          # node scripts/fetch-court-backlog.js             || echo "court failed"
-          # node scripts/fetch-ofgem-price-cap.js           || echo "ofgem-cap failed"
+          node scripts/fetch-ofgem-price-cap.js             || echo "ofgem-cap failed"
+          node scripts/fetch-court-backlog-quarterly.js     || echo "court failed"
+          node scripts/fetch-knife-crime-quarterly.js       || echo "knife-crime failed"
           # node scripts/fetch-qep-industrial.js            || echo "qep-industrial failed"
           # node scripts/fetch-births-quarterly.js          || echo "births failed"
 
