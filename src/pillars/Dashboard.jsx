@@ -49,8 +49,8 @@ const noticeStyle = {
 
 // ── Overview ────────────────────────────────────────────────────────
 
-// Overview pulls live deltas from the metric registry. Pick four
-// distinctive metrics per sub-tab — the rest live in the sub-tab itself.
+// Overview pulls live deltas from the metric registry. Only monthly
+// (or faster) metrics belong on the dashboard — slower data lives in /data.
 const OVERVIEW_SECTIONS = [
   {
     key: "service-delivery",
@@ -58,8 +58,7 @@ const OVERVIEW_SECTIONS = [
     metricIds: [
       "sd-nhs-rtt-waiting-list",
       "sd-gp-appointments",
-      "sd-court-backlog",
-      "sd-asylum-backlog",
+      "sd-public-sector-debt",
     ],
   },
   {
@@ -67,19 +66,18 @@ const OVERVIEW_SECTIONS = [
     label: "Sovereign Capability",
     metricIds: [
       "sc-co2-intensity",
-      "sc-defence-spending",
-      "sc-ghg-emissions",
       "sc-iop-chemicals",
+      "sc-mfg-output",
+      "sc-gas-import-concentration",
     ],
   },
   {
     key: "construction",
     label: "Construction",
     metricIds: [
-      "bd-housing-completions",
       "bd-brick-deliveries",
-      "bd-epc-new-builds",
-      "bd-battery-storage",
+      "bd-heat-pumps-bus",
+      "qol-construction-output",
     ],
   },
   {
@@ -182,7 +180,6 @@ function Overview({ navigate, period }) {
   return (
     <div>
       <h2 style={{ ...h2Style, margin: "0 0 18px" }}>Dashboard</h2>
-      <div style={noticeStyle}>{PLACEHOLDER_NOTICE}</div>
 
       {OVERVIEW_SECTIONS.map((section) => (
         <div key={section.key} style={{ marginBottom: 28 }}>
@@ -218,8 +215,6 @@ function Overview({ navigate, period }) {
 
 // ── Sub-tab content ─────────────────────────────────────────────────
 
-const PLACEHOLDER_NOTICE = "Illustrative tiles. Real metrics will be wired in a later phase.";
-
 function TileGrid({ children }) {
   return (
     <div
@@ -240,20 +235,10 @@ function ServiceDelivery({ period }) {
     <div>
       <h2 style={h2Style}>Service Delivery</h2>
       <p style={subStyle}>How well the state runs the services it provides.</p>
-      <div style={noticeStyle}>Some tiles still illustrative; live tiles wire as fetch scripts land.</div>
       <TileGrid>
         <MetricTile period={period} metric={METRICS["sd-nhs-rtt-waiting-list"]} />
         <MetricTile period={period} metric={METRICS["sd-gp-appointments"]} />
-        <MetricTile period={period} metric={METRICS["sd-court-backlog"]} />
-        <MetricTile period={period} metric={METRICS["sd-rail-punctuality"]} />
-        <MetricTile period={period} metric={METRICS["sd-water-leakage"]} />
-        <MetricTile period={period} metric={METRICS["sd-hospital-occupancy"]} />
-        <MetricTile period={period} metric={METRICS["sd-mental-health-iapt"]} />
-        <MetricTile period={period} metric={METRICS["sd-police-officers"]} />
-        <MetricTile period={period} metric={METRICS["sd-prison-population"]} />
-        <MetricTile period={period} metric={METRICS["sd-energy-bill"]} />
         <MetricTile period={period} metric={METRICS["sd-public-sector-debt"]} />
-        <MetricTile period={period} metric={METRICS["sd-asylum-backlog"]} />
       </TileGrid>
     </div>
   );
@@ -264,22 +249,12 @@ function SovereignCapability({ period }) {
     <div>
       <h2 style={h2Style}>Sovereign Capability</h2>
       <p style={subStyle}>What Britain can produce, defend, and supply on its own.</p>
-      <div style={noticeStyle}>Some tiles still illustrative; live tiles wire as fetch scripts land.</div>
       <TileGrid>
         <MetricTile period={period} metric={METRICS["sc-co2-intensity"]} />
         <MetricTile period={period} metric={METRICS["sc-mfg-output"]} />
         <MetricTile period={period} metric={METRICS["sc-iop-chemicals"]} />
         <MetricTile period={period} metric={METRICS["sc-gas-import-concentration"]} />
-        <MetricTile period={period} metric={METRICS["sc-defence-spending"]} />
-        <MetricTile period={period} metric={METRICS["sc-army-personnel"]} />
-        <MetricTile period={period} metric={METRICS["sc-naval-escorts"]} />
-        <MetricTile period={period} metric={METRICS["sc-combat-aircraft"]} />
-        <MetricTile period={period} metric={METRICS["sc-ghg-emissions"]} />
-        <MetricTile period={period} metric={METRICS["sc-rd-pct-gdp"]} />
-        <MetricTile period={period} metric={METRICS["sc-vc-investment"]} />
-        <MetricTile period={period} metric={METRICS["sc-high-growth-firms"]} />
         <MetricTile period={period} metric={METRICS["sc-tech-incorporations"]} />
-        <MetricTile period={period} metric={METRICS["sc-productivity"]} />
       </TileGrid>
     </div>
   );
@@ -290,18 +265,9 @@ function Construction({ period }) {
     <div>
       <h2 style={h2Style}>Construction</h2>
       <p style={subStyle}>What the country is physically building.</p>
-      <div style={noticeStyle}>Some tiles still illustrative; live tiles wire as fetch scripts land.</div>
       <TileGrid>
-        <MetricTile period={period} metric={METRICS["bd-housing-completions"]} />
         <MetricTile period={period} metric={METRICS["bd-heat-pumps-bus"]} />
         <MetricTile period={period} metric={METRICS["bd-brick-deliveries"]} />
-        <MetricTile period={period} metric={METRICS["bd-epc-new-builds"]} />
-        <MetricTile period={period} metric={METRICS["bd-fttp-coverage"]} />
-        <MetricTile period={period} metric={METRICS["bd-gigabit-coverage"]} />
-        <MetricTile period={period} metric={METRICS["bd-rail-electrification"]} />
-        <MetricTile period={period} metric={METRICS["bd-motorway-km"]} />
-        <MetricTile period={period} metric={METRICS["bd-reservoir-capacity"]} />
-        <MetricTile period={period} metric={METRICS["bd-battery-storage"]} />
         <MetricTile period={period} metric={METRICS["qol-construction-output"]} />
       </TileGrid>
     </div>
@@ -313,31 +279,20 @@ function QualityOfLife({ period }) {
     <div>
       <h2 style={h2Style}>Quality of Life</h2>
       <p style={subStyle}>What daily life in Britain looks like.</p>
-      <div style={noticeStyle}>Some tiles still illustrative; live tiles wire as fetch scripts land.</div>
       <TileGrid>
-        <MetricTile period={period} metric={METRICS["ql-real-wages-annual"]} />
         <MetricTile period={period} metric={METRICS["ql-real-wages-monthly"]} />
         <MetricTile period={period} metric={METRICS["ql-cpih-inflation"]} />
+        <MetricTile period={period} metric={METRICS["ql-cpi-inflation"]} />
         <MetricTile period={period} metric={METRICS["ql-house-price"]} />
         <MetricTile period={period} metric={METRICS["ql-unemployment-rate"]} />
+        <MetricTile period={period} metric={METRICS["ql-employment-rate"]} />
+        <MetricTile period={period} metric={METRICS["ql-economic-inactivity"]} />
         <MetricTile period={period} metric={METRICS["qol-monthly-gdp"]} />
         <MetricTile period={period} metric={METRICS["ql-gilt-yield-10y"]} />
-        <MetricTile period={period} metric={METRICS["ql-pm25"]} />
-        <MetricTile period={period} metric={METRICS["ql-tfr"]} />
-        <MetricTile period={period} metric={METRICS["ql-births-quarterly"]} />
-        <MetricTile period={period} metric={METRICS["ql-household-size"]} />
-        <MetricTile period={period} metric={METRICS["ql-life-expectancy"]} />
-        <MetricTile period={period} metric={METRICS["ql-healthy-life-expectancy"]} />
-        <MetricTile period={period} metric={METRICS["ql-knife-crime"]} />
-        <MetricTile period={period} metric={METRICS["ql-violent-crime"]} />
-        <MetricTile period={period} metric={METRICS["ql-fear-of-crime"]} />
-        <MetricTile period={period} metric={METRICS["ql-suicide-rate"]} />
         <MetricTile period={period} metric={METRICS["ql-mortgage-rate"]} />
         <MetricTile period={period} metric={METRICS["ql-mortgage-approvals"]} />
-        <MetricTile period={period} metric={METRICS["ql-net-migration"]} />
-        <MetricTile period={period} metric={METRICS["ql-tax-burden"]} />
         <MetricTile period={period} metric={METRICS["ql-gbp-usd"]} />
-        <MetricTile period={period} metric={METRICS["ql-hate-crime"]} />
+        <MetricTile period={period} metric={METRICS["ql-retail-sales"]} />
         <MetricTile period={period} metric={METRICS["qol-services-output"]} />
         <MetricTile period={period} metric={METRICS["ql-avg-hours"]} />
       </TileGrid>
