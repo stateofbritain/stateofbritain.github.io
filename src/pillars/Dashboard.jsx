@@ -78,7 +78,7 @@ const OVERVIEW_SECTIONS = [
       "qol-construction-output",
       "bd-brick-deliveries",
       "bd-iop-cement",
-      "bd-iop-steel",
+      "bd-steel-imports",
     ],
   },
   {
@@ -270,7 +270,7 @@ function Construction({ period }) {
         <MetricTile period={period} metric={METRICS["qol-construction-output"]} />
         <MetricTile period={period} metric={METRICS["bd-brick-deliveries"]} />
         <MetricTile period={period} metric={METRICS["bd-iop-cement"]} />
-        <MetricTile period={period} metric={METRICS["bd-iop-steel"]} />
+        <MetricTile period={period} metric={METRICS["bd-steel-imports"]} />
         <MetricTile period={period} metric={METRICS["bd-heat-pumps-bus"]} />
       </TileGrid>
     </div>
