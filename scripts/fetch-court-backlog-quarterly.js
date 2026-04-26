@@ -25,41 +25,10 @@ import {
 
 const COLLECTION = "https://www.gov.uk/government/collections/criminal-court-statistics";
 
-// Hardcoded historical fallback (Q1 2018 – present). Refreshed when
-// live discovery succeeds. Source: MoJ Criminal Court Statistics.
-const FALLBACK = [
-  { quarter: "2018-Q1", outstanding: 38900 },
-  { quarter: "2018-Q2", outstanding: 39400 },
-  { quarter: "2018-Q3", outstanding: 38700 },
-  { quarter: "2018-Q4", outstanding: 33700 },
-  { quarter: "2019-Q1", outstanding: 33000 },
-  { quarter: "2019-Q2", outstanding: 36300 },
-  { quarter: "2019-Q3", outstanding: 37400 },
-  { quarter: "2019-Q4", outstanding: 39300 },
-  { quarter: "2020-Q1", outstanding: 41100 },
-  { quarter: "2020-Q2", outstanding: 47500 },
-  { quarter: "2020-Q3", outstanding: 53300 },
-  { quarter: "2020-Q4", outstanding: 57000 },
-  { quarter: "2021-Q1", outstanding: 59500 },
-  { quarter: "2021-Q2", outstanding: 60200 },
-  { quarter: "2021-Q3", outstanding: 60100 },
-  { quarter: "2021-Q4", outstanding: 58700 },
-  { quarter: "2022-Q1", outstanding: 58100 },
-  { quarter: "2022-Q2", outstanding: 60400 },
-  { quarter: "2022-Q3", outstanding: 62500 },
-  { quarter: "2022-Q4", outstanding: 64700 },
-  { quarter: "2023-Q1", outstanding: 65000 },
-  { quarter: "2023-Q2", outstanding: 67700 },
-  { quarter: "2023-Q3", outstanding: 67400 },
-  { quarter: "2023-Q4", outstanding: 67500 },
-  { quarter: "2024-Q1", outstanding: 67700 },
-  { quarter: "2024-Q2", outstanding: 70500 },
-  { quarter: "2024-Q3", outstanding: 73100 },
-  { quarter: "2024-Q4", outstanding: 76500 },
-  { quarter: "2025-Q1", outstanding: 78200 },
-  { quarter: "2025-Q2", outstanding: 79100 },
-  { quarter: "2025-Q3", outstanding: 80200 },
-];
+// No hardcoded fallback — only real upstream-fetched data is admissible
+// on the dashboard. When live XLSX discovery fails, the script writes an
+// empty series and the tile shows "no data" until the next successful run.
+const FALLBACK = [];
 
 /**
  * Try to extract a quarterly outstanding-cases series from the MoJ XLSX.

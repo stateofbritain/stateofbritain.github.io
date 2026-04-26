@@ -1,72 +1,107 @@
 /**
  * fetch-heat-pumps-bus.js
  *
- * Monthly heat pump installations under the DESNZ Boiler Upgrade Scheme
- * (England & Wales). Captures both ASHP and GSHP redemptions.
+ * Monthly heat pump installations under the DESNZ Boiler Upgrade Scheme.
  *
- * Source: DESNZ Boiler Upgrade Scheme statistics (ODS, monthly release).
+ * Source: DESNZ — Boiler Upgrade Scheme statistics (monthly ODS/XLSX).
  * https://www.gov.uk/government/collections/boiler-upgrade-scheme-statistics
  *
- * Hardcoded historical for now; XLSX/ODS discovery + parse routine to follow.
+ * Discovery + parse routine. No hardcoded fallback — if discovery fails the
+ * tile shows "no data" until the next successful run.
  *
  * Output: public/data/heat-pumps-bus.json (sob-dataset-v1)
  */
 import { writeFileSync } from "fs";
+import {
+  discoverGovUkAsset,
+  fetchBuffer,
+  readXlsx,
+  sheetToRows,
+} from "./lib/xlsx-fetch.js";
 
-// Monthly Boiler Upgrade Scheme grant redemptions (heat pumps installed).
-// Source: DESNZ BUS statistics. ASHP + GSHP combined.
-// Scheme launched May 2022; £5,000 standard grant from Oct 2024.
-const HISTORY = [
-  { month: "2022-05", redemptions:  140 },
-  { month: "2022-06", redemptions:  410 },
-  { month: "2022-07", redemptions:  680 },
-  { month: "2022-08", redemptions:  870 },
-  { month: "2022-09", redemptions: 1100 },
-  { month: "2022-10", redemptions: 1320 },
-  { month: "2022-11", redemptions: 1480 },
-  { month: "2022-12", redemptions: 1380 },
-  { month: "2023-01", redemptions: 1620 },
-  { month: "2023-02", redemptions: 1880 },
-  { month: "2023-03", redemptions: 2150 },
-  { month: "2023-04", redemptions: 2240 },
-  { month: "2023-05", redemptions: 2480 },
-  { month: "2023-06", redemptions: 2620 },
-  { month: "2023-07", redemptions: 2750 },
-  { month: "2023-08", redemptions: 2860 },
-  { month: "2023-09", redemptions: 2920 },
-  { month: "2023-10", redemptions: 3050 },
-  { month: "2023-11", redemptions: 3180 },
-  { month: "2023-12", redemptions: 2980 },
-  { month: "2024-01", redemptions: 3290 },
-  { month: "2024-02", redemptions: 3450 },
-  { month: "2024-03", redemptions: 3680 },
-  { month: "2024-04", redemptions: 3820 },
-  { month: "2024-05", redemptions: 3970 },
-  { month: "2024-06", redemptions: 4080 },
-  { month: "2024-07", redemptions: 4150 },
-  { month: "2024-08", redemptions: 4220 },
-  { month: "2024-09", redemptions: 4310 },
-  { month: "2024-10", redemptions: 4530 },  // £7.5k → £5k uplift effect
-  { month: "2024-11", redemptions: 4820 },
-  { month: "2024-12", redemptions: 4680 },
-  { month: "2025-01", redemptions: 4910 },
-  { month: "2025-02", redemptions: 5040 },
-  { month: "2025-03", redemptions: 5180 },
-  { month: "2025-04", redemptions: 5260 },
-  { month: "2025-05", redemptions: 5340 },
-  { month: "2025-06", redemptions: 5410 },
-  { month: "2025-07", redemptions: 5470 },
-  { month: "2025-08", redemptions: 5510 },
-  { month: "2025-09", redemptions: 5550 },
-  { month: "2025-10", redemptions: 5650 },
-  { month: "2025-11", redemptions: 5720 },
-  { month: "2025-12", redemptions: 5680 },
-  { month: "2026-01", redemptions: 5810 },
-];
+const COLLECTION = "https://www.gov.uk/government/collections/boiler-upgrade-scheme-statistics";
+
+const MONTH_TO_NUM = {
+  jan: "01", feb: "02", mar: "03", apr: "04", may: "05", jun: "06",
+  jul: "07", aug: "08", sep: "09", oct: "10", nov: "11", dec: "12",
+  january: "01", february: "02", march: "03", april: "04",
+  june: "06", july: "07", august: "08", september: "09",
+  october: "10", november: "11", december: "12",
+};
+
+function parseMonthHeader(s) {
+  if (typeof s !== "string") return null;
+  const a = s.trim().toLowerCase().match(/^([a-z]{3,9})\s+(\d{4})$/);
+  if (a && MONTH_TO_NUM[a[1]]) return `${a[2]}-${MONTH_TO_NUM[a[1]]}`;
+  const b = s.trim().match(/^(\d{4})-(\d{2})$/);
+  if (b) return s.trim();
+  return null;
+}
+
+function extractFromSpreadsheet(buffer) {
+  const wb = readXlsx(buffer);
+  for (const sheetName of wb.SheetNames) {
+    const rows = sheetToRows(wb.Sheets[sheetName]);
+    if (!rows || rows.length < 5) continue;
+    // Look for a monthly time column and an ASHP/GSHP redemptions column.
+    let hdrIdx = -1;
+    for (let i = 0; i < Math.min(15, rows.length); i++) {
+      const cells = (rows[i] || []).map((c) => String(c ?? "").toLowerCase());
+      if (cells.some((c) => /redemptions?|installed|grants/i.test(c)) &&
+          cells.some((c) => /month|date/i.test(c))) {
+        hdrIdx = i;
+        break;
+      }
+    }
+    if (hdrIdx < 0) continue;
+    const header = rows[hdrIdx].map((c) => String(c ?? "").toLowerCase());
+    const monthCol = header.findIndex((c) => /^month$|^date$|reporting/i.test(c));
+    const ashpCol = header.findIndex((c) => /ashp.*redempt|air.*redempt/i.test(c));
+    const gshpCol = header.findIndex((c) => /gshp.*redempt|ground.*redempt/i.test(c));
+    const totalCol = header.findIndex((c) => /^total\s+redempt|all redempt/i.test(c));
+    if (monthCol < 0) continue;
+
+    const data = [];
+    for (let r = hdrIdx + 1; r < rows.length; r++) {
+      const period = parseMonthHeader(String(rows[r][monthCol] ?? ""));
+      if (!period) continue;
+      let count;
+      if (totalCol >= 0) count = Number.parseFloat(rows[r][totalCol]);
+      else if (ashpCol >= 0 || gshpCol >= 0) {
+        const a = Number.parseFloat(rows[r][ashpCol]) || 0;
+        const g = Number.parseFloat(rows[r][gshpCol]) || 0;
+        count = a + g;
+      }
+      if (Number.isFinite(count) && count > 0) {
+        data.push({ month: period, redemptions: Math.round(count) });
+      }
+    }
+    if (data.length > 0) return data.sort((a, b) => a.month.localeCompare(b.month));
+  }
+  return null;
+}
 
 async function main() {
-  const sorted = HISTORY.slice().sort((a, b) => a.month.localeCompare(b.month));
-  const latest = sorted[sorted.length - 1];
+  let data = [];
+  let liveUrl = null;
+
+  try {
+    const url = await discoverGovUkAsset({
+      collectionUrl: COLLECTION,
+      filenamePattern: /Boiler.Upgrade.Scheme.*\.(ods|xlsx)$/i,
+    });
+    if (url) {
+      console.log(`BUS file discovered: ${url}`);
+      const buf = await fetchBuffer(url);
+      const extracted = extractFromSpreadsheet(buf);
+      if (extracted) { data = extracted; liveUrl = url; }
+      else console.warn("Could not extract redemptions from spreadsheet; series empty.");
+    } else {
+      console.warn("No BUS file matched on collection page; series empty.");
+    }
+  } catch (err) {
+    console.warn(`Discovery / parse failed (${err.message}); series empty.`);
+  }
 
   const output = {
     $schema: "sob-dataset-v1",
@@ -78,23 +113,23 @@ async function main() {
       {
         id: "desnz-bus",
         name: "DESNZ — Boiler Upgrade Scheme statistics",
-        url: "https://www.gov.uk/government/collections/boiler-upgrade-scheme-statistics",
+        url: liveUrl ?? COLLECTION,
         publisher: "DESNZ",
-        note: "Monthly air-source + ground-source heat pump grant redemptions in England & Wales. Launched May 2022; grant uplifted to £7.5k → £5k standard from Oct 2024.",
+        note: liveUrl
+          ? "Monthly heat pump grant redemptions (ASHP + GSHP) under the BUS scheme."
+          : "Live discovery did not succeed this run; series empty.",
       },
     ],
-    snapshot: {
-      redemptions: latest.redemptions,
-      redemptionsMonth: latest.month,
-    },
+    snapshot: data.length
+      ? { redemptions: data[data.length - 1].redemptions, redemptionsMonth: data[data.length - 1].month }
+      : {},
     series: {
       monthly: {
         sourceId: "desnz-bus",
         timeField: "month",
         unit: "grants redeemed / month",
-        description:
-          "Monthly heat pump grant redemptions under the Boiler Upgrade Scheme.",
-        data: sorted,
+        description: "Monthly heat pump grant redemptions under the Boiler Upgrade Scheme.",
+        data,
       },
     },
   };
@@ -104,7 +139,7 @@ async function main() {
     JSON.stringify(output, null, 2) + "\n"
   );
   console.log(
-    `✓ public/data/heat-pumps-bus.json (${sorted.length} months; latest ${latest.redemptions} for ${latest.month})`
+    `${data.length > 0 ? "✓" : "⚠"} public/data/heat-pumps-bus.json (${data.length} months; source=${liveUrl ? "live" : "empty (no fallback)"})`
   );
 }
 

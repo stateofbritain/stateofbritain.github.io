@@ -23,40 +23,10 @@ import {
 const ONS_DATASET_URL =
   "https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/datasets/policeforceareadatatables";
 
-// Hardcoded fallback (Q1 2018 – Q3 2025). Source: ONS Crime in England & Wales.
-const FALLBACK = [
-  { quarter: "2018-Q1", offences: 11200 },
-  { quarter: "2018-Q2", offences: 11600 },
-  { quarter: "2018-Q3", offences: 11900 },
-  { quarter: "2018-Q4", offences: 11400 },
-  { quarter: "2019-Q1", offences: 11900 },
-  { quarter: "2019-Q2", offences: 12000 },
-  { quarter: "2019-Q3", offences: 12300 },
-  { quarter: "2019-Q4", offences: 11800 },
-  { quarter: "2020-Q1", offences: 11400 },
-  { quarter: "2020-Q2", offences:  6700 }, // COVID lockdown
-  { quarter: "2020-Q3", offences:  9900 },
-  { quarter: "2020-Q4", offences:  9100 },
-  { quarter: "2021-Q1", offences:  8700 },
-  { quarter: "2021-Q2", offences: 10800 },
-  { quarter: "2021-Q3", offences: 12000 },
-  { quarter: "2021-Q4", offences: 11500 },
-  { quarter: "2022-Q1", offences: 11200 },
-  { quarter: "2022-Q2", offences: 11900 },
-  { quarter: "2022-Q3", offences: 12700 },
-  { quarter: "2022-Q4", offences: 12400 },
-  { quarter: "2023-Q1", offences: 12300 },
-  { quarter: "2023-Q2", offences: 12500 },
-  { quarter: "2023-Q3", offences: 13000 },
-  { quarter: "2023-Q4", offences: 12700 },
-  { quarter: "2024-Q1", offences: 12500 },
-  { quarter: "2024-Q2", offences: 13200 },
-  { quarter: "2024-Q3", offences: 13300 },
-  { quarter: "2024-Q4", offences: 12200 },
-  { quarter: "2025-Q1", offences: 11600 },
-  { quarter: "2025-Q2", offences: 12100 },
-  { quarter: "2025-Q3", offences: 12600 },
-];
+// No hardcoded fallback — dashboard shows only real upstream-fetched data.
+// When live XLSX discovery fails, the JSON is written empty and the tile
+// shows "no data" until the next run that succeeds.
+const FALLBACK = [];
 
 function extractFromXlsx(buffer) {
   const wb = readXlsx(buffer);

@@ -27,46 +27,10 @@ import {
 
 const COLLECTION = "https://www.gov.uk/government/statistics/energy-trends-section-4-gas";
 
-// Hardcoded fallback monthly HHI (×10000). Approximations grounded in
-// public reporting: pre-2022 the UK had a relatively diverse mix
-// (Norway ~50%, Qatar 15-20%, Netherlands ~10%, others), HHI ~3000-3500.
-// Russian-gas exit + LNG-import shift drove the headline towards Norway
-// dominance (~60-70%), pushing HHI to 4500-5500. Continental pipeline
-// imports remain a smaller share.
-const FALLBACK = [
-  { month: "2018-01", hhi: 3300 },
-  { month: "2018-04", hhi: 3250 },
-  { month: "2018-07", hhi: 3300 },
-  { month: "2018-10", hhi: 3400 },
-  { month: "2019-01", hhi: 3200 },
-  { month: "2019-04", hhi: 3100 },
-  { month: "2019-07", hhi: 3200 },
-  { month: "2019-10", hhi: 3300 },
-  { month: "2020-01", hhi: 3300 },
-  { month: "2020-04", hhi: 3500 },
-  { month: "2020-07", hhi: 3400 },
-  { month: "2020-10", hhi: 3300 },
-  { month: "2021-01", hhi: 3200 },
-  { month: "2021-04", hhi: 3300 },
-  { month: "2021-07", hhi: 3500 },
-  { month: "2021-10", hhi: 3700 },
-  { month: "2022-01", hhi: 3800 },
-  { month: "2022-04", hhi: 4200 },
-  { month: "2022-07", hhi: 4400 },
-  { month: "2022-10", hhi: 4600 },
-  { month: "2023-01", hhi: 4900 },
-  { month: "2023-04", hhi: 5100 },
-  { month: "2023-07", hhi: 5300 },
-  { month: "2023-10", hhi: 5400 },
-  { month: "2024-01", hhi: 5500 },
-  { month: "2024-04", hhi: 5400 },
-  { month: "2024-07", hhi: 5300 },
-  { month: "2024-10", hhi: 5200 },
-  { month: "2025-01", hhi: 5100 },
-  { month: "2025-04", hhi: 5000 },
-  { month: "2025-07", hhi: 4950 },
-  { month: "2025-10", hhi: 4900 },
-];
+// No hardcoded fallback — only real upstream-computed HHI is admissible.
+// If live discovery / parse fails, the JSON is written empty and the tile
+// shows "no data" until the next successful run.
+const FALLBACK = [];
 
 const MONTH_TO_NUM = {
   jan: "01", feb: "02", mar: "03", apr: "04", may: "05", jun: "06",

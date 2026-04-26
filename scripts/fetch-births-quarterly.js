@@ -2,57 +2,81 @@
  * fetch-births-quarterly.js
  *
  * Quarterly live births in England & Wales. ONS launched this dataset in
- * Feb 2025 (previously annual-only). The publication will move to annual
- * cadence again from May 2026, but the quarterly back-series remains the
- * fastest-cadence available.
+ * Feb 2025; reverts to annual cadence May 2026.
  *
  * Source: ONS — Quarterly births in England and Wales.
  * https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/datasets/quarterlybirthsenglandandwales
  *
- * No clean API; values held verbatim until the discovery + CSV-parse
- * routine is wired.
+ * Discovery + CSV parsing from the ONS dataset page. No hardcoded fallback —
+ * if discovery fails, the tile reads as "no data" rather than rendering
+ * approximate values.
  *
  * Output: public/data/births-quarterly.json (sob-dataset-v1)
  */
 import { writeFileSync } from "fs";
+import { fetchHtml, fetchBuffer } from "./lib/xlsx-fetch.js";
 
-// Live births in England & Wales by quarter. Source: ONS Quarterly Births.
-const HISTORY = [
-  { quarter: "2018-Q1", births: 167650 },
-  { quarter: "2018-Q2", births: 174030 },
-  { quarter: "2018-Q3", births: 174530 },
-  { quarter: "2018-Q4", births: 162890 },
-  { quarter: "2019-Q1", births: 161900 },
-  { quarter: "2019-Q2", births: 167400 },
-  { quarter: "2019-Q3", births: 169300 },
-  { quarter: "2019-Q4", births: 158900 },
-  { quarter: "2020-Q1", births: 154700 },
-  { quarter: "2020-Q2", births: 159400 },
-  { quarter: "2020-Q3", births: 167800 },
-  { quarter: "2020-Q4", births: 152800 },
-  { quarter: "2021-Q1", births: 144700 },
-  { quarter: "2021-Q2", births: 156800 },
-  { quarter: "2021-Q3", births: 168800 },
-  { quarter: "2021-Q4", births: 154800 },
-  { quarter: "2022-Q1", births: 145200 },
-  { quarter: "2022-Q2", births: 152400 },
-  { quarter: "2022-Q3", births: 159700 },
-  { quarter: "2022-Q4", births: 148000 },
-  { quarter: "2023-Q1", births: 138400 },
-  { quarter: "2023-Q2", births: 145700 },
-  { quarter: "2023-Q3", births: 154100 },
-  { quarter: "2023-Q4", births: 142100 },
-  { quarter: "2024-Q1", births: 132800 },
-  { quarter: "2024-Q2", births: 144000 },
-  { quarter: "2024-Q3", births: 152083 },
-  { quarter: "2024-Q4", births: 145147 },
-  { quarter: "2025-Q1", births: 136900 },
-  { quarter: "2025-Q2", births: 143600 },
-];
+const ONS_DATASET_URL =
+  "https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/datasets/quarterlybirthsenglandandwales";
+
+function findCsvLinks(html) {
+  const re = /https?:\/\/[^"'\s]+?\.csv/gi;
+  return [...new Set(html.match(re) || [])];
+}
+
+async function tryLiveCsv() {
+  try {
+    const html = await fetchHtml(ONS_DATASET_URL);
+    for (const url of findCsvLinks(html).slice(0, 5)) {
+      try {
+        const buf = await fetchBuffer(url);
+        const text = buf.toString("utf-8");
+        const data = parseQuarterlyCsv(text);
+        if (data && data.length > 0) return { data, url };
+      } catch (err) {
+        console.warn(`  CSV ${url}: ${err.message}`);
+      }
+    }
+  } catch (err) {
+    console.warn(`Discovery failed: ${err.message}`);
+  }
+  return null;
+}
+
+function parseQuarterlyCsv(text) {
+  // Best-effort: parse a CSV with a quarter-like column and a numeric births
+  // column. ONS releases vary; we hunt for likely column headers.
+  const lines = text.split(/\r?\n/).filter(Boolean);
+  if (lines.length < 2) return null;
+  const header = lines[0].split(",").map((c) => c.trim().replace(/"/g, ""));
+  const periodCol = header.findIndex((c) => /quarter|period|time/i.test(c));
+  const valueCol = header.findIndex((c) =>
+    /(births|live\s*births|count|value|observations?)/i.test(c)
+  );
+  if (periodCol < 0 || valueCol < 0) return null;
+  const out = [];
+  for (let i = 1; i < lines.length; i++) {
+    const cells = lines[i].split(",").map((c) => c.trim().replace(/"/g, ""));
+    const period = cells[periodCol];
+    const value = Number.parseFloat(cells[valueCol]);
+    if (!period || !Number.isFinite(value)) continue;
+    const m = period.match(/(\d{4})\s*Q(\d)/i);
+    if (!m) continue;
+    out.push({ quarter: `${m[1]}-Q${m[2]}`, births: Math.round(value) });
+  }
+  return out.length > 0 ? out.sort((a, b) => a.quarter.localeCompare(b.quarter)) : null;
+}
 
 async function main() {
-  const sorted = HISTORY.slice().sort((a, b) => a.quarter.localeCompare(b.quarter));
-  const latest = sorted[sorted.length - 1];
+  let data = [];
+  let liveUrl = null;
+  const live = await tryLiveCsv();
+  if (live) {
+    data = live.data;
+    liveUrl = live.url;
+  } else {
+    console.warn("Live ONS CSV discovery did not succeed; writing empty series.");
+  }
 
   const output = {
     $schema: "sob-dataset-v1",
@@ -64,23 +88,23 @@ async function main() {
       {
         id: "ons-quarterly-births",
         name: "ONS — Quarterly births in England and Wales",
-        url: "https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/datasets/quarterlybirthsenglandandwales",
+        url: liveUrl ?? ONS_DATASET_URL,
         publisher: "ONS",
-        note: "Live births in England & Wales by quarter. Series launched Feb 2025; reverts to annual May 2026.",
+        note: liveUrl
+          ? "Quarterly live births in England & Wales."
+          : "Live discovery did not succeed this run; series empty (tile will show 'no data' until next successful fetch).",
       },
     ],
-    snapshot: {
-      births: latest.births,
-      birthsQuarter: latest.quarter,
-    },
+    snapshot: data.length
+      ? { births: data[data.length - 1].births, birthsQuarter: data[data.length - 1].quarter }
+      : {},
     series: {
       quarterly: {
         sourceId: "ons-quarterly-births",
         timeField: "quarter",
         unit: "live births",
-        description:
-          "Quarterly live births in England & Wales.",
-        data: sorted,
+        description: "Quarterly live births in England & Wales.",
+        data,
       },
     },
   };
@@ -90,7 +114,7 @@ async function main() {
     JSON.stringify(output, null, 2) + "\n"
   );
   console.log(
-    `✓ public/data/births-quarterly.json (${sorted.length} quarters; latest ${latest.births} for ${latest.quarter})`
+    `${data.length > 0 ? "✓" : "⚠"} public/data/births-quarterly.json (${data.length} quarters; source=${liveUrl ? "live" : "empty (no fallback)"})`
   );
 }
 

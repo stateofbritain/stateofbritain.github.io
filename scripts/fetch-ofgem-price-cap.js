@@ -52,42 +52,10 @@ function extractAnnualBill(html) {
   return candidates[0] ?? null;
 }
 
-// Each entry: typical-household annual £ (Ofgem methodology, direct debit).
-// Note: 2022-Q4 onward, the EPG (Energy Price Guarantee) capped consumer
-// bills below the cap; the cap value here is Ofgem's underlying cap, not
-// the user-paid amount during EPG.
-const HISTORY = [
-  { quarter: "2019-Q1", annual: 1137 },
-  { quarter: "2019-Q2", annual: 1254 },
-  { quarter: "2019-Q3", annual: 1254 },
-  { quarter: "2019-Q4", annual: 1179 },
-  { quarter: "2020-Q1", annual: 1179 },
-  { quarter: "2020-Q2", annual: 1162 },
-  { quarter: "2020-Q3", annual: 1162 },
-  { quarter: "2020-Q4", annual: 1042 },
-  { quarter: "2021-Q1", annual: 1042 },
-  { quarter: "2021-Q2", annual: 1138 },
-  { quarter: "2021-Q3", annual: 1138 },
-  { quarter: "2021-Q4", annual: 1277 },
-  { quarter: "2022-Q1", annual: 1277 },
-  { quarter: "2022-Q2", annual: 1971 },
-  { quarter: "2022-Q3", annual: 1971 },
-  { quarter: "2022-Q4", annual: 3549 },
-  { quarter: "2023-Q1", annual: 4279 },
-  { quarter: "2023-Q2", annual: 3280 },
-  { quarter: "2023-Q3", annual: 2074 },
-  { quarter: "2023-Q4", annual: 1923 },
-  { quarter: "2024-Q1", annual: 1928 },
-  { quarter: "2024-Q2", annual: 1690 },
-  { quarter: "2024-Q3", annual: 1568 },
-  { quarter: "2024-Q4", annual: 1717 },
-  { quarter: "2025-Q1", annual: 1738 },
-  { quarter: "2025-Q2", annual: 1849 },
-  { quarter: "2025-Q3", annual: 1720 },
-  { quarter: "2025-Q4", annual: 1755 },
-  { quarter: "2026-Q1", annual: 1738 },
-  { quarter: "2026-Q2", annual: 1641 },
-];
+// No hardcoded historical — only Ofgem-page-scraped values are admissible.
+// The dashboard prefers "no data" over partially-recalled cap values that
+// can't be auto-verified against the live page on each refresh.
+const HISTORY = [];
 
 async function main() {
   const merged = HISTORY.slice();
