@@ -75,9 +75,10 @@ const OVERVIEW_SECTIONS = [
     key: "construction",
     label: "Construction",
     metricIds: [
-      "bd-brick-deliveries",
-      "bd-heat-pumps-bus",
       "qol-construction-output",
+      "bd-brick-deliveries",
+      "bd-iop-cement",
+      "bd-iop-steel",
     ],
   },
   {
@@ -266,9 +267,11 @@ function Construction({ period }) {
       <h2 style={h2Style}>Construction</h2>
       <p style={subStyle}>What the country is physically building.</p>
       <TileGrid>
-        <MetricTile period={period} metric={METRICS["bd-heat-pumps-bus"]} />
-        <MetricTile period={period} metric={METRICS["bd-brick-deliveries"]} />
         <MetricTile period={period} metric={METRICS["qol-construction-output"]} />
+        <MetricTile period={period} metric={METRICS["bd-brick-deliveries"]} />
+        <MetricTile period={period} metric={METRICS["bd-iop-cement"]} />
+        <MetricTile period={period} metric={METRICS["bd-iop-steel"]} />
+        <MetricTile period={period} metric={METRICS["bd-heat-pumps-bus"]} />
       </TileGrid>
     </div>
   );

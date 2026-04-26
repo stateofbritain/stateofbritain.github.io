@@ -26,6 +26,8 @@
 
   "monthly-gdp":            { "type": "nth-weekday", "n": 2, "weekday": 4, "offsetDays": 1, "release": "ONS GDP 2nd Thu 07:00 UK + 1d" },
   "iop-chemicals":          { "type": "nth-weekday", "n": 2, "weekday": 4, "offsetDays": 1, "release": "ONS Index of Production (GDP day) + 1d" },
+  "iop-cement":             { "type": "nth-weekday", "n": 2, "weekday": 4, "offsetDays": 1, "release": "ONS Index of Production cement (GDP day) + 1d" },
+  "iop-steel":              { "type": "nth-weekday", "n": 2, "weekday": 4, "offsetDays": 1, "release": "ONS Index of Production iron & steel (GDP day) + 1d" },
   "mfg-output":             { "type": "nth-weekday", "n": 2, "weekday": 4, "offsetDays": 1, "release": "ONS Manufacturing (GDP day) + 1d" },
   "construction-output":    { "type": "nth-weekday", "n": 2, "weekday": 4, "offsetDays": 1, "release": "ONS Construction (GDP day) + 1d" },
   "services-output":        { "type": "nth-weekday", "n": 2, "weekday": 4, "offsetDays": 1, "release": "ONS Services (GDP day) + 1d" },

@@ -1,11 +1,15 @@
 /**
  * fetch-iop-chemicals.js
  *
- * ONS Index of Production — chemicals & chemical products subindex (series K226).
- * Monthly, base 2022 = 100 (CVM, seasonally adjusted).
+ * ONS Index of Production — chemicals & chemical products subindex (SIC 20).
+ * Series K232. Monthly, base 2022 = 100 (CVMSA).
+ *
+ * (Earlier version of this script used K226 by mistake — that CDID is in
+ * fact "Extraction of Crude Petroleum and Natural Gas". K232 is the real
+ * SIC 20 chemicals manufacturing index.)
  *
  * Source: ONS time series API (no auth, free public).
- * Endpoint: https://www.ons.gov.uk/economy/economicoutputandproductivity/output/timeseries/k226/data
+ * Endpoint: https://www.ons.gov.uk/economy/economicoutputandproductivity/output/timeseries/K232/data
  *
  * Output: public/data/iop-chemicals.json (sob-dataset-v1)
  */
@@ -13,7 +17,7 @@ import { writeFileSync } from "fs";
 import https from "https";
 
 const URL_API =
-  "https://www.ons.gov.uk/economy/economicoutputandproductivity/output/timeseries/k226/data";
+  "https://www.ons.gov.uk/economy/economicoutputandproductivity/output/timeseries/K232/data";
 
 const MONTHS_SHORT = {
   JAN: "01", FEB: "02", MAR: "03", APR: "04", MAY: "05", JUN: "06",
@@ -70,7 +74,7 @@ function parseOnsMonth(date) {
 }
 
 async function main() {
-  console.log("Fetching ONS series K226 (Index of Production — chemicals)…");
+  console.log("Fetching ONS series K232 (Index of Production — chemicals)…");
   const json = await fetchJson(URL_API);
 
   if (!json.months) {
@@ -107,9 +111,9 @@ async function main() {
     generated: new Date().toISOString().slice(0, 10),
     sources: [
       {
-        id: "ons-iop-k226",
-        name: "ONS Index of Production — chemicals & chemical products (K226)",
-        url: "https://www.ons.gov.uk/economy/economicoutputandproductivity/output/timeseries/k226/data",
+        id: "ons-iop-k232",
+        name: "ONS Index of Production — chemicals & chemical products (K232)",
+        url: "https://www.ons.gov.uk/economy/economicoutputandproductivity/output/timeseries/K232/data",
         publisher: "ONS",
         note: "Monthly index, seasonally adjusted, chained volume measures.",
       },
@@ -121,15 +125,15 @@ async function main() {
     },
     series: {
       monthly: {
-        sourceId: "ons-iop-k226",
+        sourceId: "ons-iop-k232",
         timeField: "period",
         unit: "index (2022=100)",
         description:
-          "Monthly Index of Production for chemicals manufacturing (SIC 20). Series K226.",
+          "Monthly Index of Production for chemicals manufacturing (SIC 20). Series K232.",
         data: monthly,
       },
       annual: {
-        sourceId: "ons-iop-k226",
+        sourceId: "ons-iop-k232",
         timeField: "year",
         unit: "index (2022=100)",
         description: "Annual Index of Production for chemicals.",
