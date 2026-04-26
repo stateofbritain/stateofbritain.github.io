@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import P from "../theme/palette";
 import useIsMobile from "../hooks/useIsMobile";
-import Tile, { MiniTile } from "../components/Tile";
 import MetricTile, { OverviewMiniTile } from "../dashboard/MetricTile";
 import { METRICS } from "../dashboard/metrics";
 import { track } from "../analytics";
@@ -47,10 +46,6 @@ const noticeStyle = {
   paddingLeft: 10,
   borderLeft: `2px solid ${P.border}`,
 };
-
-// Standard 24-month range for monthly tiles
-const RANGE_MONTHLY_2Y = { start: "Apr 2024", end: "Apr 2026" };
-const RANGE_QUARTERLY_2Y = { start: "Q2 2024", end: "Q1 2026" };
 
 // ── Overview ────────────────────────────────────────────────────────
 
@@ -267,33 +262,6 @@ function ServiceDelivery() {
         <MetricTile metric={METRICS["sd-rail-punctuality"]} />
         <MetricTile metric={METRICS["sd-water-leakage"]} />
         <MetricTile metric={METRICS["sd-public-sector-debt"]} />
-        <Tile
-          title="A&E 4-hour standard"
-          value={73}
-          unit="%"
-          format="percent"
-          delta={{ percent: 1.8, period: "vs prior month" }}
-          direction="up-good"
-          sparkline={[
-            65, 64, 63, 65, 66, 65, 66, 67, 68, 67, 69, 68,
-            69, 70, 69, 70, 71, 70, 72, 71, 72, 71, 72, 73,
-          ]}
-          sparklineRange={RANGE_MONTHLY_2Y}
-          source="NHS England"
-          asOf="May 2026"
-        />
-        <Tile
-          title="Police 999 answer time"
-          value={8.2}
-          unit="seconds (mean)"
-          format="raw"
-          delta={{ percent: -3.5, period: "vs prior quarter" }}
-          direction="up-bad"
-          sparkline={[10.9, 10.6, 10.3, 10.0, 9.5, 9.0, 8.6, 8.2]}
-          sparklineRange={RANGE_QUARTERLY_2Y}
-          source="Home Office"
-          asOf="Q1 2026"
-        />
         <MetricTile metric={METRICS["sd-asylum-backlog"]} />
       </TileGrid>
     </div>
@@ -308,47 +276,13 @@ function SovereignCapability() {
       <div style={noticeStyle}>Some tiles still illustrative; live tiles wire as fetch scripts land.</div>
       <TileGrid>
         <MetricTile metric={METRICS["sc-co2-intensity"]} />
+        <MetricTile metric={METRICS["sc-mfg-output"]} />
         <MetricTile metric={METRICS["sc-iop-chemicals"]} />
         <MetricTile metric={METRICS["sc-defence-spending"]} />
         <MetricTile metric={METRICS["sc-ghg-emissions"]} />
-        <Tile
-          title="UK gas storage"
-          value={2.1}
-          unit="TWh"
-          format="raw"
-          delta={{ percent: -8.4, period: "vs 7-day prior" }}
-          direction="neutral"
-          sparkline={[
-            5.2, 5.6, 5.9, 5.4, 4.6, 3.9, 3.5, 3.4, 3.5, 3.9, 4.6, 5.4,
-            5.5, 5.7, 5.4, 4.7, 3.8, 3.3, 2.9, 2.6, 2.5, 2.3, 2.2, 2.1,
-          ]}
-          sparklineRange={RANGE_MONTHLY_2Y}
-          source="NESO"
-          asOf="22 April"
-        />
-        <Tile
-          title="UK regular forces"
-          value={142000}
-          unit="personnel"
-          delta={{ percent: -0.7, period: "vs prior quarter" }}
-          direction="up-good"
-          sparkline={[151, 150, 148, 147, 146, 144, 143, 142].map((v) => v * 1000)}
-          sparklineRange={RANGE_QUARTERLY_2Y}
-          source="MoD"
-          asOf="Q1 2026"
-        />
-        <Tile
-          title="Food self-sufficiency"
-          value={60}
-          unit="%"
-          format="percent"
-          delta={{ percent: -0.3, period: "vs prior year" }}
-          direction="up-good"
-          sparkline={[63, 62, 62, 61, 61, 61, 60, 60, 60, 60, 60, 60]}
-          sparklineRange={{ start: "2014", end: "2025" }}
-          source="DEFRA"
-          asOf="2025"
-        />
+        <MetricTile metric={METRICS["sc-rd-pct-gdp"]} />
+        <MetricTile metric={METRICS["sc-vc-investment"]} />
+        <MetricTile metric={METRICS["sc-high-growth-firms"]} />
       </TileGrid>
     </div>
   );
@@ -365,49 +299,7 @@ function Construction() {
         <MetricTile metric={METRICS["bd-brick-deliveries"]} />
         <MetricTile metric={METRICS["bd-epc-new-builds"]} />
         <MetricTile metric={METRICS["bd-battery-storage"]} />
-        <Tile
-          title="Brick deliveries"
-          value={154}
-          unit="million / month"
-          delta={{ percent: 5.2, period: "vs prior month" }}
-          direction="up-good"
-          sparkline={[
-            116, 119, 122, 124, 121, 119, 124, 127, 129, 128, 127, 130,
-            128, 132, 134, 138, 140, 142, 145, 148, 150, 151, 152, 154,
-          ]}
-          sparklineRange={RANGE_MONTHLY_2Y}
-          source="DBT (proxy for housing)"
-          asOf="Apr 2026"
-        />
-        <Tile
-          title="Planning approvals"
-          value={18200}
-          unit="major + minor"
-          delta={{ percent: -1.8, period: "vs prior month" }}
-          direction="up-good"
-          sparkline={[
-            21.0, 20.8, 20.5, 20.4, 20.3, 20.2, 20.0, 19.8, 19.7, 19.6, 19.6, 19.5,
-            19.5, 19.2, 19.0, 18.8, 18.6, 18.5, 18.4, 18.3, 18.4, 18.3, 18.2, 18.2,
-          ].map((v) => v * 1000)}
-          sparklineRange={RANGE_MONTHLY_2Y}
-          source="DLUHC"
-          asOf="Mar 2026"
-        />
-        <Tile
-          title="NSIP consents (rolling 24m)"
-          value={11}
-          unit="decisions"
-          format="raw"
-          delta={{ value: 3, period: "vs same window prior" }}
-          direction="up-good"
-          sparkline={[
-            0, 1, 1, 2, 2, 2, 3, 3, 4, 4, 4, 5,
-            5, 5, 6, 7, 7, 8, 9, 9, 10, 10, 11, 11,
-          ]}
-          sparklineRange={RANGE_MONTHLY_2Y}
-          source="Planning Inspectorate"
-          asOf="Apr 2026"
-        />
+        <MetricTile metric={METRICS["qol-construction-output"]} />
       </TileGrid>
     </div>
   );
@@ -428,30 +320,10 @@ function QualityOfLife() {
         <MetricTile metric={METRICS["qol-monthly-gdp"]} />
         <MetricTile metric={METRICS["ql-gilt-yield-10y"]} />
         <MetricTile metric={METRICS["ql-pm25"]} />
-        <Tile
-          title="House price to earnings"
-          value={8.1}
-          unit="ratio"
-          format="raw"
-          delta={{ percent: -0.6, period: "vs prior quarter" }}
-          direction="up-bad"
-          sparkline={[8.7, 8.6, 8.6, 8.5, 8.4, 8.3, 8.2, 8.1]}
-          sparklineRange={RANGE_QUARTERLY_2Y}
-          source="ONS"
-          asOf="Q1 2026"
-        />
-        <Tile
-          title="Life expectancy at birth"
-          value={81.2}
-          unit="years"
-          format="raw"
-          delta={{ percent: 0.1, period: "vs prior year" }}
-          direction="up-good"
-          sparkline={[81.4, 81.3, 81.2, 80.4, 80.6, 80.7, 80.8, 80.9, 81.0, 81.1, 81.2]}
-          sparklineRange={{ start: "2014", end: "2024" }}
-          source="ONS"
-          asOf="2024"
-        />
+        <MetricTile metric={METRICS["ql-tfr"]} />
+        <MetricTile metric={METRICS["ql-household-size"]} />
+        <MetricTile metric={METRICS["qol-services-output"]} />
+        <MetricTile metric={METRICS["ql-avg-hours"]} />
       </TileGrid>
     </div>
   );
