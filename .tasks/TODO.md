@@ -140,7 +140,15 @@ schedule entry in `scripts/release-schedule.json`.
 - **Priority:** High
 - **Notes:** EPC new-build lodgements is the closest monthly indicator already in our pipeline. NHBC monthly completions is the next-best official-ish source. If neither yields, the tile may have to remain quarterly (DLUHC) and we accept it as the rare quarterly exception on the dashboard.
 
-### [D-013] UNGA voting-alignment matrix (Sovereign Capability)
+### [D-013] UNGA voting-alignment matrix (Sovereign Capability) ✅ DONE
+- Shipped via `scripts/fetch-unga-alignment.js` + `public/data/unga-alignment.json`.
+  Streams the Voeten "AgreementScores.csv" (Harvard Dataverse, 142MB),
+  filters to UK rows, averages 5-year window. Output: array of 192
+  countries with alignment %. Latest window 2020-2024. Cache in
+  `data/manual-uploads/voeten/` (gitignored). Not surfaced as a
+  dashboard tile — needs a dedicated matrix/widget UI when ready.
+
+### [D-013-old] UNGA voting-alignment matrix (Sovereign Capability)
 - **Topic:** dashboard/sovereign-capability — but this is a static/annual table, not a monthly tile. May warrant its own widget rather than a standard tile.
 - **Direction:** Compute, for each major nation, how often the UK voted with them at the UN General Assembly over the rolling last 5 years. Feeds into a future "strategic dependencies" assessment — countries we're closely aligned diplomatically with vs countries we're commercially exposed to.
 - **Sources to check:**
