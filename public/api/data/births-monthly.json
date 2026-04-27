@@ -10,17 +10,28 @@
       "name": "NHS Digital — Maternity Services Monthly Statistics (MSDS)",
       "url": "https://digital.nhs.uk/data-and-information/publications/statistical/maternity-services-monthly-statistics",
       "publisher": "NHS Digital",
-      "note": "Live discovery did not succeed this run. NHS Digital's CMS does not expose data file URLs in initial HTML; the tile will read 'no data' until either NHS Digital surfaces a stable URL or a headless-browser fetcher is added."
+      "note": "National-level totals from the monthly MSDS exp-data CSV (TotalBabies, TotalDeliveries). NHS-coverage subset of all live births in England. Latest reporting month is provisional; finalised in the next publication."
     }
   ],
-  "snapshot": {},
+  "snapshot": {
+    "babies": 41515,
+    "deliveries": 40925,
+    "birthsMonth": "2026-01",
+    "birthsUnit": "babies / month"
+  },
   "series": {
     "monthly": {
       "sourceId": "nhs-digital-msds",
       "timeField": "month",
-      "unit": "deliveries / month",
-      "description": "Monthly count of NHS deliveries with at least one baby, England. Provisional latest month, finalised one month later.",
-      "data": []
+      "unit": "babies / month",
+      "description": "Monthly count of NHS-recorded babies (TotalBabies) and deliveries (TotalDeliveries) at national level, England.",
+      "data": [
+        {
+          "month": "2026-01",
+          "babies": 41515,
+          "deliveries": 40925
+        }
+      ]
     }
   }
 }

@@ -1,145 +1,119 @@
 /**
  * fetch-births-monthly.js
  *
- * Monthly live births in England via NHS Digital's "Maternity Services
- * Monthly Statistics" (MSDS). Counts the field "Number of deliveries
- * with at least one baby" from the monthly activity CSV.
+ * Monthly UK live births sourced from NHS Digital's "Maternity Services
+ * Monthly Statistics" (MSDS) publication. Pulls headline TotalBabies and
+ * TotalDeliveries at National-ALL granularity for each reporting month.
  *
- * Strategy:
- *   1. Scrape the MSDS index page for the latest publication slug.
- *   2. Fetch the publication page; look for binary CSV / ZIP download links.
- *   3. Parse the activity CSV for monthly delivery counts.
+ * NHS Digital's CMS renders publication pages client-side, so the data
+ * file URLs aren't reachable by plain HTTP. Until that changes (or until
+ * a headless-browser fetcher is added), the workflow is:
  *
- * Realistic warning: NHS Digital's CMS is JS-rendered and the binary
- * download URLs are not exposed in initial HTML. Without a headless
- * browser, this script currently writes empty JSON. The infrastructure
- * is in place for when either NHS Digital surfaces a stable URL pattern
- * or a Playwright-based fetcher is added.
+ *   1. Download the latest "exp-data" CSVs by hand from
+ *      https://digital.nhs.uk/data-and-information/publications/statistical/maternity-services-monthly-statistics
+ *   2. Drop them into `data/manual-uploads/msds/`
+ *   3. Run `node scripts/fetch-births-monthly.js`
  *
- * Source: NHS Digital — Maternity Services Monthly Statistics.
- * https://digital.nhs.uk/data-and-information/publications/statistical/maternity-services-monthly-statistics
+ * The script aggregates every CSV in that folder into one v1 dataset.
+ * Each MSDS publication contains a "Final {prev-month}" CSV and a
+ * "Provisional {latest-month}" CSV — drop both to maximise series length.
  *
  * Output: public/data/births-monthly.json (sob-dataset-v1)
  */
-import { writeFileSync } from "fs";
-import { fetchHtml, fetchBuffer } from "./lib/xlsx-fetch.js";
+import { writeFileSync, readdirSync, readFileSync, existsSync } from "fs";
+import path from "path";
 
-const INDEX_URL =
+const UPLOAD_DIR = "data/manual-uploads/msds";
+const PUBLICATION_INDEX =
   "https://digital.nhs.uk/data-and-information/publications/statistical/maternity-services-monthly-statistics";
 
-const MONTH_NAMES = {
-  january: "01", february: "02", march: "03", april: "04",
-  may: "05", june: "06", july: "07", august: "08",
-  september: "09", october: "10", november: "11", december: "12",
-};
-
-function findPublicationSlugs(html) {
-  const re = /\/data-and-information\/publications\/statistical\/maternity-services-monthly-statistics\/[a-z0-9-]+/gi;
-  const seen = new Set();
-  const out = [];
-  for (const m of html.match(re) || []) {
-    if (seen.has(m)) continue;
-    seen.add(m);
-    out.push(m);
-  }
-  return out;
-}
-
-function parseSlugMonth(slug) {
-  // e.g. "/...statistics/final-april-2026-provisional-may-2026-official-statistics"
-  const m = slug.match(/final-([a-z]+)-(\d{4})-provisional-([a-z]+)-(\d{4})/i);
+function parseDmy(s) {
+  // "01/01/2026" → "2026-01"
+  const m = (s || "").match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
   if (!m) return null;
-  const finalMonth = MONTH_NAMES[m[1].toLowerCase()];
-  const finalYear = m[2];
-  if (!finalMonth) return null;
-  return { final: `${finalYear}-${finalMonth}`, slug };
+  return `${m[3]}-${m[2]}`;
 }
 
-function findDownloadUrls(html) {
-  // NHS Digital occasionally surfaces files at https://files.digital.nhs.uk/.../*.csv or *.zip
-  const re = /https?:\/\/files\.digital\.nhs\.uk\/[^"'\s)<>]+\.(?:csv|zip|xlsx|ods)/gi;
-  return [...new Set(html.match(re) || [])];
-}
-
-function parseDeliveriesCsv(text) {
-  // Expected columns approximately: ReportingPeriod, MeasureName, MeasureValue.
-  // Look for "Deliveries with at least one baby" or "Total deliveries".
-  const lines = text.split(/\r?\n/).filter(Boolean);
+/**
+ * Parse a single MSDS exp-data CSV and return one row per dimension we
+ * care about. Headers: ReportingPeriodStartDate, ReportingPeriodEndDate,
+ * Dimension, Org_Level, Org_Code, Org_Name, Measure, Count_Of, Final_value
+ *
+ * We aggregate at Org_Level=National + Org_Code=ALL only.
+ */
+function parseMsdsCsv(text) {
+  const lines = text.split(/\r?\n/);
   if (lines.length < 2) return null;
-  const header = lines[0].split(",").map((c) => c.trim().replace(/"/g, "").toLowerCase());
-  const periodCol = header.findIndex((c) => /reporting.?period|month|date/.test(c));
-  const measureCol = header.findIndex((c) => /measure.?name|metric|indicator/.test(c));
-  const valueCol = header.findIndex((c) => /measure.?value|value|count|number/.test(c));
-  if (periodCol < 0 || valueCol < 0) return null;
-
-  const out = [];
+  const out = { totalBabies: null, totalDeliveries: null, period: null };
   for (let i = 1; i < lines.length; i++) {
-    const cells = lines[i].split(",").map((c) => c.trim().replace(/"/g, ""));
-    if (measureCol >= 0) {
-      const m = cells[measureCol]?.toLowerCase() || "";
-      if (!/(deliver(y|ies).*(at.?least.?one.?baby|live.?birth)|live.?birth)/i.test(m)) continue;
+    const line = lines[i];
+    if (!line) continue;
+    const cells = line.split(",");
+    if (cells.length < 9) continue;
+    const orgLevel = cells[3];
+    const orgCode = cells[4];
+    if (orgLevel !== "National" || orgCode !== "ALL") continue;
+    const dim = cells[2];
+    const value = Number.parseFloat(cells[8]);
+    if (!Number.isFinite(value)) continue;
+    if (dim === "TotalBabies") {
+      out.totalBabies = Math.round(value);
+      out.period ??= parseDmy(cells[0]);
+    } else if (dim === "TotalDeliveries") {
+      out.totalDeliveries = Math.round(value);
+      out.period ??= parseDmy(cells[0]);
     }
-    const period = parseReportingPeriod(cells[periodCol]);
-    const value = Number.parseFloat((cells[valueCol] || "").replace(/,/g, ""));
-    if (!period || !Number.isFinite(value)) continue;
-    out.push({ month: period, deliveries: Math.round(value) });
   }
-  return out.length > 0 ? out.sort((a, b) => a.month.localeCompare(b.month)) : null;
+  return out.period && (out.totalBabies != null || out.totalDeliveries != null) ? out : null;
 }
 
-function parseReportingPeriod(s) {
-  if (typeof s !== "string") return null;
-  // "2026-04-01" or "April 2026" or "2026-04"
-  const iso = s.match(/(\d{4})-(\d{2})/);
-  if (iso) return `${iso[1]}-${iso[2]}`;
-  const named = s.match(/^([a-z]+)\s+(\d{4})$/i);
-  if (named) {
-    const mm = MONTH_NAMES[named[1].toLowerCase()];
-    if (mm) return `${named[2]}-${mm}`;
+function main() {
+  if (!existsSync(UPLOAD_DIR)) {
+    console.warn(`No ${UPLOAD_DIR} directory; series will be empty.`);
+    writeEmpty();
+    return;
   }
-  return null;
-}
 
-async function tryDiscovery() {
-  try {
-    const indexHtml = await fetchHtml(INDEX_URL);
-    const slugs = findPublicationSlugs(indexHtml)
-      .map(parseSlugMonth)
-      .filter(Boolean)
-      .sort((a, b) => b.final.localeCompare(a.final));
-    if (slugs.length === 0) return null;
-    for (const { slug } of slugs.slice(0, 3)) {
-      try {
-        const pubUrl = `https://digital.nhs.uk${slug}`;
-        const pubHtml = await fetchHtml(pubUrl);
-        const files = findDownloadUrls(pubHtml);
-        for (const fileUrl of files) {
-          try {
-            const buf = await fetchBuffer(fileUrl);
-            // Only attempt CSV parse for now; skip ZIP (would need a deflate dep).
-            if (/\.csv$/i.test(fileUrl)) {
-              const data = parseDeliveriesCsv(buf.toString("utf-8"));
-              if (data) return { data, url: fileUrl };
-            }
-          } catch (err) {
-            console.warn(`  ${fileUrl}: ${err.message}`);
-          }
-        }
-      } catch (err) {
-        console.warn(`  publication ${slug}: ${err.message}`);
+  const files = readdirSync(UPLOAD_DIR).filter((f) => /\.csv$/i.test(f));
+  if (files.length === 0) {
+    console.warn(`No CSVs found in ${UPLOAD_DIR}; series will be empty.`);
+    writeEmpty();
+    return;
+  }
+
+  // Parse each CSV; deduplicate by reporting period (later files override).
+  const byPeriod = new Map();
+  for (const f of files) {
+    try {
+      const text = readFileSync(path.join(UPLOAD_DIR, f), "utf-8");
+      const parsed = parseMsdsCsv(text);
+      if (!parsed) {
+        console.warn(`  ${f}: no recognisable national totals`);
+        continue;
       }
+      console.log(
+        `  ${f}: ${parsed.period} babies=${parsed.totalBabies?.toLocaleString() ?? "?"} deliveries=${parsed.totalDeliveries?.toLocaleString() ?? "?"}`
+      );
+      byPeriod.set(parsed.period, parsed);
+    } catch (err) {
+      console.warn(`  ${f} parse failed: ${err.message}`);
     }
-  } catch (err) {
-    console.warn(`Index page failed: ${err.message}`);
   }
-  return null;
-}
 
-async function main() {
-  const result = await tryDiscovery();
-  const data = result?.data ?? [];
-  const liveUrl = result?.url ?? null;
+  if (byPeriod.size === 0) {
+    writeEmpty();
+    return;
+  }
 
+  const data = [...byPeriod.values()]
+    .map((r) => ({
+      month: r.period,
+      babies: r.totalBabies,
+      deliveries: r.totalDeliveries,
+    }))
+    .sort((a, b) => a.month.localeCompare(b.month));
+
+  const latest = data[data.length - 1];
   const output = {
     $schema: "sob-dataset-v1",
     id: "births-monthly",
@@ -150,27 +124,25 @@ async function main() {
       {
         id: "nhs-digital-msds",
         name: "NHS Digital — Maternity Services Monthly Statistics (MSDS)",
-        url: liveUrl ?? INDEX_URL,
+        url: PUBLICATION_INDEX,
         publisher: "NHS Digital",
-        note: liveUrl
-          ? "Monthly count of deliveries with at least one baby, England (NHS-coverage subset of all live births)."
-          : "Live discovery did not succeed this run. NHS Digital's CMS does not expose data file URLs in initial HTML; the tile will read 'no data' until either NHS Digital surfaces a stable URL or a headless-browser fetcher is added.",
+        note:
+          "National-level totals from the monthly MSDS exp-data CSV (TotalBabies, TotalDeliveries). NHS-coverage subset of all live births in England. Latest reporting month is provisional; finalised in the next publication.",
       },
     ],
-    snapshot: data.length
-      ? {
-          deliveries: data[data.length - 1].deliveries,
-          deliveriesMonth: data[data.length - 1].month,
-          deliveriesUnit: "deliveries / month (with at least one baby)",
-        }
-      : {},
+    snapshot: {
+      babies: latest.babies,
+      deliveries: latest.deliveries,
+      birthsMonth: latest.month,
+      birthsUnit: "babies / month",
+    },
     series: {
       monthly: {
         sourceId: "nhs-digital-msds",
         timeField: "month",
-        unit: "deliveries / month",
+        unit: "babies / month",
         description:
-          "Monthly count of NHS deliveries with at least one baby, England. Provisional latest month, finalised one month later.",
+          "Monthly count of NHS-recorded babies (TotalBabies) and deliveries (TotalDeliveries) at national level, England.",
         data,
       },
     },
@@ -181,11 +153,43 @@ async function main() {
     JSON.stringify(output, null, 2) + "\n"
   );
   console.log(
-    `${data.length > 0 ? "✓" : "⚠"} public/data/births-monthly.json (${data.length} months; source=${liveUrl ? "live" : "empty (no fallback)"})`
+    `✓ public/data/births-monthly.json (${data.length} months; latest babies=${latest.babies?.toLocaleString()} for ${latest.month})`
   );
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+function writeEmpty() {
+  const output = {
+    $schema: "sob-dataset-v1",
+    id: "births-monthly",
+    pillar: "foundations",
+    topic: "family",
+    generated: new Date().toISOString().slice(0, 10),
+    sources: [
+      {
+        id: "nhs-digital-msds",
+        name: "NHS Digital — Maternity Services Monthly Statistics (MSDS)",
+        url: PUBLICATION_INDEX,
+        publisher: "NHS Digital",
+        note:
+          "Drop monthly MSDS exp-data CSVs into data/manual-uploads/msds/ and re-run this script. NHS Digital's CMS doesn't expose data file URLs to plain HTTP, so manual upload is the workaround until a headless-browser fetcher is added.",
+      },
+    ],
+    snapshot: {},
+    series: {
+      monthly: {
+        sourceId: "nhs-digital-msds",
+        timeField: "month",
+        unit: "babies / month",
+        description: "Monthly count of NHS-recorded babies (TotalBabies) at national level, England.",
+        data: [],
+      },
+    },
+  };
+  writeFileSync(
+    "public/data/births-monthly.json",
+    JSON.stringify(output, null, 2) + "\n"
+  );
+  console.log(`⚠ public/data/births-monthly.json (empty; drop CSVs into ${UPLOAD_DIR})`);
+}
+
+main();
