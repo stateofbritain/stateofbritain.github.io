@@ -276,6 +276,7 @@ function ExpandedDetail({ longSeries, startYear, color, unit, format }) {
               tick={{ fontSize: 11, fontFamily: "'DM Mono', monospace", fill: P.textMuted }}
               tickFormatter={formatNumber}
               width={72}
+              domain={[(dataMin) => Math.min(0, dataMin), "auto"]}
               label={unit ? {
                 value: unit,
                 angle: -90,
@@ -453,8 +454,12 @@ export function MiniTile({ title, delta, direction = "neutral", href, accent }) 
 
 function Sparkline({ data, color, height = 30 }) {
   if (!data || data.length < 2) return null;
-  const min = Math.min(...data);
-  const max = Math.max(...data);
+  // Anchor the y-axis floor at 0 so small fluctuations on positive
+  // series don't look dramatic. If any value is negative (e.g. real
+  // wages YoY going negative), drop the floor to that min so the line
+  // still renders.
+  const min = Math.min(0, ...data);
+  const max = Math.max(0, ...data);
   const range = max - min || 1;
   const w = 100;
   const h = height;
