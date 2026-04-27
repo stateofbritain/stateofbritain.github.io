@@ -247,21 +247,21 @@ export const METRICS = {
     periodLabel: { mom: "vs prior month", q: "vs 3 months ago", y: "vs prior year" },
   },
 
-  "bd-steel-consumption": {
-    id: "bd-steel-consumption",
+  "bd-steel-imports": {
+    id: "bd-steel-imports",
     subtab: "construction",
-    title: "Apparent steel consumption",
-    dataset: "steel-consumption.json",
+    title: "Finished steel imports",
+    dataset: "steel-trade.json",
     seriesKey: "monthly",
     timeKey: "month",
-    valueKey: "apparentConsumption",
+    valueKey: "finishedImports",
     cadence: "monthly",
     direction: "up-good",
     unit: "tonnes / month",
     format: "number",
-    source: "HMRC trade + ONS K23I × UK Steel 2022 baseline",
+    source: "HMRC HS 7208-7229 (finished steel)",
     href: "/data/foundations/housing/supply",
-    periodLabel: { mom: "vs prior month", q: "vs 3 months ago", y: "vs prior year" },
+    periodLabel: { mom: "vs prior month", q: "3-month trend", y: "12-month trend" },
   },
 
   "qol-construction-output": {
