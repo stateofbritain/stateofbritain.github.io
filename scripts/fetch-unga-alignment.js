@@ -83,6 +83,36 @@ function unquote(s) {
   return s.replace(/^"(.*)"$/, "$1");
 }
 
+const round1 = (n) => Math.round(n * 10) / 10;
+
+/**
+ * OLS slope of agreement % over time, expressed as %-points per decade.
+ * Returns null if fewer than 3 points.
+ */
+function topMovers(data, key, n, dir = "desc") {
+  return [...data]
+    .filter((d) => d[key] != null && Number.isFinite(d[key]))
+    .sort((a, b) => (dir === "asc" ? a[key] - b[key] : b[key] - a[key]))
+    .slice(0, n)
+    .map((d) => ({ country: d.country, iso3: d.iso3, alignmentPct: d.alignmentPct, deltaPct: d.deltaPct }));
+}
+
+function linearSlopePctPerDecade(points) {
+  if (!points || points.length < 3) return null;
+  const n = points.length;
+  const meanX = points.reduce((s, p) => s + p.year, 0) / n;
+  const meanY = points.reduce((s, p) => s + p.agree, 0) / n;
+  let num = 0;
+  let den = 0;
+  for (const p of points) {
+    num += (p.year - meanX) * (p.agree - meanY);
+    den += (p.year - meanX) ** 2;
+  }
+  if (den === 0) return null;
+  const slope = num / den;
+  return round1(slope * 10);
+}
+
 /**
  * Stream the agreement CSV; for each UK row, append { other, year, agree }.
  * Header: "","session.x","ccode1","ccode2","agree","year",IdealPointFP.x,NVotesFP.x,IdealPointFP.y,NVotesFP.y,IdealPointDistance
@@ -156,29 +186,56 @@ async function main() {
 
   const latestYear = Math.max(...rows.map((r) => r.year));
   const minYear = latestYear - YEARS_WINDOW + 1;
-  const recent = rows.filter((r) => r.year >= minYear);
-  console.log(`  latest year=${latestYear}; window ${minYear}-${latestYear}; ${recent.length.toLocaleString()} rows`);
+  const priorMinYear = minYear - YEARS_WINDOW;
+  const priorMaxYear = minYear - 1;
+  const trendStartYear = latestYear - 9; // last 10 years for regression
 
-  // Aggregate by counterpart country
-  const byCountry = new Map();
-  for (const r of recent) {
-    if (!byCountry.has(r.other)) byCountry.set(r.other, []);
-    byCountry.get(r.other).push(r.agree);
+  // Build per-country yearly map: { ccode → Map(year → agree) }
+  const yearlyByCountry = new Map();
+  for (const r of rows) {
+    if (!yearlyByCountry.has(r.other)) yearlyByCountry.set(r.other, new Map());
+    yearlyByCountry.get(r.other).set(r.year, r.agree);
   }
+  console.log(
+    `  latest year=${latestYear}; recent window ${minYear}-${latestYear}; prior window ${priorMinYear}-${priorMaxYear}; trend window ${trendStartYear}-${latestYear}`
+  );
 
   console.log("Building country lookup…");
   const lookup = await buildCountryLookup();
 
   const data = [];
-  for (const [cc, scores] of byCountry) {
+  for (const [cc, yearMap] of yearlyByCountry) {
     const entry = lookup.get(cc) || { iso3: null, name: `COW ${cc}` };
-    const mean = scores.reduce((s, v) => s + v, 0) / scores.length;
+    const yearly = [...yearMap.entries()]
+      .map(([year, agree]) => ({ year, agree: Math.round(agree * 1000) / 10 }))
+      .sort((a, b) => a.year - b.year);
+
+    const recentScores = yearly.filter((d) => d.year >= minYear).map((d) => d.agree);
+    if (recentScores.length === 0) continue;
+
+    const priorScores = yearly
+      .filter((d) => d.year >= priorMinYear && d.year <= priorMaxYear)
+      .map((d) => d.agree);
+
+    const trendPoints = yearly.filter((d) => d.year >= trendStartYear);
+
+    const mean = (xs) => xs.reduce((s, v) => s + v, 0) / xs.length;
+    const alignmentPct = round1(mean(recentScores));
+    const alignmentPriorPct = priorScores.length > 0 ? round1(mean(priorScores)) : null;
+    const deltaPct = alignmentPriorPct == null ? null : round1(alignmentPct - alignmentPriorPct);
+
+    const trendPctPerDecade = linearSlopePctPerDecade(trendPoints);
+
     data.push({
       ccode: cc,
       iso3: entry.iso3,
       country: entry.name,
-      alignmentPct: Math.round(mean * 1000) / 10, // 0-100, one decimal
-      yearsObserved: scores.length,
+      alignmentPct,
+      alignmentPriorPct,
+      deltaPct,
+      trendPctPerDecade,
+      yearsObserved: recentScores.length,
+      yearly,
     });
   }
   data.sort((a, b) => b.alignmentPct - a.alignmentPct);
@@ -201,8 +258,12 @@ async function main() {
     ],
     snapshot: {
       window: `${minYear}-${latestYear}`,
+      priorWindow: `${priorMinYear}-${priorMaxYear}`,
+      trendWindow: `${trendStartYear}-${latestYear}`,
       countriesObserved: data.length,
       alignmentUnit: "% of roll-call votes the UK and counterpart cast the same way",
+      topConverging: topMovers(data, "deltaPct", 5),
+      topDiverging: topMovers(data, "deltaPct", 5, "asc"),
     },
     series: {
       countries: {
@@ -219,6 +280,10 @@ async function main() {
   console.log(`✓ ${OUTPUT_PATH} — ${data.length} countries, latest year ${latestYear}`);
   console.log(`  Top 5 (most aligned): ${data.slice(0, 5).map((c) => `${c.country} ${c.alignmentPct}%`).join(", ")}`);
   console.log(`  Bottom 5 (least aligned): ${data.slice(-5).map((c) => `${c.country} ${c.alignmentPct}%`).reverse().join(", ")}`);
+  const converging = output.snapshot.topConverging;
+  const diverging = output.snapshot.topDiverging;
+  if (converging) console.log(`  Top converging (Δ vs prior 5y): ${converging.map((c) => `${c.country} +${c.deltaPct}`).join(", ")}`);
+  if (diverging) console.log(`  Top diverging (Δ vs prior 5y): ${diverging.map((c) => `${c.country} ${c.deltaPct}`).join(", ")}`);
 }
 
 main().catch((err) => {
