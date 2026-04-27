@@ -192,23 +192,6 @@ export const METRICS = {
 
   // ── Construction ──────────────────────────────────────────────────
 
-  "bd-heat-pumps-bus": {
-    id: "bd-heat-pumps-bus",
-    subtab: "construction",
-    title: "Heat pump installations (BUS)",
-    dataset: "heat-pumps-bus.json",
-    seriesKey: "monthly",
-    timeKey: "month",
-    valueKey: "redemptions",
-    cadence: "monthly",
-    direction: "up-good",
-    unit: "grants / month",
-    format: "number",
-    source: "DESNZ Boiler Upgrade Scheme",
-    href: "/data/foundations/energy",
-    periodLabel: { mom: "vs prior month", q: "vs 3 months ago", y: "vs prior year" },
-  },
-
   "bd-brick-deliveries": {
     id: "bd-brick-deliveries",
     subtab: "construction",

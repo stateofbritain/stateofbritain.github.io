@@ -272,7 +272,6 @@ function Construction({ period }) {
         <MetricTile period={period} metric={METRICS["bd-brick-deliveries"]} />
         <MetricTile period={period} metric={METRICS["bd-iop-cement"]} />
         <MetricTile period={period} metric={METRICS["bd-steel-imports"]} />
-        <MetricTile period={period} metric={METRICS["bd-heat-pumps-bus"]} />
       </TileGrid>
     </div>
   );
