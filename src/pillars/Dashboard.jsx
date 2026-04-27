@@ -88,6 +88,7 @@ const OVERVIEW_SECTIONS = [
       "ql-cpih-inflation",
       "ql-real-wages-monthly",
       "ql-house-price",
+      "ql-births-monthly",
       "ql-gilt-yield-10y",
     ],
   },
