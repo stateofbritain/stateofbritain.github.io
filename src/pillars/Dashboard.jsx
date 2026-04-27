@@ -283,6 +283,7 @@ function QualityOfLife({ period }) {
       <h2 style={h2Style}>Quality of Life</h2>
       <p style={subStyle}>What daily life in Britain looks like.</p>
       <TileGrid>
+        <MetricTile period={period} metric={METRICS["ql-births-monthly"]} />
         <MetricTile period={period} metric={METRICS["ql-real-wages-monthly"]} />
         <MetricTile period={period} metric={METRICS["ql-cpih-inflation"]} />
         <MetricTile period={period} metric={METRICS["ql-cpi-inflation"]} />

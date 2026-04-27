@@ -283,6 +283,23 @@ export const METRICS = {
 
   // ── Quality of Life ───────────────────────────────────────────────
 
+  "ql-births-monthly": {
+    id: "ql-births-monthly",
+    subtab: "quality-of-life",
+    title: "Live births",
+    dataset: "births-monthly.json",
+    seriesKey: "monthly",
+    timeKey: "month",
+    valueKey: "deliveries",
+    cadence: "monthly",
+    direction: "up-good",
+    unit: "deliveries / month",
+    format: "number",
+    source: "NHS Digital — Maternity Services Monthly Statistics",
+    href: "/data/foundations/family",
+    periodLabel: { mom: "vs prior month", q: "3-month trend", y: "12-month trend" },
+  },
+
   "ql-real-wages-monthly": {
     id: "ql-real-wages-monthly",
     subtab: "quality-of-life",

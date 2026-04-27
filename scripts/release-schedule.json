@@ -62,6 +62,7 @@
   "exchange-rates":         { "type": "daily", "release": "BoE daily fixing" },
 
   "school-absence":         { "type": "weekly", "weekday": 5, "release": "DfE EES Pupil attendance — Thu morning + 1d (Fri)" },
+  "births-monthly":         { "type": "last-weekday", "weekday": 4, "offsetDays": 1, "release": "NHS Digital MSDS last Thu + 1d" },
   "train-ppm":              { "type": "fixed-dom", "dom": 26, "release": "ORR Passenger rail performance ~last Wed of period" },
   "epc-newbuild":           { "type": "fixed-dom", "dom": 5, "release": "EPC Open Data continuous; aggregate 5th of month" },
 
