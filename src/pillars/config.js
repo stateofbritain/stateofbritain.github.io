@@ -153,7 +153,8 @@ const PILLARS = {
           procurement: { label: "Procurement" },
         },
       },
-      immigration: { label: "Immigration",         icon: "→" },
+      immigration:    { label: "Immigration",       icon: "→" },
+      foreignAffairs: { label: "Foreign Affairs",   icon: "◯" },
     },
   },
   challenges: {

@@ -29,7 +29,7 @@
  * is stable between updates. Run is one-off heavy (~142MB stream); the
  * resulting JSON is tiny.
  */
-import { writeFileSync, createWriteStream, createReadStream, existsSync, statSync, mkdirSync } from "fs";
+import { writeFileSync, readFileSync, createWriteStream, createReadStream, existsSync, statSync, mkdirSync } from "fs";
 import { createInterface } from "readline";
 import https from "https";
 import path from "path";
@@ -42,7 +42,46 @@ const YEARS_WINDOW = 5;
 const CACHE_DIR = "data/manual-uploads/voeten";
 const AGREEMENT_PATH = path.join(CACHE_DIR, "AgreementScores.csv");
 const IDEALPOINT_PATH = path.join(CACHE_DIR, "Idealpointestimates.tab");
+const TOPO_PATH = "public/data/geo/world-countries-50m.topo.json";
 const OUTPUT_PATH = "public/data/unga-alignment.json";
+
+// Voeten country name → world-atlas-50m country name overrides where
+// they differ. Maps Voeten's "Countryname" to the topo's properties.name.
+const NAME_OVERRIDES = {
+  "United States": "United States of America",
+  "Cape Verde": "Cabo Verde",
+  "São Tomé & Príncipe": "São Tomé and Principe",
+  "Czech Republic": "Czechia",
+  "Cote d'Ivoire": "Côte d'Ivoire",
+  "Côte d'Ivoire": "Côte d'Ivoire", // straight quote
+  "Côte d’Ivoire": "Côte d'Ivoire", // curly apostrophe (U+2019)
+  "Korea, North": "North Korea",
+  "Korea, South": "South Korea",
+  "Myanmar (Burma)": "Myanmar",
+  "Bosnia & Herzegovina": "Bosnia and Herz.",
+  "Bosnia and Herzegovina": "Bosnia and Herz.",
+  "Central African Republic": "Central African Rep.",
+  "Dominican Republic": "Dominican Rep.",
+  "Equatorial Guinea": "Eq. Guinea",
+  "Solomon Islands": "Solomon Is.",
+  "South Sudan": "S. Sudan",
+  "Eswatini (Swaziland)": "eSwatini",
+  "North Macedonia": "Macedonia",
+  "Macedonia": "Macedonia",
+  "Congo - Brazzaville": "Congo",
+  "Congo, Republic of": "Congo",
+  "Congo - Kinshasa": "Dem. Rep. Congo",
+  "Congo, Democratic Republic": "Dem. Rep. Congo",
+  "Democratic Republic of the Congo": "Dem. Rep. Congo",
+  "Türkiye": "Turkey",
+  "Antigua & Barbuda": "Antigua and Barb.",
+  "St. Kitts & Nevis": "St. Kitts and Nevis",
+  "St. Lucia": "Saint Lucia",
+  "St. Vincent & Grenadines": "St. Vin. and Gren.",
+  "Trinidad & Tobago": "Trinidad and Tobago",
+  "Micronesia (Federated States of)": "Micronesia",
+  "Brunei": "Brunei",
+};
 
 const DATAVERSE_URL = (fileId) =>
   `https://dataverse.harvard.edu/api/access/datafile/${fileId}`;
@@ -175,6 +214,24 @@ async function buildCountryLookup() {
   return map;
 }
 
+/** Build a Voeten-name → ISO numeric lookup using world-atlas + name overrides. */
+function buildIsoNumLookup() {
+  const topo = JSON.parse(readFileSync(TOPO_PATH, "utf-8"));
+  const byName = new Map();
+  for (const g of topo.objects.countries.geometries) {
+    const num = String(g.id).padStart(3, "0");
+    byName.set(g.properties.name.toLowerCase(), num);
+  }
+  return (voetenName) => {
+    if (!voetenName) return null;
+    const direct = byName.get(voetenName.toLowerCase());
+    if (direct) return direct;
+    const mapped = NAME_OVERRIDES[voetenName];
+    if (mapped) return byName.get(mapped.toLowerCase()) ?? null;
+    return null;
+  };
+}
+
 async function main() {
   console.log("Downloading Voeten data files (cached after first run)…");
   await downloadIfMissing(DATAVERSE_URL(AGREEMENT_FILE_ID), AGREEMENT_PATH);
@@ -202,6 +259,7 @@ async function main() {
 
   console.log("Building country lookup…");
   const lookup = await buildCountryLookup();
+  const toIsoNum = buildIsoNumLookup();
 
   const data = [];
   for (const [cc, yearMap] of yearlyByCountry) {
@@ -226,9 +284,12 @@ async function main() {
 
     const trendPctPerDecade = linearSlopePctPerDecade(trendPoints);
 
+    const iso3num = toIsoNum(entry.name);
+
     data.push({
       ccode: cc,
       iso3: entry.iso3,
+      iso3num,
       country: entry.name,
       alignmentPct,
       alignmentPriorPct,

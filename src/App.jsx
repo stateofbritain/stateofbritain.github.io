@@ -64,6 +64,7 @@ import DefencePersonnel from "./pillars/state/DefencePersonnel";
 import DefenceEquipment from "./pillars/state/DefenceEquipment";
 import DefenceProcurement from "./pillars/state/DefenceProcurement";
 import Immigration from "./pillars/state/Immigration";
+import ForeignAffairs from "./pillars/state/ForeignAffairs";
 import Taxation from "./pillars/state/Taxation";
 import Borrowing from "./pillars/state/Borrowing";
 import MoneySupply from "./pillars/state/MoneySupply";
@@ -135,6 +136,7 @@ const TOPIC_COMPONENTS = {
   "state/defence/equipment": DefenceEquipment,
   "state/defence/procurement": DefenceProcurement,
   "state/immigration": Immigration,
+  "state/foreignAffairs": ForeignAffairs,
   "challenges/overview": ChallengesOverview,
   "challenges/asylum": AsylumImmigration,
   "challenges/university": UniversityFunding,
