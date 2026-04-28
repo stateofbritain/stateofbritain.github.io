@@ -35,6 +35,23 @@ export default function ForeignAffairs() {
   const { data, loading, error } = useJsonDataset("unga-alignment.json");
   const [selectedCode, setSelectedCode] = useState(null);
 
+  const countries = data?.countries ?? [];
+  const snap = data?.snapshot ?? {};
+
+  // Map data: { iso3num: alignmentPct }
+  const mapData = useMemo(() => {
+    const m = {};
+    for (const c of countries) {
+      if (c.iso3num && c.alignmentPct != null) m[c.iso3num] = c.alignmentPct;
+    }
+    return m;
+  }, [countries]);
+
+  const selectedCountry = useMemo(() => {
+    if (!selectedCode) return null;
+    return countries.find((c) => c.iso3num === selectedCode) ?? null;
+  }, [selectedCode, countries]);
+
   if (loading) {
     return (
       <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
@@ -55,23 +72,6 @@ export default function ForeignAffairs() {
       </div>
     );
   }
-
-  const countries = data.countries ?? [];
-  const snap = data.snapshot ?? {};
-
-  // Map data: { iso3num: alignmentPct }
-  const mapData = useMemo(() => {
-    const m = {};
-    for (const c of countries) {
-      if (c.iso3num && c.alignmentPct != null) m[c.iso3num] = c.alignmentPct;
-    }
-    return m;
-  }, [countries]);
-
-  const selectedCountry = useMemo(() => {
-    if (!selectedCode) return null;
-    return countries.find((c) => c.iso3num === selectedCode) ?? null;
-  }, [selectedCode, countries]);
 
   const handleClickArea = ({ code }) => {
     setSelectedCode((prev) => (prev === code ? null : code));
