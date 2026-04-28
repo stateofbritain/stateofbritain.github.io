@@ -27,11 +27,10 @@ const SUBHEADER = {
   maxWidth: 720,
 };
 
-// Diverging-ish two-point scale using site palette: sienna (warm,
-// low alignment) → teal (cool, high alignment). Mid-gradient blends
-// to a soft warm-grey that reads as neutral.
-const COLOR_LOW = P.sienna;   // #C94B1A
-const COLOR_HIGH = P.teal;    // #1E6B5E
+// Diverging three-point scale using the site palette:
+//   sienna (low alignment) → grey (neutral, the soft slate from
+//   palette.js) → teal (high alignment).
+const COLOR_SCALE = [P.sienna, P.grey, P.teal]; // #C94B1A · #8B9BB0 · #1E6B5E
 const NULL_COLOR = "#f0e8d6"; // pale parchment
 
 export default function ForeignAffairs() {
@@ -116,7 +115,7 @@ export default function ForeignAffairs() {
           </div>
           <WorldChoroplethMap
             data={mapData}
-            colorScale={[COLOR_LOW, COLOR_HIGH]}
+            colorScale={COLOR_SCALE}
             nullColor={NULL_COLOR}
             domain={[35, 95]}
             height={520}
