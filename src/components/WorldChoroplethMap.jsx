@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from "react";
 import { geoNaturalEarth1, geoPath as d3GeoPath } from "d3-geo";
 import { feature } from "topojson-client";
-import P from "../theme/palette";
+import P, { SCALES } from "../theme/palette";
 import MapTooltip from "./MapTooltip";
 
 const DEFAULT_H = 520;
@@ -36,8 +36,8 @@ export default function WorldChoroplethMap({
   topoUrl = "/data/geo/world-countries-50m.topo.json",
   objectKey = "countries",
   data = {},
-  colorScale = ["#e8e4dc", "#1c2b45"],
-  nullColor = "#f3f0e7",
+  colorScale = SCALES.diverging,
+  nullColor = SCALES.nullFill,
   domain,
   quantile = [0.02, 0.98],
   height = DEFAULT_H,

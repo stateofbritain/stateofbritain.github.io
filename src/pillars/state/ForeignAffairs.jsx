@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine,
 } from "recharts";
-import P from "../../theme/palette";
+import P, { SCALES } from "../../theme/palette";
 import {
   SECTION_HEADING, SECTION_NOTE, CHART_CARD, CHART_TITLE, CHART_SUBTITLE,
   AXIS_TICK, yAxisLabel, GRID_PROPS,
@@ -27,11 +27,7 @@ const SUBHEADER = {
   maxWidth: 720,
 };
 
-// Diverging three-point scale using the site palette:
-//   sienna (low alignment) → grey (neutral, the soft slate from
-//   palette.js) → teal (high alignment).
-const COLOR_SCALE = [P.sienna, P.grey, P.teal]; // #C94B1A · #8B9BB0 · #1E6B5E
-const NULL_COLOR = "#f0e8d6"; // pale parchment
+// Use the site-wide diverging scale (sienna → grey → teal) from palette.js.
 
 export default function ForeignAffairs() {
   const { data, loading, error } = useJsonDataset("unga-alignment.json");
@@ -115,8 +111,8 @@ export default function ForeignAffairs() {
           </div>
           <WorldChoroplethMap
             data={mapData}
-            colorScale={COLOR_SCALE}
-            nullColor={NULL_COLOR}
+            colorScale={SCALES.diverging}
+            nullColor={SCALES.nullFill}
             domain={[35, 95]}
             height={520}
             selectedCode={selectedCode}

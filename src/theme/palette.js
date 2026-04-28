@@ -15,4 +15,22 @@ const P = {
   borderStrong: "rgba(28,43,69,0.18)",
 };
 
+/**
+ * Reusable colour scales for choropleths and other gradients.
+ * Reach for these instead of hand-rolling stops per chart.
+ *
+ *   diverging      sienna → grey → teal — bipolar metrics where a
+ *                  midpoint reads as neutral (e.g. UNGA alignment,
+ *                  trade balance, polling lead).
+ *   sequentialTeal pale teal → deep teal — monotonic positive metrics.
+ *   sequentialWarm parchment → sienna  — monotonic warm metrics.
+ *   nullFill       value to use for "no data" cells alongside the above.
+ */
+export const SCALES = {
+  diverging: [P.sienna, P.grey, P.teal],
+  sequentialTeal: ["#d4ede8", P.teal],
+  sequentialWarm: ["#f0e8d6", P.sienna],
+  nullFill: "#f0e8d6",
+};
+
 export default P;
