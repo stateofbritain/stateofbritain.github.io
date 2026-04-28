@@ -185,10 +185,10 @@ export default function WorldChoroplethMap({
               key={code}
               d={pathGen(f)}
               fill={colorFor(code)}
-              fillOpacity={isSelected ? 1 : isHovered ? 0.95 : 0.9}
+              fillOpacity={isSelected || isHovered ? 1 : 0.9}
               stroke={isSelected ? P.navy : isHovered ? P.navy : "#fff"}
-              strokeWidth={isSelected ? 1.5 : isHovered ? 1.2 : 0.4}
-              style={{ cursor: "pointer", transition: "fill-opacity 0.15s, stroke-width 0.15s" }}
+              strokeWidth={isSelected ? 1.4 : 0.4}
+              style={{ cursor: "pointer" }}
               onMouseEnter={(e) => handleMouseEnter(e, f)}
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}

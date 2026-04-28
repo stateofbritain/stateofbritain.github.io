@@ -27,9 +27,12 @@ const SUBHEADER = {
   maxWidth: 720,
 };
 
-const COLOR_LOW = "#b9462f";   // diverging — sienna/red
-const COLOR_HIGH = "#1c2b45";  // aligned — navy
-const NULL_COLOR = "#f3f0e7";
+// Diverging-ish two-point scale using site palette: sienna (warm,
+// low alignment) → teal (cool, high alignment). Mid-gradient blends
+// to a soft warm-grey that reads as neutral.
+const COLOR_LOW = P.sienna;   // #C94B1A
+const COLOR_HIGH = P.teal;    // #1E6B5E
+const NULL_COLOR = "#f0e8d6"; // pale parchment
 
 export default function ForeignAffairs() {
   const { data, loading, error } = useJsonDataset("unga-alignment.json");
