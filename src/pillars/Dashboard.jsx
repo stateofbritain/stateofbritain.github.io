@@ -300,6 +300,12 @@ function SovereignCapability({ period }) {
           subtitle="HS 8541 + 8542, imports only."
           unit="£"
         />
+        <DependencyBreakdown
+          dataset="food-dependency.json"
+          title="Food"
+          subtitle="HS 02 meat · 04 dairy · 07 veg · 08 fruit · 10 cereals."
+          unit="£"
+        />
       </div>
     </div>
   );

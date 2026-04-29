@@ -58,6 +58,7 @@ export default function DependencyBreakdown({
 
   const monthly = data?.monthly || [];
   const byPartner = data?.byPartner || [];
+  const facets = data?.facets || null; // optional per-category breakout
   const latest = monthly[monthly.length - 1] || null;
 
   const latestRow = useMemo(() => {
@@ -149,6 +150,7 @@ export default function DependencyBreakdown({
           row={latestRow}
           monthly={stackedSeries}
           byPartner={byPartner}
+          facets={facets}
           unit={unit}
           onClose={() => setExpanded(false)}
         />
@@ -209,7 +211,7 @@ function CollapsedCard({ title, row, latest, unit }) {
   );
 }
 
-function ExpandedCard({ title, subtitle, latest, row, monthly, byPartner, unit, onClose }) {
+function ExpandedCard({ title, subtitle, latest, row, monthly, byPartner, facets, unit, onClose }) {
   return (
     <>
       <div style={{
@@ -255,8 +257,83 @@ function ExpandedCard({ title, subtitle, latest, row, monthly, byPartner, unit, 
       </div>
       <StackedBar row={row} unit={unit} />
       <Footnote latest={latest} unit={unit} />
+      {facets && <FacetGrid facets={facets} unit={unit} />}
       <Expanded monthly={monthly} byPartner={byPartner} unit={unit} />
     </>
+  );
+}
+
+/**
+ * Renders a sub-grid of small donut cards, one per facet, showing each
+ * sub-category's import bucket mix and aligned share. Used by composite
+ * cards (e.g. food, where one card aggregates 5 HS chapters).
+ */
+function FacetGrid({ facets, unit }) {
+  const entries = Object.entries(facets);
+  if (entries.length === 0) return null;
+  return (
+    <div style={{ marginTop: 18, paddingTop: 14, borderTop: `1px solid ${P.border}` }}>
+      <SectionLabel>Per-category breakdown</SectionLabel>
+      <div style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
+        gap: 12,
+      }}>
+        {entries.map(([key, facet]) => {
+          const li = facet.latest || {};
+          const row = {
+            domestic: 0,
+            aligned: li.imports?.aligned || 0,
+            neutral: li.imports?.neutral || 0,
+            low: li.imports?.low || 0,
+            unknown: li.imports?.unknown || 0,
+          };
+          const total = row.aligned + row.neutral + row.low + row.unknown;
+          return (
+            <div key={key} style={{
+              border: `1px solid ${P.border}`,
+              borderRadius: 3,
+              padding: "10px 10px 8px",
+              background: P.bgCard,
+            }}>
+              <div style={{
+                fontSize: 10,
+                color: P.textLight,
+                fontFamily: "'DM Mono', monospace",
+                textTransform: "uppercase",
+                letterSpacing: "0.08em",
+                marginBottom: 6,
+                textAlign: "center",
+              }}>
+                {facet.label}
+              </div>
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                <Donut row={row} size={70} thickness={14} />
+              </div>
+              <div style={{
+                textAlign: "center",
+                marginTop: 6,
+                fontFamily: "'Playfair Display', serif",
+                fontSize: 14,
+                fontWeight: 600,
+                color: P.text,
+              }}>
+                {li.alignedShare != null ? `${li.alignedShare.toFixed(0)}% aligned` : "—"}
+              </div>
+              <div style={{
+                textAlign: "center",
+                fontSize: 10,
+                color: P.textLight,
+                fontFamily: "'DM Mono', monospace",
+                marginTop: 2,
+              }}>
+                {formatTonnes(total, unit)} imp
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
   );
 }
 

@@ -253,9 +253,15 @@ export async function buildDependencyDataset(opts) {
     },
   };
 
-  writeFileSync(outputPath, JSON.stringify(output, null, 2) + "\n");
-  console.log(
-    `✓ ${outputPath} (${monthlyData.length} months; ${partnerArr.length} partners; latest ${latest.month} aligned-share ${latest.alignedShare}%)`
-  );
+  if (outputPath) {
+    writeFileSync(outputPath, JSON.stringify(output, null, 2) + "\n");
+    console.log(
+      `✓ ${outputPath} (${monthlyData.length} months; ${partnerArr.length} partners; latest ${latest.month} aligned-share ${latest.alignedShare}%)`
+    );
+  } else {
+    console.log(
+      `  (in-memory) ${monthlyData.length} months; ${partnerArr.length} partners; latest ${latest.month} aligned-share ${latest.alignedShare}%`
+    );
+  }
   return output;
 }
