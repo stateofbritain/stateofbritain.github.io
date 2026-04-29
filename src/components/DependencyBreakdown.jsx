@@ -1,0 +1,392 @@
+import { useMemo, useState } from "react";
+import {
+  AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend,
+} from "recharts";
+import P from "../theme/palette";
+import { useJsonDataset } from "../hooks/useDataset";
+import {
+  ALIGNMENT_BUCKETS, BUCKET_LABELS, BUCKET_DESCRIPTIONS, BUCKET_THRESHOLDS,
+} from "../dashboard/alignmentBuckets";
+
+// Bucket colours, anchored on the site palette. Domestic = navy
+// (most "ours"); aligned = teal; neutral = parchment; low = sienna.
+// Unknown/unclassified imports fall through to a soft grey.
+const BUCKET_COLOR = {
+  domestic: P.navy,
+  aligned: P.teal,
+  neutral: P.parchment,
+  low: P.sienna,
+  unknown: "#c8c4ba",
+};
+
+const STACK_KEYS = ["domestic", "aligned", "neutral", "low", "unknown"];
+
+const CARD = {
+  background: P.bgCard,
+  border: `1px solid ${P.border}`,
+  borderRadius: 4,
+  padding: "20px 22px 18px",
+  marginBottom: 14,
+};
+
+/**
+ * Strategic dependency widget for one commodity.
+ *
+ * Reads a v1 dataset shaped like steel-dependency.json (production +
+ * import buckets per month, plus a byPartner totals list) and renders:
+ *   - Latest-month four-way stacked bar (domestic / aligned / neutral / low)
+ *   - Headline alignment numbers
+ *   - Click-to-expand: monthly stacked area + top partners list
+ *
+ * @param {Object} props
+ * @param {string} props.dataset   filename in /public/data
+ * @param {string} props.title
+ * @param {string} props.unit         label suffix for tonnage values (default "tonnes")
+ * @param {string} [props.subtitle]
+ * @param {string} [props.href]       optional click-through (e.g. to a /data page)
+ */
+export default function DependencyBreakdown({
+  dataset,
+  title,
+  unit = "tonnes",
+  subtitle,
+  href,
+}) {
+  const { data, loading, error } = useJsonDataset(dataset);
+  const [expanded, setExpanded] = useState(false);
+
+  const monthly = data?.monthly || [];
+  const byPartner = data?.byPartner || [];
+  const latest = monthly[monthly.length - 1] || null;
+
+  const latestRow = useMemo(() => {
+    if (!latest) return null;
+    return {
+      domestic: latest.production || 0,
+      aligned: latest.imports?.aligned || 0,
+      neutral: latest.imports?.neutral || 0,
+      low: latest.imports?.low || 0,
+      unknown: latest.imports?.unknown || 0,
+    };
+  }, [latest]);
+
+  const stackedSeries = useMemo(() => {
+    return monthly.map((m) => ({
+      month: m.month,
+      domestic: m.production || 0,
+      aligned: m.imports?.aligned || 0,
+      neutral: m.imports?.neutral || 0,
+      low: m.imports?.low || 0,
+      unknown: m.imports?.unknown || 0,
+    }));
+  }, [monthly]);
+
+  if (loading) return <div style={CARD}><Loading title={title} /></div>;
+  if (error || !data) return <div style={CARD}><ErrorRow title={title} message={error ?? "no data"} /></div>;
+  if (!latest) return <div style={CARD}><ErrorRow title={title} message="no rows" /></div>;
+
+  return (
+    <div style={CARD}>
+      <Header title={title} subtitle={subtitle} latest={latest} href={href} />
+      <StackedBar row={latestRow} unit={unit} />
+      <Footnote latest={latest} unit={unit} />
+      <ExpandToggle expanded={expanded} onClick={() => setExpanded((x) => !x)} />
+      {expanded && (
+        <Expanded
+          monthly={stackedSeries}
+          byPartner={byPartner}
+          unit={unit}
+        />
+      )}
+    </div>
+  );
+}
+
+function Header({ title, subtitle, latest, href }) {
+  const titleStyle = {
+    fontSize: 18,
+    fontWeight: 600,
+    color: P.text,
+    fontFamily: "'Playfair Display', serif",
+    margin: 0,
+    cursor: href ? "pointer" : "default",
+  };
+  return (
+    <div style={{ marginBottom: 12, display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 12, flexWrap: "wrap" }}>
+      <div>
+        {href ? <a href={href} style={{ color: "inherit", textDecoration: "none" }}><h3 style={titleStyle}>{title}</h3></a> : <h3 style={titleStyle}>{title}</h3>}
+        {subtitle && (
+          <div style={{ fontSize: 11, color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.04em", marginTop: 2 }}>
+            {subtitle}
+          </div>
+        )}
+      </div>
+      <div style={{ fontSize: 11, color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.04em" }}>
+        {latest.month}
+      </div>
+    </div>
+  );
+}
+
+function StackedBar({ row, unit }) {
+  const total = STACK_KEYS.reduce((s, k) => s + (row[k] || 0), 0);
+  if (total === 0) return null;
+
+  const segments = STACK_KEYS
+    .map((k) => ({ key: k, value: row[k] || 0 }))
+    .filter((s) => s.value > 0);
+
+  return (
+    <div style={{ marginBottom: 12 }}>
+      <div style={{
+        display: "flex",
+        height: 32,
+        borderRadius: 3,
+        overflow: "hidden",
+        border: `1px solid ${P.border}`,
+      }}>
+        {segments.map((seg) => {
+          const pct = (seg.value / total) * 100;
+          return (
+            <div
+              key={seg.key}
+              title={`${labelFor(seg.key)}: ${formatTonnes(seg.value)} ${unit} (${pct.toFixed(1)}%)`}
+              style={{
+                flexBasis: `${pct}%`,
+                background: BUCKET_COLOR[seg.key],
+                transition: "flex-basis 0.2s",
+              }}
+            />
+          );
+        })}
+      </div>
+      <Legend2 />
+    </div>
+  );
+}
+
+function Legend2() {
+  const items = [
+    { key: "domestic", label: "Domestic production" },
+    { key: "aligned", label: `Aligned (≥${BUCKET_THRESHOLDS.alignedMin}%)` },
+    { key: "neutral", label: `Neutral (${BUCKET_THRESHOLDS.neutralMin}–${BUCKET_THRESHOLDS.alignedMin}%)` },
+    { key: "low", label: `Low alignment (<${BUCKET_THRESHOLDS.neutralMin}%)` },
+  ];
+  return (
+    <div style={{
+      display: "flex",
+      gap: 14,
+      flexWrap: "wrap",
+      marginTop: 8,
+      fontSize: 11,
+      color: P.textMuted,
+      fontFamily: "'DM Mono', monospace",
+      letterSpacing: "0.02em",
+    }}>
+      {items.map((it) => (
+        <span key={it.key} style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
+          <span style={{ width: 10, height: 10, borderRadius: 2, background: BUCKET_COLOR[it.key], display: "inline-block" }} />
+          {it.label}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+function Footnote({ latest, unit }) {
+  const totalImports = latest.totalImports || 0;
+  const totalSupply = (latest.production || 0) + totalImports;
+  const items = [
+    { label: "Total supply", value: `${formatTonnes(totalSupply)} ${unit}` },
+    { label: "Aligned share", value: latest.alignedShare != null ? `${latest.alignedShare.toFixed(1)}%` : "—" },
+    { label: "Domestic share", value: latest.domesticShare != null ? `${latest.domesticShare.toFixed(1)}%` : "—" },
+    { label: "Exports", value: `${formatTonnes(latest.totalExports || 0)} ${unit}` },
+  ];
+  return (
+    <div style={{
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
+      gap: 12,
+      marginTop: 10,
+      paddingTop: 10,
+      borderTop: `1px dashed ${P.border}`,
+    }}>
+      {items.map((it) => (
+        <div key={it.label}>
+          <div style={{ fontSize: 10, color: P.textLight, fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+            {it.label}
+          </div>
+          <div style={{ fontSize: 16, color: P.text, fontFamily: "'Playfair Display', serif", fontWeight: 600, marginTop: 2 }}>
+            {it.value}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function ExpandToggle({ expanded, onClick }) {
+  return (
+    <button
+      onClick={onClick}
+      style={{
+        background: "transparent",
+        border: "none",
+        color: P.textMuted,
+        fontFamily: "'DM Mono', monospace",
+        fontSize: 11,
+        letterSpacing: "0.06em",
+        textTransform: "uppercase",
+        cursor: "pointer",
+        marginTop: 12,
+        padding: 0,
+      }}
+    >
+      {expanded ? "Hide trend & partners ↑" : "Show trend & top partners ↓"}
+    </button>
+  );
+}
+
+function Expanded({ monthly, byPartner, unit }) {
+  return (
+    <div style={{ marginTop: 16, paddingTop: 16, borderTop: `1px solid ${P.border}` }}>
+      <SectionLabel>Supply trend</SectionLabel>
+      <div style={{ width: "100%", height: 220 }}>
+        <ResponsiveContainer width="100%" height="100%">
+          <AreaChart data={monthly} margin={{ top: 8, right: 16, left: 8, bottom: 8 }}>
+            <CartesianGrid stroke={P.border} strokeDasharray="3 3" vertical={false} />
+            <XAxis dataKey="month" tickFormatter={shortMonth} tick={{ fontSize: 10, fill: P.textMuted, fontFamily: "'DM Mono', monospace" }} interval="preserveStartEnd" />
+            <YAxis tickFormatter={(v) => `${Math.round(v / 1000)}k`} tick={{ fontSize: 10, fill: P.textMuted, fontFamily: "'DM Mono', monospace" }} />
+            <Tooltip
+              contentStyle={{ background: P.text, border: "none", borderRadius: 3, fontFamily: "'DM Mono', monospace", fontSize: 11 }}
+              itemStyle={{ color: P.bgCard }}
+              labelStyle={{ color: P.bgCard, fontWeight: 500 }}
+              formatter={(v) => `${formatTonnes(v)} ${unit}`}
+            />
+            {STACK_KEYS.map((k) => (
+              <Area
+                key={k}
+                type="monotone"
+                dataKey={k}
+                stackId="1"
+                name={labelFor(k)}
+                fill={BUCKET_COLOR[k]}
+                stroke={BUCKET_COLOR[k]}
+                fillOpacity={0.85}
+              />
+            ))}
+            <Legend wrapperStyle={{ fontSize: 10, fontFamily: "'DM Mono', monospace", color: P.textMuted }} />
+          </AreaChart>
+        </ResponsiveContainer>
+      </div>
+
+      <SectionLabel style={{ marginTop: 18 }}>Top trade partners (last 24 months)</SectionLabel>
+      <PartnerList partners={byPartner.slice(0, 12)} unit={unit} />
+    </div>
+  );
+}
+
+function PartnerList({ partners, unit }) {
+  if (partners.length === 0) {
+    return <div style={{ fontSize: 12, color: P.textLight, fontFamily: "'DM Mono', monospace" }}>No partners with import flows in window.</div>;
+  }
+  return (
+    <div>
+      {partners.map((p) => (
+        <div
+          key={p.iso3}
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1.4fr 1fr 1fr 1fr",
+            alignItems: "baseline",
+            padding: "6px 0",
+            borderBottom: `1px dashed ${P.border}`,
+            fontFamily: "'DM Mono', monospace",
+            fontSize: 12,
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <BucketDot bucket={p.bucket} />
+            <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 14, color: P.text }}>{p.country}</span>
+          </div>
+          <div style={{ color: P.textMuted, textAlign: "right" }}>
+            {p.alignmentPct != null ? `${p.alignmentPct.toFixed(0)}% aligned` : "—"}
+          </div>
+          <div style={{ color: P.text, textAlign: "right", fontWeight: 600 }}>
+            {formatTonnes(p.importTonnes)} {unit} imp
+          </div>
+          <div style={{ color: P.textLight, textAlign: "right" }}>
+            {formatTonnes(p.exportTonnes)} exp
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function BucketDot({ bucket }) {
+  return (
+    <span
+      title={BUCKET_DESCRIPTIONS[bucket] || ""}
+      style={{
+        width: 8,
+        height: 8,
+        borderRadius: "50%",
+        background: BUCKET_COLOR[bucket] || BUCKET_COLOR.unknown,
+        display: "inline-block",
+      }}
+    />
+  );
+}
+
+function SectionLabel({ children, style }) {
+  return (
+    <div style={{
+      fontSize: 11,
+      color: P.textLight,
+      fontFamily: "'DM Mono', monospace",
+      textTransform: "uppercase",
+      letterSpacing: "0.08em",
+      marginBottom: 8,
+      ...style,
+    }}>
+      {children}
+    </div>
+  );
+}
+
+function Loading({ title }) {
+  return (
+    <div style={{ color: P.textMuted, fontFamily: "'DM Mono', monospace", fontSize: 12 }}>
+      {title} — loading…
+    </div>
+  );
+}
+
+function ErrorRow({ title, message }) {
+  return (
+    <div style={{ color: P.textMuted, fontFamily: "'DM Mono', monospace", fontSize: 12 }}>
+      {title} — {message}
+    </div>
+  );
+}
+
+function labelFor(key) {
+  if (key === "domestic") return "Domestic";
+  return BUCKET_LABELS[key] || key;
+}
+
+function formatTonnes(v) {
+  if (v == null || !Number.isFinite(v)) return "—";
+  if (Math.abs(v) >= 1_000_000) return `${(v / 1_000_000).toFixed(1)}m`;
+  if (Math.abs(v) >= 1_000) return `${(v / 1_000).toFixed(0)}k`;
+  return String(Math.round(v));
+}
+
+function shortMonth(period) {
+  if (typeof period !== "string") return "";
+  const m = period.match(/^(\d{4})-(\d{2})$/);
+  if (!m) return period;
+  const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  return `${monthNames[parseInt(m[2], 10) - 1]} ${m[1].slice(2)}`;
+}

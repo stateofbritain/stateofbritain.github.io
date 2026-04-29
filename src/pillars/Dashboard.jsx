@@ -3,6 +3,7 @@ import P from "../theme/palette";
 import useIsMobile from "../hooks/useIsMobile";
 import MetricTile, { OverviewMiniTile } from "../dashboard/MetricTile";
 import { METRICS } from "../dashboard/metrics";
+import DependencyBreakdown from "../components/DependencyBreakdown";
 import { track } from "../analytics";
 
 const SUBTABS = [
@@ -258,6 +259,24 @@ function SovereignCapability({ period }) {
         <MetricTile period={period} metric={METRICS["sc-gas-import-concentration"]} />
         <MetricTile period={period} metric={METRICS["sc-tech-incorporations"]} />
       </TileGrid>
+
+      <h3 style={{
+        fontFamily: "'Playfair Display', serif",
+        fontSize: 22,
+        fontWeight: 600,
+        color: P.text,
+        margin: "32px 0 6px",
+      }}>
+        Strategic dependencies
+      </h3>
+      <p style={{ ...subStyle, marginBottom: 16 }}>
+        Where the goods Britain depends on come from. Domestic production, plus imports broken down by trade-partner alignment with the UK at the UN General Assembly.
+      </p>
+      <DependencyBreakdown
+        dataset="steel-dependency.json"
+        title="Steel"
+        subtitle="Finished steel (HS 7208–7229), monthly tonnage."
+      />
     </div>
   );
 }

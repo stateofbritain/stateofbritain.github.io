@@ -30,6 +30,7 @@
   "iop-steel":              { "type": "nth-weekday", "n": 2, "weekday": 4, "offsetDays": 1, "release": "ONS Index of Production iron & steel (GDP day) + 1d" },
   "steel-trade":            { "type": "fixed-dom", "dom": 15, "release": "HMRC OTS publishes ~13th of each month for M-2; fetch 15th" },
   "steel-consumption":      { "type": "daily", "release": "Derived from steel-trade.json + iop-steel.json; cheap, idempotent" },
+  "steel-dependency":       { "type": "fixed-dom", "dom": 16, "release": "HMRC OTS by partner country (~80s run); fetch 16th after steel-trade" },
   "unga-alignment":         { "type": "fixed-dom", "dom": 15, "release": "Voeten UNGA dataset updates ~annually; refresh 15th monthly (cheap with cache)" },
   "mfg-output":             { "type": "nth-weekday", "n": 2, "weekday": 4, "offsetDays": 1, "release": "ONS Manufacturing (GDP day) + 1d" },
   "construction-output":    { "type": "nth-weekday", "n": 2, "weekday": 4, "offsetDays": 1, "release": "ONS Construction (GDP day) + 1d" },
