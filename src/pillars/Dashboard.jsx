@@ -270,13 +270,19 @@ function SovereignCapability({ period }) {
         Strategic dependencies
       </h3>
       <p style={{ ...subStyle, marginBottom: 16 }}>
-        Where the goods Britain depends on come from. Domestic production, plus imports broken down by trade-partner alignment with the UK at the UN General Assembly.
+        Where the goods Britain depends on come from. Domestic production, plus imports broken down by trade-partner alignment with the UK at the UN General Assembly. Click a card for the full breakdown.
       </p>
-      <DependencyBreakdown
-        dataset="steel-dependency.json"
-        title="Steel"
-        subtitle="Finished steel (HS 7208–7229), monthly tonnage."
-      />
+      <div style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))",
+        gap: 14,
+      }}>
+        <DependencyBreakdown
+          dataset="steel-dependency.json"
+          title="Steel"
+          subtitle="Finished steel (HS 7208–7229), monthly tonnage."
+        />
+      </div>
     </div>
   );
 }

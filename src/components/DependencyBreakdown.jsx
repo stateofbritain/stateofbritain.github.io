@@ -85,21 +85,165 @@ export default function DependencyBreakdown({
   if (error || !data) return <div style={CARD}><ErrorRow title={title} message={error ?? "no data"} /></div>;
   if (!latest) return <div style={CARD}><ErrorRow title={title} message="no rows" /></div>;
 
+  // When expanded the card spans both columns of the parent grid so
+  // the bar + trend chart have room to breathe.
+  const cardStyle = expanded
+    ? { ...CARD, gridColumn: "1 / -1" }
+    : CARD;
+
   return (
-    <div style={CARD}>
+    <div style={cardStyle}>
       <Header title={title} subtitle={subtitle} latest={latest} href={href} />
-      <StackedBar row={latestRow} unit={unit} />
-      <Footnote latest={latest} unit={unit} />
-      <ExpandToggle expanded={expanded} onClick={() => setExpanded((x) => !x)} />
-      {expanded && (
-        <Expanded
+      {expanded ? (
+        <ExpandedView
+          row={latestRow}
+          latest={latest}
           monthly={stackedSeries}
           byPartner={byPartner}
           unit={unit}
         />
+      ) : (
+        <CollapsedView row={latestRow} latest={latest} unit={unit} />
       )}
+      <ExpandToggle expanded={expanded} onClick={() => setExpanded((x) => !x)} />
     </div>
   );
+}
+
+function CollapsedView({ row, latest, unit }) {
+  const total = STACK_KEYS.reduce((s, k) => s + (row[k] || 0), 0);
+  return (
+    <div style={{
+      display: "grid",
+      gridTemplateColumns: "auto 1fr",
+      gap: 18,
+      alignItems: "center",
+      marginTop: 4,
+    }}>
+      <Donut row={row} size={140} thickness={28} />
+      <div>
+        <KeyStat
+          label="Aligned"
+          value={latest.alignedShare != null ? `${latest.alignedShare.toFixed(1)}%` : "—"}
+          color={BUCKET_COLOR.aligned}
+        />
+        <KeyStat
+          label="Domestic"
+          value={latest.domesticShare != null ? `${latest.domesticShare.toFixed(1)}%` : "—"}
+          color={BUCKET_COLOR.domestic}
+        />
+        <KeyStat
+          label="Total supply"
+          value={`${formatTonnes(total)} ${unit}`}
+        />
+      </div>
+    </div>
+  );
+}
+
+function ExpandedView({ row, latest, monthly, byPartner, unit }) {
+  return (
+    <>
+      <StackedBar row={row} unit={unit} />
+      <Footnote latest={latest} unit={unit} />
+      <Expanded monthly={monthly} byPartner={byPartner} unit={unit} />
+    </>
+  );
+}
+
+function KeyStat({ label, value, color }) {
+  return (
+    <div style={{ marginBottom: 8 }}>
+      <div style={{
+        fontSize: 10,
+        color: P.textLight,
+        fontFamily: "'DM Mono', monospace",
+        textTransform: "uppercase",
+        letterSpacing: "0.08em",
+        display: "flex",
+        alignItems: "center",
+        gap: 6,
+      }}>
+        {color && <span style={{ width: 8, height: 8, borderRadius: "50%", background: color, display: "inline-block" }} />}
+        {label}
+      </div>
+      <div style={{
+        fontSize: 20,
+        fontWeight: 600,
+        fontFamily: "'Playfair Display', serif",
+        color: P.text,
+        marginTop: 2,
+      }}>
+        {value}
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Lightweight SVG donut. Renders one filled segment per non-zero key
+ * in `row`, in the order defined by STACK_KEYS so colours line up
+ * with the bar chart and legend.
+ */
+function Donut({ row, size = 120, thickness = 24 }) {
+  const total = STACK_KEYS.reduce((s, k) => s + (row[k] || 0), 0);
+  if (total === 0) return null;
+
+  const cx = size / 2;
+  const cy = size / 2;
+  const rOuter = (size / 2) - 2;
+  const rInner = rOuter - thickness;
+
+  const segments = [];
+  let acc = 0;
+  for (const k of STACK_KEYS) {
+    const v = row[k] || 0;
+    if (v <= 0) continue;
+    const startAngle = (acc / total) * 360;
+    const endAngle = ((acc + v) / total) * 360;
+    acc += v;
+    segments.push({
+      key: k,
+      d: arcPath(cx, cy, rOuter, rInner, startAngle, endAngle),
+      color: BUCKET_COLOR[k],
+    });
+  }
+
+  return (
+    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} style={{ display: "block" }}>
+      {segments.map((s) => (
+        <path key={s.key} d={s.d} fill={s.color} stroke="#fff" strokeWidth={1} />
+      ))}
+    </svg>
+  );
+}
+
+function arcPath(cx, cy, rOuter, rInner, startAngle, endAngle) {
+  // Special-case a full 360° segment (single-bucket pie); split into
+  // two halves so the arc doesn't collapse to a zero-length path.
+  if (Math.abs(endAngle - startAngle) >= 359.999) {
+    const halfA = arcPath(cx, cy, rOuter, rInner, startAngle, startAngle + 180);
+    const halfB = arcPath(cx, cy, rOuter, rInner, startAngle + 180, endAngle);
+    return `${halfA} ${halfB}`;
+  }
+  const outerStart = polar(cx, cy, rOuter, startAngle);
+  const outerEnd = polar(cx, cy, rOuter, endAngle);
+  const innerEnd = polar(cx, cy, rInner, endAngle);
+  const innerStart = polar(cx, cy, rInner, startAngle);
+  const largeArc = endAngle - startAngle > 180 ? 1 : 0;
+  return [
+    "M", outerStart.x, outerStart.y,
+    "A", rOuter, rOuter, 0, largeArc, 1, outerEnd.x, outerEnd.y,
+    "L", innerEnd.x, innerEnd.y,
+    "A", rInner, rInner, 0, largeArc, 0, innerStart.x, innerStart.y,
+    "Z",
+  ].join(" ");
+}
+
+function polar(cx, cy, r, angleDeg) {
+  // 0° points to 12-o'clock; clockwise from there.
+  const rad = (angleDeg - 90) * (Math.PI / 180);
+  return { x: cx + r * Math.cos(rad), y: cy + r * Math.sin(rad) };
 }
 
 function Header({ title, subtitle, latest, href }) {
