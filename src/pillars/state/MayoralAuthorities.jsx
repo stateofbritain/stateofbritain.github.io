@@ -3,7 +3,7 @@ import {
   AreaChart, Area, BarChart, Bar, PieChart, Pie, LineChart, Line,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
   Cell } from "recharts";
-import P from "../../theme/palette";
+import P, { SCALES } from "../../theme/palette";
 import {
   SECTION_HEADING, SECTION_NOTE,
   AXIS_TICK_MONO, yAxisLabel, GRID_PROPS } from "../../theme/chartStyles";
@@ -337,7 +337,7 @@ export default function MayoralAuthorities() {
               <UKChoroplethMap
                 topoUrl="/data/geo/cauth.topo.json"
                 data={mapData}
-                colorScale={["#d4ede8", "#0d4a3e"]}
+                colorScale={SCALES.sequentialTeal}
                 formatLegend={perCapita ? (v) => `£${Math.round(v)}` : (v) => `£${Math.round(v / 1000)}m`}
                 selectedCode={selectedAuth?.code}
                 onClickArea={(area) => setSelectedAuth(prev => prev?.code === area.code ? null : area)}

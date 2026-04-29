@@ -79,8 +79,8 @@ export default function ForeignAffairs() {
     <div style={{ padding: "40px 0", animation: "fadeSlideIn 0.4s ease both" }}>
       <h2 style={HEADER}>Foreign Affairs</h2>
       <p style={SUBHEADER}>
-        How the UK aligns diplomatically at the United Nations General Assembly. Each country
-        is coloured by its share of UNGA roll-call votes that matched the UK over the {snap.window}
+        UK voting alignment with each UN member state at the General Assembly. Each country is
+        coloured by its share of roll-call votes cast the same way as the UK over the {snap.window}
         window. Click a country to see its full record back to 1946.
       </p>
 
@@ -88,10 +88,10 @@ export default function ForeignAffairs() {
       <section style={{ marginBottom: 48 }}>
         <h3 style={SECTION_HEADING}>UK Voting Alignment at the UN</h3>
         <p style={SECTION_NOTE}>
-          UK alignment is highest with Western Europe and the broader US-aligned bloc, and lowest
-          with Russia, China, Iran, North Korea, Syria, and the post-Soviet authoritarian states.
-          Roll-call votes are typically on resolutions concerning conflict, human rights, and
-          development — abstentions count as disagreement.
+          Roll-call agreement over the {snap.window} window. Higher values indicate the UK and
+          counterpart cast the same vote on a larger share of resolutions. Resolutions cover
+          conflict, human rights, development, and other topics; abstentions are counted as
+          disagreement with the UK position.
         </p>
         <div style={CHART_CARD}>
           <div style={{ marginBottom: 14 }}>
@@ -156,10 +156,8 @@ export default function ForeignAffairs() {
       <section style={{ marginBottom: 48 }}>
         <h3 style={SECTION_HEADING}>Biggest Recent Shifts</h3>
         <p style={SECTION_NOTE}>
-          The five countries the UK has converged with — and diverged from — most over the last
-          five years, comparing the {snap.window} mean against the {snap.priorWindow} mean.
-          Russia&rsquo;s plunge tracks the post-2022 invasion of Ukraine; the United States&rsquo;
-          jump captures the swing from the first Trump administration into Biden.
+          Change in five-year mean alignment, comparing the {snap.window} window against the
+          {" "}{snap.priorWindow} window. The five largest moves in each direction.
         </p>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 14 }}>
           <MoverList title="Converging" items={snap.topConverging || []} positive />
@@ -169,13 +167,11 @@ export default function ForeignAffairs() {
 
       <AnalysisBox>
         <p>
-          Roll-call agreement is one of the most visible measures of diplomatic alignment.
-          The dataset is comprehensive — every UN member casts thousands of votes per session
-          and the aggregate is hard to game — but it leaves room outside the chamber: defence
-          treaties, intelligence sharing, and trade ties don&rsquo;t show up here. The picture
-          is most useful in combination with those, especially when paired against trade and
-          investment exposure to identify cases where commercial dependence and diplomatic
-          alignment disagree.
+          Roll-call agreement is one published measure of diplomatic alignment. The dataset
+          covers every UN member and every roll-call vote since 1946. It does not capture
+          activity outside the chamber: defence treaties, intelligence sharing, and trade
+          ties are recorded separately. Read this alongside trade and investment exposure
+          to identify cases where commercial dependence and General Assembly voting diverge.
         </p>
         <p style={{ marginTop: 10 }}>
           <strong>Source:</strong> Bailey, Michael A., Anton Strezhnev, and Erik Voeten.

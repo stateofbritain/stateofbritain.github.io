@@ -27,9 +27,14 @@ const P = {
  *   nullFill       value to use for "no data" cells alongside the above.
  */
 export const SCALES = {
+  // Bipolar metrics where a midpoint reads as neutral (e.g. UNGA
+  // alignment, polling lead, deficit/surplus, year-over-year change).
   diverging: [P.sienna, P.parchment, P.teal],
-  sequentialTeal: ["#d4ede8", P.teal],
-  sequentialWarm: ["#f0e8d6", P.sienna],
+  // Monotonic positive metrics (capacity, density, share, count).
+  sequentialTeal: [P.parchment, P.teal],
+  // Monotonic warm metrics where high = bad (waiting times, debt %).
+  sequentialWarm: [P.parchment, P.sienna],
+  // Consistent null/no-data fill across every map and choropleth.
   nullFill: "#e6e6e6",
 };
 

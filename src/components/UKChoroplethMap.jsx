@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from "react";
 import { geoTransverseMercator, geoPath as d3GeoPath } from "d3-geo";
 import { feature } from "topojson-client";
-import P from "../theme/palette";
+import P, { SCALES } from "../theme/palette";
 import MapTooltip from "./MapTooltip";
 
 const DEFAULT_H = 620;
@@ -56,8 +56,8 @@ export default function UKChoroplethMap({
   objectKey = "authorities",
   codeField = "code",
   data = {},
-  colorScale = ["#d4ede8", "#0d4a3e"],
-  nullColor = "#e8e4dc",
+  colorScale = SCALES.sequentialTeal,
+  nullColor = SCALES.nullFill,
   domain,
   quantile = [0.02, 0.98],
   height = DEFAULT_H,
@@ -121,17 +121,18 @@ export default function UKChoroplethMap({
       const h = hex.replace("#", "");
       return [parseInt(h.slice(0, 2), 16), parseInt(h.slice(2, 4), 16), parseInt(h.slice(4, 6), 16)];
     };
-    const [lr, lg, lb] = parse(colorScale[0]);
-    const [hr, hg, hb] = parse(colorScale[1]);
+    const stops = colorScale.map(parse);
+    const lerp = (a, b, t) => Math.round(a + (b - a) * t);
+    const interp = (s1, s2, t) => `rgb(${lerp(s1[0], s2[0], t)},${lerp(s1[1], s2[1], t)},${lerp(s1[2], s2[2], t)})`;
 
+    // Support 2- or 3-stop scales. With 3 stops, mid is anchored at t=0.5.
     const colorFor = (code) => {
       const v = data[code];
       if (v == null || v <= 0) return nullColor;
       const t = Math.max(0, Math.min(1, (v - lo) / range));
-      const r = Math.round(lr + (hr - lr) * t);
-      const g = Math.round(lg + (hg - lg) * t);
-      const b = Math.round(lb + (hb - lb) * t);
-      return `rgb(${r},${g},${b})`;
+      if (stops.length === 2) return interp(stops[0], stops[1], t);
+      if (t <= 0.5) return interp(stops[0], stops[1], t * 2);
+      return interp(stops[1], stops[2], (t - 0.5) * 2);
     };
 
     return { colorFor, minVal: lo, maxVal: hi };
@@ -207,7 +208,7 @@ export default function UKChoroplethMap({
           width: 120,
           height: 10,
           borderRadius: 2,
-          background: `linear-gradient(to right, ${colorScale[0]}, ${colorScale[1]})`,
+          background: `linear-gradient(to right, ${colorScale.join(", ")})`,
         }} />
         <span style={{ fontSize: 11, fontFamily: "'DM Mono', monospace", color: P.textMuted }}>
           {formatLegend ? formatLegend(maxVal) : `£${Math.round(maxVal / 1000)}m`}

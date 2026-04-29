@@ -3,7 +3,7 @@ import {
   LineChart, Line, BarChart, Bar, AreaChart, Area,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
   ReferenceLine, Cell } from "recharts";
-import P from "../../theme/palette";
+import P, { SCALES } from "../../theme/palette";
 import {
   SECTION_HEADING, SECTION_NOTE, SOURCE_TEXT,
   AXIS_TICK_MONO, yAxisLabel, GRID_PROPS } from "../../theme/chartStyles";
@@ -354,7 +354,7 @@ export default function LocalGovernment() {
 
                 <UKChoroplethMap
                   data={mapData}
-                  colorScale={mapMetric === "socialCarePct" ? ["#fde8d0", "#C94B1A"] : ["#d4ede8", "#0d4a3e"]}
+                  colorScale={mapMetric === "socialCarePct" ? SCALES.sequentialWarm : SCALES.sequentialTeal}
                   formatLegend={
                     mapMetric === "socialCarePct" ? (v) => `${Math.round(v)}%`
                     : perCapita ? (v) => `£${Math.round(v)}`
