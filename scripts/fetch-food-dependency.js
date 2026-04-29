@@ -20,12 +20,16 @@ import { writeFileSync, writeFile } from "fs";
 import { lastNMonthIds } from "./lib/hmrc-trade-by-country.js";
 import { buildDependencyDataset } from "./lib/build-dependency-dataset.js";
 
+// Per-chapter UK self-sufficiency ratios from the DEFRA UK Food
+// Security Report 2024 (production / (production + imports - exports)).
+// We use these to infer monthly domestic production from monthly net
+// imports: production = SS/(1-SS) × netImports. See source note.
 const FACETS = [
-  { key: "meat",      label: "Meat",       hs2: "02" },
-  { key: "dairy",     label: "Dairy & eggs", hs2: "04" },
-  { key: "vegetables",label: "Vegetables", hs2: "07" },
-  { key: "fruit",     label: "Fruit",      hs2: "08" },
-  { key: "cereals",   label: "Cereals",    hs2: "10" },
+  { key: "meat",       label: "Meat",         hs2: "02", selfSufficiency: 0.75 },
+  { key: "dairy",      label: "Dairy & eggs", hs2: "04", selfSufficiency: 0.88 },
+  { key: "vegetables", label: "Vegetables",   hs2: "07", selfSufficiency: 0.55 },
+  { key: "fruit",      label: "Fruit",        hs2: "08", selfSufficiency: 0.16 },
+  { key: "cereals",    label: "Cereals",      hs2: "10", selfSufficiency: 0.85 },
 ];
 
 const MONTHS_BACK = 24;
@@ -37,7 +41,15 @@ const COMMON_SOURCES = [
     url: "https://www.uktradeinfo.com/trade-data/ots-custom-table/",
     publisher: "HMRC",
     note:
-      "Monthly per-partner trade in meat (02), dairy & eggs (04), vegetables (07), fruit (08), and cereals (10). UK domestic production not yet included; DEFRA self-sufficiency is annual.",
+      "Monthly per-partner trade in meat (02), dairy & eggs (04), vegetables (07), fruit (08), and cereals (10).",
+  },
+  {
+    id: "defra-food-security",
+    name: "DEFRA UK Food Security Report 2024 — self-sufficiency",
+    url: "https://www.gov.uk/government/statistics/united-kingdom-food-security-report-2024",
+    publisher: "DEFRA",
+    note:
+      "Annual UK self-sufficiency ratio by category, used to infer monthly domestic production from monthly net imports: production = SS/(1-SS) × (imports − exports). Approximations (meat 75%, dairy 88%, veg 55%, fruit 16%, cereals 85%); the ratios shift by a few points year-to-year and the dashboard uses the latest reported figures uniformly across the window.",
   },
   {
     id: "voeten-unga",
@@ -48,12 +60,24 @@ const COMMON_SOURCES = [
   },
 ];
 
+/** production = SS/(1-SS) × netImports. Returns null for SS≥1 or no trade data. */
+function inferProduction(selfSufficiency, importValue, exportValue) {
+  if (selfSufficiency == null || selfSufficiency >= 1) return null;
+  const netImports = (importValue || 0) - (exportValue || 0);
+  if (netImports <= 0) {
+    // Net exporter (eg lamb in some months): self-sufficiency formula
+    // doesn't apply cleanly. Fall back to S × imports as a floor.
+    return Math.round(selfSufficiency / (1 - selfSufficiency) * (importValue || 0));
+  }
+  return Math.round((selfSufficiency / (1 - selfSufficiency)) * netImports);
+}
+
 /** Sum two month-level rows (with `imports` and `exports` bucket objects). */
 function sumMonth(a, b) {
   if (!a) return { ...b };
   return {
     month: a.month,
-    production: null,
+    production: (a.production || 0) + (b.production || 0),
     imports: {
       aligned: (a.imports?.aligned || 0) + (b.imports?.aligned || 0),
       neutral: (a.imports?.neutral || 0) + (b.imports?.neutral || 0),
@@ -91,10 +115,11 @@ function recomputeShares(row) {
 async function main() {
   const monthIds = lastNMonthIds(MONTHS_BACK);
 
-  // 1) Pull each facet (one HS chapter) in turn.
+  // 1) Pull each facet (one HS chapter) in turn. Inject DEFRA-derived
+  //    domestic production estimate into each monthly row.
   const facetData = {};
   for (const facet of FACETS) {
-    console.log(`\n[${facet.key}] HS ${facet.hs2} — ${facet.label}`);
+    console.log(`\n[${facet.key}] HS ${facet.hs2} — ${facet.label} (SS ${(facet.selfSufficiency * 100).toFixed(0)}%)`);
     const dataset = await buildDependencyDataset({
       id: `food-${facet.key}`,
       title: facet.label,
@@ -106,6 +131,25 @@ async function main() {
       sources: COMMON_SOURCES,
       // outputPath omitted: in-memory only.
     });
+
+    // Layer the inferred production figure onto each monthly row and
+    // recompute the shares.
+    for (const row of dataset.series.monthly.data) {
+      const totalImports =
+        (row.imports?.aligned || 0) + (row.imports?.neutral || 0) +
+        (row.imports?.low || 0) + (row.imports?.unknown || 0);
+      const totalExports =
+        (row.exports?.aligned || 0) + (row.exports?.neutral || 0) +
+        (row.exports?.low || 0) + (row.exports?.unknown || 0);
+      row.production = inferProduction(facet.selfSufficiency, totalImports, totalExports);
+      const totalSupply = (row.production || 0) + totalImports;
+      row.alignedShare = totalSupply > 0
+        ? Math.round((row.imports.aligned / totalSupply) * 1000) / 10
+        : null;
+      row.domesticShare = totalSupply > 0 && row.production != null
+        ? Math.round((row.production / totalSupply) * 1000) / 10
+        : null;
+    }
     facetData[facet.key] = dataset;
   }
 
