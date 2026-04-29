@@ -282,13 +282,13 @@ function FacetGrid({ facets, unit }) {
         {entries.map(([key, facet]) => {
           const li = facet.latest || {};
           const row = {
-            domestic: 0,
+            domestic: li.production || 0,
             aligned: li.imports?.aligned || 0,
             neutral: li.imports?.neutral || 0,
             low: li.imports?.low || 0,
             unknown: li.imports?.unknown || 0,
           };
-          const total = row.aligned + row.neutral + row.low + row.unknown;
+          const total = row.domestic + row.aligned + row.neutral + row.low + row.unknown;
           return (
             <div key={key} style={{
               border: `1px solid ${P.border}`,
@@ -318,7 +318,7 @@ function FacetGrid({ facets, unit }) {
                 fontWeight: 600,
                 color: P.text,
               }}>
-                {li.alignedShare != null ? `${li.alignedShare.toFixed(0)}% aligned` : "—"}
+                {li.domesticShare != null ? `${li.domesticShare.toFixed(0)}% domestic` : (li.alignedShare != null ? `${li.alignedShare.toFixed(0)}% aligned` : "—")}
               </div>
               <div style={{
                 textAlign: "center",
@@ -327,7 +327,7 @@ function FacetGrid({ facets, unit }) {
                 fontFamily: "'DM Mono', monospace",
                 marginTop: 2,
               }}>
-                {formatTonnes(total, unit)} imp
+                {li.alignedShare != null ? `+${li.alignedShare.toFixed(0)}% aligned imp` : ""}
               </div>
             </div>
           );

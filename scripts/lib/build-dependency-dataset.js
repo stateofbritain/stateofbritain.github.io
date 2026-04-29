@@ -115,7 +115,9 @@ function bucketForRow(row, alignment) {
 export async function buildDependencyDataset(opts) {
   const {
     id, pillar = "state", topic = "sovereignCapability",
-    hs2, hs4Range, hs6In, monthIds, metric, productionFor = null,
+    hs2, hs4Range, hs6In, monthIds, metric,
+    productionFor = null,
+    selfSufficiency = null,
     unit, sources, description, outputPath, extraOverrides,
     title = id,
   } = opts;
@@ -169,8 +171,19 @@ export async function buildDependencyDataset(opts) {
       }
     }
 
-    const production = productionFor ? productionFor(month) : null;
     const totalImports = importBuckets.aligned + importBuckets.neutral + importBuckets.low + importBuckets.unknown;
+    const totalExports = exportBuckets.aligned + exportBuckets.neutral + exportBuckets.low + exportBuckets.unknown;
+    let production = productionFor ? productionFor(month) : null;
+    // If no explicit production lookup but a self-sufficiency ratio is
+    // provided, derive monthly production via the apparent-consumption
+    // identity: production = SS/(1-SS) × netImports.
+    if (production == null && selfSufficiency != null && selfSufficiency < 1) {
+      const netImports = totalImports - totalExports;
+      const ratio = selfSufficiency / (1 - selfSufficiency);
+      production = netImports > 0
+        ? Math.round(ratio * netImports)
+        : Math.round(ratio * totalImports);
+    }
     const totalSupply = (production || 0) + totalImports;
     const alignedShare = totalSupply > 0
       ? Math.round((importBuckets.aligned / totalSupply) * 1000) / 10
@@ -185,8 +198,7 @@ export async function buildDependencyDataset(opts) {
       imports: importBuckets,
       exports: exportBuckets,
       totalImports,
-      totalExports:
-        exportBuckets.aligned + exportBuckets.neutral + exportBuckets.low + exportBuckets.unknown,
+      totalExports,
       alignedShare,
       domesticShare,
     });
