@@ -288,6 +288,18 @@ function SovereignCapability({ period }) {
           subtitle="HS 30 medicines and active ingredients, monthly £."
           unit="£"
         />
+        <DependencyBreakdown
+          dataset="gas-dependency.json"
+          title="Natural gas"
+          subtitle="HS 2711.11 + 2711.21, imports only."
+          unit="£"
+        />
+        <DependencyBreakdown
+          dataset="semiconductor-dependency.json"
+          title="Semiconductors"
+          subtitle="HS 8541 + 8542, imports only."
+          unit="£"
+        />
       </div>
     </div>
   );

@@ -96,14 +96,20 @@ export async function getCountryLookup() {
 }
 
 /**
- * Build the OData $filter clause for an HS chapter optionally narrowed
- * to a HS4 range.
+ * Build the OData $filter clause for an HS slice. Supports either:
+ *   - hs2 + optional hs4Range (e.g. chapter 72, codes 7208-7229)
+ *   - hs2 + hs6In (explicit list of HS6 codes, e.g. ['271111', '271121'])
  *
  * @param {string} hs2  two-digit HS chapter, e.g. "72"
- * @param {?[number, number]} hs4Range inclusive HS4 bounds, e.g. [7208, 7229]
+ * @param {?[number, number]} hs4Range inclusive HS4 bounds
+ * @param {?string[]} hs6In  array of explicit HS6 codes
  */
-function hsFilter(hs2, hs4Range) {
+function hsFilter(hs2, hs4Range, hs6In) {
   const base = `Commodity/Hs2Code eq '${hs2}'`;
+  if (hs6In && hs6In.length > 0) {
+    const inClause = hs6In.map((c) => `Commodity/Hs6Code eq '${c}'`).join(" or ");
+    return `${base} and (${inClause})`;
+  }
   if (!hs4Range) return base;
   const [lo, hi] = hs4Range;
   return `${base} and Commodity/Hs4Code ge '${lo}' and Commodity/Hs4Code le '${hi}'`;
@@ -113,8 +119,8 @@ function hsFilter(hs2, hs4Range) {
  * Fetch all OTS rows for one (HS slice, flow type, month) combination.
  * Returns an array of raw rows.
  */
-async function fetchSliceRows(hs2, hs4Range, flowTypeId, monthId) {
-  const filter = `${hsFilter(hs2, hs4Range)} and FlowTypeId eq ${flowTypeId} and MonthId eq ${monthId}`;
+async function fetchSliceRows(hs2, hs4Range, hs6In, flowTypeId, monthId) {
+  const filter = `${hsFilter(hs2, hs4Range, hs6In)} and FlowTypeId eq ${flowTypeId} and MonthId eq ${monthId}`;
   const url = `${OTS_BASE}?${new URLSearchParams({ $filter: filter, $top: "10000" })}`;
   const json = await fetchJson(url);
   return json.value || [];
@@ -153,16 +159,16 @@ function aggregateByCountry(rows) {
  *   exportGbp: number,
  * }>>}
  */
-export async function fetchTradeByCountry({ hs2, hs4Range, monthId, hs2Description = "" }) {
+export async function fetchTradeByCountry({ hs2, hs4Range, hs6In, monthId }) {
   const lookup = await getCountryLookup();
 
-  const importRows = await fetchSliceRows(hs2, hs4Range, 1, monthId);
+  const importRows = await fetchSliceRows(hs2, hs4Range, hs6In, 1, monthId);
   await sleep(REQUEST_DELAY_MS);
-  const importNonEuRows = await fetchSliceRows(hs2, hs4Range, 3, monthId);
+  const importNonEuRows = await fetchSliceRows(hs2, hs4Range, hs6In, 3, monthId);
   await sleep(REQUEST_DELAY_MS);
-  const exportRows = await fetchSliceRows(hs2, hs4Range, 2, monthId);
+  const exportRows = await fetchSliceRows(hs2, hs4Range, hs6In, 2, monthId);
   await sleep(REQUEST_DELAY_MS);
-  const exportNonEuRows = await fetchSliceRows(hs2, hs4Range, 4, monthId);
+  const exportNonEuRows = await fetchSliceRows(hs2, hs4Range, hs6In, 4, monthId);
 
   const imports = aggregateByCountry([...importRows, ...importNonEuRows]);
   const exports = aggregateByCountry([...exportRows, ...exportNonEuRows]);

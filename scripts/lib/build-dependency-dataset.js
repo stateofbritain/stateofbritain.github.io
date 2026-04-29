@@ -115,7 +115,7 @@ function bucketForRow(row, alignment) {
 export async function buildDependencyDataset(opts) {
   const {
     id, pillar = "state", topic = "sovereignCapability",
-    hs2, hs4Range, monthIds, metric, productionFor = null,
+    hs2, hs4Range, hs6In, monthIds, metric, productionFor = null,
     unit, sources, description, outputPath, extraOverrides,
     title = id,
   } = opts;
@@ -129,7 +129,7 @@ export async function buildDependencyDataset(opts) {
   for (const id of monthIds) {
     let rows;
     try {
-      rows = await fetchTradeByCountry({ hs2, hs4Range, monthId: id });
+      rows = await fetchTradeByCountry({ hs2, hs4Range, hs6In, monthId: id });
     } catch (err) {
       console.warn(`  ${id}: failed (${err.message})`);
       continue;
