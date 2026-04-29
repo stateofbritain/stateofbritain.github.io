@@ -27,7 +27,7 @@ const P = {
  *   nullFill       value to use for "no data" cells alongside the above.
  */
 export const SCALES = {
-  diverging: [P.sienna, P.grey, P.teal],
+  diverging: [P.sienna, P.parchment, P.teal],
   sequentialTeal: ["#d4ede8", P.teal],
   sequentialWarm: ["#f0e8d6", P.sienna],
   nullFill: "#f0e8d6",
