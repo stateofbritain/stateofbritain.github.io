@@ -282,6 +282,12 @@ function SovereignCapability({ period }) {
           title="Steel"
           subtitle="Finished steel (HS 7208–7229), monthly tonnage."
         />
+        <DependencyBreakdown
+          dataset="pharma-dependency.json"
+          title="Pharmaceuticals"
+          subtitle="HS 30 medicines and active ingredients, monthly £."
+          unit="£"
+        />
       </div>
     </div>
   );

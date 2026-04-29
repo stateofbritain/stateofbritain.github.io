@@ -10,7 +10,7 @@
       "name": "HMRC Overseas Trade — finished steel (HS 7208-7229)",
       "url": "https://www.uktradeinfo.com/trade-data/ots-custom-table/",
       "publisher": "HMRC",
-      "note": "Monthly per-partner trade in finished steel products. EU + non-EU flow types combined."
+      "note": "Monthly per-partner trade in finished steel products."
     },
     {
       "id": "ons-iop-k23i",
@@ -21,20 +21,21 @@
     },
     {
       "id": "uksteel-2022-baseline",
-      "name": "UK Steel Statistical Yearbook 2023 — 2022 production baseline",
+      "name": "UK Steel Statistical Yearbook 2023 — 2022 baseline",
       "url": "https://www.uksteel.org/uk-steel-publications-1",
       "publisher": "UK Steel",
-      "note": "2022 UK crude steel production: 6.1 million tonnes ÷ 12 = 508,333 tonnes/month at K23I = 100. Used to scale the production index to absolute monthly tonnage."
+      "note": "2022 UK crude steel production: 6.1 million tonnes ÷ 12 = 508,333 tonnes/month at K23I = 100."
     },
     {
       "id": "voeten-unga",
       "name": "Voeten — UN General Assembly Voting Data",
       "url": "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/LEJUQZ",
       "publisher": "Harvard Dataverse (Erik Voeten)",
-      "note": "Used to classify each trade partner into an alignment bucket. Aligned ≥ 70%, neutral 50–70%, low < 50%."
+      "note": "Used to classify each trade partner into an alignment bucket."
     }
   ],
   "snapshot": {
+    "title": "Steel",
     "month": "2026-02",
     "production": 276533,
     "imports": {
@@ -52,19 +53,20 @@
     "alignedShare": 46.4,
     "domesticShare": 41.7,
     "partnersTracked": 137,
-    "windowMonths": 24
+    "windowMonths": 24,
+    "metric": "tonnes",
+    "unit": "tonnes / month"
   },
   "series": {
     "monthly": {
       "sourceId": "hmrc-ots-72-finished",
       "timeField": "month",
       "unit": "tonnes / month",
-      "description": "Monthly UK supply of finished steel: production estimate plus imports broken down by trade partner alignment bucket. Exports broken down by the same buckets.",
+      "description": "Monthly UK supply of finished steel: production estimate plus imports broken down by trade partner alignment bucket.",
       "data": [
         {
           "month": "2024-03",
           "production": 510366,
-          "productionIndex": 100.4,
           "imports": {
             "aligned": 276842,
             "neutral": 23619,
@@ -85,7 +87,6 @@
         {
           "month": "2024-04",
           "production": 504775,
-          "productionIndex": 99.3,
           "imports": {
             "aligned": 354330,
             "neutral": 97333,
@@ -106,7 +107,6 @@
         {
           "month": "2024-05",
           "production": 494608,
-          "productionIndex": 97.3,
           "imports": {
             "aligned": 351664,
             "neutral": 78725,
@@ -127,7 +127,6 @@
         {
           "month": "2024-06",
           "production": 477325,
-          "productionIndex": 93.9,
           "imports": {
             "aligned": 299942,
             "neutral": 86365,
@@ -148,7 +147,6 @@
         {
           "month": "2024-07",
           "production": 407683,
-          "productionIndex": 80.2,
           "imports": {
             "aligned": 397673,
             "neutral": 101692,
@@ -169,7 +167,6 @@
         {
           "month": "2024-08",
           "production": 440725,
-          "productionIndex": 86.7,
           "imports": {
             "aligned": 359010,
             "neutral": 82331,
@@ -190,7 +187,6 @@
         {
           "month": "2024-09",
           "production": 413783,
-          "productionIndex": 81.4,
           "imports": {
             "aligned": 301443,
             "neutral": 60068,
@@ -211,7 +207,6 @@
         {
           "month": "2024-10",
           "production": 291783,
-          "productionIndex": 57.4,
           "imports": {
             "aligned": 462152,
             "neutral": 129735,
@@ -232,7 +227,6 @@
         {
           "month": "2024-11",
           "production": 320250,
-          "productionIndex": 63,
           "imports": {
             "aligned": 347467,
             "neutral": 104070,
@@ -253,7 +247,6 @@
         {
           "month": "2024-12",
           "production": 295341,
-          "productionIndex": 58.1,
           "imports": {
             "aligned": 319557,
             "neutral": 72759,
@@ -274,7 +267,6 @@
         {
           "month": "2025-01",
           "production": 297883,
-          "productionIndex": 58.6,
           "imports": {
             "aligned": 433388,
             "neutral": 128857,
@@ -295,7 +287,6 @@
         {
           "month": "2025-02",
           "production": 339058,
-          "productionIndex": 66.7,
           "imports": {
             "aligned": 401121,
             "neutral": 80290,
@@ -316,7 +307,6 @@
         {
           "month": "2025-03",
           "production": 373116,
-          "productionIndex": 73.4,
           "imports": {
             "aligned": 376758,
             "neutral": 36217,
@@ -337,7 +327,6 @@
         {
           "month": "2025-04",
           "production": 339566,
-          "productionIndex": 66.8,
           "imports": {
             "aligned": 462967,
             "neutral": 70036,
@@ -358,7 +347,6 @@
         {
           "month": "2025-05",
           "production": 332450,
-          "productionIndex": 65.4,
           "imports": {
             "aligned": 411112,
             "neutral": 61516,
@@ -379,7 +367,6 @@
         {
           "month": "2025-06",
           "production": 341091,
-          "productionIndex": 67.1,
           "imports": {
             "aligned": 378162,
             "neutral": 66314,
@@ -400,7 +387,6 @@
         {
           "month": "2025-07",
           "production": 271450,
-          "productionIndex": 53.4,
           "imports": {
             "aligned": 375654,
             "neutral": 66880,
@@ -421,7 +407,6 @@
         {
           "month": "2025-08",
           "production": 276025,
-          "productionIndex": 54.3,
           "imports": {
             "aligned": 355804,
             "neutral": 56944,
@@ -442,7 +427,6 @@
         {
           "month": "2025-09",
           "production": 300425,
-          "productionIndex": 59.1,
           "imports": {
             "aligned": 343491,
             "neutral": 68885,
@@ -463,7 +447,6 @@
         {
           "month": "2025-10",
           "production": 297375,
-          "productionIndex": 58.5,
           "imports": {
             "aligned": 444482,
             "neutral": 97821,
@@ -484,7 +467,6 @@
         {
           "month": "2025-11",
           "production": 310591,
-          "productionIndex": 61.1,
           "imports": {
             "aligned": 307245,
             "neutral": 54910,
@@ -505,7 +487,6 @@
         {
           "month": "2025-12",
           "production": 269925,
-          "productionIndex": 53.1,
           "imports": {
             "aligned": 311146,
             "neutral": 78033,
@@ -526,7 +507,6 @@
         {
           "month": "2026-01",
           "production": 285683,
-          "productionIndex": 56.2,
           "imports": {
             "aligned": 370390,
             "neutral": 53120,
@@ -547,7 +527,6 @@
         {
           "month": "2026-02",
           "production": 276533,
-          "productionIndex": 54.4,
           "imports": {
             "aligned": 307560,
             "neutral": 60270,
@@ -570,8 +549,8 @@
     "byPartner": {
       "sourceId": "hmrc-ots-72-finished",
       "timeField": "iso3",
-      "unit": "tonnes (24-month total)",
-      "description": "Per-partner totals summed over the 24-month window; sorted by total imports descending.",
+      "unit": "tonnes / month (window total)",
+      "description": "Per-partner totals across the 24-month window; sorted by total imports descending.",
       "data": [
         {
           "iso3": "NLD",

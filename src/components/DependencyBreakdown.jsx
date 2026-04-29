@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend,
 } from "recharts";
@@ -54,6 +54,7 @@ export default function DependencyBreakdown({
 }) {
   const { data, loading, error } = useJsonDataset(dataset);
   const [expanded, setExpanded] = useState(false);
+  const cardRef = useRef(null);
 
   const monthly = data?.monthly || [];
   const byPartner = data?.byPartner || [];
@@ -81,32 +82,181 @@ export default function DependencyBreakdown({
     }));
   }, [monthly]);
 
+  // Click-outside + Esc to close, mirroring the Tile.jsx pattern.
+  useEffect(() => {
+    if (!expanded) return;
+    const onMouseDown = (e) => {
+      if (cardRef.current && !cardRef.current.contains(e.target)) {
+        setExpanded(false);
+      }
+    };
+    const onKeyDown = (e) => {
+      if (e.key === "Escape") setExpanded(false);
+    };
+    document.addEventListener("mousedown", onMouseDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", onMouseDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [expanded]);
+
   if (loading) return <div style={CARD}><Loading title={title} /></div>;
   if (error || !data) return <div style={CARD}><ErrorRow title={title} message={error ?? "no data"} /></div>;
   if (!latest) return <div style={CARD}><ErrorRow title={title} message="no rows" /></div>;
 
   // When expanded the card spans both columns of the parent grid so
-  // the bar + trend chart have room to breathe.
+  // the bar + trend chart have room to breathe; matches Tile.jsx.
   const cardStyle = expanded
-    ? { ...CARD, gridColumn: "1 / -1" }
-    : CARD;
+    ? {
+        ...CARD,
+        gridColumn: "1 / -1",
+        boxShadow: "0 6px 18px rgba(28,43,69,0.10)",
+        cursor: "default",
+      }
+    : {
+        ...CARD,
+        boxShadow: "0 1px 4px rgba(28,43,69,0.04)",
+        cursor: "pointer",
+        transition: "transform 0.15s, box-shadow 0.15s",
+      };
+
+  const onCardClick = (e) => {
+    if (expanded) return;
+    e.preventDefault();
+    setExpanded(true);
+  };
 
   return (
-    <div style={cardStyle}>
-      <Header title={title} subtitle={subtitle} latest={latest} href={href} />
+    <div
+      ref={cardRef}
+      onClick={onCardClick}
+      onMouseEnter={!expanded ? (e) => {
+        e.currentTarget.style.transform = "scale(1.02)";
+        e.currentTarget.style.boxShadow = "0 6px 18px rgba(28,43,69,0.10)";
+      } : undefined}
+      onMouseLeave={!expanded ? (e) => {
+        e.currentTarget.style.transform = "scale(1)";
+        e.currentTarget.style.boxShadow = "0 1px 4px rgba(28,43,69,0.04)";
+      } : undefined}
+      style={cardStyle}
+    >
       {expanded ? (
-        <ExpandedView
-          row={latestRow}
+        <ExpandedCard
+          title={title}
+          subtitle={subtitle}
           latest={latest}
+          row={latestRow}
           monthly={stackedSeries}
           byPartner={byPartner}
           unit={unit}
+          onClose={() => setExpanded(false)}
         />
       ) : (
-        <CollapsedView row={latestRow} latest={latest} unit={unit} />
+        <CollapsedCard
+          title={title}
+          row={latestRow}
+          latest={latest}
+          unit={unit}
+        />
       )}
-      <ExpandToggle expanded={expanded} onClick={() => setExpanded((x) => !x)} />
     </div>
+  );
+}
+
+function CollapsedCard({ title, row, latest, unit }) {
+  return (
+    <>
+      <div style={{
+        fontSize: 11,
+        textTransform: "uppercase",
+        letterSpacing: "0.12em",
+        color: P.textLight,
+        fontFamily: "'DM Mono', monospace",
+        marginBottom: 14,
+      }}>
+        {title}
+      </div>
+      <div style={{ display: "flex", justifyContent: "center", marginBottom: 14 }}>
+        <Donut row={row} size={150} thickness={32} />
+      </div>
+      <div style={{
+        textAlign: "center",
+        fontFamily: "'Playfair Display', serif",
+        fontSize: 22,
+        fontWeight: 600,
+        color: P.text,
+        lineHeight: 1.15,
+      }}>
+        {latest.alignedShare != null ? `${latest.alignedShare.toFixed(0)}%` : "—"}
+        <span style={{ fontSize: 13, color: P.textMuted, fontFamily: "'DM Mono', monospace", fontWeight: 400, marginLeft: 4 }}>
+          aligned
+        </span>
+      </div>
+      <div style={{
+        textAlign: "center",
+        fontSize: 11,
+        color: P.textLight,
+        fontFamily: "'DM Mono', monospace",
+        marginTop: 4,
+        letterSpacing: "0.04em",
+      }}>
+        {latest.domesticShare != null ? `${latest.domesticShare.toFixed(0)}% domestic` : ""}
+        {" · "}
+        {latest.month}
+      </div>
+    </>
+  );
+}
+
+function ExpandedCard({ title, subtitle, latest, row, monthly, byPartner, unit, onClose }) {
+  return (
+    <>
+      <div style={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "baseline",
+        gap: 12,
+        marginBottom: 14,
+        flexWrap: "wrap",
+      }}>
+        <div>
+          <h3 style={{
+            fontSize: 22,
+            fontWeight: 600,
+            color: P.text,
+            fontFamily: "'Playfair Display', serif",
+            margin: 0,
+          }}>
+            {title}
+          </h3>
+          {subtitle && (
+            <div style={{ fontSize: 11, color: P.textLight, fontFamily: "'DM Mono', monospace", letterSpacing: "0.04em", marginTop: 4 }}>
+              {subtitle}
+            </div>
+          )}
+        </div>
+        <button
+          onClick={(e) => { e.stopPropagation(); onClose(); }}
+          style={{
+            background: "transparent",
+            border: "none",
+            color: P.textMuted,
+            fontFamily: "'DM Mono', monospace",
+            fontSize: 11,
+            letterSpacing: "0.06em",
+            textTransform: "uppercase",
+            cursor: "pointer",
+            padding: "4px 0",
+          }}
+        >
+          Close ↑
+        </button>
+      </div>
+      <StackedBar row={row} unit={unit} />
+      <Footnote latest={latest} unit={unit} />
+      <Expanded monthly={monthly} byPartner={byPartner} unit={unit} />
+    </>
   );
 }
 
@@ -134,7 +284,7 @@ function CollapsedView({ row, latest, unit }) {
         />
         <KeyStat
           label="Total supply"
-          value={`${formatTonnes(total)} ${unit}`}
+          value={formatTonnes(total, unit)}
         />
       </div>
     </div>
@@ -294,7 +444,7 @@ function StackedBar({ row, unit }) {
           return (
             <div
               key={seg.key}
-              title={`${labelFor(seg.key)}: ${formatTonnes(seg.value)} ${unit} (${pct.toFixed(1)}%)`}
+              title={`${labelFor(seg.key)}: ${formatTonnes(seg.value, unit)} (${pct.toFixed(1)}%)`}
               style={{
                 flexBasis: `${pct}%`,
                 background: BUCKET_COLOR[seg.key],
@@ -341,10 +491,10 @@ function Footnote({ latest, unit }) {
   const totalImports = latest.totalImports || 0;
   const totalSupply = (latest.production || 0) + totalImports;
   const items = [
-    { label: "Total supply", value: `${formatTonnes(totalSupply)} ${unit}` },
+    { label: "Total supply", value: formatTonnes(totalSupply, unit) },
     { label: "Aligned share", value: latest.alignedShare != null ? `${latest.alignedShare.toFixed(1)}%` : "—" },
     { label: "Domestic share", value: latest.domesticShare != null ? `${latest.domesticShare.toFixed(1)}%` : "—" },
-    { label: "Exports", value: `${formatTonnes(latest.totalExports || 0)} ${unit}` },
+    { label: "Exports", value: formatTonnes(latest.totalExports || 0, unit) },
   ];
   return (
     <div style={{
@@ -400,12 +550,12 @@ function Expanded({ monthly, byPartner, unit }) {
           <AreaChart data={monthly} margin={{ top: 8, right: 16, left: 8, bottom: 8 }}>
             <CartesianGrid stroke={P.border} strokeDasharray="3 3" vertical={false} />
             <XAxis dataKey="month" tickFormatter={shortMonth} tick={{ fontSize: 10, fill: P.textMuted, fontFamily: "'DM Mono', monospace" }} interval="preserveStartEnd" />
-            <YAxis tickFormatter={(v) => `${Math.round(v / 1000)}k`} tick={{ fontSize: 10, fill: P.textMuted, fontFamily: "'DM Mono', monospace" }} />
+            <YAxis tickFormatter={(v) => formatTonnes(v, unit)} tick={{ fontSize: 10, fill: P.textMuted, fontFamily: "'DM Mono', monospace" }} width={64} />
             <Tooltip
               contentStyle={{ background: P.text, border: "none", borderRadius: 3, fontFamily: "'DM Mono', monospace", fontSize: 11 }}
               itemStyle={{ color: P.bgCard }}
               labelStyle={{ color: P.bgCard, fontWeight: 500 }}
-              formatter={(v) => `${formatTonnes(v)} ${unit}`}
+              formatter={(v) => formatTonnes(v, unit)}
             />
             {STACK_KEYS.map((k) => (
               <Area
@@ -457,10 +607,10 @@ function PartnerList({ partners, unit }) {
             {p.alignmentPct != null ? `${p.alignmentPct.toFixed(0)}% aligned` : "—"}
           </div>
           <div style={{ color: P.text, textAlign: "right", fontWeight: 600 }}>
-            {formatTonnes(p.importTonnes)} {unit} imp
+            {formatTonnes(p.importTonnes, unit)} imp
           </div>
           <div style={{ color: P.textLight, textAlign: "right" }}>
-            {formatTonnes(p.exportTonnes)} exp
+            {formatTonnes(p.exportTonnes, unit)} exp
           </div>
         </div>
       ))}
@@ -520,11 +670,29 @@ function labelFor(key) {
   return BUCKET_LABELS[key] || key;
 }
 
-function formatTonnes(v) {
+/**
+ * Format a magnitude with k / m / bn suffixes. Used for tonnages
+ * (no prefix) and £ (prefix with "£"). Tonnage scales: k = thousand,
+ * m = million. £ scale: m = million, bn = billion (HMRC values are
+ * in pounds, not pence, so anything above 1bn rolls over).
+ */
+function formatMagnitude(v, unit) {
   if (v == null || !Number.isFinite(v)) return "—";
-  if (Math.abs(v) >= 1_000_000) return `${(v / 1_000_000).toFixed(1)}m`;
-  if (Math.abs(v) >= 1_000) return `${(v / 1_000).toFixed(0)}k`;
-  return String(Math.round(v));
+  const abs = Math.abs(v);
+  const isMoney = typeof unit === "string" && unit.includes("£");
+  const prefix = isMoney ? "£" : "";
+  const suffix = isMoney ? "" : ` ${unit ?? ""}`.trimEnd();
+  let value;
+  if (abs >= 1_000_000_000) value = `${(v / 1_000_000_000).toFixed(1)}bn`;
+  else if (abs >= 1_000_000) value = `${(v / 1_000_000).toFixed(1)}m`;
+  else if (abs >= 1_000) value = `${(v / 1_000).toFixed(0)}k`;
+  else value = String(Math.round(v));
+  return `${prefix}${value}${suffix}`;
+}
+
+// Backwards-compat alias used throughout the file.
+function formatTonnes(v, unit = "") {
+  return formatMagnitude(v, unit);
 }
 
 function shortMonth(period) {
