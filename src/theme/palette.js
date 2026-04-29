@@ -30,7 +30,7 @@ export const SCALES = {
   diverging: [P.sienna, P.parchment, P.teal],
   sequentialTeal: ["#d4ede8", P.teal],
   sequentialWarm: ["#f0e8d6", P.sienna],
-  nullFill: "#f0e8d6",
+  nullFill: "#e6e6e6",
 };
 
 export default P;
