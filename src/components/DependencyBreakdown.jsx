@@ -54,12 +54,24 @@ export default function DependencyBreakdown({
 }) {
   const { data, loading, error } = useJsonDataset(dataset);
   const [expanded, setExpanded] = useState(false);
+  const [selectedFacetKey, setSelectedFacetKey] = useState(null);
   const cardRef = useRef(null);
 
-  const monthly = data?.monthly || [];
-  const byPartner = data?.byPartner || [];
-  const facets = data?.facets || null; // optional per-category breakout
-  const latest = monthly[monthly.length - 1] || null;
+  const compositeMonthly = data?.monthly || [];
+  const compositeByPartner = data?.byPartner || [];
+  const facets = data?.facets || null;
+  const compositeLatest = compositeMonthly[compositeMonthly.length - 1] || null;
+
+  // When a facet is selected, swap the bar/trend/partners view to that
+  // facet's data; otherwise show the composite. Each facet carries its
+  // own monthly + byPartner under data.facets.{key}.
+  const activeFacet = selectedFacetKey && facets ? facets[selectedFacetKey] : null;
+
+  const monthly = activeFacet ? activeFacet.monthly : compositeMonthly;
+  const byPartner = activeFacet ? activeFacet.byPartner : compositeByPartner;
+  const latest = activeFacet
+    ? (activeFacet.monthly[activeFacet.monthly.length - 1] || null)
+    : compositeLatest;
 
   const latestRow = useMemo(() => {
     if (!latest) return null;
@@ -82,6 +94,11 @@ export default function DependencyBreakdown({
       unknown: m.imports?.unknown || 0,
     }));
   }, [monthly]);
+
+  // Reset facet selection when the card collapses.
+  useEffect(() => {
+    if (!expanded) setSelectedFacetKey(null);
+  }, [expanded]);
 
   // Click-outside + Esc to close, mirroring the Tile.jsx pattern.
   useEffect(() => {
@@ -144,13 +161,15 @@ export default function DependencyBreakdown({
     >
       {expanded ? (
         <ExpandedCard
-          title={title}
+          title={activeFacet ? `${title} · ${activeFacet.label}` : title}
           subtitle={subtitle}
           latest={latest}
           row={latestRow}
           monthly={stackedSeries}
           byPartner={byPartner}
           facets={facets}
+          selectedFacetKey={selectedFacetKey}
+          onSelectFacet={setSelectedFacetKey}
           unit={unit}
           onClose={() => setExpanded(false)}
         />
@@ -211,7 +230,10 @@ function CollapsedCard({ title, row, latest, unit }) {
   );
 }
 
-function ExpandedCard({ title, subtitle, latest, row, monthly, byPartner, facets, unit, onClose }) {
+function ExpandedCard({
+  title, subtitle, latest, row, monthly, byPartner, facets,
+  selectedFacetKey, onSelectFacet, unit, onClose,
+}) {
   return (
     <>
       <div style={{
@@ -238,26 +260,53 @@ function ExpandedCard({ title, subtitle, latest, row, monthly, byPartner, facets
             </div>
           )}
         </div>
-        <button
-          onClick={(e) => { e.stopPropagation(); onClose(); }}
-          style={{
-            background: "transparent",
-            border: "none",
-            color: P.textMuted,
-            fontFamily: "'DM Mono', monospace",
-            fontSize: 11,
-            letterSpacing: "0.06em",
-            textTransform: "uppercase",
-            cursor: "pointer",
-            padding: "4px 0",
-          }}
-        >
-          Close ↑
-        </button>
+        <div style={{ display: "flex", gap: 12, alignItems: "baseline" }}>
+          {selectedFacetKey && (
+            <button
+              onClick={(e) => { e.stopPropagation(); onSelectFacet(null); }}
+              style={{
+                background: "transparent",
+                border: "none",
+                color: P.textMuted,
+                fontFamily: "'DM Mono', monospace",
+                fontSize: 11,
+                letterSpacing: "0.06em",
+                textTransform: "uppercase",
+                cursor: "pointer",
+                padding: "4px 0",
+              }}
+            >
+              ← all
+            </button>
+          )}
+          <button
+            onClick={(e) => { e.stopPropagation(); onClose(); }}
+            style={{
+              background: "transparent",
+              border: "none",
+              color: P.textMuted,
+              fontFamily: "'DM Mono', monospace",
+              fontSize: 11,
+              letterSpacing: "0.06em",
+              textTransform: "uppercase",
+              cursor: "pointer",
+              padding: "4px 0",
+            }}
+          >
+            Close ↑
+          </button>
+        </div>
       </div>
       <StackedBar row={row} unit={unit} />
       <Footnote latest={latest} unit={unit} />
-      {facets && <FacetGrid facets={facets} unit={unit} />}
+      {facets && (
+        <FacetGrid
+          facets={facets}
+          selectedKey={selectedFacetKey}
+          onSelect={onSelectFacet}
+          unit={unit}
+        />
+      )}
       <Expanded monthly={monthly} byPartner={byPartner} unit={unit} />
     </>
   );
@@ -268,12 +317,14 @@ function ExpandedCard({ title, subtitle, latest, row, monthly, byPartner, facets
  * sub-category's import bucket mix and aligned share. Used by composite
  * cards (e.g. food, where one card aggregates 5 HS chapters).
  */
-function FacetGrid({ facets, unit }) {
+function FacetGrid({ facets, unit, selectedKey, onSelect }) {
   const entries = Object.entries(facets);
   if (entries.length === 0) return null;
   return (
     <div style={{ marginTop: 18, paddingTop: 14, borderTop: `1px solid ${P.border}` }}>
-      <SectionLabel>Per-category breakdown</SectionLabel>
+      <SectionLabel>
+        Per-category breakdown {onSelect ? "— click a tile to drill in" : ""}
+      </SectionLabel>
       <div style={{
         display: "grid",
         gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
@@ -289,13 +340,29 @@ function FacetGrid({ facets, unit }) {
             unknown: li.imports?.unknown || 0,
           };
           const total = row.domestic + row.aligned + row.neutral + row.low + row.unknown;
+          const isSelected = selectedKey === key;
+          const isClickable = !!onSelect;
           return (
-            <div key={key} style={{
-              border: `1px solid ${P.border}`,
-              borderRadius: 3,
-              padding: "10px 10px 8px",
-              background: P.bgCard,
-            }}>
+            <div
+              key={key}
+              onClick={isClickable ? (e) => {
+                e.stopPropagation();
+                onSelect(isSelected ? null : key);
+              } : undefined}
+              onMouseEnter={isClickable && !isSelected ? (e) => {
+                e.currentTarget.style.background = "rgba(28,43,69,0.03)";
+              } : undefined}
+              onMouseLeave={isClickable && !isSelected ? (e) => {
+                e.currentTarget.style.background = P.bgCard;
+              } : undefined}
+              style={{
+                border: `1px solid ${isSelected ? P.navy : P.border}`,
+                borderRadius: 3,
+                padding: "10px 10px 8px",
+                background: isSelected ? "rgba(28,43,69,0.05)" : P.bgCard,
+                cursor: isClickable ? "pointer" : "default",
+                transition: "background 0.12s, border-color 0.12s",
+              }}>
               <div style={{
                 fontSize: 10,
                 color: P.textLight,
