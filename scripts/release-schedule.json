@@ -45,6 +45,7 @@
   "fertilisers-dependency": { "type": "fixed-dom", "dom": 18, "release": "HMRC bulk HS 31 by COO" },
   "tropical-dependency":    { "type": "fixed-dom", "dom": 18, "release": "HMRC bulk HS 09+18 (coffee/tea/cocoa) by COO" },
   "dependency-rollup":      { "type": "fixed-dom", "dom": 19, "release": "Rollup of all *-dependency.json files; idempotent, runs after the commodity fetches on day 18" },
+  "nsips":                  { "type": "weekly", "weekday": 1, "release": "PINS NSIP register CSV — refresh weekly (continuously updated upstream)" },
   "iop-pharma":             { "type": "nth-weekday", "n": 2, "weekday": 4, "offsetDays": 1, "release": "ONS Index of Production pharma (GDP day) + 1d" },
   "unga-alignment":         { "type": "fixed-dom", "dom": 15, "release": "Voeten UNGA dataset updates ~annually; refresh 15th monthly (cheap with cache)" },
   "mfg-output":             { "type": "nth-weekday", "n": 2, "weekday": 4, "offsetDays": 1, "release": "ONS Manufacturing (GDP day) + 1d" },

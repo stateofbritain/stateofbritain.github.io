@@ -4,6 +4,7 @@ import useIsMobile from "../hooks/useIsMobile";
 import MetricTile, { OverviewMiniTile } from "../dashboard/MetricTile";
 import { METRICS } from "../dashboard/metrics";
 import DependencyBreakdown from "../components/DependencyBreakdown";
+import NSIPsMapSection from "./state/NSIPsMapSection";
 import { track } from "../analytics";
 
 const SUBTABS = [
@@ -341,6 +342,8 @@ function Construction({ period }) {
         <MetricTile period={period} metric={METRICS["bd-iop-cement"]} />
         <MetricTile period={period} metric={METRICS["bd-steel-imports"]} />
       </TileGrid>
+
+      <NSIPsMapSection />
     </div>
   );
 }
