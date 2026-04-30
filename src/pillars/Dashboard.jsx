@@ -66,6 +66,7 @@ const OVERVIEW_SECTIONS = [
     key: "sovereign-capability",
     label: "Sovereign Capability",
     metricIds: [
+      "sc-low-alignment-imports",
       "sc-co2-intensity",
       "sc-iop-chemicals",
       "sc-mfg-output",
