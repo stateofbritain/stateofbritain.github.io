@@ -36,6 +36,7 @@
   "semiconductor-dependency": { "type": "fixed-dom", "dom": 16, "release": "HMRC OTS HS 8541-8542 (semiconductors) by partner country" },
   "food-dependency":        { "type": "fixed-dom", "dom": 17, "release": "HMRC OTS food chapters (02/04/07/08/10) — 5 facets × 24 mo, ~6min run" },
   "critical-minerals-dependency": { "type": "fixed-dom", "dom": 18, "release": "HMRC OTS critical minerals (16 facets × 24 mo, ~22min run); fetch 18th" },
+  "petroleum-dependency":   { "type": "fixed-dom", "dom": 18, "release": "HMRC bulk HS 2710.12+19 by COO; fetch 18th" },
   "iop-pharma":             { "type": "nth-weekday", "n": 2, "weekday": 4, "offsetDays": 1, "release": "ONS Index of Production pharma (GDP day) + 1d" },
   "unga-alignment":         { "type": "fixed-dom", "dom": 15, "release": "Voeten UNGA dataset updates ~annually; refresh 15th monthly (cheap with cache)" },
   "mfg-output":             { "type": "nth-weekday", "n": 2, "weekday": 4, "offsetDays": 1, "release": "ONS Manufacturing (GDP day) + 1d" },

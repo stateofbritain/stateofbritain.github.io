@@ -312,6 +312,12 @@ function SovereignCapability({ period }) {
           subtitle="UK Critical Minerals Strategy 16-mineral set, imports only."
           unit="£"
         />
+        <DependencyBreakdown
+          dataset="petroleum-dependency.json"
+          title="Refined petroleum"
+          subtitle="HS 2710.12 gasoline + 2710.19 diesel/jet/heating."
+          unit="£"
+        />
       </div>
     </div>
   );
