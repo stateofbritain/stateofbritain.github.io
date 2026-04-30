@@ -659,7 +659,6 @@ function Footnote({ latest, unit }) {
     { label: "Total supply", value: formatTonnes(totalSupply, unit) },
     { label: "Aligned share", value: latest.alignedShare != null ? `${latest.alignedShare.toFixed(1)}%` : "—" },
     { label: "Domestic share", value: latest.domesticShare != null ? `${latest.domesticShare.toFixed(1)}%` : "—" },
-    { label: "Exports", value: formatTonnes(latest.totalExports || 0, unit) },
   ];
   return (
     <div style={{
@@ -752,8 +751,8 @@ function PartnerList({ partners, unit }) {
   // Show the feedstock column only if any partner has feedstock data.
   const hasFeedstock = partners.some((p) => p.feedstockTopOrigins?.length > 0);
   const cols = hasFeedstock
-    ? "1.4fr 0.9fr 1.2fr 0.9fr 0.7fr"
-    : "1.4fr 1fr 1fr 1fr";
+    ? "1.4fr 0.9fr 1.2fr 0.9fr"
+    : "1.4fr 1fr 1fr";
   return (
     <div>
       <div style={{
@@ -766,7 +765,6 @@ function PartnerList({ partners, unit }) {
         <div style={{ textAlign: "right" }}>1st-order</div>
         {hasFeedstock && <div style={{ textAlign: "right" }}>Feedstock origin</div>}
         <div style={{ textAlign: "right" }}>Imports</div>
-        <div style={{ textAlign: "right" }}>Exports</div>
       </div>
       {partners.map((p) => (
         <div
@@ -787,9 +785,6 @@ function PartnerList({ partners, unit }) {
           {hasFeedstock && <FeedstockCell partner={p} />}
           <div style={{ color: P.text, textAlign: "right", fontWeight: 600 }}>
             {formatTonnes(p.importTonnes, unit)}
-          </div>
-          <div style={{ color: P.textLight, textAlign: "right" }}>
-            {formatTonnes(p.exportTonnes, unit)}
           </div>
         </div>
       ))}
