@@ -1,23 +1,21 @@
-import { useMemo } from "react";
+import { useMemo, useRef, useState } from "react";
 import P from "../theme/palette";
 
 /**
- * Vertical orange-stripe timeline for a single NSIP project. Renders
- * the long arc — proposal → planning rounds → judicial review →
- * dormant → revived → consent → build → operational — that the PINS
- * register doesn't capture on its own.
+ * Vertical project-lifecycle timeline for a single NSIP.
  *
- * Input: an array of milestones with shape
- *   { date, phase, title, description?, source? }
- * The component sorts, parses dates leniently, and lays each milestone
- * out in vertical year-space. Phase determines the band fill colour
- * for the segment running up to that milestone.
+ * Renders a colour-blocked band (proportional to time) with dots at
+ * every event. Hovering or focusing a dot expands a tooltip with the
+ * event title, date, description and source link. The band itself
+ * tells the lifecycle story at a glance; the dots are the deep dive.
  *
- * @param {Object} props
- * @param {Array}  props.milestones
- * @param {string} [props.summary]
- * @param {string} [props.researcher]
- * @param {string} [props.lastResearched]
+ * Layout:
+ *   ┌── year ──┐ band ┐ events list (clickable)
+ *   │   1989   │██████│ • A303 trunk-route priority
+ *   │   1995   │░░░░░░│ • First tunnel proposal
+ *
+ * The right-hand list mirrors the dots — clicking a list row scrolls
+ * focus to that dot; hovering a dot highlights the matching row.
  */
 export default function ProjectTimeline({
   milestones = [],
@@ -32,155 +30,212 @@ export default function ProjectTimeline({
       .sort((a, b) => a.year - b.year);
   }, [milestones]);
 
-  if (events.length < 2) {
-    return null;
-  }
+  const [activeIdx, setActiveIdx] = useState(null);
+  const containerRef = useRef(null);
+
+  if (events.length < 2) return null;
 
   const yearMin = Math.floor(events[0].year);
   const yearMax = Math.ceil(events[events.length - 1].year);
-  // Ensure the band has room to breathe at the bottom (still in progress).
   const yearSpan = Math.max(yearMax - yearMin, 1);
 
-  // Layout: total height scales with year span, capped to keep the
-  // panel readable on smaller screens.
-  const PX_PER_YEAR = 10;
-  const MIN_H = 280;
-  const MAX_H = 720;
-  const innerH = Math.min(MAX_H, Math.max(MIN_H, yearSpan * PX_PER_YEAR));
-  const height = innerH + 40;
+  // Layout
+  const VIEW_W = 110;
+  const PAD_TOP = 10;
+  const PAD_BOTTOM = 10;
+  const PX_PER_YEAR = 9;
+  const innerH = Math.max(280, yearSpan * PX_PER_YEAR);
+  const totalH = innerH + PAD_TOP + PAD_BOTTOM;
 
-  // x-positions inside the SVG.
-  const yearColX = 8;
-  const yearColW = 56;
-  const bandX = yearColX + yearColW;
-  const bandW = 26;
-  const eventX = bandX + bandW + 12;
+  const YEAR_COL_X = 4;
+  const YEAR_COL_W = 44;
+  const BAND_X = YEAR_COL_X + YEAR_COL_W + 8;
+  const BAND_W = 24;
 
-  const yearToY = (year) => {
-    const t = (year - yearMin) / yearSpan;
-    return 20 + t * innerH;
-  };
+  const yearToY = (year) => PAD_TOP + ((year - yearMin) / yearSpan) * innerH;
 
-  // Year ticks: every 5 years if span > 25, every 2 if 10-25, every year otherwise.
-  const tickStep = yearSpan > 25 ? 5 : yearSpan > 10 ? 2 : 1;
-  const ticks = [];
-  for (let y = Math.ceil(yearMin / tickStep) * tickStep; y <= yearMax; y += tickStep) {
-    ticks.push(y);
+  // Year ticks: every event year, plus 5-year breaks for long arcs
+  const tickYears = [];
+  const seen = new Set();
+  for (const e of events) {
+    const y = Math.floor(e.year);
+    if (!seen.has(y)) { seen.add(y); tickYears.push(y); }
   }
-  if (ticks[0] !== yearMin) ticks.unshift(yearMin);
-  if (ticks[ticks.length - 1] !== yearMax) ticks.push(yearMax);
+  if (yearSpan > 25) {
+    for (let y = Math.ceil(yearMin / 5) * 5; y <= yearMax; y += 5) {
+      if (!seen.has(y)) { seen.add(y); tickYears.push(y); }
+    }
+  }
+  tickYears.sort((a, b) => a - b);
+  // Dedup adjacent ticks within 14 px
+  const dedupedTicks = [];
+  let lastTickY = -Infinity;
+  for (const ty of tickYears) {
+    const ypx = yearToY(ty);
+    if (ypx - lastTickY >= 14) { dedupedTicks.push(ty); lastTickY = ypx; }
+  }
 
-  // Build segments: each is the band between two consecutive milestones,
-  // its phase determined by the milestone *ending* the segment (the
-  // arrival phase is what the band has been doing).
+  // Build segments along the band
   const segments = events.map((m, i) => {
     const startYear = i === 0 ? yearMin : events[i - 1].year;
     const endYear = m.year;
     const phase = m.phase || "other";
-    return {
-      phase,
-      y1: yearToY(startYear),
-      y2: yearToY(endYear),
-    };
+    return { phase, y1: yearToY(startYear), y2: yearToY(endYear) };
   });
 
   return (
-    <div style={{ marginTop: 14 }}>
+    <div style={{ marginTop: 14 }} ref={containerRef}>
       <SectionLabel>Project lifecycle</SectionLabel>
       {summary && (
         <p style={{
           fontFamily: "'DM Mono', monospace", fontSize: 12, color: P.text,
-          margin: "4px 0 8px", lineHeight: 1.5,
+          margin: "4px 0 10px", lineHeight: 1.5,
         }}>
           {summary}
         </p>
       )}
-      <svg
-        width="100%"
-        viewBox={`0 0 360 ${height}`}
-        height={height}
-        style={{ display: "block", overflow: "visible" }}
-      >
 
-        {/* Year ticks (left column) */}
-        {ticks.map((y) => (
-          <g key={y}>
+      <div style={{
+        position: "relative",
+        display: "grid",
+        gridTemplateColumns: `${VIEW_W}px 1fr`,
+        gap: 12,
+        alignItems: "start",
+      }}>
+        {/* Band column */}
+        <svg
+          width={VIEW_W}
+          height={totalH}
+          style={{ display: "block", overflow: "visible" }}
+        >
+          {/* Year tick labels */}
+          {dedupedTicks.map((y) => (
             <text
-              x={yearColX + yearColW - 4}
+              key={y}
+              x={YEAR_COL_X + YEAR_COL_W - 4}
               y={yearToY(y) + 4}
               textAnchor="end"
               fontFamily="'Playfair Display', serif"
-              fontSize="14"
+              fontSize="13"
               fontWeight="600"
               fill={P.text}
             >
               {y}
             </text>
-          </g>
-        ))}
+          ))}
 
-        {/* Vertical band, painted in segments by phase */}
-        {segments.map((seg, i) => (
+          {/* Phase-coloured segments */}
+          {segments.map((seg, i) => (
+            <rect
+              key={i}
+              x={BAND_X}
+              y={seg.y1}
+              width={BAND_W}
+              height={Math.max(0.5, seg.y2 - seg.y1)}
+              fill={fillForPhase(seg.phase)}
+            />
+          ))}
+          {/* Outline */}
           <rect
-            key={i}
-            x={bandX}
-            y={seg.y1}
-            width={bandW}
-            height={Math.max(0, seg.y2 - seg.y1)}
-            fill={fillForPhase(seg.phase)}
+            x={BAND_X}
+            y={segments[0].y1}
+            width={BAND_W}
+            height={Math.max(0, segments[segments.length - 1].y2 - segments[0].y1)}
+            fill="none"
+            stroke={P.text}
+            strokeWidth="0.5"
           />
-        ))}
-        {/* Band outline so it reads as one bar even with mixed fills */}
-        <rect
-          x={bandX}
-          y={segments[0]?.y1 ?? 20}
-          width={bandW}
-          height={Math.max(0, (segments[segments.length - 1]?.y2 ?? height) - (segments[0]?.y1 ?? 20))}
-          fill="none"
-          stroke={P.text}
-          strokeWidth="0.5"
-        />
 
-        {/* Event tickmarks + labels (right column) */}
-        {events.map((m, i) => {
-          const y = yearToY(m.year);
-          return (
-            <g key={i}>
-              {/* tick from the band into the label area */}
-              <line
-                x1={bandX + bandW}
-                y1={y}
-                x2={bandX + bandW + 8}
-                y2={y}
-                stroke={P.text}
-                strokeWidth="1"
-              />
-              <text
-                x={eventX}
-                y={y + 4}
-                fontFamily="'Playfair Display', serif"
-                fontSize="13"
-                fontWeight="600"
-                fill={P.text}
+          {/* Event dots */}
+          {events.map((m, i) => {
+            const cy = yearToY(m.year);
+            const isActive = activeIdx === i;
+            return (
+              <g key={i}>
+                <circle
+                  cx={BAND_X + BAND_W / 2}
+                  cy={cy}
+                  r={isActive ? 6 : 4}
+                  fill={P.bgCard}
+                  stroke={P.text}
+                  strokeWidth={isActive ? 2 : 1.2}
+                  style={{ cursor: "pointer", transition: "r 0.12s" }}
+                  onMouseEnter={() => setActiveIdx(i)}
+                  onMouseLeave={() => setActiveIdx(null)}
+                />
+              </g>
+            );
+          })}
+        </svg>
+
+        {/* Event list — chronological, hoverable, mirrors band */}
+        <ol style={{
+          listStyle: "none", padding: 0, margin: 0,
+          maxHeight: totalH, overflowY: "auto", paddingRight: 4,
+        }}>
+          {events.map((m, i) => {
+            const isActive = activeIdx === i;
+            return (
+              <li
+                key={i}
+                onMouseEnter={() => setActiveIdx(i)}
+                onMouseLeave={() => setActiveIdx(null)}
+                style={{
+                  padding: "6px 8px",
+                  marginBottom: 4,
+                  borderLeft: `3px solid ${PHASE_FILL[m.phase] || "#bdb6a3"}`,
+                  background: isActive ? "rgba(28,43,69,0.05)" : "transparent",
+                  borderRadius: "0 3px 3px 0",
+                  transition: "background 0.12s",
+                  cursor: "default",
+                }}
               >
-                {m.title}
-              </text>
-              {m.description && (
-                <text
-                  x={eventX}
-                  y={y + 18}
-                  fontFamily="'DM Mono', monospace"
-                  fontSize="10"
-                  fill={P.textMuted}
-                  style={{ letterSpacing: "0.04em" }}
-                >
-                  {m.description.length > 56 ? m.description.slice(0, 56) + "…" : m.description}
-                </text>
-              )}
-            </g>
-          );
-        })}
-      </svg>
+                <div style={{
+                  display: "flex", justifyContent: "space-between", alignItems: "baseline",
+                  gap: 8, marginBottom: 2,
+                }}>
+                  <span style={{
+                    fontFamily: "'Playfair Display', serif",
+                    fontSize: 13, fontWeight: 600, color: P.text, lineHeight: 1.25,
+                  }}>
+                    {m.title}
+                  </span>
+                  <span style={{
+                    fontFamily: "'DM Mono', monospace", fontSize: 10,
+                    color: P.textLight, whiteSpace: "nowrap",
+                  }}>
+                    {formatDate(m.date)}
+                  </span>
+                </div>
+                {m.description && (
+                  <div style={{
+                    fontFamily: "'DM Mono', monospace", fontSize: 11,
+                    color: P.textMuted, lineHeight: 1.4, marginTop: 1,
+                  }}>
+                    {m.description}
+                  </div>
+                )}
+                {m.source && (
+                  <a
+                    href={m.source}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: "inline-block",
+                      marginTop: 4,
+                      fontSize: 10, fontFamily: "'DM Mono', monospace",
+                      color: P.teal, textDecoration: "none",
+                      letterSpacing: "0.04em",
+                    }}
+                  >
+                    source ↗
+                  </a>
+                )}
+              </li>
+            );
+          })}
+        </ol>
+      </div>
 
       <PhaseLegend />
 
@@ -199,18 +254,16 @@ export default function ProjectTimeline({
   );
 }
 
-// Solid palette colour per phase. Idea: distinct hue for each lifecycle
-// stage so the band reads as a coloured timeline at a glance.
-//   proposal / consultation: parchment      (early, soft)
-//   application / examination / revived:    yellow (system in motion)
-//   jr:        sienna   (contested)
-//   dormant:   grey     (idle)
-//   consent / fid:       navy    (decided)
-//   build:     teal      (physically being built)
-//   operational:         deep teal (running)
-//   cancelled:           red     (terminated)
-function fillForPhase(phase) {
-  return PHASE_FILL[phase] || "#bdb6a3";
+function formatDate(s) {
+  if (s == null) return "";
+  const str = String(s).trim();
+  const iso = str.match(/^(\d{4})-(\d{2})(?:-(\d{2}))?$/);
+  if (iso) {
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    return iso[3] ? `${iso[3]} ${months[Number(iso[2]) - 1]} ${iso[1]}` : `${months[Number(iso[2]) - 1]} ${iso[1]}`;
+  }
+  if (/^\d{4}$/.test(str)) return str;
+  return str;
 }
 
 const PHASE_FILL = {
@@ -228,8 +281,12 @@ const PHASE_FILL = {
   cancelled:    P.red,
 };
 
+function fillForPhase(phase) {
+  return PHASE_FILL[phase] || "#bdb6a3";
+}
+
 const PHASE_LABELS = {
-  proposal:     "Proposal / consultation",
+  proposal:     "Proposal",
   examination:  "In examination",
   jr:           "Judicial review",
   dormant:      "Dormant",
@@ -275,20 +332,12 @@ function SectionLabel({ children }) {
   );
 }
 
-/**
- * Lenient date → numeric year. Accepts:
- *   "2013-03-19" → 2013.21
- *   "2013-03"    → 2013.17
- *   "2013"       → 2013.0
- *   "early 2010s" → 2012.0  (best-effort midpoint of decade-prefix)
- *   "mid 1990s"  → 1995.0
- *   "late 1980s" → 1988.0
- */
 function parseYear(s) {
   if (s == null) return null;
   if (typeof s === "number" && Number.isFinite(s)) return s;
   const str = String(s).trim();
-  // Exact ISO date / year-month / year
+  const range = str.match(/^(\d{4})\s*[-–]\s*(\d{4})$/);
+  if (range) return (Number(range[1]) + Number(range[2])) / 2;
   const iso = str.match(/^(\d{4})(?:-(\d{2}))?(?:-(\d{2}))?$/);
   if (iso) {
     const y = Number(iso[1]);
@@ -296,17 +345,14 @@ function parseYear(s) {
     const d = iso[3] ? Number(iso[3]) : 1;
     return y + (m - 1) / 12 + (d - 1) / 365;
   }
-  // dd/mm/yyyy
   const dm = str.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
   if (dm) return Number(dm[3]) + (Number(dm[2]) - 1) / 12;
-  // Decade prefix
   const decade = str.match(/(early|mid|late)\s+(\d{4})s/i);
   if (decade) {
     const base = Number(decade[2]);
     const offset = decade[1].toLowerCase() === "early" ? 2 : decade[1].toLowerCase() === "mid" ? 5 : 8;
     return base + offset;
   }
-  // Bare four-digit year embedded in text
   const yearOnly = str.match(/(\d{4})/);
   if (yearOnly) return Number(yearOnly[1]);
   return null;

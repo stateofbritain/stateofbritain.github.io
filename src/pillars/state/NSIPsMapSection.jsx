@@ -113,7 +113,7 @@ export default function NSIPsMapSection() {
 
       <div style={{
         display: "grid",
-        gridTemplateColumns: selected ? "minmax(0, 1fr) 360px" : "minmax(0, 1fr)",
+        gridTemplateColumns: selected ? "minmax(0, 1fr) minmax(0, 1fr)" : "minmax(0, 1fr)",
         gap: 16,
         marginTop: 12,
       }}>
