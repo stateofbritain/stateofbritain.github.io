@@ -130,18 +130,64 @@ const FACETS = [
       { hs2: "71", hs6: "711029" },
     ],
   },
+  {
+    key: "antimony",
+    label: "Antimony",
+    hs6Lists: [
+      { hs2: "26", hs6: "261710" },
+      { hs2: "81", hs6: "811010" },
+      { hs2: "81", hs6: "811020" },
+      { hs2: "81", hs6: "811090" },
+    ],
+  },
+  {
+    key: "bismuth",
+    label: "Bismuth",
+    hs6Lists: [
+      { hs2: "81", hs6: "810600" },
+    ],
+  },
+  {
+    key: "tantalum",
+    label: "Tantalum",
+    hs6Lists: [
+      { hs2: "26", hs6: "261590" },
+      { hs2: "81", hs6: "810320" },
+      { hs2: "81", hs6: "810330" },
+      { hs2: "81", hs6: "810391" },
+      { hs2: "81", hs6: "810399" },
+    ],
+  },
+  {
+    key: "tellurium",
+    label: "Tellurium / selenium",
+    hs6Lists: [
+      { hs2: "28", hs6: "280450" },
+    ],
+  },
+  {
+    key: "tin",
+    label: "Tin",
+    hs6Lists: [
+      { hs2: "26", hs6: "260900" },
+      { hs2: "80", hs6: "800110" },
+      { hs2: "80", hs6: "800120" },
+      { hs2: "80", hs6: "800300" },
+      { hs2: "80", hs6: "800400" },
+      { hs2: "80", hs6: "800600" },
+      { hs2: "80", hs6: "800700" },
+    ],
+  },
+  {
+    key: "minor-metals",
+    label: "Minor metals (Nb · V · Ga · In)",
+    hs6Lists: [
+      { hs2: "81", hs6: "811220" },
+      { hs2: "81", hs6: "811292" },
+      { hs2: "81", hs6: "811299" },
+    ],
+  },
 ];
-
-// Note on coverage: the UK Critical Minerals Strategy lists 18
-// minerals plus a watchlist. The dashboard surfaces the 10 with the
-// largest UK trade flows: lithium, cobalt, rare earths, nickel,
-// tungsten, magnesium, graphite, silicon, platinum, palladium.
-// Antimony, bismuth, tantalum, tellurium, tin, niobium, vanadium,
-// gallium, indium are tracked under HMRC OTS but volumes are too thin
-// for a meaningful month-by-month alignment view; some HS6 codes
-// genuinely returned zero rows for the full 24-month window. They
-// can be added back individually when a batch-fetch helper exists
-// (one OData call per HS2 chapter rather than per HS6 list).
 
 const COMMON_SOURCES = [
   {

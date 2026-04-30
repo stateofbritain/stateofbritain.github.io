@@ -318,6 +318,42 @@ function SovereignCapability({ period }) {
           subtitle="HS 2710.12 gasoline + 2710.19 diesel/jet/heating."
           unit="£"
         />
+        <DependencyBreakdown
+          dataset="crude-oil-dependency.json"
+          title="Crude oil"
+          subtitle="HS 2709 — UKCS production + crude imports."
+          unit="£"
+        />
+        <DependencyBreakdown
+          dataset="aluminium-dependency.json"
+          title="Aluminium"
+          subtitle="HS 76 — raw + downstream aluminium products."
+          unit="£"
+        />
+        <DependencyBreakdown
+          dataset="copper-dependency.json"
+          title="Copper"
+          subtitle="HS 74 — imports only; near-zero UK production."
+          unit="£"
+        />
+        <DependencyBreakdown
+          dataset="polymers-dependency.json"
+          title="Polymers"
+          subtitle="HS 39 — plastics resin + downstream products."
+          unit="£"
+        />
+        <DependencyBreakdown
+          dataset="fertilisers-dependency.json"
+          title="Fertilisers"
+          subtitle="HS 31 — nitrogen, phosphate, potash, compounds."
+          unit="£"
+        />
+        <DependencyBreakdown
+          dataset="tropical-dependency.json"
+          title="Coffee, tea & cocoa"
+          subtitle="HS 09 + 18 — tropical commodities, no domestic production."
+          unit="£"
+        />
       </div>
     </div>
   );

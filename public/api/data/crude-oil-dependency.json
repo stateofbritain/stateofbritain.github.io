@@ -1,0 +1,776 @@
+{
+  "$schema": "sob-dataset-v1",
+  "id": "crude-oil-dependency",
+  "pillar": "state",
+  "topic": "sovereignCapability",
+  "generated": "2026-04-30",
+  "sources": [
+    {
+      "id": "hmrc-bulk-2709",
+      "name": "HMRC Bulk Imports — crude oil (HS 2709)",
+      "url": "https://www.uktradeinfo.com/trade-data/latest-bulk-data-sets/",
+      "publisher": "HMRC",
+      "note": "Monthly per-origin UK crude oil imports."
+    },
+    {
+      "id": "desnz-oil",
+      "name": "DESNZ — UK crude oil production",
+      "url": "https://www.gov.uk/government/statistics/energy-trends-section-3-oil-and-oil-products",
+      "publisher": "DESNZ",
+      "note": "UKCS produces ~30m tonnes/yr of crude; imports ~50m tonnes; SS for refinery-feedstock purposes is around 35%. Note: UKCS crude is partially exported because UK refineries need specific grades."
+    },
+    {
+      "id": "voeten-unga",
+      "name": "Voeten — UN General Assembly Voting Data",
+      "url": "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/LEJUQZ",
+      "publisher": "Harvard Dataverse",
+      "note": "Used to classify each trade partner into an alignment bucket."
+    }
+  ],
+  "snapshot": {
+    "title": "Crude oil",
+    "month": "2026-02",
+    "production": 689076195,
+    "imports": {
+      "aligned": 1110392955,
+      "neutral": 169319978,
+      "low": 0,
+      "unknown": 0
+    },
+    "exports": {
+      "aligned": 0,
+      "neutral": 0,
+      "low": 0,
+      "unknown": 0
+    },
+    "alignedShare": 56.4,
+    "domesticShare": 35,
+    "partnersTracked": 25,
+    "windowMonths": 24,
+    "metric": "value",
+    "unit": "£ / month"
+  },
+  "series": {
+    "monthly": {
+      "sourceId": "hmrc-bulk-2709",
+      "timeField": "month",
+      "unit": "£ / month",
+      "description": "Monthly UK crude oil imports (HS 2709) by alignment, plus an estimated UKCS production component derived from a 35% self-sufficiency ratio.",
+      "data": [
+        {
+          "month": "2024-03",
+          "production": 909026485,
+          "imports": {
+            "aligned": 1333902470,
+            "neutral": 354289573,
+            "low": 0,
+            "unknown": 0
+          },
+          "exports": {
+            "aligned": 0,
+            "neutral": 0,
+            "low": 0,
+            "unknown": 0
+          },
+          "totalImports": 1688192043,
+          "totalExports": 0,
+          "alignedShare": 51.4,
+          "domesticShare": 35
+        },
+        {
+          "month": "2024-04",
+          "production": 1153925193,
+          "imports": {
+            "aligned": 1631062720,
+            "neutral": 511941210,
+            "low": 0,
+            "unknown": 0
+          },
+          "exports": {
+            "aligned": 0,
+            "neutral": 0,
+            "low": 0,
+            "unknown": 0
+          },
+          "totalImports": 2143003930,
+          "totalExports": 0,
+          "alignedShare": 49.5,
+          "domesticShare": 35
+        },
+        {
+          "month": "2024-05",
+          "production": 1352205269,
+          "imports": {
+            "aligned": 1963163876,
+            "neutral": 485459084,
+            "low": 62615397,
+            "unknown": 0
+          },
+          "exports": {
+            "aligned": 0,
+            "neutral": 0,
+            "low": 0,
+            "unknown": 0
+          },
+          "totalImports": 2511238357,
+          "totalExports": 0,
+          "alignedShare": 50.8,
+          "domesticShare": 35
+        },
+        {
+          "month": "2024-06",
+          "production": 1133847198,
+          "imports": {
+            "aligned": 1513456292,
+            "neutral": 592259932,
+            "low": 0,
+            "unknown": 0
+          },
+          "exports": {
+            "aligned": 0,
+            "neutral": 0,
+            "low": 0,
+            "unknown": 0
+          },
+          "totalImports": 2105716224,
+          "totalExports": 0,
+          "alignedShare": 46.7,
+          "domesticShare": 35
+        },
+        {
+          "month": "2024-07",
+          "production": 1027486298,
+          "imports": {
+            "aligned": 1361072419,
+            "neutral": 547116421,
+            "low": 0,
+            "unknown": 0
+          },
+          "exports": {
+            "aligned": 0,
+            "neutral": 0,
+            "low": 0,
+            "unknown": 0
+          },
+          "totalImports": 1908188840,
+          "totalExports": 0,
+          "alignedShare": 46.4,
+          "domesticShare": 35
+        },
+        {
+          "month": "2024-08",
+          "production": 1190726999,
+          "imports": {
+            "aligned": 1643547564,
+            "neutral": 567802577,
+            "low": 0,
+            "unknown": 0
+          },
+          "exports": {
+            "aligned": 0,
+            "neutral": 0,
+            "low": 0,
+            "unknown": 0
+          },
+          "totalImports": 2211350141,
+          "totalExports": 0,
+          "alignedShare": 48.3,
+          "domesticShare": 35
+        },
+        {
+          "month": "2024-09",
+          "production": 869218383,
+          "imports": {
+            "aligned": 1112509246,
+            "neutral": 501753466,
+            "low": 0,
+            "unknown": 0
+          },
+          "exports": {
+            "aligned": 0,
+            "neutral": 0,
+            "low": 0,
+            "unknown": 0
+          },
+          "totalImports": 1614262712,
+          "totalExports": 0,
+          "alignedShare": 44.8,
+          "domesticShare": 35
+        },
+        {
+          "month": "2024-10",
+          "production": 1035631160,
+          "imports": {
+            "aligned": 1511669994,
+            "neutral": 411645017,
+            "low": 0,
+            "unknown": 0
+          },
+          "exports": {
+            "aligned": 0,
+            "neutral": 0,
+            "low": 0,
+            "unknown": 0
+          },
+          "totalImports": 1923315011,
+          "totalExports": 0,
+          "alignedShare": 51.1,
+          "domesticShare": 35
+        },
+        {
+          "month": "2024-11",
+          "production": 1069884094,
+          "imports": {
+            "aligned": 1519909298,
+            "neutral": 467018305,
+            "low": 0,
+            "unknown": 0
+          },
+          "exports": {
+            "aligned": 0,
+            "neutral": 0,
+            "low": 0,
+            "unknown": 0
+          },
+          "totalImports": 1986927603,
+          "totalExports": 0,
+          "alignedShare": 49.7,
+          "domesticShare": 35
+        },
+        {
+          "month": "2024-12",
+          "production": 1168480404,
+          "imports": {
+            "aligned": 1680488217,
+            "neutral": 489546819,
+            "low": 0,
+            "unknown": 0
+          },
+          "exports": {
+            "aligned": 0,
+            "neutral": 0,
+            "low": 0,
+            "unknown": 0
+          },
+          "totalImports": 2170035036,
+          "totalExports": 0,
+          "alignedShare": 50.3,
+          "domesticShare": 35
+        },
+        {
+          "month": "2025-01",
+          "production": 1208483576,
+          "imports": {
+            "aligned": 1447534499,
+            "neutral": 796792143,
+            "low": 0,
+            "unknown": 0
+          },
+          "exports": {
+            "aligned": 0,
+            "neutral": 0,
+            "low": 0,
+            "unknown": 0
+          },
+          "totalImports": 2244326642,
+          "totalExports": 0,
+          "alignedShare": 41.9,
+          "domesticShare": 35
+        },
+        {
+          "month": "2025-02",
+          "production": 873692127,
+          "imports": {
+            "aligned": 1337010043,
+            "neutral": 285561050,
+            "low": 0,
+            "unknown": 0
+          },
+          "exports": {
+            "aligned": 0,
+            "neutral": 0,
+            "low": 0,
+            "unknown": 0
+          },
+          "totalImports": 1622571093,
+          "totalExports": 0,
+          "alignedShare": 53.6,
+          "domesticShare": 35
+        },
+        {
+          "month": "2025-03",
+          "production": 903121281,
+          "imports": {
+            "aligned": 1270342260,
+            "neutral": 406882977,
+            "low": 0,
+            "unknown": 0
+          },
+          "exports": {
+            "aligned": 0,
+            "neutral": 0,
+            "low": 0,
+            "unknown": 0
+          },
+          "totalImports": 1677225237,
+          "totalExports": 0,
+          "alignedShare": 49.2,
+          "domesticShare": 35
+        },
+        {
+          "month": "2025-04",
+          "production": 889235031,
+          "imports": {
+            "aligned": 1226102426,
+            "neutral": 425334060,
+            "low": 0,
+            "unknown": 0
+          },
+          "exports": {
+            "aligned": 0,
+            "neutral": 0,
+            "low": 0,
+            "unknown": 0
+          },
+          "totalImports": 1651436486,
+          "totalExports": 0,
+          "alignedShare": 48.3,
+          "domesticShare": 35
+        },
+        {
+          "month": "2025-05",
+          "production": 833584742,
+          "imports": {
+            "aligned": 1118066037,
+            "neutral": 430019912,
+            "low": 0,
+            "unknown": 0
+          },
+          "exports": {
+            "aligned": 0,
+            "neutral": 0,
+            "low": 0,
+            "unknown": 0
+          },
+          "totalImports": 1548085949,
+          "totalExports": 0,
+          "alignedShare": 46.9,
+          "domesticShare": 35
+        },
+        {
+          "month": "2025-06",
+          "production": 867920071,
+          "imports": {
+            "aligned": 1226467535,
+            "neutral": 385384026,
+            "low": 0,
+            "unknown": 0
+          },
+          "exports": {
+            "aligned": 0,
+            "neutral": 0,
+            "low": 0,
+            "unknown": 0
+          },
+          "totalImports": 1611851561,
+          "totalExports": 0,
+          "alignedShare": 49.5,
+          "domesticShare": 35
+        },
+        {
+          "month": "2025-07",
+          "production": 685759756,
+          "imports": {
+            "aligned": 864148468,
+            "neutral": 409405365,
+            "low": 0,
+            "unknown": 0
+          },
+          "exports": {
+            "aligned": 0,
+            "neutral": 0,
+            "low": 0,
+            "unknown": 0
+          },
+          "totalImports": 1273553833,
+          "totalExports": 0,
+          "alignedShare": 44.1,
+          "domesticShare": 35
+        },
+        {
+          "month": "2025-08",
+          "production": 997427900,
+          "imports": {
+            "aligned": 1088566976,
+            "neutral": 763799124,
+            "low": 0,
+            "unknown": 0
+          },
+          "exports": {
+            "aligned": 0,
+            "neutral": 0,
+            "low": 0,
+            "unknown": 0
+          },
+          "totalImports": 1852366100,
+          "totalExports": 0,
+          "alignedShare": 38.2,
+          "domesticShare": 35
+        },
+        {
+          "month": "2025-09",
+          "production": 862913886,
+          "imports": {
+            "aligned": 1049916539,
+            "neutral": 550920251,
+            "low": 1717569,
+            "unknown": 0
+          },
+          "exports": {
+            "aligned": 0,
+            "neutral": 0,
+            "low": 0,
+            "unknown": 0
+          },
+          "totalImports": 1602554359,
+          "totalExports": 0,
+          "alignedShare": 42.6,
+          "domesticShare": 35
+        },
+        {
+          "month": "2025-10",
+          "production": 800264475,
+          "imports": {
+            "aligned": 1057188858,
+            "neutral": 429016595,
+            "low": 0,
+            "unknown": 0
+          },
+          "exports": {
+            "aligned": 0,
+            "neutral": 0,
+            "low": 0,
+            "unknown": 0
+          },
+          "totalImports": 1486205453,
+          "totalExports": 0,
+          "alignedShare": 46.2,
+          "domesticShare": 35
+        },
+        {
+          "month": "2025-11",
+          "production": 766349249,
+          "imports": {
+            "aligned": 1054891755,
+            "neutral": 368328279,
+            "low": 0,
+            "unknown": 0
+          },
+          "exports": {
+            "aligned": 0,
+            "neutral": 0,
+            "low": 0,
+            "unknown": 0
+          },
+          "totalImports": 1423220034,
+          "totalExports": 0,
+          "alignedShare": 48.2,
+          "domesticShare": 35
+        },
+        {
+          "month": "2025-12",
+          "production": 796441797,
+          "imports": {
+            "aligned": 1198497288,
+            "neutral": 280608906,
+            "low": 0,
+            "unknown": 0
+          },
+          "exports": {
+            "aligned": 0,
+            "neutral": 0,
+            "low": 0,
+            "unknown": 0
+          },
+          "totalImports": 1479106194,
+          "totalExports": 0,
+          "alignedShare": 52.7,
+          "domesticShare": 35
+        },
+        {
+          "month": "2026-01",
+          "production": 674260819,
+          "imports": {
+            "aligned": 954465730,
+            "neutral": 297732933,
+            "low": 0,
+            "unknown": 0
+          },
+          "exports": {
+            "aligned": 0,
+            "neutral": 0,
+            "low": 0,
+            "unknown": 0
+          },
+          "totalImports": 1252198663,
+          "totalExports": 0,
+          "alignedShare": 49.5,
+          "domesticShare": 35
+        },
+        {
+          "month": "2026-02",
+          "production": 689076195,
+          "imports": {
+            "aligned": 1110392955,
+            "neutral": 169319978,
+            "low": 0,
+            "unknown": 0
+          },
+          "exports": {
+            "aligned": 0,
+            "neutral": 0,
+            "low": 0,
+            "unknown": 0
+          },
+          "totalImports": 1279712933,
+          "totalExports": 0,
+          "alignedShare": 56.4,
+          "domesticShare": 35
+        }
+      ]
+    },
+    "byPartner": {
+      "sourceId": "hmrc-bulk-2709",
+      "timeField": "iso3",
+      "unit": "£ / month (window total)",
+      "description": "Per-partner totals across the 24-month window; sorted by total imports descending.",
+      "data": [
+        {
+          "iso3": "NOR",
+          "country": "Norway",
+          "alignmentPct": 89.1,
+          "bucket": "aligned",
+          "classifySource": "voeten",
+          "importTonnes": 16268031368,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "USA",
+          "country": "United States",
+          "alignmentPct": 81.5,
+          "bucket": "aligned",
+          "classifySource": "voeten",
+          "importTonnes": 13068185930,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "LBY",
+          "country": "Libya",
+          "alignmentPct": 55.5,
+          "bucket": "neutral",
+          "classifySource": "voeten",
+          "importTonnes": 3788485490,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "DZA",
+          "country": "Algeria",
+          "alignmentPct": 50.8,
+          "bucket": "neutral",
+          "classifySource": "voeten",
+          "importTonnes": 1632816750,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "NGA",
+          "country": "Nigeria",
+          "alignmentPct": 55.3,
+          "bucket": "neutral",
+          "classifySource": "voeten",
+          "importTonnes": 1611196339,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "GUY",
+          "country": "Guyana",
+          "alignmentPct": 63.8,
+          "bucket": "neutral",
+          "classifySource": "voeten",
+          "importTonnes": 1602441679,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "CAN",
+          "country": "Canada",
+          "alignmentPct": 86.9,
+          "bucket": "aligned",
+          "classifySource": "voeten",
+          "importTonnes": 1103205429,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "KAZ",
+          "country": "Kazakhstan",
+          "alignmentPct": 56.7,
+          "bucket": "neutral",
+          "classifySource": "voeten",
+          "importTonnes": 980066249,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "TUR",
+          "country": "Turkey",
+          "alignmentPct": 80.6,
+          "bucket": "aligned",
+          "classifySource": "voeten",
+          "importTonnes": 767282530,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "AGO",
+          "country": "Angola",
+          "alignmentPct": 59.1,
+          "bucket": "neutral",
+          "classifySource": "voeten",
+          "importTonnes": 308543065,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "BRA",
+          "country": "Brazil",
+          "alignmentPct": 62.6,
+          "bucket": "neutral",
+          "classifySource": "voeten",
+          "importTonnes": 262067773,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "CIV",
+          "country": "Côte d’Ivoire",
+          "alignmentPct": 63.4,
+          "bucket": "neutral",
+          "classifySource": "voeten",
+          "importTonnes": 188826939,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "CMR",
+          "country": "Cameroon",
+          "alignmentPct": 50.5,
+          "bucket": "neutral",
+          "classifySource": "voeten",
+          "importTonnes": 148043132,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "ARE",
+          "country": "United Arab Emirates",
+          "alignmentPct": 56.3,
+          "bucket": "neutral",
+          "classifySource": "voeten",
+          "importTonnes": 137192147,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "COG",
+          "country": "Congo - Brazzaville",
+          "alignmentPct": 54.3,
+          "bucket": "neutral",
+          "classifySource": "voeten",
+          "importTonnes": 111629269,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "GNQ",
+          "country": "Equatorial Guinea",
+          "alignmentPct": 48.6,
+          "bucket": "low",
+          "classifySource": "voeten",
+          "importTonnes": 64332966,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "AZE",
+          "country": "Azerbaijan",
+          "alignmentPct": 53.6,
+          "bucket": "neutral",
+          "classifySource": "voeten",
+          "importTonnes": 45292003,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "MYS",
+          "country": "Malaysia",
+          "alignmentPct": 56.9,
+          "bucket": "neutral",
+          "classifySource": "voeten",
+          "importTonnes": 45227525,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "TUN",
+          "country": "Tunisia",
+          "alignmentPct": 59,
+          "bucket": "neutral",
+          "classifySource": "voeten",
+          "importTonnes": 44306682,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "LBR",
+          "country": "Liberia",
+          "alignmentPct": 79.6,
+          "bucket": "aligned",
+          "classifySource": "voeten",
+          "importTonnes": 40752475,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "NLD",
+          "country": "Netherlands",
+          "alignmentPct": 92.2,
+          "bucket": "aligned",
+          "classifySource": "voeten",
+          "importTonnes": 26830341,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "GAB",
+          "country": "Gabon",
+          "alignmentPct": 53.3,
+          "bucket": "neutral",
+          "classifySource": "voeten",
+          "importTonnes": 21802961,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "IRL",
+          "country": "Ireland",
+          "alignmentPct": 82.2,
+          "bucket": "aligned",
+          "classifySource": "voeten",
+          "importTonnes": 82125,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "POL",
+          "country": "Poland",
+          "alignmentPct": 93.4,
+          "bucket": "aligned",
+          "classifySource": "voeten",
+          "importTonnes": 2005,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "ISR",
+          "country": "Israel",
+          "alignmentPct": 74.3,
+          "bucket": "aligned",
+          "classifySource": "voeten",
+          "importTonnes": 1262,
+          "exportTonnes": 0
+        }
+      ]
+    }
+  }
+}

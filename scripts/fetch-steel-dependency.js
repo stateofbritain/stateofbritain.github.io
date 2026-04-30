@@ -48,11 +48,12 @@ async function main() {
     outputPath: "public/data/steel-dependency.json",
     sources: [
       {
-        id: "hmrc-ots-72-finished",
-        name: "HMRC Overseas Trade — finished steel (HS 7208-7229)",
-        url: "https://www.uktradeinfo.com/trade-data/ots-custom-table/",
+        id: "hmrc-bulk-72-finished",
+        name: "HMRC Bulk Imports — finished steel (HS 7208-7229)",
+        url: "https://www.uktradeinfo.com/trade-data/latest-bulk-data-sets/",
         publisher: "HMRC",
-        note: "Monthly per-partner trade in finished steel products.",
+        note:
+          "Monthly per-origin UK imports of finished steel. Country of Origin (HMRC bulk file) means 'country of last substantial transformation' — for finished steel that's where the final hot-rolling, cold-rolling, or coating happened, not necessarily where iron ore was smelted. Chinese hot-rolled coil cold-rolled at Tata Steel Ijmuiden, for example, registers as Dutch origin. Trade statistics can't see deeper without firm-level supply-chain data.",
       },
       {
         id: "ons-iop-k23i",
