@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import P from "../../theme/palette";
 import { useJsonDataset } from "../../hooks/useDataset";
 import UKNSIPsMap, { CATEGORY_COLOR, CATEGORY_LABEL } from "../../components/UKNSIPsMap";
+import ProjectTimeline from "../../components/ProjectTimeline";
 
 /**
  * Construction-tab section: map of every NSIP on the Planning Inspectorate
@@ -14,6 +15,8 @@ import UKNSIPsMap, { CATEGORY_COLOR, CATEGORY_LABEL } from "../../components/UKN
  */
 export default function NSIPsMapSection() {
   const { data, loading, error } = useJsonDataset("nsips.json");
+  const { data: timelinesData } = useJsonDataset("nsip-timelines.json");
+  const timelines = timelinesData?.timelines || {};
   const projects = data?.projects || [];
   const [selectedRef, setSelectedRef] = useState(null);
   const [categoryFilter, setCategoryFilter] = useState(new Set());
@@ -129,6 +132,7 @@ export default function NSIPsMapSection() {
         {selected && (
           <ProjectPanel
             project={selected}
+            timeline={timelines[selected.ref]}
             onClose={() => setSelectedRef(null)}
           />
         )}
@@ -271,7 +275,7 @@ function Chip({ label, count, color, active, onClick }) {
   );
 }
 
-function ProjectPanel({ project, onClose }) {
+function ProjectPanel({ project, timeline, onClose }) {
   const events = projectEvents(project);
   return (
     <aside style={{
@@ -322,25 +326,34 @@ function ProjectPanel({ project, onClose }) {
         </p>
       )}
 
-      {events.length > 0 && (
-        <div style={{ marginTop: 14, paddingTop: 12, borderTop: `1px dashed ${P.border}` }}>
-          <div style={{
-            fontSize: 10, color: P.textLight, fontFamily: "'DM Mono', monospace",
-            textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 6,
-          }}>
-            Examination history
-          </div>
-          {events.map((ev, i) => (
-            <div key={i} style={{
-              display: "grid", gridTemplateColumns: "84px 1fr",
-              gap: 8, padding: "4px 0",
-              fontFamily: "'DM Mono', monospace", fontSize: 11,
+      {timeline?.milestones && timeline.milestones.length >= 2 ? (
+        <ProjectTimeline
+          milestones={timeline.milestones}
+          summary={timeline.summary}
+          researcher={timeline.researcher}
+          lastResearched={timeline.lastResearched}
+        />
+      ) : (
+        events.length > 0 && (
+          <div style={{ marginTop: 14, paddingTop: 12, borderTop: `1px dashed ${P.border}` }}>
+            <div style={{
+              fontSize: 10, color: P.textLight, fontFamily: "'DM Mono', monospace",
+              textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 6,
             }}>
-              <span style={{ color: P.textLight }}>{ev.date}</span>
-              <span style={{ color: P.text }}>{ev.label}</span>
+              Examination history (PINS only)
             </div>
-          ))}
-        </div>
+            {events.map((ev, i) => (
+              <div key={i} style={{
+                display: "grid", gridTemplateColumns: "84px 1fr",
+                gap: 8, padding: "4px 0",
+                fontFamily: "'DM Mono', monospace", fontSize: 11,
+              }}>
+                <span style={{ color: P.textLight }}>{ev.date}</span>
+                <span style={{ color: P.text }}>{ev.label}</span>
+              </div>
+            ))}
+          </div>
+        )
       )}
 
       <a

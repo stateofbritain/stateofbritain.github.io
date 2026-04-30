@@ -1,0 +1,77 @@
+{
+  "$schema": "sob-dataset-v1",
+  "id": "nsip-timelines",
+  "pillar": "state",
+  "topic": "construction",
+  "generated": "2026-04-30",
+  "sources": [
+    {
+      "id": "claude-agent-research",
+      "name": "Per-NSIP project-history research",
+      "url": "https://en.wikipedia.org",
+      "publisher": "Various (compiled)",
+      "note": "Project-history milestones for each NSIP, gathered by a Claude research agent (or hand-curated for seed entries) from public sources: Wikipedia, BAILII (judicial reviews), national press, applicant disclosures and ministerial announcements. Surfaces the pre-DCO history that PINS doesn't track — earlier proposal cycles, public inquiries, dormant decades, judicial reviews, route changes — so the dashboard can show the full project arc rather than just the modern consenting window."
+    }
+  ],
+  "snapshot": {
+    "totalTimelines": 2,
+    "researchedByAgent": 0,
+    "researchedManually": 2
+  },
+  "series": {
+    "timelines": {
+      "sourceId": "claude-agent-research",
+      "timeField": "ref",
+      "unit": "milestones / project",
+      "description": "Per-NSIP project history keyed by NSIP reference. Each entry has a milestones array with date / phase / title / description / source.",
+      "data": {
+        "TR010025": {
+          "ref": "TR010025",
+          "name": "A303 Stonehenge",
+          "researcher": "manual",
+          "lastResearched": "2026-04-30",
+          "summary": "Proposed in some form since the early 1990s. Two cancellations, a Labour-government scrapping in 2007, a 2014 revival, a 2020 DCO grant, a 2021 High Court quashing on heritage grounds, a 2023 re-issue, and a final 2024 cancellation by the incoming Labour government on cost grounds. Roughly 35 years of proposals for ~2 km of tunnel.",
+          "milestones": [
+            { "date": "1989", "phase": "proposal",  "title": "A303 trunk-route priority", "description": "Government identifies A303 as priority south-west corridor; tunnel options floated." },
+            { "date": "1995", "phase": "proposal",  "title": "First tunnel proposal", "description": "Highways Agency sets out short-bore tunnel option past Stonehenge." },
+            { "date": "1999", "phase": "examination", "title": "Public inquiry opens", "description": "Years of inquiry into competing surface and tunnel options." },
+            { "date": "2007", "phase": "cancelled", "title": "Scheme cancelled (cost)", "description": "Labour government drops scheme citing unaffordable £540m bill." },
+            { "date": "2008", "phase": "dormant",   "title": "Dormant period begins" },
+            { "date": "2014", "phase": "revived",   "title": "Revived under Road Investment Strategy", "description": "Highways England commits to a longer 2.9 km tunnel as part of RIS1." },
+            { "date": "2017", "phase": "consultation", "title": "Statutory consultation rounds", "description": "Multiple consultations on alignment, portal location, heritage mitigation." },
+            { "date": "2018-10", "phase": "application", "title": "DCO submitted (first)", "description": "Highways England submits DCO; later withdrawn for revision." },
+            { "date": "2020-04", "phase": "application", "title": "DCO re-submitted" },
+            { "date": "2020-11-12", "phase": "consent", "title": "DCO granted", "description": "Grant Shapps approves against Examining Authority's recommendation to refuse." },
+            { "date": "2021-07-30", "phase": "jr",      "title": "High Court quashes consent", "description": "Save Stonehenge WHS challenge succeeds — Mr Justice Holgate finds heritage assessment unlawful." },
+            { "date": "2022", "phase": "dormant",   "title": "Reassessment period" },
+            { "date": "2023-07-14", "phase": "consent", "title": "DCO re-issued", "description": "Mark Harper reapproves the same scheme after fresh assessment." },
+            { "date": "2024-02", "phase": "jr",      "title": "Second JR fails", "description": "Court of Appeal upholds the re-issued DCO." },
+            { "date": "2024-07-29", "phase": "cancelled", "title": "Cancelled (Labour, cost)", "description": "New Labour government scraps the £2.5bn scheme alongside other RIS pipeline projects." }
+          ]
+        },
+        "EN010001": {
+          "ref": "EN010001",
+          "name": "Hinkley Point C New Nuclear Power Station",
+          "researcher": "manual",
+          "lastResearched": "2026-04-30",
+          "summary": "EDF's twin-EPR project at Hinkley Point. Consented quickly in 2013 but the construction story is one of repeated cost and schedule slippage — original £14bn baseline (2010) has grown to ~£46bn (2024 estimate), with first power now expected 2029–2031 against an original 2017 target.",
+          "milestones": [
+            { "date": "2008", "phase": "proposal",  "title": "UK new-nuclear policy reset", "description": "Brown government's 2008 White Paper opens the door to new nuclear build." },
+            { "date": "2010", "phase": "proposal",  "title": "Site nominated", "description": "Hinkley Point identified as one of eight nominated new-build sites." },
+            { "date": "2011", "phase": "consultation", "title": "Pre-application consultation" },
+            { "date": "2011-10-31", "phase": "application", "title": "DCO submitted" },
+            { "date": "2013-03-19", "phase": "consent", "title": "DCO granted", "description": "First DCO granted under Planning Act 2008 for new nuclear in the UK." },
+            { "date": "2013-10", "phase": "fid",     "title": "Strike price agreed (£92.50/MWh, 2012 prices)", "description": "Contract for Difference at twice the market wholesale price." },
+            { "date": "2014-2016", "phase": "dormant", "title": "Financing delays", "description": "Areva financial collapse; CGN brought in as 33% partner." },
+            { "date": "2016-09-29", "phase": "fid",   "title": "Final Investment Decision (£18bn baseline)", "description": "Construction green-lit after May government review." },
+            { "date": "2017", "phase": "build",      "title": "First nuclear concrete", "description": "Reactor 1 base poured March 2017." },
+            { "date": "2019", "phase": "build",      "title": "Cost revised to £21–22.5bn" },
+            { "date": "2022", "phase": "build",      "title": "Cost revised to £25–26bn" },
+            { "date": "2024-01", "phase": "build",   "title": "Cost £31–34bn (2015 prices) ≈ £46bn cash", "description": "First power pushed to 2029-2031; Reactor 2 to 2031." },
+            { "date": "2025", "phase": "build",      "title": "Still under construction" }
+          ]
+        }
+      }
+    }
+  }
+}
