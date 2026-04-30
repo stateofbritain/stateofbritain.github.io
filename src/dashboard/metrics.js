@@ -131,6 +131,22 @@ export const METRICS = {
     periodLabel: { mom: "vs prior month", q: "vs 3 months ago", y: "vs prior year" },
   },
 
+  "sc-low-alignment-imports": {
+    id: "sc-low-alignment-imports",
+    subtab: "sovereign-capability",
+    title: "Low-alignment imports",
+    dataset: "dependency-rollup.json",
+    seriesKey: "monthly",
+    timeKey: "month",
+    valueKey: "lowAlignmentImports",
+    cadence: "monthly",
+    direction: "up-bad",
+    unit: "/ month",
+    format: "currency",
+    source: "HMRC bulk-COO + UNGA voting (rollup of 13 strategic-dependency cards)",
+    periodLabel: { mom: "vs prior month", q: "vs 3 months ago", y: "vs prior year" },
+  },
+
   "sc-gas-import-concentration": {
     id: "sc-gas-import-concentration",
     subtab: "sovereign-capability",

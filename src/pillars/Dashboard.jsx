@@ -253,6 +253,7 @@ function SovereignCapability({ period }) {
       <h2 style={h2Style}>Sovereign Capability</h2>
       <p style={subStyle}>What Britain can produce, defend, and supply on its own.</p>
       <TileGrid>
+        <MetricTile period={period} metric={METRICS["sc-low-alignment-imports"]} />
         <MetricTile period={period} metric={METRICS["sc-co2-intensity"]} />
         <MetricTile period={period} metric={METRICS["sc-mfg-output"]} />
         <MetricTile period={period} metric={METRICS["sc-iop-chemicals"]} />
