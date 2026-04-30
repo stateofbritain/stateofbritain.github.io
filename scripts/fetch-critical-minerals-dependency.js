@@ -143,8 +143,12 @@ const FACETS = [
   {
     key: "bismuth",
     label: "Bismuth",
+    // HS 810600 was split in the 2022 HS revision into:
+    //   810610 — bismuth >99.99% pure (high-grade)
+    //   810690 — other bismuth + articles
     hs6Lists: [
-      { hs2: "81", hs6: "810600" },
+      { hs2: "81", hs6: "810610" },
+      { hs2: "81", hs6: "810690" },
     ],
   },
   {
