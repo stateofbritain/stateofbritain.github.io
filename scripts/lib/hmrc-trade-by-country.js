@@ -25,40 +25,46 @@ const REQUEST_DELAY_MS = 750;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 function fetchJson(url) {
+  // 30s timeout per request — HMRC's OData server occasionally hangs
+  // mid-response under load. Without this the whole script can stall.
+  const TIMEOUT_MS = 30_000;
   return new Promise((resolve, reject) => {
     const parsed = new URL(url);
-    https
-      .get(
-        {
-          hostname: parsed.hostname,
-          path: parsed.pathname + parsed.search,
-          headers: {
-            Accept: "application/json",
-            "User-Agent": "StateOfBritain/1.0 (+dashboard)",
-          },
+    const req = https.get(
+      {
+        hostname: parsed.hostname,
+        path: parsed.pathname + parsed.search,
+        headers: {
+          Accept: "application/json",
+          "User-Agent": "StateOfBritain/1.0 (+dashboard)",
         },
-        (res) => {
-          if ([301, 302, 303, 307, 308].includes(res.statusCode)) {
-            res.resume();
-            return fetchJson(res.headers.location).then(resolve, reject);
-          }
-          if (res.statusCode !== 200) {
-            res.resume();
-            return reject(new Error(`HTTP ${res.statusCode} for ${url}`));
-          }
-          const chunks = [];
-          res.on("data", (c) => chunks.push(c));
-          res.on("end", () => {
-            try {
-              resolve(JSON.parse(Buffer.concat(chunks).toString("utf-8")));
-            } catch (e) {
-              reject(e);
-            }
-          });
-          res.on("error", reject);
+        timeout: TIMEOUT_MS,
+      },
+      (res) => {
+        if ([301, 302, 303, 307, 308].includes(res.statusCode)) {
+          res.resume();
+          return fetchJson(res.headers.location).then(resolve, reject);
         }
-      )
-      .on("error", reject);
+        if (res.statusCode !== 200) {
+          res.resume();
+          return reject(new Error(`HTTP ${res.statusCode} for ${url}`));
+        }
+        const chunks = [];
+        res.on("data", (c) => chunks.push(c));
+        res.on("end", () => {
+          try {
+            resolve(JSON.parse(Buffer.concat(chunks).toString("utf-8")));
+          } catch (e) {
+            reject(e);
+          }
+        });
+        res.on("error", reject);
+      }
+    );
+    req.on("error", reject);
+    req.on("timeout", () => {
+      req.destroy(new Error(`Request timeout after ${TIMEOUT_MS}ms for ${url}`));
+    });
   });
 }
 

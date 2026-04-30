@@ -306,6 +306,12 @@ function SovereignCapability({ period }) {
           subtitle="HS 02 meat · 04 dairy · 07 veg · 08 fruit · 10 cereals."
           unit="£"
         />
+        <DependencyBreakdown
+          dataset="critical-minerals-dependency.json"
+          title="Critical minerals"
+          subtitle="UK Critical Minerals Strategy 16-mineral set, imports only."
+          unit="£"
+        />
       </div>
     </div>
   );

@@ -207,7 +207,22 @@ export async function buildDependencyDataset(opts) {
     );
   }
 
-  if (monthlyData.length === 0) throw new Error("No rows for any month — aborting");
+  if (monthlyData.length === 0) {
+    console.warn(`  ${id}: no rows in any month — returning empty dataset`);
+    const empty = {
+      $schema: "sob-dataset-v1",
+      id, pillar, topic,
+      generated: new Date().toISOString().slice(0, 10),
+      sources,
+      snapshot: { title, month: null, metric, unit, partnersTracked: 0, windowMonths: 0 },
+      series: {
+        monthly: { sourceId: sources[0]?.id, timeField: "month", unit, description, data: [] },
+        byPartner: { sourceId: sources[0]?.id, timeField: "iso3", unit: `${unit} (window total)`, description: "no partners", data: [] },
+      },
+    };
+    if (outputPath) writeFileSync(outputPath, JSON.stringify(empty, null, 2) + "\n");
+    return empty;
+  }
 
   monthlyData.sort((a, b) => a.month.localeCompare(b.month));
   const latest = monthlyData[monthlyData.length - 1];
