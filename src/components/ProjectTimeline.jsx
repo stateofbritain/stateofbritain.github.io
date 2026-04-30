@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState, useCallback } from "react";
 import P from "../theme/palette";
 
 /**
@@ -32,6 +32,17 @@ export default function ProjectTimeline({
 
   const [activeIdx, setActiveIdx] = useState(null);
   const containerRef = useRef(null);
+  const listRef = useRef(null);
+  const itemRefs = useRef([]);
+
+  const scrollToEvent = useCallback((idx) => {
+    const el = itemRefs.current[idx];
+    const list = listRef.current;
+    if (!el || !list) return;
+    // Scroll the list, not the page — keeps the band fixed in view.
+    const target = el.offsetTop - list.clientHeight / 2 + el.clientHeight / 2;
+    list.scrollTo({ top: Math.max(0, target), behavior: "smooth" });
+  }, []);
 
   if (events.length < 2) return null;
 
@@ -162,6 +173,18 @@ export default function ProjectTimeline({
                   style={{ cursor: "pointer", transition: "r 0.12s" }}
                   onMouseEnter={() => setActiveIdx(i)}
                   onMouseLeave={() => setActiveIdx(null)}
+                  onClick={() => { setActiveIdx(i); scrollToEvent(i); }}
+                />
+                {/* Larger transparent hit area so the dot is easy to click */}
+                <circle
+                  cx={BAND_X + BAND_W / 2}
+                  cy={cy}
+                  r={10}
+                  fill="transparent"
+                  style={{ cursor: "pointer" }}
+                  onMouseEnter={() => setActiveIdx(i)}
+                  onMouseLeave={() => setActiveIdx(null)}
+                  onClick={() => { setActiveIdx(i); scrollToEvent(i); }}
                 />
               </g>
             );
@@ -169,15 +192,17 @@ export default function ProjectTimeline({
         </svg>
 
         {/* Event list — chronological, hoverable, mirrors band */}
-        <ol style={{
+        <ol ref={listRef} style={{
           listStyle: "none", padding: 0, margin: 0,
           maxHeight: totalH, overflowY: "auto", paddingRight: 4,
+          scrollBehavior: "smooth",
         }}>
           {events.map((m, i) => {
             const isActive = activeIdx === i;
             return (
               <li
                 key={i}
+                ref={(el) => { itemRefs.current[i] = el; }}
                 onMouseEnter={() => setActiveIdx(i)}
                 onMouseLeave={() => setActiveIdx(null)}
                 style={{
