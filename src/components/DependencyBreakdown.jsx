@@ -54,9 +54,22 @@ export default function DependencyBreakdown({
   unit = "tonnes",
   subtitle,
   href,
+  // Optional controlled-expanded API. When `isExpanded` and `onToggle`
+  // are both supplied, the parent owns the state — useful when a row of
+  // cards needs to ensure only one is open at a time. Falls back to
+  // local state otherwise.
+  isExpanded,
+  onToggle,
 }) {
   const { data, loading, error } = useJsonDataset(dataset);
-  const [expanded, setExpanded] = useState(false);
+  const controlled = typeof isExpanded === "boolean" && typeof onToggle === "function";
+  const [localExpanded, setLocalExpanded] = useState(false);
+  const expanded = controlled ? isExpanded : localExpanded;
+  const setExpanded = (next) => {
+    const value = typeof next === "function" ? next(expanded) : next;
+    if (controlled) onToggle(value);
+    else setLocalExpanded(value);
+  };
   const [selectedFacetKey, setSelectedFacetKey] = useState(null);
   // 1st-order = HMRC COO (where last substantially transformed)
   // 2nd-order = re-attributed by feedstock origin (where the partner's

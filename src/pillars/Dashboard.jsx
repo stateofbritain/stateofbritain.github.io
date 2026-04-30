@@ -272,98 +272,58 @@ function SovereignCapability({ period }) {
       <p style={{ ...subStyle, marginBottom: 16 }}>
         Where the goods Britain depends on come from. Domestic production, plus imports broken down by trade-partner alignment with the UK at the UN General Assembly. Click a card for the full breakdown.
       </p>
-      <div style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
-        gap: 12,
-        // dense flow lets later tiles backfill the row a card has just
-        // expanded out of, instead of leaving an awkward half-empty row.
-        gridAutoFlow: "dense",
-      }}>
+      <DependencyGrid />
+    </div>
+  );
+}
+
+const DEPENDENCY_CARDS = [
+  { dataset: "steel-dependency.json",              title: "Steel",                 subtitle: "Finished steel (HS 7208–7229), monthly tonnage." },
+  { dataset: "pharma-dependency.json",             title: "Pharmaceuticals",       subtitle: "HS 30 medicines and active ingredients, monthly £.",       unit: "£" },
+  { dataset: "gas-dependency.json",                title: "Natural gas",           subtitle: "HS 2711.11 + 2711.21, imports only.",                       unit: "£" },
+  { dataset: "semiconductor-dependency.json",      title: "Semiconductors",        subtitle: "HS 8541 + 8542, imports only.",                             unit: "£" },
+  { dataset: "food-dependency.json",               title: "Food",                  subtitle: "HS 02 meat · 04 dairy · 07 veg · 08 fruit · 10 cereals.",   unit: "£" },
+  { dataset: "critical-minerals-dependency.json",  title: "Critical minerals",     subtitle: "UK Critical Minerals Strategy minerals (excl. PGMs).",      unit: "£" },
+  { dataset: "pgms-dependency.json",               title: "Platinum-group metals", subtitle: "HS 7110 — Pt, Pd, Rh; UK secondary supply via autocatalyst recycling.", unit: "£" },
+  { dataset: "petroleum-dependency.json",          title: "Refined petroleum",     subtitle: "HS 2710.12 gasoline + 2710.19 diesel/jet/heating.",         unit: "£" },
+  { dataset: "crude-oil-dependency.json",          title: "Crude oil",             subtitle: "HS 2709 — UKCS production + crude imports.",                unit: "£" },
+  { dataset: "aluminium-dependency.json",          title: "Aluminium",             subtitle: "HS 76 — raw + downstream aluminium products.",              unit: "£" },
+  { dataset: "copper-dependency.json",             title: "Copper",                subtitle: "HS 74 — imports only; near-zero UK production.",            unit: "£" },
+  { dataset: "polymers-dependency.json",           title: "Polymers",              subtitle: "HS 39 — plastics resin + downstream products.",             unit: "£" },
+  { dataset: "fertilisers-dependency.json",        title: "Fertilisers",           subtitle: "HS 31 — nitrogen, phosphate, potash, compounds.",           unit: "£" },
+  { dataset: "tropical-dependency.json",           title: "Coffee, tea & cocoa",   subtitle: "HS 09 + 18 — tropical commodities, no domestic production.", unit: "£" },
+];
+
+function DependencyGrid() {
+  // Single shared expanded-key so opening one card automatically closes
+  // any other open card. Functional setState ensures racing close/open
+  // events from a click-on-a-different-card collapse to the right state.
+  const [expandedKey, setExpandedKey] = useState(null);
+  return (
+    <div style={{
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+      gap: 12,
+      // dense flow lets later tiles backfill the row a card has just
+      // expanded out of, instead of leaving an awkward half-empty row.
+      gridAutoFlow: "dense",
+    }}>
+      {DEPENDENCY_CARDS.map((card) => (
         <DependencyBreakdown
-          dataset="steel-dependency.json"
-          title="Steel"
-          subtitle="Finished steel (HS 7208–7229), monthly tonnage."
+          key={card.dataset}
+          dataset={card.dataset}
+          title={card.title}
+          subtitle={card.subtitle}
+          unit={card.unit}
+          isExpanded={expandedKey === card.dataset}
+          onToggle={(next) => {
+            setExpandedKey((prev) => {
+              if (next) return card.dataset;
+              return prev === card.dataset ? null : prev;
+            });
+          }}
         />
-        <DependencyBreakdown
-          dataset="pharma-dependency.json"
-          title="Pharmaceuticals"
-          subtitle="HS 30 medicines and active ingredients, monthly £."
-          unit="£"
-        />
-        <DependencyBreakdown
-          dataset="gas-dependency.json"
-          title="Natural gas"
-          subtitle="HS 2711.11 + 2711.21, imports only."
-          unit="£"
-        />
-        <DependencyBreakdown
-          dataset="semiconductor-dependency.json"
-          title="Semiconductors"
-          subtitle="HS 8541 + 8542, imports only."
-          unit="£"
-        />
-        <DependencyBreakdown
-          dataset="food-dependency.json"
-          title="Food"
-          subtitle="HS 02 meat · 04 dairy · 07 veg · 08 fruit · 10 cereals."
-          unit="£"
-        />
-        <DependencyBreakdown
-          dataset="critical-minerals-dependency.json"
-          title="Critical minerals"
-          subtitle="UK Critical Minerals Strategy minerals (excl. PGMs)."
-          unit="£"
-        />
-        <DependencyBreakdown
-          dataset="pgms-dependency.json"
-          title="Platinum-group metals"
-          subtitle="HS 7110 — Pt, Pd, Rh; UK secondary supply via autocatalyst recycling."
-          unit="£"
-        />
-        <DependencyBreakdown
-          dataset="petroleum-dependency.json"
-          title="Refined petroleum"
-          subtitle="HS 2710.12 gasoline + 2710.19 diesel/jet/heating."
-          unit="£"
-        />
-        <DependencyBreakdown
-          dataset="crude-oil-dependency.json"
-          title="Crude oil"
-          subtitle="HS 2709 — UKCS production + crude imports."
-          unit="£"
-        />
-        <DependencyBreakdown
-          dataset="aluminium-dependency.json"
-          title="Aluminium"
-          subtitle="HS 76 — raw + downstream aluminium products."
-          unit="£"
-        />
-        <DependencyBreakdown
-          dataset="copper-dependency.json"
-          title="Copper"
-          subtitle="HS 74 — imports only; near-zero UK production."
-          unit="£"
-        />
-        <DependencyBreakdown
-          dataset="polymers-dependency.json"
-          title="Polymers"
-          subtitle="HS 39 — plastics resin + downstream products."
-          unit="£"
-        />
-        <DependencyBreakdown
-          dataset="fertilisers-dependency.json"
-          title="Fertilisers"
-          subtitle="HS 31 — nitrogen, phosphate, potash, compounds."
-          unit="£"
-        />
-        <DependencyBreakdown
-          dataset="tropical-dependency.json"
-          title="Coffee, tea & cocoa"
-          subtitle="HS 09 + 18 — tropical commodities, no domestic production."
-          unit="£"
-        />
-      </div>
+      ))}
     </div>
   );
 }
