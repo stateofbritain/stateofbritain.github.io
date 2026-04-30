@@ -85,12 +85,19 @@ export default function ProjectTimeline({
     if (ypx - lastTickY >= 14) { dedupedTicks.push(ty); lastTickY = ypx; }
   }
 
-  // Build segments along the band
+  // Build segments along the band. A segment is "expected" if it ends
+  // at an expected milestone — gets faded fill + dashed outline so the
+  // future-projected portion of the project arc reads as still-to-come.
   const segments = events.map((m, i) => {
     const startYear = i === 0 ? yearMin : events[i - 1].year;
     const endYear = m.year;
     const phase = m.phase || "other";
-    return { phase, y1: yearToY(startYear), y2: yearToY(endYear) };
+    return {
+      phase,
+      y1: yearToY(startYear),
+      y2: yearToY(endYear),
+      expected: !!m.expected,
+    };
   });
 
   return (
@@ -134,7 +141,8 @@ export default function ProjectTimeline({
             </text>
           ))}
 
-          {/* Phase-coloured segments */}
+          {/* Phase-coloured segments. Expected segments get faded fill
+              and a dashed outline so they read as "projected, not yet". */}
           {segments.map((seg, i) => (
             <rect
               key={i}
@@ -143,20 +151,49 @@ export default function ProjectTimeline({
               width={BAND_W}
               height={Math.max(0.5, seg.y2 - seg.y1)}
               fill={fillForPhase(seg.phase)}
+              fillOpacity={seg.expected ? 0.35 : 1}
             />
           ))}
-          {/* Outline */}
-          <rect
-            x={BAND_X}
-            y={segments[0].y1}
-            width={BAND_W}
-            height={Math.max(0, segments[segments.length - 1].y2 - segments[0].y1)}
-            fill="none"
-            stroke={P.text}
-            strokeWidth="0.5"
-          />
+          {/* Concrete band outline — only over the non-expected portion. */}
+          {(() => {
+            const firstExpectedIdx = segments.findIndex((s) => s.expected);
+            const concreteEndY = firstExpectedIdx === -1
+              ? segments[segments.length - 1].y2
+              : segments[firstExpectedIdx].y1;
+            return (
+              <rect
+                x={BAND_X}
+                y={segments[0].y1}
+                width={BAND_W}
+                height={Math.max(0, concreteEndY - segments[0].y1)}
+                fill="none"
+                stroke={P.text}
+                strokeWidth="0.5"
+              />
+            );
+          })()}
+          {/* Dashed outline over the expected portion (if any). */}
+          {(() => {
+            const firstExpectedIdx = segments.findIndex((s) => s.expected);
+            if (firstExpectedIdx === -1) return null;
+            const y1 = segments[firstExpectedIdx].y1;
+            const y2 = segments[segments.length - 1].y2;
+            return (
+              <rect
+                x={BAND_X}
+                y={y1}
+                width={BAND_W}
+                height={Math.max(0, y2 - y1)}
+                fill="none"
+                stroke={P.text}
+                strokeWidth="0.7"
+                strokeDasharray="4 3"
+                opacity={0.65}
+              />
+            );
+          })()}
 
-          {/* Event dots */}
+          {/* Event dots. Expected events have dashed strokes. */}
           {events.map((m, i) => {
             const cy = yearToY(m.year);
             const isActive = activeIdx === i;
@@ -169,6 +206,8 @@ export default function ProjectTimeline({
                   fill={P.bgCard}
                   stroke={P.text}
                   strokeWidth={isActive ? 2 : 1.2}
+                  strokeDasharray={m.expected ? "2 1.5" : "none"}
+                  opacity={m.expected ? 0.75 : 1}
                   style={{ cursor: "pointer", transition: "r 0.12s" }}
                   onMouseEnter={() => setActiveIdx(i)}
                   onMouseLeave={() => setActiveIdx(null)}
@@ -207,11 +246,12 @@ export default function ProjectTimeline({
                 style={{
                   padding: "6px 8px",
                   marginBottom: 4,
-                  borderLeft: `3px solid ${PHASE_FILL[m.phase] || "#bdb6a3"}`,
+                  borderLeft: `3px ${m.expected ? "dashed" : "solid"} ${PHASE_FILL[m.phase] || "#bdb6a3"}`,
                   background: isActive ? "rgba(28,43,69,0.05)" : "transparent",
                   borderRadius: "0 3px 3px 0",
                   transition: "background 0.12s",
                   cursor: "default",
+                  opacity: m.expected ? 0.75 : 1,
                 }}
               >
                 <div style={{
@@ -228,7 +268,7 @@ export default function ProjectTimeline({
                     fontFamily: "'DM Mono', monospace", fontSize: 10,
                     color: P.textLight, whiteSpace: "nowrap",
                   }}>
-                    {formatDate(m.date)}
+                    {m.expected ? "exp. " : ""}{formatDate(m.date)}
                   </span>
                 </div>
                 {m.description && (

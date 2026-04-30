@@ -92,9 +92,10 @@ export default function NSIPsMapSection() {
       <p style={{
         fontFamily: "'DM Mono', monospace", fontSize: 13,
         color: P.textMuted, margin: "0 0 12px",
+        lineHeight: 1.55, maxWidth: 760,
       }}>
         Every project on the Planning Inspectorate's DCO consenting register since 2010 ({projects.length} in total).
-        Energy projects are joined to DESNZ's REPD for post-consent delivery status. Circle size scales with years in the planning system.
+        Click a project to see its full lifecycle. The PINS file opens at DCO submission; many projects have earlier rounds of proposal, consultation, judicial review or cancellation that pre-date it. Circle size scales with years in the planning system.
       </p>
 
       <DeliveryRollupBar rollup={deliveryRollup} />
