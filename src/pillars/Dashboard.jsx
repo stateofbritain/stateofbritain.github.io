@@ -276,6 +276,9 @@ function SovereignCapability({ period }) {
         display: "grid",
         gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
         gap: 12,
+        // dense flow lets later tiles backfill the row a card has just
+        // expanded out of, instead of leaving an awkward half-empty row.
+        gridAutoFlow: "dense",
       }}>
         <DependencyBreakdown
           dataset="steel-dependency.json"
