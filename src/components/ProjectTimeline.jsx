@@ -37,11 +37,10 @@ export default function ProjectTimeline({
 
   const scrollToEvent = useCallback((idx) => {
     const el = itemRefs.current[idx];
-    const list = listRef.current;
-    if (!el || !list) return;
-    // Scroll the list, not the page — keeps the band fixed in view.
-    const target = el.offsetTop - list.clientHeight / 2 + el.clientHeight / 2;
-    list.scrollTo({ top: Math.max(0, target), behavior: "smooth" });
+    if (!el) return;
+    // List grows to its natural height now, so scroll the page (or
+    // nearest scroll ancestor) to bring the event into view.
+    el.scrollIntoView({ behavior: "smooth", block: "center" });
   }, []);
 
   if (events.length < 2) return null;
@@ -194,7 +193,7 @@ export default function ProjectTimeline({
         {/* Event list — chronological, hoverable, mirrors band */}
         <ol ref={listRef} style={{
           listStyle: "none", padding: 0, margin: 0,
-          maxHeight: totalH, overflowY: "auto", paddingRight: 4,
+          paddingRight: 4,
           scrollBehavior: "smooth",
         }}>
           {events.map((m, i) => {
@@ -236,6 +235,10 @@ export default function ProjectTimeline({
                   <div style={{
                     fontFamily: "'DM Mono', monospace", fontSize: 11,
                     color: P.textMuted, lineHeight: 1.4, marginTop: 1,
+                    display: "-webkit-box",
+                    WebkitLineClamp: 2,
+                    WebkitBoxOrient: "vertical",
+                    overflow: "hidden",
                   }}>
                     {m.description}
                   </div>

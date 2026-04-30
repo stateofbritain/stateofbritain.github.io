@@ -283,8 +283,6 @@ function ProjectPanel({ project, timeline, onClose }) {
       border: `1px solid ${P.border}`,
       borderRadius: 4,
       padding: "16px 18px",
-      maxHeight: 720,
-      overflowY: "auto",
     }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 12 }}>
         <span style={{
@@ -309,11 +307,6 @@ function ProjectPanel({ project, timeline, onClose }) {
       <div style={{ fontSize: 11, color: P.textMuted, fontFamily: "'DM Mono', monospace" }}>
         {project.applicant || "—"}
       </div>
-
-      <KeyVal label="Stage" value={project.stage || "—"} />
-      <KeyVal label="Years in system" value={project.yearsInSystem != null ? `${project.yearsInSystem} yrs` : "—"} />
-      <KeyVal label="Region" value={project.region || "—"} />
-      <KeyVal label="Location" value={project.location || "—"} />
 
       {project.delivery && <DeliveryBlock delivery={project.delivery} />}
 
@@ -464,23 +457,6 @@ const STATUS_COLOR = {
   "Decommissioned":               P.sienna,
   "Revised":                      P.grey,
 };
-
-function KeyVal({ label, value }) {
-  return (
-    <div style={{
-      display: "grid", gridTemplateColumns: "120px 1fr",
-      gap: 8, padding: "6px 0",
-      borderBottom: `1px dashed ${P.border}`,
-      fontFamily: "'DM Mono', monospace", fontSize: 12,
-    }}>
-      <span style={{
-        fontSize: 10, color: P.textLight,
-        textTransform: "uppercase", letterSpacing: "0.08em",
-      }}>{label}</span>
-      <span style={{ color: P.text }}>{value}</span>
-    </div>
-  );
-}
 
 function projectEvents(p) {
   return [
