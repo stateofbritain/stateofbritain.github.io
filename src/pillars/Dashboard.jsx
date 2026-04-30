@@ -376,7 +376,7 @@ function QualityOfLife({ period }) {
 
 export default function Dashboard({ subtab, navigate, isMobile: parentIsMobile }) {
   const isMobile = useIsMobile() || parentIsMobile;
-  const [period, setPeriod] = useState("mom");
+  const [period, setPeriod] = useState("q");
 
   useEffect(() => { window.scrollTo(0, 0); }, [subtab]);
 
