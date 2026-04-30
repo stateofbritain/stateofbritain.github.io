@@ -17,7 +17,7 @@
       "name": "UK Critical Minerals Strategy 2023 refresh",
       "url": "https://www.gov.uk/government/publications/uk-critical-mineral-strategy",
       "publisher": "DBT",
-      "note": "Mineral selection follows the 2023 strategy. UK has effectively no commercial refined production of any of these minerals; Cornish Lithium operates pilot extraction but no commercial output yet. Imports-only is the honest reading."
+      "note": "Mineral selection follows the 2023 strategy. Domestic supply is modelled for three minerals where the UK has meaningful secondary production: platinum (~30% of demand from Johnson Matthey, BASF, Heraeus autocatalyst recycling), palladium (~30%, same recyclers), and nickel (~10% from Vale's Clydach refinery refining imported mattes). All other minerals are taken as 100% import-dependent. Cornish Lithium and Cornish Metals operate pre-commercial pilots with no production yet."
     },
     {
       "id": "voeten-unga",
@@ -30,7 +30,7 @@
   "snapshot": {
     "title": "Critical minerals",
     "month": "2026-02",
-    "production": null,
+    "production": 275370053,
     "imports": {
       "aligned": 519178951,
       "neutral": 177866460,
@@ -43,8 +43,8 @@
       "low": 0,
       "unknown": 0
     },
-    "alignedShare": 70.7,
-    "domesticShare": null,
+    "alignedShare": 51.4,
+    "domesticShare": 27.3,
     "partnersTracked": 94,
     "windowMonths": 24,
     "metric": "value",
@@ -77,7 +77,7 @@
       "data": [
         {
           "month": "2024-03",
-          "production": null,
+          "production": 93367980,
           "imports": {
             "aligned": 113245066,
             "neutral": 164711039,
@@ -92,12 +92,12 @@
           },
           "totalImports": 306246447,
           "totalExports": 0,
-          "alignedShare": 37,
-          "domesticShare": null
+          "alignedShare": 28.3,
+          "domesticShare": 23.4
         },
         {
           "month": "2024-04",
-          "production": null,
+          "production": 136619156,
           "imports": {
             "aligned": 190922996,
             "neutral": 210792482,
@@ -112,12 +112,12 @@
           },
           "totalImports": 411944493,
           "totalExports": 0,
-          "alignedShare": 46.3,
-          "domesticShare": null
+          "alignedShare": 34.8,
+          "domesticShare": 24.9
         },
         {
           "month": "2024-05",
-          "production": null,
+          "production": 152925825,
           "imports": {
             "aligned": 181776061,
             "neutral": 231371662,
@@ -132,12 +132,12 @@
           },
           "totalImports": 424584047,
           "totalExports": 0,
-          "alignedShare": 42.8,
-          "domesticShare": null
+          "alignedShare": 31.5,
+          "domesticShare": 26.5
         },
         {
           "month": "2024-06",
-          "production": null,
+          "production": 207227313,
           "imports": {
             "aligned": 188289505,
             "neutral": 149102690,
@@ -152,12 +152,12 @@
           },
           "totalImports": 564140658,
           "totalExports": 0,
-          "alignedShare": 33.4,
-          "domesticShare": null
+          "alignedShare": 24.4,
+          "domesticShare": 26.9
         },
         {
           "month": "2024-07",
-          "production": null,
+          "production": 103751287,
           "imports": {
             "aligned": 153308057,
             "neutral": 141426418,
@@ -172,12 +172,12 @@
           },
           "totalImports": 318165108,
           "totalExports": 0,
-          "alignedShare": 48.2,
-          "domesticShare": null
+          "alignedShare": 36.3,
+          "domesticShare": 24.6
         },
         {
           "month": "2024-08",
-          "production": null,
+          "production": 67232155,
           "imports": {
             "aligned": 117744444,
             "neutral": 114133141,
@@ -192,12 +192,12 @@
           },
           "totalImports": 249563938,
           "totalExports": 0,
-          "alignedShare": 47.2,
-          "domesticShare": null
+          "alignedShare": 37.2,
+          "domesticShare": 21.2
         },
         {
           "month": "2024-09",
-          "production": null,
+          "production": 86925245,
           "imports": {
             "aligned": 107972786,
             "neutral": 123025624,
@@ -212,12 +212,12 @@
           },
           "totalImports": 261473661,
           "totalExports": 0,
-          "alignedShare": 41.3,
-          "domesticShare": null
+          "alignedShare": 31,
+          "domesticShare": 24.9
         },
         {
           "month": "2024-10",
-          "production": null,
+          "production": 69363399,
           "imports": {
             "aligned": 113003790,
             "neutral": 105469559,
@@ -232,12 +232,12 @@
           },
           "totalImports": 241520702,
           "totalExports": 0,
-          "alignedShare": 46.8,
-          "domesticShare": null
+          "alignedShare": 36.3,
+          "domesticShare": 22.3
         },
         {
           "month": "2024-11",
-          "production": null,
+          "production": 146091823,
           "imports": {
             "aligned": 181210525,
             "neutral": 145573211,
@@ -252,12 +252,12 @@
           },
           "totalImports": 404017236,
           "totalExports": 0,
-          "alignedShare": 44.9,
-          "domesticShare": null
+          "alignedShare": 32.9,
+          "domesticShare": 26.6
         },
         {
           "month": "2024-12",
-          "production": null,
+          "production": 66515609,
           "imports": {
             "aligned": 59978101,
             "neutral": 153702898,
@@ -272,12 +272,12 @@
           },
           "totalImports": 225004017,
           "totalExports": 0,
-          "alignedShare": 26.7,
-          "domesticShare": null
+          "alignedShare": 20.6,
+          "domesticShare": 22.8
         },
         {
           "month": "2025-01",
-          "production": null,
+          "production": 104547835,
           "imports": {
             "aligned": 149780011,
             "neutral": 157452318,
@@ -292,12 +292,12 @@
           },
           "totalImports": 318887943,
           "totalExports": 0,
-          "alignedShare": 47,
-          "domesticShare": null
+          "alignedShare": 35.4,
+          "domesticShare": 24.7
         },
         {
           "month": "2025-02",
-          "production": null,
+          "production": 118261800,
           "imports": {
             "aligned": 108983744,
             "neutral": 227371134,
@@ -312,12 +312,12 @@
           },
           "totalImports": 356714466,
           "totalExports": 0,
-          "alignedShare": 30.6,
-          "domesticShare": null
+          "alignedShare": 22.9,
+          "domesticShare": 24.9
         },
         {
           "month": "2025-03",
-          "production": null,
+          "production": 109148549,
           "imports": {
             "aligned": 161183166,
             "neutral": 147611812,
@@ -332,12 +332,12 @@
           },
           "totalImports": 319598210,
           "totalExports": 0,
-          "alignedShare": 50.4,
-          "domesticShare": null
+          "alignedShare": 37.6,
+          "domesticShare": 25.5
         },
         {
           "month": "2025-04",
-          "production": null,
+          "production": 148622551,
           "imports": {
             "aligned": 206373187,
             "neutral": 204815198,
@@ -352,12 +352,12 @@
           },
           "totalImports": 425337204,
           "totalExports": 0,
-          "alignedShare": 48.5,
-          "domesticShare": null
+          "alignedShare": 36,
+          "domesticShare": 25.9
         },
         {
           "month": "2025-05",
-          "production": null,
+          "production": 106340406,
           "imports": {
             "aligned": 159702208,
             "neutral": 150464973,
@@ -372,12 +372,12 @@
           },
           "totalImports": 323147741,
           "totalExports": 0,
-          "alignedShare": 49.4,
-          "domesticShare": null
+          "alignedShare": 37.2,
+          "domesticShare": 24.8
         },
         {
           "month": "2025-06",
-          "production": null,
+          "production": 141584007,
           "imports": {
             "aligned": 194395585,
             "neutral": 185161383,
@@ -392,12 +392,12 @@
           },
           "totalImports": 396328555,
           "totalExports": 0,
-          "alignedShare": 49,
-          "domesticShare": null
+          "alignedShare": 36.1,
+          "domesticShare": 26.3
         },
         {
           "month": "2025-07",
-          "production": null,
+          "production": 129756976,
           "imports": {
             "aligned": 248064025,
             "neutral": 126611848,
@@ -412,12 +412,12 @@
           },
           "totalImports": 388918203,
           "totalExports": 0,
-          "alignedShare": 63.8,
-          "domesticShare": null
+          "alignedShare": 47.8,
+          "domesticShare": 25
         },
         {
           "month": "2025-08",
-          "production": null,
+          "production": 100091912,
           "imports": {
             "aligned": 173574999,
             "neutral": 114949858,
@@ -432,12 +432,12 @@
           },
           "totalImports": 308137970,
           "totalExports": 0,
-          "alignedShare": 56.3,
-          "domesticShare": null
+          "alignedShare": 42.5,
+          "domesticShare": 24.5
         },
         {
           "month": "2025-09",
-          "production": null,
+          "production": 212980501,
           "imports": {
             "aligned": 307968905,
             "neutral": 154003009,
@@ -452,12 +452,12 @@
           },
           "totalImports": 575568877,
           "totalExports": 0,
-          "alignedShare": 53.5,
-          "domesticShare": null
+          "alignedShare": 39.1,
+          "domesticShare": 27
         },
         {
           "month": "2025-10",
-          "production": null,
+          "production": 256157634,
           "imports": {
             "aligned": 255505104,
             "neutral": 169419653,
@@ -472,12 +472,12 @@
           },
           "totalImports": 683810154,
           "totalExports": 0,
-          "alignedShare": 37.4,
-          "domesticShare": null
+          "alignedShare": 27.2,
+          "domesticShare": 27.3
         },
         {
           "month": "2025-11",
-          "production": null,
+          "production": 174718780,
           "imports": {
             "aligned": 189032700,
             "neutral": 273502183,
@@ -492,12 +492,12 @@
           },
           "totalImports": 480670698,
           "totalExports": 0,
-          "alignedShare": 39.3,
-          "domesticShare": null
+          "alignedShare": 28.8,
+          "domesticShare": 26.7
         },
         {
           "month": "2025-12",
-          "production": null,
+          "production": 168791016,
           "imports": {
             "aligned": 171915832,
             "neutral": 266491731,
@@ -512,12 +512,12 @@
           },
           "totalImports": 460939737,
           "totalExports": 0,
-          "alignedShare": 37.3,
-          "domesticShare": null
+          "alignedShare": 27.3,
+          "domesticShare": 26.8
         },
         {
           "month": "2026-01",
-          "production": null,
+          "production": 405608438,
           "imports": {
             "aligned": 383453268,
             "neutral": 367077737,
@@ -532,12 +532,12 @@
           },
           "totalImports": 1047073894,
           "totalExports": 0,
-          "alignedShare": 36.6,
-          "domesticShare": null
+          "alignedShare": 26.4,
+          "domesticShare": 27.9
         },
         {
           "month": "2026-02",
-          "production": null,
+          "production": 275370053,
           "imports": {
             "aligned": 519178951,
             "neutral": 177866460,
@@ -552,8 +552,8 @@
           },
           "totalImports": 733911075,
           "totalExports": 0,
-          "alignedShare": 70.7,
-          "domesticShare": null
+          "alignedShare": 51.4,
+          "domesticShare": 27.3
         }
       ]
     },
@@ -3272,14 +3272,14 @@
               "low": 0,
               "unknown": 0
             },
-            "production": null,
-            "alignedShare": 31.5,
-            "domesticShare": null
+            "production": 4098231,
+            "alignedShare": 28.4,
+            "domesticShare": 10
           },
           "monthly": [
             {
               "month": "2024-03",
-              "production": null,
+              "production": 6158709,
               "imports": {
                 "aligned": 16014907,
                 "neutral": 39293059,
@@ -3294,12 +3294,12 @@
               },
               "totalImports": 55428379,
               "totalExports": 0,
-              "alignedShare": 28.9,
-              "domesticShare": null
+              "alignedShare": 26,
+              "domesticShare": 10
             },
             {
               "month": "2024-04",
-              "production": null,
+              "production": 5724861,
               "imports": {
                 "aligned": 21760872,
                 "neutral": 29728173,
@@ -3314,12 +3314,12 @@
               },
               "totalImports": 51523749,
               "totalExports": 0,
-              "alignedShare": 42.2,
-              "domesticShare": null
+              "alignedShare": 38,
+              "domesticShare": 10
             },
             {
               "month": "2024-05",
-              "production": null,
+              "production": 3439929,
               "imports": {
                 "aligned": 19814634,
                 "neutral": 10722946,
@@ -3334,12 +3334,12 @@
               },
               "totalImports": 30959361,
               "totalExports": 0,
-              "alignedShare": 64,
-              "domesticShare": null
+              "alignedShare": 57.6,
+              "domesticShare": 10
             },
             {
               "month": "2024-06",
-              "production": null,
+              "production": 3840592,
               "imports": {
                 "aligned": 18660002,
                 "neutral": 15844533,
@@ -3354,12 +3354,12 @@
               },
               "totalImports": 34565327,
               "totalExports": 0,
-              "alignedShare": 54,
-              "domesticShare": null
+              "alignedShare": 48.6,
+              "domesticShare": 10
             },
             {
               "month": "2024-07",
-              "production": null,
+              "production": 4980018,
               "imports": {
                 "aligned": 20958604,
                 "neutral": 23779323,
@@ -3374,12 +3374,12 @@
               },
               "totalImports": 44820159,
               "totalExports": 0,
-              "alignedShare": 46.8,
-              "domesticShare": null
+              "alignedShare": 42.1,
+              "domesticShare": 10
             },
             {
               "month": "2024-08",
-              "production": null,
+              "production": 4783135,
               "imports": {
                 "aligned": 32281607,
                 "neutral": 8349663,
@@ -3394,12 +3394,12 @@
               },
               "totalImports": 43048218,
               "totalExports": 0,
-              "alignedShare": 75,
-              "domesticShare": null
+              "alignedShare": 67.5,
+              "domesticShare": 10
             },
             {
               "month": "2024-09",
-              "production": null,
+              "production": 4196346,
               "imports": {
                 "aligned": 15268494,
                 "neutral": 21518080,
@@ -3414,12 +3414,12 @@
               },
               "totalImports": 37767116,
               "totalExports": 0,
-              "alignedShare": 40.4,
-              "domesticShare": null
+              "alignedShare": 36.4,
+              "domesticShare": 10
             },
             {
               "month": "2024-10",
-              "production": null,
+              "production": 5301211,
               "imports": {
                 "aligned": 16651853,
                 "neutral": 30984796,
@@ -3434,12 +3434,12 @@
               },
               "totalImports": 47710901,
               "totalExports": 0,
-              "alignedShare": 34.9,
-              "domesticShare": null
+              "alignedShare": 31.4,
+              "domesticShare": 10
             },
             {
               "month": "2024-11",
-              "production": null,
+              "production": 3145904,
               "imports": {
                 "aligned": 11967074,
                 "neutral": 15942602,
@@ -3454,12 +3454,12 @@
               },
               "totalImports": 28313140,
               "totalExports": 0,
-              "alignedShare": 42.3,
-              "domesticShare": null
+              "alignedShare": 38,
+              "domesticShare": 10
             },
             {
               "month": "2024-12",
-              "production": null,
+              "production": 5528611,
               "imports": {
                 "aligned": 15337948,
                 "neutral": 34350446,
@@ -3474,12 +3474,12 @@
               },
               "totalImports": 49757495,
               "totalExports": 0,
-              "alignedShare": 30.8,
-              "domesticShare": null
+              "alignedShare": 27.7,
+              "domesticShare": 10
             },
             {
               "month": "2025-01",
-              "production": null,
+              "production": 4980896,
               "imports": {
                 "aligned": 13638684,
                 "neutral": 30699749,
@@ -3494,12 +3494,12 @@
               },
               "totalImports": 44828063,
               "totalExports": 0,
-              "alignedShare": 30.4,
-              "domesticShare": null
+              "alignedShare": 27.4,
+              "domesticShare": 10
             },
             {
               "month": "2025-02",
-              "production": null,
+              "production": 4380961,
               "imports": {
                 "aligned": 10568532,
                 "neutral": 28502273,
@@ -3514,12 +3514,12 @@
               },
               "totalImports": 39428645,
               "totalExports": 0,
-              "alignedShare": 26.8,
-              "domesticShare": null
+              "alignedShare": 24.1,
+              "domesticShare": 10
             },
             {
               "month": "2025-03",
-              "production": null,
+              "production": 3308166,
               "imports": {
                 "aligned": 11094961,
                 "neutral": 18043397,
@@ -3534,12 +3534,12 @@
               },
               "totalImports": 29773493,
               "totalExports": 0,
-              "alignedShare": 37.3,
-              "domesticShare": null
+              "alignedShare": 33.5,
+              "domesticShare": 10
             },
             {
               "month": "2025-04",
-              "production": null,
+              "production": 4752258,
               "imports": {
                 "aligned": 11514831,
                 "neutral": 30917138,
@@ -3554,12 +3554,12 @@
               },
               "totalImports": 42770319,
               "totalExports": 0,
-              "alignedShare": 26.9,
-              "domesticShare": null
+              "alignedShare": 24.2,
+              "domesticShare": 10
             },
             {
               "month": "2025-05",
-              "production": null,
+              "production": 2641943,
               "imports": {
                 "aligned": 16563046,
                 "neutral": 7087997,
@@ -3574,12 +3574,12 @@
               },
               "totalImports": 23777487,
               "totalExports": 0,
-              "alignedShare": 69.7,
-              "domesticShare": null
+              "alignedShare": 62.7,
+              "domesticShare": 10
             },
             {
               "month": "2025-06",
-              "production": null,
+              "production": 2567760,
               "imports": {
                 "aligned": 10819188,
                 "neutral": 12050338,
@@ -3594,12 +3594,12 @@
               },
               "totalImports": 23109838,
               "totalExports": 0,
-              "alignedShare": 46.8,
-              "domesticShare": null
+              "alignedShare": 42.1,
+              "domesticShare": 10
             },
             {
               "month": "2025-07",
-              "production": null,
+              "production": 6010963,
               "imports": {
                 "aligned": 14649183,
                 "neutral": 39268978,
@@ -3614,12 +3614,12 @@
               },
               "totalImports": 54098668,
               "totalExports": 0,
-              "alignedShare": 27.1,
-              "domesticShare": null
+              "alignedShare": 24.4,
+              "domesticShare": 10
             },
             {
               "month": "2025-08",
-              "production": null,
+              "production": 4313942,
               "imports": {
                 "aligned": 10210611,
                 "neutral": 27852493,
@@ -3634,12 +3634,12 @@
               },
               "totalImports": 38825479,
               "totalExports": 0,
-              "alignedShare": 26.3,
-              "domesticShare": null
+              "alignedShare": 23.7,
+              "domesticShare": 10
             },
             {
               "month": "2025-09",
-              "production": null,
+              "production": 6293258,
               "imports": {
                 "aligned": 17053591,
                 "neutral": 38129880,
@@ -3654,12 +3654,12 @@
               },
               "totalImports": 56639318,
               "totalExports": 0,
-              "alignedShare": 30.1,
-              "domesticShare": null
+              "alignedShare": 27.1,
+              "domesticShare": 10
             },
             {
               "month": "2025-10",
-              "production": null,
+              "production": 4969555,
               "imports": {
                 "aligned": 14949564,
                 "neutral": 29163337,
@@ -3674,12 +3674,12 @@
               },
               "totalImports": 44725996,
               "totalExports": 0,
-              "alignedShare": 33.4,
-              "domesticShare": null
+              "alignedShare": 30.1,
+              "domesticShare": 10
             },
             {
               "month": "2025-11",
-              "production": null,
+              "production": 4526736,
               "imports": {
                 "aligned": 8824369,
                 "neutral": 31098217,
@@ -3694,12 +3694,12 @@
               },
               "totalImports": 40740623,
               "totalExports": 0,
-              "alignedShare": 21.7,
-              "domesticShare": null
+              "alignedShare": 19.5,
+              "domesticShare": 10
             },
             {
               "month": "2025-12",
-              "production": null,
+              "production": 4200933,
               "imports": {
                 "aligned": 8830820,
                 "neutral": 28351516,
@@ -3714,12 +3714,12 @@
               },
               "totalImports": 37808399,
               "totalExports": 0,
-              "alignedShare": 23.4,
-              "domesticShare": null
+              "alignedShare": 21,
+              "domesticShare": 10
             },
             {
               "month": "2026-01",
-              "production": null,
+              "production": 5619442,
               "imports": {
                 "aligned": 20603850,
                 "neutral": 28803207,
@@ -3734,12 +3734,12 @@
               },
               "totalImports": 50574974,
               "totalExports": 0,
-              "alignedShare": 40.7,
-              "domesticShare": null
+              "alignedShare": 36.7,
+              "domesticShare": 10
             },
             {
               "month": "2026-02",
-              "production": null,
+              "production": 4098231,
               "imports": {
                 "aligned": 11634300,
                 "neutral": 24686759,
@@ -3754,8 +3754,8 @@
               },
               "totalImports": 36884082,
               "totalExports": 0,
-              "alignedShare": 31.5,
-              "domesticShare": null
+              "alignedShare": 28.4,
+              "domesticShare": 10
             }
           ],
           "byPartner": [
@@ -6337,14 +6337,14 @@
               "low": 0,
               "unknown": 0
             },
-            "production": null,
-            "alignedShare": 79.5,
-            "domesticShare": null
+            "production": 181934723,
+            "alignedShare": 55.7,
+            "domesticShare": 30
           },
           "monthly": [
             {
               "month": "2024-03",
-              "production": null,
+              "production": 68750943,
               "imports": {
                 "aligned": 57941945,
                 "neutral": 84999225,
@@ -6359,12 +6359,12 @@
               },
               "totalImports": 160418868,
               "totalExports": 0,
-              "alignedShare": 36.1,
-              "domesticShare": null
+              "alignedShare": 25.3,
+              "domesticShare": 30
             },
             {
               "month": "2024-04",
-              "production": null,
+              "production": 85628214,
               "imports": {
                 "aligned": 105826471,
                 "neutral": 93942459,
@@ -6379,12 +6379,12 @@
               },
               "totalImports": 199799165,
               "totalExports": 0,
-              "alignedShare": 53,
-              "domesticShare": null
+              "alignedShare": 37.1,
+              "domesticShare": 30
             },
             {
               "month": "2024-05",
-              "production": null,
+              "production": 94338995,
               "imports": {
                 "aligned": 59735992,
                 "neutral": 160296100,
@@ -6399,12 +6399,12 @@
               },
               "totalImports": 220124322,
               "totalExports": 0,
-              "alignedShare": 27.1,
-              "domesticShare": null
+              "alignedShare": 19,
+              "domesticShare": 30
             },
             {
               "month": "2024-06",
-              "production": null,
+              "production": 147044232,
               "imports": {
                 "aligned": 89651903,
                 "neutral": 73622726,
@@ -6419,12 +6419,12 @@
               },
               "totalImports": 343103209,
               "totalExports": 0,
-              "alignedShare": 26.1,
-              "domesticShare": null
+              "alignedShare": 18.3,
+              "domesticShare": 30
             },
             {
               "month": "2024-07",
-              "production": null,
+              "production": 57044707,
               "imports": {
                 "aligned": 47519165,
                 "neutral": 85440039,
@@ -6439,12 +6439,12 @@
               },
               "totalImports": 133104317,
               "totalExports": 0,
-              "alignedShare": 35.7,
-              "domesticShare": null
+              "alignedShare": 25,
+              "domesticShare": 30
             },
             {
               "month": "2024-08",
-              "production": null,
+              "production": 39743936,
               "imports": {
                 "aligned": 33686054,
                 "neutral": 58673231,
@@ -6459,12 +6459,12 @@
               },
               "totalImports": 92735851,
               "totalExports": 0,
-              "alignedShare": 36.3,
-              "domesticShare": null
+              "alignedShare": 25.4,
+              "domesticShare": 30
             },
             {
               "month": "2024-09",
-              "production": null,
+              "production": 47944109,
               "imports": {
                 "aligned": 37724416,
                 "neutral": 54642445,
@@ -6479,12 +6479,12 @@
               },
               "totalImports": 111869587,
               "totalExports": 0,
-              "alignedShare": 33.7,
-              "domesticShare": null
+              "alignedShare": 23.6,
+              "domesticShare": 30
             },
             {
               "month": "2024-10",
-              "production": null,
+              "production": 34743265,
               "imports": {
                 "aligned": 42268144,
                 "neutral": 29608686,
@@ -6499,12 +6499,12 @@
               },
               "totalImports": 81067619,
               "totalExports": 0,
-              "alignedShare": 52.1,
-              "domesticShare": null
+              "alignedShare": 36.5,
+              "domesticShare": 30
             },
             {
               "month": "2024-11",
-              "production": null,
+              "production": 60374016,
               "imports": {
                 "aligned": 37613607,
                 "neutral": 78499267,
@@ -6519,12 +6519,12 @@
               },
               "totalImports": 140872704,
               "totalExports": 0,
-              "alignedShare": 26.7,
-              "domesticShare": null
+              "alignedShare": 18.7,
+              "domesticShare": 30
             },
             {
               "month": "2024-12",
-              "production": null,
+              "production": 44904659,
               "imports": {
                 "aligned": 14524987,
                 "neutral": 90166637,
@@ -6539,12 +6539,12 @@
               },
               "totalImports": 104777537,
               "totalExports": 0,
-              "alignedShare": 13.9,
-              "domesticShare": null
+              "alignedShare": 9.7,
+              "domesticShare": 30
             },
             {
               "month": "2025-01",
-              "production": null,
+              "production": 74413618,
               "imports": {
                 "aligned": 73185252,
                 "neutral": 100289793,
@@ -6559,12 +6559,12 @@
               },
               "totalImports": 173631775,
               "totalExports": 0,
-              "alignedShare": 42.1,
-              "domesticShare": null
+              "alignedShare": 29.5,
+              "domesticShare": 30
             },
             {
               "month": "2025-02",
-              "production": null,
+              "production": 79930232,
               "imports": {
                 "aligned": 45960207,
                 "neutral": 140345430,
@@ -6579,12 +6579,12 @@
               },
               "totalImports": 186503874,
               "totalExports": 0,
-              "alignedShare": 24.6,
-              "domesticShare": null
+              "alignedShare": 17.3,
+              "domesticShare": 30
             },
             {
               "month": "2025-03",
-              "production": null,
+              "production": 68437254,
               "imports": {
                 "aligned": 77007215,
                 "neutral": 82612612,
@@ -6599,12 +6599,12 @@
               },
               "totalImports": 159686926,
               "totalExports": 0,
-              "alignedShare": 48.2,
-              "domesticShare": null
+              "alignedShare": 33.8,
+              "domesticShare": 30
             },
             {
               "month": "2025-04",
-              "production": null,
+              "production": 109736982,
               "imports": {
                 "aligned": 125776648,
                 "neutral": 130174842,
@@ -6619,12 +6619,12 @@
               },
               "totalImports": 256052958,
               "totalExports": 0,
-              "alignedShare": 49.1,
-              "domesticShare": null
+              "alignedShare": 34.4,
+              "domesticShare": 30
             },
             {
               "month": "2025-05",
-              "production": null,
+              "production": 77059884,
               "imports": {
                 "aligned": 77570186,
                 "neutral": 102122741,
@@ -6639,12 +6639,12 @@
               },
               "totalImports": 179806396,
               "totalExports": 0,
-              "alignedShare": 43.1,
-              "domesticShare": null
+              "alignedShare": 30.2,
+              "domesticShare": 30
             },
             {
               "month": "2025-06",
-              "production": null,
+              "production": 93283587,
               "imports": {
                 "aligned": 89941433,
                 "neutral": 127680511,
@@ -6659,12 +6659,12 @@
               },
               "totalImports": 217661703,
               "totalExports": 0,
-              "alignedShare": 41.3,
-              "domesticShare": null
+              "alignedShare": 28.9,
+              "domesticShare": 30
             },
             {
               "month": "2025-07",
-              "production": null,
+              "production": 81286062,
               "imports": {
                 "aligned": 126445882,
                 "neutral": 63183263,
@@ -6679,12 +6679,12 @@
               },
               "totalImports": 189667479,
               "totalExports": 0,
-              "alignedShare": 66.7,
-              "domesticShare": null
+              "alignedShare": 46.7,
+              "domesticShare": 30
             },
             {
               "month": "2025-08",
-              "production": null,
+              "production": 50355376,
               "imports": {
                 "aligned": 61985684,
                 "neutral": 51930242,
@@ -6699,12 +6699,12 @@
               },
               "totalImports": 117495877,
               "totalExports": 0,
-              "alignedShare": 52.8,
-              "domesticShare": null
+              "alignedShare": 36.9,
+              "domesticShare": 30
             },
             {
               "month": "2025-09",
-              "production": null,
+              "production": 145443104,
               "imports": {
                 "aligned": 176338997,
                 "neutral": 87904986,
@@ -6719,12 +6719,12 @@
               },
               "totalImports": 339367243,
               "totalExports": 0,
-              "alignedShare": 52,
-              "domesticShare": null
+              "alignedShare": 36.4,
+              "domesticShare": 30
             },
             {
               "month": "2025-10",
-              "production": null,
+              "production": 166717258,
               "imports": {
                 "aligned": 122951353,
                 "neutral": 83506986,
@@ -6739,12 +6739,12 @@
               },
               "totalImports": 389006935,
               "totalExports": 0,
-              "alignedShare": 31.6,
-              "domesticShare": null
+              "alignedShare": 22.1,
+              "domesticShare": 30
             },
             {
               "month": "2025-11",
-              "production": null,
+              "production": 127101532,
               "imports": {
                 "aligned": 92124709,
                 "neutral": 201178345,
@@ -6759,12 +6759,12 @@
               },
               "totalImports": 296570242,
               "totalExports": 0,
-              "alignedShare": 31.1,
-              "domesticShare": null
+              "alignedShare": 21.7,
+              "domesticShare": 30
             },
             {
               "month": "2025-12",
-              "production": null,
+              "production": 102052769,
               "imports": {
                 "aligned": 77489706,
                 "neutral": 151044614,
@@ -6779,12 +6779,12 @@
               },
               "totalImports": 238123127,
               "totalExports": 0,
-              "alignedShare": 32.5,
-              "domesticShare": null
+              "alignedShare": 22.8,
+              "domesticShare": 30
             },
             {
               "month": "2026-01",
-              "production": null,
+              "production": 311617016,
               "imports": {
                 "aligned": 193837397,
                 "neutral": 260253295,
@@ -6799,12 +6799,12 @@
               },
               "totalImports": 727106370,
               "totalExports": 0,
-              "alignedShare": 26.7,
-              "domesticShare": null
+              "alignedShare": 18.7,
+              "domesticShare": 30
             },
             {
               "month": "2026-02",
-              "production": null,
+              "production": 181934723,
               "imports": {
                 "aligned": 337623553,
                 "neutral": 86871565,
@@ -6819,8 +6819,8 @@
               },
               "totalImports": 424514353,
               "totalExports": 0,
-              "alignedShare": 79.5,
-              "domesticShare": null
+              "alignedShare": 55.7,
+              "domesticShare": 30
             }
           ],
           "byPartner": [
@@ -6950,14 +6950,14 @@
               "low": 0,
               "unknown": 0
             },
-            "production": null,
-            "alignedShare": 69.2,
-            "domesticShare": null
+            "production": 89337099,
+            "alignedShare": 48.5,
+            "domesticShare": 30
           },
           "monthly": [
             {
               "month": "2024-03",
-              "production": null,
+              "production": 18458328,
               "imports": {
                 "aligned": 17814466,
                 "neutral": 25207631,
@@ -6972,12 +6972,12 @@
               },
               "totalImports": 43069432,
               "totalExports": 0,
-              "alignedShare": 41.4,
-              "domesticShare": null
+              "alignedShare": 29,
+              "domesticShare": 30
             },
             {
               "month": "2024-04",
-              "production": null,
+              "production": 45266081,
               "imports": {
                 "aligned": 38138368,
                 "neutral": 67482487,
@@ -6992,12 +6992,12 @@
               },
               "totalImports": 105620855,
               "totalExports": 0,
-              "alignedShare": 36.1,
-              "domesticShare": null
+              "alignedShare": 25.3,
+              "domesticShare": 30
             },
             {
               "month": "2024-05",
-              "production": null,
+              "production": 55146901,
               "imports": {
                 "aligned": 80528966,
                 "neutral": 48147136,
@@ -7012,12 +7012,12 @@
               },
               "totalImports": 128676102,
               "totalExports": 0,
-              "alignedShare": 62.6,
-              "domesticShare": null
+              "alignedShare": 43.8,
+              "domesticShare": 30
             },
             {
               "month": "2024-06",
-              "production": null,
+              "production": 56342489,
               "imports": {
                 "aligned": 52737547,
                 "neutral": 42185213,
@@ -7032,12 +7032,12 @@
               },
               "totalImports": 131465808,
               "totalExports": 0,
-              "alignedShare": 40.1,
-              "domesticShare": null
+              "alignedShare": 28.1,
+              "domesticShare": 30
             },
             {
               "month": "2024-07",
-              "production": null,
+              "production": 41726562,
               "imports": {
                 "aligned": 58547713,
                 "neutral": 25224133,
@@ -7052,12 +7052,12 @@
               },
               "totalImports": 97361977,
               "totalExports": 0,
-              "alignedShare": 60.1,
-              "domesticShare": null
+              "alignedShare": 42.1,
+              "domesticShare": 30
             },
             {
               "month": "2024-08",
-              "production": null,
+              "production": 22705084,
               "imports": {
                 "aligned": 23180634,
                 "neutral": 29797896,
@@ -7072,12 +7072,12 @@
               },
               "totalImports": 52978530,
               "totalExports": 0,
-              "alignedShare": 43.8,
-              "domesticShare": null
+              "alignedShare": 30.6,
+              "domesticShare": 30
             },
             {
               "month": "2024-09",
-              "production": null,
+              "production": 34784790,
               "imports": {
                 "aligned": 41794565,
                 "neutral": 39363737,
@@ -7092,12 +7092,12 @@
               },
               "totalImports": 81164510,
               "totalExports": 0,
-              "alignedShare": 51.5,
-              "domesticShare": null
+              "alignedShare": 36,
+              "domesticShare": 30
             },
             {
               "month": "2024-10",
-              "production": null,
+              "production": 29318923,
               "imports": {
                 "aligned": 32857718,
                 "neutral": 35553103,
@@ -7112,12 +7112,12 @@
               },
               "totalImports": 68410821,
               "totalExports": 0,
-              "alignedShare": 48,
-              "domesticShare": null
+              "alignedShare": 33.6,
+              "domesticShare": 30
             },
             {
               "month": "2024-11",
-              "production": null,
+              "production": 82571903,
               "imports": {
                 "aligned": 111425088,
                 "neutral": 42119966,
@@ -7132,12 +7132,12 @@
               },
               "totalImports": 192667774,
               "totalExports": 0,
-              "alignedShare": 57.8,
-              "domesticShare": null
+              "alignedShare": 40.5,
+              "domesticShare": 30
             },
             {
               "month": "2024-12",
-              "production": null,
+              "production": 16082339,
               "imports": {
                 "aligned": 13919189,
                 "neutral": 23606268,
@@ -7152,12 +7152,12 @@
               },
               "totalImports": 37525457,
               "totalExports": 0,
-              "alignedShare": 37.1,
-              "domesticShare": null
+              "alignedShare": 26,
+              "domesticShare": 30
             },
             {
               "month": "2025-01",
-              "production": null,
+              "production": 25153321,
               "imports": {
                 "aligned": 42854441,
                 "neutral": 15836642,
@@ -7172,12 +7172,12 @@
               },
               "totalImports": 58691083,
               "totalExports": 0,
-              "alignedShare": 73,
-              "domesticShare": null
+              "alignedShare": 51.1,
+              "domesticShare": 30
             },
             {
               "month": "2025-02",
-              "production": null,
+              "production": 33950607,
               "imports": {
                 "aligned": 30772456,
                 "neutral": 48445628,
@@ -7192,12 +7192,12 @@
               },
               "totalImports": 79218084,
               "totalExports": 0,
-              "alignedShare": 38.8,
-              "domesticShare": null
+              "alignedShare": 27.2,
+              "domesticShare": 30
             },
             {
               "month": "2025-03",
-              "production": null,
+              "production": 37403129,
               "imports": {
                 "aligned": 52439023,
                 "neutral": 34833502,
@@ -7212,12 +7212,12 @@
               },
               "totalImports": 87273967,
               "totalExports": 0,
-              "alignedShare": 60.1,
-              "domesticShare": null
+              "alignedShare": 42.1,
+              "domesticShare": 30
             },
             {
               "month": "2025-04",
-              "production": null,
+              "production": 34133311,
               "imports": {
                 "aligned": 45901253,
                 "neutral": 33743140,
@@ -7232,12 +7232,12 @@
               },
               "totalImports": 79644393,
               "totalExports": 0,
-              "alignedShare": 57.6,
-              "domesticShare": null
+              "alignedShare": 40.3,
+              "domesticShare": 30
             },
             {
               "month": "2025-05",
-              "production": null,
+              "production": 26638579,
               "imports": {
                 "aligned": 33224189,
                 "neutral": 28932495,
@@ -7252,12 +7252,12 @@
               },
               "totalImports": 62156684,
               "totalExports": 0,
-              "alignedShare": 53.5,
-              "domesticShare": null
+              "alignedShare": 37.4,
+              "domesticShare": 30
             },
             {
               "month": "2025-06",
-              "production": null,
+              "production": 45732660,
               "imports": {
                 "aligned": 72319262,
                 "neutral": 34390278,
@@ -7272,12 +7272,12 @@
               },
               "totalImports": 106709540,
               "totalExports": 0,
-              "alignedShare": 67.8,
-              "domesticShare": null
+              "alignedShare": 47.4,
+              "domesticShare": 30
             },
             {
               "month": "2025-07",
-              "production": null,
+              "production": 42459951,
               "imports": {
                 "aligned": 84908724,
                 "neutral": 14001120,
@@ -7292,12 +7292,12 @@
               },
               "totalImports": 99073218,
               "totalExports": 0,
-              "alignedShare": 85.7,
-              "domesticShare": null
+              "alignedShare": 60,
+              "domesticShare": 30
             },
             {
               "month": "2025-08",
-              "production": null,
+              "production": 45422594,
               "imports": {
                 "aligned": 82286402,
                 "neutral": 23694574,
@@ -7312,12 +7312,12 @@
               },
               "totalImports": 105986053,
               "totalExports": 0,
-              "alignedShare": 77.6,
-              "domesticShare": null
+              "alignedShare": 54.3,
+              "domesticShare": 30
             },
             {
               "month": "2025-09",
-              "production": null,
+              "production": 61244139,
               "imports": {
                 "aligned": 97015609,
                 "neutral": 21931708,
@@ -7332,12 +7332,12 @@
               },
               "totalImports": 142902991,
               "totalExports": 0,
-              "alignedShare": 67.9,
-              "domesticShare": null
+              "alignedShare": 47.5,
+              "domesticShare": 30
             },
             {
               "month": "2025-10",
-              "production": null,
+              "production": 84470821,
               "imports": {
                 "aligned": 96106563,
                 "neutral": 44357739,
@@ -7352,12 +7352,12 @@
               },
               "totalImports": 197098583,
               "totalExports": 0,
-              "alignedShare": 48.8,
-              "domesticShare": null
+              "alignedShare": 34.1,
+              "domesticShare": 30
             },
             {
               "month": "2025-11",
-              "production": null,
+              "production": 43090512,
               "imports": {
                 "aligned": 65288119,
                 "neutral": 35256408,
@@ -7372,12 +7372,12 @@
               },
               "totalImports": 100544527,
               "totalExports": 0,
-              "alignedShare": 64.9,
-              "domesticShare": null
+              "alignedShare": 45.5,
+              "domesticShare": 30
             },
             {
               "month": "2025-12",
-              "production": null,
+              "production": 62537314,
               "imports": {
                 "aligned": 65739874,
                 "neutral": 80180525,
@@ -7392,12 +7392,12 @@
               },
               "totalImports": 145920399,
               "totalExports": 0,
-              "alignedShare": 45.1,
-              "domesticShare": null
+              "alignedShare": 31.5,
+              "domesticShare": 30
             },
             {
               "month": "2026-01",
-              "production": null,
+              "production": 88371980,
               "imports": {
                 "aligned": 141860954,
                 "neutral": 64340332,
@@ -7412,12 +7412,12 @@
               },
               "totalImports": 206201286,
               "totalExports": 0,
-              "alignedShare": 68.8,
-              "domesticShare": null
+              "alignedShare": 48.2,
+              "domesticShare": 30
             },
             {
               "month": "2026-02",
-              "production": null,
+              "production": 89337099,
               "imports": {
                 "aligned": 144312182,
                 "neutral": 54104824,
@@ -7432,8 +7432,8 @@
               },
               "totalImports": 208453232,
               "totalExports": 0,
-              "alignedShare": 69.2,
-              "domesticShare": null
+              "alignedShare": 48.5,
+              "domesticShare": 30
             }
           ],
           "byPartner": [

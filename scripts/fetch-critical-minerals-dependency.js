@@ -7,10 +7,16 @@
  * rare earths, Indonesia/Philippines for nickel, etc.) can be drawn
  * out separately in the expanded view.
  *
- * Domestic production: not included. UK has effectively zero refined
- * output of any of these minerals. Cornish Lithium operates pilot
- * extraction but no commercial production yet. Imports-only is the
- * conservative honest reading.
+ * Domestic production: zero for most. Three exceptions where the UK
+ * has meaningful secondary supply, modelled via self-sufficiency
+ * ratios:
+ *   - Platinum  ~30%  (Johnson Matthey + BASF + Heraeus autocatalyst
+ *                       recycling at Royston / Cinderford)
+ *   - Palladium ~30%  (same recyclers)
+ *   - Nickel    ~10%  (Vale Clydach refinery — historic Mond plant —
+ *                       refines imported nickel matte)
+ * All other minerals: SS = 0. Cornish Lithium pilot, Cornish Metals
+ * (tin), Tungsten West (Hemerdon) are pre-commercial.
  *
  * Output: public/data/critical-minerals-dependency.json
  * Schedule: monthly on the 17th (composite, ~10 min run; runs after
@@ -66,6 +72,10 @@ const FACETS = [
   {
     key: "nickel",
     label: "Nickel (watchlist)",
+    // Vale's Clydach refinery (the historic Mond plant in South Wales)
+    // refines imported nickel mattes; ~10% of UK nickel demand is
+    // supplied from this domestic refining step.
+    selfSufficiency: 0.10,
     hs6Lists: [
       { hs2: "26", hs6: "260400" },
       { hs2: "28", hs6: "282540" },
@@ -117,6 +127,10 @@ const FACETS = [
   {
     key: "platinum",
     label: "Platinum",
+    // Johnson Matthey (Royston), BASF (Cinderford), Heraeus (Royston)
+    // recycle PGMs from spent autocatalysts. UK secondary supply is
+    // approximately 30% of UK platinum demand.
+    selfSufficiency: 0.30,
     hs6Lists: [
       { hs2: "71", hs6: "711011" },
       { hs2: "71", hs6: "711019" },
@@ -125,6 +139,8 @@ const FACETS = [
   {
     key: "palladium",
     label: "Palladium",
+    // Same UK PGM recyclers as platinum (~30% of UK palladium demand).
+    selfSufficiency: 0.30,
     hs6Lists: [
       { hs2: "71", hs6: "711021" },
       { hs2: "71", hs6: "711029" },
@@ -208,7 +224,7 @@ const COMMON_SOURCES = [
     url: "https://www.gov.uk/government/publications/uk-critical-mineral-strategy",
     publisher: "DBT",
     note:
-      "Mineral selection follows the 2023 strategy. UK has effectively no commercial refined production of any of these minerals; Cornish Lithium operates pilot extraction but no commercial output yet. Imports-only is the honest reading.",
+      "Mineral selection follows the 2023 strategy. Domestic supply is modelled for three minerals where the UK has meaningful secondary production: platinum (~30% of demand from Johnson Matthey, BASF, Heraeus autocatalyst recycling), palladium (~30%, same recyclers), and nickel (~10% from Vale's Clydach refinery refining imported mattes). All other minerals are taken as 100% import-dependent. Cornish Lithium and Cornish Metals operate pre-commercial pilots with no production yet.",
   },
   {
     id: "voeten-unga",
@@ -221,9 +237,14 @@ const COMMON_SOURCES = [
 
 function sumMonth(a, b) {
   if (!a) return { ...b };
+  const aProd = a.production;
+  const bProd = b.production;
+  const production = (aProd != null || bProd != null)
+    ? (aProd || 0) + (bProd || 0)
+    : null;
   return {
     month: a.month,
-    production: null,
+    production,
     imports: {
       aligned: (a.imports?.aligned || 0) + (b.imports?.aligned || 0),
       neutral: (a.imports?.neutral || 0) + (b.imports?.neutral || 0),
@@ -237,6 +258,26 @@ function sumMonth(a, b) {
       unknown: (a.exports?.unknown || 0) + (b.exports?.unknown || 0),
     },
   };
+}
+
+/**
+ * Apply a self-sufficiency ratio to derive £ domestic production
+ * per month: production = SS / (1 - SS) × max(0, totalImports - totalExports).
+ * Returns rows with production overwritten and shares recomputed.
+ * Pass-through if ss is 0 / null.
+ */
+function applySelfSufficiency(monthly, ss) {
+  if (!ss || ss <= 0) return monthly;
+  const factor = ss / (1 - ss);
+  return monthly.map((row) => {
+    const ti = (row.imports?.aligned || 0) + (row.imports?.neutral || 0) +
+      (row.imports?.low || 0) + (row.imports?.unknown || 0);
+    const te = (row.exports?.aligned || 0) + (row.exports?.neutral || 0) +
+      (row.exports?.low || 0) + (row.exports?.unknown || 0);
+    const netImports = Math.max(0, ti - te);
+    const production = Math.round(netImports * factor);
+    return recomputeShares({ ...row, production });
+  });
 }
 
 function recomputeShares(row) {
@@ -326,7 +367,12 @@ async function main() {
   const facetData = {};
 
   for (const facet of FACETS) {
-    facetData[facet.key] = await fetchFacet(facet, monthIds);
+    const ds = await fetchFacet(facet, monthIds);
+    if (facet.selfSufficiency) {
+      ds.monthly = applySelfSufficiency(ds.monthly, facet.selfSufficiency);
+      console.log(`  → applied SS=${facet.selfSufficiency} for ${facet.key}`);
+    }
+    facetData[facet.key] = ds;
   }
 
   // Build top-level composite by summing all facets
@@ -387,11 +433,11 @@ async function main() {
     snapshot: {
       title: "Critical minerals",
       month: topLatest.month,
-      production: null,
+      production: topLatest.production,
       imports: topLatest.imports,
       exports: topLatest.exports,
       alignedShare: topLatest.alignedShare,
-      domesticShare: null,
+      domesticShare: topLatest.domesticShare,
       partnersTracked: topPartners.length,
       windowMonths: topMonthly.length,
       metric: "value",
