@@ -309,7 +309,13 @@ function SovereignCapability({ period }) {
         <DependencyBreakdown
           dataset="critical-minerals-dependency.json"
           title="Critical minerals"
-          subtitle="UK Critical Minerals Strategy 16-mineral set, imports only."
+          subtitle="UK Critical Minerals Strategy minerals (excl. PGMs)."
+          unit="£"
+        />
+        <DependencyBreakdown
+          dataset="pgms-dependency.json"
+          title="Platinum-group metals"
+          subtitle="HS 7110 — Pt, Pd, Rh; UK secondary supply via autocatalyst recycling."
           unit="£"
         />
         <DependencyBreakdown

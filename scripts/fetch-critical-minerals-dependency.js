@@ -7,16 +7,17 @@
  * rare earths, Indonesia/Philippines for nickel, etc.) can be drawn
  * out separately in the expanded view.
  *
- * Domestic production: zero for most. Three exceptions where the UK
- * has meaningful secondary supply, modelled via self-sufficiency
- * ratios:
- *   - Platinum  ~30%  (Johnson Matthey + BASF + Heraeus autocatalyst
- *                       recycling at Royston / Cinderford)
- *   - Palladium ~30%  (same recyclers)
- *   - Nickel    ~10%  (Vale Clydach refinery — historic Mond plant —
- *                       refines imported nickel matte)
+ * Domestic production: zero for most. One exception with meaningful
+ * UK secondary supply:
+ *   - Nickel ~10% (Vale Clydach refinery — historic Mond plant —
+ *                   refines imported nickel matte)
  * All other minerals: SS = 0. Cornish Lithium pilot, Cornish Metals
  * (tin), Tungsten West (Hemerdon) are pre-commercial.
+ *
+ * Platinum-group metals (platinum, palladium, rhodium) are split out
+ * into pgms-dependency.json — they're a different supply story
+ * (autocatalyst recycling, ~£600m/month flow) that drowned the
+ * headline domestic share when bundled with primary critical minerals.
  *
  * Output: public/data/critical-minerals-dependency.json
  * Schedule: monthly on the 17th (composite, ~10 min run; runs after
@@ -125,28 +126,6 @@ const FACETS = [
     ],
   },
   {
-    key: "platinum",
-    label: "Platinum",
-    // Johnson Matthey (Royston), BASF (Cinderford), Heraeus (Royston)
-    // recycle PGMs from spent autocatalysts. UK secondary supply is
-    // approximately 30% of UK platinum demand.
-    selfSufficiency: 0.30,
-    hs6Lists: [
-      { hs2: "71", hs6: "711011" },
-      { hs2: "71", hs6: "711019" },
-    ],
-  },
-  {
-    key: "palladium",
-    label: "Palladium",
-    // Same UK PGM recyclers as platinum (~30% of UK palladium demand).
-    selfSufficiency: 0.30,
-    hs6Lists: [
-      { hs2: "71", hs6: "711021" },
-      { hs2: "71", hs6: "711029" },
-    ],
-  },
-  {
     key: "antimony",
     label: "Antimony",
     hs6Lists: [
@@ -224,7 +203,7 @@ const COMMON_SOURCES = [
     url: "https://www.gov.uk/government/publications/uk-critical-mineral-strategy",
     publisher: "DBT",
     note:
-      "Mineral selection follows the 2023 strategy. Domestic supply is modelled for three minerals where the UK has meaningful secondary production: platinum (~30% of demand from Johnson Matthey, BASF, Heraeus autocatalyst recycling), palladium (~30%, same recyclers), and nickel (~10% from Vale's Clydach refinery refining imported mattes). All other minerals are taken as 100% import-dependent. Cornish Lithium and Cornish Metals operate pre-commercial pilots with no production yet.",
+      "Mineral selection follows the 2023 strategy. Domestic supply is modelled for nickel (~10% from Vale's Clydach refinery refining imported mattes); all other minerals are taken as 100% import-dependent. Cornish Lithium and Cornish Metals operate pre-commercial pilots with no production yet. Platinum-group metals (platinum, palladium, rhodium) are split out into a separate card — they're a different supply story driven by autocatalyst recycling rather than primary mining.",
   },
   {
     id: "voeten-unga",
