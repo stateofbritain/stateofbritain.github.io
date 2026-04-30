@@ -13,6 +13,7 @@
  */
 import { writeFileSync, readFileSync } from "fs";
 import { fetchTradeByCountry } from "./hmrc-trade-by-country.js";
+import { fetchImportsByOrigin } from "./hmrc-bulk-imports.js";
 import { bucketFor } from "../../src/dashboard/alignmentBuckets.js";
 
 const UNGA_PATH = "public/data/unga-alignment.json";
@@ -118,6 +119,8 @@ export async function buildDependencyDataset(opts) {
     hs2, hs4Range, hs6In, monthIds, metric,
     productionFor = null,
     selfSufficiency = null,
+    // "bulk" (default, COO from bdsimp file) or "odata" (legacy partner-country)
+    source = "bulk",
     unit, sources, description, outputPath, extraOverrides,
     title = id,
   } = opts;
@@ -131,7 +134,9 @@ export async function buildDependencyDataset(opts) {
   for (const id of monthIds) {
     let rows;
     try {
-      rows = await fetchTradeByCountry({ hs2, hs4Range, hs6In, monthId: id });
+      rows = source === "bulk"
+        ? await fetchImportsByOrigin({ hs2, hs4Range, hs6In, monthId: id })
+        : await fetchTradeByCountry({ hs2, hs4Range, hs6In, monthId: id });
     } catch (err) {
       console.warn(`  ${id}: failed (${err.message})`);
       continue;

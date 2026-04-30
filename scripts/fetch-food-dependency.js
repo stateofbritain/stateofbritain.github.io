@@ -226,11 +226,11 @@ async function main() {
     snapshot: {
       title: "Food",
       month: topLatest.month,
-      production: null,
+      production: topLatest.production,
       imports: topLatest.imports,
       exports: topLatest.exports,
       alignedShare: topLatest.alignedShare,
-      domesticShare: null,
+      domesticShare: topLatest.domesticShare,
       partnersTracked: topPartners.length,
       windowMonths: topMonthly.length,
       metric: "value",
