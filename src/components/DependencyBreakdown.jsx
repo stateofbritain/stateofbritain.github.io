@@ -728,19 +728,32 @@ function PartnerList({ partners, unit }) {
   if (partners.length === 0) {
     return <div style={{ fontSize: 12, color: P.textLight, fontFamily: "'DM Mono', monospace" }}>No partners with import flows in window.</div>;
   }
+  // Show the feedstock column only if any partner has feedstock data.
+  const hasFeedstock = partners.some((p) => p.feedstockTopOrigins?.length > 0);
+  const cols = hasFeedstock
+    ? "1.4fr 0.9fr 1.2fr 0.9fr 0.7fr"
+    : "1.4fr 1fr 1fr 1fr";
   return (
     <div>
+      <div style={{
+        display: "grid", gridTemplateColumns: cols, alignItems: "baseline",
+        padding: "4px 0", fontFamily: "'DM Mono', monospace",
+        fontSize: 10, color: P.textLight, textTransform: "uppercase",
+        letterSpacing: "0.06em", borderBottom: `1px solid ${P.border}`,
+      }}>
+        <div>Partner</div>
+        <div style={{ textAlign: "right" }}>1st-order</div>
+        {hasFeedstock && <div style={{ textAlign: "right" }}>Feedstock origin</div>}
+        <div style={{ textAlign: "right" }}>Imports</div>
+        <div style={{ textAlign: "right" }}>Exports</div>
+      </div>
       {partners.map((p) => (
         <div
           key={p.iso3}
           style={{
-            display: "grid",
-            gridTemplateColumns: "1.4fr 1fr 1fr 1fr",
-            alignItems: "baseline",
-            padding: "6px 0",
-            borderBottom: `1px dashed ${P.border}`,
-            fontFamily: "'DM Mono', monospace",
-            fontSize: 12,
+            display: "grid", gridTemplateColumns: cols, alignItems: "baseline",
+            padding: "6px 0", borderBottom: `1px dashed ${P.border}`,
+            fontFamily: "'DM Mono', monospace", fontSize: 12,
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
@@ -750,14 +763,43 @@ function PartnerList({ partners, unit }) {
           <div style={{ color: P.textMuted, textAlign: "right" }}>
             {p.alignmentPct != null ? `${p.alignmentPct.toFixed(0)}% aligned` : "—"}
           </div>
+          {hasFeedstock && <FeedstockCell partner={p} />}
           <div style={{ color: P.text, textAlign: "right", fontWeight: 600 }}>
-            {formatTonnes(p.importTonnes, unit)} imp
+            {formatTonnes(p.importTonnes, unit)}
           </div>
           <div style={{ color: P.textLight, textAlign: "right" }}>
-            {formatTonnes(p.exportTonnes, unit)} exp
+            {formatTonnes(p.exportTonnes, unit)}
           </div>
         </div>
       ))}
+    </div>
+  );
+}
+
+/**
+ * Feedstock-origin cell. Shows the dominant upstream source (alignment-
+ * coloured dot) and the re-rolling fraction. If no significant
+ * re-rolling, shows an em-dash.
+ */
+function FeedstockCell({ partner }) {
+  const tops = partner.feedstockTopOrigins || [];
+  const fraction = partner.reRollingFraction;
+  if (!tops.length || fraction == null || fraction < 5) {
+    return <div style={{ textAlign: "right", color: P.textLight }}>—</div>;
+  }
+  const top = tops[0];
+  return (
+    <div style={{
+      textAlign: "right", display: "flex",
+      alignItems: "center", justifyContent: "flex-end", gap: 6,
+    }} title={tops.map((t) => `${t.country} ${(t.share).toFixed(0)}%`).join(", ")}>
+      <BucketDot bucket={top.bucket} />
+      <span style={{ color: P.text }}>
+        {top.iso3} {(top.share).toFixed(0)}%
+      </span>
+      <span style={{ color: P.textLight, fontSize: 10 }}>
+        ({fraction.toFixed(0)}% re-roll)
+      </span>
     </div>
   );
 }

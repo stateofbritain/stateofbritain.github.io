@@ -32,6 +32,13 @@
       "url": "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/LEJUQZ",
       "publisher": "Harvard Dataverse (Erik Voeten)",
       "note": "Used to classify each trade partner into an alignment bucket."
+    },
+    {
+      "id": "comtrade-2ndorder",
+      "name": "UN Comtrade — 2nd-order feedstock origin",
+      "url": "https://comtradeplus.un.org/",
+      "publisher": "UN Statistics Division",
+      "note": "Each top partner's reported imports of HS 7206-7207 (semi-finished steel) from upstream-origin countries (China, Russia, India, Turkey, Brazil, Ukraine, Kazakhstan, Iran), and reported exports of HS 7208-7229 (finished) to the UK. Used to estimate the fraction of partner-attributed UK imports that is functionally re-rolled upstream-origin material. Annual data; latest available year used."
     }
   ],
   "snapshot": {
@@ -559,7 +566,9 @@
           "bucket": "neutral",
           "classifySource": "voeten",
           "importTonnes": 1173639,
-          "exportTonnes": 0
+          "exportTonnes": 0,
+          "reRollingFraction": 0,
+          "feedstockTopOrigins": []
         },
         {
           "iso3": "NLD",
@@ -568,7 +577,31 @@
           "bucket": "aligned",
           "classifySource": "voeten",
           "importTonnes": 1121646,
-          "exportTonnes": 0
+          "exportTonnes": 0,
+          "reRollingFraction": 0.7,
+          "feedstockTopOrigins": [
+            {
+              "iso3": "BRA",
+              "country": "Brazil",
+              "alignmentPct": 62.6,
+              "bucket": "neutral",
+              "share": 51.5
+            },
+            {
+              "iso3": "CHN",
+              "country": "China",
+              "alignmentPct": 46.4,
+              "bucket": "low",
+              "share": 48.3
+            },
+            {
+              "iso3": "TUR",
+              "country": "Turkey",
+              "alignmentPct": 80.6,
+              "bucket": "aligned",
+              "share": 0.2
+            }
+          ]
         },
         {
           "iso3": "FRA",
@@ -577,7 +610,9 @@
           "bucket": "aligned",
           "classifySource": "voeten",
           "importTonnes": 1040179,
-          "exportTonnes": 0
+          "exportTonnes": 0,
+          "reRollingFraction": 0,
+          "feedstockTopOrigins": []
         },
         {
           "iso3": "ESP",
@@ -586,7 +621,31 @@
           "bucket": "aligned",
           "classifySource": "voeten",
           "importTonnes": 913201,
-          "exportTonnes": 0
+          "exportTonnes": 0,
+          "reRollingFraction": 8.8,
+          "feedstockTopOrigins": [
+            {
+              "iso3": "BRA",
+              "country": "Brazil",
+              "alignmentPct": 62.6,
+              "bucket": "neutral",
+              "share": 80.7
+            },
+            {
+              "iso3": "UKR",
+              "country": "Ukraine",
+              "alignmentPct": 91.3,
+              "bucket": "aligned",
+              "share": 13.3
+            },
+            {
+              "iso3": "CHN",
+              "country": "China",
+              "alignmentPct": 46.4,
+              "bucket": "low",
+              "share": 4.6
+            }
+          ]
         },
         {
           "iso3": "DEU",
@@ -595,7 +654,31 @@
           "bucket": "aligned",
           "classifySource": "voeten",
           "importTonnes": 816146,
-          "exportTonnes": 0
+          "exportTonnes": 0,
+          "reRollingFraction": 21.1,
+          "feedstockTopOrigins": [
+            {
+              "iso3": "BRA",
+              "country": "Brazil",
+              "alignmentPct": 62.6,
+              "bucket": "neutral",
+              "share": 49.6
+            },
+            {
+              "iso3": "RUS",
+              "country": "Russia",
+              "alignmentPct": 44.2,
+              "bucket": "low",
+              "share": 39.9
+            },
+            {
+              "iso3": "CHN",
+              "country": "China",
+              "alignmentPct": 46.4,
+              "bucket": "low",
+              "share": 8.2
+            }
+          ]
         },
         {
           "iso3": "KOR",
@@ -604,7 +687,31 @@
           "bucket": "aligned",
           "classifySource": "voeten",
           "importTonnes": 811918,
-          "exportTonnes": 0
+          "exportTonnes": 0,
+          "reRollingFraction": 86.1,
+          "feedstockTopOrigins": [
+            {
+              "iso3": "BRA",
+              "country": "Brazil",
+              "alignmentPct": 62.6,
+              "bucket": "neutral",
+              "share": 44.5
+            },
+            {
+              "iso3": "CHN",
+              "country": "China",
+              "alignmentPct": 46.4,
+              "bucket": "low",
+              "share": 28
+            },
+            {
+              "iso3": "RUS",
+              "country": "Russia",
+              "alignmentPct": 44.2,
+              "bucket": "low",
+              "share": 27.5
+            }
+          ]
         },
         {
           "iso3": "TUR",
@@ -613,7 +720,9 @@
           "bucket": "aligned",
           "classifySource": "voeten",
           "importTonnes": 762823,
-          "exportTonnes": 0
+          "exportTonnes": 0,
+          "reRollingFraction": 0,
+          "feedstockTopOrigins": []
         },
         {
           "iso3": "BEL",
@@ -622,7 +731,31 @@
           "bucket": "aligned",
           "classifySource": "voeten",
           "importTonnes": 720668,
-          "exportTonnes": 0
+          "exportTonnes": 0,
+          "reRollingFraction": 100,
+          "feedstockTopOrigins": [
+            {
+              "iso3": "RUS",
+              "country": "Russia",
+              "alignmentPct": 44.2,
+              "bucket": "low",
+              "share": 76
+            },
+            {
+              "iso3": "BRA",
+              "country": "Brazil",
+              "alignmentPct": 62.6,
+              "bucket": "neutral",
+              "share": 22.8
+            },
+            {
+              "iso3": "CHN",
+              "country": "China",
+              "alignmentPct": 46.4,
+              "bucket": "low",
+              "share": 1.2
+            }
+          ]
         },
         {
           "iso3": "VNM",
@@ -631,7 +764,17 @@
           "bucket": "neutral",
           "classifySource": "voeten",
           "importTonnes": 408089,
-          "exportTonnes": 0
+          "exportTonnes": 0,
+          "reRollingFraction": 0,
+          "feedstockTopOrigins": [
+            {
+              "iso3": "CHN",
+              "country": "China",
+              "alignmentPct": 46.4,
+              "bucket": "low",
+              "share": 100
+            }
+          ]
         },
         {
           "iso3": "PRT",
@@ -640,7 +783,24 @@
           "bucket": "aligned",
           "classifySource": "voeten",
           "importTonnes": 355579,
-          "exportTonnes": 0
+          "exportTonnes": 0,
+          "reRollingFraction": 0.1,
+          "feedstockTopOrigins": [
+            {
+              "iso3": "CHN",
+              "country": "China",
+              "alignmentPct": 46.4,
+              "bucket": "low",
+              "share": 99.6
+            },
+            {
+              "iso3": "BRA",
+              "country": "Brazil",
+              "alignmentPct": 62.6,
+              "bucket": "neutral",
+              "share": 0.4
+            }
+          ]
         },
         {
           "iso3": "TWN",
@@ -649,7 +809,9 @@
           "bucket": "aligned",
           "classifySource": "override",
           "importTonnes": 298824,
-          "exportTonnes": 0
+          "exportTonnes": 0,
+          "reRollingFraction": 0,
+          "feedstockTopOrigins": []
         },
         {
           "iso3": "CHN",
@@ -658,7 +820,9 @@
           "bucket": "low",
           "classifySource": "voeten",
           "importTonnes": 280309,
-          "exportTonnes": 0
+          "exportTonnes": 0,
+          "reRollingFraction": 0,
+          "feedstockTopOrigins": []
         },
         {
           "iso3": "SWE",
@@ -667,7 +831,31 @@
           "bucket": "aligned",
           "classifySource": "voeten",
           "importTonnes": 245113,
-          "exportTonnes": 0
+          "exportTonnes": 0,
+          "reRollingFraction": 0.2,
+          "feedstockTopOrigins": [
+            {
+              "iso3": "CHN",
+              "country": "China",
+              "alignmentPct": 46.4,
+              "bucket": "low",
+              "share": 99.8
+            },
+            {
+              "iso3": "TUR",
+              "country": "Turkey",
+              "alignmentPct": 80.6,
+              "bucket": "aligned",
+              "share": 0.1
+            },
+            {
+              "iso3": "RUS",
+              "country": "Russia",
+              "alignmentPct": 44.2,
+              "bucket": "low",
+              "share": 0
+            }
+          ]
         },
         {
           "iso3": "FIN",
@@ -685,7 +873,17 @@
           "bucket": "aligned",
           "classifySource": "voeten",
           "importTonnes": 205475,
-          "exportTonnes": 0
+          "exportTonnes": 0,
+          "reRollingFraction": 46.6,
+          "feedstockTopOrigins": [
+            {
+              "iso3": "CHN",
+              "country": "China",
+              "alignmentPct": 46.4,
+              "bucket": "low",
+              "share": 100
+            }
+          ]
         },
         {
           "iso3": "AUT",
