@@ -64,7 +64,7 @@ async function main() {
     finishedHs: FINISHED_HS,
     feedstockHs: FEEDSTOCK_HS,
     upstreamSources: UPSTREAM_SOURCES,
-    period: "2023",
+    period: "2024",
   });
 
   const alignmentLookup = buildAlignmentLookup();
@@ -85,14 +85,20 @@ async function main() {
   }
 
   // Annotate the source list to surface the methodology
-  if (!dataset.sources.find((s) => s.id === "comtrade-2ndorder")) {
+  const COMTRADE_NOTE =
+    "Each top partner's reported imports of HS 7206-7207 (semi-finished steel) from upstream-origin countries (China, Russia, India, Turkey, Brazil, Ukraine, Kazakhstan, Iran), and reported exports of HS 7208-7229 (finished) to the UK. Used to estimate the fraction of partner-attributed UK imports that is functionally re-rolled upstream-origin material. " +
+    "Reference year: 2024 (with 2023 fallback for slow-reporting partners). " +
+    "Notable: Belgium and Germany continue to import Russian semi-finished steel even after the EU's 8th sanctions package — the 'slab carve-out' to keep ArcelorMittal Gent and Bremen operating has been more enduring than originally announced. Belgium's HS 7207 imports from Russia: $1.0bn (2022) → $1.0bn (2022) → $663m (2023) → $623m (2024). The flow declined but didn't end. Caveats: bilateral reporting mismatches between reporters (CIF vs FOB) introduce ~5-15% noise; France typically reports later than other major economies and may not appear in current-year data; the 'feedstock origin' read is an upper bound (some upstream imports are domestically consumed rather than re-exported).";
+  const existing = dataset.sources.find((s) => s.id === "comtrade-2ndorder");
+  if (existing) {
+    existing.note = COMTRADE_NOTE;
+  } else {
     dataset.sources.push({
       id: "comtrade-2ndorder",
       name: "UN Comtrade — 2nd-order feedstock origin",
       url: "https://comtradeplus.un.org/",
       publisher: "UN Statistics Division",
-      note:
-        "Each top partner's reported imports of HS 7206-7207 (semi-finished steel) from upstream-origin countries (China, Russia, India, Turkey, Brazil, Ukraine, Kazakhstan, Iran), and reported exports of HS 7208-7229 (finished) to the UK. Used to estimate the fraction of partner-attributed UK imports that is functionally re-rolled upstream-origin material. Annual data; latest available year used.",
+      note: COMTRADE_NOTE,
     });
   }
   dataset.generated = new Date().toISOString().slice(0, 10);
