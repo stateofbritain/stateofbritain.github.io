@@ -11,11 +11,19 @@
       "url": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/register-of-applications",
       "publisher": "Planning Inspectorate",
       "note": "Every project applied-for under the Planning Act 2008 DCO regime since 2010, with GPS coordinates, applicant, regulatory stage, and a record of every dated examination event. Categorisation is derived from the project reference prefix (EN01–EN07 = energy, TR01–TR05 = transport, WA0x = water, WW0x = wastewater, WS0x = waste, BC0x = industrial / CCUS)."
+    },
+    {
+      "id": "desnz-repd",
+      "name": "DESNZ Renewable Energy Planning Database",
+      "url": "https://www.gov.uk/government/publications/renewable-energy-planning-database-monthly-extract",
+      "publisher": "DESNZ / Barbour ABI",
+      "note": "Quarterly publication tracking every renewable energy project >150 kW from planning through construction to operation. Joined to the PINS register on Planning Application Reference (e.g. EN010001) — gives each energy NSIP its post-consent delivery status (Operational / Under Construction / Awaiting Construction / Abandoned / etc.), installed capacity in MW, technology type, and operational/construction-start dates. Non-energy NSIPs (highways, airports, water etc.) aren't covered here — they need separate scheme-tracker sources."
     }
   ],
   "snapshot": {
     "total": 277,
     "withGps": 277,
+    "withDelivery": 69,
     "byCategory": {
       "industrial": 2,
       "energy": 193,
@@ -32,6 +40,18 @@
       "Recommendation": 4,
       "Pre-examination": 5
     },
+    "byDeliveryStatus": {
+      "Operational": 12,
+      "Abandoned": 1,
+      "Under Construction": 4,
+      "Planning Permission Refused": 2,
+      "Planning Permission Expired": 1,
+      "Planning Permission Granted": 30,
+      "Planning Application Submitted": 18,
+      "Revised": 1
+    },
+    "totalCapacityMW": 50437,
+    "operationalCapacityMW": 4560,
     "skipped": 1
   },
   "series": {
@@ -131,7 +151,22 @@
           "dateOfDecision": "2013-05-24",
           "dateWithdrawn": null,
           "yearsInSystem": 1.5,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010003"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010003",
+          "delivery": {
+            "status": "Operational",
+            "statusShort": "Operational",
+            "technology": "Wind Offshore",
+            "capacityMW": 353,
+            "operationalDate": "2018-03-30",
+            "constructionStartDate": "2016-07-29",
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2013-05-24",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2019-10-02",
+            "repdRecordCount": 1
+          }
         },
         {
           "ref": "EN010005",
@@ -200,7 +235,22 @@
           "dateOfDecision": "2013-03-12",
           "dateWithdrawn": null,
           "yearsInSystem": 1.4,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010008"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010008",
+          "delivery": {
+            "status": "Operational",
+            "statusShort": "Operational",
+            "technology": "Wind Onshore",
+            "capacityMW": 57.4,
+            "operationalDate": "2018-01-18",
+            "constructionStartDate": "2016-11-24",
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2013-03-12",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2018-09-04",
+            "repdRecordCount": 1
+          }
         },
         {
           "ref": "EN010011",
@@ -223,7 +273,22 @@
           "dateOfDecision": "2011-10-13",
           "dateWithdrawn": null,
           "yearsInSystem": 1.2,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010011"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010011",
+          "delivery": {
+            "status": "Operational",
+            "statusShort": "Operational",
+            "technology": "EfW Incineration",
+            "capacityMW": 65,
+            "operationalDate": "2022-01-21",
+            "constructionStartDate": "2018-01-15",
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2011-10-13",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2022-01-24",
+            "repdRecordCount": 1
+          }
         },
         {
           "ref": "EN010012",
@@ -269,7 +334,22 @@
           "dateOfDecision": "2014-09-12",
           "dateWithdrawn": null,
           "yearsInSystem": 1.5,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010013"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010013",
+          "delivery": {
+            "status": "Operational",
+            "statusShort": "Operational",
+            "technology": "Wind Onshore",
+            "capacityMW": 96,
+            "operationalDate": "2019-10-01",
+            "constructionStartDate": "2018-03-19",
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2014-09-12",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": "2019-09-12",
+            "withdrawnDate": null,
+            "lastUpdated": "2022-02-17",
+            "repdRecordCount": 1
+          }
         },
         {
           "ref": "EN010016",
@@ -292,7 +372,22 @@
           "dateOfDecision": "2013-07-24",
           "dateWithdrawn": null,
           "yearsInSystem": 1.4,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010016"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010016",
+          "delivery": {
+            "status": "Abandoned",
+            "statusShort": "Abandoned",
+            "technology": "Biomass (dedicated)",
+            "capacityMW": 99,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2013-07-24",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2014-04-01",
+            "repdRecordCount": 1
+          }
         },
         {
           "ref": "EN010020",
@@ -338,7 +433,22 @@
           "dateOfDecision": "2015-02-17",
           "dateWithdrawn": null,
           "yearsInSystem": 1.5,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010021"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010021",
+          "delivery": {
+            "status": "Under Construction",
+            "statusShort": "Under Construction",
+            "technology": "Wind Offshore",
+            "capacityMW": 2400,
+            "operationalDate": null,
+            "constructionStartDate": "2021-07-01",
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2015-02-17",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2022-04-12",
+            "repdRecordCount": 1
+          }
         },
         {
           "ref": "EN010024",
@@ -361,7 +471,22 @@
           "dateOfDecision": "2015-09-11",
           "dateWithdrawn": null,
           "yearsInSystem": 1.4,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010024"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010024",
+          "delivery": {
+            "status": "Planning Permission Refused",
+            "statusShort": "Application Refused",
+            "technology": "Wind Offshore",
+            "capacityMW": 1059.1,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": null,
+            "permissionRefusedDate": "2015-09-11",
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2015-11-03",
+            "repdRecordCount": 2
+          }
         },
         {
           "ref": "EN010025",
@@ -407,7 +532,22 @@
           "dateOfDecision": "2014-09-26",
           "dateWithdrawn": null,
           "yearsInSystem": 1.5,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010026"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010026",
+          "delivery": {
+            "status": "Operational",
+            "statusShort": "Operational",
+            "technology": "Wind Offshore",
+            "capacityMW": 258,
+            "operationalDate": "2017-04-27",
+            "constructionStartDate": "2016-06-10",
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2014-12-10",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2018-05-02",
+            "repdRecordCount": 1
+          }
         },
         {
           "ref": "EN010027",
@@ -453,7 +593,22 @@
           "dateOfDecision": "2014-07-16",
           "dateWithdrawn": null,
           "yearsInSystem": 1.4,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010032"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010032",
+          "delivery": {
+            "status": "Operational",
+            "statusShort": "Operational",
+            "technology": "Wind Offshore",
+            "capacityMW": 400,
+            "operationalDate": "2017-11-26",
+            "constructionStartDate": "2016-01-25",
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2014-07-16",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2019-12-06",
+            "repdRecordCount": 1
+          }
         },
         {
           "ref": "EN010033",
@@ -476,7 +631,22 @@
           "dateOfDecision": "2014-12-10",
           "dateWithdrawn": null,
           "yearsInSystem": 1.4,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010033"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010033",
+          "delivery": {
+            "status": "Operational",
+            "statusShort": "Operational",
+            "technology": "Wind Offshore",
+            "capacityMW": 1218,
+            "operationalDate": "2019-12-01",
+            "constructionStartDate": "2018-01-26",
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2014-12-10",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2020-09-03",
+            "repdRecordCount": 1
+          }
         },
         {
           "ref": "EN010036",
@@ -499,7 +669,22 @@
           "dateOfDecision": "2013-02-19",
           "dateWithdrawn": null,
           "yearsInSystem": 1.4,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010036"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010036",
+          "delivery": {
+            "status": "Operational",
+            "statusShort": "Operational",
+            "technology": "Wind Offshore",
+            "capacityMW": 49.5,
+            "operationalDate": "2015-09-14",
+            "constructionStartDate": "2014-11-26",
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2013-02-19",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2016-06-28",
+            "repdRecordCount": 1
+          }
         },
         {
           "ref": "EN010038",
@@ -591,7 +776,22 @@
           "dateOfDecision": "2015-06-09",
           "dateWithdrawn": null,
           "yearsInSystem": 1.3,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010049"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010049",
+          "delivery": {
+            "status": "Planning Permission Expired",
+            "statusShort": "Planning Permission Expired",
+            "technology": "Tidal Lagoon",
+            "capacityMW": 320,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2015-06-09",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": "2020-06-09",
+            "withdrawnDate": null,
+            "lastUpdated": "2022-12-20",
+            "repdRecordCount": 1
+          }
         },
         {
           "ref": "EN010050",
@@ -637,7 +837,22 @@
           "dateOfDecision": "2015-08-05",
           "dateWithdrawn": null,
           "yearsInSystem": 1.4,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010051"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010051",
+          "delivery": {
+            "status": "Under Construction",
+            "statusShort": "Under Construction",
+            "technology": "Wind Offshore",
+            "capacityMW": 2600,
+            "operationalDate": null,
+            "constructionStartDate": "2022-03-01",
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2015-08-05",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2022-09-13",
+            "repdRecordCount": 2
+          }
         },
         {
           "ref": "EN010053",
@@ -660,7 +875,22 @@
           "dateOfDecision": "2016-08-16",
           "dateWithdrawn": null,
           "yearsInSystem": 1.5,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010053"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010053",
+          "delivery": {
+            "status": "Operational",
+            "statusShort": "Operational",
+            "technology": "Wind Offshore",
+            "capacityMW": 1320,
+            "operationalDate": "2022-08-31",
+            "constructionStartDate": "2019-09-01",
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2016-08-16",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2022-09-01",
+            "repdRecordCount": 1
+          }
         },
         {
           "ref": "EN010054",
@@ -729,7 +959,22 @@
           "dateOfDecision": "2017-08-07",
           "dateWithdrawn": null,
           "yearsInSystem": 1.7,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010056"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010056",
+          "delivery": {
+            "status": "Under Construction",
+            "statusShort": "Under Construction",
+            "technology": "Wind Offshore",
+            "capacityMW": 1400,
+            "operationalDate": null,
+            "constructionStartDate": "2025-06-01",
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2017-08-07",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2025-12-02",
+            "repdRecordCount": 1
+          }
         },
         {
           "ref": "EN010059",
@@ -798,7 +1043,22 @@
           "dateOfDecision": "2015-10-28",
           "dateWithdrawn": null,
           "yearsInSystem": 1.2,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010061"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010061",
+          "delivery": {
+            "status": "Operational",
+            "statusShort": "Operational",
+            "technology": "EfW Incineration",
+            "capacityMW": 70,
+            "operationalDate": "2019-12-20",
+            "constructionStartDate": "2016-09-01",
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2015-10-28",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": "2020-10-28",
+            "withdrawnDate": null,
+            "lastUpdated": "2019-12-20",
+            "repdRecordCount": 1
+          }
         },
         {
           "ref": "EN010062",
@@ -913,7 +1173,22 @@
           "dateOfDecision": "2017-02-24",
           "dateWithdrawn": null,
           "yearsInSystem": 1.4,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010071"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010071",
+          "delivery": {
+            "status": "Planning Permission Granted",
+            "statusShort": "Awaiting Construction",
+            "technology": "EfW Incineration",
+            "capacityMW": 70,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2017-02-24",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": "2022-02-24",
+            "withdrawnDate": null,
+            "lastUpdated": "2019-10-31",
+            "repdRecordCount": 1
+          }
         },
         {
           "ref": "EN010072",
@@ -936,7 +1211,22 @@
           "dateOfDecision": "2017-03-08",
           "dateWithdrawn": null,
           "yearsInSystem": 1.4,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010072"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010072",
+          "delivery": {
+            "status": "Planning Permission Granted",
+            "statusShort": "Awaiting Construction",
+            "technology": "Pumped Storage Hydroelectricity",
+            "capacityMW": 99.9,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2017-03-08",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": "2024-03-29",
+            "withdrawnDate": null,
+            "lastUpdated": "2023-01-24",
+            "repdRecordCount": 1
+          }
         },
         {
           "ref": "EN010077",
@@ -959,7 +1249,22 @@
           "dateOfDecision": "2022-03-31",
           "dateWithdrawn": null,
           "yearsInSystem": 2.4,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010077"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010077",
+          "delivery": {
+            "status": "Planning Permission Granted",
+            "statusShort": "Awaiting Construction",
+            "technology": "Wind Offshore",
+            "capacityMW": 800,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2022-03-31",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": "2029-03-31",
+            "withdrawnDate": null,
+            "lastUpdated": "2022-04-01",
+            "repdRecordCount": 1
+          }
         },
         {
           "ref": "EN010078",
@@ -982,7 +1287,22 @@
           "dateOfDecision": "2022-03-31",
           "dateWithdrawn": null,
           "yearsInSystem": 2.4,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010078"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010078",
+          "delivery": {
+            "status": "Planning Permission Granted",
+            "statusShort": "Awaiting Construction",
+            "technology": "Wind Offshore",
+            "capacityMW": 900,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2022-03-31",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": "2029-03-31",
+            "withdrawnDate": null,
+            "lastUpdated": "2022-04-01",
+            "repdRecordCount": 1
+          }
         },
         {
           "ref": "EN010079",
@@ -1005,7 +1325,22 @@
           "dateOfDecision": "2022-02-11",
           "dateWithdrawn": null,
           "yearsInSystem": 3.6,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010079"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010079",
+          "delivery": {
+            "status": "Planning Permission Granted",
+            "statusShort": "Awaiting Construction",
+            "technology": "Wind Offshore",
+            "capacityMW": 2760,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2022-02-11",
+            "permissionRefusedDate": "2021-02-18",
+            "permissionExpiredDate": "2027-02-11",
+            "withdrawnDate": null,
+            "lastUpdated": "2026-01-19",
+            "repdRecordCount": 2
+          }
         },
         {
           "ref": "EN010080",
@@ -1028,7 +1363,22 @@
           "dateOfDecision": "2020-12-31",
           "dateWithdrawn": null,
           "yearsInSystem": 2.6,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010080"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010080",
+          "delivery": {
+            "status": "Planning Permission Granted",
+            "statusShort": "Awaiting Construction",
+            "technology": "Wind Offshore",
+            "capacityMW": 2955,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2020-12-30",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": "2027-12-13",
+            "withdrawnDate": null,
+            "lastUpdated": "2022-03-18",
+            "repdRecordCount": 1
+          }
         },
         {
           "ref": "EN010081",
@@ -1097,7 +1447,22 @@
           "dateOfDecision": "2021-02-19",
           "dateWithdrawn": null,
           "yearsInSystem": 1.4,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010083"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010083",
+          "delivery": {
+            "status": "Planning Permission Refused",
+            "statusShort": "Application Refused",
+            "technology": "EfW Incineration",
+            "capacityMW": 75,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": null,
+            "permissionRefusedDate": "2021-02-19",
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2022-02-02",
+            "repdRecordCount": 1
+          }
         },
         {
           "ref": "EN010084",
@@ -1143,7 +1508,22 @@
           "dateOfDecision": "2020-05-28",
           "dateWithdrawn": null,
           "yearsInSystem": 1.5,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010085"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010085",
+          "delivery": {
+            "status": "Operational",
+            "statusShort": "Operational",
+            "technology": "Solar Photovoltaics",
+            "capacityMW": 523,
+            "operationalDate": "2025-07-01",
+            "constructionStartDate": "2023-04-01",
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2021-01-29",
+            "permissionRefusedDate": "2020-05-28",
+            "permissionExpiredDate": "2025-06-19",
+            "withdrawnDate": null,
+            "lastUpdated": "2025-07-28",
+            "repdRecordCount": 2
+          }
         },
         {
           "ref": "EN010087",
@@ -1166,7 +1546,22 @@
           "dateOfDecision": "2021-12-10",
           "dateWithdrawn": null,
           "yearsInSystem": 2.5,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010087"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010087",
+          "delivery": {
+            "status": "Under Construction",
+            "statusShort": "Under Construction",
+            "technology": "Wind Offshore",
+            "capacityMW": 1400,
+            "operationalDate": null,
+            "constructionStartDate": "2025-08-01",
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2021-12-10",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": "2026-12-10",
+            "withdrawnDate": null,
+            "lastUpdated": "2025-12-02",
+            "repdRecordCount": 1
+          }
         },
         {
           "ref": "EN010088",
@@ -1258,7 +1653,22 @@
           "dateOfDecision": "2022-02-16",
           "dateWithdrawn": null,
           "yearsInSystem": 1.7,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010092"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010092",
+          "delivery": {
+            "status": "Operational",
+            "statusShort": "Operational",
+            "technology": "Battery",
+            "capacityMW": 150,
+            "operationalDate": null,
+            "constructionStartDate": "2023-07-01",
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2022-02-16",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": "2027-02-16",
+            "withdrawnDate": null,
+            "lastUpdated": "2025-08-26",
+            "repdRecordCount": 1
+          }
         },
         {
           "ref": "EN010093",
@@ -1281,7 +1691,22 @@
           "dateOfDecision": "2020-04-09",
           "dateWithdrawn": null,
           "yearsInSystem": 1.4,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010093"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010093",
+          "delivery": {
+            "status": "Planning Permission Granted",
+            "statusShort": "Awaiting Construction",
+            "technology": "EfW Incineration",
+            "capacityMW": 120.5,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2020-04-09",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": "2025-04-09",
+            "withdrawnDate": null,
+            "lastUpdated": "2022-04-06",
+            "repdRecordCount": 4
+          }
         },
         {
           "ref": "EN010095",
@@ -1304,7 +1729,22 @@
           "dateOfDecision": "2023-07-06",
           "dateWithdrawn": null,
           "yearsInSystem": 2.3,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010095"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010095",
+          "delivery": {
+            "status": "Planning Permission Granted",
+            "statusShort": "Awaiting Construction",
+            "technology": "EfW Incineration",
+            "capacityMW": 102,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2023-07-05",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": "2028-07-05",
+            "withdrawnDate": null,
+            "lastUpdated": "2023-07-10",
+            "repdRecordCount": 1
+          }
         },
         {
           "ref": "EN010097",
@@ -1350,7 +1790,22 @@
           "dateOfDecision": "2023-07-12",
           "dateWithdrawn": null,
           "yearsInSystem": 1.8,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010098"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010098",
+          "delivery": {
+            "status": "Planning Permission Granted",
+            "statusShort": "Awaiting Construction",
+            "technology": "Wind Offshore",
+            "capacityMW": 2600,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2023-07-12",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": "2030-07-12",
+            "withdrawnDate": null,
+            "lastUpdated": "2025-05-07",
+            "repdRecordCount": 1
+          }
         },
         {
           "ref": "EN010101",
@@ -1373,7 +1828,22 @@
           "dateOfDecision": "2022-04-05",
           "dateWithdrawn": null,
           "yearsInSystem": 1.3,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010101"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010101",
+          "delivery": {
+            "status": "Planning Permission Granted",
+            "statusShort": "Awaiting Construction",
+            "technology": "Solar Photovoltaics",
+            "capacityMW": 240,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2022-04-05",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": "2027-04-05",
+            "withdrawnDate": null,
+            "lastUpdated": "2022-04-07",
+            "repdRecordCount": 2
+          }
         },
         {
           "ref": "EN010102",
@@ -1442,7 +1912,22 @@
           "dateOfDecision": "2024-07-12",
           "dateWithdrawn": null,
           "yearsInSystem": 2.6,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010106"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010106",
+          "delivery": {
+            "status": "Planning Permission Granted",
+            "statusShort": "Awaiting Construction",
+            "technology": "Solar Photovoltaics",
+            "capacityMW": 508.8,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2024-07-12",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2024-12-16",
+            "repdRecordCount": 2
+          }
         },
         {
           "ref": "EN010107",
@@ -1465,7 +1950,22 @@
           "dateOfDecision": "2021-11-10",
           "dateWithdrawn": null,
           "yearsInSystem": 1.6,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010107"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010107",
+          "delivery": {
+            "status": "Planning Permission Granted",
+            "statusShort": "Awaiting Construction",
+            "technology": "EfW Incineration",
+            "capacityMW": 95,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2021-11-10",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": "2026-11-10",
+            "withdrawnDate": null,
+            "lastUpdated": "2021-12-10",
+            "repdRecordCount": 1
+          }
         },
         {
           "ref": "EN010109",
@@ -1488,7 +1988,22 @@
           "dateOfDecision": "2024-04-17",
           "dateWithdrawn": null,
           "yearsInSystem": 1.6,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010109"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010109",
+          "delivery": {
+            "status": "Planning Permission Granted",
+            "statusShort": "Awaiting Construction",
+            "technology": "Wind Offshore",
+            "capacityMW": 719,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2024-04-18",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2024-01-11",
+            "repdRecordCount": 2
+          }
         },
         {
           "ref": "EN010110",
@@ -1511,7 +2026,22 @@
           "dateOfDecision": "2024-02-20",
           "dateWithdrawn": null,
           "yearsInSystem": 1.6,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010110"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010110",
+          "delivery": {
+            "status": "Planning Permission Granted",
+            "statusShort": "Awaiting Construction",
+            "technology": "EfW Incineration",
+            "capacityMW": 58,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2024-02-20",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2025-09-11",
+            "repdRecordCount": 1
+          }
         },
         {
           "ref": "EN010112",
@@ -1534,7 +2064,22 @@
           "dateOfDecision": "2023-09-20",
           "dateWithdrawn": null,
           "yearsInSystem": 1.4,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010112"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010112",
+          "delivery": {
+            "status": "Planning Permission Granted",
+            "statusShort": "Awaiting Construction",
+            "technology": "Wind Offshore",
+            "capacityMW": 775,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2023-09-20",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": "2030-09-20",
+            "withdrawnDate": null,
+            "lastUpdated": "2026-01-19",
+            "repdRecordCount": 1
+          }
         },
         {
           "ref": "EN010114",
@@ -1580,7 +2125,22 @@
           "dateOfDecision": "2025-12-17",
           "dateWithdrawn": null,
           "yearsInSystem": 1.7,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010115"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010115",
+          "delivery": {
+            "status": "Planning Application Submitted",
+            "statusShort": "Application Submitted",
+            "technology": "Wind Offshore",
+            "capacityMW": 300,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": null,
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2024-04-11",
+            "repdRecordCount": 1
+          }
         },
         {
           "ref": "EN010116",
@@ -1603,7 +2163,22 @@
           "dateOfDecision": "2025-03-13",
           "dateWithdrawn": null,
           "yearsInSystem": 2.8,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010116"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010116",
+          "delivery": {
+            "status": "Revised",
+            "statusShort": "Revised",
+            "technology": "EfW Incineration",
+            "capacityMW": 230,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": null,
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": "2022-04-14",
+            "lastUpdated": "2022-04-14",
+            "repdRecordCount": 4
+          }
         },
         {
           "ref": "EN010117",
@@ -1626,7 +2201,22 @@
           "dateOfDecision": "2025-04-04",
           "dateWithdrawn": null,
           "yearsInSystem": 1.7,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010117"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010117",
+          "delivery": {
+            "status": "Planning Permission Granted",
+            "statusShort": "Awaiting Construction",
+            "technology": "Wind Offshore",
+            "capacityMW": 1200,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2025-04-04",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": "2032-04-04",
+            "withdrawnDate": null,
+            "lastUpdated": "2025-05-06",
+            "repdRecordCount": 1
+          }
         },
         {
           "ref": "EN010118",
@@ -1649,7 +2239,22 @@
           "dateOfDecision": "2023-06-26",
           "dateWithdrawn": null,
           "yearsInSystem": 1.3,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010118"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010118",
+          "delivery": {
+            "status": "Planning Permission Granted",
+            "statusShort": "Awaiting Construction",
+            "technology": "Solar Photovoltaics",
+            "capacityMW": 500,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2023-06-26",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": "2028-06-26",
+            "withdrawnDate": null,
+            "lastUpdated": "2023-06-26",
+            "repdRecordCount": 2
+          }
         },
         {
           "ref": "EN010119",
@@ -1672,7 +2277,22 @@
           "dateOfDecision": null,
           "dateWithdrawn": null,
           "yearsInSystem": 1.8,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010119"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010119",
+          "delivery": {
+            "status": "Planning Application Submitted",
+            "statusShort": "Application Submitted",
+            "technology": "Wind Offshore",
+            "capacityMW": 1000,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": null,
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2025-10-07",
+            "repdRecordCount": 1
+          }
         },
         {
           "ref": "EN010120",
@@ -1718,7 +2338,22 @@
           "dateOfDecision": "2025-12-01",
           "dateWithdrawn": null,
           "yearsInSystem": 1.5,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010121"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010121",
+          "delivery": {
+            "status": "Planning Application Submitted",
+            "statusShort": "Application Submitted",
+            "technology": "Wind Offshore",
+            "capacityMW": 480,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": null,
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2024-10-04",
+            "repdRecordCount": 1
+          }
         },
         {
           "ref": "EN010122",
@@ -1741,7 +2376,22 @@
           "dateOfDecision": "2025-06-19",
           "dateWithdrawn": null,
           "yearsInSystem": 1.4,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010122"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010122",
+          "delivery": {
+            "status": "Planning Permission Granted",
+            "statusShort": "Awaiting Construction",
+            "technology": "Solar Photovoltaics",
+            "capacityMW": 175.5,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2025-06-19",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2025-06-24",
+            "repdRecordCount": 2
+          }
         },
         {
           "ref": "EN010123",
@@ -1764,7 +2414,22 @@
           "dateOfDecision": "2025-01-24",
           "dateWithdrawn": null,
           "yearsInSystem": 1.9,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010123"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010123",
+          "delivery": {
+            "status": "Planning Permission Granted",
+            "statusShort": "Awaiting Construction",
+            "technology": "Solar Photovoltaics",
+            "capacityMW": 500,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2025-01-24",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": "2030-01-24",
+            "withdrawnDate": null,
+            "lastUpdated": "2025-02-10",
+            "repdRecordCount": 2
+          }
         },
         {
           "ref": "EN010125",
@@ -1787,7 +2452,22 @@
           "dateOfDecision": null,
           "dateWithdrawn": null,
           "yearsInSystem": 1.9,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010125"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010125",
+          "delivery": {
+            "status": "Planning Application Submitted",
+            "statusShort": "Application Submitted",
+            "technology": "Wind Offshore",
+            "capacityMW": 3000,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": null,
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2024-07-23",
+            "repdRecordCount": 2
+          }
         },
         {
           "ref": "EN010127",
@@ -1810,7 +2490,22 @@
           "dateOfDecision": "2024-07-12",
           "dateWithdrawn": null,
           "yearsInSystem": 1.6,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010127"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010127",
+          "delivery": {
+            "status": "Planning Permission Granted",
+            "statusShort": "Awaiting Construction",
+            "technology": "Solar Photovoltaics",
+            "capacityMW": 350,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2024-07-12",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2025-03-10",
+            "repdRecordCount": 1
+          }
         },
         {
           "ref": "EN010128",
@@ -1879,7 +2574,22 @@
           "dateOfDecision": "2026-02-10",
           "dateWithdrawn": null,
           "yearsInSystem": 1.9,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010130"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010130",
+          "delivery": {
+            "status": "Planning Application Submitted",
+            "statusShort": "Application Submitted",
+            "technology": "Wind Offshore",
+            "capacityMW": 1500,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": null,
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2024-04-11",
+            "repdRecordCount": 1
+          }
         },
         {
           "ref": "EN010131",
@@ -1902,7 +2612,22 @@
           "dateOfDecision": "2024-07-12",
           "dateWithdrawn": null,
           "yearsInSystem": 1.5,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010131"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010131",
+          "delivery": {
+            "status": "Planning Permission Granted",
+            "statusShort": "Awaiting Construction",
+            "technology": "Solar Photovoltaics",
+            "capacityMW": 531,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2024-07-12",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2024-12-16",
+            "repdRecordCount": 2
+          }
         },
         {
           "ref": "EN010132",
@@ -1925,7 +2650,22 @@
           "dateOfDecision": "2025-01-24",
           "dateWithdrawn": null,
           "yearsInSystem": 1.8,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010132"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010132",
+          "delivery": {
+            "status": "Planning Permission Granted",
+            "statusShort": "Awaiting Construction",
+            "technology": "Solar Photovoltaics",
+            "capacityMW": 500,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2025-01-24",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": "2030-01-24",
+            "withdrawnDate": null,
+            "lastUpdated": "2025-09-16",
+            "repdRecordCount": 2
+          }
         },
         {
           "ref": "EN010133",
@@ -1948,7 +2688,22 @@
           "dateOfDecision": "2024-09-05",
           "dateWithdrawn": null,
           "yearsInSystem": 1.6,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010133"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010133",
+          "delivery": {
+            "status": "Planning Permission Granted",
+            "statusShort": "Awaiting Construction",
+            "technology": "Solar Photovoltaics",
+            "capacityMW": 600,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2024-09-05",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": "2029-09-05",
+            "withdrawnDate": null,
+            "lastUpdated": "2025-11-18",
+            "repdRecordCount": 2
+          }
         },
         {
           "ref": "EN010135",
@@ -1971,7 +2726,22 @@
           "dateOfDecision": "2025-10-23",
           "dateWithdrawn": null,
           "yearsInSystem": 1.4,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010135"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010135",
+          "delivery": {
+            "status": "Planning Permission Granted",
+            "statusShort": "Awaiting Construction",
+            "technology": "Solar Photovoltaics",
+            "capacityMW": 99.9,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2025-10-23",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": "2028-10-23",
+            "withdrawnDate": null,
+            "lastUpdated": "2025-11-11",
+            "repdRecordCount": 2
+          }
         },
         {
           "ref": "EN010136",
@@ -1994,7 +2764,22 @@
           "dateOfDecision": "2025-08-29",
           "dateWithdrawn": null,
           "yearsInSystem": 1.3,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010136"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010136",
+          "delivery": {
+            "status": "Planning Permission Granted",
+            "statusShort": "Awaiting Construction",
+            "technology": "Wind Offshore",
+            "capacityMW": 1500,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2025-08-29",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2025-09-19",
+            "repdRecordCount": 1
+          }
         },
         {
           "ref": "EN010137",
@@ -2017,7 +2802,22 @@
           "dateOfDecision": "2025-07-04",
           "dateWithdrawn": null,
           "yearsInSystem": 1.4,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010137"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010137",
+          "delivery": {
+            "status": "Planning Permission Granted",
+            "statusShort": "Awaiting Construction",
+            "technology": "Wind Offshore",
+            "capacityMW": 1500,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2025-07-04",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2025-07-28",
+            "repdRecordCount": 1
+          }
         },
         {
           "ref": "EN010138",
@@ -2063,7 +2863,22 @@
           "dateOfDecision": "2025-07-23",
           "dateWithdrawn": null,
           "yearsInSystem": 1.5,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010139"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010139",
+          "delivery": {
+            "status": "Planning Permission Granted",
+            "statusShort": "Awaiting Construction",
+            "technology": "Solar Photovoltaics",
+            "capacityMW": 180,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2025-07-23",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2025-07-29",
+            "repdRecordCount": 2
+          }
         },
         {
           "ref": "EN010140",
@@ -2086,7 +2901,22 @@
           "dateOfDecision": "2025-12-03",
           "dateWithdrawn": null,
           "yearsInSystem": 1.4,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010140"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010140",
+          "delivery": {
+            "status": "Planning Permission Granted",
+            "statusShort": "Awaiting Construction",
+            "technology": "Solar Photovoltaics",
+            "capacityMW": 190,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2025-12-03",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2025-12-16",
+            "repdRecordCount": 2
+          }
         },
         {
           "ref": "EN010141",
@@ -2132,7 +2962,22 @@
           "dateOfDecision": "2025-10-14",
           "dateWithdrawn": null,
           "yearsInSystem": 1.5,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010142"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010142",
+          "delivery": {
+            "status": "Planning Permission Granted",
+            "statusShort": "Awaiting Construction",
+            "technology": "Solar Photovoltaics",
+            "capacityMW": 500,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2025-10-14",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2025-10-14",
+            "repdRecordCount": 2
+          }
         },
         {
           "ref": "EN010143",
@@ -2155,7 +3000,22 @@
           "dateOfDecision": "2025-05-09",
           "dateWithdrawn": null,
           "yearsInSystem": 1.5,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010143"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010143",
+          "delivery": {
+            "status": "Planning Permission Granted",
+            "statusShort": "Awaiting Construction",
+            "technology": "Solar Photovoltaics",
+            "capacityMW": 400,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": "2025-05-09",
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2025-07-29",
+            "repdRecordCount": 2
+          }
         },
         {
           "ref": "EN010144",
@@ -2201,7 +3061,22 @@
           "dateOfDecision": null,
           "dateWithdrawn": null,
           "yearsInSystem": 1.5,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010147"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010147",
+          "delivery": {
+            "status": "Planning Application Submitted",
+            "statusShort": "Application Submitted",
+            "technology": "Solar Photovoltaics",
+            "capacityMW": 840,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": null,
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2024-12-16",
+            "repdRecordCount": 1
+          }
         },
         {
           "ref": "EN010148",
@@ -2224,7 +3099,22 @@
           "dateOfDecision": null,
           "dateWithdrawn": "2025-08-15",
           "yearsInSystem": 0.7,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010148"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010148",
+          "delivery": {
+            "status": "Planning Application Submitted",
+            "statusShort": "Application Submitted",
+            "technology": "Solar Photovoltaics",
+            "capacityMW": 1200,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": null,
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2025-10-13",
+            "repdRecordCount": 2
+          }
         },
         {
           "ref": "EN010149",
@@ -2247,7 +3137,22 @@
           "dateOfDecision": "2026-04-08",
           "dateWithdrawn": null,
           "yearsInSystem": 1.4,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010149"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010149",
+          "delivery": {
+            "status": "Planning Application Submitted",
+            "statusShort": "Application Submitted",
+            "technology": "Solar Photovoltaics",
+            "capacityMW": 800,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": null,
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2025-10-13",
+            "repdRecordCount": 2
+          }
         },
         {
           "ref": "EN010150",
@@ -2293,7 +3198,22 @@
           "dateOfDecision": null,
           "dateWithdrawn": null,
           "yearsInSystem": 1.1,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010151"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010151",
+          "delivery": {
+            "status": "Planning Application Submitted",
+            "statusShort": "Application Submitted",
+            "technology": "Battery",
+            "capacityMW": 1000,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": null,
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2025-10-13",
+            "repdRecordCount": 2
+          }
         },
         {
           "ref": "EN010152",
@@ -2316,7 +3236,22 @@
           "dateOfDecision": "2026-02-18",
           "dateWithdrawn": null,
           "yearsInSystem": 1.3,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010152"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010152",
+          "delivery": {
+            "status": "Planning Application Submitted",
+            "statusShort": "Application Submitted",
+            "technology": "Solar Photovoltaics",
+            "capacityMW": 237.5,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": null,
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2024-12-16",
+            "repdRecordCount": 2
+          }
         },
         {
           "ref": "EN010153",
@@ -2339,7 +3274,22 @@
           "dateOfDecision": null,
           "dateWithdrawn": null,
           "yearsInSystem": 0.9,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010153"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010153",
+          "delivery": {
+            "status": "Planning Application Submitted",
+            "statusShort": "Application Submitted",
+            "technology": "Solar Photovoltaics",
+            "capacityMW": 247,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": null,
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2025-10-13",
+            "repdRecordCount": 2
+          }
         },
         {
           "ref": "EN010154",
@@ -2362,7 +3312,22 @@
           "dateOfDecision": null,
           "dateWithdrawn": null,
           "yearsInSystem": 0.8,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010154"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010154",
+          "delivery": {
+            "status": "Planning Application Submitted",
+            "statusShort": "Application Submitted",
+            "technology": "Solar Photovoltaics",
+            "capacityMW": 350,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": null,
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2025-10-13",
+            "repdRecordCount": 2
+          }
         },
         {
           "ref": "EN010155",
@@ -2385,7 +3350,22 @@
           "dateOfDecision": null,
           "dateWithdrawn": null,
           "yearsInSystem": 1.1,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010155"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010155",
+          "delivery": {
+            "status": "Planning Application Submitted",
+            "statusShort": "Application Submitted",
+            "technology": "Solar Photovoltaics",
+            "capacityMW": 150,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": null,
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2025-10-13",
+            "repdRecordCount": 2
+          }
         },
         {
           "ref": "EN010156",
@@ -2431,7 +3411,22 @@
           "dateOfDecision": null,
           "dateWithdrawn": null,
           "yearsInSystem": 1.2,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010157"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010157",
+          "delivery": {
+            "status": "Planning Application Submitted",
+            "statusShort": "Application Submitted",
+            "technology": "Solar Photovoltaics",
+            "capacityMW": 320,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": null,
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2025-04-14",
+            "repdRecordCount": 2
+          }
         },
         {
           "ref": "EN010158",
@@ -2477,7 +3472,22 @@
           "dateOfDecision": null,
           "dateWithdrawn": null,
           "yearsInSystem": 1.2,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010159"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010159",
+          "delivery": {
+            "status": "Planning Application Submitted",
+            "statusShort": "Application Submitted",
+            "technology": "Solar Photovoltaics",
+            "capacityMW": 740,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": null,
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2025-04-14",
+            "repdRecordCount": 2
+          }
         },
         {
           "ref": "EN010161",
@@ -2523,7 +3533,22 @@
           "dateOfDecision": null,
           "dateWithdrawn": null,
           "yearsInSystem": 0.8,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010162"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010162",
+          "delivery": {
+            "status": "Planning Application Submitted",
+            "statusShort": "Application Submitted",
+            "technology": "Solar Photovoltaics",
+            "capacityMW": 800,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": null,
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2025-10-13",
+            "repdRecordCount": 2
+          }
         },
         {
           "ref": "EN010163",
@@ -2546,7 +3571,22 @@
           "dateOfDecision": null,
           "dateWithdrawn": null,
           "yearsInSystem": 1,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010163"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010163",
+          "delivery": {
+            "status": "Planning Application Submitted",
+            "statusShort": "Application Submitted",
+            "technology": "Solar Photovoltaics",
+            "capacityMW": 600,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": null,
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2025-10-13",
+            "repdRecordCount": 2
+          }
         },
         {
           "ref": "EN010164",
@@ -2684,7 +3724,22 @@
           "dateOfDecision": null,
           "dateWithdrawn": null,
           "yearsInSystem": 0.9,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010170"
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010170",
+          "delivery": {
+            "status": "Planning Application Submitted",
+            "statusShort": "Application Submitted",
+            "technology": "Solar Photovoltaics",
+            "capacityMW": 1200,
+            "operationalDate": null,
+            "constructionStartDate": null,
+            "plannedOperationalDate": null,
+            "permissionGrantedDate": null,
+            "permissionRefusedDate": null,
+            "permissionExpiredDate": null,
+            "withdrawnDate": null,
+            "lastUpdated": "2025-08-08",
+            "repdRecordCount": 2
+          }
         },
         {
           "ref": "EN010171",

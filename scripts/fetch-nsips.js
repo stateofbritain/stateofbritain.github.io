@@ -21,6 +21,7 @@ import { writeFileSync } from "fs";
 
 const CSV_URL =
   "https://national-infrastructure-consenting.planninginspectorate.gov.uk/api/applications-download";
+const REPD_PUBLICATION_PAGE = "https://www.gov.uk/government/publications/renewable-energy-planning-database-monthly-extract";
 const OUT = "public/data/nsips.json";
 
 // Project-reference prefix → category. Each PINS prefix is a fixed
@@ -141,6 +142,91 @@ function categorise(ref) {
   return CATEGORY_BY_PREFIX[prefix] || { category: "other", subtype: "Other" };
 }
 
+/**
+ * Pull the latest REPD (Renewable Energy Planning Database) CSV and
+ * index by NSIP-pattern Planning Application Reference. Gives each
+ * energy NSIP its post-consent delivery status — "Under Construction",
+ * "Operational", "Awaiting Construction", "Abandoned" — plus capacity
+ * and operational/construction-start dates that PINS doesn't track.
+ *
+ * Returns Map<nsipRef, { status, statusShort, capacityMW, technology,
+ *   operationalDate, constructionStartDate, plannedOperationalDate,
+ *   developmentStartDate, lastUpdated, repdRefId }>.
+ *
+ * Records are joined on Planning Application Reference (e.g. "EN010001").
+ * REPD is published quarterly, so the latest CSV's URL changes each
+ * quarter — discover it from the publication page.
+ */
+async function fetchRepdMap() {
+  console.log(`\nDiscovering latest REPD CSV…`);
+  const html = await fetchText(REPD_PUBLICATION_PAGE);
+  const m = html.match(/href="(https:\/\/assets\.publishing\.service\.gov\.uk\/[^"]*REPD[^"]*\.csv)"/i);
+  if (!m) {
+    console.warn("  REPD CSV not found on publication page; skipping enrichment");
+    return new Map();
+  }
+  const csvUrl = m[1];
+  console.log(`  Pulling ${csvUrl}…`);
+  const csv = await fetchText(csvUrl);
+  const rows = parseCsv(csv);
+  const header = rows[0];
+  const idx = (k) => header.indexOf(k);
+  const cols = {
+    par: idx("Planning Application Reference"),
+    refId: idx("Ref ID"),
+    siteName: idx("Site Name"),
+    operator: idx("Operator (or Applicant)"),
+    technology: idx("Technology Type"),
+    capacity: idx("Installed Capacity (MWelec)"),
+    statusFull: idx("Development Status"),
+    statusShort: idx("Development Status (short)"),
+    planAuth: idx("Planning Authority"),
+    appSubmitted: idx("Planning Application Submitted"),
+    permissionGranted: idx("Planning Permission  Granted"),
+    permissionRefused: idx("Planning Permission Refused"),
+    permissionExpired: idx("Planning Permission Expired"),
+    appWithdrawn: idx("Planning Application Withdrawn"),
+    operational: idx("Operational"),
+    devStart: idx("Under Construction"),
+    plannedOp: idx("Expected Operational"),
+    lastUpdated: idx("Record Last Updated (dd/mm/yyyy)"),
+  };
+
+  // Match anything that looks like an NSIP reference (e.g. "EN010001",
+  // "TR020012") — this catches all PINS-routed records reliably.
+  const nsipRe = /^[A-Z]{2}\d{6,8}$/;
+  const out = new Map();
+  for (const r of rows.slice(1)) {
+    const par = String(r[cols.par] || "").trim();
+    if (!nsipRe.test(par)) continue;
+    const capacityRaw = r[cols.capacity];
+    const capacity = capacityRaw ? Number(String(capacityRaw).replace(/,/g, "")) : null;
+    const entry = {
+      status: r[cols.statusFull]?.trim() || null,
+      statusShort: r[cols.statusShort]?.trim() || null,
+      capacityMW: Number.isFinite(capacity) ? capacity : null,
+      technology: r[cols.technology]?.trim() || null,
+      operator: r[cols.operator]?.trim() || null,
+      siteName: r[cols.siteName]?.trim() || null,
+      operationalDate: parseDate(r[cols.operational]),
+      constructionStartDate: parseDate(r[cols.devStart]),
+      plannedOperationalDate: parseDate(r[cols.plannedOp]),
+      permissionGrantedDate: parseDate(r[cols.permissionGranted]),
+      permissionRefusedDate: parseDate(r[cols.permissionRefused]),
+      permissionExpiredDate: parseDate(r[cols.permissionExpired]),
+      withdrawnDate: parseDate(r[cols.appWithdrawn]),
+      lastUpdated: parseDate(r[cols.lastUpdated]),
+      repdRefId: r[cols.refId]?.trim() || null,
+    };
+    // Multiple REPD records can share a Planning Application Reference
+    // (e.g. multi-phase wind farms); keep them all as an array on the map.
+    if (!out.has(par)) out.set(par, []);
+    out.get(par).push(entry);
+  }
+  console.log(`  REPD enrichment: ${out.size} unique NSIP refs matched (${[...out.values()].reduce((s, v) => s + v.length, 0)} REPD records)`);
+  return out;
+}
+
 async function main() {
   console.log(`Pulling PINS register…`);
   const csv = await fetchText(CSV_URL);
@@ -205,14 +291,55 @@ async function main() {
     projects.push(project);
   }
 
+  // Enrich energy projects with REPD delivery status. REPD is keyed by
+  // Planning Application Reference, so this is a clean exact-match join.
+  const repdMap = await fetchRepdMap();
+  let enriched = 0;
+  for (const p of projects) {
+    const records = repdMap.get(p.ref);
+    if (!records || records.length === 0) continue;
+    enriched++;
+    // For multi-record projects (multi-phase developments), pick the
+    // primary record by largest capacity, and roll up totals.
+    const primary = [...records].sort((a, b) => (b.capacityMW || 0) - (a.capacityMW || 0))[0];
+    const totalCapacity = records.reduce((s, r) => s + (r.capacityMW || 0), 0);
+    p.delivery = {
+      status: primary.status,
+      statusShort: primary.statusShort,
+      technology: primary.technology,
+      capacityMW: totalCapacity > 0 ? Math.round(totalCapacity * 10) / 10 : primary.capacityMW,
+      operationalDate: primary.operationalDate,
+      constructionStartDate: primary.constructionStartDate,
+      plannedOperationalDate: primary.plannedOperationalDate,
+      permissionGrantedDate: primary.permissionGrantedDate,
+      permissionRefusedDate: primary.permissionRefusedDate,
+      permissionExpiredDate: primary.permissionExpiredDate,
+      withdrawnDate: primary.withdrawnDate,
+      lastUpdated: primary.lastUpdated,
+      repdRecordCount: records.length,
+    };
+  }
+  console.log(`  ${enriched}/${projects.length} projects enriched with REPD delivery status`);
+
   // Aggregate counts for the snapshot.
   const byCategory = {};
   const byStage = {};
+  const byDeliveryStatus = {};
   let withGps = 0;
+  let withDelivery = 0;
+  let totalCapacityMW = 0;
+  let operationalCapacityMW = 0;
   for (const p of projects) {
     byCategory[p.category] = (byCategory[p.category] || 0) + 1;
     byStage[p.stage || "Unknown"] = (byStage[p.stage || "Unknown"] || 0) + 1;
     if (p.lat != null) withGps++;
+    if (p.delivery?.status) {
+      withDelivery++;
+      byDeliveryStatus[p.delivery.status] = (byDeliveryStatus[p.delivery.status] || 0) + 1;
+      const cap = p.delivery.capacityMW || 0;
+      totalCapacityMW += cap;
+      if (/operational/i.test(p.delivery.status)) operationalCapacityMW += cap;
+    }
   }
 
   const output = {
@@ -229,12 +356,23 @@ async function main() {
         publisher: "Planning Inspectorate",
         note: "Every project applied-for under the Planning Act 2008 DCO regime since 2010, with GPS coordinates, applicant, regulatory stage, and a record of every dated examination event. Categorisation is derived from the project reference prefix (EN01–EN07 = energy, TR01–TR05 = transport, WA0x = water, WW0x = wastewater, WS0x = waste, BC0x = industrial / CCUS).",
       },
+      {
+        id: "desnz-repd",
+        name: "DESNZ Renewable Energy Planning Database",
+        url: REPD_PUBLICATION_PAGE,
+        publisher: "DESNZ / Barbour ABI",
+        note: "Quarterly publication tracking every renewable energy project >150 kW from planning through construction to operation. Joined to the PINS register on Planning Application Reference (e.g. EN010001) — gives each energy NSIP its post-consent delivery status (Operational / Under Construction / Awaiting Construction / Abandoned / etc.), installed capacity in MW, technology type, and operational/construction-start dates. Non-energy NSIPs (highways, airports, water etc.) aren't covered here — they need separate scheme-tracker sources.",
+      },
     ],
     snapshot: {
       total: projects.length,
       withGps,
+      withDelivery,
       byCategory,
       byStage,
+      byDeliveryStatus,
+      totalCapacityMW: Math.round(totalCapacityMW),
+      operationalCapacityMW: Math.round(operationalCapacityMW),
       skipped: skipped.length,
     },
     series: {
@@ -258,6 +396,11 @@ async function main() {
   console.log(`  by stage:`);
   for (const [k, v] of Object.entries(byStage).sort((a, b) => b[1] - a[1])) {
     console.log(`    ${k.padEnd(20)} ${v}`);
+  }
+  console.log(`  delivery status (REPD-enriched):`);
+  console.log(`    ${withDelivery}/${projects.length} projects · ${operationalCapacityMW.toLocaleString()} MW operational / ${totalCapacityMW.toLocaleString()} MW total`);
+  for (const [k, v] of Object.entries(byDeliveryStatus).sort((a, b) => b[1] - a[1])) {
+    console.log(`    ${k.padEnd(40)} ${v}`);
   }
 }
 

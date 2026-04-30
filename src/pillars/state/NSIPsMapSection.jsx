@@ -58,6 +58,23 @@ export default function NSIPsMapSection() {
     return t;
   }, [projects]);
 
+  const deliveryRollup = useMemo(() => {
+    let operationalMW = 0;
+    let underConstructionMW = 0;
+    let consentedMW = 0; // granted but not yet operational
+    let opCount = 0;
+    let ucCount = 0;
+    for (const p of projects) {
+      const d = p.delivery;
+      if (!d) continue;
+      const cap = d.capacityMW || 0;
+      if (/operational/i.test(d.status || "")) { operationalMW += cap; opCount++; }
+      else if (/under construction/i.test(d.status || "")) { underConstructionMW += cap; ucCount++; }
+      else if (/permission granted|awaiting construction/i.test(d.status || "")) { consentedMW += cap; }
+    }
+    return { operationalMW, underConstructionMW, consentedMW, opCount, ucCount };
+  }, [projects]);
+
   if (loading) return <Skeleton message="Loading NSIPs…" />;
   if (error || !data) return <Skeleton message={error ?? "No data"} />;
 
@@ -73,9 +90,12 @@ export default function NSIPsMapSection() {
         fontFamily: "'DM Mono', monospace", fontSize: 13,
         color: P.textMuted, margin: "0 0 12px",
       }}>
-        Every project on the Planning Inspectorate's DCO register since 2010 ({projects.length} in total).
-        Circle size scales with years in the planning system.
+        Every project on the Planning Inspectorate's DCO consenting register since 2010 ({projects.length} in total).
+        Energy projects are joined to DESNZ's REPD for post-consent delivery status. Circle size scales with years in the planning system.
       </p>
+
+      <DeliveryRollupBar rollup={deliveryRollup} />
+
 
       <Filters
         totalsByCategory={totalsByCategory}
@@ -166,6 +186,54 @@ function Filters({
   );
 }
 
+function DeliveryRollupBar({ rollup }) {
+  const { operationalMW, underConstructionMW, consentedMW, opCount, ucCount } = rollup;
+  if (operationalMW === 0 && underConstructionMW === 0 && consentedMW === 0) return null;
+  return (
+    <div style={{
+      display: "flex", flexWrap: "wrap", gap: 18,
+      padding: "10px 14px", marginBottom: 10,
+      background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: 4,
+    }}>
+      <RollupStat color={P.teal} label="Operational" mw={operationalMW} count={opCount} />
+      <RollupStat color={P.yellow} label="Under construction" mw={underConstructionMW} count={ucCount} />
+      <RollupStat color={P.grey} label="Consented, not yet building" mw={consentedMW} />
+      <span style={{
+        fontSize: 10, color: P.textLight, fontFamily: "'DM Mono', monospace",
+        marginLeft: "auto", alignSelf: "center",
+      }}>
+        Energy NSIPs only · capacity per REPD
+      </span>
+    </div>
+  );
+}
+
+function RollupStat({ color, label, mw, count }) {
+  return (
+    <div style={{ display: "flex", alignItems: "baseline", gap: 8 }}>
+      <span style={{ width: 10, height: 10, borderRadius: "50%", background: color }} />
+      <div>
+        <div style={{
+          fontSize: 10, color: P.textLight, fontFamily: "'DM Mono', monospace",
+          textTransform: "uppercase", letterSpacing: "0.06em",
+        }}>
+          {label}
+        </div>
+        <div style={{
+          fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: 600,
+          color: P.text, lineHeight: 1.1,
+        }}>
+          {formatMW(mw)}
+          {count != null && <span style={{
+            fontSize: 11, fontFamily: "'DM Mono', monospace", color: P.textMuted,
+            fontWeight: 400, marginLeft: 6,
+          }}>· {count} projects</span>}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function ChipRow({ label, children }) {
   return (
     <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 6 }}>
@@ -243,6 +311,8 @@ function ProjectPanel({ project, onClose }) {
       <KeyVal label="Region" value={project.region || "—"} />
       <KeyVal label="Location" value={project.location || "—"} />
 
+      {project.delivery && <DeliveryBlock delivery={project.delivery} />}
+
       {project.description && (
         <p style={{
           fontFamily: "'DM Mono', monospace", fontSize: 12, color: P.text,
@@ -291,6 +361,96 @@ function ProjectPanel({ project, onClose }) {
     </aside>
   );
 }
+
+function DeliveryBlock({ delivery }) {
+  // Status colour: a quick traffic-light read on whether the consented
+  // project is actually in the ground.
+  const statusColor = STATUS_COLOR[delivery.status] || P.textMuted;
+  return (
+    <div style={{
+      marginTop: 12, padding: "10px 12px",
+      background: "rgba(28,43,69,0.04)", borderRadius: 3,
+      border: `1px solid ${P.border}`,
+    }}>
+      <div style={{
+        display: "flex", justifyContent: "space-between", alignItems: "baseline",
+        marginBottom: 6,
+      }}>
+        <span style={{
+          fontSize: 10, color: P.textLight, fontFamily: "'DM Mono', monospace",
+          textTransform: "uppercase", letterSpacing: "0.08em",
+        }}>
+          Post-consent delivery (REPD)
+        </span>
+        {delivery.lastUpdated && (
+          <span style={{ fontSize: 10, color: P.textLight, fontFamily: "'DM Mono', monospace" }}>
+            updated {delivery.lastUpdated}
+          </span>
+        )}
+      </div>
+      <div style={{
+        display: "inline-flex", alignItems: "center", gap: 6,
+        padding: "3px 10px",
+        background: statusColor, color: P.bgCard,
+        fontFamily: "'DM Mono', monospace", fontSize: 11,
+        letterSpacing: "0.04em", borderRadius: 12,
+        marginBottom: 8,
+      }}>
+        {delivery.status}
+      </div>
+      {delivery.capacityMW != null && (
+        <KeyValInline label="Capacity" value={`${formatMW(delivery.capacityMW)} (${delivery.technology || "—"})`} />
+      )}
+      {delivery.operationalDate && (
+        <KeyValInline label="Operational" value={delivery.operationalDate} />
+      )}
+      {!delivery.operationalDate && delivery.constructionStartDate && (
+        <KeyValInline label="Construction start" value={delivery.constructionStartDate} />
+      )}
+      {!delivery.operationalDate && !delivery.constructionStartDate && delivery.plannedOperationalDate && (
+        <KeyValInline label="Planned operational" value={delivery.plannedOperationalDate} />
+      )}
+      {!delivery.operationalDate && !delivery.constructionStartDate && delivery.permissionGrantedDate && (
+        <KeyValInline label="Permission granted" value={delivery.permissionGrantedDate} />
+      )}
+    </div>
+  );
+}
+
+function KeyValInline({ label, value }) {
+  return (
+    <div style={{
+      display: "flex", justifyContent: "space-between", gap: 8,
+      padding: "3px 0",
+      fontFamily: "'DM Mono', monospace", fontSize: 12,
+    }}>
+      <span style={{ color: P.textLight, fontSize: 10, textTransform: "uppercase", letterSpacing: "0.06em" }}>
+        {label}
+      </span>
+      <span style={{ color: P.text }}>{value}</span>
+    </div>
+  );
+}
+
+function formatMW(mw) {
+  if (mw == null) return "—";
+  if (mw >= 1000) return `${(mw / 1000).toFixed(2)} GW`;
+  return `${Math.round(mw)} MW`;
+}
+
+const STATUS_COLOR = {
+  "Operational":                  P.teal,
+  "Under Construction":           P.yellow,
+  "Awaiting Construction":        P.grey,
+  "Planning Permission Granted":  P.grey,
+  "Planning Application Submitted": "#9DA0A8",
+  "Planning Application Withdrawn": P.sienna,
+  "Planning Permission Refused":  P.red,
+  "Planning Permission Expired":  P.sienna,
+  "Abandoned":                    P.sienna,
+  "Decommissioned":               P.sienna,
+  "Revised":                      P.grey,
+};
 
 function KeyVal({ label, value }) {
   return (
