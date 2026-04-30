@@ -25,9 +25,12 @@ const CARD = {
   background: P.bgCard,
   border: `1px solid ${P.border}`,
   borderRadius: 4,
-  padding: "20px 22px 18px",
   marginBottom: 14,
 };
+// Collapsed tiles are narrow (4-5 across on desktop, 2 on mobile);
+// expanded tiles take the full row and need more breathing room.
+const CARD_PADDING_COLLAPSED = "14px 12px 12px";
+const CARD_PADDING_EXPANDED = "20px 22px 18px";
 
 /**
  * Strategic dependency widget for one commodity.
@@ -132,21 +135,24 @@ export default function DependencyBreakdown({
     };
   }, [expanded]);
 
-  if (loading) return <div style={CARD}><Loading title={title} /></div>;
-  if (error || !data) return <div style={CARD}><ErrorRow title={title} message={error ?? "no data"} /></div>;
-  if (!latest) return <div style={CARD}><ErrorRow title={title} message="no rows" /></div>;
+  const placeholderStyle = { ...CARD, padding: CARD_PADDING_COLLAPSED };
+  if (loading) return <div style={placeholderStyle}><Loading title={title} /></div>;
+  if (error || !data) return <div style={placeholderStyle}><ErrorRow title={title} message={error ?? "no data"} /></div>;
+  if (!latest) return <div style={placeholderStyle}><ErrorRow title={title} message="no rows" /></div>;
 
   // When expanded the card spans both columns of the parent grid so
   // the bar + trend chart have room to breathe; matches Tile.jsx.
   const cardStyle = expanded
     ? {
         ...CARD,
+        padding: CARD_PADDING_EXPANDED,
         gridColumn: "1 / -1",
         boxShadow: "0 6px 18px rgba(28,43,69,0.10)",
         cursor: "default",
       }
     : {
         ...CARD,
+        padding: CARD_PADDING_COLLAPSED,
         boxShadow: "0 1px 4px rgba(28,43,69,0.04)",
         cursor: "pointer",
         transition: "transform 0.15s, box-shadow 0.15s",
@@ -205,41 +211,45 @@ function CollapsedCard({ title, row, latest, unit }) {
   return (
     <>
       <div style={{
-        fontSize: 11,
+        fontSize: 10,
         textTransform: "uppercase",
-        letterSpacing: "0.12em",
+        letterSpacing: "0.10em",
         color: P.textLight,
         fontFamily: "'DM Mono', monospace",
-        marginBottom: 14,
+        marginBottom: 8,
+        textAlign: "center",
+        whiteSpace: "nowrap",
+        overflow: "hidden",
+        textOverflow: "ellipsis",
       }}>
         {title}
       </div>
-      <div style={{ display: "flex", justifyContent: "center", marginBottom: 14 }}>
-        <Donut row={row} size={150} thickness={32} />
+      <div style={{ display: "flex", justifyContent: "center", marginBottom: 8 }}>
+        <Donut row={row} size={108} thickness={22} />
       </div>
       <div style={{
         textAlign: "center",
         fontFamily: "'Playfair Display', serif",
-        fontSize: 22,
+        fontSize: 18,
         fontWeight: 600,
         color: P.text,
         lineHeight: 1.15,
       }}>
         {latest.alignedShare != null ? `${latest.alignedShare.toFixed(0)}%` : "—"}
-        <span style={{ fontSize: 13, color: P.textMuted, fontFamily: "'DM Mono', monospace", fontWeight: 400, marginLeft: 4 }}>
+        <span style={{ fontSize: 11, color: P.textMuted, fontFamily: "'DM Mono', monospace", fontWeight: 400, marginLeft: 3 }}>
           aligned
         </span>
       </div>
       <div style={{
         textAlign: "center",
-        fontSize: 11,
+        fontSize: 10,
         color: P.textLight,
         fontFamily: "'DM Mono', monospace",
-        marginTop: 4,
-        letterSpacing: "0.04em",
+        marginTop: 3,
+        letterSpacing: "0.03em",
       }}>
         {latest.domesticShare != null ? `${latest.domesticShare.toFixed(0)}% domestic` : ""}
-        {" · "}
+        {latest.domesticShare != null ? " · " : ""}
         {latest.month}
       </div>
     </>

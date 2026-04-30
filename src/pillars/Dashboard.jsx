@@ -274,8 +274,8 @@ function SovereignCapability({ period }) {
       </p>
       <div style={{
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))",
-        gap: 14,
+        gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+        gap: 12,
       }}>
         <DependencyBreakdown
           dataset="steel-dependency.json"
