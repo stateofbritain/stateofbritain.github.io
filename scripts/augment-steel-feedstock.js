@@ -84,6 +84,69 @@ async function main() {
     }));
   }
 
+  // Compute aggregate 2nd-order bucket shares across the whole window.
+  // For each partner X, their imports redistribute as:
+  //   (1 - re_roll_X) into X's own bucket
+  //   re_roll_X × upstream_share[U] into upstream U's bucket
+  // We aggregate weighted by each partner's window-total imports, then
+  // express as fractions of the total. Apply to each month's volume to
+  // get a 2nd-order monthly bucket distribution.
+  const totalWindowImports = partners.reduce((s, p) => s + (p.importTonnes || 0), 0);
+  const aggBuckets = { aligned: 0, neutral: 0, low: 0, unknown: 0 };
+
+  for (const row of partners) {
+    const value = row.importTonnes || 0;
+    if (value === 0) continue;
+    const summary = summaries.get(row.iso3);
+    const partnerBucket = row.bucket || "unknown";
+    if (!summary || summary.reRollingFraction === 0 || !summary.feedstockTopOrigins.length) {
+      // No re-rolling — partner contributes fully to their own bucket
+      aggBuckets[partnerBucket] = (aggBuckets[partnerBucket] || 0) + value;
+      continue;
+    }
+    const f = summary.reRollingFraction;
+    aggBuckets[partnerBucket] = (aggBuckets[partnerBucket] || 0) + value * (1 - f);
+    for (const upstream of summary.feedstockTopOrigins) {
+      aggBuckets[upstream.bucket] = (aggBuckets[upstream.bucket] || 0) + value * f * upstream.share;
+    }
+  }
+
+  const bucketShares2nd = {};
+  for (const k of ["aligned", "neutral", "low", "unknown"]) {
+    bucketShares2nd[k] = totalWindowImports > 0 ? aggBuckets[k] / totalWindowImports : 0;
+  }
+  console.log(`\n2nd-order aggregate bucket shares:`);
+  for (const [k, v] of Object.entries(bucketShares2nd)) {
+    console.log(`  ${k.padEnd(8)} ${(v * 100).toFixed(1)}%`);
+  }
+
+  // Apply per-month: imports2ndOrder = monthly_total_imports × shares.
+  // This assumes a stable partner mix month-to-month, which is reasonable
+  // for steel where the same set of suppliers persists. Refresh of the
+  // augment annually (when Comtrade data updates) keeps it current.
+  for (const row of dataset.series.monthly.data) {
+    const ti = row.totalImports
+      ?? ((row.imports?.aligned || 0) + (row.imports?.neutral || 0) +
+          (row.imports?.low || 0) + (row.imports?.unknown || 0));
+    row.imports2ndOrder = {
+      aligned: Math.round(bucketShares2nd.aligned * ti),
+      neutral: Math.round(bucketShares2nd.neutral * ti),
+      low: Math.round(bucketShares2nd.low * ti),
+      unknown: Math.round(bucketShares2nd.unknown * ti),
+    };
+    const total2nd = (row.production || 0) + ti;
+    row.alignedShare2ndOrder = total2nd > 0
+      ? Math.round((row.imports2ndOrder.aligned / total2nd) * 1000) / 10
+      : null;
+  }
+
+  // Reflect the snapshot
+  const latest = dataset.series.monthly.data[dataset.series.monthly.data.length - 1];
+  if (latest) {
+    dataset.snapshot.imports2ndOrder = latest.imports2ndOrder;
+    dataset.snapshot.alignedShare2ndOrder = latest.alignedShare2ndOrder;
+  }
+
   // Annotate the source list to surface the methodology
   const COMTRADE_NOTE =
     "Each top partner's reported imports of HS 7206-7207 (semi-finished steel) from upstream-origin countries (China, Russia, India, Turkey, Brazil, Ukraine, Kazakhstan, Iran), and reported exports of HS 7208-7229 (finished) to the UK. Used to estimate the fraction of partner-attributed UK imports that is functionally re-rolled upstream-origin material. " +

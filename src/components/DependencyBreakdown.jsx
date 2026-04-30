@@ -55,6 +55,11 @@ export default function DependencyBreakdown({
   const { data, loading, error } = useJsonDataset(dataset);
   const [expanded, setExpanded] = useState(false);
   const [selectedFacetKey, setSelectedFacetKey] = useState(null);
+  // 1st-order = HMRC COO (where last substantially transformed)
+  // 2nd-order = re-attributed by feedstock origin (where the partner's
+  //             upstream inputs came from). Only available when the
+  //             dataset has been augmented; toggle is hidden otherwise.
+  const [orderMode, setOrderMode] = useState("1st");
   const cardRef = useRef(null);
 
   const compositeMonthly = data?.monthly || [];
@@ -73,27 +78,35 @@ export default function DependencyBreakdown({
     ? (activeFacet.monthly[activeFacet.monthly.length - 1] || null)
     : compositeLatest;
 
+  // Show toggle if any monthly row carries 2nd-order data
+  const has2ndOrder = monthly.some((m) => m.imports2ndOrder);
+  const importsKey = orderMode === "2nd" && has2ndOrder ? "imports2ndOrder" : "imports";
+
   const latestRow = useMemo(() => {
     if (!latest) return null;
+    const imports = latest[importsKey] || latest.imports || {};
     return {
       domestic: latest.production || 0,
-      aligned: latest.imports?.aligned || 0,
-      neutral: latest.imports?.neutral || 0,
-      low: latest.imports?.low || 0,
-      unknown: latest.imports?.unknown || 0,
+      aligned: imports.aligned || 0,
+      neutral: imports.neutral || 0,
+      low: imports.low || 0,
+      unknown: imports.unknown || 0,
     };
-  }, [latest]);
+  }, [latest, importsKey]);
 
   const stackedSeries = useMemo(() => {
-    return monthly.map((m) => ({
-      month: m.month,
-      domestic: m.production || 0,
-      aligned: m.imports?.aligned || 0,
-      neutral: m.imports?.neutral || 0,
-      low: m.imports?.low || 0,
-      unknown: m.imports?.unknown || 0,
-    }));
-  }, [monthly]);
+    return monthly.map((m) => {
+      const imp = m[importsKey] || m.imports || {};
+      return {
+        month: m.month,
+        domestic: m.production || 0,
+        aligned: imp.aligned || 0,
+        neutral: imp.neutral || 0,
+        low: imp.low || 0,
+        unknown: imp.unknown || 0,
+      };
+    });
+  }, [monthly, importsKey]);
 
   // Reset facet selection when the card collapses.
   useEffect(() => {
@@ -170,6 +183,9 @@ export default function DependencyBreakdown({
           facets={facets}
           selectedFacetKey={selectedFacetKey}
           onSelectFacet={setSelectedFacetKey}
+          orderMode={orderMode}
+          setOrderMode={setOrderMode}
+          has2ndOrder={has2ndOrder}
           unit={unit}
           onClose={() => setExpanded(false)}
         />
@@ -232,7 +248,9 @@ function CollapsedCard({ title, row, latest, unit }) {
 
 function ExpandedCard({
   title, subtitle, latest, row, monthly, byPartner, facets,
-  selectedFacetKey, onSelectFacet, unit, onClose,
+  selectedFacetKey, onSelectFacet,
+  orderMode, setOrderMode, has2ndOrder,
+  unit, onClose,
 }) {
   return (
     <>
@@ -260,7 +278,10 @@ function ExpandedCard({
             </div>
           )}
         </div>
-        <div style={{ display: "flex", gap: 12, alignItems: "baseline" }}>
+        <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
+          {has2ndOrder && setOrderMode && (
+            <OrderModeToggle value={orderMode} onChange={setOrderMode} />
+          )}
           {selectedFacetKey && (
             <button
               onClick={(e) => { e.stopPropagation(); onSelectFacet(null); }}
@@ -815,6 +836,53 @@ function FeedstockCell({ partner }) {
       <span style={{ color: P.textLight, fontSize: 10 }}>
         ({fraction.toFixed(0)}% re-roll)
       </span>
+    </div>
+  );
+}
+
+/**
+ * Pill toggle for switching between 1st-order (HMRC COO) and 2nd-order
+ * (feedstock origin) attribution. Rendered in the ExpandedCard header
+ * when the dataset carries 2nd-order data.
+ */
+function OrderModeToggle({ value, onChange }) {
+  const opts = [
+    { key: "1st", label: "1st-order" },
+    { key: "2nd", label: "2nd-order" },
+  ];
+  return (
+    <div
+      onClick={(e) => e.stopPropagation()}
+      style={{
+        display: "inline-flex",
+        border: `1px solid ${P.border}`,
+        borderRadius: 14,
+        overflow: "hidden",
+        fontFamily: "'DM Mono', monospace",
+        fontSize: 10,
+        letterSpacing: "0.08em",
+        textTransform: "uppercase",
+      }}
+      title="1st-order: country of last substantial transformation (HMRC COO). 2nd-order: re-attributed by feedstock origin (where the partner's upstream inputs came from)."
+    >
+      {opts.map((o) => {
+        const active = o.key === value;
+        return (
+          <button
+            key={o.key}
+            onClick={(e) => { e.stopPropagation(); onChange(o.key); }}
+            style={{
+              padding: "4px 10px",
+              background: active ? P.text : "transparent",
+              color: active ? P.bgCard : P.textMuted,
+              border: "none",
+              cursor: "pointer",
+            }}
+          >
+            {o.label}
+          </button>
+        );
+      })}
     </div>
   );
 }
