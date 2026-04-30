@@ -777,15 +777,25 @@ function PartnerList({ partners, unit }) {
 }
 
 /**
- * Feedstock-origin cell. Shows the dominant upstream source (alignment-
- * coloured dot) and the re-rolling fraction. If no significant
- * re-rolling, shows an em-dash.
+ * Feedstock-origin cell. Three render states:
+ *   - data not checked         → em-dash
+ *   - checked, ≥5% re-rolling  → top upstream origin + colour-dot + fraction
+ *   - checked, <5% re-rolling  → "≈ direct" (genuine primary producer)
  */
 function FeedstockCell({ partner }) {
-  const tops = partner.feedstockTopOrigins || [];
+  const tops = partner.feedstockTopOrigins;
   const fraction = partner.reRollingFraction;
-  if (!tops.length || fraction == null || fraction < 5) {
+  // Coefficients haven't been computed for this partner (missing ISO map etc.)
+  if (tops == null || fraction == null) {
     return <div style={{ textAlign: "right", color: P.textLight }}>—</div>;
+  }
+  // Negligible re-rolling: partner is functionally a primary producer
+  if (fraction < 5 || tops.length === 0) {
+    return (
+      <div style={{ textAlign: "right", color: P.textLight, fontSize: 11 }} title="Negligible re-rolled feedstock; partner is a primary producer or near-direct supplier.">
+        ≈ direct
+      </div>
+    );
   }
   const top = tops[0];
   return (
