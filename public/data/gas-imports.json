@@ -1,0 +1,152 @@
+{
+  "$schema": "sob-dataset-v1",
+  "id": "gas-imports",
+  "pillar": "foundations",
+  "topic": "energy",
+  "generated": "2026-04-30",
+  "sources": [
+    {
+      "id": "hmrc-bulk-gas",
+      "name": "HMRC bulk imports — natural gas (HS 2711.11 + 2711.21)",
+      "url": "https://www.uktradeinfo.com/trade-data/latest-bulk-data-sets/",
+      "publisher": "HMRC",
+      "note": "Monthly Herfindahl-Hirschman Index of UK gas-import country concentration, computed from HMRC bulk Country-of-Origin records. £-value shares per partner-country across HS 2711.11 (LNG) + 2711.21 (pipeline gas). Higher = more concentrated supply."
+    }
+  ],
+  "snapshot": {
+    "hhi": 3897,
+    "hhiMonth": "2026-02",
+    "hhiUnit": "Herfindahl-Hirschman Index (×10000)",
+    "partners": 6
+  },
+  "series": {
+    "monthly": {
+      "sourceId": "hmrc-bulk-gas",
+      "timeField": "month",
+      "unit": "HHI (×10000)",
+      "description": "Monthly Herfindahl-Hirschman Index of UK gas-import country concentration, derived from HMRC bulk-COO import records for HS 2711.11 + 2711.21.",
+      "data": [
+        {
+          "month": "2024-03",
+          "hhi": 6535,
+          "partners": 5
+        },
+        {
+          "month": "2024-04",
+          "hhi": 7434,
+          "partners": 6
+        },
+        {
+          "month": "2024-05",
+          "hhi": 7053,
+          "partners": 6
+        },
+        {
+          "month": "2024-06",
+          "hhi": 8679,
+          "partners": 4
+        },
+        {
+          "month": "2024-07",
+          "hhi": 9379,
+          "partners": 2
+        },
+        {
+          "month": "2024-08",
+          "hhi": 8753,
+          "partners": 2
+        },
+        {
+          "month": "2024-09",
+          "hhi": 5929,
+          "partners": 4
+        },
+        {
+          "month": "2024-10",
+          "hhi": 7728,
+          "partners": 9
+        },
+        {
+          "month": "2024-11",
+          "hhi": 6171,
+          "partners": 7
+        },
+        {
+          "month": "2024-12",
+          "hhi": 4607,
+          "partners": 8
+        },
+        {
+          "month": "2025-01",
+          "hhi": 4896,
+          "partners": 9
+        },
+        {
+          "month": "2025-02",
+          "hhi": 4528,
+          "partners": 7
+        },
+        {
+          "month": "2025-03",
+          "hhi": 4208,
+          "partners": 9
+        },
+        {
+          "month": "2025-04",
+          "hhi": 5598,
+          "partners": 4
+        },
+        {
+          "month": "2025-05",
+          "hhi": 6786,
+          "partners": 4
+        },
+        {
+          "month": "2025-06",
+          "hhi": 7837,
+          "partners": 5
+        },
+        {
+          "month": "2025-07",
+          "hhi": 7431,
+          "partners": 4
+        },
+        {
+          "month": "2025-08",
+          "hhi": 9969,
+          "partners": 4
+        },
+        {
+          "month": "2025-09",
+          "hhi": 8836,
+          "partners": 3
+        },
+        {
+          "month": "2025-10",
+          "hhi": 5633,
+          "partners": 5
+        },
+        {
+          "month": "2025-11",
+          "hhi": 4868,
+          "partners": 8
+        },
+        {
+          "month": "2025-12",
+          "hhi": 5341,
+          "partners": 5
+        },
+        {
+          "month": "2026-01",
+          "hhi": 5019,
+          "partners": 5
+        },
+        {
+          "month": "2026-02",
+          "hhi": 3897,
+          "partners": 6
+        }
+      ]
+    }
+  }
+}

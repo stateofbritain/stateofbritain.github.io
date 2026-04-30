@@ -1,0 +1,25 @@
+{
+  "$schema": "sob-dataset-v1",
+  "id": "tech-incorporations",
+  "pillar": "growth",
+  "topic": "startups",
+  "generated": "2026-04-30",
+  "sources": [
+    {
+      "id": "ch-api",
+      "name": "Companies House Advanced Search API (frontier-tech SIC codes)",
+      "url": "https://developer.company-information.service.gov.uk/",
+      "publisher": "Companies House",
+      "note": "COMPANIES_HOUSE_API_KEY not set; placeholder written. Set the env var (or GitHub Secret) to populate."
+    }
+  ],
+  "series": {
+    "monthly": {
+      "sourceId": "ch-api",
+      "timeField": "month",
+      "unit": "incorporations / month",
+      "description": "COMPANIES_HOUSE_API_KEY not set; placeholder written. Set the env var (or GitHub Secret) to populate.",
+      "data": []
+    }
+  }
+}

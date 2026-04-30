@@ -61,7 +61,7 @@
 
   "heat-pumps-bus":         { "type": "last-weekday", "weekday": 4, "offsetDays": 1, "release": "DESNZ BUS last Thu 09:30 UK + 1d" },
   "energy":                 { "type": "last-weekday", "weekday": 4, "offsetDays": 1, "release": "DESNZ Energy Trends last Thu + 1d" },
-  "gas-imports":            { "type": "last-weekday", "weekday": 4, "offsetDays": 1, "release": "DESNZ Energy Trends 4.x last Thu + 1d" },
+  "gas-imports":            { "type": "fixed-dom", "dom": 18, "release": "HMRC bulk-COO HS 2711.11+21 — same window as gas-dependency" },
 
   "asylum-statistics":      { "type": "last-weekday", "weekday": 4, "offsetDays": 1, "months": [2,5,8,11], "release": "Home Office quarterly last Thu Feb/May/Aug/Nov + 1d" },
   "immigration":            { "type": "last-weekday", "weekday": 4, "offsetDays": 1, "months": [2,5,8,11], "release": "Home Office quarterly + 1d" },

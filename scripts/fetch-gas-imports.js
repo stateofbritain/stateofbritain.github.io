@@ -1,146 +1,70 @@
 /**
  * fetch-gas-imports.js
  *
- * UK gas import country concentration. Computed as the Herfindahl-Hirschman
- * Index (HHI) on monthly gas-import shares by source country.
+ * UK gas-import country concentration (Herfindahl-Hirschman Index).
+ * Computed monthly from HMRC bulk Country-of-Origin import records
+ * for HS 2711.11 (LNG) + 2711.21 (pipeline natural gas), the same
+ * slice used by gas-dependency.json. Higher HHI = more concentrated
+ * supply = greater single-supplier risk.
  *
- * HHI = sum(share^2) × 10000, where share is each country's % of total
- * gas imports. Range 0–10000. Higher = more concentrated = worse security.
+ * HHI = sum(share^2) × 10000, where share is each partner-country's
+ * share of total UK gas imports for the month. Range 0–10000.
  *
- * Strategy:
- *   1. Try DESNZ Energy Trends Section 4 (Gas) XLSX/ODS discovery.
- *   2. Parse the gas-trade-by-country table; compute monthly HHI.
- *   3. Fall back to hardcoded historical HHI series if discovery / parse fails.
+ * Previous implementation tried to scrape DESNZ Energy Trends Section
+ * 4 XLSX/ODS files; that source kept moving (URL renames, sheet-layout
+ * changes), so we now compute HHI directly from HMRC bulk data which
+ * is the authoritative customs source anyway.
  *
- * Source: DESNZ — Energy Trends Section 4: gas.
- * https://www.gov.uk/government/statistics/energy-trends-section-4-gas
+ * Source: HMRC bulk imports (bdsimp{YYMM}.zip; same archive as the
+ * dependency cards).
  *
  * Output: public/data/gas-imports.json (sob-dataset-v1)
  */
 import { writeFileSync } from "fs";
-import {
-  discoverGovUkAsset,
-  fetchBuffer,
-  readXlsx,
-  sheetToRows,
-} from "./lib/xlsx-fetch.js";
+import { fetchImportsByOrigin } from "./lib/hmrc-bulk-imports.js";
+import { lastNMonthIds } from "./lib/hmrc-trade-by-country.js";
 
-const COLLECTION = "https://www.gov.uk/government/statistics/energy-trends-section-4-gas";
+const HS6 = ["271111", "271121"];
+const WINDOW_MONTHS = 24;
 
-// No hardcoded fallback — only real upstream-computed HHI is admissible.
-// If live discovery / parse fails, the JSON is written empty and the tile
-// shows "no data" until the next successful run.
-const FALLBACK = [];
-
-const MONTH_TO_NUM = {
-  jan: "01", feb: "02", mar: "03", apr: "04", may: "05", jun: "06",
-  jul: "07", aug: "08", sep: "09", oct: "10", nov: "11", dec: "12",
-  january: "01", february: "02", march: "03", april: "04",
-  june: "06", july: "07", august: "08", september: "09",
-  october: "10", november: "11", december: "12",
-};
-
-function parseMonthHeader(s) {
-  if (typeof s !== "string") return null;
-  // "Jan 2024", "January 2024", "2024 Jan", "2024-01"
-  const a = s.trim().toLowerCase().match(/^([a-z]{3,9})\s+(\d{4})$/);
-  if (a && MONTH_TO_NUM[a[1]]) return `${a[2]}-${MONTH_TO_NUM[a[1]]}`;
-  const b = s.trim().toLowerCase().match(/^(\d{4})\s+([a-z]{3,9})$/);
-  if (b && MONTH_TO_NUM[b[2]]) return `${b[1]}-${MONTH_TO_NUM[b[2]]}`;
-  const c = s.trim().match(/^(\d{4})-(\d{2})$/);
-  if (c) return `${c[1]}-${c[2]}`;
-  return null;
-}
-
-function computeHHI(shares) {
-  // shares: array of decimal proportions summing to ~1
-  const total = shares.reduce((s, v) => s + v, 0);
+function computeHHI(values) {
+  const total = values.reduce((s, v) => s + v, 0);
   if (total <= 0) return null;
-  return Math.round(shares.reduce((s, v) => s + (v / total) * (v / total), 0) * 10000);
-}
-
-/**
- * Try to extract a monthly HHI series from a DESNZ Energy Trends XLSX.
- * Looks for a sheet with ET 4.x Gas-imports-by-country layout: countries
- * down rows, months across columns.
- */
-function extractHHIFromXlsx(buffer) {
-  const wb = readXlsx(buffer);
-  for (const sheetName of wb.SheetNames) {
-    if (!/4[._\s]?[34]/.test(sheetName)) continue; // ET 4.3 / 4.4 are the gas-trade tabs
-    const rows = sheetToRows(wb.Sheets[sheetName]);
-    if (!rows || rows.length < 5) continue;
-
-    // Find header row with month headers across.
-    let hdrIdx = -1;
-    for (let i = 0; i < Math.min(15, rows.length); i++) {
-      const monthCells = rows[i].filter((c) => parseMonthHeader(String(c ?? "")));
-      if (monthCells.length >= 4) { hdrIdx = i; break; }
-    }
-    if (hdrIdx < 0) continue;
-
-    const headerRow = rows[hdrIdx];
-    // Identify country rows: first cell is a non-empty string, value cells numeric.
-    const monthCols = [];
-    for (let c = 0; c < headerRow.length; c++) {
-      const period = parseMonthHeader(String(headerRow[c] ?? ""));
-      if (period) monthCols.push({ col: c, period });
-    }
-    if (monthCols.length < 4) continue;
-
-    // Sum imports by country per month (skip totals / subtotals).
-    const monthData = new Map(); // period -> [{country, value}]
-    for (let r = hdrIdx + 1; r < rows.length; r++) {
-      const label = String(rows[r][0] ?? "").trim();
-      if (!label) continue;
-      const lower = label.toLowerCase();
-      if (/total|subtotal|imports|exports|net|all/.test(lower)) continue;
-      // Restrict to country-like labels (capitalised, alpha)
-      if (!/^[A-Z]/.test(label)) continue;
-      for (const { col, period } of monthCols) {
-        const v = Number.parseFloat(rows[r][col]);
-        if (!Number.isFinite(v) || v <= 0) continue;
-        if (!monthData.has(period)) monthData.set(period, []);
-        monthData.get(period).push(v);
-      }
-    }
-
-    if (monthData.size === 0) continue;
-    const hhi = [];
-    for (const [period, values] of monthData) {
-      const h = computeHHI(values);
-      if (h != null) hhi.push({ month: period, hhi: h });
-    }
-    if (hhi.length >= 4) return hhi.sort((a, b) => a.month.localeCompare(b.month));
+  let sumSq = 0;
+  for (const v of values) {
+    const share = v / total;
+    sumSq += share * share;
   }
-  return null;
+  return Math.round(sumSq * 10000);
 }
 
 async function main() {
-  let series = null;
-  let liveSource = null;
-
-  try {
-    const url = await discoverGovUkAsset({
-      collectionUrl: COLLECTION,
-      filenamePattern: /\b(et|energy_trends?)[_.\s]*4[._\s]*[34]\.(xlsx|ods)$/i,
-    });
-    if (url) {
-      console.log(`DESNZ Energy Trends Gas XLSX/ODS discovered: ${url}`);
-      const buf = await fetchBuffer(url);
-      const extracted = extractHHIFromXlsx(buf);
-      if (extracted) { series = extracted; liveSource = url; }
-      else console.warn("Could not extract HHI from XLSX; using fallback");
-    } else {
-      console.warn("No matching ET 4.x file found on collection page; using fallback");
+  const monthIds = lastNMonthIds(WINDOW_MONTHS);
+  const series = [];
+  for (const id of monthIds) {
+    let rows;
+    try {
+      rows = await fetchImportsByOrigin({ hs2: "27", hs6In: HS6, monthId: id });
+    } catch (err) {
+      console.warn(`  ${id}: failed (${err.message})`);
+      continue;
     }
-  } catch (err) {
-    console.warn(`Discovery / parse failed (${err.message}); using fallback`);
+    if (!rows || rows.length === 0) {
+      console.warn(`  ${id}: no rows`);
+      continue;
+    }
+    // One row per partner; computeHHI uses £ value for stable comparability.
+    const month = rows[0].month;
+    const values = rows.map((r) => r.importGbp || 0).filter((v) => v > 0);
+    const hhi = computeHHI(values);
+    if (hhi != null) {
+      series.push({ month, hhi, partners: values.length });
+      console.log(`  ${month}: HHI ${hhi} across ${values.length} partners`);
+    }
   }
 
-  if (!series) series = FALLBACK.slice();
   series.sort((a, b) => a.month.localeCompare(b.month));
-  const latest = series[series.length - 1];
+  const latest = series[series.length - 1] || null;
 
   const output = {
     $schema: "sob-dataset-v1",
@@ -150,27 +74,26 @@ async function main() {
     generated: new Date().toISOString().slice(0, 10),
     sources: [
       {
-        id: "desnz-et4-gas",
-        name: "DESNZ Energy Trends Section 4 — Gas",
-        url: liveSource ?? COLLECTION,
-        publisher: "DESNZ",
-        note: liveSource
-          ? "Monthly Herfindahl-Hirschman Index of UK gas-import country concentration, computed from ET 4.x table."
-          : "Monthly HHI of gas-import country concentration (hardcoded historical fallback; live discovery did not succeed this run).",
+        id: "hmrc-bulk-gas",
+        name: "HMRC bulk imports — natural gas (HS 2711.11 + 2711.21)",
+        url: "https://www.uktradeinfo.com/trade-data/latest-bulk-data-sets/",
+        publisher: "HMRC",
+        note: "Monthly Herfindahl-Hirschman Index of UK gas-import country concentration, computed from HMRC bulk Country-of-Origin records. £-value shares per partner-country across HS 2711.11 (LNG) + 2711.21 (pipeline gas). Higher = more concentrated supply.",
       },
     ],
     snapshot: {
-      hhi: latest.hhi,
-      hhiMonth: latest.month,
+      hhi: latest?.hhi ?? null,
+      hhiMonth: latest?.month ?? null,
       hhiUnit: "Herfindahl-Hirschman Index (×10000)",
+      partners: latest?.partners ?? null,
     },
     series: {
       monthly: {
-        sourceId: "desnz-et4-gas",
+        sourceId: "hmrc-bulk-gas",
         timeField: "month",
         unit: "HHI (×10000)",
         description:
-          "Monthly Herfindahl-Hirschman Index of UK gas-import country concentration. Higher = more concentrated.",
+          "Monthly Herfindahl-Hirschman Index of UK gas-import country concentration, derived from HMRC bulk-COO import records for HS 2711.11 + 2711.21.",
         data: series,
       },
     },
@@ -181,7 +104,7 @@ async function main() {
     JSON.stringify(output, null, 2) + "\n"
   );
   console.log(
-    `✓ public/data/gas-imports.json (${series.length} months; latest HHI ${latest.hhi} for ${latest.month}, source=${liveSource ? "live" : "fallback"})`
+    `\n✓ public/data/gas-imports.json (${series.length} months; latest HHI ${latest?.hhi ?? "—"} for ${latest?.month ?? "—"})`
   );
 }
 

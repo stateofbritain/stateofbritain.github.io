@@ -1,0 +1,147 @@
+{
+  "$schema": "sob-dataset-v1",
+  "id": "co2-intensity",
+  "pillar": "foundations",
+  "topic": "energy",
+  "generated": "2026-04-30",
+  "sources": [
+    {
+      "id": "neso-carbon-intensity",
+      "name": "NESO Carbon Intensity API",
+      "url": "https://api.carbonintensity.org.uk/",
+      "publisher": "NESO",
+      "note": "Half-hourly grams of CO2 per kWh of electricity generated in GB. Sampled on the 15th of each month and averaged."
+    }
+  ],
+  "snapshot": {
+    "intensity": 76,
+    "intensityPeriod": "2026-04",
+    "intensityUnit": "gCO2/kWh"
+  },
+  "series": {
+    "monthly": {
+      "sourceId": "neso-carbon-intensity",
+      "timeField": "period",
+      "unit": "gCO2/kWh",
+      "description": "Monthly average carbon intensity of GB electricity generation. Sampled on the 15th of each month from NESO's half-hourly intensity feed.",
+      "data": [
+        {
+          "period": "2024-05",
+          "intensity": 165
+        },
+        {
+          "period": "2024-06",
+          "intensity": 116
+        },
+        {
+          "period": "2024-07",
+          "intensity": 165
+        },
+        {
+          "period": "2024-08",
+          "intensity": 63
+        },
+        {
+          "period": "2024-09",
+          "intensity": 97
+        },
+        {
+          "period": "2024-10",
+          "intensity": 127
+        },
+        {
+          "period": "2024-11",
+          "intensity": 174
+        },
+        {
+          "period": "2024-12",
+          "intensity": 61
+        },
+        {
+          "period": "2025-01",
+          "intensity": 223
+        },
+        {
+          "period": "2025-02",
+          "intensity": 205
+        },
+        {
+          "period": "2025-03",
+          "intensity": 173
+        },
+        {
+          "period": "2025-04",
+          "intensity": 165
+        },
+        {
+          "period": "2025-05",
+          "intensity": 102
+        },
+        {
+          "period": "2025-06",
+          "intensity": 89
+        },
+        {
+          "period": "2025-07",
+          "intensity": 78
+        },
+        {
+          "period": "2025-08",
+          "intensity": 147
+        },
+        {
+          "period": "2025-09",
+          "intensity": 54
+        },
+        {
+          "period": "2025-10",
+          "intensity": 243
+        },
+        {
+          "period": "2025-11",
+          "intensity": 102
+        },
+        {
+          "period": "2025-12",
+          "intensity": 140
+        },
+        {
+          "period": "2026-01",
+          "intensity": 160
+        },
+        {
+          "period": "2026-02",
+          "intensity": 108
+        },
+        {
+          "period": "2026-03",
+          "intensity": 66
+        },
+        {
+          "period": "2026-04",
+          "intensity": 76
+        }
+      ]
+    },
+    "annual": {
+      "sourceId": "neso-carbon-intensity",
+      "timeField": "year",
+      "unit": "gCO2/kWh",
+      "description": "Annual average carbon intensity, derived from the monthly sample.",
+      "data": [
+        {
+          "year": 2024,
+          "intensity": 121
+        },
+        {
+          "year": 2025,
+          "intensity": 143
+        },
+        {
+          "year": 2026,
+          "intensity": 103
+        }
+      ]
+    }
+  }
+}
