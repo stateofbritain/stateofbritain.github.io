@@ -789,10 +789,15 @@ function FeedstockCell({ partner }) {
   if (tops == null || fraction == null) {
     return <div style={{ textAlign: "right", color: P.textLight }}>—</div>;
   }
-  // Negligible re-rolling: partner is functionally a primary producer
+  // Negligible re-rolling: partner is a primary producer at the
+  // semi-finished level. Note: this doesn't speak to deeper raw-material
+  // origin (iron ore, coking coal, bauxite, etc.) which sits one layer
+  // beneath what trade-stat re-rolling can show.
   if (fraction < 5 || tops.length === 0) {
     return (
-      <div style={{ textAlign: "right", color: P.textLight, fontSize: 11 }} title="Negligible re-rolled feedstock; partner is a primary producer or near-direct supplier.">
+      <div style={{ textAlign: "right", color: P.textLight, fontSize: 11 }}
+           title="Partner doesn't re-roll significant semi-finished imports. Note: this doesn't speak to deeper raw-material origin (e.g. iron ore for steel)."
+      >
         ≈ direct
       </div>
     );
