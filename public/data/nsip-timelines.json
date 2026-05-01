@@ -14,8 +14,8 @@
     }
   ],
   "snapshot": {
-    "totalTimelines": 13,
-    "researchedByAgent": 12,
+    "totalTimelines": 18,
+    "researchedByAgent": 17,
     "researchedManually": 1
   },
   "series": {
@@ -312,6 +312,106 @@
             { "date": "2025-06", "phase": "fid", "title": "Confirmed in Spending Review and RIS3", "description": "After a Labour-government review, confirmed within the June 2025 Spending Review and the £27bn RIS3.", "source": "https://www.gov.uk/government/news/major-renewal-of-ageing-english-roads-delivered-with-27-billion-investment", "expected": false },
             { "date": "2026", "phase": "build", "title": "Main construction expected to start", "description": "DfT and National Highways have confirmed main dualling works scheduled to begin in 2026.", "source": "https://www.itv.com/news/border/2026-03-26/dualling-of-a66-between-penrith-m6-and-scotch-corner-set-to-begin-this-year", "expected": true },
             { "date": "2029", "phase": "operational", "title": "Target full opening", "description": "Project Speed accelerated programme targets full opening of the dualled 80 km route in 2029.", "source": "https://nationalhighways.co.uk/our-roads/a66-northern-trans-pennine/", "expected": true }
+          ]
+        },
+        "TR010055": {
+          "ref": "TR010055",
+          "name": "M3 Junction 9 Improvement",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-01",
+          "summary": "National Highways scheme to remodel the M3/A34 interchange at Winnall, Winchester, with free-flow slip roads, underpasses, and widening of the M3 to four lanes. After three rounds of consultation (2018, 2019, 2021), the DCO was granted on 16 May 2024 and main construction is underway under a £290m budget for completion by late 2027.",
+          "milestones": [
+            { "date": "2018-01", "phase": "consultation", "title": "First non-statutory consultation", "description": "Highways England unveiled the M3 Junction 9 plans on 9 January 2018, with public consultation running until 19 February.", "source": "https://www.gov.uk/government/news/major-overhaul-for-m3-winchester-junction", "expected": false },
+            { "date": "2019-07", "phase": "consultation", "title": "Statutory consultation", "description": "An eight-week statutory consultation under the Planning Act 2008 ran from 2 July to 27 August 2019.", "source": "https://nationalhighways.citizenspace.com/he/m3-junction-9-improvements-statutory-consultation/results/m3junction9_stage3a_summaryconsultationreport.pdf", "expected": false },
+            { "date": "2021-05", "phase": "consultation", "title": "Supplementary preliminary design consultation", "description": "Six-week supplementary consultation (May-July 2021) on revisions to the preliminary design.", "source": "https://nationalhighways.citizenspace.com/he/m3-junction-9-supplementary/", "expected": false },
+            { "date": "2022-12", "phase": "application", "title": "VolkerFitzpatrick selected as principal contractor", "description": "National Highways announced VolkerFitzpatrick as principal contractor in December 2022, ahead of DCO submission.", "source": "https://www.constructionenquirer.com/2022/12/15/volkerfitzpatrick-wins-130m-m3-junction-9-upgrades/", "expected": false },
+            { "date": "2023-02", "phase": "examination", "title": "DCO accepted and examination begins", "description": "PINS accepted the application; examination of relevant representations ran from 1 February to 13 March 2023.", "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/TR010055-000829-M3%20Junction%209%20Improvement%20Relevant%20Reps%20Library%20FINAL.pdf", "expected": false },
+            { "date": "2024-05-16", "phase": "consent", "title": "Development Consent Order granted", "description": "SoS for Transport granted the DCO on 16 May 2024 (S.I. 2024 No. 752).", "source": "https://www.legislation.gov.uk/uksi/2024/752/made", "expected": false },
+            { "date": "2024-10-11", "phase": "build", "title": "Early enabling works begin", "description": "VolkerFitzpatrick started enabling works on 11 October 2024.", "source": "https://www.geplus.co.uk/news/early-works-start-on-m3-junction-9-improvement-scheme-21-10-2024/", "expected": false },
+            { "date": "2025-03-13", "phase": "fid", "title": "£290m funding confirmed by ministers", "description": "Scheme reaffirmed on 13 March 2025 with £290m of government funding, supporting over 2,000 planned homes in Winchester.", "source": "https://www.gov.uk/government/news/greenlight-for-290-million-improvements-to-m3-to-support-over-2000-homes-in-winchester", "expected": false },
+            { "date": "2026-02", "phase": "build", "title": "New bridge beams installed", "description": "Construction milestone reached in February 2026 under the VolkerFitzpatrick / Balfour Beatty JV.", "source": "https://nationalhighways.co.uk/our-roads/south-east/m3-junction-9-improvements/", "expected": false },
+            { "date": "2027", "phase": "operational", "title": "Scheme completion expected", "description": "All works expected to be completed by late 2027.", "source": "https://nationalhighways.co.uk/our-roads/south-east/m3-junction-9-improvements/", "expected": true }
+          ]
+        },
+        "TR010031": {
+          "ref": "TR010031",
+          "name": "A1 Birtley to Coal House Improvement Scheme",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-01",
+          "summary": "A 6.5km widening of the A1 south of Gateshead between junctions 65 (Birtley) and 67 (Coal House), including offline replacement of Allerdene Railway Bridge over the East Coast Main Line. Granted Development Consent in January 2021 as the Planning Inspectorate's 100th NSIP decision; construction commenced in 2021 and most lanes opened by December 2024, but defective welds identified by steel manufacturer Severfield in August 2024 have delayed final completion.",
+          "milestones": [
+            { "date": "2016", "phase": "consultation", "title": "Initial options consultation", "description": "Highways England held an options consultation on widening proposals between August and October 2016.", "source": "https://nationalhighways.co.uk/our-roads/yorkshire-and-north-east/a1-birtley-to-coal-house/", "expected": false },
+            { "date": "2018", "phase": "consultation", "title": "Statutory consultation on preferred scheme", "description": "Detailed statutory consultation between February and March 2018 ahead of DCO submission.", "source": "https://nationalhighways.citizenspace.com/he/a1-birtley-to-coal-house-improvements/", "expected": false },
+            { "date": "2019-08", "phase": "application", "title": "DCO application submitted", "description": "Highways England submitted its DCO on 14 August 2019; accepted for examination 10 September 2019.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR010031", "expected": false },
+            { "date": "2020", "phase": "examination", "title": "Examination concludes", "description": "ExA recommendation report submitted on 21 October 2020. Antony Gormley contributed views on protecting the adjacent Angel of the North.", "source": "https://www.gov.uk/government/news/a1-birtley-to-coal-house-improvement-scheme-granted-development-consent", "expected": false },
+            { "date": "2021-01", "phase": "consent", "title": "Development Consent granted (PINS' 100th NSIP)", "description": "SoS for Transport granted the DCO on 19 January 2021 — PINS' 100th NSIP decision, with additional requirements around the Angel of the North.", "source": "https://www.gov.uk/government/news/a1-birtley-to-coal-house-improvement-scheme-granted-development-consent", "expected": false },
+            { "date": "2021", "phase": "build", "title": "Construction commenced", "description": "Main works started July-September 2021; project value ~£250m.", "source": "https://www.constructionenquirer.com/2021/01/20/250m-a1-birtley-to-coal-house-upgrade-approved/", "expected": false },
+            { "date": "2023-09", "phase": "build", "title": "New Allerdene Bridge opened to traffic", "description": "Replacement Allerdene Railway Bridge over the ECML opened in September 2023.", "source": "https://nationalhighways.co.uk/our-roads/yorkshire-and-north-east/a1-birtley-to-coal-house/", "expected": false },
+            { "date": "2024-08", "phase": "build", "title": "Severfield weld defects disclosed", "description": "Steel manufacturer Severfield disclosed welding quality defects affecting Allerdene Bridge among 13 structures; lane restrictions remained in force.", "source": "https://www.highwaysmagazine.co.uk/Defect-delays-reopening-of-A1-Gateshead-bridge-by-months/14788", "expected": false },
+            { "date": "2024-12", "phase": "operational", "title": "Majority of new lanes opened", "description": "Most widened carriageway open by December 2024; lane restrictions remained on the Allerdene Bridge section pending weld remediation.", "source": "https://nationalhighways.co.uk/our-roads/yorkshire-and-north-east/a1-birtley-to-coal-house/", "expected": false },
+            { "date": "2026", "phase": "operational", "title": "Full scheme completion (expected)", "description": "Final completion contingent on Allerdene Bridge weld remediation.", "source": "https://nationalhighways.co.uk/our-roads/yorkshire-and-north-east/a1-birtley-to-coal-house/", "expected": true }
+          ]
+        },
+        "TR010029": {
+          "ref": "TR010029",
+          "name": "M25 junction 28 improvements",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-01",
+          "summary": "Upgrade of the M25/A12 Brook Street Interchange near Brentwood, adding a dedicated two-lane free-flow loop road from the M25 anti-clockwise to the A12 eastbound. The original Brook Street Roundabout opened 1965, was widened in 2008. National Highways obtained development consent in May 2022 after consultations from 2016-2019, awarded a £124M contract to GRAHAM, and opened the new loop road in summer 2025 as part of the £170M scheme.",
+          "milestones": [
+            { "date": "1965", "phase": "operational", "title": "Brook Street roundabout opens", "description": "Original Brook Street Roundabout opens November 1965 alongside the A12 Brentwood bypass; later becomes M25 J28.", "source": "https://www.roads.org.uk/motorway/m25/340", "expected": false },
+            { "date": "2008", "phase": "operational", "title": "Earlier slip-road widening completed", "description": "Highways Agency widened the exit slip-roads at junction 28; underlying capacity issue persisted.", "source": "https://assets.publishing.service.gov.uk/media/5a7eb078ed915d74e6225db7/POPE___M25_J28_Brook_Street_Five_Year_After_Study___Final.pdf", "expected": false },
+            { "date": "2016-11", "phase": "consultation", "title": "First non-statutory consultation", "description": "Highways England ran initial consultation Nov 2016 - Jan 2017, receiving 228 responses.", "source": "https://nationalhighways.citizenspace.com/he/m25-junction-28/", "expected": false },
+            { "date": "2017-08", "phase": "proposal", "title": "Preferred route announcement (Option 5F)", "description": "Two-lane loop road from M25 anti-clockwise to A12 eastbound announced as preferred.", "source": "https://www.gov.uk/government/news/m25-junction-28-upgrade-backed", "expected": false },
+            { "date": "2018-12", "phase": "consultation", "title": "Statutory consultation", "description": "Eight-week statutory consultation Dec 2018 - Jan 2019.", "source": "https://nationalhighways.citizenspace.com/he/m25-junction-28-statutory-consultation/", "expected": false },
+            { "date": "2020-06", "phase": "application", "title": "DCO accepted for examination", "description": "Application submitted 27 May 2020; PINS accepted on 24 June 2020 as the 112th NSIP.", "source": "https://www.gov.uk/government/news/m25-junction-28-improvements-development-consent-decision", "expected": false },
+            { "date": "2021-09", "phase": "examination", "title": "ExA recommendation submitted", "description": "ExA recommendation submitted to SoS on 16 September 2021.", "source": "https://www.gov.uk/government/news/m25-junction-28-improvements-development-consent-decision", "expected": false },
+            { "date": "2022-05-16", "phase": "consent", "title": "Development Consent Order granted", "description": "SoS for Transport granted the DCO on 16 May 2022.", "source": "https://www.legislation.gov.uk/uksi/2022/573/contents/made", "expected": false },
+            { "date": "2022-09", "phase": "build", "title": "GRAHAM begins construction", "description": "GRAHAM began enabling and main construction works under a £124M design-and-build contract.", "source": "https://www.graham.co.uk/about-us/news/graham-signs-124m-contract-with-highways-england-to-transform-m25-junction-28", "expected": false },
+            { "date": "2025-09", "phase": "operational", "title": "Loop road and full scheme open", "description": "New free-flow loop road from M25 anti-clockwise to A12 eastbound opened; £170M scheme reached full completion late summer 2025.", "source": "https://www.uknip.co.uk/news/uk/uk-news/new-loop-road-opens-at-m25-junction-28-say-goodbye-to-traffic-jams/", "expected": false }
+          ]
+        },
+        "TR010022": {
+          "ref": "TR010022",
+          "name": "A38 Derby Junctions",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-01",
+          "summary": "Grade-separated upgrades to three Derby A38 roundabouts (Kingsway, Markeaton, Little Eaton), originating in the 2014 Road Investment Strategy. The scheme's January 2021 DCO was quashed in the High Court two months later for an unlawful climate assessment, redetermined and re-granted in August 2023, then survived a second JR in August 2024. With legal challenges resolved, National Highways launched market engagement in February 2026 for a £600M, 10-year delivery contract running 2028-2038.",
+          "milestones": [
+            { "date": "2014", "phase": "proposal", "title": "Included in Road Investment Strategy 1", "description": "Committed to in the December 2014 RIS1 alongside short-term improvements at Little Eaton and Markeaton.", "source": "https://assets.publishing.service.gov.uk/media/5a7e0d89e5274a2e87daf3d2/dft-ris-road-investment-strategy.pdf", "expected": false },
+            { "date": "2015", "phase": "consultation", "title": "Non-statutory consultation", "description": "Highways England ran a non-statutory consultation Jan-March 2015.", "source": "https://nationalhighways.co.uk/our-roads/east-midlands/a38-derby-junctions/", "expected": false },
+            { "date": "2018-01", "phase": "proposal", "title": "Preferred route announced", "description": "Underpasses at Kingsway and Markeaton; flyover at Little Eaton.", "source": "https://nationalhighways.co.uk/our-roads/east-midlands/a38-derby-junctions/", "expected": false },
+            { "date": "2018-09", "phase": "consultation", "title": "Statutory consultation", "description": "Statutory consultation September-October 2018.", "source": "https://nationalhighways.citizenspace.com/he/a38-derby-junctions-statutory-consultation/", "expected": false },
+            { "date": "2019-05", "phase": "application", "title": "DCO accepted for examination", "description": "PINS accepted the DCO on 21 May 2019.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR010022", "expected": false },
+            { "date": "2019-10", "phase": "examination", "title": "Examination begins", "description": "Examination opened 8 October 2019, concluded 8 January 2020.", "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/TR010022-001426-TR010022_A38%20Derby%20Junctions_Recommendation%20Report__FINAL%20and%20appendices.pdf", "expected": false },
+            { "date": "2021-01", "phase": "consent", "title": "Original DCO granted", "description": "Grant Shapps granted the DCO on 8 January 2021, authorising the £250M scheme.", "source": "https://www.newcivilengineer.com/latest/highways-england-undeterred-by-high-court-a38-carbon-challenge-decision-22-07-2021/", "expected": false },
+            { "date": "2021-03-18", "phase": "jr", "title": "DCO quashed by High Court", "description": "Mia Bains and Stop the A38 Expansion JR succeeded; SoS conceded the climate assessment was unlawful.", "source": "https://www.ftbchambers.co.uk/news/news-view/a38-derby-junctions-dco-quashed", "expected": false },
+            { "date": "2023-08-17", "phase": "consent", "title": "DCO re-granted after redetermination", "description": "Mark Harper re-granted the DCO on 17 August 2023 after addressing the carbon assessment deficiencies.", "source": "https://www.legislation.gov.uk/uksi/2023/923/schedule/2/paragraph/18/made", "expected": false },
+            { "date": "2024-08-27", "phase": "jr", "title": "Second judicial review dismissed", "description": "Mr Justice Mould dismissed the second JR which argued the scheme was approved without an up-to-date economic assessment.", "source": "https://www.newcivilengineer.com/latest/250m-a38-derby-junctions-scheme-to-move-ahead-after-winning-legal-battle-11-03-2025/", "expected": false },
+            { "date": "2025-03", "phase": "revived", "title": "Site surveys commence", "description": "With legal challenges resolved, National Highways began wildlife and environmental site surveys.", "source": "https://www.geplus.co.uk/news/a38-derby-junctions-scheme-to-proceed-after-overcoming-legal-obstacles-13-03-2025/", "expected": false },
+            { "date": "2026-02", "phase": "revived", "title": "Market engagement for £600M delivery contract", "description": "National Highways issued a preliminary market engagement notice on 20 February 2026 for a £600M, 10-year design-and-build contract.", "source": "https://www.newcivilengineer.com/latest/national-highways-engages-on-600m-10-year-contract-for-a38-derby-junctions-scheme-20-02-2026/", "expected": false },
+            { "date": "2028-01", "phase": "build", "title": "Construction contract starts", "description": "The 10-year design-and-build contract is scheduled to run from 31 January 2028 to 30 January 2038.", "source": "https://www.highwaysmagazine.co.uk/companies-and-contracts/engagement-kicks-600m-national-highways-upgrade-scheme", "expected": true }
+          ]
+        },
+        "TR010030": {
+          "ref": "TR010030",
+          "name": "M25 junction 10/A3 Wisley interchange improvement",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-01",
+          "summary": "Three-level Wisley Interchange opened in 1983 and became one of the busiest sections of the M25 with around 300,000 vehicles a day. National Highways consulted on options from 2016, secured DCO consent in May 2022, and began construction later that year; the rebuilt junction reopened to traffic in January 2026 with the wider scheme due to complete in spring 2026.",
+          "milestones": [
+            { "date": "1983", "phase": "operational", "title": "Wisley Interchange opens", "description": "Three-level stacked roundabout linking the M25 and A3 opens to traffic, predating completion of the M25 itself in October 1986.", "source": "https://en.wikipedia.org/wiki/M25_motorway", "expected": false },
+            { "date": "2014", "phase": "proposal", "title": "Identified for upgrade in RIS1", "description": "RIS1 lists M25 Junction 10/A3 Wisley as a priority scheme citing chronic congestion and a poor safety record.", "source": "https://nationalhighways.co.uk/our-roads/south-east/m25-junction-10/", "expected": false },
+            { "date": "2017-02", "phase": "consultation", "title": "First public consultation on options", "description": "Highways England consulted Dec 2016 - Feb 2017 on flyover (Option 9) vs enlarged roundabout (Option 14).", "source": "https://nationalhighways.citizenspace.com/he/m25-junction-10-a3-wisley-interchange-improvement/", "expected": false },
+            { "date": "2017-11-29", "phase": "consultation", "title": "Preferred route announced", "description": "Option 14 — an elongated roundabout with new slip roads and widened A3 — confirmed as the preferred scheme.", "source": "https://nationalhighways.citizenspace.com/he/m25-junction-10-a3-wisley-interchange-improvement/results/pra-leaflet.pdf", "expected": false },
+            { "date": "2019-06-19", "phase": "application", "title": "DCO application submitted", "description": "Highways England submitted the DCO; accepted for examination 17 July 2019.", "source": "https://www.gov.uk/government/news/highways-englands-m25-junction-10a3-wisley-interchange-improvement-application-accepted-for-examination", "expected": false },
+            { "date": "2019-11-12", "phase": "examination", "title": "Examination opens", "description": "Six-month examination begins; RHS Wisley, Wisley Action Group and Ockham Parish Council submit a joint statement of case opposing the scheme. Extended due to COVID, closing in July 2020.", "source": "https://www.gov.uk/government/speeches/transport-update-m25-junction-10-and-a3-wisley-interchange-improvement", "expected": false },
+            { "date": "2021-01", "phase": "examination", "title": "Decision deadline extended", "description": "SoS extended the decision deadline several times through 2021, citing impacts on Thames Basin Heaths SPA and RHS Garden Wisley.", "source": "https://www.gov.uk/government/speeches/transport-update-m25-junction-10-and-a3-wisley-interchange-decision-extension", "expected": false },
+            { "date": "2022-05-12", "phase": "consent", "title": "Development Consent Order granted", "description": "Grant Shapps granted the DCO, including the UK's first heathland green bridge.", "source": "https://www.legislation.gov.uk/uksi/2022/549/contents", "expected": false },
+            { "date": "2022-11", "phase": "build", "title": "Construction begins", "description": "Balfour Beatty started main works on the £300m+ scheme; budget later rose to around £370m.", "source": "https://www.balfourbeatty.com/what-we-do/projects/m25-junction-10-a3-wisley-interchange-improvement-scheme/", "expected": false },
+            { "date": "2024-03", "phase": "build", "title": "First full M25 closure since 1986", "description": "National Highways closed a section of the M25 for the first time since the motorway opened to install bridge structures at Junction 10.", "source": "https://nationalhighways.co.uk/our-roads/south-east/m25-junction-10/", "expected": false },
+            { "date": "2026-01-10", "phase": "operational", "title": "Rebuilt junction fully reopens", "description": "All movements at the rebuilt Wisley Interchange open to traffic, three years after construction started.", "source": "https://www.getsurrey.co.uk/news/surrey-news/full-details-work-still-surrey-33170394", "expected": false },
+            { "date": "2026", "phase": "operational", "title": "Wider scheme completion", "description": "Landscaping, heathland restoration and the heathland green bridge expected to complete in spring 2026.", "source": "https://nationalhighways.co.uk/our-roads/m25-junction-10-project-profile/", "expected": true }
           ]
         },
         "EN010001": {
