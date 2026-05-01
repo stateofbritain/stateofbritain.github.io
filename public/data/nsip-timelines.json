@@ -14,8 +14,8 @@
     }
   ],
   "snapshot": {
-    "totalTimelines": 33,
-    "researchedByAgent": 32,
+    "totalTimelines": 47,
+    "researchedByAgent": 46,
     "researchedManually": 1
   },
   "series": {
@@ -713,6 +713,227 @@
             { "date": "2025-07-15", "phase": "build", "title": "Skanska awarded £153m contract", "description": "Enabling and advance works began on site.", "source": "https://www.newcivilengineer.com/latest/skanska-wins-153m-contract-for-a47-thickthorn-junctions-scheme-15-07-2025/", "expected": false },
             { "date": "2026", "phase": "build", "title": "Main construction begins", "description": "Main construction of the two underpasses scheduled to start in Q3 of FY 2025-26.", "source": "https://www.newcivilengineer.com/latest/real-buzz-in-the-sector-roads-minister-discusses-ris3-as-a47-thickthorn-junction-progresses-11-03-2026/", "expected": true },
             { "date": "2028", "phase": "operational", "title": "Scheme open to traffic (expected)", "description": "Programmed to open to traffic in early FY 2028-29.", "source": "https://nationalhighways.co.uk/our-roads/east/a47-thickthorn-junction-near-norwich/", "expected": true }
+          ]
+        },
+        "TR010006": {
+          "ref": "TR010006",
+          "name": "M20 Junction 10A",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-01",
+          "summary": "New motorway junction east of M20 J10 at Ashford, Kent, providing relief to the A2070 and supporting major south Ashford housing growth. Originally consulted on in 2008 and postponed in 2012, revived under the DCO regime with consent granted December 2017. Construction by Highways England began in 2018 and the junction opened to traffic on 31 October 2019.",
+          "milestones": [
+            { "date": "2008", "phase": "consultation", "title": "Initial public consultation", "description": "Highways Agency consulted on a new M20 J10a and link to the A2070.", "source": "https://www.kentonline.co.uk/ashford/news/new-motorway-junction-opens-215258/", "expected": false },
+            { "date": "2009-01", "phase": "proposal", "title": "Government approval in principle", "description": "Initial government approval as part of the Highways Agency's programme for Ashford.", "source": "https://www.kentonline.co.uk/ashford/news/new-motorway-junction-opens-215258/", "expected": false },
+            { "date": "2012-05", "phase": "dormant", "title": "Scheme postponed", "description": "Postponed amid the post-recession spending review of the strategic road programme.", "source": "https://en.wikipedia.org/wiki/M20_motorway", "expected": false },
+            { "date": "2016-01", "phase": "consultation", "title": "Statutory consultation under PA2008", "description": "Highways England launched statutory consultation as the project entered the NSIP regime.", "source": "https://assets.publishing.service.gov.uk/media/5a8168d6e5274a2e87dbd796/S150425_M20_J10a_Consultation_Brochure_and_Community_Questionnaire-_A4_1....pdf", "expected": false },
+            { "date": "2016", "phase": "application", "title": "DCO application submitted and accepted", "description": "Submitted to PINS as TR010006 and accepted for examination summer 2016.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR010006", "expected": false },
+            { "date": "2017-12-01", "phase": "consent", "title": "Development Consent Order granted", "description": "SoS made the M20 J10a DCO 2017 (SI 2017/1202).", "source": "https://www.legislation.gov.uk/uksi/2017/1202", "expected": false },
+            { "date": "2018-03", "phase": "build", "title": "Notice to proceed; construction start", "description": "Notice to proceed issued; Balfour Beatty appointed as principal contractor.", "source": "https://www.southeastlep.com/app/uploads/2018/09/Highways-England-Presentation-to-SELEP-14.09.18.pdf", "expected": false },
+            { "date": "2019-10-31", "phase": "operational", "title": "New junction opened to traffic", "description": "£104m junction opened ahead of the original 2020 schedule.", "source": "https://www.kentonline.co.uk/ashford/news/new-motorway-junction-opens-215258/", "expected": false }
+          ]
+        },
+        "TR010007": {
+          "ref": "TR010007",
+          "name": "A160 - A180 Port of Immingham Improvement",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-01",
+          "summary": "Highways Agency NSIP to upgrade the A160 single carriageway between the A180 Brocklesby Interchange and the Port of Immingham (the UK's largest port by tonnage) to dual carriageway. Consulted from 2009, granted development consent in February 2015, and opened to traffic in March 2017 at a cost of around £88.4 million.",
+          "milestones": [
+            { "date": "2009", "phase": "consultation", "title": "Public consultation on route options", "description": "Highways Agency held public consultation in summer 2009 on options for upgrading the A160 corridor.", "source": "https://assets.publishing.service.gov.uk/media/5a7c5a1240f0b660183b6c99/consultation-leaflet.pdf", "expected": false },
+            { "date": "2010-03", "phase": "proposal", "title": "Preferred route announced", "description": "Highways Agency announced its preferred route for dualling the A160.", "source": "https://www.gov.uk/government/consultations/a160-and-a180-improvement-at-the-port-of-immingham", "expected": false },
+            { "date": "2014-01-08", "phase": "application", "title": "DCO application submitted", "description": "Highways Agency submitted the DCO; accepted for examination on 27 January 2014.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR010007", "expected": false },
+            { "date": "2015-02-04", "phase": "consent", "title": "Development Consent Order granted", "description": "SoS made the A160/A180 (Port of Immingham Improvement) DCO 2015.", "source": "https://www.legislation.gov.uk/uksi/2015/129/made", "expected": false },
+            { "date": "2015-03", "phase": "build", "title": "Construction starts", "description": "Ground-breaking ceremony marked the start of works; ~£88.4m budget.", "source": "https://www.gov.uk/government/news/boost-to-lincolnshire-economy-as-ceremony-marks-beginning-of-a160-a180-major-improvement-scheme", "expected": false },
+            { "date": "2017-03", "phase": "operational", "title": "Scheme opened to traffic", "description": "Upgraded dual carriageway between Brocklesby Interchange and the Port of Immingham opened.", "source": "https://nationalhighways.co.uk/media/undnnkzs/a160-port-of-immingham-one-year-post-opening-project-evaluation.pdf", "expected": false }
+          ]
+        },
+        "TR010011": {
+          "ref": "TR010011",
+          "name": "Woodside Link Houghton Regis Bedfordshire",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-01",
+          "summary": "A 2.9 km single-carriageway link built by Central Bedfordshire Council connecting the Woodside Industrial Estate in Houghton Regis to junction 11a of the M1. DCO granted on 30 September 2014, construction began in 2015, and the road opened to traffic on 13 April 2017 at a cost of around £40 million.",
+          "milestones": [
+            { "date": "2011", "phase": "consultation", "title": "Preferred corridor consultation", "description": "Central Bedfordshire Council consulted on the preferred corridor for the new road, then known as the Woodside Connection.", "source": "https://www.centralbedfordshire.gov.uk/migrated_images/consultation-leaflet_tcm3-12122.pdf", "expected": false },
+            { "date": "2012-11", "phase": "proposal", "title": "Scoping opinion and public exhibitions", "description": "PINS issued its scoping opinion on the Proposed Woodside Connection.", "source": "https://www.centralbedfordshire.gov.uk/migrated_images/scoping-opinion_tcm3-12126.pdf", "expected": false },
+            { "date": "2013-05-14", "phase": "application", "title": "DCO application submitted", "description": "Central Bedfordshire Council submitted the DCO; accepted on 11 June 2013.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR010011", "expected": false },
+            { "date": "2014-09-30", "phase": "consent", "title": "Development Consent Order granted", "description": "SoS for Transport granted the Central Bedfordshire Council Woodside Link DCO 2014.", "source": "https://www.legislation.gov.uk/uksi/2014/2637/schedule/3/made", "expected": false },
+            { "date": "2015", "phase": "build", "title": "Construction starts", "description": "Main works began alongside the parallel A5-M1 Link scheme.", "source": "https://www.gov.uk/government/news/a5-m1-and-woodside-links-provide-2bn-boost-for-businesses-in-bedfordshire", "expected": false },
+            { "date": "2017-04-13", "phase": "operational", "title": "Road opens to traffic", "description": "Opened ahead of schedule and on budget at around £40m, with over £30m from SEMLEP and developer contributions.", "source": "https://www.centralbedfordshire.gov.uk/info/55/transport_roads_and_parking/598/woodside_link_road", "expected": false }
+          ]
+        },
+        "TR010009": {
+          "ref": "TR010009",
+          "name": "M1 Junction 10a Grade Separation - Luton",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-01",
+          "summary": "Luton Borough Council DCO to replace the at-grade roundabout at M1 Junction 10a with a grade-separated junction. The DCO was made in October 2013, construction ran from December 2013 to summer 2015, and the £30m scheme was officially opened by the Minister for Transport on 16 July 2015.",
+          "milestones": [
+            { "date": "2012-07", "phase": "application", "title": "Application accepted for examination", "description": "Luton Borough Council's application accepted for examination by PINS.", "source": "https://infrastructure.planninginspectorate.gov.uk/projects/eastern/m1-junction-10a-grade-separation-luton/", "expected": false },
+            { "date": "2013-10-30", "phase": "consent", "title": "Development Consent Order made", "description": "M1 Junction 10a (Grade Separation) Order 2013 (SI 2013/2808) made.", "source": "https://www.legislation.gov.uk/uksi/2013/2808/contents/made", "expected": false },
+            { "date": "2013-12", "phase": "build", "title": "Construction begins", "description": "Main construction commenced under VolkerFitzpatrick.", "source": "https://www.volkerfitzpatrick.co.uk/en/projects/m1-junction-10a-improvement-scheme", "expected": false },
+            { "date": "2015-07-16", "phase": "operational", "title": "Junction officially opened", "description": "£30m scheme officially opened by Transport Minister Andrew Jones MP.", "source": "https://www.gov.uk/government/news/transport-minister-opens-new-m1-road-link-to-boost-bedfordshire-economy", "expected": false }
+          ]
+        },
+        "TR010010": {
+          "ref": "TR010010",
+          "name": "Morpeth Northern Bypass",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-01",
+          "summary": "A 3.8km single-carriageway link from the A1 north of Morpeth to the A197 Whorral Bank roundabout, promoted by Northumberland County Council as the first phase of the South East Northumberland Strategic Link Road. A bypass for Morpeth had been mooted since the 1960s; the modern Northern Bypass scheme secured DfT major-scheme funding in 2011-12, received its DCO in January 2015, and opened to traffic in spring 2017.",
+          "milestones": [
+            { "date": "1962", "phase": "proposal", "title": "Early bypass proposals for Morpeth", "description": "Bypasses for Morpeth and Alnwick on the A1 corridor first proposed around 1962; original southern A1 Morpeth bypass built in the early 1970s.", "source": "https://el4.org.uk/county/transport/the-story-of-the-a1-in-the-county/", "expected": false },
+            { "date": "2012", "phase": "proposal", "title": "DfT major-scheme funding confirmed", "description": "DfT contribution of around £21m towards the bypass as part of devolved LA major-schemes programme.", "source": "https://www.gov.uk/government/speeches/funding-decisions-on-local-authority-major-transport-schemes", "expected": false },
+            { "date": "2013-12", "phase": "application", "title": "Carillion appointed under ECI contract", "description": "Carillion awarded the Early Contractor Involvement contract; AECOM as designer.", "source": "https://constructingexcellence.org.uk/morpeth-northern-bypass/", "expected": false },
+            { "date": "2014", "phase": "application", "title": "DCO application submitted and accepted", "description": "NCC submitted the DCO under reference TR010010; accepted for examination 2014.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR010010", "expected": false },
+            { "date": "2015-01-12", "phase": "consent", "title": "Development Consent Order granted", "description": "SoS made the Morpeth Northern Bypass DCO 2015 on 12 January 2015.", "source": "https://www.legislation.gov.uk/uksi/2015/23/made", "expected": false },
+            { "date": "2015", "phase": "build", "title": "Construction commenced", "description": "Main construction began in spring 2015, led by Carillion; 310,000 m3 of earthworks, three new bridges, new grade-separated A1 junction.", "source": "https://www.theconstructionindex.co.uk/news/view/carillion-wins-30m-morpeth-northern-bypass", "expected": false },
+            { "date": "2017-04", "phase": "operational", "title": "Open to traffic", "description": "New road opened in spring 2017, providing the first phase of the South East Northumberland Strategic Link Road.", "source": "https://www.northumberlandgazette.co.uk/news/watch-speedy-tour-down-new-morpeth-northern-bypass-402666", "expected": false }
+          ]
+        },
+        "TR010014": {
+          "ref": "TR010014",
+          "name": "A30 Temple to Higher Carblake Improvement",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-01",
+          "summary": "Dualling of the final 4.5 km single-carriageway section of the A30 across Bodmin Moor between Temple and Higher Carblake, completing continuous dual carriageway from the M5 at Exeter to Carland Cross. Promoted by Cornwall Council with Highways England, consented in February 2015 and opened to traffic in July 2017.",
+          "milestones": [
+            { "date": "2012-12", "phase": "proposal", "title": "Long-standing dualling commitment confirmed", "description": "Improving the Temple to Higher Carblake bottleneck had been a Cornwall Council aspiration for around 25 years; in December 2012 ministers announced upgrade with Cornwall Council taking the lead as applicant.", "source": "https://en.wikipedia.org/wiki/A30_road", "expected": false },
+            { "date": "2013", "phase": "consultation", "title": "Pre-application consultation", "description": "Cornwall Council and Highways Agency held statutory pre-application consultation across Bodmin Moor.", "source": "https://infrastructure.planninginspectorate.gov.uk/projects/south-west/a30-temple-to-higher-carblake-improvement/", "expected": false },
+            { "date": "2014", "phase": "application", "title": "DCO application accepted", "description": "Cornwall Council submitted the DCO for the 5.15 km highway improvement; accepted for examination.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR010014", "expected": false },
+            { "date": "2015-02-05", "phase": "consent", "title": "Development Consent Order granted", "description": "SoS made the Cornwall Council A30 Temple to Higher Carblake DCO 2015 (SI 2015/147).", "source": "https://www.legislation.gov.uk/uksi/2015/147/made", "expected": false },
+            { "date": "2015-05", "phase": "build", "title": "Construction starts (Kier)", "description": "Kier Infrastructure began main works under a c.£40m contract within the £60m total scheme cost.", "source": "https://www.constructionnews.co.uk/project-reports/kier-takes-on-notorious-cornish-bottleneck-08-06-2016/", "expected": false },
+            { "date": "2017-07-14", "phase": "operational", "title": "Dual carriageway opened to traffic", "description": "All four lanes opened, completing continuous A30 dual carriageway between the M5 at Exeter and Carland Cross.", "source": "https://www.piratefm.co.uk/news/latest-news/2329867/watch-dual-carriageway-on-the-a30-at-temple-opens/", "expected": false }
+          ]
+        },
+        "TR010017": {
+          "ref": "TR010017",
+          "name": "A19/A1058 Coast Road Junction Improvement",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-01",
+          "summary": "A Highways England scheme to upgrade the Silverlink junction in North Tyneside, where the A19 meets the A1058 Coast Road, by lowering the A19 into an underpass beneath the existing roundabout to create a free-flow north-south route. The DCO was granted in January 2016, construction by a Sisk/Lagan JV began in June 2016, and the c.£75m three-level interchange opened to traffic in April 2019.",
+          "milestones": [
+            { "date": "2014", "phase": "consultation", "title": "Public consultation", "description": "Highways Agency ran statutory consultation on the preferred grade-separated underpass design.", "source": "https://assets.publishing.service.gov.uk/media/5a7c1c95ed915d210ade1a63/N130372_A19_Coast_road_PC_Booklet.pdf", "expected": false },
+            { "date": "2014-12-03", "phase": "application", "title": "DCO accepted by PINS", "description": "PINS accepted the DCO for examination on 3 December 2014.", "source": "https://infrastructure.planninginspectorate.gov.uk/projects/north-east/a19a1058-coast-road-junction-improvement/", "expected": false },
+            { "date": "2016-01-28", "phase": "consent", "title": "Development Consent Order granted", "description": "SoS made the A19/A1058 Coast Road DCO; came into force 18 February 2016.", "source": "https://www.legislation.gov.uk/uksi/2016/73/made", "expected": false },
+            { "date": "2016", "phase": "build", "title": "Construction starts on site", "description": "Sisk/Lagan JV began main works in June 2016 to lower the A19 into an open-cut underpass.", "source": "https://constructingexcellence.org.uk/a19-a1058-coast-road-junction-improvement-scheme/", "expected": false },
+            { "date": "2019-04", "phase": "operational", "title": "Junction opened to traffic", "description": "The North East's first three-level stack interchange opened, serving more than 80,000 vehicles per day.", "source": "https://www.globalhighways.com/wh8/news/north-east-uks-a19-a1058-coast-road-triple-deck-junction-opens", "expected": false }
+          ]
+        },
+        "TR010020": {
+          "ref": "TR010020",
+          "name": "A19 / A184 Testos Junction Improvement",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-01",
+          "summary": "Highways England scheme to replace the at-grade Testo's roundabout south of the Tyne Tunnel with a grade-separated junction, raising the A19 on a flyover above a widened A184 roundabout. Granted development consent in September 2018, construction began in March 2019 and the new flyover opened to traffic in June 2021.",
+          "milestones": [
+            { "date": "2017", "phase": "consultation", "title": "Statutory pre-application consultation", "description": "Highways England ran consultation on the preferred grade-separated option.", "source": "https://nationalhighways.citizenspace.com/he/a19-a184-testos-junction/", "expected": false },
+            { "date": "2017-08", "phase": "application", "title": "DCO accepted for examination", "description": "PINS accepted the DCO TR010020 in August 2017.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR010020", "expected": false },
+            { "date": "2018-09-12", "phase": "consent", "title": "Development Consent Order granted", "description": "SoS granted the DCO authorising the A19 flyover.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR010020", "expected": false },
+            { "date": "2019-03", "phase": "build", "title": "Main construction starts", "description": "Costain began main works; Cleveland Bridge fabricated the 142m weathering steel flyover.", "source": "https://steelconstruction.info/A19_Testo%E2%80%99s_Junction_Improvement_Scheme,_Tyne_and_Wear", "expected": false },
+            { "date": "2021-06-07", "phase": "operational", "title": "Flyover opens to traffic", "description": "New A19 flyover over Testo's roundabout opened to traffic.", "source": "https://highways-news.com/testos-a19-roundabout-flyover-opens-to-cars-after-two-years-of-work/", "expected": false },
+            { "date": "2021-07", "phase": "operational", "title": "Scheme officially completed", "description": "£130m junction upgrade fully complete; ~60% of construction hours delivered by local workforce.", "source": "https://www.itv.com/news/tyne-tees/2021-07-07/the-130m-upgrade-of-the-a19-at-testos-roundabout-finally-completed", "expected": false }
+          ]
+        },
+        "TR010024": {
+          "ref": "TR010024",
+          "name": "A19 Downhill Lane Junction Improvement",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-01",
+          "summary": "£51.6 million Highways England scheme replacing the A19/A1290 Downhill Lane junction on the Sunderland/South Tyneside border with a full roundabout, new road bridge and non-motorised user bridge to provide capacity for the International Advanced Manufacturing Park (IAMP) and Nissan plant. DCO granted July 2020; opened to traffic 11 March 2022.",
+          "milestones": [
+            { "date": "2017-09", "phase": "consultation", "title": "Statutory consultation", "description": "Highways England held statutory consultation Sep-Oct 2017.", "source": "https://nationalhighways.citizenspace.com/he/a19-downhill-lane-junction-statutory-consultation/", "expected": false },
+            { "date": "2019-01-25", "phase": "application", "title": "DCO application submitted", "description": "Highways England submitted the DCO; accepted for examination 22 February 2019.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR010024", "expected": false },
+            { "date": "2020-07-16", "phase": "consent", "title": "Development consent granted", "description": "SoS for Transport granted the DCO.", "source": "https://www.gov.uk/government/news/a19-downhill-lane-junction-scheme-granted-development-consent", "expected": false },
+            { "date": "2020-10-08", "phase": "build", "title": "Construction starts", "description": "Main works began six months ahead of schedule; Costain as principal contractor.", "source": "https://www.gov.uk/government/news/work-starts-6-months-ahead-of-schedule-on-51-million-a19-upgrade", "expected": false },
+            { "date": "2022-03-11", "phase": "operational", "title": "Junction opens to traffic", "description": "New A19/A1290 Downhill Lane junction opened to support IAMP and Nissan plant access.", "source": "https://www.shieldsgazette.com/news/transport/ps51million-downhill-lane-a19-upgrade-open-to-traffic-after-major-works-on-sunderlandsouth-tyneside-border-3611951", "expected": false }
+          ]
+        },
+        "TR010035": {
+          "ref": "TR010035",
+          "name": "A585 Windy Harbour to Skippool Improvement Scheme",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-01",
+          "summary": "A 3-mile dual carriageway bypass on the A585 between the M55 and Fleetwood, delivered by Highways England/National Highways. Development consent granted on 9 April 2020 after a 2018-2019 DCO examination; Kier Highways was contracted to build it for around £150m, and the bypass opened to traffic in December 2023 with official completion in August 2024.",
+          "milestones": [
+            { "date": "2017-10-24", "phase": "proposal", "title": "Preferred route announced", "description": "Highways England selected the preferred route on 24 October 2017.", "source": "https://nationalhighways.co.uk/our-roads/north-west/a585-windy-harbour-to-skippool/", "expected": false },
+            { "date": "2018-10-29", "phase": "application", "title": "DCO application submitted and accepted", "description": "Highways England submitted the DCO on 29 October 2018; PINS accepted on 26 November 2018.", "source": "https://infrastructure.planninginspectorate.gov.uk/projects/north-west/a585-windy-harbour-to-skippool-improvement-scheme/", "expected": false },
+            { "date": "2019", "phase": "examination", "title": "Public examination", "description": "Preliminary meeting and open floor hearing in April 2019, followed by issue-specific hearings.", "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/TR010035-000947-A585%20Windy%20Harbour%20to%20Skippool%20Recomendation%20Report%20FINAL.pdf", "expected": false },
+            { "date": "2020-04-09", "phase": "consent", "title": "Development consent granted", "description": "Grant Shapps granted the DCO authorising the 4.85 km dual two-lane bypass.", "source": "https://www.legislation.gov.uk/uksi/2020/402/schedules/made", "expected": false },
+            { "date": "2020", "phase": "build", "title": "Kier Highways contracted", "description": "~£150m main works contract awarded; site set-up began spring 2020.", "source": "https://www.gov.uk/government/news/150-million-a585-windy-harbour-to-skippool-improvement-under-way", "expected": false },
+            { "date": "2023-12-18", "phase": "operational", "title": "Bypass opens to traffic", "description": "Phased opening from 18 December 2023; opening had been delayed due to challenging ground conditions.", "source": "https://www.blackpoolgazette.co.uk/news/transport/a585-windy-harbour-to-skippool-opening-date-of-new-ps150-million-bypass-delayed-to-winter-2023-4144936", "expected": false },
+            { "date": "2024-08-09", "phase": "operational", "title": "Project completion", "description": "National Highways marked official project completion after final landscaping and cycleway works.", "source": "https://nationalhighways.co.uk/our-roads/north-west/a585-windy-harbour-to-skippool/", "expected": false }
+          ]
+        },
+        "TR010038": {
+          "ref": "TR010038",
+          "name": "A47 North Tuddenham to Easton",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-01",
+          "summary": "DCO for 9km dualling of the A47 between North Tuddenham and Easton in Norfolk. Consent granted August 2022; survived Boswell carbon-cumulative-impact judicial review at High Court (July 2023) and Court of Appeal (February 2024). Main construction by Galliford Try began October 2024; full scheme spring 2027.",
+          "milestones": [
+            { "date": "2017-03", "phase": "consultation", "title": "Initial public consultation", "description": "Non-statutory consultation on options ran 13 March-21 April 2017; 1,447 responses received.", "source": "https://www.gov.uk/government/news/timetable-outlined-for-300-million-a47-improvements", "expected": false },
+            { "date": "2017-08", "phase": "proposal", "title": "Preferred route announced (Option 2)", "description": "Dualling along the existing A47 alignment with amendments.", "source": "https://nationalhighways.citizenspace.com/he/a47-north-tuddenham-to-easton-dualling/results/s170173-a47-prefered-route-annoucement-leaflet---tuddenham--b.pdf", "expected": false },
+            { "date": "2020-02", "phase": "consultation", "title": "Statutory consultation", "description": "Statutory pre-application consultation Feb-Apr 2020.", "source": "https://nationalhighways.citizenspace.com/he/a47-north-tuddenham-to-easton-february/", "expected": false },
+            { "date": "2021-03-15", "phase": "application", "title": "DCO application submitted", "description": "Submitted to PINS; accepted for examination 12 April 2021.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR010038/project-updates", "expected": false },
+            { "date": "2022-08-12", "phase": "consent", "title": "Development Consent Order granted", "description": "SoS granted the DCO for the £100-£250m dualling scheme.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR010038/project-updates", "expected": false },
+            { "date": "2023-07", "phase": "jr", "title": "High Court dismisses Boswell JR", "description": "Mrs Justice Thornton dismissed Boswell's challenge across the three Norfolk A47 DCOs.", "source": "https://www.newcivilengineer.com/latest/trio-of-a47-upgrades-in-norfolk-move-forward-after-beating-legal-challenge-10-07-2023/", "expected": false },
+            { "date": "2024-02-22", "phase": "jr", "title": "Court of Appeal upholds DCO", "description": "Appeal dismissed; clears the scheme to proceed.", "source": "https://www.theconstructionindex.co.uk/news/view/court-of-appeal-clears-norfolk-road-schemes-to-go-ahead", "expected": false },
+            { "date": "2024-10", "phase": "build", "title": "Main construction begins", "description": "Galliford Try began full works on the £250m, 9km dualling scheme.", "source": "https://constructionwave.co.uk/2024/10/18/galliford-try-starts-300m-a47-route-upgrade/", "expected": false },
+            { "date": "2026-02-16", "phase": "build", "title": "Traffic switched to new section", "description": "National Highways switched A47 traffic onto a newly built section, marking past 50% complete.", "source": "https://nationalhighways.co.uk/our-roads/east/a47-north-tuddenham-to-easton-improvements/", "expected": false },
+            { "date": "2027", "phase": "operational", "title": "Full scheme expected to open", "description": "Full dual carriageway scheduled to open spring 2027.", "source": "https://nationalhighways.co.uk/our-roads/east/a47-north-tuddenham-to-easton-improvements/", "expected": true }
+          ]
+        },
+        "TR010039": {
+          "ref": "TR010039",
+          "name": "A47 Wansford to Sutton",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-01",
+          "summary": "National Highways scheme to dual approximately 2.5km of the A47 between the A1 at Wansford and the existing dual carriageway at Sutton. Development consent granted on 17 February 2023, but following the 2025 Spending Review the government withdrew funding and the SoS for Transport is now (February 2026) consulting on revoking the DCO.",
+          "milestones": [
+            { "date": "2018", "phase": "consultation", "title": "Statutory consultation", "description": "National Highways ran statutory consultation Sep-Nov 2018, receiving over 680 responses.", "source": "https://nationalhighways.citizenspace.com/he/a47-wansford-to-sutton-statutory-consultation/", "expected": false },
+            { "date": "2021-07-05", "phase": "application", "title": "DCO application submitted", "description": "Submitted to PINS; accepted on 2 August 2021.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR010039", "expected": false },
+            { "date": "2022-01-12", "phase": "examination", "title": "Examination opened", "description": "Six-month examination began under the Examining Authority.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR010039", "expected": false },
+            { "date": "2023-02-17", "phase": "consent", "title": "Development consent granted", "description": "SoS for Transport granted the A47 Wansford to Sutton DCO 2023.", "source": "https://www.gov.uk/government/news/a47-wansford-to-sutton-development-consent-decision-announced", "expected": false },
+            { "date": "2025", "phase": "cancelled", "title": "Funding withdrawn at Spending Review", "description": "Following the 2025 Spending Review, government decided not to continue funding, effectively cancelling construction.", "source": "https://www.saferhighways.co.uk/post/government-moves-to-revoke-a47-wansford-to-sutton-dualling-consent-after-funding-withdrawal", "expected": false },
+            { "date": "2026-02-24", "phase": "cancelled", "title": "Proposed revocation of DCO", "description": "SoS published notice of intention to revoke the 2023 DCO; representations open until 25 March 2026.", "source": "https://www.gov.uk/government/publications/proposed-revocation-of-the-a47-wansford-to-sutton-development-consent-order-2023/a47-wansford-to-sutton-revocation-explanation", "expected": false },
+            { "date": "2026", "phase": "cancelled", "title": "Revocation order expected", "description": "Following close of consultation 25 March 2026, SoS expected to make a formal revocation order.", "source": "https://www.newcivilengineer.com/latest/dco-for-a47-wansford-to-sutton-dualling-to-be-revoked-24-02-2026/", "expected": true }
+          ]
+        },
+        "TR010040": {
+          "ref": "TR010040",
+          "name": "A47 Blofield to North Burlingham",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-01",
+          "summary": "National Highways scheme to dual a 2.6km gap on the A47 east of Norwich between Blofield and North Burlingham. The DCO was granted in June 2022 and survived a Boswell JR (dismissed by HC 2023, CoA 2024, SC refused permission). Main construction began 2024-25; traffic switched to new dual carriageway spring 2026; full completion expected by summer 2026.",
+          "milestones": [
+            { "date": "2017", "phase": "consultation", "title": "Initial public consultation", "description": "Highways England ran consultation 13 March-21 April 2017; 441 responses, ~63% supporting need for improvement.", "source": "https://nationalhighways.citizenspace.com/he/a47-blofield-to-north-burlingham-dualling/", "expected": false },
+            { "date": "2017", "phase": "proposal", "title": "Preferred route announced", "description": "New 2.4-2.6km two-lane dual carriageway approximately 70m south of the existing A47.", "source": "https://nationalhighways.citizenspace.com/he/a47-blofield-to-north-burlingham-dualling/results/25119c-wlea-1-blofield_v2.pdf", "expected": false },
+            { "date": "2018", "phase": "consultation", "title": "Statutory consultation", "description": "Statutory consultation Sep-Oct 2018; 767 responses.", "source": "https://nationalhighways.citizenspace.com/he/a47-blofield-to-north-burlingham-dualling-statutor/", "expected": false },
+            { "date": "2020-12-30", "phase": "application", "title": "DCO application submitted", "description": "National Highways submitted the DCO; accepted for examination 27 January 2021.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR010040", "expected": false },
+            { "date": "2022-06-22", "phase": "consent", "title": "Development Consent Order granted", "description": "SoS for Transport granted DCO; SI 2022/738 made the same day.", "source": "https://www.legislation.gov.uk/uksi/2022/738/contents", "expected": false },
+            { "date": "2022", "phase": "jr", "title": "Boswell JR launched", "description": "Andrew Boswell filed JR against three A47 DCOs arguing combined climate impact not assessed.", "source": "https://www.crowdjustice.com/case/stop-road-building-wrecking-climate-nature/", "expected": false },
+            { "date": "2023", "phase": "jr", "title": "High Court dismisses challenge", "description": "Mrs Justice Thornton dismissed Boswell's claim in July 2023.", "source": "https://www.highwaysmagazine.co.uk/Government-wins-A47-High-Court-ruling/12378", "expected": false },
+            { "date": "2024-02-22", "phase": "jr", "title": "Court of Appeal dismisses appeal", "description": "Court ruled the DCOs had been appropriately assessed for carbon emissions; SC refused permission.", "source": "https://www.newcivilengineer.com/latest/legal-challenge-against-trio-of-a47-upgrades-dismissed-but-may-go-to-supreme-court-22-02-2024/", "expected": false },
+            { "date": "2025", "phase": "build", "title": "Main construction underway", "description": "Galliford Try progressed main construction including bridge works at the B1140.", "source": "https://nationalhighways.co.uk/our-roads/east/a47-blofield-to-north-burlingham/", "expected": false },
+            { "date": "2026", "phase": "operational", "title": "Traffic switched to new dual carriageway", "description": "Spring 2026 traffic switch onto the new 2.6km dual carriageway; full scheme completion expected by summer 2026.", "source": "https://www.greatyarmouthmercury.co.uk/news/25945782.dualled-section-a47-burlingham-blofield-opens/", "expected": true }
+          ]
+        },
+        "TR010066": {
+          "ref": "TR010066",
+          "name": "A46 Coventry Junctions (Walsgrave)",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-01",
+          "summary": "National Highways scheme to replace the existing A46 Walsgrave roundabout (last at-grade junction on the A46 east of Coventry between the M6 and M40) with a new grade-separated dumbbell junction approximately 800m north of the existing roundabout. Estimated cost ~£112m. DCO granted on 4 February 2026; construction expected to start in autumn 2026, opening 2028.",
+          "milestones": [
+            { "date": "2022-01", "phase": "consultation", "title": "Non-statutory consultation on Option 11", "description": "First public consultation Jan-Feb 2022 on a fully grade-separated dumbbell junction; supported as the preferred design.", "source": "https://nationalhighways.citizenspace.com/he/a46-walsgrave/", "expected": false },
+            { "date": "2023-10", "phase": "consultation", "title": "Statutory (Section 42/47) consultation", "description": "Statutory consultation 25 October-6 December 2023; 66% agreed need, 51% agreed with proposed route.", "source": "https://highwaysengland.citizenspace.com/he/a46-walsgrave-2023/", "expected": false },
+            { "date": "2024-11-14", "phase": "application", "title": "DCO application submitted", "description": "National Highways submitted the DCO on 14 November 2024.", "source": "https://www.highwaysmagazine.co.uk/A46-Walsgrave-junctions-DCO-application-submitted/14217", "expected": false },
+            { "date": "2024-12-12", "phase": "application", "title": "Application accepted for examination", "description": "PINS accepted the application for examination on 12 December 2024.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR010066", "expected": false },
+            { "date": "2025-09-12", "phase": "examination", "title": "Examination closes", "description": "Six-month examination phase concluded.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR010066", "expected": false },
+            { "date": "2026-02-04", "phase": "consent", "title": "Development consent granted", "description": "Lord Hendy on behalf of the SoS for Transport granted the DCO.", "source": "https://www.gov.uk/government/news/a46-coventry-junctions-walsgrave-development-consent-decision-announced", "expected": false },
+            { "date": "2026", "phase": "build", "title": "Construction expected to start", "description": "Main construction works on the new grade-separated Walsgrave junction expected to begin autumn 2026.", "source": "https://nationalhighways.co.uk/our-roads/west-midlands/a46-coventry-junctions-upgrade/", "expected": true },
+            { "date": "2028", "phase": "operational", "title": "Scheme expected to open", "description": "£112m upgraded junction expected to open in 2028, removing the last at-grade roundabout on the A46 east of Coventry.", "source": "https://www.newcivilengineer.com/latest/dco-granted-for-112m-upgrade-to-a46-walsgrave-junction-to-tackle-midlands-congestion-05-02-2026/", "expected": true }
           ]
         },
         "EN010001": {
