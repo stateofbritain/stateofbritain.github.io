@@ -16,7 +16,9 @@ import ProjectTimeline from "../../components/ProjectTimeline";
 export default function NSIPsMapSection() {
   const { data, loading, error } = useJsonDataset("nsips.json");
   const { data: timelinesData } = useJsonDataset("nsip-timelines.json");
+  const { data: costsData } = useJsonDataset("nsip-costs.json");
   const timelines = timelinesData?.timelines || {};
+  const costs = costsData?.costs || {};
   const projects = data?.projects || [];
   const [selectedRef, setSelectedRef] = useState(null);
   const [categoryFilter, setCategoryFilter] = useState(new Set());
@@ -134,6 +136,7 @@ export default function NSIPsMapSection() {
           <ProjectPanel
             project={selected}
             timeline={timelines[selected.ref]}
+            cost={costs[selected.ref]}
             onClose={() => setSelectedRef(null)}
           />
         )}
@@ -276,7 +279,7 @@ function Chip({ label, count, color, active, onClick }) {
   );
 }
 
-function ProjectPanel({ project, timeline, onClose }) {
+function ProjectPanel({ project, timeline, cost, onClose }) {
   const events = projectEvents(project);
   return (
     <aside style={{
@@ -310,6 +313,8 @@ function ProjectPanel({ project, timeline, onClose }) {
       </div>
 
       {project.delivery && <DeliveryBlock delivery={project.delivery} />}
+
+      {cost && <CostBlock cost={cost} />}
 
       {project.description && (
         <p style={{
@@ -368,6 +373,73 @@ function ProjectPanel({ project, timeline, onClose }) {
     </aside>
   );
 }
+
+function CostBlock({ cost }) {
+  // Renders the GMPP whole-life cost + Delivery Confidence Assessment
+  // for projects on the Government Major Projects Portfolio.
+  const wlc = cost.wholeLifeCostMillions;
+  const fyB = cost.fyBaselineMillions;
+  const fyF = cost.fyForecastMillions;
+  const variance = cost.fyVariancePct;
+  const dca = cost.dca || cost.sroDca;
+  return (
+    <div style={{
+      marginTop: 12, padding: "10px 12px",
+      background: "rgba(28,43,69,0.04)", borderRadius: 3,
+      border: `1px solid ${P.border}`,
+    }}>
+      <div style={{
+        display: "flex", justifyContent: "space-between", alignItems: "baseline",
+        marginBottom: 6,
+      }}>
+        <span style={{
+          fontSize: 10, color: P.textLight, fontFamily: "'DM Mono', monospace",
+          textTransform: "uppercase", letterSpacing: "0.08em",
+        }}>
+          GMPP cost &amp; delivery confidence
+        </span>
+        {dca && (
+          <span style={{
+            display: "inline-block", padding: "2px 8px",
+            background: DCA_COLOR[dca] || P.textMuted, color: P.bgCard,
+            fontFamily: "'DM Mono', monospace", fontSize: 10,
+            letterSpacing: "0.04em", borderRadius: 12,
+          }}>
+            {dca}
+          </span>
+        )}
+      </div>
+      {wlc != null && wlc > 0 && (
+        <KeyValInline label="Whole-life cost" value={`£${wlc >= 1000 ? `${(wlc / 1000).toFixed(2)}bn` : `${wlc.toLocaleString()}m`}`} />
+      )}
+      {fyB != null && fyF != null && (
+        <KeyValInline
+          label={`FY ${cost.fyVariancePct != null && cost.fyVariancePct > 0 ? "overrun" : "variance"}`}
+          value={`£${fyB.toLocaleString()}m → £${fyF.toLocaleString()}m${variance != null ? ` (${variance > 0 ? "+" : ""}${variance.toFixed(1)}%)` : ""}`}
+        />
+      )}
+      {cost.startDate && cost.endDate && (
+        <KeyValInline label="Window" value={`${cost.startDate} → ${cost.endDate}`} />
+      )}
+      {cost.gmppName && cost.gmppName !== cost.nsipName && (
+        <div style={{
+          marginTop: 6, fontSize: 10, color: P.textLight,
+          fontFamily: "'DM Mono', monospace",
+        }}>
+          GMPP entry: {cost.gmppName}
+        </div>
+      )}
+    </div>
+  );
+}
+
+const DCA_COLOR = {
+  GREEN:        P.teal,
+  "AMBER/GREEN": P.teal,
+  AMBER:        P.yellow,
+  "AMBER/RED":  P.sienna,
+  RED:          P.red,
+};
 
 function DeliveryBlock({ delivery }) {
   // Status colour: a quick traffic-light read on whether the consented
