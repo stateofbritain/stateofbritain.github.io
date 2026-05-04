@@ -316,6 +316,8 @@ function ProjectPanel({ project, timeline, cost, onClose }) {
 
       {cost && <CostBlock cost={cost} />}
 
+      {project.judicialReviewCount > 0 && <JRBadge count={project.judicialReviewCount} />}
+
       {project.description && (
         <p style={{
           fontFamily: "'DM Mono', monospace", fontSize: 12, color: P.text,
@@ -371,6 +373,43 @@ function ProjectPanel({ project, timeline, cost, onClose }) {
         View on Planning Inspectorate ↗
       </a>
     </aside>
+  );
+}
+
+function JRBadge({ count }) {
+  // Surfaces the number of judicial-review milestones in the project
+  // timeline. Count is derived from agent-researched timelines, so it
+  // captures known JR filings/rulings/appeals; not exhaustive.
+  return (
+    <div style={{
+      marginTop: 12, padding: "8px 12px",
+      background: "rgba(201,75,26,0.08)", borderRadius: 3,
+      border: `1px solid rgba(201,75,26,0.3)`,
+      display: "flex", alignItems: "center", gap: 10,
+    }}>
+      <span style={{
+        display: "inline-block", padding: "3px 9px",
+        background: P.sienna, color: P.bgCard,
+        fontFamily: "'Playfair Display', serif", fontSize: 14,
+        fontWeight: 600, borderRadius: 12, minWidth: 24, textAlign: "center",
+      }}>
+        {count}
+      </span>
+      <div>
+        <div style={{
+          fontSize: 10, color: P.textLight, fontFamily: "'DM Mono', monospace",
+          textTransform: "uppercase", letterSpacing: "0.08em",
+        }}>
+          Court challenges
+        </div>
+        <div style={{
+          fontSize: 11, color: P.text, fontFamily: "'DM Mono', monospace",
+          marginTop: 1,
+        }}>
+          {count === 1 ? "1 judicial review" : `${count} judicial-review milestones`} in project history
+        </div>
+      </div>
+    </div>
   );
 }
 

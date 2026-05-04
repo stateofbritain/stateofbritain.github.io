@@ -47,6 +47,7 @@
   "dependency-rollup":      { "type": "fixed-dom", "dom": 19, "release": "Rollup of all *-dependency.json files; idempotent, runs after the commodity fetches on day 18" },
   "nsips":                  { "type": "weekly", "weekday": 1, "release": "PINS NSIP register CSV — refresh weekly (continuously updated upstream)" },
   "nsip-costs":             { "type": "fixed-dom", "dom": 5, "release": "NISTA/IPA Government Major Projects Portfolio annual report — auto-discovers latest year via gov.uk search" },
+  "augment-nsip-jr-counts": { "type": "weekly", "weekday": 1, "release": "Counts JR milestones in nsip-timelines.json and writes back to nsips.json. Cheap, idempotent." },
   "iop-pharma":             { "type": "nth-weekday", "n": 2, "weekday": 4, "offsetDays": 1, "release": "ONS Index of Production pharma (GDP day) + 1d" },
   "unga-alignment":         { "type": "fixed-dom", "dom": 15, "release": "Voeten UNGA dataset updates ~annually; refresh 15th monthly (cheap with cache)" },
   "mfg-output":             { "type": "nth-weekday", "n": 2, "weekday": 4, "offsetDays": 1, "release": "ONS Manufacturing (GDP day) + 1d" },
