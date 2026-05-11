@@ -14,8 +14,8 @@
     }
   ],
   "snapshot": {
-    "totalTimelines": 50,
-    "researchedByAgent": 49,
+    "totalTimelines": 58,
+    "researchedByAgent": 57,
     "researchedManually": 1
   },
   "series": {
@@ -988,6 +988,159 @@
             { "date": "2025-09-21", "phase": "consent", "title": "Development Consent Order granted", "description": "SoS for Transport granted the DCO with modifications, authorising routine dual-runway operations and capacity to 80 mppa.", "source": "https://www.gov.uk/government/news/gatwick-airport-northern-runway-development-consent-decision-announced", "expected": false },
             { "date": "2026-01", "phase": "jr", "title": "High Court judicial review hearing", "description": "CAGNE-led JR challenging the consent on climate-impact and Jet Zero Strategy grounds heard 20-23 January 2026.", "source": "https://www.leighday.co.uk/news/news/2026-news/high-court-hearing-for-legal-challenge-against-gatwick-airport-second-runway/", "expected": false },
             { "date": "2030", "phase": "operational", "title": "Northern runway targeted operational", "description": "Subject to JR outcome, GAL anticipates routine dual operation by 2030, with associated terminal/taxiway works continuing until 2038.", "source": "https://www.gatwickairport.com/company/future-plans/northern-runway.html", "expected": true }
+          ]
+        },
+        "TR030002": {
+          "ref": "TR030002",
+          "name": "York Potash Harbour Facilities Order",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-11",
+          "summary": "DCO consented July 2016 for a Teesside harbour at Bran Sands designed to export polyhalite from Sirius Minerals' Woodsmith Mine in the North York Moors. Sirius's bond-financing failure in 2019 triggered a £405m rescue takeover by Anglo American in March 2020; the order was re-phased in 2022, development was scaled back in 2024-25 after BHP's takeover approach, and Mitsubishi signed an investment agreement in February 2026 with first production now targeted for 2032.",
+          "milestones": [
+            { "date": "2015-03", "phase": "application", "title": "DCO application submitted", "description": "Sirius Minerals subsidiary York Potash Ltd submitted the DCO for Bran Sands harbour.", "source": "https://www.mining-technology.com/projects/sirius-minerals-york-potash-project-north-yorkshire/", "expected": false },
+            { "date": "2015-07-21", "phase": "examination", "title": "Examination opens", "description": "PINS accepted the application; preliminary hearing 21 July 2015.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR030002", "expected": false },
+            { "date": "2016-07-20", "phase": "consent", "title": "Secretary of State grants DCO", "description": "SoS made the York Potash Harbour Facilities Order 2016 authorising a 28m × 280m quay at Bran Sands and a conveyor link to Wilton International.", "source": "https://www.legislation.gov.uk/uksi/2016/772/made", "expected": false },
+            { "date": "2017-05", "phase": "build", "title": "Woodsmith Mine construction begins", "description": "Sirius began construction of the linked Woodsmith Mine shaft and 37km mineral transport tunnel on which the harbour depends.", "source": "https://en.wikipedia.org/wiki/Woodsmith_Mine", "expected": false },
+            { "date": "2019-09", "phase": "dormant", "title": "Sirius $500m bond cancelled", "description": "Sirius pulled a $500m senior bond after UK government declined to guarantee $1bn of debt, triggering an existential financing crisis.", "source": "https://www.mining-technology.com/deal-news/sirius-minerals-bond-issue/", "expected": false },
+            { "date": "2020-01-20", "phase": "revived", "title": "Anglo American agrees £405m takeover", "description": "Boards of Sirius and Anglo American announced a recommended cash acquisition at 5.5p per share, valuing Sirius at ~£405m.", "source": "https://www.angloamerican.com/media/press-releases/2020/17-03-2020", "expected": false },
+            { "date": "2020-03-17", "phase": "revived", "title": "Anglo American completes acquisition", "description": "Scheme of arrangement effective; Anglo American Projects UK Ltd took ownership of Sirius and the Woodsmith / York Potash assets.", "source": "https://im-mining.com/2020/03/17/anglo-american-formally-completes-acquisition-sirius-minerals-woodsmith-polyhalite-project/", "expected": false },
+            { "date": "2022-08-26", "phase": "consent", "title": "Harbour Facilities (Amendment) Order 2022", "description": "Non-material change consented re-phasing the harbour into Phase 1a/1b for incremental build to 6.5 Mt/yr throughput.", "source": "https://www.legislation.gov.uk/uksi/2022/919/made", "expected": false },
+            { "date": "2024-05", "phase": "dormant", "title": "Anglo slows Woodsmith after BHP bid", "description": "Following rejection of BHP's $49bn takeover approach, Anglo slashed Woodsmith capex, slowing tunnelling and halting production shaft sinking; ~800 jobs lost.", "source": "https://www.geplus.co.uk/news/woodsmith-mine-tunnelling-to-slow-down-and-production-shaft-sinking-stopped-21-06-2024/", "expected": false },
+            { "date": "2026-02", "phase": "revived", "title": "Mitsubishi investment agreement signed", "description": "Mitsubishi took an initial equity stake with option for up to 25% at future FID; first production now targeted 2032.", "source": "https://im-mining.com/2026/02/21/woodsmith-to-benefit-from-investment-agreement-with-mitsubishi/", "expected": false },
+            { "date": "2032", "phase": "fid", "title": "Targeted first production", "description": "First polyhalite production through Woodsmith and the Teesside harbour now expected 2032, contingent on a future Anglo FID.", "source": "https://www.argusmedia.com/en/news-and-insights/latest-market-news/2791791-mitsubishi-to-invest-in-uk-polyhalite-mine", "expected": true }
+          ]
+        },
+        "TR030003": {
+          "ref": "TR030003",
+          "name": "Tilbury2",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-11",
+          "summary": "New 152-acre port terminal developed by Port of Tilbury London (Forth Ports) on the former Tilbury Power Station site, comprising a roll-on/roll-off ferry terminal and a construction materials aggregates terminal. DCO granted February 2019, ferry terminal opened May 2020, with full construction complete November 2020 and official opening by the Prime Minister in January 2021.",
+          "milestones": [
+            { "date": "2017-10-31", "phase": "application", "title": "DCO application submitted", "description": "Port of Tilbury London submitted its DCO under section 37 of the Planning Act 2008.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR030003", "expected": false },
+            { "date": "2017-11-21", "phase": "application", "title": "Accepted for examination", "description": "PINS accepted the application on behalf of the Secretary of State.", "source": "https://www.vincent-gorbing.co.uk/tilbury2-accepted-for-examination-by-the-secretary-of-state/", "expected": false },
+            { "date": "2018", "phase": "examination", "title": "Six-month public examination", "description": "Panel of three considered ecology, flood risk, heritage, noise and air quality issues.", "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/TR030003-001128-Tilbury2%20Report%20Final%20and%20Appendices.pdf", "expected": false },
+            { "date": "2019-02-20", "phase": "consent", "title": "Development consent granted", "description": "SoS for Transport granted the DCO authorising construction of the new port terminal.", "source": "https://www.landmarkchambers.co.uk/news-and-cases/news/tilbury2-dco-granted", "expected": false },
+            { "date": "2019-03", "phase": "build", "title": "Construction begins", "description": "GRAHAM began main works on both terrestrial and marine packages mid-March 2019.", "source": "https://www.graham.co.uk/projects/tilbury2-port-expansion-london/", "expected": false },
+            { "date": "2020-05", "phase": "operational", "title": "Ferry terminal opens", "description": "£250m Tilbury2 ferry freight terminal opened, handling containers and trailers with P&O Ferries during the COVID-19 pandemic.", "source": "https://www.newcivilengineer.com/latest/250m-tilbury2-ferry-terminal-opens-29-05-2020/", "expected": false },
+            { "date": "2020-11", "phase": "operational", "title": "Construction completed", "description": "Delivered the UK's largest unaccompanied freight ferry port plus a 2km conveyor and 775m rail head.", "source": "https://www.graham.co.uk/projects/tilbury2-port-expansion-london/", "expected": false },
+            { "date": "2021-01-31", "phase": "operational", "title": "Official opening by Prime Minister", "description": "PM Boris Johnson officially opened Tilbury2, marking the UK's newest port becoming fully operational.", "source": "https://thamesfreeport.com/the-prime-minister-officially-opens-the-uks-newest-port-tilbury2/", "expected": false }
+          ]
+        },
+        "TR030007": {
+          "ref": "TR030007",
+          "name": "Immingham Eastern Ro-Ro Terminal",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-11",
+          "summary": "A £200m+ joint ABP / Stena Line roll-on/roll-off freight terminal at the Port of Immingham, comprising a three-berth jetty and terminal buildings. DCO granted October 2024; a High Court JR by adjacent oil terminal operators was dismissed July 2025 (Saini J, [2025] EWHC 1992 (Admin)); construction began November 2025 with completion targeted 2026.",
+          "milestones": [
+            { "date": "2022", "phase": "consultation", "title": "Statutory consultation; scheme reduced", "description": "ABP held statutory consultation; scheme reduced from four berths to three following feedback.", "source": "https://www.abports.co.uk/immroro/consultation/", "expected": false },
+            { "date": "2023-02-10", "phase": "application", "title": "DCO application submitted", "description": "ABP submitted the DCO after withdrawing an earlier January 2023 submission.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR030007/project-updates", "expected": false },
+            { "date": "2023-03-06", "phase": "application", "title": "Accepted for examination", "description": "PINS accepted the application; interested-party registration opened 9 March 2023.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR030007/project-updates", "expected": false },
+            { "date": "2023-07-25", "phase": "examination", "title": "Examination commenced", "description": "Preliminary meeting and first issue-specific hearing opened the six-month examination.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR030007/project-updates", "expected": false },
+            { "date": "2024-04-25", "phase": "examination", "title": "Recommendation to Secretary of State", "description": "Examining Authority issued its Recommendation Report.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR030007/project-updates", "expected": false },
+            { "date": "2024-10-04", "phase": "consent", "title": "Development Consent Order granted", "description": "SoS Louise Haigh granted DCO (SI 2024/1014).", "source": "https://www.gov.uk/government/news/immingham-eastern-ro-ro-terminal-development-consent-decision-announced", "expected": false },
+            { "date": "2025-02-10", "phase": "consent", "title": "Correction Order issued", "description": "SoS issued a Correction Order (SI 2025/143) to amend drafting errors.", "source": "https://www.legislation.gov.uk/uksi/2025/143/made/data.html", "expected": false },
+            { "date": "2025-07-29", "phase": "jr", "title": "High Court dismisses JR", "description": "Saini J dismissed the JR by the adjacent Immingham Oil Terminal operators on both EIA-adequacy and apparent-bias grounds.", "source": "https://www.ftbchambers.co.uk/images/uploads/documents/Immingham_v_SST_JUDGMENT_29.7.25.pdf", "expected": false },
+            { "date": "2025-11-27", "phase": "build", "title": "Construction begins", "description": "ABP and Stena Line started work on the £200m+ terminal; ~700 construction jobs, 200 permanent operational roles, completion targeted 2026.", "source": "https://www.newcivilengineer.com/latest/work-begins-on-200m-immingham-freight-ferry-terminal-27-11-2025/", "expected": false }
+          ]
+        },
+        "TR030008": {
+          "ref": "TR030008",
+          "name": "Immingham Green Energy Terminal",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-11",
+          "summary": "DCO consent granted February 2025 for ABP to build a liquid bulk import terminal at Immingham designed to receive green ammonia and feed an adjacent Air Products 300MW hydrogen cracking facility supplied from NEOM. In June 2025 Air Products announced it was pausing the hydrogen production element, citing UK policy that excludes imported renewable ammonia from hydrogen support schemes, leaving the consented terminal without a confirmed anchor customer.",
+          "milestones": [
+            { "date": "2023-01", "phase": "consultation", "title": "First statutory consultation", "description": "ABP ran its first statutory consultation 9 January - 20 February 2023.", "source": "https://imminghamget.co.uk/", "expected": false },
+            { "date": "2023-05", "phase": "consultation", "title": "Second statutory consultation", "description": "Second round 24 May - 20 July 2023 on refinements to the scheme design.", "source": "https://www.abports.co.uk/news-and-media/latest-news/2023/statutory-consultation-for-proposed-green-energy-terminal-in-immingham/", "expected": false },
+            { "date": "2023-09-21", "phase": "application", "title": "DCO application submitted", "description": "ABP submitted the DCO to PINS.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR030008", "expected": false },
+            { "date": "2023-10-19", "phase": "application", "title": "Accepted for examination", "description": "PINS accepted the application; Examining Authority appointed 31 October.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR030008", "expected": false },
+            { "date": "2024-02-20", "phase": "examination", "title": "Preliminary meeting; examination opens", "description": "Six-month statutory examination begins.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR030008/project-updates", "expected": false },
+            { "date": "2024-11-06", "phase": "examination", "title": "Recommendation issued", "description": "Examining Authority submitted its recommendation report to SoS for Transport.", "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/TR030008-001437-IGET%20Recommendation%20Report%20Master%20Final.pdf", "expected": false },
+            { "date": "2025-02-06", "phase": "consent", "title": "Development consent granted", "description": "Heidi Alexander granted DCO authorising the multi-user liquid bulk import terminal.", "source": "https://www.gov.uk/government/news/immingham-green-energy-terminal-development-consent-decision-announced", "expected": false },
+            { "date": "2025-06", "phase": "dormant", "title": "Air Products pauses hydrogen anchor project", "description": "Air Products paused its £2bn ammonia-cracking facility citing UK policy excluding imported renewable ammonia from hydrogen support schemes. DCO consent remains in place but no anchor customer.", "source": "https://www.gasworld.com/story/air-products-scraps-immingham-green-hydrogen-project-in-uk/2160471.article/", "expected": false },
+            { "date": "2026", "phase": "fid", "title": "FID outstanding", "description": "No FID or construction start announced; project depends on UK government extending hydrogen support to imported renewable ammonia.", "source": "https://www.h2-view.com/story/air-products-pauses-major-uk-green-hydrogen-import-and-production-project-reports/2128147.article/", "expected": true }
+          ]
+        },
+        "TR040011": {
+          "ref": "TR040011",
+          "name": "Portishead Branch Line - MetroWest Phase 1",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-11",
+          "summary": "Reopening of the 5.5km Portishead branch line (closed to passengers in 1964) with two new stations at Portishead and Pill, delivering an hourly direct service to Bristol Temple Meads. Promoted by North Somerset Council, the DCO was granted in November 2022; main construction is scheduled to start in April 2026 with services expected in early 2028 — 64 years after closure.",
+          "milestones": [
+            { "date": "1964", "phase": "dormant", "title": "Passenger services withdrawn", "description": "Portishead branch closes to passengers under the Beeching cuts.", "source": "https://en.wikipedia.org/wiki/Portishead_Railway", "expected": false },
+            { "date": "2000", "phase": "proposal", "title": "Revival campaign launched", "description": "Portishead Railway Group begins sustained effort to reopen the line, citing population growth and A369 congestion.", "source": "https://bristolrailcampaign.org.uk/timelines/portishead-railway-line/", "expected": false },
+            { "date": "2014", "phase": "proposal", "title": "Initial business case and City Deal funding", "description": "Costs estimated at ~£58m, funded via West of England City Deal.", "source": "https://bristolrailcampaign.org.uk/timelines/portishead-railway-line/", "expected": false },
+            { "date": "2017", "phase": "revived", "title": "Scheme rescoped after cost increase", "description": "Costs rise to £145-175m; staged approach reduces initial offer to one train per hour.", "source": "https://bristolrailcampaign.org.uk/timelines/portishead-railway-line/", "expected": false },
+            { "date": "2019-11-15", "phase": "application", "title": "DCO application submitted", "description": "North Somerset Council submitted the DCO to PINS.", "source": "https://infrastructure.planninginspectorate.gov.uk/projects/south-west/portishead-branch-line-metrowest-phase-1/", "expected": false },
+            { "date": "2020-10-19", "phase": "examination", "title": "Examination begins (COVID-delayed)", "description": "Six-month examination opened after pandemic delay, ran to April 2021.", "source": "https://www.gov.uk/government/news/portishead-branch-line-metrowest-phase-1development-consent-decision-announced", "expected": false },
+            { "date": "2022-11-14", "phase": "consent", "title": "Development Consent Order granted", "description": "SoS for Transport granted DCO, authorising reopening of 5.5km of line and new stations at Portishead and Pill.", "source": "https://www.gov.uk/government/news/portishead-branch-line-metrowest-phase-1development-consent-decision-announced", "expected": false },
+            { "date": "2025-07", "phase": "fid", "title": "Final funding package confirmed", "description": "Total scheme cost ~£152m (£80m main 1b construction).", "source": "https://www.westofengland-ca.gov.uk/news/final-enabling-works-underway-for-portishead-line/", "expected": false },
+            { "date": "2025-2026", "phase": "build", "title": "Enabling works and contractor appointment", "description": "Vegetation clearance and utility diversions; Morgan Sindall confirmed as principal contractor after original 2023 award to VolkerFitzpatrick.", "source": "https://www.constructionenquirer.com/2026/02/25/volkerfitzpatrick-gets-start-date-for-new-railway-line/", "expected": false },
+            { "date": "2026-04", "phase": "build", "title": "Main construction begins", "description": "Main works commence with compounds at Harbour Road (Portishead), Monmouth Road (Pill) and off the A369.", "source": "https://www.constructionenquirer.com/2026/02/25/volkerfitzpatrick-gets-start-date-for-new-railway-line/", "expected": true },
+            { "date": "2028", "phase": "operational", "title": "Passenger services begin", "description": "Hourly direct services from Portishead to Bristol Temple Meads expected early 2028, ending a 64-year passenger service gap.", "source": "https://www.constructionenquirer.com/2026/02/25/volkerfitzpatrick-gets-start-date-for-new-railway-line/", "expected": true }
+          ]
+        },
+        "TR040012": {
+          "ref": "TR040012",
+          "name": "East West Rail - Bedford to Cambridge and Western improvements",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-11",
+          "summary": "Major revival of the Oxford-Cambridge Varsity Line closed in 1967-68, with the Bedford-Cambridge section requiring a DCO for new-build railway via Tempsford and Cambourne approaching Cambridge from the south. Project is championed by the NIC as central to the Oxford-Cambridge growth corridor; in its final pre-application statutory consultation (April-June 2026) ahead of a planned DCO submission in January 2027.",
+          "milestones": [
+            { "date": "1862", "phase": "operational", "title": "Varsity Line opens", "description": "LNWR opens the through route linking Oxford and Cambridge via Bletchley, Bedford and Sandy.", "source": "https://en.wikipedia.org/wiki/Varsity_Line", "expected": false },
+            { "date": "1968-01-01", "phase": "cancelled", "title": "Oxford-Bletchley and Bedford-Cambridge closed", "description": "Passenger services withdrawn on grounds of being uneconomic, despite not being listed in the 1963 Beeching Report.", "source": "https://en.wikipedia.org/wiki/Varsity_Line", "expected": false },
+            { "date": "1995", "phase": "revived", "title": "East West Rail Consortium formed", "description": "Local authorities led by Ipswich BC form the EWR Consortium to promote and secure the strategic railway.", "source": "https://eastwestrail.org.uk/theconsortium/", "expected": false },
+            { "date": "2017-11", "phase": "proposal", "title": "NIC Partnering for Prosperity report", "description": "National Infrastructure Commission identifies completion of East West Rail by 2030 as central to the Cambridge-MK-Oxford growth arc.", "source": "https://nic.org.uk/studies-reports/growth-arc/", "expected": false },
+            { "date": "2017-12", "phase": "proposal", "title": "East West Railway Company established", "description": "DfT creates EWR Co Ltd as a non-departmental public arms-length body.", "source": "https://www.gov.uk/government/organisations/east-west-railway-company", "expected": false },
+            { "date": "2019-01", "phase": "consultation", "title": "First Bedford-Cambridge route consultation", "description": "EWR Co consulted on five corridor options A-E.", "source": "https://eastwestrail.org.uk/2019/01/28/consultation-underway-on-new-rail-line-between-bedford-and-cambridge/", "expected": false },
+            { "date": "2020-01", "phase": "proposal", "title": "Route E selected", "description": "Grant Shapps announced Route E (Bedford-Tempsford-Cambourne-Cambridge) as preferred corridor.", "source": "https://en.wikipedia.org/wiki/East_West_Rail", "expected": false },
+            { "date": "2021", "phase": "consultation", "title": "Nine alignment options consultation", "description": "EWR Co consulted on nine alignments within Route E; ~10,000 responses raised over 160,000 matters.", "source": "https://eastwestrail.co.uk/routeupdate", "expected": false },
+            { "date": "2023-05", "phase": "proposal", "title": "Southern approach to Cambridge confirmed", "description": "New stations at Tempsford and Cambourne; southern approach into Cambridge connecting with Cambridge South.", "source": "https://eastwestrail.co.uk/routeupdate", "expected": false },
+            { "date": "2024-11", "phase": "consultation", "title": "Non-statutory consultation on emerging designs", "description": "Ten-week consultation Nov 2024 - Jan 2025; formal council responses from Bedford, Cambridge and other affected authorities.", "source": "https://eastwestrail.co.uk/consultation2024", "expected": false },
+            { "date": "2024-12", "phase": "operational", "title": "Bicester-Bletchley western section handed over", "description": "EWR Alliance completed western section on time and on budget; freight services from June 2025; passenger services delayed by driver-only operation dispute.", "source": "https://www.networkrail.co.uk/running-the-railway/railway-upgrade-plan/key-projects/east-west-rail/bicester-to-bletchley-milton-keynes/", "expected": false },
+            { "date": "2026-04-14", "phase": "consultation", "title": "Statutory consultation opens", "description": "Eight-week statutory consultation 14 April - 9 June 2026, the final formal engagement before DCO submission. Now includes provision for a Stewartby station to serve the proposed Universal Resort theme park.", "source": "https://eastwestrail.co.uk/consultation/consultation2026", "expected": false },
+            { "date": "2027-01", "phase": "application", "title": "DCO submission to PINS", "description": "EWR Co anticipates submitting the DCO in January 2027.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR040012", "expected": true },
+            { "date": "2030", "phase": "operational", "title": "Targeted full Oxford-Cambridge service", "description": "Indicative target for full Oxford-Cambridge passenger services, per NIC 2017 recommendation.", "source": "https://nic.org.uk/studies-reports/growth-arc/", "expected": true }
+          ]
+        },
+        "TR050001": {
+          "ref": "TR050001",
+          "name": "Daventry International Rail Freight Terminal",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-11",
+          "summary": "DIRFT III was the first Strategic Rail Freight Interchange consented under the Planning Act 2008 regime, with a DCO granted on 3 July 2014 authorising approximately 8 million sq ft of rail-connected warehousing on the former Rugby Radio Station site in Northamptonshire. Prologis has built out the park in phases, with a new intermodal rail terminal completed in 2021 and remaining plots being developed on a build-to-suit basis through 2025-2026.",
+          "milestones": [
+            { "date": "1997", "phase": "operational", "title": "DIRFT Phase I opens", "description": "Original Daventry International Rail Freight Terminal opened 27 May 1997 with a 475,000 sq ft Eddie Stobart warehouse and rail link to WCML.", "source": "https://en.wikipedia.org/wiki/Daventry_International_Rail_Freight_Terminal", "expected": false },
+            { "date": "2005", "phase": "operational", "title": "DIRFT Phase II planning permission", "description": "Local permission granted for a 130-acre westward expansion adding 1.9m sq ft of rail-served warehousing; Tesco 840,000 sq ft DC completed Sep 2011.", "source": "https://en.wikipedia.org/wiki/Daventry_International_Rail_Freight_Terminal", "expected": false },
+            { "date": "2011", "phase": "application", "title": "DCO application submitted", "description": "Rugby Radio Station Ltd Partnership and Prologis UK submitted the DCO for DIRFT III on the former Rugby Radio Station site.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR050001", "expected": false },
+            { "date": "2014-07-03", "phase": "consent", "title": "DCO granted (first SRFI under PA2008)", "description": "DIRFT III became the first SRFI in the UK to secure a DCO under the Planning Act 2008 regime.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR050001", "expected": false },
+            { "date": "2017", "phase": "build", "title": "First DIRFT III warehouses delivered", "description": "Initial speculative and build-to-suit warehouses came forward; adjacent Houlton residential development saw first occupations.", "source": "https://en.wikipedia.org/wiki/Daventry_International_Rail_Freight_Terminal", "expected": false },
+            { "date": "2020-06", "phase": "build", "title": "Intermodal terminal construction begins", "description": "Prologis appointed Winvic under a £29m contract; 79,000 sq m of concrete slab, 9 km of new track, three bridges.", "source": "https://news.railbusinessdaily.com/winvic-construction-secures-29-million-contract-to-construct-dirft-iii-intermodal-rail-freight-terminal-for-prologis/", "expected": false },
+            { "date": "2021", "phase": "operational", "title": "New intermodal rail terminal completed", "description": "Capable of handling up to 24 trains/day at 775m length; combined with existing railport lifts capacity to ~32 trains/day.", "source": "https://winvic.co.uk/case-studies/dirft-iii-rail-infrastructure/", "expected": false },
+            { "date": "2021", "phase": "operational", "title": "Major occupiers take DIRFT III space", "description": "M&S (1.3m sq ft), GXO, XPO, Dunelm — establishing DIRFT as the UK's largest inland intermodal hub.", "source": "https://www.logisticsmanager.com/dunelm-snaps-up-brand-new-warehouse-at-prologis-rfi-dirft/", "expected": false },
+            { "date": "2026", "phase": "build", "title": "Remaining plots under build-to-suit", "description": "~1.8m sq ft remains; new speculative units (e.g. DC107) marketed for Q3 2026 delivery.", "source": "https://prologis.getbynder.com/m/31ad36f48dad08b1/original/Prologis-RFI-DIRFT-DC107-brochure.pdf", "expected": true }
+          ]
+        },
+        "TR050005": {
+          "ref": "TR050005",
+          "name": "West Midlands Interchange",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-11",
+          "summary": "Strategic Rail Freight Interchange at Four Ashes near M6 J12 in South Staffordshire, promoted by Four Ashes Ltd (Oxford Properties / Logistics Capital Partners). DCO granted on 4 May 2020 after a 2018-2019 examination; no judicial review was filed. Enabling works started in 2023 and main construction in October 2024, with Carlsberg Britvic confirmed in July 2025 as the first occupier of the £2bn logistics hub.",
+          "milestones": [
+            { "date": "2018-08-03", "phase": "application", "title": "DCO application submitted", "description": "Four Ashes Ltd submitted the DCO to PINS.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR050005", "expected": false },
+            { "date": "2018-08-24", "phase": "application", "title": "Accepted for examination", "description": "PINS accepted the application.", "source": "https://www.railfreight.com/railfreight/2018/08/31/uks-west-midlands-interchange-to-be-examined-by-planning-inspectorate/", "expected": false },
+            { "date": "2019", "phase": "examination", "title": "Examination held", "description": "Six-month examination with preliminary meeting, written reps and issue-specific hearings.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR050005/project-updates", "expected": false },
+            { "date": "2020-05-04", "phase": "consent", "title": "Development Consent Order granted", "description": "SoS for Transport approved the West Midlands Rail Freight Interchange Order 2020.", "source": "https://www.gov.uk/government/news/west-midlands-interchange-granted-development-consent", "expected": false },
+            { "date": "2020-06", "phase": "jr", "title": "JR window closes without challenge", "description": "South Staffs Council resolved not to challenge; Stop the WMI campaign could not fund a claim independently.", "source": "https://www.expressandstar.com/news/business/2020/06/19/campaigners-hopes-ended-as-council-decides-against-rail-depot-legal-challenge/", "expected": false },
+            { "date": "2023", "phase": "build", "title": "Phase 1 enabling works begin", "description": "Phase 1 main works started: new road infrastructure, public rights of way, energy undergrounding, earthworks.", "source": "https://www.westmidlandsinterchange.co.uk/news-updates/", "expected": false },
+            { "date": "2024-10-12", "phase": "build", "title": "Main construction on site", "description": "Main construction commenced on the wider logistics hub platform.", "source": "https://www.railfreight.com/railfreight/2024/10/29/west-midlands-interchange-progresses-despite-objections/", "expected": false },
+            { "date": "2025-07-16", "phase": "build", "title": "Carlsberg Britvic confirmed as first occupier", "description": "First occupier announced — 222,000 sq ft depot with c.£4m fit-out; BREEAM Excellent / Net Zero Carbon Aligned.", "source": "https://www.westmidlandsinterchange.co.uk/news/carlsberg-britvic-announced-as-first-occupier-at-west-midlands-interchange/", "expected": false },
+            { "date": "2025-09-25", "phase": "build", "title": "Groundbreaking on first unit", "description": "First spades in the ground for the Carlsberg Britvic depot.", "source": "https://www.westmidlandsinterchange.co.uk/news/first-spades-in-the-ground-as-wmi-gears-up-for-carlsberg-britvic/", "expected": false },
+            { "date": "2026-Q4", "phase": "operational", "title": "First occupier facility opens (expected)", "description": "Carlsberg Britvic's 222,000 sq ft depot expected to open Q4 2026.", "source": "https://www.carlsbergmarstons.co.uk/newsroom/carlsberg-britvic-announced-as-first-occupier-at-west-midlands-interchange-logistics-hub/", "expected": true }
           ]
         },
         "EN010001": {
