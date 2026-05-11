@@ -14,8 +14,8 @@
     }
   ],
   "snapshot": {
-    "totalTimelines": 58,
-    "researchedByAgent": 57,
+    "totalTimelines": 72,
+    "researchedByAgent": 71,
     "researchedManually": 1
   },
   "series": {
@@ -990,6 +990,38 @@
             { "date": "2030", "phase": "operational", "title": "Northern runway targeted operational", "description": "Subject to JR outcome, GAL anticipates routine dual operation by 2030, with associated terminal/taxiway works continuing until 2038.", "source": "https://www.gatwickairport.com/company/future-plans/northern-runway.html", "expected": true }
           ]
         },
+        "TR030001": {
+          "ref": "TR030001",
+          "name": "Able Marine Energy Park",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-11",
+          "summary": "A proposed 360-hectare offshore-wind manufacturing port on the south bank of the Humber at North Killingholme, granted one of the earliest DCOs in 2013. More than a decade after consent, the quay remains unbuilt: anchor tenants DONG (2016) and SeAH (2022) walked away, and the Secretary of State has now extended the completion period to October 2032. A Material Change 3 application is anticipated.",
+          "milestones": [
+            { "date": "2011-12-16", "phase": "application", "title": "DCO application submitted to IPC", "description": "Able Humber Ports submitted its Planning Act 2008 application proposing a solid quay at Killingholme with compensatory habitat at Cherry Cobb Sands.", "source": "https://www.gov.uk/government/speeches/planning-act-2008-application-for-the-proposed-able-marine-energy-park-development-consent-order", "expected": false },
+            { "date": "2013-02-24", "phase": "examination", "title": "ExA report delivered", "description": "Examining Authority report and recommendation submitted to SoS for Transport.", "source": "https://infrastructure.planninginspectorate.gov.uk/projects/yorkshire-and-the-humber/able-marine-energy-park/", "expected": false },
+            { "date": "2013-12-18", "phase": "consent", "title": "Development Consent Order granted", "description": "SoS for Transport granted development consent; the DCO subsequently laid before Parliament 10 February 2014.", "source": "https://www.legislation.gov.uk/uksi/2014/2935/contents", "expected": false },
+            { "date": "2014", "phase": "jr", "title": "ABP judicial review withdrawn", "description": "Associated British Ports pursued a JR of the DCO and compulsory acquisition powers but withdrew its challenge in 2014.", "source": "https://www.4coffshore.com/news/able-marine-energy-park-compulsory-purchase-of-abp-undeveloped-land--abp-seeks-judicial-review-nid1059.html", "expected": false },
+            { "date": "2016", "phase": "dormant", "title": "DONG Energy abandons AMEP base", "description": "After a 2015 MOU, DONG Energy withdrew from the site in 2016, leaving the consented quay without an anchor tenant.", "source": "https://www.rechargenews.com/wind/dong-scraps-plans-for-uk-offshore-wind-hub-at-able-marine-energy-park/1-1-1183025", "expected": false },
+            { "date": "2021-05", "phase": "consent", "title": "Material Change 1 / Amendment Order 2021", "description": "Amendment Order made, granting changes from a 2018 non-material change application.", "source": "https://www.legislation.gov.uk/uksi/2021/606/made", "expected": false },
+            { "date": "2022-07-16", "phase": "consent", "title": "Material Change 2 authorised", "description": "SoS authorised MC2 (TR030006) revising the quay layout.", "source": "https://www.gov.uk/government/news/able-marine-energy-park-material-change-2", "expected": false },
+            { "date": "2022", "phase": "dormant", "title": "SeAH Wind selects Teesside over AMEP", "description": "South Korean manufacturer SeAH Wind, originally signed for a 750-job monopile factory at AMEP, relocated to Teesworks — removing the project's prospective anchor tenant.", "source": "https://www.rivieramm.com/news-content-hub/news-content-hub/disappointment-for-able-as-seah-opts-for-teeside-not-humber-site-for-monopile-facility-69675", "expected": false },
+            { "date": "2024-05-10", "phase": "application", "title": "Time extension application submitted", "description": "Able UK applied for an extension to the DCO completion period.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR030001/project-updates", "expected": false },
+            { "date": "2025-10-27", "phase": "revived", "title": "DCO completion period extended to 2032", "description": "SoS extended the completion period by seven years to 27 October 2032, providing a further construction window.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR030001/project-updates", "expected": false }
+          ]
+        },
+        "TR0310001": {
+          "ref": "TR0310001",
+          "name": "Able Marine Energy Park Material Change 3",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-11",
+          "summary": "Pre-application proposal by Able Humber Ports to amend the 2014 Able Marine Energy Park DCO, altering quay layout and construction method and permitting certain incoming cargo. PINS adopted a Scoping Opinion on 26 February 2025; formal application submission was anticipated in Q4 2025.",
+          "milestones": [
+            { "date": "2024", "phase": "proposal", "title": "Material Change 3 registered at pre-application", "description": "Able Humber Ports registered the third proposed material change with PINS as TR0310001.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR0310001", "expected": false },
+            { "date": "2025-02-26", "phase": "proposal", "title": "Scoping Opinion adopted", "description": "PINS adopted a Scoping Opinion for the MC3 environmental impact assessment.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR0310001/project-updates", "expected": false },
+            { "date": "2025", "phase": "consultation", "title": "Statutory pre-application consultation", "description": "Applicant undertaking statutory consultation ahead of submission.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR0310001", "expected": true },
+            { "date": "2025", "phase": "application", "title": "Application submission anticipated", "description": "Formal application anticipated Q4 2025.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR0310001", "expected": true }
+          ]
+        },
         "TR030002": {
           "ref": "TR030002",
           "name": "York Potash Harbour Facilities Order",
@@ -1141,6 +1173,190 @@
             { "date": "2025-07-16", "phase": "build", "title": "Carlsberg Britvic confirmed as first occupier", "description": "First occupier announced — 222,000 sq ft depot with c.£4m fit-out; BREEAM Excellent / Net Zero Carbon Aligned.", "source": "https://www.westmidlandsinterchange.co.uk/news/carlsberg-britvic-announced-as-first-occupier-at-west-midlands-interchange/", "expected": false },
             { "date": "2025-09-25", "phase": "build", "title": "Groundbreaking on first unit", "description": "First spades in the ground for the Carlsberg Britvic depot.", "source": "https://www.westmidlandsinterchange.co.uk/news/first-spades-in-the-ground-as-wmi-gears-up-for-carlsberg-britvic/", "expected": false },
             { "date": "2026-Q4", "phase": "operational", "title": "First occupier facility opens (expected)", "description": "Carlsberg Britvic's 222,000 sq ft depot expected to open Q4 2026.", "source": "https://www.carlsbergmarstons.co.uk/newsroom/carlsberg-britvic-announced-as-first-occupier-at-west-midlands-interchange-logistics-hub/", "expected": true }
+          ]
+        },
+        "TR030006": {
+          "ref": "TR030006",
+          "name": "Able Marine Energy Park Material Change 2",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-11",
+          "summary": "First-ever material amendment to a Development Consent Order under the Planning Act 2008, made to the 2014 Able Marine Energy Park DCO. Submitted by Able Humber Ports in June 2021; SoS authorised the changes on 18 July 2022, modifying quay layout (two changes) and a footpath diversion.",
+          "milestones": [
+            { "date": "2021-06-25", "phase": "application", "title": "Material Change 2 application submitted", "description": "Able Humber Ports submitted the material amendment seeking changes to quay layout and footpath diversion.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR030006", "expected": false },
+            { "date": "2021", "phase": "examination", "title": "Examination commenced", "description": "PINS began examining the first material change application under the Planning Act 2008.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR030006", "expected": false },
+            { "date": "2022-05-16", "phase": "examination", "title": "Recommendation submitted", "description": "Examining Authority concluded examination and submitted its recommendation to SoS for Transport.", "source": "https://www.gov.uk/government/news/able-marine-energy-park-material-change-2", "expected": false },
+            { "date": "2022-07-18", "phase": "consent", "title": "Amendment Order made", "description": "SoS authorised the proposed changes — the first material amendment to a DCO granted under the Planning Act 2008 regime.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR030006", "expected": false }
+          ]
+        },
+        "TR0310002": {
+          "ref": "TR0310002",
+          "name": "Solent Gateway 2",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-11",
+          "summary": "ABP-led proposal to expand the Solent Gateway port at Marchwood with a new two-berth Ro-Ro jetty, automotive terminal with multi-deck vehicle storage, and a direct A326 access road avoiding Marchwood village. Currently in pre-application; non-statutory consultation closed October 2025, Scoping Opinion issued December 2025; statutory consultation 2026 and DCO submission June 2027 expected; ~£500m construction contract.",
+          "milestones": [
+            { "date": "2023", "phase": "proposal", "title": "ABP signals support for Marchwood expansion", "description": "ABP publicly committed to helping Marchwood Port achieve its full potential, foreshadowing NSIP-scale proposals.", "source": "https://www.abports.co.uk/news-and-media/latest-news/2023/abp-supports-marchwood-port-to-achieve-potential-of-the-site/", "expected": false },
+            { "date": "2025-09-16", "phase": "consultation", "title": "Non-statutory consultation launched", "description": "ABP opened consultation 16 Sep - 13 Oct 2025; over 1,200 attended events and 300+ submitted responses.", "source": "https://www.abports.co.uk/news-and-media/latest-news/2025/have-your-say-views-invited-on-proposed-expansion-of-solent-gateway/", "expected": false },
+            { "date": "2025-12-19", "phase": "consultation", "title": "PINS Scoping Opinion published", "description": "Scoping Opinion set out the scope of EIA required for the DCO.", "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/TR0310002-000013-Scoping%20Opinion.pdf", "expected": false },
+            { "date": "2026-02-02", "phase": "proposal", "title": "Procurement: £500m ECI/works tender", "description": "ABP scheduled indicative tender publication for an ECI and Works contractor package ~£500m, provisional dates Oct 2026 - Aug 2031.", "source": "https://www.newcivilengineer.com/latest/associated-british-ports-readies-procurement-for-500m-contract-on-solent-gateway-expansion-19-12-2025/", "expected": false },
+            { "date": "2026", "phase": "consultation", "title": "Statutory consultation planned", "description": "ABP has committed to formal Section 42/47 consultation during 2026 ahead of DCO submission.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR0310002", "expected": true },
+            { "date": "2027-06", "phase": "application", "title": "DCO application submission expected", "description": "DCO application expected June 2027.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR0310002", "expected": true }
+          ]
+        },
+        "TR040001": {
+          "ref": "TR040001",
+          "name": "North Doncaster Rail Chord (near Shaftholme)",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-11",
+          "summary": "One of the first Development Consent Orders granted under the Planning Act 2008, the North Doncaster Rail Chord (Shaftholme Flyover) is a 3.2 km double-track freight link including a 246 m six-span viaduct over the East Coast Main Line. Consent granted October 2012; line opened to freight traffic on 1 June 2014.",
+          "milestones": [
+            { "date": "2009", "phase": "proposal", "title": "Concept identified in Route Utilisation Strategy", "description": "Grade-separated chord near Shaftholme identified as a capacity enhancement in Network Rail's Yorkshire & Humber RUS.", "source": "https://en.wikipedia.org/wiki/North_Doncaster_Chord", "expected": false },
+            { "date": "2011", "phase": "consultation", "title": "Pre-application consultation", "description": "Network Rail formally announced the £45m scheme in autumn 2011.", "source": "https://en.wikipedia.org/wiki/North_Doncaster_Chord", "expected": false },
+            { "date": "2012", "phase": "application", "title": "DCO submitted and accepted", "description": "One of the earliest rail DCOs to be examined under the Planning Act 2008 regime.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR040001", "expected": false },
+            { "date": "2012-10-16", "phase": "consent", "title": "Development Consent Order granted", "description": "SoS made the Network Rail (North Doncaster Chord) Order 2012.", "source": "https://www.legislation.gov.uk/id/uksi/2012/2635", "expected": false },
+            { "date": "2013-01-13", "phase": "build", "title": "Construction commenced", "description": "Site work began; early progress disrupted by the Hatfield Colliery landslip.", "source": "https://en.wikipedia.org/wiki/North_Doncaster_Chord", "expected": false },
+            { "date": "2014-06-01", "phase": "operational", "title": "Opened to regular freight traffic", "description": "The chord and Shaftholme Viaduct opened to regular freight services, removing freight conflicts from the ECML at Doncaster.", "source": "https://en.wikipedia.org/wiki/North_Doncaster_Chord", "expected": false },
+            { "date": "2014-06-26", "phase": "operational", "title": "Official opening ceremony", "description": "Patrick McLoughlin formally opened the £45m chord.", "source": "https://www.insidermedia.com/news/yorkshire/117794-45m-rail-flyover-opens", "expected": false }
+          ]
+        },
+        "TR040002": {
+          "ref": "TR040002",
+          "name": "Ipswich Rail Chord",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-11",
+          "summary": "A ~1.2km freight chord (the 'Bacon Factory Curve') north of Ipswich Goods Yard connecting the East Suffolk Line to the Great Eastern Main Line, allowing Felixstowe-Nuneaton freight to avoid reversing through Ipswich and cutting roughly an hour from journey times. Consented under the Planning Act 2008 in September 2012; opened to commercial traffic March 2014 at ~£59m (part EU TEN-T funded).",
+          "milestones": [
+            { "date": "2011-07", "phase": "application", "title": "DCO application accepted by IPC", "description": "Network Rail's application accepted; registration of interested parties opened.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR040002", "expected": false },
+            { "date": "2012-09-05", "phase": "consent", "title": "Development Consent Order granted", "description": "SoS granted consent; Ipswich Chord Order 2012 came into force 26 September.", "source": "https://www.legislation.gov.uk/uksi/2012/2284/made", "expected": false },
+            { "date": "2012-10", "phase": "build", "title": "Main construction begins", "description": "Four new bridges, two embankments, a 413m retaining wall and 1.2km of new track and signalling.", "source": "https://www.networkrailmediacentre.co.uk/news/better-freight-journeys-from-felixstowe-as-rail-link-gets-green-light", "expected": false },
+            { "date": "2014-03-24", "phase": "build", "title": "First revenue freight train", "description": "GBRf 66733 hauled the first revenue-earning freight train along the newly commissioned chord.", "source": "https://www.railengineer.co.uk/ipswich-chord-freight/", "expected": false },
+            { "date": "2014-03-31", "phase": "operational", "title": "Chord opened to commercial traffic", "description": "£59m Ipswich Chord opened on time and on budget; cuts ~1 hour off Felixstowe-Midlands freight journey times.", "source": "https://www.railstaff.co.uk/2014/06/09/chord-save-hour/", "expected": false }
+          ]
+        },
+        "TR040004": {
+          "ref": "TR040004",
+          "name": "Stafford Area Improvements - Norton Bridge Railway",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-11",
+          "summary": "Network Rail DCO authorising a grade-separated flyover at Norton Bridge Junction plus six miles of new 100 mph railway, removing a major at-grade bottleneck on the West Coast Main Line. Consent granted March 2014; flyover commissioned for revenue services on 29 March 2016 as part of the wider £250m Stafford Area Improvement Programme.",
+          "milestones": [
+            { "date": "2010", "phase": "consultation", "title": "Pre-application consultation begins", "description": "Network Rail engaged Norton Bridge residents and stakeholders on options to grade-separate the junction.", "source": "https://www.networkrailmediacentre.co.uk/news/norton-bridge-residents-urged-to-find-out-more-about-stafford-rail-improvements", "expected": false },
+            { "date": "2012-12", "phase": "application", "title": "DCO application submitted", "description": "Network Rail submitted the DCO for the Norton Bridge Area Improvements.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR040004", "expected": false },
+            { "date": "2014-03-31", "phase": "consent", "title": "Development Consent Order granted", "description": "Network Rail (Norton Bridge Area Improvements) Order 2014 came into force 21 April 2014.", "source": "https://www.legislation.gov.uk/uksi/2014/909/made", "expected": false },
+            { "date": "2014", "phase": "build", "title": "Main construction begins", "description": "Staffordshire Alliance (Atkins, Laing O'Rourke, Network Rail, VolkerRail) began earthworks on the six-mile alignment.", "source": "https://www.railway-technology.com/projects/stafford-area-improvement-programme-saip/", "expected": false },
+            { "date": "2016-03-29", "phase": "operational", "title": "Flyover opens to revenue services", "description": "First passenger trains used the new grade-separated flyover, enabling additional WCML, cross-country and freight paths.", "source": "https://alittlebitofstone.com/2016/03/29/norton-bridge-rail-flyover-opens/", "expected": false },
+            { "date": "2016-12", "phase": "operational", "title": "Programme completion", "description": "£250m Stafford Area Improvement Programme complete, delivering up to two extra trains per hour London-North West and one extra freight path per hour.", "source": "https://www.networkrailmediacentre.co.uk/news/passengers-benefiting-from-gbp-250m-railway-upgrade-between-stafford-and-crewe", "expected": false }
+          ]
+        },
+        "TR040005": {
+          "ref": "TR040005",
+          "name": "Redditch Branch Enhancement Scheme",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-11",
+          "summary": "Network Rail's DCO to construct an ~3 km dynamic passing loop on the single-track Cross-City Line branch between Barnt Green and Redditch, including a new platform and footbridge at Alvechurch. Order made 31 October 2013; line reopened after an eight-week blockade on 1 September 2014; three-trains-per-hour timetable from December 2014.",
+          "milestones": [
+            { "date": "2012-09-04", "phase": "application", "title": "DCO application submitted", "description": "Network Rail submitted the DCO to PINS.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR040005", "expected": false },
+            { "date": "2013-10-31", "phase": "consent", "title": "Development Consent Order granted", "description": "Network Rail (Redditch Branch Enhancement) Order 2013 came into force 21 November 2013.", "source": "https://www.legislation.gov.uk/uksi/2013/2809/made", "expected": false },
+            { "date": "2014-07", "phase": "build", "title": "Eight-week blockade begins", "description": "Branch closed to passengers for construction of the new passing loop and Alvechurch platform.", "source": "https://thebirminghampress.com/2014/06/barnt-green-redditch-rail-network-to-close-for-upgrade/", "expected": false },
+            { "date": "2014-09-01", "phase": "build", "title": "Line reopens to passengers", "description": "Reopened following completion of the dynamic loop, new northbound Alvechurch platform, footbridge and signalling works.", "source": "http://www.rail.co.uk/rail-news/2014/rail-uk-redditch-branch/", "expected": false },
+            { "date": "2014-12", "phase": "operational", "title": "Three-trains-per-hour timetable", "description": "Cross-City Line service to Redditch increased from two to three trains per hour.", "source": "https://www.networkrailmediacentre.co.uk/news/investment-delivers-a-better-railway-between-barnt-green-and-redditch", "expected": false }
+          ]
+        },
+        "TR050002": {
+          "ref": "TR050002",
+          "name": "East Midlands Gateway Rail Freight Interchange",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-11",
+          "summary": "Strategic Rail Freight Interchange north of East Midlands Airport near Castle Donington, consented by DCO in January 2016. Developed as SEGRO Logistics Park East Midlands Gateway (~700 acres, ~4m sq ft of warehousing); the rail terminal is operated by Maritime Transport under a 25-year lease and has been fully operational since the first commercial freight train arrived on 7 January 2020.",
+          "milestones": [
+            { "date": "2014", "phase": "consultation", "title": "Statutory pre-application consultation", "description": "Roxhill ran statutory community consultation under a Statement of Community Consultation.", "source": "https://democracy.leics.gov.uk/documents/s93420/roxhill%20east%20mids%20gateway%20consultation.pdf", "expected": false },
+            { "date": "2014-08-29", "phase": "application", "title": "DCO application submitted", "description": "Roxhill (Kegworth) submitted the DCO; accepted 19 September 2014.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR050002", "expected": false },
+            { "date": "2015-02-03", "phase": "examination", "title": "Examination opens", "description": "Examination by an appointed Panel began.", "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/TR050002-001293-Examining%20Authority%27s%20report%20and%20recommendation%20to%20the%20Secretary%20of%20State%20for%20Transport.pdf", "expected": false },
+            { "date": "2016-01-12", "phase": "consent", "title": "Development Consent Order granted", "description": "SoS for Transport authorised the SRFI: up to 547,414 sqm of warehousing, intermodal terminal up to 16 trains/day at 775m length, and new rail link to the Castle Donington branch.", "source": "https://www.legislation.gov.uk/uksi/2016/17/made", "expected": false },
+            { "date": "2017", "phase": "build", "title": "Enabling infrastructure works begin", "description": "Construction commenced on the c.£100m enabling package, including A453 dualling and A50 junction upgrades.", "source": "https://www.bwbconsulting.com/case-study/east-midlands-gateway-srfi/", "expected": false },
+            { "date": "2019", "phase": "build", "title": "Rail connection commissioned", "description": "New rail connection from the Castle Donington line commissioned; warehouse plots progressively let to Amazon, DHL, XPO, Games Workshop.", "source": "https://en.wikipedia.org/wiki/East_Midlands_Gateway", "expected": false },
+            { "date": "2020-01-07", "phase": "operational", "title": "First commercial freight train", "description": "DB Cargo UK operated the first commercial rail freight service into the new East Midlands Gateway Terminal.", "source": "https://www.railwaygazette.com/uk/first-freight-train-to-east-midlands-gateway-terminal/55526.article", "expected": false },
+            { "date": "2020-03", "phase": "operational", "title": "Maritime terminal officially opened", "description": "Rail Minister formally opened Maritime Transport's intermodal terminal at EMG, operated under a 25-year lease from SEGRO.", "source": "https://www.maritimetransport.com/news-media/2020/03/04/rail-minister-officially-opens-maritime-s-rail-freight-interchange-at-east-midlands-gateway", "expected": false }
+          ]
+        },
+        "TR050006": {
+          "ref": "TR050006",
+          "name": "Northampton Gateway Rail Freight Interchange",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-11",
+          "summary": "A Strategic Rail Freight Interchange of up to 5-6 million sq ft beside M1 Junction 15, granted development consent in October 2019 under an application by Roxhill (subsequently acquired by SEGRO). Main construction began in 2021, a 2023 amendment order permitted occupation of warehousing in advance of the rail connection, the terminal was tied into the West Coast Main Line in 2025, and the SRFI officially opened in 2026.",
+          "milestones": [
+            { "date": "2018-05-21", "phase": "application", "title": "DCO application submitted", "description": "Roxhill Developments submitted the DCO; accepted for examination on 15 June 2018.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR050006", "expected": false },
+            { "date": "2018-10", "phase": "examination", "title": "Examination opens", "description": "Examining Authority began examination with autumn deadlines and an accompanied site inspection 18 December.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR050006/examination-timetable", "expected": false },
+            { "date": "2019-10-10", "phase": "consent", "title": "Development Consent Order granted", "description": "Northampton Gateway RFI Order 2019 came into force 30 October 2019, authorising the SRFI, M1 J15 improvements, and a Roade bypass.", "source": "https://www.legislation.gov.uk/uksi/2019/1358/made", "expected": false },
+            { "date": "2021-01", "phase": "build", "title": "Main infrastructure works begin", "description": "Winvic began £107.5m infrastructure works, including earthworks, J15 improvements and plot platforms.", "source": "https://www.constructionenquirer.com/2021/01/05/winvic-starts-107m-infrastructure-job-for-logistic-hub/", "expected": false },
+            { "date": "2021-07", "phase": "build", "title": "Rail freight connection construction begins", "description": "Construction of strategic rail freight connection commenced including tunnel works and terminal sidings.", "source": "https://www.segro.com/media/news/2021/50721-construction-of-strategic-rail-freight-connection-begins-at-segro-logistics-park-northampton-gateway", "expected": false },
+            { "date": "2023-04", "phase": "consent", "title": "Non-material amendment order made", "description": "Amendment Order 2023 permitted occupation of warehouse floorspace ahead of the rail connection being delivered.", "source": "https://www.legislation.gov.uk/uksi/2023/418/contents/made", "expected": false },
+            { "date": "2025-04", "phase": "build", "title": "Rail terminal tied into WCML", "description": "Network Rail completed the connection of the 35-acre rail freight terminal to the West Coast Main Line.", "source": "https://www.segro.com/media/news/2025/240425-rail-completion-marks-latest-major-milestone-at-segro-logistics-park-northampton", "expected": false },
+            { "date": "2026-03-03", "phase": "operational", "title": "SRFI officially opens", "description": "Strategic Rail Freight Interchange opened, operating a five-day-a-week intermodal service to DP World Southampton.", "source": "https://www.newcivilengineer.com/latest/new-northampton-gateway-strategic-rail-freight-interchange-opens-03-03-2026/", "expected": false }
+          ]
+        },
+        "TR050007": {
+          "ref": "TR050007",
+          "name": "Hinckley National Rail Freight Interchange",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-11",
+          "summary": "Tritax Symmetry's proposed c.£750m Strategic Rail Freight Interchange north-east of Hinckley, Leicestershire, was refused development consent by the Secretary of State for Transport on 10 March 2025, primarily on highway safety grounds following the Planning Inspectorate's examination. Tritax stated it would seek legal advice on next steps; no JR has been confirmed in public records.",
+          "milestones": [
+            { "date": "2021", "phase": "proposal", "title": "Project announced", "description": "Tritax Symmetry brought forward proposals; campaign opposition led by local MP and community groups.", "source": "https://www.drlukeevans.org.uk/campaigns/NRFI-proposals", "expected": false },
+            { "date": "2022", "phase": "consultation", "title": "Statutory pre-application consultation", "description": "Public consultation events; maximum building height later reduced from 33m to 28m.", "source": "https://www.drlukeevans.org.uk/campaigns/NRFI-proposals", "expected": false },
+            { "date": "2023-03-17", "phase": "application", "title": "DCO application submitted", "description": "Tritax Symmetry (Hinckley) Ltd submitted the DCO.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR050007", "expected": false },
+            { "date": "2023-09-12", "phase": "examination", "title": "Examination opens", "description": "Preliminary meeting held; six-month examination begins.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR050007", "expected": false },
+            { "date": "2024-03-08", "phase": "examination", "title": "Examination closes", "description": "Final deadline for written submissions and evidence.", "source": "https://www.drlukeevans.org.uk/campaigns/NRFI-proposals", "expected": false },
+            { "date": "2024-06-10", "phase": "examination", "title": "ExA report submitted to SoS", "description": "Examining Authority's recommendation submitted to SoS for Transport.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR050007", "expected": false },
+            { "date": "2024-09-10", "phase": "examination", "title": "'Minded to refuse' letter; decision extended", "description": "SoS indicated minded to refuse on highway safety grounds; decision deadline extended to 10 March 2025.", "source": "https://www.gov.uk/government/speeches/hinckley-national-freight-interchange-development-consent-decision-extension", "expected": false },
+            { "date": "2025-03-10", "phase": "cancelled", "title": "Development consent REFUSED", "description": "SoS for Transport refused the DCO, concluding that adverse highway safety impacts outweighed the scheme's benefits and need case.", "source": "https://www.newcivilengineer.com/latest/dco-for-750m-hinckley-national-rail-freight-interchange-refused-20-03-2025/", "expected": false }
+          ]
+        },
+        "TR050008": {
+          "ref": "TR050008",
+          "name": "Oxfordshire Strategic Rail Freight Interchange",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-11",
+          "summary": "Proposed Strategic Rail Freight Interchange next to the Chiltern Main Line south-west of M40 Junction 10 near Ardley, Oxfordshire, promoted by Oxfordshire Railfreight Limited (a Mountpark Logistics SPV). Comprises an intermodal rail terminal and up to ~603,850 sqm of warehousing. DCO submitted 31 March 2026, accepted for examination 28 April 2026; currently pre-examination.",
+          "milestones": [
+            { "date": "2022-05", "phase": "consultation", "title": "Stage 1 non-statutory consultation", "description": "First round of public consultation 9 May - 4 July 2022 presenting an early scheme outline.", "source": "https://oxsrfi.co.uk/wp-content/upload/2022/08/App-B-OxSRFI-Stage-1-Consultation-Docs.pdf", "expected": false },
+            { "date": "2025-09-23", "phase": "consultation", "title": "Stage 2 statutory consultation opens", "description": "Six-week statutory consultation under section 47 of the Planning Act 2008.", "source": "https://norasays.org.uk/2025/09/16/oxfordshire-strategic-rail-freight-interchange-oxsrfi-consultation-opens-23rd-september/", "expected": false },
+            { "date": "2025-11-04", "phase": "consultation", "title": "Stage 2 closes", "description": "Statutory consultation closed; responses reviewed ahead of finalising the DCO.", "source": "https://www.railfreight.com/railfreight/2025/10/07/still-dreaming-of-oxfordshire-freight-hub/", "expected": false },
+            { "date": "2026-03-31", "phase": "application", "title": "DCO application submitted to PINS", "description": "OxRL submitted the DCO covering an intermodal rail terminal and up to ~603,850 sqm of warehousing.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR050008", "expected": false },
+            { "date": "2026-04-28", "phase": "application", "title": "Application accepted for examination", "description": "PINS accepted the application after its 28-day acceptance review.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR050008", "expected": false },
+            { "date": "2026", "phase": "examination", "title": "Examination expected to open", "description": "Six-month statutory examination expected in H2 2026.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR050008", "expected": true },
+            { "date": "2027", "phase": "consent", "title": "Secretary of State decision expected", "description": "Following ExA recommendation, SoS decision expected in 2027.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR050008", "expected": true }
+          ]
+        },
+        "TR0510001": {
+          "ref": "TR0510001",
+          "name": "Intermodal Logistics Park North",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-11",
+          "summary": "Strategic Rail Freight Interchange proposed by Tritax Big Box on land east of Newton-le-Willows between the M6 and Chat Moss line. At full build-out the terminal is designed for up to 16 trains/day with ~767,000 m² of warehousing, projected ~6,000 jobs. Pre-application stage; DCO submission expected November 2026.",
+          "milestones": [
+            { "date": "2025-01", "phase": "consultation", "title": "Informal non-statutory consultation launched", "description": "Tritax Big Box launched consultation with feedback accepted until 21 March 2025.", "source": "https://news.railbusinessdaily.com/tritax-big-box-launches-informal-non-statutory-consultation-on-intermodal-logistics-park-north/", "expected": false },
+            { "date": "2025", "phase": "proposal", "title": "EIA Scoping Report submitted", "description": "Scoping Report published on the PINS portal.", "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/TR0510001-000004-TR051001%20-%20Scoping%20Report.pdf", "expected": false },
+            { "date": "2025-10-28", "phase": "consultation", "title": "Section 46 notification published", "description": "Applicant's Section 46 notification to PINS alongside Design Code.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR0510001", "expected": false },
+            { "date": "2025-Q4", "phase": "consultation", "title": "Statutory consultation phase", "description": "Public events in Winwick, Culcheth and surrounding communities.", "source": "https://www.warrington-worldwide.co.uk/2025/10/25/public-meetings-arranged-for-major-new-rail-freight-interchange-impacting-winwick-and-culcheth/", "expected": false },
+            { "date": "2026-11", "phase": "application", "title": "DCO application expected", "description": "DCO submission expected November 2026 following final consultation.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR0510001", "expected": true },
+            { "date": "2027", "phase": "examination", "title": "Examination expected", "description": "Examination anticipated after acceptance; SoS decision targeted 2027-28.", "source": "https://www.warrington-worldwide.co.uk/2025/01/27/consultation-set-to-begin-on-intermodal-logistics-park-near-winwick/", "expected": true }
+          ]
+        },
+        "TR0510002": {
+          "ref": "TR0510002",
+          "name": "East Midlands Gateway Rail Freight Interchange Material Change",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-11",
+          "summary": "SEGRO's Material Change Order application to amend the 2016 East Midlands Gateway DCO, seeking consent for an additional warehouse on Plot 16 (EMG1), increased rail-freight crane heights, and expanded bus terminal and site management facilities. Currently in Examination, jointly with the related EMG2 DCO (BC0410001); SoS decision expected ~March 2027.",
+          "milestones": [
+            { "date": "2025-10-15", "phase": "application", "title": "Application received by PINS", "description": "SEGRO submitted the Material Change Order application to amend the EMG RFI and Highway Order 2016.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR0510002", "expected": false },
+            { "date": "2025-10", "phase": "application", "title": "Application accepted and published", "description": "PINS opened the 28-day relevant representation registration window; examined jointly with EMG2 DCO (BC0410001).", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR0510002/documents", "expected": false },
+            { "date": "2026-03-10", "phase": "examination", "title": "Preliminary Meeting; examination opens", "description": "Examining Authority held the Preliminary Meeting at 10am followed by Compulsory Acquisition Hearing 1; Issue Specific Hearings 1 and 2 on 11-12 March.", "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/BC0410001-000765-EMG2%20+%20MC%20R6.pdf", "expected": false },
+            { "date": "2026-05-12", "phase": "examination", "title": "Open Floor Hearing 1 and CAH2", "description": "Open Floor Hearing 1 and Compulsory Acquisition Hearing 2 held following Deadline 3 submissions.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR0510002", "expected": false },
+            { "date": "2026-09", "phase": "examination", "title": "Examination expected to close", "description": "Statutory examination due to conclude around September 2026.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR0510002", "expected": true },
+            { "date": "2027-03", "phase": "consent", "title": "Secretary of State decision expected", "description": "Recommendation due within 3 months of exam close, SoS decision a further 3 months later.", "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR0510002", "expected": true }
           ]
         },
         "EN010001": {
