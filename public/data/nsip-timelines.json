@@ -3,7 +3,7 @@
   "id": "nsip-timelines",
   "pillar": "state",
   "topic": "construction",
-  "generated": "2026-05-11T20:08:49.417Z",
+  "generated": "2026-05-11T20:13:37.642Z",
   "sources": [
     {
       "id": "claude-agent-research",
@@ -14,7 +14,7 @@
     }
   ],
   "snapshot": {
-    "totalTimelines": 115,
+    "totalTimelines": 122,
     "researchedByAgent": 74,
     "researchedManually": 1
   },
@@ -10900,6 +10900,581 @@
               "description": "Following the typical three-month pre-examination stage after acceptance, the six-month examination is expected to begin in autumn 2026.",
               "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110014",
               "expected": true
+            }
+          ]
+        },
+        "EN010155": {
+          "ref": "EN010155",
+          "name": "Dean Moor Solar Farm",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Dean Moor Solar Farm is a proposed solar generating station of over 50 MW on a c.276.5 ha site west of the A5086 at Branthwaite Edge, Cumberland (south of the Lake District National Park), connecting to the Electricity North West distribution network. The application by FVS Dean Moor Limited was accepted by the Planning Inspectorate in April 2025, examined between July 2025 and January 2026, and the Examining Authority's recommendation was sent to the Secretary of State on 2 April 2026. The Secretary of State is currently in the decision stage, with a statutory decision date of 2 July 2026.",
+          "milestones": [
+            {
+              "date": "2023-08-07",
+              "phase": "proposal",
+              "title": "EIA Scoping Report submitted",
+              "description": "FVS Dean Moor Limited submitted its Environmental Impact Assessment Scoping Report to the Secretary of State, formally beginning the pre-application process.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010155",
+              "expected": false
+            },
+            {
+              "date": "2023-09-14",
+              "phase": "proposal",
+              "title": "Scoping Opinion issued",
+              "description": "The Planning Inspectorate issued its Scoping Opinion to the applicant, setting out the matters the Environmental Statement should address.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010155",
+              "expected": false
+            },
+            {
+              "date": "2025-03-26",
+              "phase": "application",
+              "title": "DCO application received",
+              "description": "The Planning Inspectorate received the Development Consent Order application from FVS Dean Moor Limited.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010155/project-updates",
+              "expected": false
+            },
+            {
+              "date": "2025-04-15",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "The Planning Inspectorate accepted the application for examination and published the application documents.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN010155-000018-Notification%20of%20decision%20to%20ACCEPT%20application%20-%20Dean%20Moor%20Solar.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025-04-28",
+              "phase": "application",
+              "title": "Registration period opened",
+              "description": "The applicant publicised the accepted application and opened the period for interested parties to register to have their say, with a deadline of 19 June 2025.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010155/project-updates",
+              "expected": false
+            },
+            {
+              "date": "2025-06-24",
+              "phase": "application",
+              "title": "Rule 6 letter and preliminary meeting notification",
+              "description": "The Examining Authority issued the Rule 6 letter notifying parties of the preliminary meeting, with the draft examination timetable and initial assessment of principal issues.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN010155-000039-Rule%206%20Letter%20and%20Annexes.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025-07-22",
+              "phase": "examination",
+              "title": "Examination opens",
+              "description": "The preliminary meeting was held on 22 July 2025, with the six-month examination period commencing at its close.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010155/project-updates",
+              "expected": false
+            },
+            {
+              "date": "2025-11-11",
+              "phase": "examination",
+              "title": "Hearings held",
+              "description": "Issue Specific Hearing 1 was held on 11 November 2025, followed by a Compulsory Acquisition Hearing and Open Floor Hearing on 13 November 2025, with an accompanied site inspection on 4 December 2025.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010155/project-updates",
+              "expected": false
+            },
+            {
+              "date": "2026-01-05",
+              "phase": "examination",
+              "title": "Examination closes",
+              "description": "The Examining Authority closed the examination at 23:59 on 5 January 2026; the Section 99 Notification of Completion of Examination was published the following day.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN010155-000464-s99%20Completion%20of%20Examination%20notification.pdf",
+              "expected": false
+            },
+            {
+              "date": "2026-04-02",
+              "phase": "consent",
+              "title": "ExA recommendation sent to Secretary of State",
+              "description": "The Examining Authority's recommendation report was sent to the Secretary of State, starting the three-month decision period.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010155/project-updates",
+              "expected": false
+            },
+            {
+              "date": "2026-05-01",
+              "phase": "consent",
+              "title": "Secretary of State information request",
+              "description": "The Secretary of State issued a letter to the applicant and 12 Property FE Limited requesting further information, with a response deadline of 23:59 on 15 May 2026.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN010155-000483-Dean%20Moor%20Solar%20-%20Information%20Request%20-%20May%2026.pdf",
+              "expected": false
+            },
+            {
+              "date": "2026-07-02",
+              "phase": "consent",
+              "title": "Secretary of State decision deadline",
+              "description": "The statutory deadline by which the Secretary of State for Energy Security and Net Zero is required to issue a decision on the Development Consent Order application.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010155",
+              "expected": true
+            }
+          ]
+        },
+        "EN010157": {
+          "ref": "EN010157",
+          "name": "Peartree Hill Solar Farm",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-11",
+          "summary": "Peartree Hill Solar Farm is a proposed up-to-320 MW solar and battery storage NSIP in East Riding of Yorkshire, north-west of Leven and east of Beverley, brought forward by RWE Renewables UK Solar and Storage Limited (acquired from JBM Solar in March 2023). The DCO application was accepted in March 2025, examined between July 2025 and January 2026, and the Examining Authority's recommendation was submitted to the Secretary of State in April 2026, with a decision deadline of 2 July 2026.",
+          "milestones": [
+            {
+              "date": "2023-10-09",
+              "phase": "proposal",
+              "title": "Non-statutory consultation opens",
+              "description": "JBM Solar (RWE Group) launched a non-statutory preliminary public consultation on the proposed 320 MW Peartree Hill Solar Farm, running to 6 November 2023.",
+              "source": "https://newenergyinnovation.co.uk/rwe-advances-consultation-process-for-320mw-solar-farm/",
+              "expected": false
+            },
+            {
+              "date": "2023-11-09",
+              "phase": "proposal",
+              "title": "Scoping request submitted",
+              "description": "Planning Inspectorate received an EIA Scoping request from JBM Solar Ltd under Regulation 10 of the 2017 EIA Regulations.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN010157-000009-Scoping%20Opinion%202017%20EIA%20Regs_.pdf",
+              "expected": false
+            },
+            {
+              "date": "2023-12-20",
+              "phase": "proposal",
+              "title": "Scoping Opinion adopted",
+              "description": "Planning Inspectorate adopted the Scoping Opinion for the proposed Peartree Hill Solar Farm.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN010157-000009-Scoping%20Opinion%202017%20EIA%20Regs_.pdf",
+              "expected": false
+            },
+            {
+              "date": "2024-05-15",
+              "phase": "proposal",
+              "title": "Statutory consultation opens",
+              "description": "Six-week statutory (s.42/s.47/s.48) consultation on the proposals opened, running until 26 June 2024.",
+              "source": "https://peartreehillsolar.co.uk/wp-content/uploads/sites/32/2024/05/Statutory-Consultation-Brochure-V1.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025-02-21",
+              "phase": "application",
+              "title": "DCO application submitted",
+              "description": "RWE Renewables UK Solar and Storage Limited submitted the Development Consent Order application to the Planning Inspectorate.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010157",
+              "expected": false
+            },
+            {
+              "date": "2025-03-21",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "Planning Inspectorate accepted the DCO application for examination under section 55 of the Planning Act 2008.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010157",
+              "expected": false
+            },
+            {
+              "date": "2025-05-07",
+              "phase": "application",
+              "title": "Registration period opens",
+              "description": "Public registration as Interested Parties and submission of relevant representations opened; closed 30 May 2025.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010157/project-updates",
+              "expected": false
+            },
+            {
+              "date": "2025-07-22",
+              "phase": "examination",
+              "title": "Examination opens",
+              "description": "Preliminary Meeting and first Open Floor Hearing held; examination period formally begins.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010157/project-updates",
+              "expected": false
+            },
+            {
+              "date": "2025-10-21",
+              "phase": "examination",
+              "title": "Issue Specific and Compulsory Acquisition Hearings",
+              "description": "Issue Specific Hearings and Compulsory Acquisition Hearings held 21-23 October 2025.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN010157-000616-Peartree-Hill-Solar-Farm-Hearing-Notice-October-FINAL.pdf",
+              "expected": false
+            },
+            {
+              "date": "2026-01-06",
+              "phase": "examination",
+              "title": "Examination closes",
+              "description": "Six-month examination concluded after eight hearings and nine written submission deadlines, with over 700 documents submitted.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010157",
+              "expected": false
+            },
+            {
+              "date": "2026-04-02",
+              "phase": "examination",
+              "title": "ExA recommendation submitted",
+              "description": "Examining Authority submitted its report and recommendation to the Secretary of State for Energy Security and Net Zero.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010157/project-updates",
+              "expected": false
+            },
+            {
+              "date": "2026-04-30",
+              "phase": "examination",
+              "title": "Secretary of State information request",
+              "description": "Secretary of State issued a request for further information from the applicant and interested parties, with a response deadline of 14 May 2026.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010157",
+              "expected": false
+            },
+            {
+              "date": "2026-07-02",
+              "phase": "examination",
+              "title": "Secretary of State decision deadline",
+              "description": "Statutory deadline for the Secretary of State for Energy Security and Net Zero to issue a decision on whether to grant the DCO.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010157",
+              "expected": true
+            }
+          ]
+        },
+        "EN010159": {
+          "ref": "EN010159",
+          "name": "One Earth Solar Farm",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-11",
+          "summary": "A proposed 740 MW solar farm with battery energy storage on around 1,409 hectares surrounding the River Trent in Nottinghamshire and Lincolnshire, brought forward by One Earth Solar Farm Ltd (a joint venture between PS Renewables and Orsted). The application is at the Decision stage, with the Secretary of State decision deadline set for 8 July 2026.",
+          "milestones": [
+            {
+              "date": "2023-09-15",
+              "phase": "proposal",
+              "title": "Project announced",
+              "description": "Orsted announced its entry into UK solar with the One Earth Solar Farm, co-developed with PS Renewables, targeting commercial operation before 2030.",
+              "source": "https://orsted.com/en/media/news/2023/09/oersted-enters-its-first-uk-solar-project-722011",
+              "expected": false
+            },
+            {
+              "date": "2023-09-01",
+              "phase": "consultation",
+              "title": "Non-statutory consultation begins",
+              "description": "First, non-statutory round of public consultation on early proposals ran September to November 2023.",
+              "source": "https://oneearthsolarfarm.co.uk/planning-process/",
+              "expected": false
+            },
+            {
+              "date": "2023-11-01",
+              "phase": "proposal",
+              "title": "Scoping Report submitted",
+              "description": "Applicant submitted the EIA Scoping Report to the Planning Inspectorate in November 2023.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN010159-000005-OE-05-RP-00001-Scoping%20Report%20-%20P01.pdf",
+              "expected": false
+            },
+            {
+              "date": "2023-12-22",
+              "phase": "proposal",
+              "title": "Scoping Opinion adopted",
+              "description": "Planning Inspectorate, on behalf of the Secretary of State, adopted the Scoping Opinion for EN010159.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010159",
+              "expected": false
+            },
+            {
+              "date": "2024-05-01",
+              "phase": "consultation",
+              "title": "Statutory consultation begins",
+              "description": "Section 42/47/48 statutory consultation on updated proposals and Preliminary Environmental Information Report ran May to July 2024.",
+              "source": "https://oneearthsolarfarm.co.uk/planning-process/",
+              "expected": false
+            },
+            {
+              "date": "2025-02-27",
+              "phase": "application",
+              "title": "DCO application submitted",
+              "description": "One Earth Solar Farm Ltd submitted the Development Consent Order application to the Planning Inspectorate.",
+              "source": "https://www.pv-magazine.com/2025/02/28/orsted-and-ps-renewables-seek-approval-for-740-mw-uk-solar-and-storage-project/",
+              "expected": false
+            },
+            {
+              "date": "2025-03-27",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "Planning Inspectorate accepted the application for examination under section 55 of the Planning Act 2008.",
+              "source": "https://psrenewables.com/application-accepted-for-oesf/",
+              "expected": false
+            },
+            {
+              "date": "2025-07-08",
+              "phase": "proposal",
+              "title": "Preliminary Meeting and examination opens",
+              "description": "Preliminary Meeting held on 8 July 2025, marking the start of the six-month examination by the Examining Authority.",
+              "source": "https://psrenewables.com/one-earth-solar-farm-reaches-significant-milestone-in-dco-process/",
+              "expected": false
+            },
+            {
+              "date": "2026-01-08",
+              "phase": "proposal",
+              "title": "Examination closes",
+              "description": "Six-month examination concluded on 8 January 2026.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN010159-000281-One%20Earth%20Solar%20Examination%20Library.pdf",
+              "expected": false
+            },
+            {
+              "date": "2026-04-08",
+              "phase": "examination",
+              "title": "ExA recommendation submitted to Secretary of State",
+              "description": "Examining Authority submitted its recommendation report to the Secretary of State within the statutory three-month window after examination close.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010159",
+              "expected": false
+            },
+            {
+              "date": "2026-05-01",
+              "phase": "examination",
+              "title": "Secretary of State requests further information",
+              "description": "Secretary of State wrote to interested parties requesting further information, with a response deadline of 15 May 2026.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010159",
+              "expected": false
+            },
+            {
+              "date": "2026-07-08",
+              "phase": "examination",
+              "title": "Secretary of State decision deadline",
+              "description": "Statutory deadline for the Secretary of State to issue the decision on the Development Consent Order.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010159",
+              "expected": true
+            }
+          ]
+        },
+        "EN020025": {
+          "ref": "EN020025",
+          "name": "Continental Link Multi-Purpose Interconnector",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Continental Link was a proposed 1.8 GW high voltage direct current multi-purpose interconnector (MPI) by National Grid Ventures, intended to link Great Britain to Norway with a converter station near Creyke Beck, East Yorkshire and a landfall on the Holderness Coast, while also enabling the connection of up to 3.6 GW of North Sea offshore wind. The project secured a Section 35 Direction in August 2021 but Norway's transmission system operator Statnett indicated it was not involved at that time, and the project was subsequently withdrawn from the planning process at pre-application stage.",
+          "milestones": [
+            {
+              "date": "2021-06-28",
+              "phase": "proposal",
+              "title": "Section 35 request submitted by National Grid Ventures",
+              "description": "NGV wrote to the Secretary of State requesting that Continental Link be directed to be treated as development requiring development consent under the Planning Act 2008.",
+              "source": "https://assets.publishing.service.gov.uk/media/611ce5bc8fa8f53dcd3ae848/NGV_Request_for_s35_Direction_28_June_2021_-_Continental_Link_Multi-Purpose_Interconnector.pdf",
+              "expected": false
+            },
+            {
+              "date": "2021-08-18",
+              "phase": "proposal",
+              "title": "Section 35 Direction issued",
+              "description": "Secretary of State issued a Section 35 Direction designating Continental Link as a Nationally Significant Infrastructure Project under the Planning Act 2008.",
+              "source": "https://www.gov.uk/government/publications/national-grid-ventures-ngv-continental-link-multi-purpose-interconnector-section-35-direction-planning-act-2008",
+              "expected": false
+            },
+            {
+              "date": "2021-08-20",
+              "phase": "proposal",
+              "title": "Project publicly announced",
+              "description": "National Grid Ventures announced plans for a 1.8 GW HVDC multi-purpose interconnector intended to link Great Britain with Norway and connect up to 3.6 GW of North Sea offshore wind. Norwegian counterpart Statnett told Reuters it was not currently involved.",
+              "source": "https://www.nasdaq.com/articles/national-grid-starts-planning-1.8-gw-offshore-wind-interconnector-with-norway-2021-08-20",
+              "expected": false
+            },
+            {
+              "date": "2021-08-20",
+              "phase": "proposal",
+              "title": "Route concept defined",
+              "description": "Indicative route from UK seaward limit in the North Sea to a landfall along the Holderness Coast, with a converter station connecting into the National Transmission System at Creyke Beck substation near Cottingham, East Yorkshire.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020025",
+              "expected": false
+            },
+            {
+              "date": "2023-03-20",
+              "phase": "dormant",
+              "title": "Norwegian government cools on UK interconnection",
+              "description": "Norwegian government rejected a separate proposed 1.4 GW interconnector to the UK (NorthConnect), reflecting wider Norwegian political reluctance to approve new electricity export links and undermining the prospects for Continental Link's Norwegian partner side.",
+              "source": "https://www.newcivilengineer.com/latest/norwegian-government-rejects-plans-for-1-4gw-electricity-interconnector-to-the-uk-20-03-2023/",
+              "expected": false
+            },
+            {
+              "date": "2024-01-01",
+              "phase": "cancelled",
+              "title": "Project withdrawn from Planning Inspectorate",
+              "description": "Continental Link was withdrawn from the Planning Inspectorate's pre-application register without progressing to a published scoping opinion, formal consultation or application. PINS records the project as withdrawn; National Grid Ventures has since focused its MPI activity on other projects including LionLink (Netherlands) and GriffinLink (Germany).",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020025",
+              "expected": false
+            }
+          ]
+        },
+        "EN0110003": {
+          "ref": "EN0110003",
+          "name": "White Elm Solar Farm",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Proposed 200MW (c.675-750 acre) ground-mounted solar photovoltaic and battery storage scheme on land north of Mendlesham across the parishes of Mendlesham, Wickham Skeith and Thwaite in Mid Suffolk, promoted by ELMYA RPC UK Grange Road Limited (Elmya Energy). The project entered the Planning Inspectorate's pre-application service in 2024 and submitted an EIA Scoping Report, but was paused indefinitely and withdrawn from pre-application in May 2025 ahead of planned non-statutory consultation. Suffolk County Council had signalled it would object on grounds of impact on high-quality agricultural land.",
+          "milestones": [
+            {
+              "date": "2024-04-03",
+              "phase": "proposal",
+              "title": "Project publicly announced",
+              "description": "Elmya Energy publicly identified as promoter of the c.675-750 acre White Elm Solar Farm across Mendlesham, Wickham Skeith and Thwaite, with an indicative pre-application timetable: community engagement autumn 2024, statutory consultation in 2025 and DCO submission in 2026.",
+              "source": "https://www.dissexpress.co.uk/news/developer-told-to-up-game-over-details-on-solar-farm-set-to-9359930/",
+              "expected": false
+            },
+            {
+              "date": "2024-10-01",
+              "phase": "proposal",
+              "title": "EIA scoping request submitted",
+              "description": "ELMYA RPC UK Grange Road Limited submitted an Environmental Impact Assessment Scoping Report to the Planning Inspectorate, triggering scoping consultation with statutory consultees including Suffolk County Council.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN0110003-000004-White%20Elm%20Solar%20Farm%20-%20Scoping%20Report.pdf",
+              "expected": false
+            },
+            {
+              "date": "2024-11-27",
+              "phase": "proposal",
+              "title": "Scoping consultation deadline",
+              "description": "Regulatory deadline for consultee responses to the Planning Inspectorate on the scoping report, after which a scoping opinion would be issued.",
+              "source": "https://www.salc.org.uk/blog/nsip-update-23/white-elm-367",
+              "expected": false
+            },
+            {
+              "date": "2025-02-01",
+              "phase": "proposal",
+              "title": "Mid Suffolk and Suffolk County Councils request greater transparency",
+              "description": "Mid Suffolk District Council and Suffolk County Council publicly called for more detail on grid connection, infrastructure and cumulative landscape impacts, advocating a 'roof before rural' approach.",
+              "source": "https://www.solarpowerportal.co.uk/energy-policy/suffolk-county-council-calls-for-greater-transparency-following-200mw-solar-nsip-plans",
+              "expected": false
+            },
+            {
+              "date": "2025-05-24",
+              "phase": "cancelled",
+              "title": "Project paused indefinitely and withdrawn from pre-application",
+              "description": "Elmya announced an indefinite pause of the scheme, cancelling planned non-statutory public consultation events scheduled for 31 May and 4 June 2025, and withdrew the project from the Planning Inspectorate's pre-application service. Suffolk County Council had previously indicated it would object due to the loss of high-quality farmland from food production; the developer did not publicly state a reason.",
+              "source": "https://www.suffolk.gov.uk/council-and-democracy/council-news/statement-on-the-pausing-of-the-white-elm-solar-farm",
+              "expected": false
+            },
+            {
+              "date": "2025-05-25",
+              "phase": "cancelled",
+              "title": "Local press coverage of withdrawal",
+              "description": "Local and trade press reported the indefinite pause and withdrawal, noting cancelled public events and concerns from the council about similar schemes resurfacing under proposed reforms to the Planning and Infrastructure Bill.",
+              "source": "https://www.stowmarketmercury.co.uk/news/25189149.mid-suffolk-white-elm-solar-farm-plans-paused-indefinitely/",
+              "expected": false
+            }
+          ]
+        },
+        "EN0110022": {
+          "ref": "EN0110022",
+          "name": "Kilnside Energy Park",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-11",
+          "summary": "Kilnside Energy Park was a proposed up-to-400 MW solar photovoltaic and battery energy storage scheme on around 950 hectares of land between Pickworth, Exton, and Great Casterton in Rutland, brought forward by Kilnside Energy Park Limited (Aukera UK). The applicant entered the NSIP pre-application process in mid-2025, secured a Scoping Opinion from the Planning Inspectorate, and held early community engagement before withdrawing from the pre-application service in early 2026, citing the National Grid connection queue and the need to review the project timeline.",
+          "milestones": [
+            {
+              "date": "2025-06-20",
+              "phase": "proposal",
+              "title": "Scoping request submitted",
+              "description": "Kilnside Energy Park Limited submitted a request to the Planning Inspectorate for a Scoping Opinion under regulation 10 of the Infrastructure Planning (EIA) Regulations 2017.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN0110022-000008-Scoping%20Opinion%202017%20EIA%20Regs%20FINAL.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025-06-27",
+              "phase": "proposal",
+              "title": "Proposals unveiled",
+              "description": "Aukera publicly unveiled proposals for a 400 MW solar and battery energy park spanning approximately 950 hectares in Rutland, from Pickworth Great Wood northward to north-west of Great Casterton, with parcels near Exton Park.",
+              "source": "https://www.lincsonline.co.uk/stamford/news/group-urges-stop-stamford-solar-city-as-latest-major-solar-9422891/",
+              "expected": false
+            },
+            {
+              "date": "2025-07-31",
+              "phase": "proposal",
+              "title": "Scoping Opinion issued",
+              "description": "The Planning Inspectorate issued its Scoping Opinion setting out the expected scope of the Environmental Impact Assessment for the proposed development.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN0110022-000008-Scoping%20Opinion%202017%20EIA%20Regs%20FINAL.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025-10-16",
+              "phase": "consultation",
+              "title": "Community design workshop",
+              "description": "Aukera held a non-statutory design workshop at Great Casterton Church Hall as part of early community engagement, with invitations hand-delivered to selected households.",
+              "source": "https://kilnsideenergypark.co.uk/development-process/",
+              "expected": false
+            },
+            {
+              "date": "2025-10-25",
+              "phase": "consultation",
+              "title": "Project Newsletter 2 published",
+              "description": "The applicant issued its second project newsletter updating residents on design progress and noting that a portion of land originally included in the plan had been withdrawn by a local landowner.",
+              "source": "https://kilnsideenergypark.co.uk/development-process/",
+              "expected": false
+            },
+            {
+              "date": "2026-01-30",
+              "phase": "cancelled",
+              "title": "Withdrawal letter sent to PINS",
+              "description": "Kilnside Energy Park Limited wrote to the Planning Inspectorate stating it did not wish to proceed at this time and requesting the application be removed from the PINS website, citing the National Grid connection queue and a review of the project timeline following a NESO Gate 1 connection offer.",
+              "source": "https://www.lincsonline.co.uk/rutland/news/relief-as-huge-solar-farm-plan-is-cancelled-9452092/",
+              "expected": false
+            },
+            {
+              "date": "2026-02-03",
+              "phase": "cancelled",
+              "title": "Project withdrawn from pre-application service",
+              "description": "The Planning Inspectorate's project page confirmed Kilnside Energy Park had been withdrawn from the pre-application service while the applicant reviews the timeline for grid connection.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110022",
+              "expected": false
+            }
+          ]
+        },
+        "EN0210006": {
+          "ref": "EN0210006",
+          "name": "Ossian Transmission Infrastructure",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "The Ossian Transmission Infrastructure NSIP would have brought up to 3.6 GW of electricity from the Ossian floating offshore wind farm in Scottish waters (SSE Renewables, Marubeni, Copenhagen Infrastructure Partners) onshore via HVDC cables landing on the Lincolnshire coast and connecting to two grid points near Weston Marsh and Alford. After receiving a Section 35 direction in October 2024 and a Scoping Opinion in April 2025, the applicant withdrew the application on 27 March 2026, before submitting a Development Consent Order.",
+          "milestones": [
+            {
+              "date": "2022-01-17",
+              "phase": "proposal",
+              "title": "ScotWind seabed lease awarded",
+              "description": "The SSE Renewables (40%), Marubeni (30%) and Copenhagen Infrastructure Partners (30%) consortium was notified of award of seabed rights in the E1 zone of the Firth of Forth (approximately 858 km2), with potential floating offshore wind capacity initially up to 2.6 GW.",
+              "source": "https://www.sse.com/news-and-views/2022/01/sse-marubeni-cip-win-right-to-develop-giant-floating-offshore-wind-farm-in-scotwind-success/",
+              "expected": false
+            },
+            {
+              "date": "2022-08-25",
+              "phase": "proposal",
+              "title": "Project named Ossian",
+              "description": "The consortium publicly named the floating offshore wind project Ossian. Capacity was later revised upward to up to 3.6 GW.",
+              "source": "https://www.offshorewind.biz/2022/08/25/sse-and-partners-name-2-6-gw-floating-offshore-wind-project-in-scotland/",
+              "expected": false
+            },
+            {
+              "date": "2024-10-10",
+              "phase": "proposal",
+              "title": "Section 35 direction issued",
+              "description": "The Secretary of State for Energy Security and Net Zero issued a Section 35 direction under the Planning Act 2008, designating the Ossian onshore transmission infrastructure as a Nationally Significant Infrastructure Project to be consented via the DCO regime in England.",
+              "source": "https://www.gov.uk/government/publications/ossian-offshore-transmission-infrastructure-section-35-direction-planning-act-2008",
+              "expected": false
+            },
+            {
+              "date": "2024-10-14",
+              "phase": "proposal",
+              "title": "Lincolnshire community consultation events",
+              "description": "Ossian held early-stage open days in Lincolnshire (including Moulton Seas End) presenting indicative converter station locations at Weston Marsh near Spalding and Alford near Skegness, with cable landfall on the Lincolnshire coast.",
+              "source": "https://www.wind-watch.org/",
+              "expected": false
+            },
+            {
+              "date": "2025-02-27",
+              "phase": "proposal",
+              "title": "EIA Scoping Report submitted",
+              "description": "Ossian Offshore Wind Farm Ltd submitted a five-part Environmental Impact Assessment Scoping Report to the Planning Inspectorate, covering HVDC offshore export cables in English waters, landfall, onshore HVDC cables and onshore converter stations connecting to the grid in Lincolnshire.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0210006",
+              "expected": false
+            },
+            {
+              "date": "2025-04-03",
+              "phase": "proposal",
+              "title": "Scoping Opinion adopted",
+              "description": "The Planning Inspectorate, on behalf of the Secretary of State, adopted the Scoping Opinion for the Ossian Transmission Infrastructure NSIP under the Infrastructure Planning (EIA) Regulations 2017.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0210006",
+              "expected": false
+            },
+            {
+              "date": "2025-07-01",
+              "phase": "proposal",
+              "title": "Regulation 32 transboundary screening",
+              "description": "The Planning Inspectorate carried out Regulation 32 transboundary screening; responses were subsequently received from Denmark and the Netherlands (18 August 2025).",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0210006",
+              "expected": false
+            },
+            {
+              "date": "2026-03-27",
+              "phase": "cancelled",
+              "title": "Application withdrawn",
+              "description": "Ossian Offshore Wind Farm Ltd notified the Planning Inspectorate of the withdrawal of the Ossian Transmission Infrastructure pre-application, accompanied by a covering letter. The withdrawal occurred before any DCO application had been formally submitted; the wider Ossian project continues to progress separate Scottish consents.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0210006",
+              "expected": false
             }
           ]
         }
