@@ -3,7 +3,7 @@
   "id": "nsip-timelines",
   "pillar": "state",
   "topic": "construction",
-  "generated": "2026-05-11T20:13:37.642Z",
+  "generated": "2026-05-11T20:19:05.530Z",
   "sources": [
     {
       "id": "claude-agent-research",
@@ -14,7 +14,7 @@
     }
   ],
   "snapshot": {
-    "totalTimelines": 122,
+    "totalTimelines": 129,
     "researchedByAgent": 74,
     "researchedManually": 1
   },
@@ -11475,6 +11475,797 @@
               "description": "Ossian Offshore Wind Farm Ltd notified the Planning Inspectorate of the withdrawal of the Ossian Transmission Infrastructure pre-application, accompanied by a covering letter. The withdrawal occurred before any DCO application had been formally submitted; the wider Ossian project continues to progress separate Scottish consents.",
               "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0210006",
               "expected": false
+            }
+          ]
+        },
+        "EN010102": {
+          "ref": "EN010102",
+          "name": "Hinkley Point C New Nuclear Power Station Material Change 1",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "MC1 is a Material Change application to the 2013 Hinkley Point C Development Consent Order, brought forward by NNB Generation Company (HPC) Limited to authorise as-built and in-construction design changes including removal of the acoustic fish deterrent, a shift to a dry interim spent fuel store, meteorological mast redesign, sluice gate storage racks, and retention of a permanent electrical substation. The project remains in pre-application; initial statutory consultation ran January-February 2024, a Secretary of State direction on consultation parties was issued in October 2023, and a second phase of consultation followed in 2025. Submission to the Planning Inspectorate is now expected in January 2027, against a backdrop of repeated cost and schedule revisions to the wider HPC build, most recently to £35bn (2015 prices) and first power in 2030.",
+          "milestones": [
+            {
+              "date": "2011-10-31",
+              "phase": "application",
+              "title": "Original DCO application submitted (EN010001)",
+              "description": "NNB Generation Company submits the original Hinkley Point C Development Consent Order application to the Infrastructure Planning Commission.",
+              "source": "https://en.wikipedia.org/wiki/Hinkley_Point_C_nuclear_power_station",
+              "expected": false
+            },
+            {
+              "date": "2013-03-19",
+              "phase": "consent",
+              "title": "Original DCO granted",
+              "description": "Secretary of State for Energy and Climate Change grants development consent for the Hinkley Point C nuclear generating station (the order modified by MC1).",
+              "source": "https://www.somerset.gov.uk/business-economy-and-licences/major-developments/hinkley-point-c-planning/",
+              "expected": false
+            },
+            {
+              "date": "2016-07-28",
+              "phase": "fid",
+              "title": "EDF Board approves Final Investment Decision",
+              "description": "EDF Board of Directors votes 10-7 to approve the final investment decision for Hinkley Point C, authorising contract signature.",
+              "source": "https://www.edf.fr/en/the-edf-group/dedicated-sections/press/all-press-releases/hinkley-point-c-edf-s-board-of-directors-approves-the-final-investment-decision",
+              "expected": false
+            },
+            {
+              "date": "2016-09-15",
+              "phase": "fid",
+              "title": "UK Government confirms project approval",
+              "description": "Following a comprehensive re-examination, the UK Government confirms its decision to proceed with HPC, with new conditions on EDF's ownership stake during construction. Initial cost estimate £18bn, first power targeted for end-2025.",
+              "source": "https://hansard.parliament.uk/Commons/2016-09-15/debates/82B019B0-A8CB-4E5B-8783-567EFA219FBA/HinkleyPointC",
+              "expected": false
+            },
+            {
+              "date": "2017-03-30",
+              "phase": "build",
+              "title": "First nuclear safety concrete poured",
+              "description": "Following ONR approval, the first nuclear safety concrete is poured for the power station galleries, marking the start of permanent nuclear construction.",
+              "source": "https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/news-views/concrete-pour-march-2017",
+              "expected": false
+            },
+            {
+              "date": "2017-07-03",
+              "phase": "build",
+              "title": "First cost overrun announced",
+              "description": "EDF announces total cost likely to rise to £19.6-20.3bn (2015 prices), an increase of up to £1.5bn from the FID estimate, with the risk of a 15-month delay to unit 1.",
+              "source": "https://www.theengineer.co.uk/content/news/edf-warns-of-2-2bn-cost-overrun-and-schedule-slip-on-hinkley-point-c",
+              "expected": false
+            },
+            {
+              "date": "2019-06-28",
+              "phase": "build",
+              "title": "J0 milestone reached on Unit 1",
+              "description": "Final concrete pour completes the 9,000m3 'common raft' foundation platform for reactor Unit 1, the largest continuous concrete pour in UK construction.",
+              "source": "https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/j0/news-views/hinkley-point-c-project-achieves-latest-major-milestone-on-schedule",
+              "expected": false
+            },
+            {
+              "date": "2021-01-27",
+              "phase": "build",
+              "title": "Schedule slip to June 2026 and £22-23bn estimate",
+              "description": "EDF revises the schedule following COVID-19 impacts: unit 1 first power moved to June 2026 (from end-2025) and project cost raised to £22-23bn (2015 prices), with around £500m attributed to the pandemic.",
+              "source": "https://www.world-nuclear-news.org/Articles/EDF-revises-Hinkley-Point-C-schedule-and-costs",
+              "expected": false
+            },
+            {
+              "date": "2022-05-20",
+              "phase": "build",
+              "title": "Schedule slip to June 2027 and £25-26bn estimate",
+              "description": "EDF announces a further one-year delay to June 2027 and a £3bn cost increase to £25-26bn (2015 prices), citing pandemic effects, UK regulatory design adaptations, and marine works overruns.",
+              "source": "https://www.newcivilengineer.com/latest/hinkley-point-c-year-delay-and-3bn-cost-increase-revealed-20-05-2022/",
+              "expected": false
+            },
+            {
+              "date": "2023-10-17",
+              "phase": "proposal",
+              "title": "MC1 pre-application opens: Secretary of State consultation parties direction",
+              "description": "Secretary of State issues a letter confirming consultation parties for the proposed Material Change application, formally opening the MC1 pre-application process.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010102",
+              "expected": false
+            },
+            {
+              "date": "2023-12-15",
+              "phase": "build",
+              "title": "Unit 1 reactor building dome lifted into place",
+              "description": "The 245-tonne, 47m-diameter steel dome is lifted onto the Unit 1 reactor building by the Big Carl crane, marking the end of major civil engineering works on the reactor building.",
+              "source": "https://www.newcivilengineer.com/latest/hinkley-point-cs-first-reactor-dome-lifted-into-place-18-12-2023/",
+              "expected": false
+            },
+            {
+              "date": "2024-01-09",
+              "phase": "consultation",
+              "title": "MC1 Phase 1 statutory consultation opens",
+              "description": "NNB Generation Company opens its first phase of statutory consultation on the proposed Material Change, covering removal of the acoustic fish deterrent, a wet-to-dry interim spent fuel store change, meteorological mast redesign, sluice gate storage racks, and permanent retention of the temporary electrical substation.",
+              "source": "https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/hinkley-point-c-development-consent-order-public-consultation",
+              "expected": false
+            },
+            {
+              "date": "2024-01-23",
+              "phase": "build",
+              "title": "Schedule slip to 2029-2031 and £31-35bn estimate",
+              "description": "EDF announces three scenarios: a base case of unit 1 first power in 2029 at £31-34bn (2015 prices), and a worst case of 2031 at £35bn (2015 prices). Inflation-adjusted cost stated as up to £46bn.",
+              "source": "https://www.edf.fr/en/the-edf-group/dedicated-sections/journalists/all-press-releases/hinkley-point-c-update-1",
+              "expected": false
+            },
+            {
+              "date": "2024-02-29",
+              "phase": "consultation",
+              "title": "MC1 Phase 1 consultation closes",
+              "description": "The first phase of statutory consultation on the Material Change closes after eight weeks; responses received from statutory consultees including the Environment Agency.",
+              "source": "https://www.gov.uk/government/publications/hinkley-point-c-responses-to-hinkley-point-c-company-dco-consultations",
+              "expected": false
+            },
+            {
+              "date": "2025-01-01",
+              "phase": "consultation",
+              "title": "MC1 Phase 2 consultation begins",
+              "description": "NNB Generation Company opens a second phase of consultation responding to Phase 1 feedback, refining the scope of the Material Change application.",
+              "source": "https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/hinkley-point-c-development-consent-order-public-consultation",
+              "expected": false
+            },
+            {
+              "date": "2026-02-20",
+              "phase": "build",
+              "title": "Cost rises to £35bn, first power moved to 2030",
+              "description": "In its 2025 annual results, EDF confirms unit 1 first power is now scheduled for 2030 (a further 12-month commissioning delay) and the project cost rises to £35bn (2015 prices), triggering a 2.5bn euro impairment.",
+              "source": "https://www.newcivilengineer.com/latest/hinkley-point-cs-cost-climbs-to-35bn-with-confirmation-unit-1-will-power-up-in-2030-20-02-2026/",
+              "expected": false
+            },
+            {
+              "date": "2027-01-31",
+              "phase": "application",
+              "title": "MC1 application submission expected",
+              "description": "NNB Generation Company expected to submit the Material Change DCO application to the Planning Inspectorate (revised from the original early-2026 timeline).",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010102",
+              "expected": true
+            },
+            {
+              "date": "2030-12-31",
+              "phase": "operational",
+              "title": "Unit 1 first power expected",
+              "description": "EDF's current schedule targets first electricity generation from HPC Unit 1 in 2030, following a 12-month commissioning extension announced in the 2025 results.",
+              "source": "https://www.newcivilengineer.com/latest/hinkley-point-cs-cost-climbs-to-35bn-with-confirmation-unit-1-will-power-up-in-2030-20-02-2026/",
+              "expected": true
+            }
+          ]
+        },
+        "EN010144": {
+          "ref": "EN010144",
+          "name": "Dogger Bank D Wind Farm",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Dogger Bank D is a proposed fourth phase of the Dogger Bank offshore wind farm zone in the North Sea around 210km off the Yorkshire coast, being developed as a 50:50 joint venture between SSE Renewables and Equinor with capacity of up to around 2GW. The project is enabled by The Crown Estate's Capacity Increase Programme, which permits an amendment to the existing Dogger Bank C seabed lease, and remains in the pre-application stage with a Development Consent Order submission expected in 2026 or 2027.",
+          "milestones": [
+            {
+              "date": "2023-09-26",
+              "phase": "proposal",
+              "title": "First non-statutory consultation opens",
+              "description": "A six-week initial non-statutory public consultation on the Dogger Bank D proposals ran from 26 September to 7 November 2023, gathering early feedback on the project.",
+              "source": "https://www.sserenewables.com/news-and-views/2023/09/community-consultation-opens-for-dogger-bank-d/",
+              "expected": false
+            },
+            {
+              "date": "2023-11-08",
+              "phase": "proposal",
+              "title": "Crown Estate Capacity Increase Programme announced",
+              "description": "The Crown Estate announced its Capacity Increase Programme, allowing seven existing fixed-bottom offshore wind lease areas, including Dogger Bank C, to be amended to unlock up to 4.7GW of additional capacity. SSE and Equinor confirmed this enabled progression of a potential Dogger Bank D fourth phase.",
+              "source": "https://doggerbank.com/project-news/sse-and-equinor-welcome-uk-offshore-wind-capacity-increase-programme-allowing-dogger-bank-d-progression/",
+              "expected": false
+            },
+            {
+              "date": "2024-06-28",
+              "phase": "proposal",
+              "title": "EIA Scoping Report submitted to Planning Inspectorate",
+              "description": "SSE and Equinor submitted an Environmental Impact Assessment Scoping Report to the Planning Inspectorate for the proposed Dogger Bank D wind farm, formally beginning the EIA process under the NSIP regime.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN010144-000069-Dogger%20Bank%20D%20Scoping%20Report%20Part%201.pdf",
+              "expected": false
+            },
+            {
+              "date": "2024-07-12",
+              "phase": "proposal",
+              "title": "Preliminary seabed lease terms agreed with Crown Estate",
+              "description": "SSE and Equinor established preliminary commercial terms with The Crown Estate for an amendment to the existing Dogger Bank C seabed lease to enable Dogger Bank D, subject to the outcome of a plan-level Habitats Regulations Assessment.",
+              "source": "https://doggerbank.com/press-releases/sse-and-equinor-establish-commercial-terms-of-seabed-lease-for-dogger-bank-d-subject-to-hra/",
+              "expected": false
+            },
+            {
+              "date": "2024-08-31",
+              "phase": "proposal",
+              "title": "Scoping Opinion issued by Planning Inspectorate",
+              "description": "The Planning Inspectorate issued its formal Scoping Opinion for the Dogger Bank D Offshore Wind Farm, setting out the scope of the Environmental Impact Assessment to accompany any subsequent Development Consent Order application.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN010144-000018-DBD%20-%20Scoping%20Opinion%202017%20EIA%20Regs.pdf",
+              "expected": false
+            },
+            {
+              "date": "2024-09-10",
+              "phase": "proposal",
+              "title": "Second non-statutory consultation opens",
+              "description": "A second non-statutory public consultation on refined project proposals ran for six weeks from 10 September to 22 October 2024, with in-person events and online sessions across the affected onshore corridor in East Riding of Yorkshire.",
+              "source": "https://www.sserenewables.com/news-and-views/2024/09/community-consultation-opens-for-dogger-bank-d/",
+              "expected": false
+            },
+            {
+              "date": "2025-06-10",
+              "phase": "proposal",
+              "title": "Statutory consultation and PEIR published",
+              "description": "Statutory consultation opened on 10 June 2025 and ran until 5 August 2025, with publication of the Preliminary Environmental Information Report (PEIR) and section 48 notice. The Planning Inspectorate received the related s46 notification on the same date.",
+              "source": "https://www.doggerbankd.com/",
+              "expected": false
+            },
+            {
+              "date": "2025-08-26",
+              "phase": "proposal",
+              "title": "Seabed lease finalised with Crown Estate",
+              "description": "Following conclusion of the plan-level Habitats Regulations Assessment for the Capacity Increase Programme, SSE and Equinor finalised the amended seabed lease with The Crown Estate. The project is described as unlocking up to 1.5GW of additional capacity from the Dogger Bank C lease area.",
+              "source": "https://doggerbank.com/press-releases/sse-and-equinor-finalise-seabed-lease-to-progress-dogger-bank-d/",
+              "expected": false
+            },
+            {
+              "date": "2027-06-30",
+              "phase": "proposal",
+              "title": "DCO application expected",
+              "description": "The Planning Inspectorate's project page for EN010144 indicates an expected Development Consent Order application submission date of June 2027, with acceptance to be decided within 28 days of submission.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010144",
+              "expected": true
+            },
+            {
+              "date": "2029-01-01",
+              "phase": "build",
+              "title": "Earliest start of construction",
+              "description": "If consented, the developers indicate Dogger Bank D could enter construction in 2029 at the earliest, with completion no later than 2035 and proposed capacity of up to around 2GW from up to 113 fixed-bottom turbines.",
+              "source": "https://doggerbank.com/press-releases/sse-and-equinor-finalise-seabed-lease-to-progress-dogger-bank-d/",
+              "expected": true
+            }
+          ]
+        },
+        "EN020033": {
+          "ref": "EN020033",
+          "name": "LionLink Interconnector",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "LionLink (formerly EuroLink) is a proposed 1.8 GW HVDC multi-purpose interconnector between Great Britain and the Netherlands, jointly developed by National Grid Ventures and Dutch TSO TenneT, with a Suffolk landfall at Walberswick connecting via a converter station near Saxmundham to the existing Friston substation. The project remains in pre-application; statutory consultation ran from 13 January to 10 March 2026 ahead of a planned Development Consent Order application. Suffolk County Council and local groups oppose the Walberswick landfall and the lack of coordination with other east coast energy projects.",
+          "milestones": [
+            {
+              "date": "2022-08-23",
+              "phase": "proposal",
+              "title": "Section 35 direction issued (as EuroLink)",
+              "description": "Secretary of State directs that the EuroLink (later renamed LionLink) multi-purpose interconnector be treated as a Nationally Significant Infrastructure Project under section 35 of the Planning Act 2008.",
+              "source": "https://www.gov.uk/government/publications/eurolink-multi-purpose-interconnector-section-35-direction-planning-act-2008",
+              "expected": false
+            },
+            {
+              "date": "2022-10-01",
+              "phase": "proposal",
+              "title": "Initial non-statutory consultation",
+              "description": "National Grid Ventures held an initial non-statutory consultation on the EuroLink proposals between October and December 2022, presenting early route and landfall options.",
+              "source": "https://www.eastsuffolk.gov.uk/planning/national-infrastructure-and-energy-projects/lionlink/",
+              "expected": false
+            },
+            {
+              "date": "2023-04-01",
+              "phase": "proposal",
+              "title": "UK and Netherlands announce LionLink",
+              "description": "The UK and Dutch governments jointly unveiled LionLink as a first-of-its-kind hybrid interconnector linking offshore wind in the North Sea to both national grids. The project was rebranded from EuroLink to LionLink.",
+              "source": "https://en.wikipedia.org/wiki/LionLink",
+              "expected": false
+            },
+            {
+              "date": "2023-09-08",
+              "phase": "proposal",
+              "title": "Supplementary non-statutory consultation opens",
+              "description": "NGV opens a supplementary non-statutory consultation (8 September to 3 November 2023) introducing an alternative landfall at Walberswick and a cable corridor north of Southwold, in addition to the original Southwold option.",
+              "source": "https://www.nationalgrid.com/document/151086/download",
+              "expected": false
+            },
+            {
+              "date": "2024-03-06",
+              "phase": "proposal",
+              "title": "Shortlisted landfall sites announced",
+              "description": "National Grid publishes shortlisted landfall sites for LionLink at Southwold and Walberswick, with a converter station near Saxmundham and cable route to Friston substation. NGV confirmed it would not coordinate LionLink with the more advanced Sea Link project.",
+              "source": "https://www.nationalgrid.com/national-grid-ventures/national-grid-announces-shortlisted-locations-lionlink",
+              "expected": false
+            },
+            {
+              "date": "2024-03-15",
+              "phase": "proposal",
+              "title": "EIA Scoping Report submitted",
+              "description": "NGV submits an Environmental Impact Assessment Scoping Report to the Planning Inspectorate for the LionLink project.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020033",
+              "expected": false
+            },
+            {
+              "date": "2025-01-06",
+              "phase": "proposal",
+              "title": "Dutch grid connection via Nederwiek 3 confirmed",
+              "description": "TenneT and NGV confirm the Dutch end of LionLink will connect via the planned Nederwiek 3 offshore wind farm zone, integrating cross-border interconnection with offshore wind generation.",
+              "source": "https://www.offshorewind.biz/2025/01/06/uk-netherlands-to-connect-grids-via-nederwiek-3-offshore-wind-farm/",
+              "expected": false
+            },
+            {
+              "date": "2025-02-18",
+              "phase": "proposal",
+              "title": "Walberswick selected as preferred landfall",
+              "description": "NGV announces Walberswick as preferred landfall over Southwold, citing a shorter onshore route (about 19.9km versus 32.8km to Saxmundham), smaller footprint and lower combined environmental impact.",
+              "source": "https://hellorayo.co.uk/greatest-hits/suffolk/news/national-grid-walberswick-lionlink-underground-cables",
+              "expected": false
+            },
+            {
+              "date": "2026-01-13",
+              "phase": "proposal",
+              "title": "Statutory consultation opens",
+              "description": "Eight-week statutory consultation opens on revised LionLink plans, including approximately 20km of underground HVDC cable from Walberswick to a converter station east of Saxmundham (up to 26m high, 8.1ha footprint) and HVAC connection to Kiln Lane substation at Friston.",
+              "source": "https://www.newcivilengineer.com/latest/national-grid-publishes-revised-plans-for-uk-netherlands-lionlink-interconnector-13-01-2026/",
+              "expected": false
+            },
+            {
+              "date": "2026-02-24",
+              "phase": "proposal",
+              "title": "Suffolk County Council formally objects",
+              "description": "Suffolk County Council cabinet approves a 23,000-word objection to the statutory consultation, calling the Walberswick landfall unacceptable and criticising the lack of coordination with Sea Link.",
+              "source": "https://www.suffolk.gov.uk/council-and-democracy/council-news/council-objects-to-lionlink-slamming-lack-of-coordination-and-fears-for-communities",
+              "expected": false
+            },
+            {
+              "date": "2026-03-10",
+              "phase": "proposal",
+              "title": "Statutory consultation closes",
+              "description": "The eight-week statutory consultation on the revised LionLink proposals closes. NGV will use responses to refine the application before submitting a Development Consent Order to the Planning Inspectorate.",
+              "source": "https://www.nationalgrid.com/document/566811/download",
+              "expected": false
+            },
+            {
+              "date": "2026-04-02",
+              "phase": "proposal",
+              "title": "TenneT and National Grid sign Joint Development Agreement",
+              "description": "TenneT and National Grid Ventures sign a Joint Development Agreement formalising the partnership and setting out procurement, governance and planning arrangements ahead of a final investment decision targeted for 2026.",
+              "source": "https://www.offshorewind.biz/2026/04/02/tennet-national-grid-ink-joint-development-agreement-for-lionlink-offshore-wind-interconnector/",
+              "expected": false
+            },
+            {
+              "date": "2026-12-31",
+              "phase": "application",
+              "title": "DCO application submission expected",
+              "description": "NGV expects to submit its Development Consent Order application to the Planning Inspectorate in Q4 2026, with a final investment decision also targeted for 2026.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020033",
+              "expected": true
+            },
+            {
+              "date": "2028-01-01",
+              "phase": "build",
+              "title": "Enabling works planned",
+              "description": "Subject to development consent, NGV anticipates enabling works to begin in 2028, with construction completion targeted for 2032.",
+              "source": "https://www.newcivilengineer.com/latest/national-grid-publishes-revised-plans-for-uk-netherlands-lionlink-interconnector-13-01-2026/",
+              "expected": true
+            }
+          ]
+        },
+        "EN020034": {
+          "ref": "EN020034",
+          "name": "North Humber to High Marnham",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "National Grid Electricity Transmission's proposed 400kV overhead transmission line of approximately 90km between a new Birkhill Wood substation near Creyke Beck (East Riding of Yorkshire) and a new substation at High Marnham (Nottinghamshire). Part of the Great Grid Upgrade, the project's need case derives from the National Energy System Operator's Holistic Network Design and Network Options Assessment, which identified east-coast reinforcement as required by 2030 to carry offshore wind and interconnector flows southward. The project is at pre-application stage, having completed three rounds of consultation; statutory consultation closed in April 2025 and a DCO application is expected in 2026.",
+          "milestones": [
+            {
+              "date": "2022-07",
+              "phase": "proposal",
+              "title": "Identified in Holistic Network Design and NOA refresh",
+              "description": "Reinforcement between North Humber and High Marnham identified as required by 2030 in the National Grid ESO Holistic Network Design and Network Options Assessment refresh published in July 2022, setting the need case for the project.",
+              "source": "https://www.neso.energy/publications/network-options-assessment-noa",
+              "expected": false
+            },
+            {
+              "date": "2023-06",
+              "phase": "proposal",
+              "title": "Project Background Document and corridor identification",
+              "description": "National Grid published the Project Background Document and route corridor identification materials, formally launching engagement on the proposed 400kV overhead line between Creyke Beck and High Marnham.",
+              "source": "https://www.nationalgrid.com/document/348931/download",
+              "expected": false
+            },
+            {
+              "date": "2023-06",
+              "phase": "consultation",
+              "title": "First non-statutory consultation opens",
+              "description": "National Grid ran a non-statutory consultation from June to July 2023 seeking views on the proposed route corridor across Yorkshire, North Lincolnshire and Nottinghamshire.",
+              "source": "https://www.nationalgrid.com/electricity-transmission/network-and-infrastructure/infrastructure-projects/north-humber-to-high-marnham/public-consultation",
+              "expected": false
+            },
+            {
+              "date": "2023-08",
+              "phase": "proposal",
+              "title": "EIA Scoping Report submitted to PINS",
+              "description": "National Grid submitted its Environmental Impact Assessment Scoping Report to the Planning Inspectorate to define the scope of environmental assessment for the proposed development.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN020034-000079-EN020034%20-%20Scoping%20Report%20-%20Volume%201%20-%20Main%20Report_Redacted.pdf",
+              "expected": false
+            },
+            {
+              "date": "2023-09-29",
+              "phase": "proposal",
+              "title": "PINS Scoping Opinion issued",
+              "description": "The Planning Inspectorate issued its Scoping Opinion under the Infrastructure Planning (Environmental Impact Assessment) Regulations 2017.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020034",
+              "expected": false
+            },
+            {
+              "date": "2024-07-09",
+              "phase": "consultation",
+              "title": "Localised non-statutory consultation",
+              "description": "A localised non-statutory consultation ran from 9 July to 6 August 2024, focusing on an alternative corridor between South Wheatley and High Marnham following feedback to the 2023 consultation.",
+              "source": "https://www.nationalgrid.com/electricity-transmission/network-and-infrastructure/infrastructure-projects/north-humber-to-high-marnham/public-consultation",
+              "expected": false
+            },
+            {
+              "date": "2025-02-17",
+              "phase": "proposal",
+              "title": "Section 46 notification served on PINS",
+              "description": "National Grid served notification on the Planning Inspectorate under section 46 of the Planning Act 2008 of its intention to submit a DCO application, marking the formal start of statutory pre-application consultation.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020034",
+              "expected": false
+            },
+            {
+              "date": "2025-02-18",
+              "phase": "consultation",
+              "title": "Statutory consultation opens with PEIR",
+              "description": "Eight-week statutory consultation under sections 42, 47 and 48 of the Planning Act 2008 opened, accompanied by the Preliminary Environmental Information Report and detailed proposed pylon positions along the 90km route.",
+              "source": "https://www.nationalgrid.com/media-centre/press-releases/national-grid-invites-communities-take-part-consultation-proposals-electricity-network",
+              "expected": false
+            },
+            {
+              "date": "2025-04-15",
+              "phase": "consultation",
+              "title": "Statutory consultation closes",
+              "description": "Statutory consultation closed at 23:59. Submissions included calls from Bassetlaw District Council, parish councils, farmers and the 'United AGAINST the North Humber to High Marnham Great Grid Upgrade' campaign for undergrounding or offshore alternatives in visually sensitive areas.",
+              "source": "https://bassetlaw.moderngov.co.uk/documents/s13564/NSIP%20Briefing%20Paper%20National%20Grid%20upgrade.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025-09",
+              "phase": "proposal",
+              "title": "Post-consultation refinement and community update",
+              "description": "National Grid published a community update setting out how feedback from statutory consultation, alongside ongoing technical and environmental assessments, is being used to refine proposals ahead of DCO submission.",
+              "source": "https://www.nationalgrid.com/",
+              "expected": false
+            },
+            {
+              "date": "2026-09",
+              "phase": "application",
+              "title": "DCO application submission expected",
+              "description": "National Grid expects to submit its Development Consent Order application to the Planning Inspectorate, triggering a 28-day acceptance review.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020034",
+              "expected": true
+            },
+            {
+              "date": "2027",
+              "phase": "examination",
+              "title": "Examination expected",
+              "description": "If accepted, a pre-examination period of approximately three months would precede a six-month examination by the Planning Inspectorate, followed by a recommendation and Secretary of State decision.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020034",
+              "expected": true
+            }
+          ]
+        },
+        "EN0110006": {
+          "ref": "EN0110006",
+          "name": "Mersey Tidal Power Project",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Liverpool City Region Combined Authority's proposed tidal-range barrage across the Mersey estuary, designated as a Nationally Significant Infrastructure Project under EN0110006. Championed by Metro Mayor Steve Rotheram since his 2017 election, the scheme remains in the pre-application phase, with a Development Consent Order submission now expected in 2028 and a Financial Investment Decision targeted for 2030 following a two-year timeline extension announced in January 2026.",
+          "milestones": [
+            {
+              "date": "1984",
+              "phase": "proposal",
+              "title": "Original Mersey Barrage concept identified",
+              "description": "A Department of the Environment and UKAEA report identified a site between New Brighton and Brocklebank Dock as suitable for a tidal barrage across the Mersey estuary, the first formal study of the location.",
+              "source": "https://en.wikipedia.org/wiki/Mersey_Barrage",
+              "expected": false
+            },
+            {
+              "date": "2011",
+              "phase": "cancelled",
+              "title": "Earlier Peel Energy scheme abandoned",
+              "description": "Peel Energy and the North West Development Agency concluded their tidal barrage study, abandoning the scheme after finding the proposed Dingle to New Ferry barrage was not expected to be profitable in the medium term.",
+              "source": "https://en.wikipedia.org/wiki/Mersey_Barrage",
+              "expected": false
+            },
+            {
+              "date": "2017-05",
+              "phase": "revived",
+              "title": "Rotheram elected Metro Mayor on barrage commitment",
+              "description": "Steve Rotheram won the inaugural Liverpool City Region Metro Mayor election after pledging to revive plans for a tidal barrage across the Mersey as a flagship campaign commitment.",
+              "source": "https://www.livpost.co.uk/in-2017-steve-rotheram-vowed-to-build-a-barrage-across-the-mersey-where-is-it/",
+              "expected": false
+            },
+            {
+              "date": "2018-02-02",
+              "phase": "proposal",
+              "title": "Combined Authority funds Mersey Tidal Commission",
+              "description": "The Liverpool City Region Combined Authority unanimously approved funding from its 2018-19 priorities budget for the newly established Mersey Tidal Commission to deliver the first two stages of feasibility work over a 12-month period.",
+              "source": "https://www.offshore-energy.biz/liverpools-mersey-tidal-scheme-granted-initial-funding/",
+              "expected": false
+            },
+            {
+              "date": "2019-03",
+              "phase": "proposal",
+              "title": "Outline feasibility study completed",
+              "description": "The Mersey Tidal Commission delivered its outline business case following a year-long feasibility study, indicating the project's economics were more favourable than in 2011 but still fell short by around 20 per cent.",
+              "source": "https://en.wikipedia.org/wiki/Mersey_Barrage",
+              "expected": false
+            },
+            {
+              "date": "2020-02",
+              "phase": "proposal",
+              "title": "£2.5m granted for further development",
+              "description": "The Combined Authority allocated £2.5 million to advance the next stage of feasibility and technical development work on the tidal barrage proposal.",
+              "source": "https://www.offshore-energy.biz/liverpools-mersey-tidal-scheme-granted-initial-funding/",
+              "expected": false
+            },
+            {
+              "date": "2022-06",
+              "phase": "proposal",
+              "title": "Project included in LCR Plan for Prosperity",
+              "description": "The Liverpool City Region Combined Authority formally committed to the development of Mersey Tidal Power in its 2022 Plan for Prosperity, which sets the policy framework for the region to 2035.",
+              "source": "https://www.liverpoolcityregion-ca.gov.uk/its-time-for-tidal",
+              "expected": false
+            },
+            {
+              "date": "2022-12-06",
+              "phase": "proposal",
+              "title": "Memorandum of Agreement with K-water signed",
+              "description": "Mayor Rotheram signed a Memorandum of Agreement with Korea Water Resources Corporation (K-water), operator of the Sihwa Lake tidal power station, for reciprocal visits and information sharing under the UK-Republic of Korea Innovation Twins Programme.",
+              "source": "https://www.newcivilengineer.com/latest/mersey-tidal-power-project-forges-close-links-with-worlds-largest-tidal-operator-08-12-2022/",
+              "expected": false
+            },
+            {
+              "date": "2024-03-15",
+              "phase": "proposal",
+              "title": "Combined Authority approves entry into DCO process",
+              "description": "At its 15 March meeting, the Combined Authority agreed to enter the formal Development Consent Order planning process and selected a Wirral-to-Liverpool barrage as the preferred option, authorising preparation of a Scoping Report for the Planning Inspectorate.",
+              "source": "https://www.liverpoolcityregion-ca.gov.uk/news/flythrough-revealed-for-worlds-largest-tidal-scheme-on-river-mersey-as-combined-authority-votes-to-begin-formal-planning-process",
+              "expected": false
+            },
+            {
+              "date": "2024-09",
+              "phase": "proposal",
+              "title": "Scoping Report submitted to Planning Inspectorate",
+              "description": "The applicant submitted an Environmental Impact Assessment Scoping Report to the Planning Inspectorate under NSIP reference EN0110006, requesting advice on the scope of ecology and environmental surveys required.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN0110006-000004-EN0110006%20-%20Scoping%20Report%20Volume%201.pdf",
+              "expected": false
+            },
+            {
+              "date": "2024-10-01",
+              "phase": "consultation",
+              "title": "Phase 1 community consultation launched",
+              "description": "A six-week non-statutory public consultation opened, inviting comments on initial proposals for the tidal barrage and associated infrastructure. The consultation ran until 15 November 2024.",
+              "source": "https://www.liverpoolcityregion-ca.gov.uk/news/public-consultation-over-worlds-largest-tidal-power-scheme-starts-today",
+              "expected": false
+            },
+            {
+              "date": "2024-10-29",
+              "phase": "proposal",
+              "title": "Scoping Opinion issued by Planning Inspectorate",
+              "description": "The Planning Inspectorate issued its Scoping Opinion on the EIA Scoping Report, setting out the scope of environmental assessment and survey work required ahead of a DCO application.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110006",
+              "expected": false
+            },
+            {
+              "date": "2026-01-20",
+              "phase": "dormant",
+              "title": "Project timeline extended by two years",
+              "description": "The Combined Authority announced a two-year delay, pushing the target DCO submission from 2026 to 2028 and the Financial Investment Decision to 2030, citing the need to secure development funding from government departments to complete the full business case.",
+              "source": "https://www.newcivilengineer.com/latest/mersey-tidal-timeline-delayed-two-years-as-liverpool-seeks-government-support-20-01-2026/",
+              "expected": false
+            },
+            {
+              "date": "2028-01",
+              "phase": "application",
+              "title": "Expected DCO application submission",
+              "description": "The Combined Authority is targeting submission of its Development Consent Order application to the Planning Inspectorate in January 2028, following completion of environmental surveys and statutory consultation.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110006",
+              "expected": true
+            },
+            {
+              "date": "2030",
+              "phase": "fid",
+              "title": "Targeted Financial Investment Decision",
+              "description": "The Combined Authority is targeting a Financial Investment Decision for construction by 2030, subject to DCO grant and securing government funding support.",
+              "source": "https://www.placenorthwest.co.uk/lcr-pushes-mersey-tidal-power-timeline-back-two-years/",
+              "expected": true
+            }
+          ]
+        },
+        "EN0110007": {
+          "ref": "EN0110007",
+          "name": "Stanlow Hydrogen Ready Modular Combined Heat and Power Project",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "A proposed hydrogen-ready combined heat and power facility at the Stanlow refinery in Ellesmere Port, Cheshire, to be developed by EET Fuels (formerly Essar Oil UK) as part of the HyNet North West industrial decarbonisation cluster. The project comprises gas turbines and heat recovery steam generators with an expected generating capacity of around 200MW, intended to run initially on refinery off-gas and natural gas before switching to low-carbon hydrogen supplied by HyNet. It remains at pre-application stage, with a Development Consent Order application anticipated in April 2027.",
+          "milestones": [
+            {
+              "date": "2021-10-19",
+              "phase": "proposal",
+              "title": "HyNet North West selected as Track-1 CCUS cluster",
+              "description": "The UK government confirmed HyNet North West as one of the two Track-1 industrial clusters in the Cluster Sequencing Process, providing the policy framework for low-carbon hydrogen and CO2 transport infrastructure that underpins the Stanlow CHP project.",
+              "source": "https://www.gov.uk/government/publications/cluster-sequencing-for-carbon-capture-usage-and-storage-ccus-deployment-phase-1-expressions-of-interest/october-2021-update-track-1-clusters-confirmed",
+              "expected": false
+            },
+            {
+              "date": "2024-01-25",
+              "phase": "proposal",
+              "title": "Essar Oil UK rebrands as EET Fuels",
+              "description": "The operator of the Stanlow refinery rebranded from Essar Oil UK to EET Fuels, part of the Essar Energy Transition group, as part of its programme to decarbonise the Stanlow Manufacturing Complex.",
+              "source": "https://www.eetfuels.com/news/essar-oil-uk-rebrands-to-eet-fuels/",
+              "expected": false
+            },
+            {
+              "date": "2024-07-12",
+              "phase": "proposal",
+              "title": "EET Hydrogen Power launched with Stanlow CHP plans",
+              "description": "EET formally announced EET Hydrogen Power and unveiled plans for a hydrogen-ready combined heat and power plant at Stanlow, targeting 125MW of power and 6,000 tonnes of steam per day across two phases, with replacement of hydrocarbon fuel by hydrogen projected to cut emissions by 740,000 tonnes of CO2 a year.",
+              "source": "https://www.eetfuels.com/essar-energy-transition-launches-eet-hydrogen-power/",
+              "expected": false
+            },
+            {
+              "date": "2025-04-30",
+              "phase": "proposal",
+              "title": "Hydrogen-ready furnace operational at Stanlow",
+              "description": "Essar Energy Transition's hydrogen-ready process furnace was brought into operation at Stanlow, a precursor step demonstrating hydrogen-capable combustion equipment ahead of the CHP project.",
+              "source": "https://www.eetfuels.com/news/essar-energy-transition-s-hydrogen-ready-furnace-now-powering-eet-fuels-stanlow-site/",
+              "expected": false
+            },
+            {
+              "date": "2025-11-30",
+              "phase": "proposal",
+              "title": "Phase 1 CHP environmental documents prepared",
+              "description": "Environmental Statement and supporting documents for the smaller Phase 1 CHP (around 49.5MW, to be consented locally by Cheshire West and Chester Council) were prepared, providing technical and environmental baseline material relevant to the larger NSIP modular project.",
+              "source": "https://docs.planning.org.uk/20251216/24/T6Y272TE0TZ00/kgsdvlen1opku8y4.pdf",
+              "expected": false
+            },
+            {
+              "date": "2026-01-31",
+              "phase": "proposal",
+              "title": "Project listed by Planning Inspectorate as EN0110007",
+              "description": "The Stanlow Hydrogen Ready Modular Combined Heat and Power Project appears on the Planning Inspectorate's national infrastructure consenting register at pre-application stage, with EET Fuels as the applicant and an expected DCO submission date of April 2027.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110007",
+              "expected": false
+            },
+            {
+              "date": "2026-09-30",
+              "phase": "proposal",
+              "title": "EIA scoping request anticipated",
+              "description": "EET Fuels is expected to submit a formal EIA scoping request to the Planning Inspectorate to define the scope of environmental assessment for the DCO application, in line with the April 2027 submission timetable.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110007",
+              "expected": true
+            },
+            {
+              "date": "2027-04-30",
+              "phase": "application",
+              "title": "Anticipated DCO application submission",
+              "description": "The Planning Inspectorate indicates the application for development consent is expected to be submitted in April 2027.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110007",
+              "expected": true
+            },
+            {
+              "date": "2028-03-31",
+              "phase": "build",
+              "title": "Targeted commissioning of hydrogen supply",
+              "description": "EET's project literature indicates the separate HyNet hydrogen production plants supplying the CHP are planned to be commissioned by March 2028, enabling the CHP to transition from refinery off-gas and natural gas to low-carbon hydrogen.",
+              "source": "https://www.eetfuels.com/eet-projects/chp-phase-1-project/",
+              "expected": true
+            }
+          ]
+        },
+        "EN0110029": {
+          "ref": "EN0110029",
+          "name": "STEP Fusion",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "STEP (Spherical Tokamak for Energy Production) is the UK Atomic Energy Authority's flagship prototype fusion energy plant, to be built at the former West Burton coal-fired power station site in Nottinghamshire. Delivery is led by UK Industrial Fusion Solutions Ltd (UKIFS, recently rebranded UK Fusion Energy), a UKAEA subsidiary running a public-private partnership; the government has committed over £2.5 billion across five years through the 2025 Spending Review, with first operations targeted for around 2040.",
+          "milestones": [
+            {
+              "date": "2019-10-03",
+              "phase": "proposal",
+              "title": "Government announces £220m STEP concept design programme",
+              "description": "Business and Energy Secretary Andrea Leadsom announced £220 million over four years to develop a concept design for the Spherical Tokamak for Energy Production (STEP), with a prototype plant targeted by 2040.",
+              "source": "https://www.gov.uk/government/news/uk-to-take-a-big-step-to-fusion-electricity",
+              "expected": false
+            },
+            {
+              "date": "2020-12-01",
+              "phase": "proposal",
+              "title": "Open call for STEP host sites launched",
+              "description": "UKAEA opened an invitation for communities to nominate potential sites to host the STEP prototype fusion plant, attracting fifteen long-listed locations across the UK.",
+              "source": "https://www.gov.uk/government/news/home-sought-for-uks-ground-breaking-prototype-fusion-power-plant",
+              "expected": false
+            },
+            {
+              "date": "2021-10-01",
+              "phase": "proposal",
+              "title": "Shortlist of five candidate sites announced",
+              "description": "Following initial assessments the long list was reduced to five shortlisted sites: West Burton (Nottinghamshire), Ardeer (North Ayrshire), Moorside (Cumbria), Goole (East Yorkshire) and Severn Edge (Gloucestershire).",
+              "source": "https://www.gov.uk/government/news/west-burton-selected-as-home-of-step-fusion-plant",
+              "expected": false
+            },
+            {
+              "date": "2022-10-03",
+              "phase": "proposal",
+              "title": "West Burton selected as STEP site",
+              "description": "The Secretary of State confirmed the former West Burton A coal-fired power station in Nottinghamshire as the chosen location for the STEP prototype fusion plant after a two-year competitive process.",
+              "source": "https://www.gov.uk/government/news/west-burton-selected-as-home-of-step-fusion-plant",
+              "expected": false
+            },
+            {
+              "date": "2023-02-06",
+              "phase": "proposal",
+              "title": "UK Industrial Fusion Solutions Ltd announced",
+              "description": "Science Minister George Freeman announced the creation of UK Industrial Fusion Solutions Ltd (UKIFS), a wholly-owned UKAEA subsidiary established to lead a public-private partnership to design, build and operate STEP.",
+              "source": "https://www.gov.uk/government/news/uk-takes-major-step-towards-near-limitless-low-carbon-energy",
+              "expected": false
+            },
+            {
+              "date": "2024-05-01",
+              "phase": "proposal",
+              "title": "Procurement launched for engineering and construction partners",
+              "description": "UKIFS opened a competition to select industry partners to deliver STEP, covering an engineering partner and a construction partner with a combined contract pipeline reported as worth up to £10 billion over the life of the programme.",
+              "source": "https://www.gov.uk/government/news/uk-launches-search-for-industry-partners-to-develop-fusion-plant",
+              "expected": false
+            },
+            {
+              "date": "2024-11-01",
+              "phase": "proposal",
+              "title": "UKIFS stands up as delivery vehicle",
+              "description": "UKIFS formally stood up to take responsibility for delivering STEP, with UKAEA continuing as fusion technology partner.",
+              "source": "https://www.gov.uk/government/news/uk-industrial-fusion-solutions-stands-up-to-deliver-step",
+              "expected": false
+            },
+            {
+              "date": "2025-01-16",
+              "phase": "proposal",
+              "title": "Engineering and construction partner shortlists published",
+              "description": "Shortlists were announced for STEP's engineering partner (Celestial JV led by Eni UK; Phoenix UK Fusion led by Cavendish Nuclear) and construction partner (Inovus led by Balfour Beatty; ILIOS led by Kier; Ferrovial-Mace JV).",
+              "source": "https://www.gov.uk/government/news/shortlist-announced-for-steps-industry-partners",
+              "expected": false
+            },
+            {
+              "date": "2025-06-11",
+              "phase": "proposal",
+              "title": "£2.5 billion committed at Spending Review",
+              "description": "The 2025 Spending Review confirmed over £2.5 billion of funding across five years for fusion, with STEP at West Burton as the principal recipient.",
+              "source": "https://www.gov.uk/government/news/plan-for-change-to-deliver-jobs-and-growth-in-uk-leading-fusion-industry",
+              "expected": false
+            },
+            {
+              "date": "2025-09-18",
+              "phase": "proposal",
+              "title": "New National Policy Statement for fusion energy",
+              "description": "Government published its response on a new National Policy Statement for fusion energy facilities, easing the planning route for fusion projects including STEP through the NSIP regime.",
+              "source": "https://www.gov.uk/government/consultations/fusion-energy-facilities-new-national-policy-statement-and-proposals-on-siting/outcome/new-national-policy-statement-for-fusion-energy-government-response-accessible-webpage",
+              "expected": false
+            },
+            {
+              "date": "2026-01-14",
+              "phase": "proposal",
+              "title": "Early non-statutory public consultation opens",
+              "description": "UKIFS launched a localised non-statutory consultation on the STEP proposals at West Burton with a programme of events across surrounding villages running through March 2026.",
+              "source": "https://stepfusion.com/step-fusion-public-consultation/",
+              "expected": false
+            },
+            {
+              "date": "2026-03-17",
+              "phase": "proposal",
+              "title": "ILIOS consortium appointed as construction partner",
+              "description": "UKIFS appointed the ILIOS consortium, led by a Kier/Nuvia joint venture with AECOM, AL_A Architects and Turner & Townsend, as construction partner for the c.£200 million Phase 1 redevelopment of the West Burton site.",
+              "source": "https://www.gov.uk/government/news/ilios-appointment-speeds-delivery-of-step-fusion-at-west-burton",
+              "expected": false
+            },
+            {
+              "date": "2029-03-31",
+              "phase": "application",
+              "title": "Development Consent Order application targeted",
+              "description": "UK Fusion Energy has indicated it will submit the Development Consent Order for STEP Fusion by March 2029, with examination, decision and construction to follow ahead of first operations targeted for the early 2040s.",
+              "source": "https://stepfusion.com/step-fusion-celebrates-community-engagement-and-announces-the-timeline-for-development-consent-at-the-west-burton-site/",
+              "expected": true
             }
           ]
         }
