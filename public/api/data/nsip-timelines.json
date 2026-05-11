@@ -3,7 +3,7 @@
   "id": "nsip-timelines",
   "pillar": "state",
   "topic": "construction",
-  "generated": "2026-05-11T16:11:15.701Z",
+  "generated": "2026-05-11T16:31:57.793Z",
   "sources": [
     {
       "id": "claude-agent-research",
@@ -14,7 +14,7 @@
     }
   ],
   "snapshot": {
-    "totalTimelines": 80,
+    "totalTimelines": 87,
     "researchedByAgent": 74,
     "researchedManually": 1
   },
@@ -6944,6 +6944,909 @@
               "title": "Expected Secretary of State decision",
               "description": "Based on the statutory timetable, a decision on the DCO and MCO is expected approximately six months after examination closes, allowing three months for the Examining Authority's report and three months for ministerial decision.",
               "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/BC0410001",
+              "expected": true
+            }
+          ]
+        },
+        "WA010002": {
+          "ref": "WA010002",
+          "name": "Hampshire Water Transfer and Water Recycling Project",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Southern Water's proposed Strategic Resource Option for Hampshire, comprising a water recycling plant at Harts Farm Way, Havant, taking treated effluent from Budds Farm Wastewater Treatment Works for advanced purification, transfer into Havant Thicket Reservoir, and a 40km pipeline to Otterbourne Water Supply Works. The scheme is intended to provide up to 90 million litres per day to offset reduced abstraction from the Rivers Test and Itchen under the 2018 Section 20 agreement, and has progressed through Ofwat's RAPID gated funding process toward a Development Consent Order application.",
+          "milestones": [
+            {
+              "date": "2018-03",
+              "phase": "proposal",
+              "title": "Section 20 agreement on Test and Itchen abstraction",
+              "description": "Southern Water and the Environment Agency signed a Water Resources Act 1991 Section 20 operating agreement following a public inquiry, amending abstraction licences on the Rivers Test, Itchen and Candover Brook and setting a 2027 deadline for alternative supply to reduce reliance on drought permits.",
+              "source": "https://southernwater.co.uk/media/1zegnmve/112-appx-2_summary-of-the-section-20-agreement.pdf",
+              "expected": false
+            },
+            {
+              "date": "2020-04",
+              "phase": "proposal",
+              "title": "RAPID gated process established",
+              "description": "Ofwat launched the Regulators' Alliance for Progressing Infrastructure Development to oversee funding for strategic regional water resource solutions. Southern Water entered the Hampshire water recycling option, alongside desalination and a raw water transfer from the planned Havant Thicket Reservoir, into the accelerated gate process.",
+              "source": "https://www.ofwat.gov.uk/regulated-companies/rapid/the-rapid-gated-process/",
+              "expected": false
+            },
+            {
+              "date": "2021-01",
+              "phase": "proposal",
+              "title": "RAPID Gate One final decision",
+              "description": "Ofwat published final accelerated Gate One decisions, allowing the Hampshire water recycling option and the related Havant Thicket raw water transfer to proceed with further development funding alongside other Hampshire-serving Strategic Resource Options.",
+              "source": "https://www.ofwat.gov.uk/pn-02-21-ofwat-delivers-final-decisions-on-strategic-regional-water-resource-options-at-accelerated-gate-one/",
+              "expected": false
+            },
+            {
+              "date": "2022-05-17",
+              "phase": "proposal",
+              "title": "RAPID Gate Two final decision",
+              "description": "Ofwat confirmed the Hampshire Water Transfer and Water Recycling option as the preferred solution to progress to accelerated Gate Three, with continued development funding allowed. Recycling was selected over the earlier desalination alternative.",
+              "source": "https://www.ofwat.gov.uk/pn-19-22-green-water-resource-solutions-gain-ofwat-approval-to-continue-development/",
+              "expected": false
+            },
+            {
+              "date": "2022-06-07",
+              "phase": "proposal",
+              "title": "Section 35 direction designates NSIP",
+              "description": "The Secretary of State issued a direction under Section 35 of the Planning Act 2008 confirming the Hampshire Water Transfer and Water Recycling Project as a Nationally Significant Infrastructure Project, bringing it within the Development Consent Order regime.",
+              "source": "https://www.gov.uk/government/publications/hampshire-water-transfer-and-water-recycling-project-section-35-direction-planning-act-2008",
+              "expected": false
+            },
+            {
+              "date": "2023",
+              "phase": "proposal",
+              "title": "Inclusion in Southern Water draft WRMP24 and WRSE regional plan",
+              "description": "The scheme was included as a core supply-side option in Southern Water's draft Water Resources Management Plan 2024 and the Water Resources South East regional plan, identified as providing approximately half of the projected 192 million litres per day Hampshire drought shortfall by 2050.",
+              "source": "https://www.southernwater.co.uk/media/arsbgjul/sor-annex-6-water-for-life-hampshire-1.pdf",
+              "expected": false
+            },
+            {
+              "date": "2024-05-29",
+              "phase": "consultation",
+              "title": "Non-statutory public consultation opens",
+              "description": "Southern Water opened an eight-week non-statutory consultation on the project design, site at Harts Farm Way, pipeline route to Otterbourne and long sea outfall, running until 23 July 2024. Havant Borough Council, Hampshire and Isle of Wight Wildlife Trust and local groups raised concerns over site impacts, habitats and discharge to the Solent.",
+              "source": "https://www.southernwater.co.uk/about-us/our-plans/water-for-life-hampshire/consultations/",
+              "expected": false
+            },
+            {
+              "date": "2024-10",
+              "phase": "application",
+              "title": "EIA Scoping Report submitted",
+              "description": "Southern Water submitted its Environmental Impact Assessment Scoping Report to the Planning Inspectorate covering the water recycling plant, transfer pipeline, Havant Thicket interface and long sea outfall via Eastney Pumping Station.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/WA010002-000035-EIA%20Scoping%20Report%20Volume%20I%20Main%20Report.pdf",
+              "expected": false
+            },
+            {
+              "date": "2024-10",
+              "phase": "application",
+              "title": "Market engagement for Direct Procurement for Customers",
+              "description": "Southern Water issued market engagement notices for the estimated £1.3bn delivery contract under Ofwat's Direct Procurement for Customers financing model, mandated at Price Review 2024.",
+              "source": "https://www.newcivilengineer.com/latest/southern-water-engages-market-on-1-3bn-hampshire-water-transfer-project-contract-24-10-2024/",
+              "expected": false
+            },
+            {
+              "date": "2025-02-21",
+              "phase": "application",
+              "title": "RAPID Gate Three final decision",
+              "description": "Ofwat published the Gate Three final decision, the first scheme in the RAPID programme to reach this stage. Up to £25.25m was allowed for progressing the solution to Gate Four, with further allowances for the period to March 2030 determined through PR24.",
+              "source": "https://www.ofwat.gov.uk/wp-content/uploads/2025/02/Gate-three-final-decision-for-Hampshire-Water-Transfer-and-Water-Recycling-Project.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025-03-05",
+              "phase": "application",
+              "title": "Section 46 notification of proposed application",
+              "description": "Southern Water served the Planning Inspectorate with notification under Section 46 of the Planning Act 2008, alongside Section 42 consultee letters and a Section 48 notice, formalising the start of statutory pre-application consultation.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/WA010002",
+              "expected": false
+            },
+            {
+              "date": "2025-03-05",
+              "phase": "consultation",
+              "title": "Supplementary statutory consultation",
+              "description": "Southern Water held a four-week supplementary consultation between 5 March and 4 April 2025 on design refinements, pipeline routing and environmental mitigation following feedback from the 2024 round.",
+              "source": "https://www.southernwater.co.uk/about-us/our-plans/water-for-life-hampshire/consultations/",
+              "expected": false
+            },
+            {
+              "date": "2026-05",
+              "phase": "application",
+              "title": "Expected DCO application submission",
+              "description": "Southern Water indicates submission of the Development Consent Order application to the Planning Inspectorate in May 2026, with acceptance, examination and Secretary of State decision to follow under the Planning Act 2008 timetable.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/WA010002",
+              "expected": true
+            },
+            {
+              "date": "2034",
+              "phase": "operational",
+              "title": "Indicative target operational date",
+              "description": "Southern Water's current programme anticipates construction starting in 2028 or 2029, with the scheme entering operation in the early 2030s, indicatively around 2034. Originally targeted for 2029 under the Section 20 timetable, the date has been revised as the project moved through the gated process.",
+              "source": "https://www.newcivilengineer.com/latest/1-3bn-hampshire-water-transfer-project-progresses-towards-planning-permission-24-02-2025/",
+              "expected": true
+            }
+          ]
+        },
+        "WA010003": {
+          "ref": "WA010003",
+          "name": "Lincolnshire Reservoir",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Anglian Water's proposed 55 million cubic metre raw water storage reservoir located approximately 7km southwest of Sleaford between Swaton, Scredington and Helpringham, developed as a Strategic Resource Option through Ofwat's RAPID gated process. The scheme would supply around 166 million litres per day to roughly 500,000 homes, with a Development Consent Order application targeted for late 2028 and operational date around 2040.",
+          "milestones": [
+            {
+              "date": "2020",
+              "phase": "proposal",
+              "title": "Need-case identified in Water Resources East regional plan",
+              "description": "Anglian Water's long-term supply-demand forecasts identified a deficit in eastern England, with a new Lincolnshire reservoir included as a Strategic Resource Option (SRO) under Ofwat's Regulators' Alliance for Progressing Infrastructure Development (RAPID) gated funding process.",
+              "source": "https://wre.org.uk/project/future-fens-the-south-lincolnshire-and-fenland-reservoirs/",
+              "expected": false
+            },
+            {
+              "date": "2021-07",
+              "phase": "proposal",
+              "title": "RAPID Gate 1 submission",
+              "description": "Anglian Water, then in partnership with Affinity Water through the South Lincolnshire Water Partnership, submitted the Gate 1 preliminary feasibility assessment to Ofwat. A site had not yet been selected at this stage.",
+              "source": "https://www.anglianwater.co.uk/siteassets/household/about-us/strategic-solution-gate-one-submission-preliminary-feasibility-assessment-south-lincolnshire.pdf",
+              "expected": false
+            },
+            {
+              "date": "2022-08",
+              "phase": "proposal",
+              "title": "Project announced as preferred strategic resource option",
+              "description": "Anglian Water confirmed plans to take forward a new reservoir in south Lincolnshire alongside a second proposed reservoir in the Fens, as part of its draft Water Resources Management Plan 2024.",
+              "source": "https://www.newcivilengineer.com/latest/anglian-water-pushes-forward-multi-billion-pound-plans-for-two-new-reservoirs-26-08-2022/",
+              "expected": false
+            },
+            {
+              "date": "2022-10-10",
+              "phase": "consultation",
+              "title": "Preferred site published and Phase 1 non-statutory consultation opens",
+              "description": "Anglian Water announced the preferred site located 7km southwest of Sleaford between Swaton, Scredington and Helpringham, following a four-stage site selection process. The first non-statutory consultation launched on 12 October 2022.",
+              "source": "https://moderngov.southkesteven.gov.uk/mgConvert2PDF.aspx?ID=36234",
+              "expected": false
+            },
+            {
+              "date": "2022-11",
+              "phase": "proposal",
+              "title": "RAPID Gate 2 submission",
+              "description": "Anglian Water submitted the Gate 2 report setting out site identification, early concept design and a planned 37km treated water transfer pipeline. The submission noted target water-into-supply between 2039 and 2041, subject to PR24 funding decisions.",
+              "source": "https://www.anglianwater.co.uk/siteassets/household/about-us/slr-rapid-gate-two-submission.pdf",
+              "expected": false
+            },
+            {
+              "date": "2024-03",
+              "phase": "proposal",
+              "title": "Ofwat publishes Lincolnshire Reservoir case study",
+              "description": "Ofwat issued a case study confirming RAPID's continuing support for the scheme as a strategic resource option, with reservoir capacity given as 55 million cubic metres and projected daily output of up to 166 million litres.",
+              "source": "https://www.ofwat.gov.uk/wp-content/uploads/2024/03/Lincolnshire-Reservoir-case-study.pdf",
+              "expected": false
+            },
+            {
+              "date": "2024-05-30",
+              "phase": "consultation",
+              "title": "Phase 2 non-statutory consultation opens",
+              "description": "Second phase of non-statutory consultation ran from 30 May to 9 August 2024, with in-person events across the region. Proposals indicated displacement of around 50 homes and businesses, drawing concern from parish councils in Swaton, Scredington, Helpringham, Burton and Spanby.",
+              "source": "https://www.lincsreservoir.co.uk/latest-news/30-may-2024/",
+              "expected": false
+            },
+            {
+              "date": "2024-08",
+              "phase": "proposal",
+              "title": "Market engagement notice issued for combined reservoir works",
+              "description": "Anglian Water issued a Periodic Indicative Notice on the OJEU/UK Find a Tender service for an estimated combined value of around 5 billion pounds covering main works on the Lincolnshire and Fens reservoirs.",
+              "source": "https://www.newcivilengineer.com/latest/anglian-issues-periodic-indicative-notice-pin-for-main-works-on-5bn-reservoirs-scheme-08-08-2024/",
+              "expected": false
+            },
+            {
+              "date": "2024-10",
+              "phase": "proposal",
+              "title": "Gate 3 submission postponed",
+              "description": "Anglian Water requested to postpone the Gate 3 submission scheduled for late 2024. Ofwat's RAPID issued a response letter confirming receipt of the amendment request and an extended submission timetable.",
+              "source": "https://www.ofwat.gov.uk/publication/rapid-letter-to-anglian-water-on-lincolnshire-reservoir-gate-three-submission/",
+              "expected": false
+            },
+            {
+              "date": "2025-05-29",
+              "phase": "proposal",
+              "title": "Project formally designated as a Nationally Significant Infrastructure Project",
+              "description": "Environment Secretary Steve Reed designated the Lincolnshire Reservoir and Fens Reservoir as NSIPs, transferring decision-making to the Secretary of State under the Planning Act 2008 regime. The project received reference WA010003.",
+              "source": "https://www.gov.uk/government/news/government-steps-in-to-build-first-major-reservoirs-in-30-years",
+              "expected": false
+            },
+            {
+              "date": "2025-11",
+              "phase": "consultation",
+              "title": "Phase 3 consultation activity",
+              "description": "Further consultation engagement undertaken with affected communities and stakeholders, including a National Farmers' Union member meeting on 25 November 2025 covering Round 3 proposals.",
+              "source": "https://www.nfuonline.com/updates-and-information/fens-and-lincolnshire-new-reservoir-proposals/",
+              "expected": false
+            },
+            {
+              "date": "2026",
+              "phase": "consultation",
+              "title": "Statutory pre-application consultation expected",
+              "description": "Statutory consultation under section 42 and section 47 of the Planning Act 2008 is anticipated between 2026 and 2027 ahead of the Development Consent Order application.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/WA010003",
+              "expected": true
+            },
+            {
+              "date": "2028-11",
+              "phase": "application",
+              "title": "Development Consent Order application expected",
+              "description": "Anglian Water expects to submit its DCO application to the Planning Inspectorate in November 2028, with examination, recommendation and Secretary of State decision to follow over approximately 15 months thereafter.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/WA010003",
+              "expected": true
+            },
+            {
+              "date": "2040",
+              "phase": "operational",
+              "title": "Target operational date",
+              "description": "Construction estimated to begin between 2029 and 2031 if consented, with a multi-year filling period. Anglian Water targets water into supply around 2040.",
+              "source": "https://www.lincsreservoir.co.uk/faqs/",
+              "expected": true
+            }
+          ]
+        },
+        "WA010004": {
+          "ref": "WA010004",
+          "name": "Fens Reservoir",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "A proposed Strategic Resource Option jointly promoted by Anglian Water and Cambridge Water for a 55 million cubic metre reservoir near Chatteris in the Cambridgeshire Fens, designed to address forecast supply deficits in the East of England and support growth in Greater Cambridge. The scheme is progressing through Ofwat's RAPID gated process with a DCO application targeted for early 2027 and water supply from around 2036.",
+          "milestones": [
+            {
+              "date": "2022-07",
+              "phase": "proposal",
+              "title": "Gate 1 submission and need confirmed",
+              "description": "Anglian Water and Cambridge Water submitted the Gate 1 preliminary feasibility report to Ofwat's RAPID process, establishing the Fens Reservoir as a strategic regional option to address forecast supply deficits in the East of England.",
+              "source": "https://www.anglianwater.co.uk/siteassets/household/about-us/strategic-solution-gate-one-submission-preliminary-feasibility-fens-reservoir.pdf",
+              "expected": false
+            },
+            {
+              "date": "2022-10",
+              "phase": "proposal",
+              "title": "Preferred site near Chatteris announced",
+              "description": "The joint applicants confirmed the preferred location for the reservoir within Fenland district, between Chatteris and March, near Doddington, Wimblington and Manea.",
+              "source": "https://fensreservoir.co.uk/background/work-to-date/overview/",
+              "expected": false
+            },
+            {
+              "date": "2022-10-12",
+              "phase": "consultation",
+              "title": "Phase one non-statutory consultation opens",
+              "description": "First phase of non-statutory community consultation ran from 12 October to 21 December 2022, seeking views on the preferred site and concept features, with events held around Chatteris, Doddington and Wimblington.",
+              "source": "https://fensreservoir.co.uk/background/work-to-date/overview/",
+              "expected": false
+            },
+            {
+              "date": "2022-11",
+              "phase": "proposal",
+              "title": "Gate 2 submission to RAPID",
+              "description": "Anglian Water and Cambridge Water submitted the Gate 2 report to Ofwat's RAPID process, setting out a preferred 55 million cubic metre reservoir with 50 million cubic metres of usable storage.",
+              "source": "https://www.anglianwater.co.uk/SysSiteAssets/household/about-us/fr-gate-2-submission-report.pdf",
+              "expected": false
+            },
+            {
+              "date": "2023-06",
+              "phase": "proposal",
+              "title": "Ofwat publishes Gate 2 final decision",
+              "description": "Ofwat issued the standard Gate 2 final decision allowing the scheme to progress to the next stage of the RAPID gated process, with a conditional review point scheduled for January 2024.",
+              "source": "https://www.ofwat.gov.uk/wp-content/uploads/2023/03/Fens-Reservoir_Gate-Two_Final-Decisions.pdf",
+              "expected": false
+            },
+            {
+              "date": "2023-12",
+              "phase": "proposal",
+              "title": "Included in Water Resources East regional plan",
+              "description": "Water Resources East published its first 50-year Regional Water Resources Plan for Eastern England in December 2023, identifying the Fens Reservoir as a pivotal low-regret strategic option alongside the South Lincolnshire Reservoir.",
+              "source": "https://wre.org.uk/the-regional-plan/",
+              "expected": false
+            },
+            {
+              "date": "2024-03",
+              "phase": "proposal",
+              "title": "Indicative DCO and operational timeline published",
+              "description": "Project disclosures set out an estimated £2.2 billion capital cost, a reservoir supplying around 87 to 100 million litres per day, and a target to submit the DCO application in 2025, begin construction in 2029 and bring water into supply between 2035 and 2037.",
+              "source": "https://www.newcivilengineer.com/latest/timeline-and-specifications-of-2-2bn-fenlands-reservoir-revealed-as-planning-progresses-18-03-2024/",
+              "expected": false
+            },
+            {
+              "date": "2024-05-30",
+              "phase": "consultation",
+              "title": "Phase two non-statutory consultation",
+              "description": "Phase two non-statutory consultation ran from 30 May to 9 August 2024, covering the main reservoir site, water sources and supply infrastructure, construction and transport options, environmental approach and renewable energy options.",
+              "source": "https://fensreservoir.co.uk/proposals/our-phase-two-proposals/overview/",
+              "expected": false
+            },
+            {
+              "date": "2025-03",
+              "phase": "proposal",
+              "title": "Government water investment package cites scheme",
+              "description": "Defra announced a £7.9 billion water investment package for the East of England identifying the Fens Reservoir as a key project to support sustainable growth in Greater Cambridge and address a forecast regional supply deficit of around 600 million litres per day by 2050.",
+              "source": "https://www.gov.uk/government/news/water-investment-to-unlock-growth-in-east-of-england",
+              "expected": false
+            },
+            {
+              "date": "2025-10-15",
+              "phase": "consultation",
+              "title": "Phase three consultation opens with revised design",
+              "description": "Third phase of non-statutory consultation ran from 15 October to 10 December 2025, presenting updated design proposals for the main reservoir, water source options and associated pipelines.",
+              "source": "https://www.newcivilengineer.com/latest/third-phase-of-consultation-for-2-2bn-fenlands-reservoir-begins-with-revised-design-tabled-15-10-2025/",
+              "expected": false
+            },
+            {
+              "date": "2026-01",
+              "phase": "proposal",
+              "title": "Gate 3 submission delayed by RAPID",
+              "description": "Ofwat's RAPID team wrote to the applicants delaying the scheduled 30 April 2026 Gate 3 submission, citing the need for further work on solution design, water source options and environmental protection. RAPID set a revised deadline rather than granting the longer extension requested by the companies.",
+              "source": "https://www.ofwat.gov.uk/publication/fens-reservoir-gate-three-date-anglian-water-cambridge-water-letter-to-rapid/",
+              "expected": false
+            },
+            {
+              "date": "2027-03",
+              "phase": "application",
+              "title": "DCO application target deadline",
+              "description": "Regulators set a deadline of no later than March 2027 for submission of the Development Consent Order application to the Planning Inspectorate, following Gate 3 sign-off and statutory consultation.",
+              "source": "https://www.fenlandcitizen.co.uk/news/deadline-set-for-huge-new-reservoir-s-formal-application-9431236/",
+              "expected": true
+            },
+            {
+              "date": "2029",
+              "phase": "build",
+              "title": "Target construction start",
+              "description": "Subject to DCO consent, the joint applicants are targeting the start of main construction works at the Chatteris site.",
+              "source": "https://www.newcivilengineer.com/latest/timeline-and-specifications-of-2-2bn-fenlands-reservoir-revealed-as-planning-progresses-18-03-2024/",
+              "expected": true
+            },
+            {
+              "date": "2036",
+              "phase": "operational",
+              "title": "Target water-in-supply date",
+              "description": "The reservoir is planned to enter supply around 2036, providing approximately 87 to 100 million litres per day to the Anglian Water and Cambridge Water regions and reducing reliance on chalk stream abstractions.",
+              "source": "https://www.cambridge-water.co.uk/environment/managing-water-resources/fens-reservoir",
+              "expected": true
+            }
+          ]
+        },
+        "WA010005": {
+          "ref": "WA010005",
+          "name": "White Horse Reservoir (previously known as South East Strategic Reservoir Option)",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Thames Water has proposed a major reservoir south-west of Abingdon since the 1990s. A 150 million cubic metre Upper Thames Reservoir was rejected after the 2010 public inquiry led by Inspector Wendy Burden, who recommended the scheme be scrapped on grounds of unproven need and inadequate assessment of alternatives. The proposal was revived through the Ofwat RAPID strategic resource option process from 2020, accelerated after the 2022 drought, selected in WRMP24, and renamed White Horse Reservoir for the 2025-26 statutory consultation ahead of a planned DCO application in autumn 2026.",
+          "milestones": [
+            {
+              "date": "1996",
+              "phase": "proposal",
+              "title": "Reservoir concept first proposed",
+              "description": "Thames Water first identifies a strategic reservoir south-west of Abingdon as a long-term supply option in early water resource planning work.",
+              "source": "https://groupagainstreservoirdevelopment.org/what-is-the-reservoir/",
+              "expected": false
+            },
+            {
+              "date": "2006",
+              "phase": "consultation",
+              "title": "Reservoir included in draft WRMP and public consultation",
+              "description": "Thames Water sets out a proposal for a 150 million cubic metre Upper Thames Reservoir near Abingdon in its draft Water Resources Management Plan and consults the public.",
+              "source": "https://en.wikipedia.org/wiki/Thames_Water_Abingdon_Reservoir",
+              "expected": false
+            },
+            {
+              "date": "2007",
+              "phase": "consultation",
+              "title": "Environment Agency questions need case",
+              "description": "The Environment Agency advises Defra that Thames Water's case for the reservoir is not proven and that demand forecasts and alternatives require further work.",
+              "source": "https://en.wikipedia.org/wiki/Thames_Water_Abingdon_Reservoir",
+              "expected": false
+            },
+            {
+              "date": "2009",
+              "phase": "application",
+              "title": "Revised draft WRMP submitted with reservoir as preferred option",
+              "description": "Thames Water submits its revised draft Water Resources Management Plan to Defra retaining the Upper Thames Reservoir as the preferred large strategic option, triggering a Defra-ordered public inquiry.",
+              "source": "https://www.newcivilengineer.com/archive/scaled-down-abingdon-reservoir-faces-further-local-opposition-11-05-2011/",
+              "expected": false
+            },
+            {
+              "date": "2010",
+              "phase": "examination",
+              "title": "Public inquiry held into Upper Thames Reservoir",
+              "description": "A public inquiry led by senior planning inspector Wendy Burden hears evidence from Thames Water, the Environment Agency, CPRE Oxfordshire and the Group Against Reservoir Development (GARD) on the need case and alternatives.",
+              "source": "https://www.cpreoxon.org.uk/news/against-the-abingdon-reservoir-2010-2012/",
+              "expected": false
+            },
+            {
+              "date": "2011-03",
+              "phase": "cancelled",
+              "title": "Inspector Burden recommends scheme be scrapped",
+              "description": "Inspector Wendy Burden reports to ministers that Thames Water has not justified the 150 million cubic metre reservoir, citing overestimated demand and inadequate appraisal of alternatives. She recommends the proposal be dropped from the WRMP and that smaller options up to 50 million cubic metres be appraised instead. Defra accepts the recommendation.",
+              "source": "https://www.newcivilengineer.com/archive/scaled-down-abingdon-reservoir-faces-further-local-opposition-11-05-2011/",
+              "expected": false
+            },
+            {
+              "date": "2014",
+              "phase": "dormant",
+              "title": "WRMP14 does not include large Abingdon reservoir",
+              "description": "Thames Water's 2014 Water Resources Management Plan, covering 2015 to 2040, relies on demand management, leakage reduction and transfers, and does not select the Abingdon reservoir as a preferred resource option.",
+              "source": "https://www.thameswater.co.uk/media-library/2u4mwmth/reservoirs.pdf",
+              "expected": false
+            },
+            {
+              "date": "2018",
+              "phase": "revived",
+              "title": "Reservoir returns in draft WRMP19",
+              "description": "Thames Water reintroduces the Abingdon reservoir, sized at up to 150 million cubic metres, as a strategic option in its draft Water Resources Management Plan 2019, attracting renewed opposition from GARD, CPRE Oxfordshire and Vale of White Horse District Council.",
+              "source": "https://www.abingdonreservoir.org.uk/downloads/Phase-2-Fine-Screening-Report-Update-Rev03.pdf",
+              "expected": false
+            },
+            {
+              "date": "2020",
+              "phase": "revived",
+              "title": "Designated a Strategic Resource Option under Ofwat RAPID",
+              "description": "Ofwat's Regulators' Alliance for Progressing Infrastructure Development (RAPID) designates the South East Strategic Reservoir Option (SESRO) as one of a small number of strategic regional water resource solutions to be developed through a gated funding process jointly by Thames Water, Affinity Water and Southern Water.",
+              "source": "https://www.ofwat.gov.uk/regulated-companies/rapid/the-rapid-gated-process/gate-one-submissions-and-final-decisions/",
+              "expected": false
+            },
+            {
+              "date": "2022-01",
+              "phase": "application",
+              "title": "RAPID Gate 1 decision: SESRO progresses to Gate 2",
+              "description": "Following submission of Gate 1 reports in July 2021, RAPID publishes its Gate 1 final decision in January 2022 confirming SESRO should continue receiving development funding and progress to Gate 2.",
+              "source": "https://www.ofwat.gov.uk/regulated-companies/rapid/the-rapid-gated-process/gate-one-submissions-and-final-decisions/",
+              "expected": false
+            },
+            {
+              "date": "2022",
+              "phase": "revived",
+              "title": "2022 drought reinforces strategic supply case",
+              "description": "Hot, dry conditions across summer 2022 and into 2023 lead to hosepipe bans across much of southern England and prompt the Environment Agency and Defra to emphasise the need for new strategic supply infrastructure including reservoirs.",
+              "source": "https://www.ofwat.gov.uk/wp-content/uploads/2023/05/Gate-2-update-for-investors-and-supply-chain.pdf",
+              "expected": false
+            },
+            {
+              "date": "2023-06-28",
+              "phase": "application",
+              "title": "RAPID Gate 2 decision: SESRO progresses to Gate 3",
+              "description": "RAPID publishes its Gate 2 final decision on 28 June 2023, approving continued development of the now 150 million cubic metre SESRO scheme towards a Development Consent Order application.",
+              "source": "https://www.ofwat.gov.uk/wp-content/uploads/2023/05/Gate-2-update-for-investors-and-supply-chain.pdf",
+              "expected": false
+            },
+            {
+              "date": "2024-08",
+              "phase": "application",
+              "title": "Government confirms SESRO will be taken forward as an NSIP",
+              "description": "Defra's strategic policy statement and the Secretary of State confirm that SESRO will proceed as a Nationally Significant Infrastructure Project under the Planning Act 2008, to be determined by Development Consent Order rather than through a further public inquiry. Vale of White Horse District Council, Oxfordshire County Council, GARD and CPRE Oxfordshire continue to oppose the scheme and call for a public inquiry.",
+              "source": "https://www.whitehorsedc.gov.uk/vale-of-white-horse-district-council/planning-and-development/thames-water-south-east-strategic-reservoir-option-sesro/",
+              "expected": false
+            },
+            {
+              "date": "2024-08",
+              "phase": "consultation",
+              "title": "Non-statutory pre-application consultation",
+              "description": "Thames Water runs a non-statutory consultation on the SESRO proposals, gathering local feedback ahead of formal pre-application consultation under the Planning Act 2008.",
+              "source": "https://www.whitehorsedc.gov.uk/vale-of-white-horse-district-council/council-submits-response-to-thames-water-reservoir-consultation-2/",
+              "expected": false
+            },
+            {
+              "date": "2024-09",
+              "phase": "application",
+              "title": "EIA scoping opinion issued by Planning Inspectorate",
+              "description": "The Planning Inspectorate issues its Environmental Impact Assessment scoping opinion on the SESRO proposals, setting out the issues the eventual DCO Environmental Statement must address.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/WA010005-000010-SESRO%20EIA%20Scoping%20Report.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025-07-25",
+              "phase": "jr",
+              "title": "Judicial review brought by SAFERWaters and CPRE dismissed",
+              "description": "The High Court hears a judicial review claim brought by SAFERWaters and CPRE challenging the inclusion of SESRO in the regional plan without a separate public inquiry. The claim is dismissed on 25 July 2025.",
+              "source": "https://www.watermagazine.co.uk/2024/11/26/judicial-review-call-launched-against-approved-abingdon-reservoir/",
+              "expected": false
+            },
+            {
+              "date": "2025-10-28",
+              "phase": "consultation",
+              "title": "Statutory pre-application consultation opens; project renamed White Horse Reservoir",
+              "description": "Thames Water launches statutory pre-application consultation under section 47 of the Planning Act 2008, running from 28 October 2025 to 13 January 2026. The project is rebranded from SESRO to White Horse Reservoir. Estimated capital cost is disclosed at between £5.5 billion and £7.5 billion, up from earlier figures around £2.2 billion.",
+              "source": "https://thames-sro.co.uk/public-consultations/south-east-strategic-reservoir-option-sesro-statutory-consultation-2025/",
+              "expected": false
+            },
+            {
+              "date": "2025-12-03",
+              "phase": "application",
+              "title": "RAPID Gate 3 draft decision: SESRO recommended to pass",
+              "description": "RAPID publishes its Gate 3 draft decision on 3 December 2025 proposing that SESRO should pass Gate 3, unlocking around £100 million in further development funding while flagging that the submission did not fully demonstrate best value given the increased cost estimate.",
+              "source": "https://www.ofwat.gov.uk/wp-content/uploads/2025/12/SESRO-gate-three-draft-decision-document.pdf",
+              "expected": false
+            },
+            {
+              "date": "2026-11",
+              "phase": "application",
+              "title": "DCO application targeted",
+              "description": "Thames Water plans to submit its Development Consent Order application for the White Horse Reservoir to the Planning Inspectorate in November 2026.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/WA010005",
+              "expected": true
+            },
+            {
+              "date": "2029",
+              "phase": "build",
+              "title": "Construction targeted to begin",
+              "description": "Subject to development consent, Thames Water indicates construction would begin in 2029.",
+              "source": "https://www.thameswater.co.uk/about-us/regulation/strategic-water-resource-solutions/white-horse-reservoir-in-oxfordshire",
+              "expected": true
+            },
+            {
+              "date": "2040",
+              "phase": "operational",
+              "title": "Reservoir target operational date",
+              "description": "Thames Water plans for the reservoir to begin operating in 2040, supplying water to customers of Thames Water, Affinity Water and Southern Water.",
+              "source": "https://www.thameswater.co.uk/about-us/regulation/strategic-water-resource-solutions/white-horse-reservoir-in-oxfordshire",
+              "expected": true
+            }
+          ]
+        },
+        "WA010006": {
+          "ref": "WA010006",
+          "name": "Teddington Direct River Abstraction (TDRA)",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Thames Water Utilities Limited's proposed drought-resilience scheme to abstract up to 75 megalitres per day from the River Thames upstream of Teddington Weir, replaced by recycled effluent from Mogden Sewage Treatment Works. Identified as a Strategic Resource Option through the Ofwat RAPID gated process and Thames Water's WRMP24, the project was directed as an NSIP in December 2023 and is at pre-application stage, with a DCO submission expected in 2026 and a target operational date of 2033.",
+          "milestones": [
+            {
+              "date": "2021-07",
+              "phase": "proposal",
+              "title": "RAPID Gate 1 submission",
+              "description": "Thames Water submits Gate 1 reports for the London Water Recycling solutions, including the Teddington Direct River Abstraction concept, under the Ofwat RAPID gated process for Strategic Resource Options.",
+              "source": "https://www.thameswater.co.uk/about-us/regulation/strategic-water-resource-solutions/teddington-direct-river-abstraction",
+              "expected": false
+            },
+            {
+              "date": "2022-11",
+              "phase": "proposal",
+              "title": "RAPID Gate 2 submission",
+              "description": "Thames Water submits Gate 2 reports to RAPID, with TDRA progressing as a sub-option within the London Water Recycling scheme.",
+              "source": "https://www.ofwat.gov.uk/wp-content/uploads/2023/03/LWR-Thames-Water-G2-reponse-to-draft-determination-final_Redacted.pdf",
+              "expected": false
+            },
+            {
+              "date": "2023-06-28",
+              "phase": "proposal",
+              "title": "RAPID Gate 2 final decision",
+              "description": "RAPID publishes its final Gate 2 decision allowing the London Water Recycling scheme, with TDRA as the preferred sub-option, to progress to further development.",
+              "source": "https://www.ofwat.gov.uk/wp-content/uploads/2023/03/LWR-Thames-Water-G2-reponse-to-draft-determination-final_Redacted.pdf",
+              "expected": false
+            },
+            {
+              "date": "2023-08",
+              "phase": "proposal",
+              "title": "Included in WRSE revised draft regional plan",
+              "description": "Water Resources South East (WRSE) identifies the Teddington Direct River Abstraction as a best-value option in its revised draft regional plan.",
+              "source": "https://thames-wrmp.co.uk/tdra/",
+              "expected": false
+            },
+            {
+              "date": "2023-10-17",
+              "phase": "consultation",
+              "title": "Non-statutory public consultation opens",
+              "description": "Thames Water opens its first non-statutory public consultation on the TDRA proposals, running until 11 December 2023. Around 2,312 responses are received.",
+              "source": "https://www.thameswater.co.uk/news/2024/sep/feedback-shapes-proposals-to-safeguard-londons-drinking-water-supply",
+              "expected": false
+            },
+            {
+              "date": "2023-11-27",
+              "phase": "consultation",
+              "title": "Richmond Council public meeting and opposition",
+              "description": "Richmond upon Thames Council hosts a public meeting on the scheme and confirms its opposition, citing water quality, public perception, and impacts on open space at Ham Lands.",
+              "source": "https://www.richmond.gov.uk/news/news_november_2023/meeting_on_thames_water_tdra",
+              "expected": false
+            },
+            {
+              "date": "2023-12-22",
+              "phase": "proposal",
+              "title": "Section 35 direction issued",
+              "description": "The Secretary of State directs under section 35 of the Planning Act 2008 that the TDRA is to be treated as a Nationally Significant Infrastructure Project requiring a Development Consent Order.",
+              "source": "https://www.gov.uk/government/publications/thames-water-teddington-direct-river-abstraction-section-35-direction-planning-act-2008",
+              "expected": false
+            },
+            {
+              "date": "2024-02-21",
+              "phase": "consultation",
+              "title": "Parliamentary debate on the project",
+              "description": "Westminster Hall debate on the Teddington Direct River Abstraction project, with the local MP and others raising concerns over environmental and public health impacts.",
+              "source": "https://hansard.parliament.uk/commons/2024-02-21/debates/24022161000031/TeddingtonDirectRiverAbstractionProject",
+              "expected": false
+            },
+            {
+              "date": "2024-09-17",
+              "phase": "proposal",
+              "title": "Revised design published after consultation feedback",
+              "description": "Thames Water publishes a revised concept design, removing the continuous discharge of recycled water upstream of Teddington Weir and routing maintenance flows to an outfall at Isleworth using existing infrastructure.",
+              "source": "https://www.thameswater.co.uk/news/2024/sep/feedback-shapes-proposals-to-safeguard-londons-drinking-water-supply",
+              "expected": false
+            },
+            {
+              "date": "2024-10",
+              "phase": "proposal",
+              "title": "WRMP24 published with TDRA included",
+              "description": "Defra approves Thames Water's Water Resources Management Plan 2024, which includes the Teddington Direct River Abstraction and the South East Strategic Reservoir (later renamed White Horse Reservoir) as core supply-side options.",
+              "source": "https://www.thameswater.co.uk/news/2024/sep/thames-water-secures-government-approval-on-plans-to-protect-future-water-resources",
+              "expected": false
+            },
+            {
+              "date": "2024-12-10",
+              "phase": "proposal",
+              "title": "RAPID Gate 3 submission",
+              "description": "Thames Water submits its Gate 3 report for the London Water Recycling scheme with TDRA as the single preferred sub-option, alongside detailed conceptual design drawings.",
+              "source": "https://www.thameswater.co.uk/media-library/qaahckfv/gate-3-submission-for-london-water-recycling-sro.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025-06-17",
+              "phase": "consultation",
+              "title": "Statutory pre-application consultation opens",
+              "description": "Thames Water serves its section 46 notification on the Planning Inspectorate and opens the statutory pre-application consultation under the Planning Act 2008, running until 26 August 2025.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/WA010006",
+              "expected": false
+            },
+            {
+              "date": "2025-07-09",
+              "phase": "proposal",
+              "title": "RAPID Gate 3 approval",
+              "description": "RAPID approves the Gate 3 report, with Ofwat allowing £22.6m of further development expenditure for TDRA to progress to Gate 4 as the single preferred solution.",
+              "source": "https://teddington.nub.news/news/local-news/ofwat-approves-funding-for-thames-waters-teddington-abstraction-project-265652",
+              "expected": false
+            },
+            {
+              "date": "2025-08-20",
+              "phase": "consultation",
+              "title": "Greater London Authority formal response",
+              "description": "The GLA's Development Management team submits a formal response to the statutory consultation, asking the applicant to fully assess environmental impacts and alignment with the London Plan and NPPF.",
+              "source": "https://www.london.gov.uk/who-we-are/what-london-assembly-does/questions-mayor/find-an-answer/teddington-direct-river-abstraction-scheme-thames-water-2",
+              "expected": false
+            },
+            {
+              "date": "2026-09",
+              "phase": "application",
+              "title": "DCO application submission",
+              "description": "Thames Water expects to submit its Development Consent Order application to the Planning Inspectorate, accompanied by the Consultation Report and supporting environmental documentation.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/WA010006",
+              "expected": true
+            },
+            {
+              "date": "2033",
+              "phase": "operational",
+              "title": "Target operational date",
+              "description": "Per WRMP24, the scheme is targeted to be available from 2033 to provide up to 75 megalitres per day of drought-resilience supply for London.",
+              "source": "https://www.thameswater.co.uk/about-us/regulation/strategic-water-resource-solutions/teddington-direct-river-abstraction",
+              "expected": true
+            }
+          ]
+        },
+        "WA0210001": {
+          "ref": "WA0210001",
+          "name": "The Grand Union Canal Transfer",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "A joint Strategic Resource Option from Affinity Water, Severn Trent Water and the Canal & River Trust to transfer up to 115 million litres of recycled water per day from Minworth in Birmingham along the Coventry, Oxford and Grand Union canals to a service reservoir near Luton. The scheme has progressed through Ofwat's RAPID gated process since 2020 and is in NSIP pre-application stage, with a DCO submission targeted for June 2027 and operation by 2033.",
+          "milestones": [
+            {
+              "date": "2019-12",
+              "phase": "proposal",
+              "title": "Identified in PR19 final determination",
+              "description": "Ofwat included the Grand Union Canal Transfer among the strategic regional water resource solutions for development through the RAPID gated process, intended to address forecast supply deficits in Affinity Water's south-east area.",
+              "source": "https://www.ofwat.gov.uk/regulated-companies/rapid/the-rapid-gated-process/gate-one-submissions-and-final-decisions/",
+              "expected": false
+            },
+            {
+              "date": "2021-07",
+              "phase": "proposal",
+              "title": "RAPID Gate 1 submission",
+              "description": "Affinity Water, Severn Trent Water and the Canal & River Trust submitted their Gate 1 reports to Ofwat's RAPID setting out the concept design and outline costs for the transfer.",
+              "source": "https://www.severntrent.com/content/dam/stw-plc/about-us/gate-1-submission-for-guc.pdf",
+              "expected": false
+            },
+            {
+              "date": "2021-12",
+              "phase": "proposal",
+              "title": "RAPID Gate 1 final decision",
+              "description": "Ofwat issued the Gate 1 final decision allowing the Grand Union Canal Transfer to continue development under the RAPID gated process. Up to 100 Ml/d capacity was endorsed at concept stage.",
+              "source": "https://www.ofwat.gov.uk/wp-content/uploads/2021/12/Standard-gate-one-final-decision-for-Grand-Union-Canal-Transfer.pdf",
+              "expected": false
+            },
+            {
+              "date": "2022-11-14",
+              "phase": "proposal",
+              "title": "RAPID Gate 2 submission",
+              "description": "Solution owners submitted their standard Gate 2 reports to Ofwat for assessment, covering further concept design, environmental work and procurement strategy.",
+              "source": "https://www.ofwat.gov.uk/wp-content/uploads/2023/03/GUC-Gate-Two-Final-Decision-Document.pdf",
+              "expected": false
+            },
+            {
+              "date": "2023-03",
+              "phase": "proposal",
+              "title": "RAPID Gate 2 final decision",
+              "description": "Ofwat published the Gate 2 final decision permitting continued funding to progress design and pre-application work for the transfer and the linked Minworth water recycling SRO.",
+              "source": "https://www.ofwat.gov.uk/wp-content/uploads/2023/03/GUC-Gate-Two-Final-Decision-Document.pdf",
+              "expected": false
+            },
+            {
+              "date": "2024-09-11",
+              "phase": "consultation",
+              "title": "Phase One non-statutory consultation opens",
+              "description": "First non-statutory public consultation ran from 11 September to 25 October 2024 across local authorities along the route including North Warwickshire, Rugby, Daventry, Aylesbury Vale, Milton Keynes, Central Bedfordshire and Luton, seeking views on the broad route corridor and scheme principles.",
+              "source": "https://guctransfer.co.uk/the-scheme/how-it-will-develop/",
+              "expected": false
+            },
+            {
+              "date": "2024-10",
+              "phase": "consultation",
+              "title": "Section 35 direction confirmed",
+              "description": "The Secretary of State indicated approval for treating the Grand Union Canal Transfer as a Nationally Significant Infrastructure Project, bringing it within the DCO regime.",
+              "source": "https://guctransfer.co.uk/the-scheme/how-it-will-develop/",
+              "expected": false
+            },
+            {
+              "date": "2025-05-30",
+              "phase": "proposal",
+              "title": "RAPID Gate 3 submission",
+              "description": "Affinity Water, Severn Trent and Canal & River Trust submitted their Gate 3 reports to Ofwat covering detailed design, environmental assessment and procurement strategy via the Direct Procurement for Customers route.",
+              "source": "https://www.ofwat.gov.uk/wp-content/uploads/2025/12/Strategic-regional-water-resource-solutions-%E2%80%93-gate-three-final-decision-for-Grand-Union-Canal-Strategic-Resource-Option.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025",
+              "phase": "consultation",
+              "title": "EIA Scoping Opinion received",
+              "description": "The EIA Scoping Report was submitted to the Planning Inspectorate and a Scoping Opinion was issued, defining the scope and methodology for the Environmental Statement to accompany the DCO application.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/WA0210001-000017-Grand%20Union%20Canal%20Transfer%20Scoping%20Opinion.pdf",
+              "expected": false
+            },
+            {
+              "date": "2026-01-30",
+              "phase": "proposal",
+              "title": "RAPID Gate 3 final decision",
+              "description": "Ofwat confirmed continued funding for the £510m Grand Union Canal Transfer and £200m Minworth SRO to progress to Gate 4, while imposing Conditional Review Points covering solution maturity, delivery programme gaps and cost uncertainty.",
+              "source": "https://www.newcivilengineer.com/latest/510m-grand-union-canal-and-200m-minworth-water-transfer-schemes-progressed-by-ofwat-30-01-2026/",
+              "expected": false
+            },
+            {
+              "date": "2026-02-11",
+              "phase": "consultation",
+              "title": "Phase Two statutory consultation opens",
+              "description": "Statutory pre-application consultation under section 47 of the Planning Act 2008 opened for seven weeks alongside publication of the Preliminary Environmental Information Report. A section 46 notification to the Planning Inspectorate was issued the same day.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/WA0210001",
+              "expected": false
+            },
+            {
+              "date": "2026-04-02",
+              "phase": "consultation",
+              "title": "Phase Two consultation closes",
+              "description": "The statutory pre-application consultation on the route corridor, abstraction points and treatment site closed for responses. Issues raised in earlier engagement included canal ecology, invasive species transfer risks and abstraction near Leighton Buzzard.",
+              "source": "https://guctransfer.co.uk/the-scheme/how-it-will-develop/",
+              "expected": false
+            },
+            {
+              "date": "2027-06",
+              "phase": "application",
+              "title": "DCO application targeted",
+              "description": "Submission of the Development Consent Order application to the Planning Inspectorate is expected in June 2027.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/WA0210001",
+              "expected": true
+            },
+            {
+              "date": "2027-08",
+              "phase": "proposal",
+              "title": "RAPID Gate 4 decision expected",
+              "description": "Ofwat's Gate 4 decision point for the GUC and Minworth SROs is scheduled for August 2027, aligning with the PR24 price review period.",
+              "source": "https://www.newcivilengineer.com/latest/510m-grand-union-canal-and-200m-minworth-water-transfer-schemes-progressed-by-ofwat-30-01-2026/",
+              "expected": true
+            },
+            {
+              "date": "2030",
+              "phase": "build",
+              "title": "Construction start targeted",
+              "description": "Subject to development consent and Gate 4 funding, construction of the Minworth treatment upgrades, transfer pipelines and canal interventions is expected to begin in 2030.",
+              "source": "https://guctransfer.co.uk/",
+              "expected": true
+            },
+            {
+              "date": "2033",
+              "phase": "operational",
+              "title": "Target operational date",
+              "description": "The scheme is targeted to be commissioned and delivering up to 115 Ml/d to Affinity Water's Chaul End service reservoir near Luton by 2033.",
+              "source": "https://guctransfer.co.uk/",
+              "expected": true
+            }
+          ]
+        },
+        "WA0210003": {
+          "ref": "WA0210003",
+          "name": "Suffolk Water Recycling Transfer and Storage",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Essex and Suffolk Water (Northumbrian Water) proposal for an Advanced Water Recycling Plant near Lowestoft producing up to 11 million litres per day, two service reservoirs near Sibton and Eye, and around 80km of new pipelines. The scheme forms part of Water Resources East's regional plan and Essex and Suffolk Water's WRMP24, and was directed into the NSIP regime by the Secretary of State in September 2025. Phase one non-statutory consultation closed in December 2025, with a DCO application targeted for 2028.",
+          "milestones": [
+            {
+              "date": "2023-08-25",
+              "phase": "proposal",
+              "title": "Need case set out in draft WRMP24 Statement of Response",
+              "description": "Essex and Suffolk Water published its Statement of Response confirming continued detailed design of the Lowestoft Water Reuse option alongside a North Suffolk Reservoir option as supply-side schemes to address the Hartismere zone deficit, with an adaptive pathway between the two.",
+              "source": "https://www.eswater.co.uk/services/water/revised-draft-water-resources-management-plan-2024/",
+              "expected": false
+            },
+            {
+              "date": "2023-12",
+              "phase": "proposal",
+              "title": "Included in Water Resources East regional plan",
+              "description": "The Water Resources East regional plan for Eastern England, published in December 2023, identified water recycling and transfer infrastructure in Suffolk among the supply-side options needed to close a projected 800 million litres per day regional shortfall by 2050.",
+              "source": "https://wre.org.uk/the-regional-plan/",
+              "expected": false
+            },
+            {
+              "date": "2024-10-15",
+              "phase": "proposal",
+              "title": "Scheme confirmed in final WRMP24",
+              "description": "Essex and Suffolk Water's final Water Resources Management Plan 2024 was published, with the Lowestoft Water Reuse scheme, strategic transfers and new service reservoirs forming the preferred set of supply-side investments for the Essex and Suffolk supply area.",
+              "source": "https://www.nwg.co.uk/globalassets/wrmp/nwg/october-24/esw/esw-wrmp24-main-report_final-oct-24.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025-09-19",
+              "phase": "proposal",
+              "title": "Section 35 direction issued",
+              "description": "The Secretary of State for Environment, Food and Rural Affairs issued a Section 35 direction under the Planning Act 2008, treating the Suffolk Water Recycling, Transfer and Storage project as a Nationally Significant Infrastructure Project requiring a Development Consent Order.",
+              "source": "https://www.gov.uk/government/publications/suffolk-water-recycling-transfer-and-storage-project-section-35-direction-planning-act-2008",
+              "expected": false
+            },
+            {
+              "date": "2025-10-29",
+              "phase": "consultation",
+              "title": "Phase one non-statutory consultation launched",
+              "description": "Essex and Suffolk Water opened its first public consultation, presenting early-stage proposals for the Advanced Water Recycling Plant near Lowestoft, two service reservoirs at Lodgewood and Eye, and pipeline corridors, with eight drop-in events across north Suffolk.",
+              "source": "https://www.nwg.co.uk/news-and-media/news-releases/public-consultation-opens-for-major-suffolk-water-infrastructure-project/",
+              "expected": false
+            },
+            {
+              "date": "2025-12-17",
+              "phase": "consultation",
+              "title": "Phase one consultation closed",
+              "description": "The phase one consultation closed, with feedback to inform site selection, route options and environmental assessment. Suffolk County Council and Suffolk Wildlife Trust were among consultees raising concerns about pipeline alignment and habitats designations in north Suffolk.",
+              "source": "https://www.suffolkwaternetwork.co.uk/ourconsultation.html",
+              "expected": false
+            },
+            {
+              "date": "2026",
+              "phase": "consultation",
+              "title": "Preferred route and site announcements",
+              "description": "Essex and Suffolk Water plans to publish a preferred pipeline route, preferred Advanced Water Recycling Plant site and preferred service reservoir locations by the end of 2026, ahead of a statutory phase two consultation in 2027.",
+              "source": "https://www.newcivilengineer.com/latest/consultation-launched-on-major-suffolk-water-infrastructure-plan-06-11-2025/",
+              "expected": true
+            },
+            {
+              "date": "2027",
+              "phase": "consultation",
+              "title": "Statutory pre-application consultation",
+              "description": "A further statutory consultation on the refined scheme design, route and environmental assessment is planned for 2027 to meet Planning Act 2008 pre-application requirements.",
+              "source": "https://www.suffolkwaternetwork.co.uk/ourconsultation.html",
+              "expected": true
+            },
+            {
+              "date": "2028",
+              "phase": "application",
+              "title": "Target DCO submission",
+              "description": "Essex and Suffolk Water aims to submit a Development Consent Order application to the Planning Inspectorate in 2028.",
+              "source": "https://www.southnorfolkandbroadland.gov.uk/planning/nationally-significant-infrastructure-projects/essex-suffolk-waters-suffolk-water-recycling-transfer-and-storage-swrts-project",
+              "expected": true
+            },
+            {
+              "date": "2032",
+              "phase": "operational",
+              "title": "Target completion and Hartismere moratorium lift",
+              "description": "The scheme is planned to be operational in 2032 to 2033, at which point the temporary moratorium on new non-domestic connections in the Hartismere Water Resource Zone is anticipated to be lifted.",
+              "source": "https://www.suffolkwaternetwork.co.uk/about.html",
               "expected": true
             }
           ]
