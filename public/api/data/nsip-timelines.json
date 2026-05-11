@@ -3,7 +3,7 @@
   "id": "nsip-timelines",
   "pillar": "state",
   "topic": "construction",
-  "generated": "2026-05-11T20:27:35.119Z",
+  "generated": "2026-05-11T20:31:55.025Z",
   "sources": [
     {
       "id": "claude-agent-research",
@@ -14,7 +14,7 @@
     }
   ],
   "snapshot": {
-    "totalTimelines": 143,
+    "totalTimelines": 150,
     "researchedByAgent": 74,
     "researchedManually": 1
   },
@@ -13303,6 +13303,509 @@
               "title": "DCO application submission expected",
               "description": "Peak Cluster Limited has indicated it will submit its Development Consent Order application to the Planning Inspectorate in September 2027, with Final Investment Decision targeted as early as 2028.",
               "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0710001",
+              "expected": true
+            }
+          ]
+        },
+        "EN030003": {
+          "ref": "EN030003",
+          "name": "Aldbrough Hydrogen Storage",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Aldbrough Hydrogen Storage Limited (a joint venture between SSE Thermal and Equinor) proposes a low-carbon hydrogen storage facility using up to nine deep salt caverns adjacent to the existing Aldbrough Gas Storage site on the East Yorkshire coast. The project is intended to support the East Coast Cluster and Humber hydrogen economy, with a stated storage capacity of around 320 GWh and target operations from the late 2020s. The DCO application is in the pre-application stage with submission anticipated in 2026.",
+          "milestones": [
+            {
+              "date": "2021-08-09",
+              "phase": "proposal",
+              "title": "SSE Thermal and Equinor announce hydrogen storage plans",
+              "description": "The partners announce plans to develop a world-leading hydrogen storage facility at the existing Aldbrough site, with an initial expected capacity of at least 320 GWh and target operations from 2028.",
+              "source": "https://www.equinor.com/news/uk/developing-plans-world-leading-hydrogen-storage-facility-yorkshire",
+              "expected": false
+            },
+            {
+              "date": "2023-03-31",
+              "phase": "proposal",
+              "title": "EIA Scoping Report prepared",
+              "description": "Environmental Resources Management (ERM) prepares the Environmental Impact Assessment Scoping Report for the proposed hydrogen storage, electrolytic production and low-carbon power components.",
+              "source": "https://www.ssethermal.com/media/oxpnhbpc/aldbrough-hydrogen-pathfinder-environmental-impact-assessment-scoping-report.pdf",
+              "expected": false
+            },
+            {
+              "date": "2023-09-04",
+              "phase": "consultation",
+              "title": "Non-statutory public consultation opens",
+              "description": "Consultation documents made available online from 4 September to 29 September 2023, with in-person events in Aldbrough, Garton and Sproatley on 13-15 September.",
+              "source": "https://www.aldbroughhydrogen.com/news/public-invited-to-view-low-carbon-hydrogen-storage-plans-at-aldbrough",
+              "expected": false
+            },
+            {
+              "date": "2023-09-29",
+              "phase": "consultation",
+              "title": "Non-statutory consultation closes",
+              "description": "Feedback period ends; ERM collates responses from 60 feedback forms and 66 attendees across the three events, with mixed sentiment recorded.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN030003-000072-AHS%20AoCM%20Report%20-%20Final_%20For%20Issue.pdf",
+              "expected": false
+            },
+            {
+              "date": "2024-01-15",
+              "phase": "proposal",
+              "title": "Planning Inspectorate issues Scoping Opinion",
+              "description": "PINS publishes its formal Scoping Opinion setting out the scope of environmental assessment required for the DCO application.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/wp-content/ipc/uploads/projects/EN030003/EN030003-000013-ABHS%20-%20Scoping%20Opinion.pdf",
+              "expected": false
+            },
+            {
+              "date": "2024-06-17",
+              "phase": "consultation",
+              "title": "Statutory (s.42/s.47) consultation opens",
+              "description": "Eleven-week statutory pre-application consultation begins, accompanied by the Preliminary Environmental Information Report (PEIR) and draft DCO materials.",
+              "source": "https://publicnoticeportal.uk/notice/planning/6666d1e87aa3626057ba3bd3",
+              "expected": false
+            },
+            {
+              "date": "2024-08-31",
+              "phase": "consultation",
+              "title": "Statutory consultation closes",
+              "description": "Consultation period closes after two extensions, one to accommodate the 4 July 2024 General Election and a second to address an omission in the s.48 notices.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN030003-000072-AHS%20AoCM%20Report%20-%20Final_%20For%20Issue.pdf",
+              "expected": false
+            },
+            {
+              "date": "2026-10-31",
+              "phase": "application",
+              "title": "DCO application submission anticipated",
+              "description": "Latest PINS project page indicates application submission scheduled for October 2026, followed by a 28-day acceptance decision (originally targeted March 2026, slipped to October).",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN030003",
+              "expected": true
+            }
+          ]
+        },
+        "EN0210010": {
+          "ref": "EN0210010",
+          "name": "Eastern Green Link 5",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Eastern Green Link 5 (EGL5) is a proposed 2 GW, 525 kV bi-pole HVDC subsea and underground cable link being developed jointly by SSEN Transmission and National Grid Electricity Transmission to connect Aberdeenshire to Lincolnshire. The project was identified through the National Energy System Operator's Holistic Network Design Follow-Up Exercise as the fifth Eastern Green Link, with a proposed Scottish landing in the Peterhead area connecting to the Netherton Hub, and an English landfall at Anderby Creek on the Lincolnshire coast. The project is at the pre-application stage with a Development Consent Order submission anticipated between July and September 2027.",
+          "milestones": [
+            {
+              "date": "2023-03-08",
+              "phase": "proposal",
+              "title": "NESO Holistic Network Design Follow-Up Exercise identifies EGL5 need",
+              "description": "The Electricity System Operator (now NESO) published the HND Follow-Up Exercise (HNDFUE), which identified a fifth Eastern Green Link between Scotland and England as required to transmit offshore wind generation, providing the strategic rationale for EGL5.",
+              "source": "https://www.neso.energy/document/278491/download",
+              "expected": false
+            },
+            {
+              "date": "2025-08-25",
+              "phase": "proposal",
+              "title": "PINS project registered (EN0210010)",
+              "description": "The Planning Inspectorate added the EGL5 project to its register of National Significant Infrastructure Projects, with National Grid Electricity Transmission named as the applicant and the project entering the pre-application stage.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0210010",
+              "expected": false
+            },
+            {
+              "date": "2025-08-27",
+              "phase": "consultation",
+              "title": "Marine and landfall consultation event, Peterhead",
+              "description": "SSEN Transmission held a public drop-in consultation event at Peterhead Football Club on the marine element of the project, presenting the indicative offshore cable route from 12 nautical miles offshore to the Scottish-English maritime border and the broad area of interest for cable landfall on the Aberdeenshire coast.",
+              "source": "https://www.ssen-transmission.co.uk/projects/project-map/eastern-green-link-5/",
+              "expected": false
+            },
+            {
+              "date": "2025-10-13",
+              "phase": "proposal",
+              "title": "PINS publishes Scoping Opinion",
+              "description": "The Planning Inspectorate issued its Scoping Opinion for EGL5, setting out the matters to be addressed in the Environmental Impact Assessment for the English elements, including the HVDC subsea cable (up to 555 km total, approximately 415 km in English waters), the Anderby Creek landfall, a 9 km underground HVDC cable to a converter station in East Lindsey, and a 3 km HVAC link to the proposed Lincolnshire Connection Substation.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN0210010-000042-Scoping%20Opinion.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025-11-27",
+              "phase": "consultation",
+              "title": "Onshore and nearshore consultation events, Aberdeenshire",
+              "description": "SSEN Transmission held joint drop-in consultation events at Longside and Peterhead Football Club, presenting onshore cable route options between the preferred Aberdeenshire landfall and the proposed connection point at Netherton Hub west of Peterhead, alongside a refined nearshore survey corridor.",
+              "source": "https://www.ssen-transmission.co.uk/projects/project-map/eastern-green-link-5/",
+              "expected": false
+            },
+            {
+              "date": "2026-09-30",
+              "phase": "consultation",
+              "title": "Statutory consultation expected",
+              "description": "Following non-statutory routeing and landfall consultations, the applicants are expected to hold statutory pre-application consultation under the Planning Act 2008 on the preferred route, landfall and converter station siting in advance of the Development Consent Order submission.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0210010",
+              "expected": true
+            },
+            {
+              "date": "2027-08-15",
+              "phase": "application",
+              "title": "DCO application submission anticipated",
+              "description": "The Planning Inspectorate states that the Development Consent Order application is expected to be submitted between July and September 2027.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0210010",
+              "expected": true
+            },
+            {
+              "date": "2032",
+              "phase": "operational",
+              "title": "Planned commissioning",
+              "description": "SSEN Transmission's project information identifies a target operational date for EGL5 to deliver up to 2 GW of additional Scotland-England transmission capacity in support of NESO's Holistic Network Design and connection of offshore wind.",
+              "source": "https://www.ssen-transmission.co.uk/projects/project-map/eastern-green-link-5/",
+              "expected": true
+            }
+          ]
+        },
+        "EN0310001": {
+          "ref": "EN0310001",
+          "name": "Keuper Underground Gas Storage Facility Material Change 1",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Material change application by Keuper Gas Storage Limited (an INEOS Enterprises subsidiary, with Storengy UK as proposed operator) to amend the 2017 Keuper DCO so its 19 consented salt caverns at Holford Brinefield, Cheshire store hydrogen rather than natural gas. The change also covers consolidated pipelines, hydrogen-compatible plant in the Gas Processing Plant area and replacement of the vent with a 50m flare. The project is at pre-application stage with statutory consultation completed in November 2025 and application submission expected in mid-2026.",
+          "milestones": [
+            {
+              "date": "2017-03-15",
+              "phase": "consent",
+              "title": "Original Keuper DCO granted",
+              "description": "Secretary of State for Business, Energy and Industrial Strategy made The Keuper Underground Gas Storage Facility Order 2017 (SI 2017/433), consenting 19 salt caverns for natural gas storage at Holford Brinefield.",
+              "source": "https://www.legislation.gov.uk/uksi/2017/433/contents/made",
+              "expected": false
+            },
+            {
+              "date": "2024-05-15",
+              "phase": "consent",
+              "title": "Non-material change to 2017 Order decided",
+              "description": "Secretary of State decision on an earlier non-material change to the Keuper underground gas storage consent (separate from the current material change application).",
+              "source": "https://www.gov.uk/government/publications/keuper-underground-gas-storage-non-material-change",
+              "expected": false
+            },
+            {
+              "date": "2025-04-01",
+              "phase": "proposal",
+              "title": "EIA Scoping Report submitted (MC1)",
+              "description": "Keuper Gas Storage Limited submitted its Scoping Report to the Planning Inspectorate for the proposed material change to hydrogen storage.",
+              "source": "https://kgsp.co.uk/library/",
+              "expected": false
+            },
+            {
+              "date": "2025-06-01",
+              "phase": "proposal",
+              "title": "Scoping Opinion issued by PINS",
+              "description": "Planning Inspectorate issued its Scoping Opinion on the environmental impact assessment for the material change application.",
+              "source": "https://kgsp.co.uk/library/",
+              "expected": false
+            },
+            {
+              "date": "2025-10-09",
+              "phase": "consultation",
+              "title": "Statutory consultation opens",
+              "description": "Section 42/47 statutory pre-application consultation on the proposed material change to hydrogen storage opened, supported by a Preliminary Environmental Information Report, Proposal Summary and Non-Technical Summary.",
+              "source": "https://www.thebusinessdesk.com/northwest/news/2160216-consultation-launched-on-plans-for-uk%E2%80%99s-biggest-hydrogen-storage-site",
+              "expected": false
+            },
+            {
+              "date": "2025-11-20",
+              "phase": "consultation",
+              "title": "Statutory consultation closes",
+              "description": "Six-week statutory consultation on the proposed material change closed; applicant began reviewing responses ahead of application submission.",
+              "source": "https://www.chesterstandard.co.uk/news/25513237.keuper-gas-storage-consultation-hydrogen-storage-plans/",
+              "expected": false
+            },
+            {
+              "date": "2026-05-31",
+              "phase": "application",
+              "title": "DCO material change application expected",
+              "description": "Keuper Gas Storage Limited expected to submit the material change application to the Planning Inspectorate for acceptance.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0310001",
+              "expected": true
+            },
+            {
+              "date": "2026-09-30",
+              "phase": "examination",
+              "title": "Examination expected to begin",
+              "description": "If accepted, a written examination of up to four months is expected to follow the relevant representation and preliminary meeting period.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0310001",
+              "expected": true
+            }
+          ]
+        },
+        "EN0310002": {
+          "ref": "EN0310002",
+          "name": "Salinae Hydrogen Storage project",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Uniper's proposed salt cavern hydrogen storage facility near Warmingham, Cheshire, comprising up to 13 underground caverns with capacity to store up to 400 GWh of hydrogen, developed in partnership with British Salt on its existing brinefield. The project may also include up to 50 MW of electrolytic hydrogen production. It is at the pre-application stage of the NSIP consenting process, with a development consent application expected in December 2026 and potential operation by 2032.",
+          "milestones": [
+            {
+              "date": "2025-08-05",
+              "phase": "proposal",
+              "title": "Uniper and British Salt announce partnership",
+              "description": "Uniper announced a Feasibility Development Agreement with British Salt giving it sole rights to explore the Warmingham site for salt cavern hydrogen storage, naming the scheme the Salinae Hydrogen Storage project.",
+              "source": "https://www.uniper.energy/united-kingdom/news/uniper-to-explore-potential-uk-hydrogen-storage-development-in-partnership-with-british-salt/",
+              "expected": false
+            },
+            {
+              "date": "2025-08-19",
+              "phase": "proposal",
+              "title": "Scope expanded to include green hydrogen production",
+              "description": "Uniper indicated that the Salinae development may include up to 50 MW of electrolytic (green) hydrogen production capacity directly connected to the storage caverns, with operation targeted for 2032.",
+              "source": "https://drivinghydrogen.com/2025/08/19/this-cheshire-salt-cavern-may-be-used-to-store-hydrogen/",
+              "expected": false
+            },
+            {
+              "date": "2026-01-15",
+              "phase": "proposal",
+              "title": "Project registered with the Planning Inspectorate",
+              "description": "The Salinae Hydrogen Storage project was registered on the Planning Inspectorate's National Infrastructure Consenting portal under reference EN0310002 as a Nationally Significant Infrastructure Project in the pre-application stage.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0310002",
+              "expected": false
+            },
+            {
+              "date": "2026-04-21",
+              "phase": "proposal",
+              "title": "Scoping Opinion issued",
+              "description": "The Planning Inspectorate published its Scoping Opinion under the Environmental Impact Assessment Regulations, setting out the matters to be addressed in the Environmental Statement accompanying the eventual DCO application.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0310002",
+              "expected": false
+            },
+            {
+              "date": "2026-09-30",
+              "phase": "consultation",
+              "title": "Statutory public consultation expected",
+              "description": "Uniper has indicated it will agree a programme of statutory pre-application consultation with the Planning Inspectorate and Cheshire East Council ahead of submitting its DCO application.",
+              "source": "https://www.uniper.energy/united-kingdom/projects-united-kingdom/salinae-hydrogen-storage-project",
+              "expected": true
+            },
+            {
+              "date": "2026-12-31",
+              "phase": "application",
+              "title": "DCO application submission expected",
+              "description": "Uniper expects to submit its application for a Development Consent Order to the Planning Inspectorate in December 2026, triggering the 28-day acceptance review.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0310002",
+              "expected": true
+            },
+            {
+              "date": "2028-06-30",
+              "phase": "consent",
+              "title": "Secretary of State decision expected",
+              "description": "Following the Examining Authority's recommendation, the Secretary of State has a three-month deadline to decide on the DCO; potential operation of the facility is targeted for 2032.",
+              "source": "https://www.uniper.energy/united-kingdom/projects-united-kingdom/salinae-hydrogen-storage-project",
+              "expected": true
+            }
+          ]
+        },
+        "EN0710005": {
+          "ref": "EN0710005",
+          "name": "H2NorthEast (H2NE)",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "H2NorthEast is a proposed carbon capture and storage enabled blue hydrogen production facility on Seal Sands, Teesside, with thermal capacity of up to 1,065 MW delivered in two phases (Phase 1: 355 MW; Phase 2: over 1 GW). The project is a joint venture between Kellas Midstream and SSE Thermal, and includes hydrogen distribution pipelines to industrial customers at Cowpen Bewley and Wilton plus a CO2 export connection to the Northern Endurance Partnership for storage in the Southern North Sea. The application is expected to be submitted to the Planning Inspectorate in February 2027.",
+          "milestones": [
+            {
+              "date": "2021-12-01",
+              "phase": "proposal",
+              "title": "Project publicly announced by Kellas Midstream",
+              "description": "Kellas Midstream, with owners BlackRock and GIC, announced the development of H2NorthEast, a low-carbon blue hydrogen production site on Teesside, at an event attended by Tees Valley Mayor Ben Houchen.",
+              "source": "https://www.kellasmidstream.com/news-kellas/kellas-announces-the-development-of-h2northeast-a-low-carbon-blue-hydrogen-production-site-in-teesside-uk",
+              "expected": false
+            },
+            {
+              "date": "2022-08-01",
+              "phase": "proposal",
+              "title": "Selected as Track-1 East Coast Cluster project",
+              "description": "H2NorthEast received UK government approval to progress as part of the East Coast Cluster Track-1 process for industrial decarbonisation on Teesside.",
+              "source": "https://www.rigzone.com/news/h2northeast_project_gets_government_approval_to_move_forward-16-aug-2022-169987-article/",
+              "expected": false
+            },
+            {
+              "date": "2023-03-01",
+              "phase": "proposal",
+              "title": "FEED contract awarded to Johnson Matthey",
+              "description": "Kellas Midstream entered front-end engineering design (FEED) for the H2NorthEast project, with Johnson Matthey providing the LCH hydrogen production technology.",
+              "source": "https://matthey.com/media/2023/kellas-midstream-enters-feed-for-its-h2northeast-hydrogen-project-on-teesside",
+              "expected": false
+            },
+            {
+              "date": "2023-11-29",
+              "phase": "proposal",
+              "title": "First hydrogen customer announced",
+              "description": "H2NorthEast announced its first hydrogen offtake customer, marking a commercial milestone for the project ahead of FID.",
+              "source": "https://www.energyvoice.com/renewables-energy-transition/hydrogen/uk-hydrogen/542362/kellas-midstream-secures-first-hydrogen-customer-for-h2northeast/",
+              "expected": false
+            },
+            {
+              "date": "2023-12-01",
+              "phase": "proposal",
+              "title": "SSE Thermal acquires 50% stake",
+              "description": "SSE Thermal acquired a 50% stake in H2NorthEast, forming a joint venture with Kellas Midstream to develop the blue hydrogen project on Teesside.",
+              "source": "https://www.sse.com/news-and-views/2023/12/sse-thermal-acquires-50-stake-in-h2northeast-hydrogen-project/",
+              "expected": false
+            },
+            {
+              "date": "2024-11-22",
+              "phase": "proposal",
+              "title": "Section 35 NSIP direction issued",
+              "description": "The Secretary of State issued a direction under Section 35 of the Planning Act 2008 that the Hydrogen Production Facility and aspects of the hydrogen pipelines are to be treated as development requiring development consent as an NSIP.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN0710005-000004-H2NE%20-%20Scoping%20Report%20-%20Volume%20I%20-%20Main%20Text.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025-11-01",
+              "phase": "proposal",
+              "title": "EIA Scoping Report submitted to PINS",
+              "description": "The applicant submitted the Environmental Impact Assessment Scoping Report to the Planning Inspectorate, covering the Hydrogen Production Facility at Seal Sands and associated pipelines to Cowpen Bewley and Wilton.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0710005",
+              "expected": false
+            },
+            {
+              "date": "2027-02-01",
+              "phase": "application",
+              "title": "DCO application expected",
+              "description": "The Development Consent Order application is expected to be submitted to the Planning Inspectorate in February 2027.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0710005",
+              "expected": true
+            }
+          ]
+        },
+        "EN0710006": {
+          "ref": "EN0710006",
+          "name": "Humber Hydrogen Pipeline",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "A proposed circa 54km underground hydrogen pipeline across the Humber region, linking Easington Terminal, Aldbrough Hydrogen Storage and Saltend Chemicals Park with a crossing under the River Humber to North Lincolnshire. The applicant is Humber Hydrogen Transmission System Ltd, a consortium of National Gas, Equinor, SSE Thermal and Centrica Energy Storage+; the project is at pre-application stage with a DCO application expected in 2027.",
+          "milestones": [
+            {
+              "date": "2024-05-21",
+              "phase": "proposal",
+              "title": "Humber Hydrogen Hub launched in Parliament",
+              "description": "Equinor, Centrica Storage and SSE Thermal launched plans for a collaboration of low-carbon hydrogen projects on the north bank of the Humber, including a 45km hydrogen pipeline linking Easington, Saltend and Aldbrough with a crossing of the River Humber.",
+              "source": "https://www.centrica.com/media-centre/news/2024/leading-energy-companies-launch-new-humber-hydrogen-hub-projects-in-parliament/",
+              "expected": false
+            },
+            {
+              "date": "2025-04-29",
+              "phase": "proposal",
+              "title": "Section 35 direction request submitted",
+              "description": "Humber Hydrogen Transmission System Ltd applied to the Secretary of State for Energy Security and Net Zero for a direction under section 35 of the Planning Act 2008 that the proposed pipeline be treated as a Nationally Significant Infrastructure Project.",
+              "source": "https://assets.publishing.service.gov.uk/media/68484f33860362efc8e7881b/humber-hydrogen-pipeline-S35-application.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025-05-15",
+              "phase": "consultation",
+              "title": "Non-statutory consultation",
+              "description": "Initial non-statutory engagement with local communities, landowners and stakeholders on the proposed pipeline corridor and Above Ground Installation search areas across East Riding of Yorkshire and North Lincolnshire.",
+              "source": "https://www.humberhydrogenpipeline.com/",
+              "expected": false
+            },
+            {
+              "date": "2025-06-10",
+              "phase": "proposal",
+              "title": "Section 35 direction issued by DESNZ",
+              "description": "The Secretary of State directed that the circa 50km hydrogen pipeline be treated as development for which development consent is required under the Planning Act 2008, formally bringing the project into the NSIP regime.",
+              "source": "https://www.gov.uk/government/publications/humber-hydrogen-pipeline-project-section-35-direction-planning-act-2008",
+              "expected": false
+            },
+            {
+              "date": "2026-02-24",
+              "phase": "proposal",
+              "title": "National Gas joins consortium under Humber Hydrogen branding",
+              "description": "National Gas joined Centrica, Equinor and SSE Thermal under the Humber Hydrogen banner, bidding for around £500 million from the government's Hydrogen Transport and Storage Business Model to deliver the pipeline and Aldbrough storage facility.",
+              "source": "https://www.sse.com/news-and-views/2026/02/major-energy-companies-launch-humber-hydrogen-to-support-uk-s-first-integrated-hydrogen-network/",
+              "expected": false
+            },
+            {
+              "date": "2026-03-03",
+              "phase": "consultation",
+              "title": "EIA scoping consultation opens",
+              "description": "A scoping consultation on the underground hydrogen pipeline route and the search areas for Hydrogen Above Ground Installations ran from 3 March 2026 to 14 April 2026 to inform the EIA Scoping Report submitted to the Planning Inspectorate.",
+              "source": "https://fuelcellsworks.com/2026/03/03/hydrogen/have-your-say-on-new-hydrogen-pipeline-that-will-power-industry-across-the-humber-lincolnshire-and-nottinghamshire",
+              "expected": false
+            },
+            {
+              "date": "2027-06-01",
+              "phase": "consultation",
+              "title": "Statutory consultation",
+              "description": "Formal statutory consultation under section 42 of the Planning Act 2008 on the proposed Development Consent Order, route refinements and assessment findings is planned for 2027.",
+              "source": "https://www.humberhydrogenpipeline.com/",
+              "expected": true
+            },
+            {
+              "date": "2027-11-01",
+              "phase": "application",
+              "title": "DCO application submission expected",
+              "description": "Humber Hydrogen Transmission System Ltd expects to submit its application for development consent to the Planning Inspectorate between October and December 2027.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0710006",
+              "expected": true
+            }
+          ]
+        },
+        "EN0710009": {
+          "ref": "EN0710009",
+          "name": "London Strategic Heat Main Project",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Cory Environmental Holdings' proposed 30km underground heat transmission main carrying recovered heat from the Riverside 1 energy-from-waste facility in Belvedere (Bexley) westward through south-east and central London to Pimlico, Westminster. The scheme is forecast to supply around 300,000 homes and was designated a Nationally Significant Infrastructure Project under a Section 35 Direction in August 2025, with a target Development Consent Order application in November 2027.",
+          "milestones": [
+            {
+              "date": "2020-05-01",
+              "phase": "proposal",
+              "title": "Cory-Vattenfall heat network partnership announced",
+              "description": "Cory announced a partnership with Vattenfall to develop one of the UK's largest heat networks using waste heat from the Riverside energy-from-waste plant, providing the foundation for the later strategic heat main concept.",
+              "source": "https://www.corygroup.co.uk/media/news-insights/cory-announces-partner-develop-one-uks-largest-heat-networks/",
+              "expected": false
+            },
+            {
+              "date": "2025-08-01",
+              "phase": "proposal",
+              "title": "Section 35 direction request submitted",
+              "description": "Cory Environmental Holdings formally requested by email that the Secretary of State exercise the power under section 35(1) of the Planning Act 2008 to direct that the Cory Heat Main 1 Project be treated as an NSIP, citing approximately 30km of heat transmission pipelines and tunnels.",
+              "source": "https://assets.publishing.service.gov.uk/media/68af03acbceafd8d0d96a225/cory-heat-main-1-section-35-request.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025-08-27",
+              "phase": "proposal",
+              "title": "DESNZ issues Section 35 Direction",
+              "description": "The Department for Energy Security and Net Zero published a Section 35 Direction designating the Cory Heat Main 1 Project as a Nationally Significant Infrastructure Project, the first heat infrastructure scheme to receive such a designation.",
+              "source": "https://www.gov.uk/government/publications/cory-heat-main-1-project-section-35-direction-planning-act-2008",
+              "expected": false
+            },
+            {
+              "date": "2025-09-26",
+              "phase": "proposal",
+              "title": "Cory announces UK's first large-scale heat transmission system",
+              "description": "Cory publicly announced plans for a heat transmission main linking Riverside 1 in Belvedere to south-east and central London, with delivery partners including 1Energy, Bring Energy, E.ON, Hemiko, Vital Energi and Vattenfall, and a forecast £5 billion of associated heat network investment.",
+              "source": "https://www.corygroup.co.uk/media/news-insights/cory-announces-plans-uks-first-large-scale-heat-transmission-system/",
+              "expected": false
+            },
+            {
+              "date": "2025-09-30",
+              "phase": "proposal",
+              "title": "Project registered on PINS register as EN0710009",
+              "description": "The Planning Inspectorate listed the London Strategic Heat Main Project on its national infrastructure consenting register, categorising the scheme as 'Other Pipe-lines' with a route from Belvedere, Bexley to Pimlico, Westminster.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0710009",
+              "expected": false
+            },
+            {
+              "date": "2027-11-01",
+              "phase": "application",
+              "title": "Expected Development Consent Order application",
+              "description": "Cory's indicative programme targets submission of the Development Consent Order application to the Planning Inspectorate in November 2027, after pre-application consultation, EIA scoping and preliminary environmental information stages.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0710009",
+              "expected": true
+            },
+            {
+              "date": "2028-01-01",
+              "phase": "build",
+              "title": "Planned construction start",
+              "description": "Cory's published timeline targets construction commencement in 2028, subject to DCO consent, with tunnelled and pipeline sections crossing seven London boroughs.",
+              "source": "https://www.circularonline.co.uk/news/london-efw-heat-project-designated-as-nationally-significant/",
+              "expected": true
+            },
+            {
+              "date": "2032-01-01",
+              "phase": "operational",
+              "title": "Planned first heat supply",
+              "description": "Heat supply from Riverside 1 is scheduled to commence in 2032, with the network forecast to deliver heating to around 300,000 homes and businesses across south-east and central London at full capacity.",
+              "source": "https://www.corygroup.co.uk/media/news-insights/cory-announces-plans-uks-first-large-scale-heat-transmission-system/",
               "expected": true
             }
           ]
