@@ -3,7 +3,7 @@
   "id": "nsip-timelines",
   "pillar": "state",
   "topic": "construction",
-  "generated": "2026-05-11T16:54:02.516Z",
+  "generated": "2026-05-11T19:52:04.685Z",
   "sources": [
     {
       "id": "claude-agent-research",
@@ -14,7 +14,7 @@
     }
   ],
   "snapshot": {
-    "totalTimelines": 101,
+    "totalTimelines": 102,
     "researchedByAgent": 74,
     "researchedManually": 1
   },
@@ -9534,6 +9534,103 @@
               "description": "A new six-week statutory consultation on the relocated Seal Sands proposal runs from 2 December 2025 to 13 January 2026, progressed under successor reference EN0110025 rather than the discontinued EN010150.",
               "source": "https://lighthousegreenfuels.co.uk/consultation",
               "expected": false
+            }
+          ]
+        },
+        "EN010153": {
+          "ref": "EN010153",
+          "name": "Frodsham Solar",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Frodsham Solar Ltd's proposed solar farm on Frodsham Marsh, approximately 500m north of Frodsham in Cheshire West and Chester. The DCO application was accepted in June 2025, examined between October 2025 and April 2026, and is now at the recommendation stage with the Examining Authority's report due to the Secretary of State by 30 July 2026.",
+          "milestones": [
+            {
+              "date": "2023-05-30",
+              "phase": "proposal",
+              "title": "EIA scoping report submitted",
+              "description": "Applicant submitted EIA Scoping Report to the Secretary of State, formally initiating the pre-application process.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010153/documents?stage-pre-application=Environmental+Impact+Assessment+Scoping",
+              "expected": false
+            },
+            {
+              "date": "2023-07-10",
+              "phase": "proposal",
+              "title": "Scoping opinion issued",
+              "description": "Planning Inspectorate issued its Scoping Opinion under the 2017 EIA Regulations, setting the scope of environmental assessment.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN010153-000012-EN010153%20-%20Scoping%20Opinion%202017%20EIA%20Regs.pdf",
+              "expected": false
+            },
+            {
+              "date": "2024-11-07",
+              "phase": "consultation",
+              "title": "Section 46 pre-application notification",
+              "description": "Applicant's notification under s46 of the Planning Act 2008 and Regulation 8 of the EIA Regulations was received and acknowledged, signalling imminent statutory consultation completion.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/wp-content/ipc/uploads/projects/EN010153/EN010153-000036-Frodsham%20Solar_S46%20Notification%20Letter.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025-05-30",
+              "phase": "application",
+              "title": "DCO application submitted",
+              "description": "Frodsham Solar Ltd submitted the Development Consent Order application to the Planning Inspectorate.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010153/project-updates",
+              "expected": false
+            },
+            {
+              "date": "2025-06-27",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "Planning Inspectorate issued its decision to accept the application for examination; application documents published.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN010153-000163-Notification%20of%20decision%20to%20ACCEPT%20application.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025-07-17",
+              "phase": "application",
+              "title": "Registration to have your say opens",
+              "description": "Pre-examination registration window for interested parties opened; deadline to register was 28 August 2025.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010153/register/register-have-your-say",
+              "expected": false
+            },
+            {
+              "date": "2025-10-29",
+              "phase": "examination",
+              "title": "Rule 6 letter and preliminary meeting notified",
+              "description": "Examining Authority issued the Rule 6 letter with draft examination timetable and published the Initial Assessment of Principal Issues, ahead of a December start.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN010153-000233-PE05a%20-%20Rule%206%20annexes%20-%201-part%20PM%20-%20Dec%20start%20date.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025-12-16",
+              "phase": "examination",
+              "title": "Examination opens (Rule 8 letter)",
+              "description": "Examination timetable issued via the Rule 8 letter following the preliminary meeting; Examining Authority's first written questions (ExQ1) published, with response deadline 19 January 2026.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN010153-000343-E01%20-%20Rule%208%20letter%20-%20Frodsham.pdf",
+              "expected": false
+            },
+            {
+              "date": "2026-02-24",
+              "phase": "examination",
+              "title": "Compulsory Acquisition and Issue Specific Hearings",
+              "description": "Examining Authority held Compulsory Acquisition Hearing 1 and Issue Specific Hearing 2 between 24 and 26 February 2026.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN010153-000480-XE07%20-%20Rule%2013%20Hearing%20notification%20-%20Notification%20Text%20-%20Feb-25.pdf",
+              "expected": false
+            },
+            {
+              "date": "2026-05-01",
+              "phase": "examination",
+              "title": "Examination period closes",
+              "description": "Deadline 7 submissions published and the six-month examination period formally closed; project moves to the recommendation stage.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010153/project-updates",
+              "expected": false
+            },
+            {
+              "date": "2026-07-30",
+              "phase": "examination",
+              "title": "Recommendation due to Secretary of State",
+              "description": "Examining Authority's recommendation report due to the Secretary of State by this date, after which the three-month decision period begins.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010153",
+              "expected": true
             }
           ]
         }
