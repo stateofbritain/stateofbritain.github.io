@@ -3,7 +3,7 @@
   "id": "nsip-timelines",
   "pillar": "state",
   "topic": "construction",
-  "generated": "2026-05-11T20:04:38.806Z",
+  "generated": "2026-05-11T20:08:49.417Z",
   "sources": [
     {
       "id": "claude-agent-research",
@@ -14,7 +14,7 @@
     }
   ],
   "snapshot": {
-    "totalTimelines": 108,
+    "totalTimelines": 115,
     "researchedByAgent": 74,
     "researchedManually": 1
   },
@@ -10220,6 +10220,685 @@
               "title": "Close of examination",
               "description": "Scheduled deadline for close of examination. The Examining Authority will then have three months to submit its recommendation report to the Secretary of State.",
               "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010168/examination-timetable",
+              "expected": true
+            }
+          ]
+        },
+        "EN010162": {
+          "ref": "EN010162",
+          "name": "Great North Road Solar and Biodiversity Park",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-11",
+          "summary": "An 800MW solar photovoltaic array with battery energy storage proposed by Elements Green Trent Limited on land northwest of Newark in Nottinghamshire, west of the A1 and north of the A617. The DCO application was accepted in July 2025 and the six-month examination closed on 28 April 2026; the Examining Authority's recommendation is due to the Secretary of State by 28 July 2026.",
+          "milestones": [
+            {
+              "date": "2023-11",
+              "phase": "proposal",
+              "title": "EIA scoping request submitted",
+              "description": "Elements Green Trent Limited submitted an EIA scoping request to the Planning Inspectorate.",
+              "source": "https://www.gnrsolarpark.co.uk/development-process",
+              "expected": false
+            },
+            {
+              "date": "2024-01-16",
+              "phase": "consultation",
+              "title": "First non-statutory consultation opens",
+              "description": "Initial public consultation ran from 16 January to 27 February 2024.",
+              "source": "https://www.gnrsolarpark.co.uk/consultation",
+              "expected": false
+            },
+            {
+              "date": "2024-07-01",
+              "phase": "consultation",
+              "title": "Statement of Community Consultation published",
+              "description": "SoCC issued in summer 2024 ahead of statutory consultation.",
+              "source": "https://www.gnrsolarpark.co.uk/development-process",
+              "expected": false
+            },
+            {
+              "date": "2025-01-09",
+              "phase": "consultation",
+              "title": "Statutory consultation opens",
+              "description": "Section 42/47 statutory consultation ran from 9 January to 20 February 2025.",
+              "source": "https://www.gnrsolarpark.co.uk/consultation",
+              "expected": false
+            },
+            {
+              "date": "2025-05-08",
+              "phase": "consultation",
+              "title": "Targeted consultation",
+              "description": "Targeted consultation on localised design additions ran 8 May to 6 June 2025.",
+              "source": "https://www.gnrsolarpark.co.uk/development-process",
+              "expected": false
+            },
+            {
+              "date": "2025-06-27",
+              "phase": "application",
+              "title": "DCO application submitted",
+              "description": "Development Consent Order application submitted to the Planning Inspectorate for the 800MW solar and battery storage scheme.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010162",
+              "expected": false
+            },
+            {
+              "date": "2025-07-22",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "Planning Inspectorate accepted the DCO application for examination.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010162",
+              "expected": false
+            },
+            {
+              "date": "2025-11-26",
+              "phase": "examination",
+              "title": "Preliminary meeting and examination opens",
+              "description": "Preliminary meeting held; examination formally opened at its close. Issue Specific Hearing 1 and Open Floor Hearing 1 held 26-27 November 2025.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010162/examination-timetable",
+              "expected": false
+            },
+            {
+              "date": "2026-02-03",
+              "phase": "examination",
+              "title": "Compulsory Acquisition and Issue Specific Hearings",
+              "description": "Compulsory Acquisition Hearing 1 and further Issue Specific Hearings held 3-4 February 2026.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010162/examination-timetable",
+              "expected": false
+            },
+            {
+              "date": "2026-03-10",
+              "phase": "examination",
+              "title": "Accompanied site inspection",
+              "description": "Examining Authority undertook an access-required site inspection on 10-11 March 2026.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010162",
+              "expected": false
+            },
+            {
+              "date": "2026-04-28",
+              "phase": "examination",
+              "title": "Examination closes",
+              "description": "Six-month examination of the DCO application concluded.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010162",
+              "expected": false
+            },
+            {
+              "date": "2026-07-28",
+              "phase": "examination",
+              "title": "ExA recommendation due to Secretary of State",
+              "description": "Examining Authority's recommendation report to be submitted to the Secretary of State for Energy Security and Net Zero within three months of examination close.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010162",
+              "expected": true
+            },
+            {
+              "date": "2026-10-28",
+              "phase": "consent",
+              "title": "Expected Secretary of State decision",
+              "description": "Statutory three-month decision window following receipt of the ExA recommendation; decision expected by late October 2026.",
+              "source": "https://www.gnrsolarpark.co.uk/development-process",
+              "expected": true
+            }
+          ]
+        },
+        "EN010163": {
+          "ref": "EN010163",
+          "name": "Steeple Renewables Project",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Steeple Renewables Project is a Nationally Significant Infrastructure Project proposed by Steeple Solar Farm Limited (a subsidiary of RES) for up to 400MW of solar generation and a 200MW battery energy storage system on around 930 hectares of land near the decommissioned West Burton Power Station at Sturton-le-Steeple, Bassetlaw, Nottinghamshire. The Examining Authority closed examination on 10 April 2026 and is preparing its recommendation to the Secretary of State for Energy Security and Net Zero.",
+          "milestones": [
+            {
+              "date": "2023-10-23",
+              "phase": "proposal",
+              "title": "Early informal consultation launched",
+              "description": "RES launched a six-week early informal (non-statutory) consultation on outline proposals for up to 400MW of solar generation and 200MW of battery storage near West Burton, with in-person events at South Leverton Memorial Institute.",
+              "source": "https://www.platform-magazine.co.uk/industry-news/res-launches-early-informal-consultation-on-steeple-renewables-project",
+              "expected": false
+            },
+            {
+              "date": "2023-12-04",
+              "phase": "proposal",
+              "title": "Early informal consultation closed",
+              "description": "The six-week non-statutory consultation period ended; feedback fed into refinement of the proposals ahead of EIA scoping and statutory consultation.",
+              "source": "https://steeplesolarfarm.consultationonline.co.uk/",
+              "expected": false
+            },
+            {
+              "date": "2024-06-03",
+              "phase": "proposal",
+              "title": "EIA Scoping Opinion issued",
+              "description": "The Planning Inspectorate issued its EIA Scoping Opinion on the Steeple Renewables Project Scoping Report, setting the scope of the Environmental Statement to accompany the DCO application.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/wp-content/ipc/uploads/projects/EN010163/EN010163-000015-Steeple%20Renewables%20Project%20-%20EIA%20Scoping%20Report-%20Main%20Text.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025-01-20",
+              "phase": "consultation",
+              "title": "Statutory (s42) consultation opened",
+              "description": "RES opened a six-week statutory consultation under section 42 of the Planning Act 2008 on the revised proposals for the solar and storage scheme.",
+              "source": "https://www.renewableenergymagazine.com/pv_solar/res-undertaking-further-consultation-on-proposals-for-20250120",
+              "expected": false
+            },
+            {
+              "date": "2025-03-03",
+              "phase": "consultation",
+              "title": "Statutory consultation closed",
+              "description": "The statutory consultation closed; feedback informed substantial changes to the proposals including reductions in solar panel area and larger buffers to residential properties.",
+              "source": "https://steeplesolarfarm.consultationonline.co.uk/",
+              "expected": false
+            },
+            {
+              "date": "2025-06-13",
+              "phase": "proposal",
+              "title": "DCO application submitted to PINS",
+              "description": "Steeple Solar Farm Limited submitted its Development Consent Order application for the project to the Planning Inspectorate.",
+              "source": "https://www.res-group.com/resources/news/res-submits-steeple-renewables-project/",
+              "expected": false
+            },
+            {
+              "date": "2025-07-10",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "The Planning Inspectorate accepted the DCO application for examination, beginning the pre-examination stage during which the public could register as interested parties.",
+              "source": "https://www.solarpowerportal.co.uk/solar-planning/res-solar-and-storage-steeple-renewables-project-enters-pre-examination-phase",
+              "expected": false
+            },
+            {
+              "date": "2025-11-11",
+              "phase": "proposal",
+              "title": "Examination opened",
+              "description": "The six-month examination of the application by the Examining Authority commenced following the preliminary meeting.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010163",
+              "expected": false
+            },
+            {
+              "date": "2026-04-10",
+              "phase": "proposal",
+              "title": "Examination closed",
+              "description": "The Examining Authority formally closed examination of the application; the notification of completion of examination was published on 13 April 2026.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010163",
+              "expected": false
+            },
+            {
+              "date": "2026-07-10",
+              "phase": "examination",
+              "title": "ExA recommendation due to Secretary of State",
+              "description": "The Examining Authority is required to submit its recommendation report to the Secretary of State for Energy Security and Net Zero within three months of the close of examination.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010163",
+              "expected": true
+            },
+            {
+              "date": "2026-10-10",
+              "phase": "examination",
+              "title": "Secretary of State decision expected",
+              "description": "The Secretary of State for Energy Security and Net Zero is expected to issue a decision on whether to grant the Development Consent Order within three months of receiving the ExA recommendation.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010163",
+              "expected": true
+            }
+          ]
+        },
+        "EN010169": {
+          "ref": "EN010169",
+          "name": "Meridian Solar Farm",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-11",
+          "summary": "Meridian Solar Farm is a proposed Nationally Significant Infrastructure Project by Meridian Solar Farm Ltd (a Downing Renewable Developments vehicle) for a solar photovoltaic and battery storage facility of up to 750MW on around 1,100 hectares of land near Spalding and Crowland in South Holland, Lincolnshire, with a roughly 12km grid connection to the planned Weston Marsh substation. The Planning Inspectorate accepted the Development Consent Order application on 15 April 2026 and the project is currently at the pre-examination stage.",
+          "milestones": [
+            {
+              "date": "2024-02-15",
+              "phase": "proposal",
+              "title": "Project announced",
+              "description": "Downing Renewable Developments unveiled early-stage plans for a 750MW solar and battery storage NSIP on land south of Spalding in Lincolnshire.",
+              "source": "https://www.solarpowerportal.co.uk/drd-nsip-750mw-lincolnshire-nottinghamshire/",
+              "expected": false
+            },
+            {
+              "date": "2024-05-30",
+              "phase": "proposal",
+              "title": "EIA Scoping Report submitted",
+              "description": "The Planning Inspectorate received the applicant's request for a Scoping Opinion under Regulation 10 of the EIA Regulations 2017.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN010169-000048-Scoping%20Opinion%202017%20EIA%20Regs.pdf",
+              "expected": false
+            },
+            {
+              "date": "2024-05-30",
+              "phase": "consultation",
+              "title": "Stage one non-statutory consultation opens",
+              "description": "First round of public consultation ran from 30 May to 11 July 2024, with three in-person events and an online webinar.",
+              "source": "https://meridiansolarfarm.co.uk/wp-content/uploads/2024/10/Meridian-non-statutory-consultation-summary.pdf",
+              "expected": false
+            },
+            {
+              "date": "2024-07-10",
+              "phase": "proposal",
+              "title": "Scoping Opinion adopted",
+              "description": "The Planning Inspectorate adopted the Scoping Opinion on behalf of the Secretary of State, setting out the required scope of the Environmental Impact Assessment.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN010169-000048-Scoping%20Opinion%202017%20EIA%20Regs.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025-04-24",
+              "phase": "consultation",
+              "title": "Stage two statutory consultation opens",
+              "description": "Second round of consultation ran from 24 April to 8 June 2025, presenting refined proposals covering around 1,100 hectares with public events in Sutton St Edmund, Crowland and Weston.",
+              "source": "https://meridiansolarfarm.co.uk/consultation/",
+              "expected": false
+            },
+            {
+              "date": "2026-01-08",
+              "phase": "consultation",
+              "title": "Targeted consultation on grid connection",
+              "description": "Additional targeted consultation held between 8 January and 5 February 2026 covering further land required for the grid connection to Weston Marsh Substation B.",
+              "source": "https://meridiansolarfarm.co.uk/consultation/",
+              "expected": false
+            },
+            {
+              "date": "2026-03-20",
+              "phase": "proposal",
+              "title": "DCO application submitted",
+              "description": "Meridian Solar Farm Ltd submitted its Development Consent Order application to the Planning Inspectorate for review.",
+              "source": "https://www.lincsland.co.uk/lincolnshire-infrastructure1/meridian",
+              "expected": false
+            },
+            {
+              "date": "2026-04-15",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "The Planning Inspectorate issued its decision to accept the DCO application, moving the project into the pre-examination stage.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010169",
+              "expected": false
+            },
+            {
+              "date": "2026-07-15",
+              "phase": "application",
+              "title": "Preliminary meeting and examination start (expected)",
+              "description": "Following the standard pre-examination period of around three months from acceptance, registration of Interested Parties and the Preliminary Meeting are expected before examination opens.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010169",
+              "expected": true
+            },
+            {
+              "date": "2027-01-15",
+              "phase": "examination",
+              "title": "Examination close and recommendation (expected)",
+              "description": "Six-month examination expected to conclude by early 2027, followed by a three-month period for the Examining Authority to produce its recommendation to the Secretary of State for Energy Security and Net Zero.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010169",
+              "expected": true
+            }
+          ]
+        },
+        "EN010170": {
+          "ref": "EN010170",
+          "name": "Green Hill Solar Farm",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Green Hill Solar Farm is a proposed up to 500 MW solar generating station with battery energy storage on land south and west of Wellingborough and north of Northampton, Northamptonshire, brought forward by Green Hill Solar Farm Limited (Island Green Power). The DCO application was accepted in June 2025 and examination closed on 10 April 2026; the Examining Authority's recommendation to the Secretary of State is due by 10 July 2026 with a decision expected by October 2026.",
+          "milestones": [
+            {
+              "date": "2024-01-15",
+              "phase": "proposal",
+              "title": "Project announced",
+              "description": "Island Green Power publicly launched the Green Hill Solar Farm proposal via greenhillsolar.co.uk, identifying land south and west of Wellingborough and north of Northampton.",
+              "source": "https://greenhillsolar.co.uk/",
+              "expected": false
+            },
+            {
+              "date": "2024-07-24",
+              "phase": "proposal",
+              "title": "EIA Scoping Report submitted",
+              "description": "The applicant submitted its EIA Scoping Report to the Planning Inspectorate under Regulation 10 of the Infrastructure Planning (EIA) Regulations 2017.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN010170-000012-Green%20Hill%20EIA%20Scoping%20Report%20RevA.pdf",
+              "expected": false
+            },
+            {
+              "date": "2024-09-27",
+              "phase": "proposal",
+              "title": "Scoping Opinion issued",
+              "description": "The Planning Inspectorate issued its Scoping Opinion setting out the environmental issues to be assessed in the Environmental Statement.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/wp-content/ipc/uploads/projects/EN010170/EN010170-000002-GHSF%20-%20Scoping%20Opinion.pdf",
+              "expected": false
+            },
+            {
+              "date": "2024-11-07",
+              "phase": "consultation",
+              "title": "Statutory consultation opened",
+              "description": "Section 42/47/48 statutory consultation on the proposed scheme ran from 7 November to 19 December 2024, including public events and a Preliminary Environmental Information Report.",
+              "source": "https://www.dentonparishcouncil.gov.uk/news/2024/07/green-hill-solar-farm-statutory-consultation",
+              "expected": false
+            },
+            {
+              "date": "2025-05-23",
+              "phase": "proposal",
+              "title": "DCO application submitted",
+              "description": "Green Hill Solar Farm Limited submitted its Development Consent Order application to the Planning Inspectorate for a solar generating station of up to 500 MW with energy storage.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010170/project-updates",
+              "expected": false
+            },
+            {
+              "date": "2025-06-19",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "The Planning Inspectorate accepted the DCO application for examination under section 55 of the Planning Act 2008.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010170/project-updates",
+              "expected": false
+            },
+            {
+              "date": "2025-08-12",
+              "phase": "application",
+              "title": "Relevant representations period opened",
+              "description": "Registration period for interested parties to submit relevant representations opened, running until 20 August 2025.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010170/project-updates",
+              "expected": false
+            },
+            {
+              "date": "2025-10-21",
+              "phase": "proposal",
+              "title": "Preliminary Meeting and start of examination",
+              "description": "The Examining Authority held the Preliminary Meeting, formally opening the six-month examination of the application.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010170/project-updates",
+              "expected": false
+            },
+            {
+              "date": "2025-12-09",
+              "phase": "examination",
+              "title": "Hearings held",
+              "description": "Open Floor Hearing 1, Issue Specific Hearing 3 and Compulsory Acquisition Hearing 1 were held as part of the examination programme.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010170/project-updates",
+              "expected": false
+            },
+            {
+              "date": "2026-04-10",
+              "phase": "proposal",
+              "title": "Examination closed",
+              "description": "The Examining Authority closed the examination of the DCO application at 23:59, with the completion notification published on 13 April 2026.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010170/project-updates",
+              "expected": false
+            },
+            {
+              "date": "2026-07-10",
+              "phase": "examination",
+              "title": "ExA recommendation to Secretary of State due",
+              "description": "The Examining Authority has up to three months from the close of examination to submit its recommendation report to the Secretary of State for Energy Security and Net Zero.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010170",
+              "expected": true
+            },
+            {
+              "date": "2026-10-10",
+              "phase": "examination",
+              "title": "Secretary of State decision expected",
+              "description": "The Secretary of State has up to three months following receipt of the recommendation to decide whether to grant development consent; a decision is anticipated by October 2026.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010170",
+              "expected": true
+            }
+          ]
+        },
+        "EN0110012": {
+          "ref": "EN0110012",
+          "name": "Light Valley Solar",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Light Valley Solar is a proposed 500MW solar farm and battery storage NSIP by Light Valley Solar Limited (part of Island Green Power) comprising seven sites covering approximately 1,022 hectares between York and Selby in North Yorkshire, connecting to National Grid's Monk Fryston substation. The DCO application was submitted in February 2026 and accepted for examination by the Planning Inspectorate on 9 March 2026; the project is currently in the Pre-examination stage.",
+          "milestones": [
+            {
+              "date": "2024-10-01",
+              "phase": "consultation",
+              "title": "Phase One non-statutory consultation begins",
+              "description": "Island Green Power launched the first phase of non-statutory consultation on early-stage proposals for the Light Valley Solar scheme, running October to December 2024.",
+              "source": "https://www.lightvalleysolar.co.uk/consultation",
+              "expected": false
+            },
+            {
+              "date": "2024-11-11",
+              "phase": "proposal",
+              "title": "EIA Scoping Report consultation",
+              "description": "The Planning Inspectorate consulted North Yorkshire Council and other statutory bodies on the Environmental Impact Assessment Scoping Report submitted by the applicant.",
+              "source": "https://edemocracy.northyorks.gov.uk/documents/s63524/Light%20Valley%20Solar%20NSIP%20-%20LD%20FINAL.html?CT=2",
+              "expected": false
+            },
+            {
+              "date": "2024-12-19",
+              "phase": "proposal",
+              "title": "PINS issues Scoping Opinion",
+              "description": "The Planning Inspectorate issued its Scoping Opinion setting out the required extent and content of the Environmental Statement for the proposed development.",
+              "source": "https://edemocracy.northyorks.gov.uk/documents/s63524/Light%20Valley%20Solar%20NSIP%20-%20LD%20FINAL.html?CT=2",
+              "expected": false
+            },
+            {
+              "date": "2025-06-26",
+              "phase": "consultation",
+              "title": "Phase Two statutory consultation begins",
+              "description": "The statutory (Section 42/47) consultation launched, accompanied by the Preliminary Environmental Information Report (PEIR), and ran for six weeks.",
+              "source": "https://www.selbyradio.co.uk/consultation-launched-on-updated-plans-for-light-valley-solar-selby/",
+              "expected": false
+            },
+            {
+              "date": "2025-08-07",
+              "phase": "consultation",
+              "title": "Phase Two statutory consultation closes",
+              "description": "The statutory consultation on the updated proposals closed after running from 26 June to 7 August 2025.",
+              "source": "https://www.lightvalleysolar.co.uk/consultation",
+              "expected": false
+            },
+            {
+              "date": "2025-10-16",
+              "phase": "consultation",
+              "title": "Targeted consultation on localised changes",
+              "description": "A targeted consultation ran from 16 October to 20 November 2025 on around 40 localised, specific changes to the proposals following statutory consultation feedback.",
+              "source": "https://www.lightvalleysolar.co.uk/consultation",
+              "expected": false
+            },
+            {
+              "date": "2026-02-01",
+              "phase": "proposal",
+              "title": "DCO application submitted to PINS",
+              "description": "Light Valley Solar Limited submitted its Development Consent Order application to the Planning Inspectorate in February 2026.",
+              "source": "https://www.lightvalleysolar.co.uk/faqs",
+              "expected": false
+            },
+            {
+              "date": "2026-03-09",
+              "phase": "application",
+              "title": "DCO application accepted for examination",
+              "description": "The Planning Inspectorate accepted the DCO application for examination, moving the project into the Pre-examination stage.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110012",
+              "expected": false
+            },
+            {
+              "date": "2026-04-30",
+              "phase": "application",
+              "title": "Deadline to register as Interested Party",
+              "description": "Final date for members of the public and organisations to register with the Planning Inspectorate as Interested Parties in order to comment during examination.",
+              "source": "https://thenortherneco.substack.com/p/consultation-starts-on-light-valley",
+              "expected": false
+            },
+            {
+              "date": "2026-07-01",
+              "phase": "examination",
+              "title": "Examination expected to begin",
+              "description": "Pre-examination typically lasts around three months from acceptance, after which the six-month Examination stage is expected to commence.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110012",
+              "expected": true
+            }
+          ]
+        },
+        "EN0110013": {
+          "ref": "EN0110013",
+          "name": "The Droves Solar Farm",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "The Droves Solar Farm is a proposed solar photovoltaic generating station with associated Battery Energy Storage System (BESS) and grid connection infrastructure, including a new National Grid substation, located 800m north of Swaffham and 800m south west of Castle Acre in West Norfolk. The application was submitted by The Droves Solar Farm Limited on 19 November 2025 and accepted for examination on 16 December 2025. Examination opened on 6 May 2026.",
+          "milestones": [
+            {
+              "date": "2024-12-18",
+              "phase": "proposal",
+              "title": "Scoping Opinion published",
+              "description": "The Planning Inspectorate published its EIA Scoping Opinion for The Droves Solar Farm under the 2017 EIA Regulations.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN0110013-000011-EN0110013%20-%20The%20Droves%20Solar%20Farm%20Scoping%20Opinion%202017%20EIA%20Regs.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025-05-15",
+              "phase": "proposal",
+              "title": "Section 46 notification of proposed application",
+              "description": "The applicant issued its statutory notification to the Secretary of State under section 46 of the Planning Act 2008, signalling the intention to submit a DCO application.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN0110013-000006-The%20Droves%20Solar%20Farm_Section%2046%20Letter.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025-11-19",
+              "phase": "application",
+              "title": "DCO application submitted",
+              "description": "The Planning Inspectorate received the Development Consent Order application from The Droves Solar Farm Limited.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110013/project-updates",
+              "expected": false
+            },
+            {
+              "date": "2025-12-16",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "The Planning Inspectorate issued its section 55 decision accepting the application for examination.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN0110013-000228-Droves%20Solar%20Notification%20of%20decision%20to%20ACCEPT%20application%20.pdf",
+              "expected": false
+            },
+            {
+              "date": "2026-03-09",
+              "phase": "application",
+              "title": "Relevant representations published",
+              "description": "Comments submitted by those who registered as interested parties during the registration period were published on the PINS project page.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110013/representations",
+              "expected": false
+            },
+            {
+              "date": "2026-03-18",
+              "phase": "application",
+              "title": "Unaccompanied site inspection",
+              "description": "The Examining Authority carried out an unaccompanied site inspection on 10 and 11 March 2026; the note of inspection was published on 18 March.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110013",
+              "expected": false
+            },
+            {
+              "date": "2026-05-06",
+              "phase": "examination",
+              "title": "Examination opened: Preliminary Meeting and Open Floor Hearing 1",
+              "description": "The examination stage opened with the Preliminary Meeting and Open Floor Hearing 1 held at the venue and livestreamed.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110013/examination-timetable",
+              "expected": false
+            },
+            {
+              "date": "2026-05-07",
+              "phase": "examination",
+              "title": "Issue Specific Hearing 1",
+              "description": "The Examining Authority held Issue Specific Hearing 1 (ISH1), with online observation available.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN0110013-000390-Agenda%20for%20Issue%20Specific%20Hearing%201%20(ISH1).pdf",
+              "expected": false
+            },
+            {
+              "date": "2026-06-02",
+              "phase": "examination",
+              "title": "Deadline 1",
+              "description": "Deadline 1 for submissions including written representations, Local Impact Reports, responses to the Examining Authority's first written questions (ExQ1) and comments on relevant representations.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110013/examination-timetable",
+              "expected": true
+            },
+            {
+              "date": "2026-11-06",
+              "phase": "examination",
+              "title": "Anticipated close of examination",
+              "description": "The examination stage runs for up to six months from its opening on 6 May 2026, after which the Examining Authority has three months to issue its recommendation to the Secretary of State.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110013",
+              "expected": true
+            }
+          ]
+        },
+        "EN0110014": {
+          "ref": "EN0110014",
+          "name": "East Pye Solar",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "East Pye Solar is a proposed 500MW solar photovoltaic and battery energy storage NSIP by East Pye Solar Ltd (part of Island Green Power), spanning approximately 1,100 hectares across multiple sites south of Norwich and north of Harleston, concentrated east of Long Stratton in South Norfolk. The Planning Inspectorate accepted the application for examination on 2 April 2026, and the project is now in the pre-examination stage with registration of interested parties open until 10 June 2026.",
+          "milestones": [
+            {
+              "date": "2024-09-01",
+              "phase": "proposal",
+              "title": "Project unveiled by Island Green Power",
+              "description": "Island Green Power publicly unveiled plans for a utility-scale 500MW solar and battery storage scheme on land near Long Stratton in South Norfolk.",
+              "source": "https://renews.biz/95617/uk-developer-unveils-500mw-solar-scheme/",
+              "expected": false
+            },
+            {
+              "date": "2024-10-23",
+              "phase": "consultation",
+              "title": "Phase One (non-statutory) consultation opens",
+              "description": "First phase of community consultation introducing Island Green Power and initial scheme proposals; ran from 23 October to 6 December 2024.",
+              "source": "https://www.eastpyesolar.co.uk/consultation-overview",
+              "expected": false
+            },
+            {
+              "date": "2025-01-15",
+              "phase": "proposal",
+              "title": "EIA Scoping Report submitted to PINS",
+              "description": "East Pye Solar Ltd submitted its Environmental Impact Assessment Scoping Report to the Planning Inspectorate.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN0110014-000003-East%20Pye%20EIA%20Scoping%20Report%2015.01.25.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025-02-25",
+              "phase": "proposal",
+              "title": "PINS publishes Scoping Opinion",
+              "description": "The Planning Inspectorate issued its Scoping Opinion setting out the environmental matters to be assessed in the Environmental Statement.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN0110014-000012-EN0110014%20-%20East%20Pye%20Solar%20Scoping%20Opinion_FINAL.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025-06-18",
+              "phase": "consultation",
+              "title": "Section 42 statutory consultation opens",
+              "description": "Phase Two statutory consultation ran for seven weeks from 18 June to 6 August 2025, with six in-person events and one online event, attracting over 550 attendees.",
+              "source": "https://www.eastpyesolar.co.uk/consultation-overview",
+              "expected": false
+            },
+            {
+              "date": "2025-10-22",
+              "phase": "consultation",
+              "title": "Targeted consultation on design changes",
+              "description": "Additional targeted consultation between 22 October and 26 November 2025 focused on specific changes informed by ongoing design and environmental assessment work.",
+              "source": "https://www.eastpyesolar.co.uk/consultation-overview",
+              "expected": false
+            },
+            {
+              "date": "2026-03-05",
+              "phase": "application",
+              "title": "DCO application submitted to PINS",
+              "description": "East Pye Solar Ltd submitted its Development Consent Order application to the Planning Inspectorate.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110014",
+              "expected": false
+            },
+            {
+              "date": "2026-04-02",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "The Planning Inspectorate accepted the East Pye Solar DCO application for examination, moving the project into the pre-examination stage.",
+              "source": "https://solarquarter.com/2026/04/04/island-green-powers-500-mw-east-pye-solar-project-accepted-for-examination-by-uk-planning-inspectorate/",
+              "expected": false
+            },
+            {
+              "date": "2026-04-29",
+              "phase": "application",
+              "title": "Registration period for Interested Parties opens",
+              "description": "Registration to participate as an Interested Party and submit Relevant Representations opened, with a deadline of 23:59 on 10 June 2026.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110014",
+              "expected": false
+            },
+            {
+              "date": "2026-06-10",
+              "phase": "application",
+              "title": "Deadline to register as Interested Party",
+              "description": "Closing date for registering to have a say and submitting Relevant Representations to the Examining Authority.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110014",
+              "expected": true
+            },
+            {
+              "date": "2026-09-10",
+              "phase": "examination",
+              "title": "Examination expected to commence",
+              "description": "Following the typical three-month pre-examination stage after acceptance, the six-month examination is expected to begin in autumn 2026.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110014",
               "expected": true
             }
           ]
