@@ -3,7 +3,7 @@
   "id": "nsip-timelines",
   "pillar": "state",
   "topic": "construction",
-  "generated": "2026-05-11T20:19:05.530Z",
+  "generated": "2026-05-11T20:22:57.507Z",
   "sources": [
     {
       "id": "claude-agent-research",
@@ -14,7 +14,7 @@
     }
   ],
   "snapshot": {
-    "totalTimelines": 129,
+    "totalTimelines": 136,
     "researchedByAgent": 74,
     "researchedManually": 1
   },
@@ -12265,6 +12265,469 @@
               "title": "Development Consent Order application targeted",
               "description": "UK Fusion Energy has indicated it will submit the Development Consent Order for STEP Fusion by March 2029, with examination, decision and construction to follow ahead of first operations targeted for the early 2040s.",
               "source": "https://stepfusion.com/step-fusion-celebrates-community-engagement-and-announces-the-timeline-for-development-consent-at-the-west-burton-site/",
+              "expected": true
+            }
+          ]
+        },
+        "EN010156": {
+          "ref": "EN010156",
+          "name": "Maen Hir Solar and Energy Storage Project",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Lightsource bp's proposed 350-360 MW solar PV and battery storage scheme across approximately 1,284 hectares on Anglesey (Ynys Mon), centred on the former Shell Rhosgoch depot near the Wylfa nuclear site. Classified as a Nationally Significant Infrastructure Project requiring a Development Consent Order from the UK Secretary of State, with submission to the Planning Inspectorate currently indicated for October 2026. The scheme is contested in Wales, with the local Plaid Cymru MP and Senedd member, Anglesey council, and rural campaign groups raising concerns about scale, farmland loss and food security.",
+          "milestones": [
+            {
+              "date": "2023-11-30",
+              "phase": "proposal",
+              "title": "EIA Scoping Report submitted to PINS",
+              "description": "Environmental Impact Assessment scoping request submitted to the Planning Inspectorate, formally beginning the NSIP pre-application process under reference EN010156.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN010156-000014-MNHR%20-%20Scoping%20Report%20(main%20text%20and%20Appendix%205.1).pdf",
+              "expected": false
+            },
+            {
+              "date": "2023-12-01",
+              "phase": "proposal",
+              "title": "Project publicly announced",
+              "description": "Lightsource bp publicly identified land on Anglesey for a major solar and storage scheme centred on the former Shell Rhosgoch depot, with initial estimates of around 3,000 acres.",
+              "source": "https://www.dailypost.co.uk/news/north-wales-news/large-swathe-anglesey-earmarked-gigantic-28203980",
+              "expected": false
+            },
+            {
+              "date": "2024-02-01",
+              "phase": "consultation",
+              "title": "Stage One non-statutory consultation",
+              "description": "Lightsource bp ran an initial non-statutory community consultation on Anglesey, sharing early design proposals and inviting feedback on the scheme's footprint and access routes.",
+              "source": "https://lightsourcebp.com/project/maen-hir-solar-energy-storage-english/",
+              "expected": false
+            },
+            {
+              "date": "2024-09-01",
+              "phase": "proposal",
+              "title": "PINS Scoping Opinion issued",
+              "description": "Planning Inspectorate issued its EIA Scoping Opinion to inform preparation of the Preliminary Environmental Information Report.",
+              "source": "https://assets.lightsourcebp.com/app/uploads/2024/10/01190518/Maen-Hir-PEIR-Appendix-2-2-Scoping-Opinion.pdf",
+              "expected": false
+            },
+            {
+              "date": "2024-10-02",
+              "phase": "consultation",
+              "title": "Stage Two Statutory Consultation opens",
+              "description": "Statutory consultation under section 47 of the Planning Act 2008 launched alongside the Preliminary Environmental Information Report and Non-Technical Summary.",
+              "source": "https://lightsourcebp.com/uk/news/prosiect-maen-hir-begins-stage-two-statutory-consultation/",
+              "expected": false
+            },
+            {
+              "date": "2024-10-22",
+              "phase": "consultation",
+              "title": "Westminster debate on large-scale solar and food security",
+              "description": "Plaid Cymru MP for Ynys Mon, Llinos Medi, led a Westminster Hall debate citing Maen Hir and Alaw Mon, arguing the schemes could affect productive farmland equivalent to 31 farms.",
+              "source": "https://hansard.parliament.uk/commons/2024-10-22/debates/69A80D18-2E00-459A-A99E-388C0B918A4F/Large-ScaleEnergyProjectsAndFoodSecurity",
+              "expected": false
+            },
+            {
+              "date": "2024-11-15",
+              "phase": "consultation",
+              "title": "Statutory Consultation closes",
+              "description": "Six-week statutory consultation period ended; Lightsource bp committed to reviewing feedback and reflecting it in the final design and Consultation Report.",
+              "source": "https://lightsourcebp.com/uk/news/prosiect-maen-hir-begins-stage-two-statutory-consultation/",
+              "expected": false
+            },
+            {
+              "date": "2025-06-26",
+              "phase": "consultation",
+              "title": "Pre-application Programme Document published",
+              "description": "Updated pre-application programme document published indicating revised submission timing, with DCO submission deferred from earlier indications of summer 2025.",
+              "source": "https://assets.lightsourcebp.com/app/uploads/2025/06/26105203/Maen-Hir-Programme-Document-Rev-C_250204.pdf",
+              "expected": false
+            },
+            {
+              "date": "2026-10-31",
+              "phase": "application",
+              "title": "DCO application expected at PINS",
+              "description": "Planning Inspectorate's project page indicates the Development Consent Order application is anticipated to be submitted by Lightsource bp in October 2026.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010156",
+              "expected": true
+            },
+            {
+              "date": "2028-03-01",
+              "phase": "consent",
+              "title": "Secretary of State decision expected",
+              "description": "After examination and the Examining Authority's recommendation, the Secretary of State for Energy Security and Net Zero would issue a decision on the DCO.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010156",
+              "expected": true
+            }
+          ]
+        },
+        "EN010161": {
+          "ref": "EN010161",
+          "name": "Stallingborough Combined Cycle Gas Turbine (CCGT) generating plant and Carbon Capture",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "RWE Generation UK plc is developing a proposed 900 MW combined cycle gas turbine (CCGT) generating plant with carbon capture at Hobson Way, around 3.5 km east of Stallingborough in North East Lincolnshire. Captured CO2 (up to 2 million tonnes per year) would be transported via the separate Viking CCS pipeline for offshore storage beneath the North Sea, positioning the scheme as a Humber cluster expansion project. The application is at pre-application stage, with a statutory consultation running March to May 2026 and a Development Consent Order submission expected in July 2027.",
+          "milestones": [
+            {
+              "date": "2023-05-23",
+              "phase": "proposal",
+              "title": "RWE announces three UK carbon capture projects including Stallingborough",
+              "description": "RWE announced development proposals for three new carbon capture projects in the UK, including a new gas-fired generating station with CCS at Stallingborough, as a capture partner for the Viking CCS network.",
+              "source": "https://www.rwe.com/en/press/rwe-generation/2023-05-23-rwe-announces-development-proposals-for-three-new-carbon-capture-projects-across-the-uk/",
+              "expected": false
+            },
+            {
+              "date": "2023-06-06",
+              "phase": "proposal",
+              "title": "Technip Energies and GE Gas Power appointed for pre-FEED studies",
+              "description": "RWE appointed Technip Energies (with GE Gas Power) and Bechtel to deliver pre-FEED engineering studies for the integrated CCGT and carbon capture facility, using Shell's Cansolv capture technology.",
+              "source": "https://uk.rwe.com/press-and-news/2023-06-06-rwe-takes-next-steps-in-uk-carbon-capture-project/",
+              "expected": false
+            },
+            {
+              "date": "2024-04-09",
+              "phase": "proposal",
+              "title": "RWE launches non-statutory public consultation",
+              "description": "RWE opened a six-week non-statutory consultation on the proposed 900 MW Stallingborough CCGT with carbon capture, running from 8 April to 20 May 2024, to gather initial community and stakeholder feedback.",
+              "source": "https://uk.rwe.com/press-and-news/2024-04-09-rwe-announces-public-consultation-for-planned-stallingborough-gas-fired-power-plant/",
+              "expected": false
+            },
+            {
+              "date": "2025-03-01",
+              "phase": "proposal",
+              "title": "EIA scoping engagement with Planning Inspectorate",
+              "description": "The Planning Inspectorate published initial scoping documentation for EN010161, formally entering the project into the pre-application Environmental Impact Assessment scoping process.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN010161-000002-Scoping%20Opinion%202017%20EIA%20Regs.pdf",
+              "expected": false
+            },
+            {
+              "date": "2026-03-11",
+              "phase": "proposal",
+              "title": "Statutory consultation launches",
+              "description": "RWE launched the formal statutory (s42/s47/s48) consultation on the Proposed Development, publishing a Preliminary Environmental Information Report (PEIR), Statement of Community Consultation and supporting plans for an eight-week feedback period.",
+              "source": "https://uk.rwe.com/-/media/RWE/RWE-UK/downloads/press/2026/2026-03-11-rwe-launch-consultation-for-low-carbon-power-station.pdf",
+              "expected": false
+            },
+            {
+              "date": "2026-05-06",
+              "phase": "proposal",
+              "title": "Statutory consultation closes",
+              "description": "The statutory consultation period closed at 11:59pm. RWE will review responses, prepare a Consultation Report and finalise the DCO application documents.",
+              "source": "https://fishingnews.co.uk/publicnotices/public-notice-rwe-stallingborough-ccgt-project-consultation/",
+              "expected": true
+            },
+            {
+              "date": "2027-07-01",
+              "phase": "application",
+              "title": "Expected DCO application submission",
+              "description": "RWE expects to submit the Development Consent Order application to the Planning Inspectorate in July 2027, triggering the 28-day acceptance review under the Planning Act 2008.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010161",
+              "expected": true
+            }
+          ]
+        },
+        "EN010165": {
+          "ref": "EN010165",
+          "name": "Kingsway Solar Farm",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-11",
+          "summary": "Kingsway Solar Farm Limited is proposing a solar photovoltaic and battery storage facility with a generation capacity of up to 500MW, sited on around 1,246 hectares of farmland southeast of Cambridge between Burwell and Balsham. The project is a Nationally Significant Infrastructure Project at pre-application stage, with the Development Consent Order application expected to be submitted in April 2026.",
+          "milestones": [
+            {
+              "date": "2024-03-18",
+              "phase": "proposal",
+              "title": "Project announced to local communities",
+              "description": "Kingsway Solar Farm Ltd presented the proposal to Balsham Parish Council, the first public announcement of the scheme to affected villages in south Cambridgeshire.",
+              "source": "https://www.balsham.net/wp-content/uploads/2024/03/Solar-Farm-slide-presentation-PC-meeting-1.pdf",
+              "expected": false
+            },
+            {
+              "date": "2024-10-31",
+              "phase": "proposal",
+              "title": "Non-statutory (stage one) consultation opens",
+              "description": "First-stage non-statutory public consultation on the emerging proposals ran for just over five weeks between 31 October and 12 December 2024.",
+              "source": "https://kingswaysolarcommunityaction.co.uk/information/",
+              "expected": false
+            },
+            {
+              "date": "2024-12-01",
+              "phase": "proposal",
+              "title": "EIA Scoping Report submitted",
+              "description": "Kingsway Solar Farm Limited submitted its Environmental Impact Assessment Scoping Report to the Planning Inspectorate, covering biodiversity, landscape, heritage, soils, air quality and noise.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN010165-000007-Kingsway%20-%20EIA%20Scoping%20Report%20-%20Main%20Report.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025-01-23",
+              "phase": "proposal",
+              "title": "Planning Inspectorate adopts Scoping Opinion",
+              "description": "PINS issued its Scoping Opinion, requiring the Environmental Statement to address waste streams, potential effects on Devil's Dyke and Newmarket Heath SSSIs, and Carlton Lane Conservation Area, among other matters.",
+              "source": "https://www.kingswaysolarfarm.co.uk/wp-content/uploads/documents/PEIR%20Volume%204%20Appendix%205.3%20EIA%20Scoping%20Opinion%20Part1.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025-09-17",
+              "phase": "proposal",
+              "title": "Statutory (section 47) consultation opens",
+              "description": "The applicant launched its six-week statutory consultation on the Preliminary Environmental Information Report and draft proposals, running from 17 September to 29 October 2025.",
+              "source": "https://www.suffolk.gov.uk/asset-library/scc-kingsway-solar-farm-statutory-consultation-response-oct-2025.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025-09-24",
+              "phase": "proposal",
+              "title": "Section 46 notification acknowledged by PINS",
+              "description": "The Planning Inspectorate acknowledged receipt of the applicant's notification under section 46 of the Planning Act 2008 and Regulation 8 of the EIA Regulations 2017.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN010165-000030-s46%20and%20EIA%20Reg%208%20acknowledgement.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025-10-29",
+              "phase": "proposal",
+              "title": "Statutory consultation closes",
+              "description": "Statutory consultation closed after six weeks, with responses submitted by Cambridgeshire County Council, Suffolk County Council and Kingsway Solar Community Action among other stakeholders.",
+              "source": "https://kingswaysolarcommunityaction.co.uk/wp-content/uploads/2025/10/Kingsway-Solar-Community-Action-Response-to-the-Statutory-Consultation_Final-compressed.pdf",
+              "expected": false
+            },
+            {
+              "date": "2026-04-30",
+              "phase": "application",
+              "title": "DCO application expected to be submitted",
+              "description": "The applicant has indicated the Development Consent Order application is expected to be submitted to the Planning Inspectorate in April 2026, after which PINS has 28 days to decide whether to accept it for examination.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010165",
+              "expected": true
+            }
+          ]
+        },
+        "EN010171": {
+          "ref": "EN010171",
+          "name": "Future Energy Llanwern Solar Project",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Future Energy Llanwern Limited, funded by NextEnergy Capital, is proposing a ground-mounted solar farm of over 350 MW (up to 400 MW) on the Gwent Levels approximately 2.5km south of the former Llanwern Steelworks, between Whitson and Redwick in Newport and Monmouthshire. The Nationally Significant Infrastructure Project is at the pre-application stage, with statutory consultation completed in February 2026 and a Development Consent Order application expected in November 2026.",
+          "milestones": [
+            {
+              "date": "2024-03-01",
+              "phase": "proposal",
+              "title": "Project announced",
+              "description": "Future Energy Llanwern Limited, backed by NextEnergy Capital, publicly proposed a ground-mounted solar farm of up to 400 MW on land south of Llanwern Steelworks on the Gwent Levels, sufficient to power around 108,000 homes.",
+              "source": "https://www.futureenergyllanwern.co.uk/the-project/",
+              "expected": false
+            },
+            {
+              "date": "2024-12-01",
+              "phase": "proposal",
+              "title": "EIA Scoping Report submitted to PINS",
+              "description": "The applicant submitted an Environmental Impact Assessment Scoping Report for a solar PV scheme of greater than 350 MW capacity, defining the proposed scope of environmental assessment.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN010171-000008-FEL%20-%20Scoping%20Report.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025-01-31",
+              "phase": "proposal",
+              "title": "PINS Scoping Opinion issued",
+              "description": "The Planning Inspectorate issued its formal Scoping Opinion under the 2017 EIA Regulations, setting out the matters to be addressed in the Environmental Statement.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/wp-content/ipc/uploads/projects/EN010171/EN010171-000013-EN010171%20-%20Future%20Energy%20Llanwern%20Solar%20Project%20-%20Scoping%20Opinion%202017%20EIA%20Regs_final.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025-11-01",
+              "phase": "proposal",
+              "title": "Section 46 notification to PINS",
+              "description": "The applicant served notice on the Planning Inspectorate of its proposed application under Section 46 of the Planning Act 2008, formalising intent to consult statutory bodies.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN010171-000250-FELL%20-%20Section%2046%20Notification%20to%20PINS%20FINAL.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025-12-10",
+              "phase": "proposal",
+              "title": "Statutory consultation opens",
+              "description": "Future Energy Llanwern launched its statutory (Section 47) consultation, including public exhibitions and a feedback portal, on proposed design, environmental mitigation, and community benefits (£10 million over 40 years and free EV charging for nearby residents).",
+              "source": "https://www.futureenergyllanwern.co.uk/",
+              "expected": false
+            },
+            {
+              "date": "2026-02-15",
+              "phase": "proposal",
+              "title": "Statutory consultation closes",
+              "description": "The statutory consultation period ended on 15 February 2026. Gwent Wildlife Trust gathered around 6,000 signatures opposing major Gwent Levels developments, and Newport East MS John Griffiths raised concerns in the Senedd about cumulative solar development on the Levels.",
+              "source": "https://walesonline.substack.com/p/the-beautiful-area-that-developers",
+              "expected": false
+            },
+            {
+              "date": "2026-11-01",
+              "phase": "application",
+              "title": "DCO application expected",
+              "description": "Future Energy Llanwern Limited expects to submit its Development Consent Order application to the Planning Inspectorate in November 2026, following review of consultation feedback.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010171",
+              "expected": true
+            }
+          ]
+        },
+        "EN0110008": {
+          "ref": "EN0110008",
+          "name": "Theddlethorpe Flexible Generation Project",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Statera Energy's Theddlethorpe Flexible Generation Ltd is proposing up to 1.5GW of flexible electricity generation on land adjacent to the former Theddlethorpe Gas Terminal near Mablethorpe, Lincolnshire. The scheme is expected to comprise combined cycle gas turbines or reciprocating gas engines, capable of running on natural gas or hydrogen, with associated battery storage and hydrogen production. The project is at pre-application stage, with a Development Consent Order application expected in May 2027.",
+          "milestones": [
+            {
+              "date": "2025-09-23",
+              "phase": "proposal",
+              "title": "Scoping report submitted",
+              "description": "Theddlethorpe Flexible Generation Ltd submitted its Environmental Impact Assessment Scoping Report (main text, appendices A-D and appendix E) to the Secretary of State.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110008/documents",
+              "expected": false
+            },
+            {
+              "date": "2025-10-30",
+              "phase": "proposal",
+              "title": "Scoping Opinion adopted",
+              "description": "The Planning Inspectorate, on behalf of the Secretary of State, adopted and published the Scoping Opinion for the project, setting out the required scope of the Environmental Statement.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN0110008-000008-Scoping%20Opinion%20-%20TFGP.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025-12-31",
+              "phase": "proposal",
+              "title": "Engagement on Statement of Community Consultation begins",
+              "description": "The applicant began meetings with local authorities (East Lindsey District Council and Lincolnshire County Council) to inform the Statement of Community Consultation, scheduled to run through Q4 2025 to Q2 2026.",
+              "source": "https://theddlethorpeflexgen.co.uk/plans-and-progress",
+              "expected": false
+            },
+            {
+              "date": "2026-06-30",
+              "phase": "proposal",
+              "title": "Statutory (formal) consultation begins",
+              "description": "Statera Energy plans to launch the statutory pre-application consultation under section 47 of the Planning Act 2008 in Q2 2026, running through to around Q4 2027.",
+              "source": "https://theddlethorpeflexgen.co.uk/plans-and-progress",
+              "expected": true
+            },
+            {
+              "date": "2027-05-31",
+              "phase": "application",
+              "title": "DCO application submission expected",
+              "description": "The applicant expects to submit its application for a Development Consent Order to the Planning Inspectorate in May 2027.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110008",
+              "expected": true
+            }
+          ]
+        },
+        "EN0110009": {
+          "ref": "EN0110009",
+          "name": "Walpole Flexible Generation Project",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-05-11",
+          "summary": "Walpole Flexible Generation Limited (a Statera Energy company) is preparing a Development Consent Order application for up to 2GW of flexible thermal generation with co-located battery energy storage at Land near Walpole Marsh, Wisbech, Norfolk. The applicant has indicated reciprocating-engine technology initially fuelled by natural gas with a stated roadmap to transition to hydrogen. No statutory consultation or scoping notification has yet been published on the PINS portal; PINS indicates a March 2028 anticipated DCO application date.",
+          "milestones": [
+            {
+              "date": "2024-01-01",
+              "phase": "proposal",
+              "title": "Project website launched by Statera Energy",
+              "description": "Walpole Flexible Generation Limited (subsidiary of Statera Energy) established a project website indicating early-stage development of a hydrogen-capable flexible generation facility on land at Walpole, Norfolk.",
+              "source": "https://walpoleflexgen.co.uk/",
+              "expected": false
+            },
+            {
+              "date": "2025-01-01",
+              "phase": "proposal",
+              "title": "Project entered on Planning Inspectorate register",
+              "description": "Project listed on the Planning Inspectorate's National Infrastructure Consenting portal as EN0110009 at the pre-application stage, with a project description of up to 2GW flexible thermal generation with associated battery energy storage.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110009",
+              "expected": false
+            },
+            {
+              "date": "2025-06-01",
+              "phase": "proposal",
+              "title": "Project location confirmed at Walpole Marsh",
+              "description": "PINS portal records the project site as Land near Walpole Marsh, Wisbech PE14 7JL, in the Borough of King's Lynn and West Norfolk.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110009",
+              "expected": false
+            },
+            {
+              "date": "2028-03-31",
+              "phase": "application",
+              "title": "Anticipated DCO application submission",
+              "description": "PINS portal records an anticipated application submission date of March 2028 for the Development Consent Order. The applicant's external materials had previously cited an earlier window (April-June 2027), indicating the timetable has slipped.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110009",
+              "expected": true
+            }
+          ]
+        },
+        "EN0110011": {
+          "ref": "EN0110011",
+          "name": "Ferrybridge Next Generation Power Station",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "SSE Hydrogen Developments Limited is proposing a hydrogen-capable power station of up to 1.2 GW at the former Ferrybridge C coal-fired site in Knottingley, West Yorkshire, with associated infrastructure extending into North Yorkshire. The project, designed to run on natural gas, a hydrogen-gas blend, or 100% hydrogen as supply becomes available, is at the pre-application stage of the Nationally Significant Infrastructure Project process. Statutory consultation closed in October 2025; construction is scheduled to begin in 2028 with completion expected in the early 2030s.",
+          "milestones": [
+            {
+              "date": "2024-10-08",
+              "phase": "proposal",
+              "title": "EIA Scoping request submitted",
+              "description": "SSE Hydrogen Developments Limited submitted an Environmental Impact Assessment Scoping Report, prepared by Arup, to the Planning Inspectorate, formally registering the project under reference EN0110011.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN0110011-000002-EN0110011%20-%20Ferrybridge%20Next%20Generation%20Power%20Station%20-%20EIA%20Scoping%20Report.pdf",
+              "expected": false
+            },
+            {
+              "date": "2024-10-31",
+              "phase": "proposal",
+              "title": "Programme Document v0 published",
+              "description": "SSE Thermal published the initial project programme document setting out the proposed timetable for consultation and DCO submission.",
+              "source": "https://www.ssethermal.com/media/dwmnmxqp/ferrybridge-next-generation-power-station_programme-document_v0-oct-2024.pdf",
+              "expected": false
+            },
+            {
+              "date": "2024-11-18",
+              "phase": "proposal",
+              "title": "Scoping Opinion issued by PINS",
+              "description": "The Planning Inspectorate published its Scoping Opinion identifying the matters to be addressed in the Environmental Statement for the proposed power station.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN0110011-000004-EN0110011%20-%20Scoping%20Opinion.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025-02-10",
+              "phase": "consultation",
+              "title": "Non-statutory public consultation opens",
+              "description": "SSE opened an early Ferrybridge Hydrogen public consultation, running from 10 February to 10 March 2025, with information events to gather initial views from local communities.",
+              "source": "https://www.ssethermal.com/media/fdchoysi/ferrybridge-hydrogen-public-consultation-digital-brochure.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025-08-28",
+              "phase": "proposal",
+              "title": "Section 46 notification submitted",
+              "description": "SSE submitted its Section 46 notification to the Planning Inspectorate, formally notifying it of the proposed application and accompanied by EIA Regulation 8 information.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN0110011-000011-250828%20-%20Ferrybridge%20NGPS%20-%20S46%20notification%20.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025-09-05",
+              "phase": "consultation",
+              "title": "Statutory consultation opens",
+              "description": "SSE opened statutory consultation under Section 47 of the Planning Act 2008, inviting the public, community groups, and statutory consultees to comment on proposals for the up to 1.2 GW hydrogen-capable power station on the former Ferrybridge C site.",
+              "source": "https://www.sse.com/news-and-views/2025/09/consultation-opens-for-ferrybridge-next-generation-power-station/",
+              "expected": false
+            },
+            {
+              "date": "2025-10-19",
+              "phase": "consultation",
+              "title": "Statutory consultation closes",
+              "description": "Statutory consultation closed after an extension from the original 6 October deadline. Feedback will be summarised in a Consultation Report to accompany the Development Consent Order application.",
+              "source": "https://www.ssethermal.com/flexible-generation/development/ferrybridge-next-generation-power-station/",
+              "expected": false
+            },
+            {
+              "date": "2026-09-30",
+              "phase": "application",
+              "title": "DCO application submission expected",
+              "description": "SSE expects to submit its Development Consent Order application to the Planning Inspectorate following consultation review and design refinement.",
+              "source": "https://www.ssethermal.com/media/mvnls3un/ferrybridge-programme-document.pdf",
+              "expected": true
+            },
+            {
+              "date": "2028-01-01",
+              "phase": "build",
+              "title": "Construction expected to begin",
+              "description": "Construction is scheduled to start in 2028, subject to development consent and a final investment decision, with completion targeted for the early 2030s.",
+              "source": "https://www.sse.com/news-and-views/2025/09/consultation-opens-for-ferrybridge-next-generation-power-station/",
               "expected": true
             }
           ]
