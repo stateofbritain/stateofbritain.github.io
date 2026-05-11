@@ -3,7 +3,7 @@
   "id": "nsip-timelines",
   "pillar": "state",
   "topic": "construction",
-  "generated": "2026-05-11T16:45:32.474Z",
+  "generated": "2026-05-11T16:54:02.516Z",
   "sources": [
     {
       "id": "claude-agent-research",
@@ -14,7 +14,7 @@
     }
   ],
   "snapshot": {
-    "totalTimelines": 94,
+    "totalTimelines": 101,
     "researchedByAgent": 74,
     "researchedManually": 1
   },
@@ -8718,6 +8718,821 @@
               "title": "Application withdrawn",
               "description": "H2 Teesside Limited wrote to the Secretary of State formally withdrawing the DCO application. bp cited material and significant changes in the development of the wider Teesworks site, including plans for a large data centre on overlapping land, together with weaker industrial hydrogen demand in Teesside as some prospective offtakers scaled back or delayed decarbonisation plans. bp said it would continue with Net Zero Teesside Power and the Northern Endurance Partnership.",
               "source": "https://www.h2-view.com/story/h2teesside-shelved-as-bp-steps-aside-for-data-centre-development/2135450.article/",
+              "expected": false
+            }
+          ]
+        },
+        "EN020026": {
+          "ref": "EN020026",
+          "name": "Sea Link",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Sea Link is a proposed 2 GW, around 138 km HVDC subsea reinforcement between Suffolk (Friston) and Kent (Pegwell Bay) being developed by National Grid Electricity Transmission as part of the Great Grid Upgrade. The Development Consent Order application was accepted by the Planning Inspectorate in April 2025 and the project is at the examination stage, with strong local opposition in Suffolk and Kent on landscape, ecological and need-case grounds.",
+          "milestones": [
+            {
+              "date": "2021-01-29",
+              "phase": "proposal",
+              "title": "Need identified in Network Options Assessment 2020/21",
+              "description": "National Grid ESO's Network Options Assessment 2020/21 identified a reinforcement option between Suffolk and Kent, providing the regulatory needs case for what later became Sea Link.",
+              "source": "https://www.nationalgrid.com/the-great-grid-upgrade/sea-link/frequently-asked-questions",
+              "expected": false
+            },
+            {
+              "date": "2022-10-24",
+              "phase": "consultation",
+              "title": "Non-statutory consultation opens",
+              "description": "National Grid launched its first non-statutory consultation on proposals for a new HVDC link between Suffolk and Kent, running until 18 December 2022.",
+              "source": "https://www.nationalgrid.com/electricity-transmission/network-and-infrastructure/infrastructure-projects/sealink/consultation-and-next-steps",
+              "expected": false
+            },
+            {
+              "date": "2022-12-18",
+              "phase": "consultation",
+              "title": "Non-statutory consultation closes",
+              "description": "First round of public feedback closed. Significant opposition was raised in Friston, Saxmundham, Sandwich and at RSPB Pegwell Bay regarding converter station siting and the cable landfall.",
+              "source": "https://www.nationalgrid.com/the-great-grid-upgrade/sea-link/frequently-asked-questions",
+              "expected": false
+            },
+            {
+              "date": "2023-10-24",
+              "phase": "consultation",
+              "title": "Statutory consultation opens",
+              "description": "National Grid opened formal statutory consultation under section 42 of the Planning Act 2008, presenting refined onshore and offshore proposals including a converter station near Saxmundham and a Kent landfall at Pegwell Bay.",
+              "source": "https://www.nationalgrid.com/have-your-say-proposals-boost-capacity-across-electricity-transmission-network-suffolk-and-kent",
+              "expected": false
+            },
+            {
+              "date": "2023-12-18",
+              "phase": "consultation",
+              "title": "Statutory consultation closes",
+              "description": "Statutory consultation closed at 23:59 on 18 December 2023. Responses included formal objections from Suffolk Wildlife Trust, Kent Wildlife Trust and RSPB on impacts to Minster Marshes and Pegwell Bay nature reserve.",
+              "source": "https://www.eastsuffolk.gov.uk/planning/national-infrastructure-and-energy-projects/sea-link/",
+              "expected": false
+            },
+            {
+              "date": "2024-07-08",
+              "phase": "consultation",
+              "title": "Further targeted consultation opens",
+              "description": "National Grid launched a targeted further consultation on design changes made in response to statutory consultation feedback, running until 11 August 2024.",
+              "source": "https://www.newcivilengineer.com/latest/national-grid-updates-138km-kent-suffolk-hvdc-link-plans-and-extends-consultation-09-07-2024/",
+              "expected": false
+            },
+            {
+              "date": "2024-08-11",
+              "phase": "consultation",
+              "title": "Further targeted consultation closes",
+              "description": "Further consultation period ended. Local groups including Suffolk Energy Action Solutions argued the changes did not materially address concerns over the converter station or Pegwell Bay cable corridor.",
+              "source": "https://aldeburghtowncouncil.co.uk/further-consultation-for-the-proposed-sea-link-project-the-proposed-project-monday-08-july-2024-to-sunday-11-august-2024/",
+              "expected": false
+            },
+            {
+              "date": "2025-03-27",
+              "phase": "application",
+              "title": "DCO application submitted to PINS",
+              "description": "National Grid submitted its Development Consent Order application for Sea Link to the Planning Inspectorate, reference EN020026.",
+              "source": "https://www.bbc.co.uk/news/articles/cqlyqnvryy5o",
+              "expected": false
+            },
+            {
+              "date": "2025-04-23",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "The Planning Inspectorate accepted the Sea Link DCO application for examination, confirming it met the standards required under section 55 of the Planning Act 2008.",
+              "source": "https://www.nationalgrid.com/media-centre/press-releases/national-grids-sea-link-project-moves-forward-application-accepted-planning-inspectorate",
+              "expected": false
+            },
+            {
+              "date": "2025-11-05",
+              "phase": "examination",
+              "title": "Preliminary meeting and examination opens",
+              "description": "The Examining Authority held the preliminary meeting and formally opened the six-month examination. Open Floor Hearings ran on 5-6 and 11-12 November 2025, with Suffolk County Council lodging a formal objection.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020026/examination-timetable",
+              "expected": false
+            },
+            {
+              "date": "2025-11-26",
+              "phase": "examination",
+              "title": "Applicant submits Change Request",
+              "description": "National Grid submitted a Change Request to incorporate five design changes into the proposed development following targeted consultation between 7 October and 7 November 2025.",
+              "source": "https://fishingnews.co.uk/publicnotices/public-notice-proposed-changes-to-national-grids-sea-link-development-consent-order/",
+              "expected": false
+            },
+            {
+              "date": "2026-04-29",
+              "phase": "examination",
+              "title": "Deadline 7 submissions",
+              "description": "Final deadline for written representations on the Examining Authority's schedule of changes to the draft DCO.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020026/examination-timetable",
+              "expected": false
+            },
+            {
+              "date": "2026-05-05",
+              "phase": "examination",
+              "title": "Examination closes",
+              "description": "The six-month examination period concluded. The Examining Authority began drafting its recommendation report to the Secretary of State for Energy Security and Net Zero.",
+              "source": "https://theisleofthanetnews.com/2026/05/06/planning-examination-for-national-grids-sea-link-scheme-comes-to-an-end-with-recommendation-report-now-to-be-written/",
+              "expected": false
+            },
+            {
+              "date": "2026-08-05",
+              "phase": "consent",
+              "title": "Recommendation report due to Secretary of State",
+              "description": "Statutory deadline for the Examining Authority to submit its recommendation to the Secretary of State, who then has three months to issue a decision on consent.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020026",
+              "expected": true
+            }
+          ]
+        },
+        "EN020027": {
+          "ref": "EN020027",
+          "name": "Norwich to Tilbury",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "National Grid Electricity Transmission's proposed 184 km, 400 kV overhead line and pylon route from Norwich Main substation via Bramford to a new substation near Tilbury, with associated substations and limited undergrounding. The Development Consent Order application was submitted in August 2025 and accepted for examination in September 2025; examination opened in February 2026. The route has drawn sustained cross-party opposition from East Anglian MPs and local authorities advocating for an offshore or undersea alternative.",
+          "milestones": [
+            {
+              "date": "2021-12-31",
+              "phase": "proposal",
+              "title": "Project identified in 2021 Network Options Assessment",
+              "description": "National Grid Electricity System Operator's 2021 Network Options Assessment identified the need for a major 400 kV reinforcement between East Anglia and the Thames Estuary, forming the basis for what would become the East Anglia GREEN project.",
+              "source": "https://www.nationalgrid.com/electricity-transmission/network-and-infrastructure/infrastructure-projects/norwich-to-tilbury/need-for-the-project",
+              "expected": false
+            },
+            {
+              "date": "2022-04-21",
+              "phase": "consultation",
+              "title": "First non-statutory consultation launched as East Anglia GREEN",
+              "description": "National Grid opened an eight-week non-statutory consultation on its East Anglia Green Energy Enablement proposals, running from 21 April to 16 June 2022. This was the first public presentation of the approximately 180 km overhead line route between Norwich, Bramford and Tilbury.",
+              "source": "https://www.nationalgrid.com/national-grid-consult-east-anglia-green-energy-enablement-green-proposals",
+              "expected": false
+            },
+            {
+              "date": "2022-07-07",
+              "phase": "proposal",
+              "title": "Holistic Network Design published",
+              "description": "National Grid ESO published its Holistic Network Design under the Offshore Transmission Network Review, confirming the Norwich to Tilbury reinforcement as a critical onshore route while committing five East Anglia projects to explore voluntary coordination with offshore connections.",
+              "source": "https://hansard.parliament.uk/Commons/2022-07-07/debates/22070768000009/OffshoreTransmissionNetworkHolisticNetworkDesignAndPathfinderProjects",
+              "expected": false
+            },
+            {
+              "date": "2023-03-11",
+              "phase": "consultation",
+              "title": "Government commissions ESO review of offshore alternatives",
+              "description": "Following sustained campaigning by East Anglian MPs and local groups including Pylons East Anglia, the Department for Energy Security and Net Zero asked National Grid ESO to review offshore coordination options for East Anglia, including alternatives to the proposed onshore route.",
+              "source": "https://www.itv.com/news/anglia/2023-03-11/campaigners-welcome-east-anglia-pylons-review-over-fears-for-countryside",
+              "expected": false
+            },
+            {
+              "date": "2023-06-27",
+              "phase": "consultation",
+              "title": "Second non-statutory consultation on preferred draft alignment",
+              "description": "National Grid ran a second non-statutory consultation from 27 June to 21 August 2023, presenting a preferred draft alignment for the route through Norfolk, Suffolk and Essex and seeking feedback on detailed design.",
+              "source": "https://www.nationalgrid.com/electricity-transmission/network-and-infrastructure/infrastructure-projects/norwich-to-tilbury/public-consultation-and-programme",
+              "expected": false
+            },
+            {
+              "date": "2023-09-01",
+              "phase": "consultation",
+              "title": "Project renamed Norwich to Tilbury",
+              "description": "National Grid rebranded the East Anglia GREEN project as Norwich to Tilbury in summer 2023, aligning the project name with the route endpoints ahead of statutory consultation.",
+              "source": "https://www.nationalgrid.com/electricity-transmission/network-and-infrastructure/infrastructure-projects/norwich-to-tilbury",
+              "expected": false
+            },
+            {
+              "date": "2023-12-05",
+              "phase": "consultation",
+              "title": "DESNZ confirms outcome of offshore coordination review",
+              "description": "The Department for Energy Security and Net Zero confirmed the outcome of the first exploratory stage of offshore coordination, proposing to connect North Falls and Five Estuaries offshore wind farms into the Sea Link HVDC project rather than expanding offshore alternatives to the Norwich to Tilbury onshore route.",
+              "source": "https://www.nationalgrid.com/electricity-transmission/network-and-infrastructure/infrastructure-projects/norwich-to-tilbury/news/ESO-OCS",
+              "expected": false
+            },
+            {
+              "date": "2024-03-19",
+              "phase": "proposal",
+              "title": "ESO East Anglia Network Study published",
+              "description": "National Grid ESO published its East Anglia Network Study, assessing onshore and offshore options for the region. The study supported the onshore Norwich to Tilbury route as the preferred reinforcement, with ESO stating offshore alternatives would be several times more expensive.",
+              "source": "https://www.neso.energy/document/304496/download",
+              "expected": false
+            },
+            {
+              "date": "2024-04-10",
+              "phase": "consultation",
+              "title": "Statutory consultation opens",
+              "description": "National Grid launched the project's first statutory consultation under section 47 of the Planning Act 2008, initially scheduled to run from 10 April to 18 June 2024. The deadline was later extended to 26 July 2024 following the announcement of the 4 July general election.",
+              "source": "https://www.nationalgrid.com/media-centre/press-releases/consultation-extended-national-grid-proposals-norwich-tilbury",
+              "expected": false
+            },
+            {
+              "date": "2024-06-01",
+              "phase": "consultation",
+              "title": "Cross-party MP opposition and council objections",
+              "description": "Suffolk County Council formally objected to the proposals and called for a pause. East Anglian MPs including James Cartlidge, Bernard Jenkin, Therese Coffey, Sandy Martin, Liz Truss and others campaigned for an offshore or undersea alternative, supported by Pylons East Anglia, Save Our Suffolk Skyline and CPRE Norfolk.",
+              "source": "https://www.suffolk.gov.uk/council-and-democracy/council-news/norwich-to-tilbury-pylons-council-to-object-to-plans-and-calls-for-pause",
+              "expected": false
+            },
+            {
+              "date": "2025-01-20",
+              "phase": "consultation",
+              "title": "Supplementary targeted consultation",
+              "description": "National Grid held a supplementary targeted consultation between January and April 2025 on localised design refinements ahead of submitting its Development Consent Order application.",
+              "source": "https://www.nationalgrid.com/electricity-transmission/network-and-infrastructure/infrastructure-projects/norwich-to-tilbury/public-consultation-and-programme",
+              "expected": false
+            },
+            {
+              "date": "2025-08-29",
+              "phase": "application",
+              "title": "Development Consent Order application submitted",
+              "description": "National Grid Electricity Transmission submitted its Development Consent Order application to the Planning Inspectorate, comprising 362 documents and over 60,000 pages covering the 184 km route across Norfolk, Suffolk and Essex.",
+              "source": "https://www.nationalgrid.com/national-grid-submits-planning-application-upgrade-electricity-network-between-norwich-and-tilbury",
+              "expected": false
+            },
+            {
+              "date": "2025-09-26",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "The Planning Inspectorate accepted the Norwich to Tilbury application for examination under section 55 of the Planning Act 2008, opening the pre-examination registration period for interested parties.",
+              "source": "https://www.newcivilengineer.com/latest/national-grids-180km-power-line-from-norwich-to-tilbury-dco-progressed-26-09-2025/",
+              "expected": false
+            },
+            {
+              "date": "2026-02-10",
+              "phase": "examination",
+              "title": "Examination opens with preliminary meeting in Ipswich",
+              "description": "The Examining Authority held the preliminary meeting in Ipswich and online to set the procedure and timetable for the six-month examination, which is scheduled to close on 10 August 2026. Issue-specific and compulsory acquisition hearings began the following week.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020027",
+              "expected": false
+            },
+            {
+              "date": "2026-08-10",
+              "phase": "examination",
+              "title": "Examination scheduled to close",
+              "description": "The six-month examination is scheduled to close on 10 August 2026, after which the Examining Authority has three months to submit its recommendation to the Secretary of State.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020027",
+              "expected": true
+            },
+            {
+              "date": "2027-02-10",
+              "phase": "consent",
+              "title": "Secretary of State decision due",
+              "description": "Under the Planning Act 2008 statutory timetable, the Secretary of State for Energy Security and Net Zero is expected to issue a decision on the Development Consent Order within three months of receiving the Examining Authority's recommendation.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020027",
+              "expected": true
+            }
+          ]
+        },
+        "EN020032": {
+          "ref": "EN020032",
+          "name": "Morgan and Morecambe Offshore Wind Farms Transmission Assets",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Joint transmission infrastructure DCO for the Morgan (bp/EnBW) and Morecambe (Cobra/Flotation Energy) offshore wind farms in the Irish Sea, comprising offshore export cables, a Fylde coast landfall, onshore cable corridor, and a new onshore substation connecting to the National Grid Penwortham substation in Lancashire. The application was accepted in November 2024, examined through 2025, and is currently at the Secretary of State decision stage with a statutory deadline of 14 May 2026.",
+          "milestones": [
+            {
+              "date": "2022-10-04",
+              "phase": "proposal",
+              "title": "Section 35 direction issued",
+              "description": "Secretary of State for Business, Energy and Industrial Strategy issued a direction under section 35 of the Planning Act 2008 confirming the transmission assets project should be treated as a Nationally Significant Infrastructure Project requiring development consent.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020032",
+              "expected": false
+            },
+            {
+              "date": "2022-12-08",
+              "phase": "proposal",
+              "title": "Scoping opinion issued",
+              "description": "The Planning Inspectorate, on behalf of the Secretary of State, issued its scoping opinion setting out the matters to be addressed in the Environmental Statement accompanying the DCO application.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020032/documents",
+              "expected": false
+            },
+            {
+              "date": "2023-09-14",
+              "phase": "consultation",
+              "title": "Statutory consultation announced",
+              "description": "Applicants Morgan Offshore Wind Limited and Morecambe Offshore Wind Limited announced plans for statutory consultation on substation siting, offshore and onshore cable routing, and preliminary environmental information.",
+              "source": "https://www.enbw-bp.com/latest/2023-09-14-morgan-and-morecambe-offshore-wind-farms-transmission-assets-project/",
+              "expected": false
+            },
+            {
+              "date": "2023-10-12",
+              "phase": "consultation",
+              "title": "Statutory consultation opens",
+              "description": "Section 42 statutory consultation launched, running until 23 November 2023, covering four indicative onshore substation search areas around Kirkham, Newton-with-Scales, Longton, and Penwortham, together with the Preliminary Environmental Information Report.",
+              "source": "https://www.bp.com/en_gb/united-kingdom/home/news/press-releases/consultation-launches-for-morgan-and-morecambe-offshore-wind-far.html",
+              "expected": false
+            },
+            {
+              "date": "2024-10-21",
+              "phase": "application",
+              "title": "DCO application submitted",
+              "description": "The Planning Inspectorate received the development consent order application for the Morgan and Morecambe transmission assets, covering offshore export cables, Fylde coast landfall, onshore cable corridor, and onshore substation works connecting to Penwortham.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020032",
+              "expected": false
+            },
+            {
+              "date": "2024-11-19",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "The Planning Inspectorate accepted the application for examination following the 28-day acceptance check.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020032",
+              "expected": false
+            },
+            {
+              "date": "2024-12-13",
+              "phase": "application",
+              "title": "Registration period opens",
+              "description": "Registration opened for interested parties to make relevant representations on the application, closing on 27 January 2025.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020032/project-updates",
+              "expected": false
+            },
+            {
+              "date": "2025-04-29",
+              "phase": "examination",
+              "title": "Examination opens",
+              "description": "Preliminary meeting and first open floor hearing held, formally opening the six-month examination period. Subsequent issue-specific hearings, compulsory acquisition hearings, and accompanied site inspections ran through spring, summer, and autumn 2025.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020032/examination-timetable",
+              "expected": false
+            },
+            {
+              "date": "2025-11-03",
+              "phase": "examination",
+              "title": "Examination closes",
+              "description": "The Examining Authority closed the examination, with three months allotted to prepare the recommendation report to the Secretary of State.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020032/project-updates",
+              "expected": false
+            },
+            {
+              "date": "2026-01-29",
+              "phase": "consent",
+              "title": "Recommendation submitted to Secretary of State",
+              "description": "The Examining Authority submitted its recommendation report to the Secretary of State for Energy Security and Net Zero, starting the three-month decision period.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020032/project-updates",
+              "expected": false
+            },
+            {
+              "date": "2026-03-12",
+              "phase": "consent",
+              "title": "Secretary of State consultation letter",
+              "description": "The Secretary of State issued a consultation letter on post-examination submissions received between 29 October 2025 and 29 January 2026, and on 26 March 2026 reset the statutory decision deadline to 14 May 2026.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020032/project-updates",
+              "expected": false
+            },
+            {
+              "date": "2026-05-14",
+              "phase": "consent",
+              "title": "Secretary of State decision deadline",
+              "description": "Statutory deadline for the Secretary of State to issue the decision on the development consent order, following the reset announced in March 2026.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020032",
+              "expected": true
+            }
+          ]
+        },
+        "EN0110001": {
+          "ref": "EN0110001",
+          "name": "The Keadby Next Generation Power Station Project",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Keadby Next Generation is a proposed combined cycle gas turbine power station of up to 910 MW at SSE Thermal and Equinor's Keadby site in North Lincolnshire, designed to be capable of running on 100% hydrogen, natural gas, or a blend. Unlike the sister Keadby 3 project at the same site (which received a DCO in 2022 and is the carbon-capture-equipped station tied to the East Coast Cluster), Keadby Next Generation focuses on hydrogen readiness rather than post-combustion CCS, and is currently at the Examination stage following acceptance in September 2025.",
+          "milestones": [
+            {
+              "date": "2021-10-19",
+              "phase": "proposal",
+              "title": "East Coast Cluster awarded Track-1 status",
+              "description": "BEIS confirmed the East Coast Cluster as one of the UK's two Track-1 CCUS clusters, providing the policy backdrop for SSE Thermal and Equinor's Humber low-carbon power proposals at Keadby, including the later hydrogen-enabled Next Generation project.",
+              "source": "https://www.sse.com/news-and-views/2021/10/major-boost-for-ccs-and-hydrogen-projects-as-east-coast-cluster-captures-track-1-status/",
+              "expected": false
+            },
+            {
+              "date": "2024-03-14",
+              "phase": "proposal",
+              "title": "Project publicly announced",
+              "description": "SSE and Equinor publicly launched the Keadby Next Generation proposal, describing a 900 MW hydrogen-capable CCGT alongside the existing Keadby complex, and signalling that environmental scoping would begin in April 2024.",
+              "source": "https://www.sse.com/news-and-views/2024/03/consultation-on-plans-for-keadby-hydrogen-power-station-to-begin/",
+              "expected": false
+            },
+            {
+              "date": "2024-04-01",
+              "phase": "proposal",
+              "title": "EIA scoping commenced",
+              "description": "The applicant entered the Environmental Impact Assessment scoping phase, submitting a scoping request to the Planning Inspectorate to define the matters to be assessed in the Environmental Statement.",
+              "source": "https://www.sse.com/news-and-views/2024/03/consultation-on-plans-for-keadby-hydrogen-power-station-to-begin/",
+              "expected": false
+            },
+            {
+              "date": "2024-12-01",
+              "phase": "consultation",
+              "title": "Statement of Community Consultation published",
+              "description": "Keadby Next Generation Limited issued its Statement of Community Consultation setting out how the statutory pre-application consultation under Sections 42, 47 and 48 of the Planning Act 2008 would be conducted.",
+              "source": "https://keadbynextgen.com/library",
+              "expected": false
+            },
+            {
+              "date": "2025-01-09",
+              "phase": "consultation",
+              "title": "Statutory pre-application consultation opens",
+              "description": "A six-week statutory consultation under Sections 42, 47 and 48 ran from 9 January to 20 February 2025, gathering views from local authorities, statutory consultees, landowners and the public on the proposed scheme.",
+              "source": "https://keadbynextgen.consultation.ai/",
+              "expected": false
+            },
+            {
+              "date": "2025-04-01",
+              "phase": "consultation",
+              "title": "Targeted consultation on red-line boundary refinements",
+              "description": "Following the statutory consultation, the applicant ran a focused consultation on refinements to the project's red-line boundary affecting a limited group of consultees.",
+              "source": "https://keadbynextgen.com/library",
+              "expected": false
+            },
+            {
+              "date": "2025-08-26",
+              "phase": "application",
+              "title": "DCO application submitted to PINS",
+              "description": "Keadby Next Generation Limited submitted its application for a Development Consent Order to the Planning Inspectorate for the up to 910 MW hydrogen-capable CCGT, including grid connection, gas and hydrogen pipelines, water supply and ancillary works.",
+              "source": "https://www.sse.com/news-and-views/2025/10/keadby-next-generation-planning-application-accepted-by-planning-inspectorate/",
+              "expected": false
+            },
+            {
+              "date": "2025-09-22",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "PINS issued its acceptance decision, finding the application of a satisfactory standard under Section 55 of the Planning Act 2008. This is the first hydrogen-capable power station application to be accepted for DCO examination in the UK.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110001",
+              "expected": false
+            },
+            {
+              "date": "2026-01-20",
+              "phase": "examination",
+              "title": "Preliminary Meeting",
+              "description": "The Examining Authority held the Preliminary Meeting virtually via Microsoft Teams, setting the examination timetable and procedural rules for the six-month statutory period.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110001",
+              "expected": false
+            },
+            {
+              "date": "2026-01-21",
+              "phase": "examination",
+              "title": "Issue Specific Hearing 1",
+              "description": "ISH1 covered environmental matters and the draft Development Consent Order, marking the formal start of the examination's oral hearings.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110001",
+              "expected": false
+            },
+            {
+              "date": "2026-01-22",
+              "phase": "examination",
+              "title": "Compulsory Acquisition Hearing 1",
+              "description": "The first Compulsory Acquisition Hearing examined the case for the proposed compulsory acquisition powers sought by the applicant over land and rights.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110001",
+              "expected": false
+            },
+            {
+              "date": "2026-07-22",
+              "phase": "examination",
+              "title": "Close of Examination",
+              "description": "The statutory six-month examination period is expected to close around late July 2026, after which the Examining Authority moves into the recommendation phase.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110001",
+              "expected": true
+            },
+            {
+              "date": "2026-10-22",
+              "phase": "examination",
+              "title": "Examining Authority's recommendation to Secretary of State",
+              "description": "Within three months of the close of examination, the Examining Authority is expected to submit its recommendation report to the Secretary of State for Energy Security and Net Zero.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110001",
+              "expected": true
+            },
+            {
+              "date": "2027-01-22",
+              "phase": "consent",
+              "title": "Secretary of State decision expected",
+              "description": "The Secretary of State for Energy Security and Net Zero is expected to issue the Development Consent Order decision within three months of receiving the recommendation, subject to any extension. Operations are targeted from 2030.",
+              "source": "https://keadbynextgen.com/project",
+              "expected": true
+            }
+          ]
+        },
+        "EN010166": {
+          "ref": "EN010166",
+          "name": "Connah's Quay Low Carbon Power Project",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Uniper's proposed replacement of the existing 1,380 MW Connah's Quay CCGT in Flintshire with a new low-carbon CCGT of up to 1,380 MW fitted with post-combustion carbon capture, connecting to the HyNet North West CO2 transport and storage cluster. The Development Consent Order application was accepted by the Planning Inspectorate in August 2025 and examination opened in January 2026.",
+          "milestones": [
+            {
+              "date": "2024-02-08",
+              "phase": "proposal",
+              "title": "EIA Scoping Opinion requested",
+              "description": "Uniper submitted a Scoping Report to the Planning Inspectorate for an EIA Scoping Opinion on the proposed low-carbon CCGT with carbon capture at Connah's Quay.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN010166-000035-EN010166%20-%20Scoping%20Report%20(main%20text%20and%20Appendix%20A).pdf",
+              "expected": false
+            },
+            {
+              "date": "2024-02-26",
+              "phase": "consultation",
+              "title": "Initial non-statutory consultation opens",
+              "description": "Uniper launched its initial public engagement programme on the CQLCP proposals, running from 26 February to 25 March 2024, with events at Connah's Quay Cricket Club, Flint Town Hall and Coleg Cambria Deeside.",
+              "source": "https://www.uniper.energy/united-kingdom/news/public-engagement-programme-launched-for-new-low-carbon-power-station-project-at-unipers-connahs-quay-site/",
+              "expected": false
+            },
+            {
+              "date": "2024-10-08",
+              "phase": "consultation",
+              "title": "Statutory consultation opens",
+              "description": "Uniper began its statutory section 42/47/48 pre-application consultation on the CQLCP proposals, running from 8 October to 19 November 2024.",
+              "source": "https://www.uniper.energy/united-kingdom/news/uniper-launches-additional-public-consultation-for-its-proposed-connahs-quay-low-carbon-power-project-cqlcp/",
+              "expected": false
+            },
+            {
+              "date": "2025-01-23",
+              "phase": "proposal",
+              "title": "Technip Energies awarded FEED contract",
+              "description": "Uniper selected Technip Energies, supported by Balfour Beatty and GE Vernova, for Front-End Engineering Design of the CCGT with carbon capture, using the Canopy by T.EN solution powered by Shell CANSOLV.",
+              "source": "https://www.ten.com/en/media/press-releases/technip-energies-selected-uniper-provide-feed-connahs-quay-new-combined-cycle",
+              "expected": false
+            },
+            {
+              "date": "2025-05-08",
+              "phase": "consultation",
+              "title": "Supplementary consultation on design changes",
+              "description": "Uniper ran a targeted non-statutory consultation from 8 May to 6 June 2025 on design revisions including increasing absorber and HRSG stack heights to 150 metres.",
+              "source": "https://www.deeside.com/connahs-quay-taller-chimneys-proposed-for-low-carbon-plant-revamp/",
+              "expected": false
+            },
+            {
+              "date": "2025-08-05",
+              "phase": "application",
+              "title": "DCO application submitted; selected for CCUS Track-1 expansion",
+              "description": "Uniper submitted its Development Consent Order application to the Planning Inspectorate, and on the same day UK Government included CQLCP on the Project Negotiation List for the CCUS Cluster Sequencing programme.",
+              "source": "https://www.uniper.energy/united-kingdom/news/uniper-welcomes-government-announcement-on-cqlcp-track-1-expansion/",
+              "expected": false
+            },
+            {
+              "date": "2025-08-28",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "The Planning Inspectorate accepted the CQLCP DCO application for examination following its statutory 28-day acceptance review.",
+              "source": "https://www.uniper.energy/united-kingdom/news/connahs-quay-low-carbon-power-dco-application-accepted-for-examination-by-the-planning-inspectorate/",
+              "expected": false
+            },
+            {
+              "date": "2026-01-13",
+              "phase": "examination",
+              "title": "Examination commences",
+              "description": "The Examining Authority opened the six-month examination of the DCO application, following the preliminary meeting and Rule 8 timetable issued in pre-examination.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010166",
+              "expected": false
+            },
+            {
+              "date": "2026-04-07",
+              "phase": "examination",
+              "title": "Change application accepted",
+              "description": "The Examining Authority accepted a formal change application from Uniper into the examination, requiring procedural amendments to the timetable.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010166",
+              "expected": false
+            },
+            {
+              "date": "2026-05-11",
+              "phase": "examination",
+              "title": "Rule 8(3) procedural decision issued",
+              "description": "The Examining Authority issued a Rule 8(3) procedural decision letter modifying the examination timetable; hearings provisionally scheduled for the week commencing 4 May 2026 were cancelled.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010166",
+              "expected": false
+            },
+            {
+              "date": "2026-07-13",
+              "phase": "examination",
+              "title": "Examination closes (statutory deadline)",
+              "description": "Statutory six-month limit for the examination of EN010166 following its 13 January 2026 opening.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010166",
+              "expected": true
+            },
+            {
+              "date": "2026-10-13",
+              "phase": "consent",
+              "title": "Examining Authority report due to Secretary of State",
+              "description": "Statutory three-month window for the Examining Authority to submit its recommendation report to the Secretary of State for Energy Security and Net Zero.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010166",
+              "expected": true
+            },
+            {
+              "date": "2027-01-13",
+              "phase": "consent",
+              "title": "Secretary of State decision due",
+              "description": "Statutory three-month window for the Secretary of State to issue a decision on the DCO, after which CQLCP would proceed toward FID under CCUS Track-1, targeting commercial operation of phase one before end-2030.",
+              "source": "https://www.uniper.energy/united-kingdom/news/uniper-welcomes-government-announcement-on-cqlcp-track-1-expansion/",
+              "expected": true
+            }
+          ]
+        },
+        "EN010147": {
+          "ref": "EN010147",
+          "name": "Botley West Solar Farm",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Botley West is a proposed ~840 MW (1.4 GW peak) solar farm across roughly 2,150 hectares on three land parcels in Cherwell, West Oxfordshire and Vale of White Horse, which if consented would be the largest solar site in the UK. Local opposition has been organised through the Stop Botley West campaign, and the then-Conservative MPs covering the affected constituencies, Robert Courts (Witney), Victoria Prentis (Banbury) and David Johnston (Wantage), publicly opposed the scheme during the pre-application phase.",
+          "milestones": [
+            {
+              "date": "2022-11-01",
+              "phase": "proposal",
+              "title": "Project announced and first non-statutory consultation",
+              "description": "Photovolt Development Partners (PVDP) launched the first phase of public consultation for the proposed 840 MW Botley West Solar Farm, with the initial consultation running until 15 December 2022.",
+              "source": "https://www.solarpowerportal.co.uk/solar-projects/840mw-botley-west-solar-project-launches-first-phase-of-public-consultation",
+              "expected": false
+            },
+            {
+              "date": "2023-06-15",
+              "phase": "proposal",
+              "title": "EIA Scoping Report submitted to Planning Inspectorate",
+              "description": "PVDP, on behalf of SolarFive Ltd, submitted the Environmental Impact Assessment scoping request to the Planning Inspectorate, formally beginning the NSIP pre-application process.",
+              "source": "https://stopbotleywest.com/scoping-report-1",
+              "expected": false
+            },
+            {
+              "date": "2023-11-30",
+              "phase": "proposal",
+              "title": "Statutory pre-application (Section 42) consultation opened",
+              "description": "PVDP opened the statutory pre-application consultation under section 42 of the Planning Act 2008, running until 8 February 2024 and covering prescribed bodies, affected landowners and the local community.",
+              "source": "https://cassington-pc.gov.uk/documents/botley-west-solar-farm-statutory-pre-application-consultation-30-november-2023-8-february-2024/",
+              "expected": false
+            },
+            {
+              "date": "2024-01-08",
+              "phase": "proposal",
+              "title": "Commons adjournment debate on Botley West",
+              "description": "Witney MP Robert Courts secured a House of Commons debate setting out local objections to the scale of the proposal and concerns about agricultural land, green belt and amenity impacts.",
+              "source": "https://hansard.parliament.uk/commons/2024-01-08/debates/24010850000050/BotleyWestSolarFarm",
+              "expected": false
+            },
+            {
+              "date": "2024-11-15",
+              "phase": "application",
+              "title": "Development Consent Order application submitted",
+              "description": "PVDP submitted the DCO application for Botley West Solar Farm to the Planning Inspectorate, seeking consent for up to 840 MW of solar generation with integrated battery storage across three parcels in Oxfordshire.",
+              "source": "https://www.solarpowerportal.co.uk/solar-projects/development-consent-order-submitted-for-840mw-botley-west-solar-nsip",
+              "expected": false
+            },
+            {
+              "date": "2024-12-13",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "The Planning Inspectorate accepted the application for examination under the Planning Act 2008 following the 28-day acceptance review.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010147",
+              "expected": false
+            },
+            {
+              "date": "2025-01-28",
+              "phase": "proposal",
+              "title": "Examining Authority appointed",
+              "description": "The Planning Inspectorate appointed the panel of Examining Authority members to conduct the examination of the application.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010147",
+              "expected": false
+            },
+            {
+              "date": "2025-05-13",
+              "phase": "examination",
+              "title": "Preliminary Meeting held and examination opened",
+              "description": "The Preliminary Meeting was held on 13 May 2025, formally opening the six-month examination period and setting the timetable of eight deadlines through to 13 November 2025.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010147/examination-timetable",
+              "expected": false
+            },
+            {
+              "date": "2025-07-03",
+              "phase": "examination",
+              "title": "Historic England position published",
+              "description": "Historic England confirmed it did not consider the proposal would cause harm to Blenheim Palace World Heritage Site, while ICOMOS submitted a separate technical review advising the proposal would have an adverse impact on the property's Outstanding Universal Value.",
+              "source": "https://www.renewableenergymagazine.com/pv_solar/historic-england-confirm-that-the-botley-west-20250703",
+              "expected": false
+            },
+            {
+              "date": "2025-10-06",
+              "phase": "examination",
+              "title": "Final round of issue-specific and open-floor hearings",
+              "description": "The Examining Authority held the final week of hearings, with written summaries of oral submissions due at Deadline 6 on 20 October 2025.",
+              "source": "https://renews.biz/103480/exam-phase-nears-end-for-840mw-uk-solar-park/",
+              "expected": false
+            },
+            {
+              "date": "2025-11-13",
+              "phase": "examination",
+              "title": "Examination closed",
+              "description": "The six-month examination of the application closed, ending the period for written and oral evidence and starting the three-month period for the Examining Authority to prepare its recommendation report.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010147/examination-timetable",
+              "expected": false
+            },
+            {
+              "date": "2026-02-10",
+              "phase": "examination",
+              "title": "Recommendation submitted to Secretary of State",
+              "description": "The Examining Authority submitted its recommendation report on the application to the Secretary of State for Energy Security and Net Zero, Ed Miliband, starting the statutory three-month decision period.",
+              "source": "https://news.westoxon.gov.uk/news/examining-authority-submit-recommendations-on-botley-west-solar-farm-to-government",
+              "expected": false
+            },
+            {
+              "date": "2026-03-26",
+              "phase": "examination",
+              "title": "Decision deadline reset to 10 September 2026",
+              "description": "In a written ministerial statement, the Secretary of State reset the statutory decision deadline from 10 May 2026 to 10 September 2026 to allow DESNZ to seek further information from the applicant and for interested parties to comment on it.",
+              "source": "https://www.parallelparliament.co.uk/debate/2026-03-26/commons/written-statements/energy-infrastructure-planning-botley-west-solar-farm",
+              "expected": false
+            },
+            {
+              "date": "2026-04-28",
+              "phase": "examination",
+              "title": "Secretary of State clarification letter issued",
+              "description": "DESNZ issued a clarification letter seeking further information from the applicant and interested parties, with a response deadline of 23:59 on 9 June 2026.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010147",
+              "expected": false
+            },
+            {
+              "date": "2026-09-10",
+              "phase": "examination",
+              "title": "Statutory deadline for Secretary of State decision",
+              "description": "Revised statutory deadline by which the Secretary of State for Energy Security and Net Zero must issue a decision on whether to grant the Development Consent Order.",
+              "source": "https://www.parallelparliament.co.uk/debate/2026-03-26/commons/written-statements/energy-infrastructure-planning-botley-west-solar-farm",
+              "expected": true
+            }
+          ]
+        },
+        "EN010150": {
+          "ref": "EN010150",
+          "name": "Lighthouse Green Fuels Project",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Lighthouse Green Fuels was a proposed sustainable aviation fuel (SAF) facility at Port Clarence, Stockton-on-Tees, intended to convert municipal solid waste-derived feedstock into around 100 million litres of SAF per year. Developed by LGF Projects Limited (a wholly owned subsidiary of Saudi conglomerate Alfanar) and supported by approximately GBP 13.4 million from the UK Advanced Fuels Fund, the DCO application (EN010150) was formally withdrawn in 2025 after the developer concluded that a larger neighbouring site at Seal Sands and a switch from municipal solid waste to sustainably sourced biomass feedstock required a new application (now progressing as EN0110025).",
+          "milestones": [
+            {
+              "date": "2021-12-01",
+              "phase": "proposal",
+              "title": "First Advanced Fuels Fund award",
+              "description": "Alfanar's Lighthouse Green Fuels project receives GBP 2,417,500 from the UK Government's Advanced Fuels Fund (Department for Transport) to support development of a waste-to-SAF facility on Teesside.",
+              "source": "https://www.gov.uk/government/publications/advanced-fuels-fund-competition-winners/advanced-fuels-fund-aff-competition-winners",
+              "expected": false
+            },
+            {
+              "date": "2022-10-27",
+              "phase": "proposal",
+              "title": "Section 35 direction request",
+              "description": "Lighthouse Green Fuels submits a request to the Secretary of State to direct that the proposed SAF facility be treated as a Nationally Significant Infrastructure Project under section 35 of the Planning Act 2008.",
+              "source": "https://assets.publishing.service.gov.uk/media/6359225be90e0777b38c5d53/lighthouse-green-fuels-s35-direction-request-letter.pdf",
+              "expected": false
+            },
+            {
+              "date": "2022-12-01",
+              "phase": "proposal",
+              "title": "Second Advanced Fuels Fund award",
+              "description": "The project receives a further GBP 11,001,000 from the Advanced Fuels Fund, bringing total AFF support to approximately GBP 13.4 million for the waste-to-SAF Fischer-Tropsch facility.",
+              "source": "https://biofuels-news.com/news/uk-government-awards-over-65m-to-saf-projects/",
+              "expected": false
+            },
+            {
+              "date": "2023-07-01",
+              "phase": "proposal",
+              "title": "EIA Scoping Report submitted",
+              "description": "Lighthouse Green Fuels submits its Environmental Impact Assessment Scoping Report to the Planning Inspectorate for the proposed waste-to-SAF facility at Huntsman Drive, Port Clarence, Stockton-on-Tees.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN010150-000006-LGF%20EIA%20Scoping%20Volume%20I%20-%20Main%20Text%20and%20Figures.pdf",
+              "expected": false
+            },
+            {
+              "date": "2023-08-01",
+              "phase": "proposal",
+              "title": "Scoping Opinion issued",
+              "description": "The Planning Inspectorate issues its Scoping Opinion on the proposed Lighthouse Green Fuels Project, setting the scope of environmental information required for the DCO application.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN010150-000012-EN010150%20-%20Lighthouse%20Green%20Fuels%20-%20Scoping%20Opinion.pdf",
+              "expected": false
+            },
+            {
+              "date": "2024-04-25",
+              "phase": "proposal",
+              "title": "Section 35 direction varied",
+              "description": "DESNZ issues a varied section 35 direction reflecting refinements to the project description and red-line boundary at Port Clarence.",
+              "source": "https://assets.publishing.service.gov.uk/media/6627a867838212a903a7e611/lighthouse-green-fuels-s35-variation-desnz-letter.pdf",
+              "expected": false
+            },
+            {
+              "date": "2024-05-01",
+              "phase": "consultation",
+              "title": "Statutory consultation opens",
+              "description": "Lighthouse Green Fuels launches statutory pre-application consultation on its proposed SAF plant at Port Clarence, including publication of the Preliminary Environmental Information Report (PEIR). Consultation runs from May to June 2024.",
+              "source": "https://www.biobased-diesel.com/post/lighthouse-green-fuels-begins-consultation-on-teesside-saf-facility",
+              "expected": false
+            },
+            {
+              "date": "2025-08-01",
+              "phase": "cancelled",
+              "title": "EN010150 DCO application discontinued",
+              "description": "The Planning Inspectorate records EN010150 as DISCONTINUED. LGF Projects confirms the original Port Clarence application has been formally withdrawn following a decision to relocate the facility approximately 500 metres north-east to the former INEOS Nitriles site at Seal Sands and to switch feedstock from municipal solid waste to sustainably sourced biomass.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010150",
+              "expected": false
+            },
+            {
+              "date": "2025-08-12",
+              "phase": "proposal",
+              "title": "New Section 35 request submitted",
+              "description": "LGF Projects Limited submits a fresh section 35 request to the Secretary of State for the relocated, larger Seal Sands scheme (approximately 175-180 million litres/year of SAF), which is treated as a new NSIP project under reference EN0110025.",
+              "source": "https://assets.publishing.service.gov.uk/media/68bffebba74b1137c7edd766/lighthouse-green-fuels-project-section-35-request.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025-12-02",
+              "phase": "consultation",
+              "title": "Statutory consultation on successor project",
+              "description": "A new six-week statutory consultation on the relocated Seal Sands proposal runs from 2 December 2025 to 13 January 2026, progressed under successor reference EN0110025 rather than the discontinued EN010150.",
+              "source": "https://lighthousegreenfuels.co.uk/consultation",
               "expected": false
             }
           ]
