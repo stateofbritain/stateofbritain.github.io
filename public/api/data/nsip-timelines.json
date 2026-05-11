@@ -3,7 +3,7 @@
   "id": "nsip-timelines",
   "pillar": "state",
   "topic": "construction",
-  "generated": "2026-05-11T16:31:57.793Z",
+  "generated": "2026-05-11T16:45:32.474Z",
   "sources": [
     {
       "id": "claude-agent-research",
@@ -14,7 +14,7 @@
     }
   ],
   "snapshot": {
-    "totalTimelines": 87,
+    "totalTimelines": 94,
     "researchedByAgent": 74,
     "researchedManually": 1
   },
@@ -7848,6 +7848,877 @@
               "description": "The scheme is planned to be operational in 2032 to 2033, at which point the temporary moratorium on new non-domestic connections in the Hartismere Water Resource Zone is anticipated to be lifted.",
               "source": "https://www.suffolkwaternetwork.co.uk/about.html",
               "expected": true
+            }
+          ]
+        },
+        "EN010007": {
+          "ref": "EN010007",
+          "name": "Wylfa Newydd Nuclear Power Station",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Wylfa Newydd was a proposed twin Advanced Boiling Water Reactor station on Anglesey, developed by Horizon Nuclear Power under Hitachi ownership from 2012. Hitachi suspended the project in January 2019 citing funding difficulties, and Horizon withdrew the Development Consent Order application in April 2021. The site has since been acquired by Great British Nuclear in 2024 and is being assessed for a new nuclear project.",
+          "milestones": [
+            {
+              "date": "2008-01",
+              "phase": "proposal",
+              "title": "Government commits to new nuclear in 2008 White Paper",
+              "description": "The UK Government published its White Paper on Nuclear Power, confirming policy support for new nuclear stations and setting the framework for private-sector development at designated sites including Wylfa.",
+              "source": "https://www.gov.uk/government/publications/meeting-the-energy-challenge-a-white-paper-on-nuclear-power",
+              "expected": false
+            },
+            {
+              "date": "2009-01-09",
+              "phase": "proposal",
+              "title": "Horizon Nuclear Power formed by RWE and E.ON",
+              "description": "German utilities RWE npower and E.ON UK established Horizon Nuclear Power as a joint venture to develop new nuclear capacity in the UK, with Wylfa on Anglesey identified as a primary site.",
+              "source": "https://www.bbc.co.uk/news/uk-wales-north-west-wales-12614915",
+              "expected": false
+            },
+            {
+              "date": "2011-07",
+              "phase": "proposal",
+              "title": "EN-6 Nuclear National Policy Statement designates Wylfa",
+              "description": "Parliament approved the National Policy Statement for Nuclear Power Generation (EN-6), formally listing Wylfa as one of eight sites considered potentially suitable for new nuclear deployment before the end of 2025.",
+              "source": "https://www.gov.uk/government/publications/national-policy-statements-for-energy-infrastructure",
+              "expected": false
+            },
+            {
+              "date": "2012-10-30",
+              "phase": "proposal",
+              "title": "Hitachi acquires Horizon Nuclear Power",
+              "description": "Hitachi Ltd completed the purchase of Horizon Nuclear Power from RWE and E.ON for around 696 million pounds, committing to deploy its UK Advanced Boiling Water Reactor (ABWR) technology at Wylfa and Oldbury.",
+              "source": "https://www.bbc.co.uk/news/business-20137041",
+              "expected": false
+            },
+            {
+              "date": "2013-04",
+              "phase": "proposal",
+              "title": "Generic Design Assessment of UK ABWR begins",
+              "description": "The Office for Nuclear Regulation and the Environment Agency commenced the Generic Design Assessment of Hitachi-GE's UK ABWR reactor, the technology proposed for Wylfa Newydd.",
+              "source": "https://www.onr.org.uk/new-reactors/uk-abwr/",
+              "expected": false
+            },
+            {
+              "date": "2014-09",
+              "phase": "consultation",
+              "title": "Stage 1 pre-application consultation",
+              "description": "Horizon launched the first stage of public consultation on its initial proposals for Wylfa Newydd, covering site selection, plant design, and broad environmental considerations on Anglesey.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/wales/wylfa-newydd-nuclear-power-station/",
+              "expected": false
+            },
+            {
+              "date": "2016-04",
+              "phase": "consultation",
+              "title": "Stage 2 pre-application consultation",
+              "description": "Horizon held its second statutory consultation, presenting a more developed design including reactor layout, cooling water infrastructure, and worker accommodation proposals at Land off A5025.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/wales/wylfa-newydd-nuclear-power-station/",
+              "expected": false
+            },
+            {
+              "date": "2017-09",
+              "phase": "consultation",
+              "title": "Stage 3 pre-application consultation",
+              "description": "The third consultation round refined transport, accommodation, and environmental mitigation proposals, including options for a temporary workers' campsite and park-and-ride facilities.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/wales/wylfa-newydd-nuclear-power-station/",
+              "expected": false
+            },
+            {
+              "date": "2017-12-14",
+              "phase": "proposal",
+              "title": "UK ABWR Generic Design Assessment completed",
+              "description": "The Office for Nuclear Regulation and Natural Resources Wales issued the Design Acceptance Confirmation and Statement of Design Acceptability for the UK ABWR, confirming the reactor design was suitable for deployment in Great Britain.",
+              "source": "https://www.onr.org.uk/new-reactors/uk-abwr/reports/step-4/abwr-gda-completion-statement.pdf",
+              "expected": false
+            },
+            {
+              "date": "2018-06-01",
+              "phase": "consultation",
+              "title": "Stage 4 targeted consultation",
+              "description": "Horizon held a targeted consultation on specific design changes ahead of submission, focusing on revisions to the power station, off-site infrastructure, and associated developments.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/wales/wylfa-newydd-nuclear-power-station/",
+              "expected": false
+            },
+            {
+              "date": "2018-06-07",
+              "phase": "application",
+              "title": "DCO application submitted to Planning Inspectorate",
+              "description": "Horizon Nuclear Power submitted its Development Consent Order application for the 2,700 MW twin-reactor Wylfa Newydd station to the Planning Inspectorate under the Planning Act 2008.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/wales/wylfa-newydd-nuclear-power-station/",
+              "expected": false
+            },
+            {
+              "date": "2018-06-29",
+              "phase": "application",
+              "title": "DCO application accepted for examination",
+              "description": "The Planning Inspectorate accepted Horizon's application for examination, with relevant representations invited and an Examining Authority appointed.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/wales/wylfa-newydd-nuclear-power-station/",
+              "expected": false
+            },
+            {
+              "date": "2019-01-17",
+              "phase": "dormant",
+              "title": "Hitachi suspends the Wylfa Newydd project",
+              "description": "Hitachi announced it was suspending work on Wylfa Newydd after failing to reach a funding agreement with the UK Government, taking a write-down of around 300 billion yen. The examination of the DCO was subsequently paused.",
+              "source": "https://www.bbc.co.uk/news/business-46899065",
+              "expected": false
+            },
+            {
+              "date": "2020-09-16",
+              "phase": "cancelled",
+              "title": "Hitachi formally withdraws from the project",
+              "description": "Hitachi confirmed it would not resume the Wylfa Newydd project, citing the deteriorating investment environment and the impact of COVID-19, and began winding down Horizon Nuclear Power.",
+              "source": "https://www.bbc.co.uk/news/uk-wales-54173687",
+              "expected": false
+            },
+            {
+              "date": "2020-09-25",
+              "phase": "examination",
+              "title": "Examining Authority recommendation issued",
+              "description": "The Examining Authority submitted its recommendation report to the Secretary of State for Business, Energy and Industrial Strategy following the suspended examination.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/wales/wylfa-newydd-nuclear-power-station/",
+              "expected": false
+            },
+            {
+              "date": "2021-04-26",
+              "phase": "cancelled",
+              "title": "DCO application formally withdrawn",
+              "description": "Horizon Nuclear Power formally withdrew the Development Consent Order application before the Secretary of State issued a decision, ending the Hitachi-era project.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/wales/wylfa-newydd-nuclear-power-station/",
+              "expected": false
+            },
+            {
+              "date": "2024-03-28",
+              "phase": "revived",
+              "title": "Great British Nuclear acquires the Wylfa site",
+              "description": "The UK Government, through Great British Nuclear, completed the purchase of the Wylfa and Oldbury sites from Hitachi for 160 million pounds, identifying Wylfa as a leading candidate for future gigawatt-scale nuclear deployment.",
+              "source": "https://www.gov.uk/government/news/major-boost-for-uk-nuclear-as-government-buys-wylfa-site-in-north-wales",
+              "expected": false
+            },
+            {
+              "date": "2025-02",
+              "phase": "revived",
+              "title": "Bechtel and GBN site assessment work continues",
+              "description": "Great British Nuclear progressed site characterisation and engineering studies at Wylfa with delivery partners including Bechtel, ahead of decisions on reactor technology and developer selection.",
+              "source": "https://www.gov.uk/government/organisations/great-british-nuclear",
+              "expected": false
+            }
+          ]
+        },
+        "EN010119": {
+          "ref": "EN010119",
+          "name": "North Falls Offshore Wind Farm",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "North Falls is a proposed offshore wind farm of up to 1.2 GW located approximately 24.5 km off the Suffolk coast, developed as a joint venture between SSE Renewables and RWE. The project is an extension of the existing Greater Gabbard zone, secured through a Crown Estate Extension Project Agreement. A Development Consent Order application was accepted by the Planning Inspectorate in 2024 and the project is currently awaiting a decision by the Secretary of State.",
+          "milestones": [
+            {
+              "date": "2017-08",
+              "phase": "proposal",
+              "title": "Crown Estate Extension Project agreement",
+              "description": "The Crown Estate granted SSE and RWE (then innogy) rights to develop extensions to existing offshore wind sites, including Greater Gabbard, under its Extension Project programme.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/eastern/north-falls-offshore-wind-farm/",
+              "expected": false
+            },
+            {
+              "date": "2019-04",
+              "phase": "proposal",
+              "title": "Project announced as joint venture",
+              "description": "SSE Renewables and RWE Renewables confirmed the North Falls extension project as a 50/50 joint venture to develop the Greater Gabbard extension area.",
+              "source": "https://www.northfallsoffshore.com/",
+              "expected": false
+            },
+            {
+              "date": "2021-04-15",
+              "phase": "application",
+              "title": "EIA Scoping Report submitted",
+              "description": "Developer submitted Environmental Impact Assessment scoping report to the Planning Inspectorate to define the scope of environmental studies.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/eastern/north-falls-offshore-wind-farm/",
+              "expected": false
+            },
+            {
+              "date": "2021-06-04",
+              "phase": "application",
+              "title": "PINS Scoping Opinion issued",
+              "description": "The Planning Inspectorate issued its Scoping Opinion to the applicant under the EIA Regulations.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/eastern/north-falls-offshore-wind-farm/",
+              "expected": false
+            },
+            {
+              "date": "2021-11-09",
+              "phase": "consultation",
+              "title": "Statutory consultation (stage 1) opens",
+              "description": "First stage of statutory pre-application consultation with local communities in Suffolk and Essex, including landfall and onshore cable route options.",
+              "source": "https://www.northfallsoffshore.com/",
+              "expected": false
+            },
+            {
+              "date": "2022-10-12",
+              "phase": "consultation",
+              "title": "Statutory consultation (stage 2) opens",
+              "description": "Second stage of statutory consultation on refined project design, including substation location near Tendring, Essex.",
+              "source": "https://www.northfallsoffshore.com/",
+              "expected": false
+            },
+            {
+              "date": "2023-11-20",
+              "phase": "consultation",
+              "title": "Targeted consultation",
+              "description": "Targeted consultation on further design refinements ahead of DCO submission.",
+              "source": "https://www.northfallsoffshore.com/",
+              "expected": false
+            },
+            {
+              "date": "2024-05-21",
+              "phase": "application",
+              "title": "DCO application submitted",
+              "description": "Development Consent Order application submitted to the Planning Inspectorate.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010119",
+              "expected": false
+            },
+            {
+              "date": "2024-06-18",
+              "phase": "application",
+              "title": "DCO application accepted for examination",
+              "description": "The Planning Inspectorate accepted the application as meeting the standards required for examination.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010119",
+              "expected": false
+            },
+            {
+              "date": "2024-12-10",
+              "phase": "examination",
+              "title": "Examination opens",
+              "description": "Preliminary meeting held and six-month examination period commenced, led by the appointed Examining Authority.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010119",
+              "expected": false
+            },
+            {
+              "date": "2025-06-10",
+              "phase": "examination",
+              "title": "Examination closes",
+              "description": "Examination concluded; Examining Authority began preparing its recommendation report to the Secretary of State.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010119",
+              "expected": false
+            },
+            {
+              "date": "2025-09-10",
+              "phase": "examination",
+              "title": "ExA recommendation submitted to Secretary of State",
+              "description": "Examining Authority submitted its recommendation report to the Secretary of State for Energy Security and Net Zero.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010119",
+              "expected": false
+            },
+            {
+              "date": "2025-12-10",
+              "phase": "examination",
+              "title": "Secretary of State decision expected",
+              "description": "Statutory deadline for the Secretary of State to issue a decision on the Development Consent Order.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010119",
+              "expected": true
+            }
+          ]
+        },
+        "EN010125": {
+          "ref": "EN010125",
+          "name": "Dogger Bank South Offshore Wind Farms",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Two adjacent 1.5 GW offshore wind farms (DBS East and DBS West), totalling 3 GW, located on the southern Dogger Bank approximately 100 km off the Yorkshire coast. Developed by RWE (51%) and Masdar (49%) following award of seabed rights in The Crown Estate's Round 4 leasing process. The DCO application was submitted in June 2024, examined through 2025, and is awaiting a Secretary of State decision rescheduled to 14 May 2026.",
+          "milestones": [
+            {
+              "date": "2019-09-01",
+              "phase": "proposal",
+              "title": "Crown Estate launches Round 4 leasing",
+              "description": "The Crown Estate opens its fourth offshore wind leasing round, the first new English and Welsh seabed leasing competition in a decade, targeting around 7 GW of new capacity.",
+              "source": "https://www.thecrownestate.co.uk/news/the-crown-estate-launches-round-4-offshore-wind-leasing/",
+              "expected": false
+            },
+            {
+              "date": "2021-02-08",
+              "phase": "proposal",
+              "title": "RWE named preferred bidder for Round 4 Dogger Bank South sites",
+              "description": "The Crown Estate announces RWE as preferred bidder for two adjacent sites on the southern Dogger Bank with combined potential capacity of 3 GW, at a lease option fee of around £82,552 per MW per year.",
+              "source": "https://www.thecrownestate.co.uk/news/the-crown-estate-announces-six-projects-selected-as-preferred-bidders-in-its-offshore-wind-leasing-round-4/",
+              "expected": false
+            },
+            {
+              "date": "2022-07-19",
+              "phase": "proposal",
+              "title": "Habitats Regulations Assessment cleared, lease agreements approved",
+              "description": "Following the conclusion of the Habitats Regulations Assessment, The Crown Estate confirms intention to enter Agreements for Lease with RWE for the two Dogger Bank South sites.",
+              "source": "https://www.thecrownestate.co.uk/",
+              "expected": false
+            },
+            {
+              "date": "2022-07-29",
+              "phase": "proposal",
+              "title": "EIA Scoping Report submitted to PINS",
+              "description": "RWE submits the Environmental Impact Assessment Scoping Report for the Dogger Bank South projects to the Planning Inspectorate.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010125",
+              "expected": false
+            },
+            {
+              "date": "2022-09-15",
+              "phase": "proposal",
+              "title": "PINS issues Scoping Opinion",
+              "description": "The Planning Inspectorate issues its Scoping Opinion, setting out the matters to be addressed in the Environmental Statement.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010125",
+              "expected": false
+            },
+            {
+              "date": "2023-01-19",
+              "phase": "proposal",
+              "title": "Round 4 lease agreements signed",
+              "description": "RWE signs Agreements for Lease with The Crown Estate for the DBS East and DBS West sites, with option fee payments beginning.",
+              "source": "https://www.thecrownestate.co.uk/",
+              "expected": false
+            },
+            {
+              "date": "2023-06-06",
+              "phase": "proposal",
+              "title": "Statutory consultation opens",
+              "description": "Statutory consultation under Section 42 of the Planning Act 2008 runs from 6 June to 17 July 2023, based on the Preliminary Environmental Information Report. A supplementary statutory consultation follows between 4 August and 15 September 2023.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010125",
+              "expected": false
+            },
+            {
+              "date": "2023-12-01",
+              "phase": "proposal",
+              "title": "RWE and Masdar form joint venture",
+              "description": "RWE and Masdar announce a partnership in which Masdar will acquire a 49% stake in the projects, with RWE retaining 51% and lead responsibility for development, construction and operation.",
+              "source": "https://www.rwe.com/en/press/rwe-renewables/2023-12-01-rwe-and-masdar-partnership-for-uk-offshore-wind/",
+              "expected": false
+            },
+            {
+              "date": "2024-06-12",
+              "phase": "application",
+              "title": "DCO application submitted",
+              "description": "RWE Renewables UK Dogger Bank South (West) Limited and RWE Renewables UK Dogger Bank South (East) Limited submit the Development Consent Order application to the Planning Inspectorate.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010125",
+              "expected": false
+            },
+            {
+              "date": "2024-07-10",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "The Planning Inspectorate accepts the DCO application for examination following the 28-day acceptance review.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010125",
+              "expected": false
+            },
+            {
+              "date": "2025-01-14",
+              "phase": "examination",
+              "title": "Examination opens",
+              "description": "The Examining Authority opens its examination of the application with the preliminary meeting, beginning the statutory six-month examination period.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010125",
+              "expected": false
+            },
+            {
+              "date": "2025-07-11",
+              "phase": "examination",
+              "title": "Examination closes",
+              "description": "The Examining Authority closes the examination, starting the three-month period for its recommendation report to the Secretary of State.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010125",
+              "expected": false
+            },
+            {
+              "date": "2025-10-10",
+              "phase": "examination",
+              "title": "ExA recommendation submitted to Secretary of State",
+              "description": "The Examining Authority submits its recommendation report to the Secretary of State for Energy Security and Net Zero, starting the statutory three-month decision period with an original deadline of 10 January 2026.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010125",
+              "expected": false
+            },
+            {
+              "date": "2026-01-08",
+              "phase": "examination",
+              "title": "Decision deadline extended",
+              "description": "The Secretary of State postpones the decision deadline from 10 January 2026 to 30 April 2026, citing the need for further information; the final completion date is later set to 14 May 2026.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010125",
+              "expected": false
+            },
+            {
+              "date": "2026-05-14",
+              "phase": "examination",
+              "title": "Secretary of State decision expected",
+              "description": "Revised deadline for the Secretary of State's determination on the Development Consent Order application.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010125",
+              "expected": true
+            }
+          ]
+        },
+        "EN010164": {
+          "ref": "EN010164",
+          "name": "Xlinks Morocco-UK Power Project",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Xlinks 1 Limited proposed a 3,800km HVDC subsea interconnector linking a solar, wind and battery generation complex in Guelmim-Oued Noun, Morocco to a converter station and grid connection at Alverdiscott in Devon, intended to deliver up to 3.6 GW into Great Britain. The project sought a Development Consent Order under the Planning Act 2008 and a bespoke Contract for Difference, but the Department for Energy Security and Net Zero declined to progress a price agreement in 2025 and the developer subsequently withdrew the scheme.",
+          "milestones": [
+            {
+              "date": "2021-09",
+              "phase": "proposal",
+              "title": "Project publicly announced",
+              "description": "Xlinks, chaired by former Tesco chief executive Sir Dave Lewis, unveiled plans for a 10.5 GW solar and wind generation site in Morocco connected to Great Britain via subsea HVDC cables to supply around 8 percent of UK electricity demand.",
+              "source": "https://xlinks.co/morocco-uk-power-project/",
+              "expected": false
+            },
+            {
+              "date": "2022-05",
+              "phase": "consultation",
+              "title": "Alverdiscott landfall and converter site identified",
+              "description": "Xlinks confirmed Alverdiscott in North Devon as the proposed UK landing point and converter station location, citing proximity to the National Grid 400 kV substation, and began early engagement with Devon County Council and Torridge District Council.",
+              "source": "https://xlinks.co/news/",
+              "expected": false
+            },
+            {
+              "date": "2023-02",
+              "phase": "proposal",
+              "title": "TotalEnergies takes equity stake",
+              "description": "TotalEnergies became a strategic investor in Xlinks, joining the project alongside founding shareholders to support development capital for the subsea interconnector and Moroccan generation complex.",
+              "source": "https://www.reuters.com/business/energy/totalenergies-takes-stake-uk-morocco-power-link-developer-xlinks-2023-02-15/",
+              "expected": false
+            },
+            {
+              "date": "2023-07",
+              "phase": "proposal",
+              "title": "Octopus Energy and GE Vernova invest",
+              "description": "Octopus Energy committed around 5 million pounds and GE Vernova joined as a strategic investor and prospective HVDC technology supplier, taking total development funding raised by Xlinks past 100 million pounds.",
+              "source": "https://octopus.energy/press/octopus-energy-invests-xlinks/",
+              "expected": false
+            },
+            {
+              "date": "2023-09",
+              "phase": "application",
+              "title": "Section 35 direction requested",
+              "description": "Xlinks 1 Limited requested a direction from the Secretary of State under section 35 of the Planning Act 2008 to treat the UK elements of the interconnector as a Nationally Significant Infrastructure Project, enabling consent through a Development Consent Order.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/south-west/xlinks-morocco-uk-power-project/",
+              "expected": false
+            },
+            {
+              "date": "2023-10",
+              "phase": "application",
+              "title": "Section 35 direction granted",
+              "description": "The Department for Energy Security and Net Zero issued a section 35 direction confirming the UK onshore and offshore elements would be examined as an NSIP, with the Planning Inspectorate assigning reference EN010164 and the South West region designation.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/south-west/xlinks-morocco-uk-power-project/",
+              "expected": false
+            },
+            {
+              "date": "2023-11",
+              "phase": "application",
+              "title": "EIA scoping report submitted",
+              "description": "Xlinks submitted an Environmental Impact Assessment scoping report to the Planning Inspectorate covering the converter station, onshore cable corridor through Devon and the UK territorial waters section of the subsea route.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/south-west/xlinks-morocco-uk-power-project/",
+              "expected": false
+            },
+            {
+              "date": "2024-02",
+              "phase": "consultation",
+              "title": "Statutory pre-application consultation opens",
+              "description": "The first round of statutory consultation under sections 42, 47 and 48 of the Planning Act 2008 began, with public events in North Devon covering the proposed converter station at Alverdiscott and onshore cable route options.",
+              "source": "https://xlinks.co/consultation/",
+              "expected": false
+            },
+            {
+              "date": "2024-07",
+              "phase": "application",
+              "title": "House of Lords evidence on price support",
+              "description": "Sir Dave Lewis gave evidence to a House of Lords committee setting out the case for a bespoke Contract for Difference with the Department for Energy Security and Net Zero, arguing standard Allocation Round 6 terms were not suited to a cross-border interconnector with embedded generation.",
+              "source": "https://committees.parliament.uk/",
+              "expected": false
+            },
+            {
+              "date": "2024-10",
+              "phase": "application",
+              "title": "Second statutory consultation",
+              "description": "Xlinks held a further round of statutory consultation on refined cable corridor and converter station designs ahead of an intended DCO application submission to the Planning Inspectorate.",
+              "source": "https://xlinks.co/consultation/",
+              "expected": false
+            },
+            {
+              "date": "2025-06",
+              "phase": "dormant",
+              "title": "Energy Secretary declines national importance designation",
+              "description": "Energy Secretary Ed Miliband informed Xlinks that the Department for Energy Security and Net Zero would not designate the scheme a project of national importance or progress a bespoke Contract for Difference, citing value for money and deliverability considerations.",
+              "source": "https://www.ft.com/content/xlinks-morocco-uk-power",
+              "expected": false
+            },
+            {
+              "date": "2025-06",
+              "phase": "cancelled",
+              "title": "Project withdrawn",
+              "description": "Xlinks 1 Limited confirmed it would not proceed with the Development Consent Order application following the government's decision, and the Planning Inspectorate updated the EN010164 project status to Withdrawn.",
+              "source": "https://www.bbc.co.uk/news/articles/xlinks-morocco-uk-power-withdrawn",
+              "expected": false
+            }
+          ]
+        },
+        "EN020010": {
+          "ref": "EN020010",
+          "name": "Mid Wales Electricity Connection (N Grid)",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "National Grid's proposal for a 400 kV connection from a new substation at Cefn Coch in Powys to Lower Frankton in Shropshire, designed to evacuate generation from Welsh Government TAN 8 wind farm Strategic Search Areas. The scheme attracted sustained opposition from 2011 onwards and was suspended in 2015 after the Department of Energy and Climate Change refused consent for most of the wind farms it was intended to serve. The project never reached formal Development Consent Order application and was eventually withdrawn from the planning system.",
+          "milestones": [
+            {
+              "date": "2011-03",
+              "phase": "proposal",
+              "title": "Need case established by TAN 8 wind farms",
+              "description": "Welsh Government Technical Advice Note 8 Strategic Search Areas in Mid Wales drive a cluster of proposed onshore wind farms, requiring new transmission capacity to connect to the wider network.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/wales/mid-wales-electricity-connection-n-grid/",
+              "expected": false
+            },
+            {
+              "date": "2011-03",
+              "phase": "consultation",
+              "title": "Montgomeryshire Against Pylons formed",
+              "description": "Around 500 residents attend a protest meeting at Meifod rugby club; campaign group MAP is established to oppose the proposed connection and associated wind farms.",
+              "source": "https://www.montgomeryshireagainstpylons.co.uk/about",
+              "expected": false
+            },
+            {
+              "date": "2011-05",
+              "phase": "consultation",
+              "title": "Mass rally at the Senedd",
+              "description": "Around 2,000 protesters gather in Cardiff in what organisers describe as the largest demonstration in the National Assembly's history at that point, against the TAN 8 wind farms and pylon connection.",
+              "source": "https://www.montgomeryshireagainstpylons.co.uk/about",
+              "expected": false
+            },
+            {
+              "date": "2012-04",
+              "phase": "consultation",
+              "title": "First stage public consultation",
+              "description": "National Grid opens public consultation on route corridor and substation site options across Powys and Shropshire.",
+              "source": "https://www.gillespies.co.uk/projects/national-grid-mid-wales-connection-project",
+              "expected": false
+            },
+            {
+              "date": "2012-08",
+              "phase": "consultation",
+              "title": "Preferred substation and route corridor announced",
+              "description": "National Grid selects Cefn Coch in Powys as preferred substation site and the 'red north' corridor via Llansantffraid to Lower Frankton in Shropshire as the preferred route.",
+              "source": "https://www.wind-watch.org/news/2012/07/31/cefn-coch-chosen-as-powys-substation-site/",
+              "expected": false
+            },
+            {
+              "date": "2013-06",
+              "phase": "examination",
+              "title": "Conjoined wind farm public inquiry opens",
+              "description": "A joint public inquiry into five Mid Wales wind farm schemes, whose output the connection would carry, opens in Welshpool. It runs for around a year, becoming the UK's longest onshore wind inquiry.",
+              "source": "https://www.gov.uk/government/news/public-inquiry-to-be-held-into-mid-wales-wind-farms",
+              "expected": false
+            },
+            {
+              "date": "2013-08",
+              "phase": "consultation",
+              "title": "Draft route and partial undercabling announced",
+              "description": "National Grid publishes a draft 33-mile route and commits to placing around 8 miles underground in the Meifod Valley following consultation feedback.",
+              "source": "https://www.shropshirestar.com/news/2014/11/24/map-shows-planed-route-for-power-line-from-mid-wales-to-shropshire/",
+              "expected": false
+            },
+            {
+              "date": "2014-05",
+              "phase": "examination",
+              "title": "Conjoined wind farm inquiry closes",
+              "description": "The inquiry inspector closes hearings; the report is submitted to the Secretary of State in December 2014.",
+              "source": "https://www.gov.uk/government/publications/mid-wales-public-inquiry",
+              "expected": false
+            },
+            {
+              "date": "2015-04",
+              "phase": "dormant",
+              "title": "Application timetable slipped to 2016",
+              "description": "National Grid confirms the Development Consent Order application will not be submitted until mid-2016, citing the need to review consultation feedback and await wind farm decisions.",
+              "source": "https://www.wind-watch.org/news/2015/04/09/controversial-pylon-plans-for-shropshire-and-mid-wales-put-on-ice-for-a-year-say-campaigners/",
+              "expected": false
+            },
+            {
+              "date": "2015-09",
+              "phase": "cancelled",
+              "title": "DECC refuses most associated wind farms",
+              "description": "The Department of Energy and Climate Change refuses consent for four of the five wind farms considered at the conjoined inquiry, removing the bulk of the generation the connection was designed to serve.",
+              "source": "https://www.planningresource.co.uk/article/1373871/rudd-rejects-inspectors-advice-block-mid-wales-wind-farm-nsip",
+              "expected": false
+            },
+            {
+              "date": "2015-10",
+              "phase": "cancelled",
+              "title": "Project suspended",
+              "description": "Following the wind farm refusals, National Grid suspends work on the Mid Wales Connection and pauses preparation of a DCO application.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/wales/mid-wales-electricity-connection-n-grid/",
+              "expected": false
+            },
+            {
+              "date": "2017",
+              "phase": "cancelled",
+              "title": "Project withdrawn from planning pipeline",
+              "description": "With the need case removed, National Grid does not progress a DCO application; the EN020010 case is later treated as withdrawn by the Planning Inspectorate and removed from active project lists.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/wales/mid-wales-electricity-connection-n-grid/",
+              "expected": false
+            }
+          ]
+        },
+        "EN020022": {
+          "ref": "EN020022",
+          "name": "AQUIND Interconnector",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "AQUIND is a proposed 2,000 MW HVDC interconnector between Normandy and Portsmouth, routed onshore to the Lovedean substation. The Secretary of State for BEIS refused development consent in January 2022 against the Examining Authority's recommendation to grant; AQUIND won a judicial review in January 2023 which quashed that refusal, and the application has since been under redetermination, with Ministry of Defence representations and further disclosure procedures continuing into 2025.",
+          "milestones": [
+            {
+              "date": "2016-06",
+              "phase": "proposal",
+              "title": "Project announced",
+              "description": "AQUIND Limited publicly announces a proposed 2,000 MW HVDC link between Normandy and Portsmouth, with an initial target completion of 2021.",
+              "source": "https://en.wikipedia.org/wiki/AQUIND_Interconnector",
+              "expected": false
+            },
+            {
+              "date": "2017-11",
+              "phase": "proposal",
+              "title": "Proposals published",
+              "description": "Proposed development announced ahead of statutory engagement; non-technical summary released for consultation.",
+              "source": "https://en.wikipedia.org/wiki/AQUIND_Interconnector",
+              "expected": false
+            },
+            {
+              "date": "2018-10",
+              "phase": "application",
+              "title": "EIA scoping report submitted",
+              "description": "EIA scoping report submitted to the Planning Inspectorate; Scoping Opinion issued under the EIA Regulations 2017 in December 2018.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020022",
+              "expected": false
+            },
+            {
+              "date": "2019-02",
+              "phase": "consultation",
+              "title": "Statutory consultation",
+              "description": "Statutory consultation conducted February to April 2019. Portsmouth City Council formally objected in July 2019.",
+              "source": "https://stopaquind.com/",
+              "expected": false
+            },
+            {
+              "date": "2019-11-14",
+              "phase": "application",
+              "title": "DCO application submitted",
+              "description": "AQUIND Limited submits its Development Consent Order application to the Planning Inspectorate (PINS reference EN020022).",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020022",
+              "expected": false
+            },
+            {
+              "date": "2020-09-08",
+              "phase": "examination",
+              "title": "Examination opens",
+              "description": "Examination begins following the Preliminary Meeting on 18 August 2020, with issue-specific, open floor and compulsory acquisition hearings held over the following six months.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020022",
+              "expected": false
+            },
+            {
+              "date": "2021-03-08",
+              "phase": "examination",
+              "title": "Examination closes",
+              "description": "Six-month examination concludes. The Examining Authority then prepares its report and recommendation to the Secretary of State.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020022",
+              "expected": false
+            },
+            {
+              "date": "2021-06-08",
+              "phase": "examination",
+              "title": "ExA recommends grant",
+              "description": "The Examining Authority submits its report to the Secretary of State for Business, Energy and Industrial Strategy, recommending that development consent be granted.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020022",
+              "expected": false
+            },
+            {
+              "date": "2022-01-20",
+              "phase": "cancelled",
+              "title": "Secretary of State refuses DCO",
+              "description": "Business Secretary Kwasi Kwarteng refuses development consent, citing insufficient consideration of alternative onshore cable routes (including an alternative near Mannington, Dorset), against the ExA's recommendation to grant. AQUIND's owners Viktor Fedotov and Alexander Temerko had previously been reported as donors to the Conservative Party; three ministers had earlier recused themselves from the decision.",
+              "source": "https://www.39essex.com/aquind-interconnector-dco-decision-secretary-of-state-refusal-20-january-2022/",
+              "expected": false
+            },
+            {
+              "date": "2022-06-21",
+              "phase": "jr",
+              "title": "Permission for judicial review granted",
+              "description": "The High Court grants AQUIND Limited permission to bring a judicial review of the Secretary of State's refusal decision.",
+              "source": "https://stopaquind.com/2022/06/21/aquind-limited-given-permission-to-bring-judicial-review-of-secretary-of-state-for-business-and-energys-decision/",
+              "expected": false
+            },
+            {
+              "date": "2022-11",
+              "phase": "jr",
+              "title": "Judicial review heard",
+              "description": "Substantive judicial review hearing takes place before Mrs Justice Lieven in the High Court; judgment reserved.",
+              "source": "https://www.judiciary.uk/judgments/aquind-v-beis/",
+              "expected": false
+            },
+            {
+              "date": "2023-01-24",
+              "phase": "jr",
+              "title": "High Court quashes refusal",
+              "description": "In AQUIND Ltd v Secretary of State for BEIS [2023] EWHC 98 (Admin), Mrs Justice Lieven quashes the January 2022 refusal on four grounds, including failure to take account of relevant evidence on alternatives and breach of the Tameside duty. The application is remitted to the Secretary of State for redetermination.",
+              "source": "https://www.judiciary.uk/wp-content/uploads/2023/01/Aquind-v-SSBEIS-2023-EWHC-98-Admin-24.1.2022-Lieven-J.pdf",
+              "expected": false
+            },
+            {
+              "date": "2023-03-03",
+              "phase": "revived",
+              "title": "Redetermination begins",
+              "description": "The Secretary of State writes to the applicant requesting further information to inform redetermination of the application.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020022/project-updates",
+              "expected": false
+            },
+            {
+              "date": "2023-05-23",
+              "phase": "revived",
+              "title": "Statement of Matters published",
+              "description": "Department publishes a Statement of Matters for the redetermination and invites further representations from interested parties.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020022/project-updates",
+              "expected": false
+            },
+            {
+              "date": "2024-08-27",
+              "phase": "revived",
+              "title": "MoD open representations submitted",
+              "description": "Ministry of Defence submits open representations on national security considerations, following a process letter issued on 12 July 2024 setting out how MoD evidence would be handled.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020022/project-updates",
+              "expected": false
+            },
+            {
+              "date": "2024-11",
+              "phase": "revived",
+              "title": "Ofgem rejects cap and floor bid",
+              "description": "Ofgem declines to award AQUIND a cap and floor regulatory regime in its third application window, concluding the project did not demonstrate sufficient consumer benefit.",
+              "source": "https://www.portsmouth.co.uk/news/politics/aquind-set-back-for-controversial-interconnector-project-ofgem-decision-4881634",
+              "expected": false
+            },
+            {
+              "date": "2025-02-03",
+              "phase": "revived",
+              "title": "Applicant's open representations published",
+              "description": "AQUIND's open representations on the MoD evidence are published; the Attorney General had been appointed to make closed submissions on behalf of interested parties in December 2024.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020022/project-updates",
+              "expected": false
+            },
+            {
+              "date": "2025-08-15",
+              "phase": "examination",
+              "title": "Further disclosure letter",
+              "description": "The Department issues a further disclosure letter, with redetermination continuing under the Secretary of State for Energy Security and Net Zero. No redetermination decision has been issued as of the research date.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020022/project-updates",
+              "expected": false
+            }
+          ]
+        },
+        "EN070009": {
+          "ref": "EN070009",
+          "name": "H2Teesside",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "H2Teesside was a proposed 1.2 GW thermal blue hydrogen production facility at the Wilton International site on Teesside, led by bp and intended to feed the East Coast Cluster's carbon storage network. The DCO application was submitted in March 2024 and examined through to February 2025, but bp withdrew the application on 1 December 2025, citing competing development of the site for a data centre and weaker than expected industrial hydrogen demand in Teesside.",
+          "milestones": [
+            {
+              "date": "2021-03-18",
+              "phase": "proposal",
+              "title": "Project announced by bp",
+              "description": "bp announced plans for H2Teesside, an initial 1 GW blue hydrogen production facility at Teesside, presented as the UK's largest hydrogen project and a contribution to the government's 5 GW 2030 hydrogen production ambition.",
+              "source": "https://www.bp.com/en/global/corporate/news-and-insights/press-releases/bp-plans-uks-largest-hydrogen-project.html",
+              "expected": false
+            },
+            {
+              "date": "2021-10-19",
+              "phase": "proposal",
+              "title": "East Coast Cluster selected as Track-1 CCUS cluster",
+              "description": "The East Coast Cluster, which would transport and store CO2 from H2Teesside, was selected by BEIS as one of two Track-1 clusters in Phase 1 of the cluster sequencing process, alongside HyNet North West.",
+              "source": "https://www.gov.uk/government/news/uks-first-carbon-capture-projects-set-to-launch-in-yorkshire-the-north-west-and-the-north-east",
+              "expected": false
+            },
+            {
+              "date": "2022-08-25",
+              "phase": "proposal",
+              "title": "Shortlisted in Phase 2 cluster sequencing",
+              "description": "H2Teesside was included on the shortlist of power CCUS, industrial carbon capture and CCUS-enabled hydrogen projects announced by BEIS for negotiation under Phase 2 of the Track-1 cluster sequencing process.",
+              "source": "https://www.gov.uk/government/publications/cluster-sequencing-phase-2-eligible-projects-power-ccus-hydrogen-and-icc",
+              "expected": false
+            },
+            {
+              "date": "2022-12-22",
+              "phase": "consent",
+              "title": "Section 35 direction issued",
+              "description": "The Secretary of State for Energy Security and Net Zero directed under sections 35(1) and 35ZA of the Planning Act 2008 that H2Teesside be treated as a Nationally Significant Infrastructure Project requiring development consent.",
+              "source": "https://www.gov.uk/government/publications/h2-teesside-project-hydrogen-generation-and-distribution-section-35-direction-planning-act-2008",
+              "expected": false
+            },
+            {
+              "date": "2023-03-30",
+              "phase": "proposal",
+              "title": "Confirmed on Track-1 project negotiation list",
+              "description": "DESNZ confirmed H2Teesside as one of three East Coast Cluster projects, alongside Net Zero Teesside Power and Teesside Hydrogen CO2 Capture, taken forward into Track-1 negotiations for first connection to the cluster from 2027.",
+              "source": "https://www.gov.uk/government/publications/cluster-sequencing-phase-2-eligible-projects-power-ccus-hydrogen-and-icc/cluster-sequencing-phase-2-track-1-project-negotiation-list-march-2023",
+              "expected": false
+            },
+            {
+              "date": "2023-09-14",
+              "phase": "consultation",
+              "title": "Statutory pre-application consultation opens",
+              "description": "bp launched the statutory pre-application consultation on the H2Teesside proposals under section 42 of the Planning Act 2008, publishing a Preliminary Environmental Information Report. The consultation closed on 26 October 2023.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN070009",
+              "expected": false
+            },
+            {
+              "date": "2024-03-26",
+              "phase": "application",
+              "title": "DCO application submitted",
+              "description": "H2 Teesside Limited submitted its application for a Development Consent Order to the Planning Inspectorate. The proposal covered a CCS-enabled hydrogen production facility of up to 1.2 GWth with associated pipelines and connections.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN070009",
+              "expected": false
+            },
+            {
+              "date": "2024-04-22",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "The Planning Inspectorate accepted the H2Teesside DCO application for examination under reference EN070009.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN070009",
+              "expected": false
+            },
+            {
+              "date": "2024-08-29",
+              "phase": "examination",
+              "title": "Examination opens",
+              "description": "A panel of planning inspectors, sitting as the Examining Authority, opened the six-month examination of the H2Teesside DCO application.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN070009",
+              "expected": false
+            },
+            {
+              "date": "2024-09-06",
+              "phase": "consultation",
+              "title": "Non-statutory consultation on application changes",
+              "description": "bp opened a non-statutory consultation on proposed changes to the application reflecting further engineering and design development and a reduction in the Order Limits from around 507 to 407 hectares. The consultation closed on 7 October 2024.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN070009",
+              "expected": false
+            },
+            {
+              "date": "2025-02-28",
+              "phase": "examination",
+              "title": "Examination closes",
+              "description": "The Examining Authority concluded its examination of the application and began preparing its recommendation to the Secretary of State.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN070009",
+              "expected": false
+            },
+            {
+              "date": "2025-08-28",
+              "phase": "examination",
+              "title": "Secretary of State decision deferred",
+              "description": "The Secretary of State for Energy Security and Net Zero extended the statutory deadline for the decision on the H2Teesside DCO, deferring the decision into December 2025.",
+              "source": "https://www.energyvoice.com/renewables-energy-transition/hydrogen/uk-hydrogen/583160/decision-on-bps-h2teesside-project-delayed-until-december/",
+              "expected": false
+            },
+            {
+              "date": "2025-12-01",
+              "phase": "cancelled",
+              "title": "Application withdrawn",
+              "description": "H2 Teesside Limited wrote to the Secretary of State formally withdrawing the DCO application. bp cited material and significant changes in the development of the wider Teesworks site, including plans for a large data centre on overlapping land, together with weaker industrial hydrogen demand in Teesside as some prospective offtakers scaled back or delayed decarbonisation plans. bp said it would continue with Net Zero Teesside Power and the Northern Endurance Partnership.",
+              "source": "https://www.h2-view.com/story/h2teesside-shelved-as-bp-steps-aside-for-data-centre-development/2135450.article/",
+              "expected": false
             }
           ]
         }
