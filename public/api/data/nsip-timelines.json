@@ -3,7 +3,7 @@
   "id": "nsip-timelines",
   "pillar": "state",
   "topic": "construction",
-  "generated": "2026-05-12T07:29:13.519Z",
+  "generated": "2026-05-12T07:34:12.558Z",
   "sources": [
     {
       "id": "claude-agent-research",
@@ -14,7 +14,7 @@
     }
   ],
   "snapshot": {
-    "totalTimelines": 174,
+    "totalTimelines": 181,
     "researchedByAgent": 74,
     "researchedManually": 1
   },
@@ -15311,6 +15311,741 @@
               "description": "Anticipated submission of the Development Consent Order application by Arrow Valley Solar Limited to the Planning Inspectorate.",
               "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110033",
               "expected": true
+            }
+          ]
+        },
+        "EN010021": {
+          "ref": "EN010021",
+          "name": "Dogger Bank Creyke Beck",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Dogger Bank Creyke Beck A and B were the first two offshore wind farms developed in the Dogger Bank Round 3 zone by the Forewind consortium (SSE, Statoil/Equinor, RWE/Innogy and Statkraft). The DCO for up to 2.4 GW across the two adjacent sites was granted in February 2015. Following dissolution of Forewind in 2017, the projects became Dogger Bank A and B, now a 50:50 SSE/Equinor joint venture; first power was generated in October 2023 with phased commissioning continuing through 2025.",
+          "milestones": [
+            {
+              "date": "2008-11-01",
+              "phase": "proposal",
+              "title": "Forewind consortium formed",
+              "description": "SSE, Statoil, Statkraft and RWE Innogy form the Forewind joint venture to bid for the Dogger Bank Zone in The Crown Estate's Round 3 offshore wind leasing.",
+              "source": "https://en.wikipedia.org/wiki/Dogger_Bank_Wind_Farm",
+              "expected": false
+            },
+            {
+              "date": "2010-01-08",
+              "phase": "proposal",
+              "title": "Forewind awarded Dogger Bank Zone",
+              "description": "The Crown Estate announces Forewind as developer of the Dogger Bank Zone, the largest of the nine Round 3 zones with capacity for up to 9 GW.",
+              "source": "https://doggerbank.com/our-history/",
+              "expected": false
+            },
+            {
+              "date": "2013-08-19",
+              "phase": "application",
+              "title": "DCO application submitted",
+              "description": "Forewind submits the Development Consent Order application for Dogger Bank Creyke Beck A and B to the Planning Inspectorate, the first Dogger Bank project to enter the NSIP process.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010021",
+              "expected": false
+            },
+            {
+              "date": "2013-09-16",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "The Planning Inspectorate accepts the Dogger Bank Creyke Beck application as a Nationally Significant Infrastructure Project under the Planning Act 2008.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010021",
+              "expected": false
+            },
+            {
+              "date": "2014-02-19",
+              "phase": "examination",
+              "title": "Examination opens",
+              "description": "The Examining Authority holds its preliminary meeting and formally opens examination of the proposals for up to 400 turbines across two sites 131 km off the East Yorkshire coast.",
+              "source": "https://en.wikipedia.org/wiki/Dogger_Bank_Wind_Farm",
+              "expected": false
+            },
+            {
+              "date": "2014-08-19",
+              "phase": "examination",
+              "title": "Examination closes",
+              "description": "Six-month examination concludes; the Examining Authority begins preparing its recommendation report to the Secretary of State.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010021",
+              "expected": false
+            },
+            {
+              "date": "2015-02-17",
+              "phase": "consent",
+              "title": "DCO granted",
+              "description": "Secretary of State Ed Davey grants the Development Consent Order for Dogger Bank Creyke Beck A and B, authorising up to 400 turbines and a combined capacity of up to 2.4 GW.",
+              "source": "https://www.gov.uk/government/publications/dogger-bank-creyke-beck-offshore-wind-farm-variation-1",
+              "expected": false
+            },
+            {
+              "date": "2017-08-14",
+              "phase": "consent",
+              "title": "Forewind wound down and projects split",
+              "description": "SSE and Statoil (later Equinor) take a 50:50 share in Creyke Beck A and B (and Teesside A) under the Dogger Bank Wind Farm brand; Innogy takes sole ownership of Teesside B (renamed Sofia). Forewind is dissolved having delivered its objective.",
+              "source": "https://www.windpowermonthly.com/article/1441736/forewind-splits-dogger-bank-zone",
+              "expected": false
+            },
+            {
+              "date": "2019-09-20",
+              "phase": "consent",
+              "title": "CfD contracts awarded",
+              "description": "Dogger Bank A, B and C secure 15-year Contracts for Difference in the government's third Allocation Round at strike prices of GBP 39.65 to GBP 41.61 per MWh (2012 prices).",
+              "source": "https://www.gov.uk/government/publications/contracts-for-difference-cfd-allocation-round-3-results",
+              "expected": false
+            },
+            {
+              "date": "2020-11-26",
+              "phase": "fid",
+              "title": "Final investment decision and financing",
+              "description": "SSE Renewables and Equinor reach financial close on Dogger Bank A and B, securing GBP 5.5 billion of project financing from a syndicate of 29 banks.",
+              "source": "https://en.wikipedia.org/wiki/Dogger_Bank_Wind_Farm",
+              "expected": false
+            },
+            {
+              "date": "2022-04-01",
+              "phase": "build",
+              "title": "Offshore construction begins",
+              "description": "Offshore export cable installation starts for Dogger Bank A, marking the official start of offshore construction; foundation installation follows in July 2022.",
+              "source": "https://en.wikipedia.org/wiki/Dogger_Bank_Wind_Farm",
+              "expected": false
+            },
+            {
+              "date": "2023-10-10",
+              "phase": "build",
+              "title": "First power generated",
+              "description": "Dogger Bank A generates electricity for the first time from its first GE Haliade-X 13 MW turbine, becoming the world's largest offshore wind farm under construction.",
+              "source": "https://www.theguardian.com/business/2023/oct/09/worlds-largest-offshore-windfarm-project-starts-powering-uk-grid",
+              "expected": false
+            },
+            {
+              "date": "2025-11-12",
+              "phase": "build",
+              "title": "Dogger Bank A nearing completion",
+              "description": "SSE reports in its 2025 Interim Results that 88 of 95 turbines have been installed at Dogger Bank A, with completion expected in the second half of 2025 and Dogger Bank B and C to follow through 2026.",
+              "source": "https://en.wikipedia.org/wiki/Dogger_Bank_Wind_Farm",
+              "expected": false
+            }
+          ]
+        },
+        "EN010024": {
+          "ref": "EN010024",
+          "name": "Navitus Bay Wind Park",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Proposed 970 MW (up to 194-turbine) offshore wind farm off the Dorset coast between Bournemouth, Christchurch Bay and the Isle of Wight, developed by a joint venture of Eneco and EDF Energy under Round 3. Refused development consent on 11 September 2015 by Secretary of State Amber Rudd, following an Examining Authority recommendation to refuse, citing significant adverse landscape and visual effects on the Dorset and Isle of Wight Areas of Outstanding Natural Beauty and the setting of the Jurassic Coast World Heritage Site. It was the first NSIP for which the Examining Authority had recommended refusal.",
+          "milestones": [
+            {
+              "date": "2010-01-08",
+              "phase": "proposal",
+              "title": "Round 3 Zone 7 awarded to Eneco",
+              "description": "The Crown Estate awarded Eneco exclusive development rights to Zone 7 (West of Isle of Wight) under the Round 3 offshore wind leasing programme, the area that would become Navitus Bay.",
+              "source": "https://www.rivieramm.com/news-content-hub/news-content-hub/crown-estate-announces-round-3-offshore-wind-zone-winners-45759",
+              "expected": false
+            },
+            {
+              "date": "2012-04-26",
+              "phase": "proposal",
+              "title": "Eneco and EDF Energy form 50:50 joint venture",
+              "description": "Eneco Wind UK Ltd and EDF Energy Renewables announced a 50:50 joint venture, Navitus Bay Development Ltd, to co-develop the project and share costs through consenting and construction.",
+              "source": "https://en.wikipedia.org/wiki/Navitus_Bay_wind_farm",
+              "expected": false
+            },
+            {
+              "date": "2012-12-11",
+              "phase": "consultation",
+              "title": "Project envelope reduced to 218 turbines",
+              "description": "Following stakeholder feedback the maximum number of turbines was cut from 333 to 218, capacity capped near 1,100 MW and maximum turbine tip height reduced to 200 m to address landscape concerns.",
+              "source": "https://en.wikipedia.org/wiki/Navitus_Bay_wind_farm",
+              "expected": false
+            },
+            {
+              "date": "2013-09-30",
+              "phase": "consultation",
+              "title": "Preliminary Environmental Information (PEI3) consultation",
+              "description": "Navitus Bay Development Ltd published its third round of Preliminary Environmental Information and ran statutory section 42 consultation, drawing strong opposition from Dorset and Isle of Wight councils, tourism bodies and Jurassic Coast WHS stakeholders.",
+              "source": "https://en.wikipedia.org/wiki/Navitus_Bay_wind_farm",
+              "expected": false
+            },
+            {
+              "date": "2014-04-10",
+              "phase": "application",
+              "title": "DCO application submitted to PINS",
+              "description": "Navitus Bay Development Ltd submitted its Development Consent Order application and Environmental Statement to the Planning Inspectorate under the Planning Act 2008.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010024",
+              "expected": false
+            },
+            {
+              "date": "2014-05-08",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "The Planning Inspectorate accepted the Navitus Bay DCO application for examination, triggering the pre-examination stage and registration of interested parties.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010024",
+              "expected": false
+            },
+            {
+              "date": "2014-09-11",
+              "phase": "examination",
+              "title": "Examination opens",
+              "description": "The Examining Authority opened the six-month examination, considering landscape and visual impact, tourism, the setting of the Jurassic Coast World Heritage Site, navigation and ecology.",
+              "source": "https://www.planningresource.co.uk/article/1363690/rudd-rejects-194-turbine-navitus-bay-scheme",
+              "expected": false
+            },
+            {
+              "date": "2014-11-07",
+              "phase": "examination",
+              "title": "Alternative 630 MW 'TAMO' proposal submitted",
+              "description": "During examination the applicant submitted a Turbine Area Mitigation Option reducing the scheme to around 105 turbines and 630 MW; Bournemouth Borough Council argued the late change was procedurally unlawful.",
+              "source": "https://en.wikipedia.org/wiki/Navitus_Bay_wind_farm",
+              "expected": false
+            },
+            {
+              "date": "2015-03-11",
+              "phase": "examination",
+              "title": "Examination closes",
+              "description": "The Examining Authority closed the examination and began preparing its recommendation report to the Secretary of State for Energy and Climate Change.",
+              "source": "https://www.planningresource.co.uk/article/1363690/rudd-rejects-194-turbine-navitus-bay-scheme",
+              "expected": false
+            },
+            {
+              "date": "2015-06-11",
+              "phase": "examination",
+              "title": "ExA recommends refusal",
+              "description": "The Examining Authority submitted its report to the Secretary of State recommending refusal of both the application and the TAMO alternative, citing significant adverse landscape and visual effects on the Dorset and Isle of Wight AONBs and the setting of the Jurassic Coast World Heritage Site. It was the first time PINS had recommended refusal of an NSIP.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN010024-000043-Examining%20Authority%20Recommendation%20Report%20-%20%20Main%20Report.pdf",
+              "expected": false
+            },
+            {
+              "date": "2015-09-11",
+              "phase": "cancelled",
+              "title": "Secretary of State refuses consent",
+              "description": "Energy and Climate Change Secretary Amber Rudd refused development consent for both the application and the TAMO alternative, accepting the ExA's conclusions on landscape, visual and heritage harm. The decision followed sustained opposition from Dorset and Hampshire MPs, local councils and the Challenge Navitus campaign.",
+              "source": "https://www.planningresource.co.uk/article/1363690/rudd-rejects-194-turbine-navitus-bay-scheme",
+              "expected": false
+            },
+            {
+              "date": "2015-09-25",
+              "phase": "cancelled",
+              "title": "Project formally abandoned",
+              "description": "With consent refused and no legal challenge pursued, the Navitus Bay project was formally abandoned. The refusal became a reference case for NSIP examinations on landscape and tourism impacts of offshore wind near protected coasts.",
+              "source": "https://theecologist.org/2015/sep/25/navitus-bay-offshore-wind-refusal-uk-energy-and-climate-policy-unravels",
+              "expected": false
+            }
+          ]
+        },
+        "EN010025": {
+          "ref": "EN010025",
+          "name": "East Anglia ONE Offshore Windfarm",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "East Anglia ONE is a 714 MW offshore wind farm located approximately 43 km off the Suffolk coast, developed by ScottishPower Renewables (a subsidiary of Iberdrola). It uses 102 Siemens Gamesa 7 MW turbines and became fully operational in July 2020 after receiving development consent in June 2014.",
+          "milestones": [
+            {
+              "date": "2010-01-08",
+              "phase": "proposal",
+              "title": "Crown Estate Round 3 zone award",
+              "description": "East Anglia Offshore Wind, a 50:50 joint venture between ScottishPower Renewables and Vattenfall, awarded development rights for the East Anglia Zone under The Crown Estate's Round 3 offshore wind leasing round, with potential capacity of up to 7.2 GW.",
+              "source": "https://en.wikipedia.org/wiki/East_Anglia_Array",
+              "expected": false
+            },
+            {
+              "date": "2012-11-30",
+              "phase": "application",
+              "title": "DCO application submitted",
+              "description": "ScottishPower Renewables submitted the Development Consent Order application for East Anglia ONE to the Planning Inspectorate in November 2012.",
+              "source": "https://www.scottishpowerrenewables.com/offshore/east-anglia/timeline1",
+              "expected": false
+            },
+            {
+              "date": "2012-12-20",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "The Planning Inspectorate accepted the East Anglia ONE application for examination, confirming all required information had been provided.",
+              "source": "https://en.wikipedia.org/wiki/East_Anglia_Array",
+              "expected": false
+            },
+            {
+              "date": "2013-06-25",
+              "phase": "examination",
+              "title": "Preliminary meeting and start of examination",
+              "description": "Preliminary meeting held on 25 June 2013, opening the six-month examination phase during which the project team supplied additional information and attended open floor hearings.",
+              "source": "https://www.scottishpowerrenewables.com/offshore/east-anglia/timeline1",
+              "expected": false
+            },
+            {
+              "date": "2014-06-17",
+              "phase": "consent",
+              "title": "Development Consent Order granted",
+              "description": "The Secretary of State at the Department of Energy and Climate Change granted development consent for East Anglia ONE, the first project from The Crown Estate's Round 3 process to receive consent in England and Wales.",
+              "source": "https://www.scottishpowerrenewables.com/news/pages/planning_consent_granted_for_east_anglia_one_offshore_windfarm.aspx",
+              "expected": false
+            },
+            {
+              "date": "2015-02-26",
+              "phase": "consent",
+              "title": "Contract for Difference awarded",
+              "description": "East Anglia ONE was awarded a Contract for Difference at a strike price of £119/MWh in the first competitive CfD allocation round, securing the project's revenue support.",
+              "source": "https://en.wikipedia.org/wiki/East_Anglia_Array",
+              "expected": false
+            },
+            {
+              "date": "2016-02-24",
+              "phase": "fid",
+              "title": "Final Investment Decision",
+              "description": "ScottishPower Renewables took the Final Investment Decision on East Anglia ONE, committing approximately £2.5 billion to construct the 714 MW project.",
+              "source": "https://www.offshorewind.biz/2016/02/24/final-investment-decision-in-place-for-east-anglia-one/",
+              "expected": false
+            },
+            {
+              "date": "2017-07-01",
+              "phase": "build",
+              "title": "Onshore construction begins",
+              "description": "Onshore construction commenced in 2017, including export cable installation and the onshore substation at Bramford, Suffolk.",
+              "source": "https://en.wikipedia.org/wiki/East_Anglia_Array",
+              "expected": false
+            },
+            {
+              "date": "2018-06-30",
+              "phase": "build",
+              "title": "First offshore foundation installed",
+              "description": "The first monopile foundation was completed offshore in June 2018, followed by installation of the offshore substation in August 2018.",
+              "source": "https://en.wikipedia.org/wiki/East_Anglia_Array",
+              "expected": false
+            },
+            {
+              "date": "2019-09-30",
+              "phase": "build",
+              "title": "First power generated",
+              "description": "The first turbine was completed in June 2019 and first power was exported to the grid in September 2019.",
+              "source": "https://en.wikipedia.org/wiki/East_Anglia_Array",
+              "expected": false
+            },
+            {
+              "date": "2020-07-31",
+              "phase": "operational",
+              "title": "Full commercial operation",
+              "description": "East Anglia ONE entered full commercial operation in July 2020, supplying enough electricity for around 630,000 homes from 102 Siemens Gamesa 7 MW turbines.",
+              "source": "https://www.offshorewind.biz/2016/02/24/final-investment-decision-in-place-for-east-anglia-one/",
+              "expected": false
+            }
+          ]
+        },
+        "EN010032": {
+          "ref": "EN010032",
+          "name": "Rampion Offshore Wind Farm",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Rampion is a 400 MW offshore wind farm comprising 116 turbines located 13 km off the Sussex coast between Worthing and Brighton. Developed by E.ON Climate and Renewables, it received a Development Consent Order in July 2014, reached financial close in 2015, and became fully operational in April 2018 as the first offshore wind farm on the south coast of England.",
+          "milestones": [
+            {
+              "date": "2010-01-08",
+              "phase": "proposal",
+              "title": "Round 3 zone awarded to E.ON",
+              "description": "The Crown Estate awarded the Hastings Round 3 zone, including the Rampion site off Sussex, to E.ON Climate and Renewables as exclusive developer.",
+              "source": "https://en.wikipedia.org/wiki/Rampion_Wind_Farm",
+              "expected": false
+            },
+            {
+              "date": "2012-02-01",
+              "phase": "consultation",
+              "title": "Pre-application community consultation begins",
+              "description": "E.ON launched statutory pre-application consultation, distributing 390,000 leaflets across Sussex and holding 14 public exhibitions attended by around 4,500 people.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010032",
+              "expected": false
+            },
+            {
+              "date": "2013-03-07",
+              "phase": "application",
+              "title": "DCO application submitted to PINS",
+              "description": "E.ON submitted its Development Consent Order application for a wind farm of up to 700 MW with associated onshore and offshore electrical infrastructure to the Planning Inspectorate.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010032",
+              "expected": false
+            },
+            {
+              "date": "2013-04-04",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "The Planning Inspectorate accepted the Rampion DCO application for examination under the Planning Act 2008 regime.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010032",
+              "expected": false
+            },
+            {
+              "date": "2013-09-17",
+              "phase": "examination",
+              "title": "Examination opens",
+              "description": "The Examining Authority held the preliminary meeting and opened the six-month examination of the proposed wind farm.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010032",
+              "expected": false
+            },
+            {
+              "date": "2014-07-16",
+              "phase": "consent",
+              "title": "Development Consent Order granted",
+              "description": "The Secretary of State for Energy and Climate Change granted the DCO for Rampion Offshore Wind Farm, authorising construction off the Sussex coast.",
+              "source": "https://www.bbc.co.uk/news/uk-england-sussex-28327875",
+              "expected": false
+            },
+            {
+              "date": "2015-05-29",
+              "phase": "fid",
+              "title": "Final investment decision and financial close",
+              "description": "E.ON took final investment decision on the project. The UK Green Investment Bank acquired a £236m stake and Canadian energy company Enbridge took a 24.9% share alongside E.ON. Final design 116 turbines totalling 400 MW.",
+              "source": "https://www.greeninvestmentgroup.com/en/news/2015/uk-green-investment-bank-invests-in-construction-of-the-rampion-offshore-wind-farm.html",
+              "expected": false
+            },
+            {
+              "date": "2015-09-01",
+              "phase": "build",
+              "title": "Offshore construction begins",
+              "description": "Offshore construction works commenced, following onshore substation works at Bolney that had started in June 2015.",
+              "source": "https://www.bbc.co.uk/news/uk-england-sussex-32779424",
+              "expected": false
+            },
+            {
+              "date": "2017-03-11",
+              "phase": "build",
+              "title": "First turbine installed offshore",
+              "description": "After installation of the 116 monopile foundations, the first wind turbine was lifted into place 13 km off the Sussex coast.",
+              "source": "https://en.wikipedia.org/wiki/Rampion_Wind_Farm",
+              "expected": false
+            },
+            {
+              "date": "2017-11-29",
+              "phase": "build",
+              "title": "First power exported to grid",
+              "description": "Electricity generation began at the Rampion Offshore Wind Farm, with the first power exported to the national grid via the Bolney substation.",
+              "source": "https://en.wikipedia.org/wiki/Rampion_Wind_Farm",
+              "expected": false
+            },
+            {
+              "date": "2018-04-17",
+              "phase": "operational",
+              "title": "Full commissioning and official opening",
+              "description": "Construction completed and all 116 turbines were commissioned, giving Rampion a 400 MW capacity at a final cost of around £1.3 billion. It became the first offshore wind farm on the south coast of England.",
+              "source": "https://www.offshorewind.biz/2018/04/17/rampion-offshore-wind-farm-hits-full-stride/",
+              "expected": false
+            }
+          ]
+        },
+        "EN010033": {
+          "ref": "EN010033",
+          "name": "Hornsea Offshore Wind Farm (Zone 4) - Project One",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Hornsea Project One is a 1.2 GW offshore wind farm located approximately 120 km off the Yorkshire coast in the Hornsea Zone. When fully commissioned in 2020 with 174 Siemens Gamesa 7 MW turbines, it was the largest operational offshore wind farm in the world. Originally developed by SMart Wind (a Mainstream Renewable Power and Siemens joint venture), the project was acquired by DONG Energy (now Orsted) in 2015.",
+          "milestones": [
+            {
+              "date": "2010-01-08",
+              "phase": "proposal",
+              "title": "Round 3 zone awarded to SMart Wind",
+              "description": "The Crown Estate awarded the Hornsea Zone (Zone 4) development rights to SMart Wind Ltd, a joint venture between Mainstream Renewable Power and Siemens Project Ventures, as part of the Round 3 offshore wind leasing programme.",
+              "source": "https://www.thecrownestate.co.uk/our-business/marine/offshore-wind",
+              "expected": false
+            },
+            {
+              "date": "2013-03-08",
+              "phase": "proposal",
+              "title": "Scoping report submitted to Planning Inspectorate",
+              "description": "SMart Wind submitted an EIA scoping report to the Planning Inspectorate for the Hornsea Project One offshore wind farm under reference EN010033.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/yorkshire-and-the-humber/hornsea-offshore-wind-farm-zone-4-project-one/",
+              "expected": false
+            },
+            {
+              "date": "2014-02-19",
+              "phase": "application",
+              "title": "DCO application submitted",
+              "description": "SMart Wind formally submitted the Development Consent Order application for Hornsea Project One to the Planning Inspectorate.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/yorkshire-and-the-humber/hornsea-offshore-wind-farm-zone-4-project-one/",
+              "expected": false
+            },
+            {
+              "date": "2014-07-30",
+              "phase": "application",
+              "title": "DCO application accepted for examination",
+              "description": "The Planning Inspectorate accepted SMart Wind's Development Consent Order application for the 1.2 GW Hornsea Project One offshore wind farm for examination.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/yorkshire-and-the-humber/hornsea-offshore-wind-farm-zone-4-project-one/",
+              "expected": false
+            },
+            {
+              "date": "2014-10-07",
+              "phase": "examination",
+              "title": "Examination opens",
+              "description": "The Planning Inspectorate's six-month examination of the Hornsea Project One DCO application formally commenced with the preliminary meeting.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/yorkshire-and-the-humber/hornsea-offshore-wind-farm-zone-4-project-one/",
+              "expected": false
+            },
+            {
+              "date": "2014-12-11",
+              "phase": "consent",
+              "title": "Development Consent Order granted",
+              "description": "The Secretary of State for Energy and Climate Change granted the Development Consent Order for Hornsea Project One, authorising up to 332 turbines and a capacity of up to 1.2 GW across approximately 407 km of seabed.",
+              "source": "https://www.gov.uk/government/publications/hornsea-project-one-offshore-wind-farm",
+              "expected": false
+            },
+            {
+              "date": "2015-02-03",
+              "phase": "consent",
+              "title": "DONG Energy acquires Hornsea Project One",
+              "description": "DONG Energy (later rebranded Orsted) acquired Hornsea Project One from SMart Wind, taking full ownership of the consented project for the development phase.",
+              "source": "https://orsted.com/en/media/news",
+              "expected": false
+            },
+            {
+              "date": "2015-02-23",
+              "phase": "consent",
+              "title": "Contract for Difference awarded",
+              "description": "Hornsea Project One was awarded a Contract for Difference in the first CfD allocation round at a strike price of 140 pounds per MWh (2012 prices) for 1.2 GW of capacity.",
+              "source": "https://www.gov.uk/government/publications/contracts-for-difference-cfd-allocation-round-one-outcome",
+              "expected": false
+            },
+            {
+              "date": "2016-02-03",
+              "phase": "fid",
+              "title": "Final investment decision",
+              "description": "DONG Energy took the final investment decision on Hornsea Project One, committing to construction of the 1.2 GW project using 7 MW Siemens Gamesa turbines.",
+              "source": "https://orsted.com/en/media/news",
+              "expected": false
+            },
+            {
+              "date": "2018-01-30",
+              "phase": "build",
+              "title": "Offshore construction begins",
+              "description": "Offshore construction commenced with installation of monopile foundations approximately 120 km off the Yorkshire coast.",
+              "source": "https://orsted.com/en/our-business/offshore-wind/our-offshore-wind-farms/hornsea-1",
+              "expected": false
+            },
+            {
+              "date": "2019-02-13",
+              "phase": "build",
+              "title": "First power generated",
+              "description": "Hornsea Project One generated its first power to the UK grid, marking the start of energisation of the world's largest offshore wind farm.",
+              "source": "https://orsted.com/en/media/news",
+              "expected": false
+            },
+            {
+              "date": "2019-10-15",
+              "phase": "build",
+              "title": "Final turbine installed",
+              "description": "Installation of the 174th and final Siemens Gamesa 7 MW turbine was completed, bringing the project to its full 1.2 GW nameplate capacity.",
+              "source": "https://orsted.com/en/our-business/offshore-wind/our-offshore-wind-farms/hornsea-1",
+              "expected": false
+            },
+            {
+              "date": "2020-01-30",
+              "phase": "operational",
+              "title": "Fully operational",
+              "description": "Hornsea Project One was declared fully operational, becoming the world's largest operational offshore wind farm with 1.218 GW of capacity capable of powering over one million UK homes.",
+              "source": "https://orsted.com/en/media/news",
+              "expected": false
+            }
+          ]
+        },
+        "EN010048": {
+          "ref": "EN010048",
+          "name": "White Rose Carbon Capture and Storage Project",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "The White Rose Carbon Capture and Storage Project was a proposed 426 MW oxyfuel coal-fired power station with full carbon capture at the Drax site in North Yorkshire, developed by Capture Power Limited (a consortium of Drax, Alstom and BOC) as one of two preferred bidders in the UK's £1bn CCS Commercialisation Programme. Despite receiving a Development Consent Order in September 2015, the project was effectively terminated in November 2015 when HM Treasury withdrew the £1bn competition funding in the Spending Review. Capture Power Limited was wound up in 2016 and the consortium ceased development.",
+          "milestones": [
+            {
+              "date": "2010-10-20",
+              "phase": "proposal",
+              "title": "Coalition confirms £1bn CCS Commercialisation Programme",
+              "description": "The Spending Review confirmed up to £1bn capital funding for one commercial-scale CCS demonstration project, later expanded into a wider competition for multiple projects.",
+              "source": "https://www.gov.uk/government/news/spending-review-2010",
+              "expected": false
+            },
+            {
+              "date": "2012-04-03",
+              "phase": "proposal",
+              "title": "CCS Commercialisation Programme competition opened",
+              "description": "DECC launched the second UK CCS competition, inviting bids for £1bn capital funding plus operational support via Contracts for Difference, with the aim of supporting commercial-scale CCS projects from the early 2020s.",
+              "source": "https://www.gov.uk/government/news/ccs-commercialisation-programme-launched",
+              "expected": false
+            },
+            {
+              "date": "2013-03-20",
+              "phase": "proposal",
+              "title": "White Rose named preferred bidder",
+              "description": "DECC selected White Rose and Peterhead as the two preferred bidders to enter Front End Engineering Design (FEED) studies under the CCS Commercialisation Programme.",
+              "source": "https://www.gov.uk/government/news/uk-ccs-commercialisation-competition-preferred-bidders-announced",
+              "expected": false
+            },
+            {
+              "date": "2014-06-18",
+              "phase": "application",
+              "title": "DCO application submitted to PINS",
+              "description": "Capture Power Limited submitted the Development Consent Order application for the 426 MW oxyfuel coal-with-CCS power station at the Drax site to the Planning Inspectorate under reference EN010048.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/yorkshire-and-the-humber/white-rose-carbon-capture-and-storage-project/",
+              "expected": false
+            },
+            {
+              "date": "2014-07-16",
+              "phase": "application",
+              "title": "DCO application accepted for examination",
+              "description": "The Planning Inspectorate accepted the White Rose CCS Project DCO application for examination.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/yorkshire-and-the-humber/white-rose-carbon-capture-and-storage-project/",
+              "expected": false
+            },
+            {
+              "date": "2014-12-15",
+              "phase": "examination",
+              "title": "Examination commences",
+              "description": "The Examining Authority opened the six-month examination of the White Rose CCS DCO application, considering environmental, planning and CCS infrastructure issues.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/yorkshire-and-the-humber/white-rose-carbon-capture-and-storage-project/",
+              "expected": false
+            },
+            {
+              "date": "2015-09-15",
+              "phase": "examination",
+              "title": "Drax withdraws from consortium funding",
+              "description": "Drax Group announced it would not provide further investment in Capture Power Limited beyond contracted commitments, citing the changed economic environment for coal generation in the UK including the early closure of the Renewables Obligation for biomass co-firing and the Carbon Price Floor.",
+              "source": "https://www.drax.com/press_release/drax-statement-white-rose-ccs-project/",
+              "expected": false
+            },
+            {
+              "date": "2015-09-23",
+              "phase": "consent",
+              "title": "Development Consent Order granted",
+              "description": "The Secretary of State for Energy and Climate Change granted the Development Consent Order for the White Rose Carbon Capture and Storage Project, authorising construction of the 426 MW oxyfuel coal-with-CCS plant at the Drax site.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/yorkshire-and-the-humber/white-rose-carbon-capture-and-storage-project/",
+              "expected": false
+            },
+            {
+              "date": "2015-11-25",
+              "phase": "cancelled",
+              "title": "Treasury cancels £1bn CCS Commercialisation Programme",
+              "description": "In the Spending Review and Autumn Statement, HM Treasury withdrew the £1bn ring-fenced capital funding for the CCS Commercialisation Programme, ending government support for both the White Rose and Peterhead projects.",
+              "source": "https://www.nao.org.uk/reports/sustainability-in-the-spending-review/",
+              "expected": false
+            },
+            {
+              "date": "2016-02-25",
+              "phase": "cancelled",
+              "title": "NAO report on cancellation",
+              "description": "The National Audit Office criticised the abrupt cancellation, noting that £100m had been spent on FEED studies and that the decision was taken without consulting the developers or assessing the long-term cost implications for UK decarbonisation.",
+              "source": "https://www.nao.org.uk/reports/sustainability-in-the-spending-review/",
+              "expected": false
+            },
+            {
+              "date": "2017-06-30",
+              "phase": "cancelled",
+              "title": "Capture Power Limited dissolved",
+              "description": "Capture Power Limited, the joint venture between Drax, Alstom (by then GE) and BOC established to develop the White Rose project, was formally wound up at Companies House following the withdrawal of government funding.",
+              "source": "https://find-and-update.company-information.service.gov.uk/company/07851037",
+              "expected": false
+            }
+          ]
+        },
+        "EN010049": {
+          "ref": "EN010049",
+          "name": "Tidal Lagoon Swansea Bay",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "A 320 MW tidal lagoon proposed for Swansea Bay by Tidal Lagoon (Swansea Bay) plc. The Development Consent Order was granted by the Secretary of State in June 2015 and Charles Hendry's independent review in January 2017 endorsed tidal lagoons as part of the UK energy mix, but in June 2018 BEIS declined to agree a Contract for Difference strike price on value-for-money grounds, halting the project. The DCO lapsed on 30 June 2020 and the Court of Appeal confirmed its invalidity in December 2022.",
+          "milestones": [
+            {
+              "date": "2012-07-12",
+              "phase": "proposal",
+              "title": "Tidal Lagoon (Swansea Bay) plc incorporated",
+              "description": "Mark Shorrock's Tidal Lagoon (Swansea Bay) plc was incorporated on 12 July 2012 to develop a 320 MW tidal lagoon in Swansea Bay, intended as the world's first tidal lagoon power plant.",
+              "source": "https://find-and-update.company-information.service.gov.uk/company/08141301",
+              "expected": false
+            },
+            {
+              "date": "2014-02-07",
+              "phase": "application",
+              "title": "DCO application submitted to PINS",
+              "description": "Tidal Lagoon (Swansea Bay) plc submitted its application for a Development Consent Order under the Planning Act 2008 to the Planning Inspectorate, the first tidal lagoon scheme to be examined under the NSIP regime.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010049",
+              "expected": false
+            },
+            {
+              "date": "2014-03-06",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "The Planning Inspectorate accepted the EN010049 application for examination.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010049",
+              "expected": false
+            },
+            {
+              "date": "2014-06-10",
+              "phase": "examination",
+              "title": "Examination opens",
+              "description": "A panel of four inspectors began formal examination of the DCO application on behalf of the Secretary of State for Energy and Climate Change.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010049",
+              "expected": false
+            },
+            {
+              "date": "2015-03-10",
+              "phase": "examination",
+              "title": "Examination closes; recommendation submitted",
+              "description": "The examining authority closed its examination in March 2015 and submitted a written report to the Secretary of State recommending approval of the application.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010049",
+              "expected": false
+            },
+            {
+              "date": "2015-06-09",
+              "phase": "consent",
+              "title": "Development consent granted",
+              "description": "The Secretary of State for Energy and Climate Change granted the Development Consent Order, noting that decisions on affordability and any Contract for Difference would be considered separately.",
+              "source": "https://www.gov.uk/government/speeches/proposed-swansea-bay-tidal-lagoon",
+              "expected": false
+            },
+            {
+              "date": "2016-02-10",
+              "phase": "consent",
+              "title": "Hendry Review commissioned",
+              "description": "The UK Government commissioned an independent review led by former energy minister Charles Hendry into the feasibility and strategic role of tidal lagoons in the UK energy mix.",
+              "source": "https://www.gov.uk/government/news/independent-review-into-the-strategic-role-of-tidal-lagoons-in-the-uk-published",
+              "expected": false
+            },
+            {
+              "date": "2017-01-12",
+              "phase": "consent",
+              "title": "Hendry Review reports favourably",
+              "description": "Charles Hendry's final report concluded that tidal lagoons could play a cost-effective role in the UK energy mix and that there was considerable value in a small (under 500 MW) pathfinder project, widely interpreted as endorsement of Swansea Bay as a first-of-a-kind scheme.",
+              "source": "https://www.gov.uk/government/news/independent-review-into-the-strategic-role-of-tidal-lagoons-in-the-uk-published",
+              "expected": false
+            },
+            {
+              "date": "2018-06-01",
+              "phase": "consent",
+              "title": "Welsh Government offers £200m",
+              "description": "The Welsh Government, led by First Minister Carwyn Jones, offered to invest up to £200 million in the project in an attempt to improve its value-for-money case to UK ministers.",
+              "source": "https://en.wikipedia.org/wiki/Tidal_Lagoon_Swansea_Bay",
+              "expected": false
+            },
+            {
+              "date": "2018-06-25",
+              "phase": "cancelled",
+              "title": "BEIS refuses Contract for Difference",
+              "description": "Business Secretary Greg Clark told Parliament that the Department for Business, Energy and Industrial Strategy would not agree a Contract for Difference strike price with Tidal Lagoon Power, citing value-for-money concerns and estimating a programme of lagoons would add around £700 per household to electricity bills between 2031 and 2050. The decision halted the project despite the existing DCO.",
+              "source": "https://en.wikipedia.org/wiki/Tidal_Lagoon_Swansea_Bay",
+              "expected": false
+            },
+            {
+              "date": "2020-06-30",
+              "phase": "cancelled",
+              "title": "DCO lapses",
+              "description": "The Development Consent Order expired on 30 June 2020 after the developer failed to commence sufficient material operations within the five-year window; limited ground investigation works begun on 29 June 2020 were later judged insufficient.",
+              "source": "https://www.newcivilengineer.com/latest/swansea-bay-tidal-lagoon-contractors-may-have-breached-planning-rules-by-starting-work-10-07-2020/",
+              "expected": false
+            },
+            {
+              "date": "2021-11-25",
+              "phase": "jr",
+              "title": "High Court rules works did not commence in time",
+              "description": "The High Court (Admin) dismissed Tidal Lagoon (Swansea Bay) plc's challenge, finding that the works carried out before 30 June 2020 did not amount to commencement of the development under the DCO.",
+              "source": "https://www.bailii.org/ew/cases/EWHC/Admin/2021/3170.html",
+              "expected": false
+            },
+            {
+              "date": "2022-12-01",
+              "phase": "jr",
+              "title": "Court of Appeal upholds DCO invalidity",
+              "description": "The Court of Appeal dismissed the developer's appeal, confirming that ground investigation works did not constitute material operations to begin development and that the DCO was no longer valid, definitively ending the consent.",
+              "source": "https://www.bailii.org/ew/cases/EWCA/Civ/2022/1579.html",
+              "expected": false
             }
           ]
         }
