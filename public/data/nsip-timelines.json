@@ -3,7 +3,7 @@
   "id": "nsip-timelines",
   "pillar": "state",
   "topic": "construction",
-  "generated": "2026-05-12T07:43:49.312Z",
+  "generated": "2026-05-12T07:47:48.424Z",
   "sources": [
     {
       "id": "claude-agent-research",
@@ -14,7 +14,7 @@
     }
   ],
   "snapshot": {
-    "totalTimelines": 195,
+    "totalTimelines": 202,
     "researchedByAgent": 74,
     "researchedManually": 1
   },
@@ -17459,6 +17459,493 @@
               "title": "Commercial operations begin",
               "description": "Cleve Hill Solar Park reaches commercial operations, exporting at its full 373 MW dc solar capacity and becoming the UK's largest operational solar farm; the 150 MW co-located BESS remains under construction with completion expected in early 2026.",
               "source": "https://www.businesswire.com/news/home/20250630090161/en/Landmark-Cleve-Hill-Solar-Park-Reaches-Commercial-Operations",
+              "expected": false
+            }
+          ]
+        },
+        "EN010008": {
+          "ref": "EN010008",
+          "name": "Brechfa Forest West Wind Farm",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Brechfa Forest West is a 57.4 MW onshore wind farm of 28 Senvion MM92 turbines in Carmarthenshire, Wales, developed by RWE Npower Renewables (later Innogy, now RWE). It was the first onshore wind farm consented as a Nationally Significant Infrastructure Project in Wales, with development consent granted in March 2013 and full operation reached in June 2018.",
+          "milestones": [
+            {
+              "date": "2011-11-04",
+              "phase": "application",
+              "title": "DCO application submitted to IPC",
+              "description": "RWE Npower Renewables submitted the Development Consent Order application for Brechfa Forest West Wind Farm to the Infrastructure Planning Commission, proposing up to 28 turbines of up to 145 metres tip height with installed capacity between 56 and 84 MW.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/wales/brechfa-forest-west-wind-farm/",
+              "expected": false
+            },
+            {
+              "date": "2011-12-02",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "The Infrastructure Planning Commission accepted the application for examination within the statutory 28-day acceptance period.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/wales/brechfa-forest-west-wind-farm/",
+              "expected": false
+            },
+            {
+              "date": "2013-03-12",
+              "phase": "consent",
+              "title": "Development Consent Order granted",
+              "description": "The Secretary of State for Energy and Climate Change granted the Development Consent Order, making Brechfa Forest West the first onshore wind farm consented under the Nationally Significant Infrastructure Project regime in Wales.",
+              "source": "https://www.legislation.gov.uk/uksi/2013/586/made",
+              "expected": false
+            },
+            {
+              "date": "2014-10-01",
+              "phase": "build",
+              "title": "Forest felling and site preparation begins",
+              "description": "Natural Resources Wales began felling works on behalf of RWE Innogy UK, clearing approximately 140 hectares of forestry and around 20,000 tonnes of timber to prepare the site for turbine foundations and access tracks.",
+              "source": "https://w3.windfair.net/wind-energy/news/17799-felling-works-complete-as-wind-farm-takes-first-steps-at-brechfa-forest-west",
+              "expected": false
+            },
+            {
+              "date": "2016-03-15",
+              "phase": "consent",
+              "title": "DCO Amendment Order made",
+              "description": "The Brechfa Forest West Wind Farm (Amendment) Order 2016 was made, amending the original 2013 Development Consent Order ahead of construction.",
+              "source": "https://www.legislation.gov.uk/uksi/2016/337/made",
+              "expected": false
+            },
+            {
+              "date": "2016-11-01",
+              "phase": "build",
+              "title": "Main construction begins",
+              "description": "Construction of turbine foundations, access tracks and balance-of-plant works began on site, with Innogy (then owner of the project) acting as developer.",
+              "source": "https://renews.biz/39793/innogy-breaks-ground-at-brechfa/",
+              "expected": false
+            },
+            {
+              "date": "2018-01-01",
+              "phase": "build",
+              "title": "First power generated",
+              "description": "The wind farm began exporting electricity to the grid in January 2018 as turbines were commissioned in sequence.",
+              "source": "https://news.innogy.com/brechfa-forest-west-wind-farm-officially-opens/",
+              "expected": false
+            },
+            {
+              "date": "2018-06-01",
+              "phase": "operational",
+              "title": "All 28 turbines operational",
+              "description": "All 28 Senvion MM92 turbines reached full operation, giving the wind farm an installed capacity of 57.4 MW, sufficient to power around 38,800 average Welsh homes annually.",
+              "source": "https://news.innogy.com/brechfa-forest-west-wind-farm-officially-opens/",
+              "expected": false
+            },
+            {
+              "date": "2018-08-23",
+              "phase": "operational",
+              "title": "Official inauguration ceremony",
+              "description": "Welsh Government Environment Minister Hannah Blythyn and innogy COO Renewables Hans Bunting officially opened the wind farm.",
+              "source": "https://news.innogy.com/brechfa-forest-west-wind-farm-officially-opens/",
+              "expected": false
+            }
+          ]
+        },
+        "EN010011": {
+          "ref": "EN010011",
+          "name": "Rookery South Energy from Waste Generating Station",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "The 65 MWe Rookery South Energy from Waste plant in Bedfordshire was the first NSIP DCO granted in the UK, awarded by the Infrastructure Planning Commission to Covanta in October 2011. Because Covanta was not a statutory undertaker and local authorities objected to compulsory acquisition of their land, the Order was the first DCO to require Special Parliamentary Procedure, which concluded in February 2013. Construction began in 2019 following financial close with the Green Investment Group, and the plant entered commercial operation in January 2022.",
+          "milestones": [
+            {
+              "date": "2010-08-05",
+              "phase": "application",
+              "title": "DCO application submitted to IPC",
+              "description": "Covanta Rookery South Limited submitted its application to the Infrastructure Planning Commission to construct and operate a 65 MWe Energy from Waste facility with associated Materials Recovery Facility at the former Rookery South brick clay pit near Stewartby, Bedfordshire.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010011",
+              "expected": false
+            },
+            {
+              "date": "2010-08-26",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "The IPC accepted the application for examination, making Rookery South the first NSIP application accepted under the Planning Act 2008 regime.",
+              "source": "https://www.lexology.com/library/detail.aspx?g=739127e2-a8f5-41c3-b8fc-5dfa083563f6",
+              "expected": false
+            },
+            {
+              "date": "2011-01-17",
+              "phase": "examination",
+              "title": "First NSIP preliminary meeting held",
+              "description": "The IPC held the first preliminary meeting under the Planning Act 2008, setting the six-month examination timetable for the application.",
+              "source": "https://www.lexology.com/library/detail.aspx?g=739127e2-a8f5-41c3-b8fc-5dfa083563f6",
+              "expected": false
+            },
+            {
+              "date": "2011-10-13",
+              "phase": "consent",
+              "title": "First DCO granted under Planning Act 2008",
+              "description": "The Infrastructure Planning Commission granted development consent for the Rookery South Resource Recovery Facility, the first Development Consent Order issued for any Nationally Significant Infrastructure Project under the Planning Act 2008.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010011",
+              "expected": false
+            },
+            {
+              "date": "2011-11-29",
+              "phase": "consent",
+              "title": "Special Parliamentary Procedure opened",
+              "description": "Because Covanta was not yet a statutory undertaker and local authorities objected to compulsory acquisition of their land, the Order was referred to Special Parliamentary Procedure. A 21-day petitioning period opened, during which 39 petitions were deposited against the Order.",
+              "source": "https://www.parliament.uk/business/bills-and-legislation/secondary-legislation/special-procedure-orders/rookery-south/",
+              "expected": false
+            },
+            {
+              "date": "2012-02-05",
+              "phase": "jr",
+              "title": "High Court judicial review hearing",
+              "description": "The High Court (Mitting J.) heard a judicial review challenge from FCC Environment against the Order, brought on grounds relating to compulsory acquisition reasoning and the need to update environmental information. The challenge was dismissed.",
+              "source": "https://waste-management-world.com/artikel/high-court-backs-covantas-65-mw-rookery-south-waste-to-energy-project/",
+              "expected": false
+            },
+            {
+              "date": "2013-02-28",
+              "phase": "consent",
+              "title": "Special Parliamentary Procedure concluded",
+              "description": "The Joint Committee's Special Report was published, concluding the Special Parliamentary Procedure on the Order.",
+              "source": "https://www.parliament.uk/business/bills-and-legislation/secondary-legislation/special-procedure-orders/rookery-south/",
+              "expected": false
+            },
+            {
+              "date": "2013-03-25",
+              "phase": "consent",
+              "title": "Order made and Section 106 agreement signed",
+              "description": "The Rookery South (Resource Recovery Facility) Order 2011 (SI 2013/680) came into force, accompanied by a Section 106 Agreement, allowing the development to proceed.",
+              "source": "https://www.legislation.gov.uk/uksi/2013/680/contents/made",
+              "expected": false
+            },
+            {
+              "date": "2019-03-22",
+              "phase": "fid",
+              "title": "Financial close and construction start",
+              "description": "Covanta and the Green Investment Group reached financial close on the facility, triggering the start of full construction. Ownership was structured with Covanta and GIG holding 40% each and Veolia ES (UK) holding the remaining 20%.",
+              "source": "https://www.greeninvestmentgroup.com/en/news/2019/covanta-and-green-investment-group-reach-financial-close-on-the-rookery-south-energy-recovery-facility.html",
+              "expected": false
+            },
+            {
+              "date": "2022-01-21",
+              "phase": "operational",
+              "title": "Plant handed over and commercial operations begin",
+              "description": "Principal EPC contractor Hitachi Zosen Inova handed the completed 545,000 tonne-per-year, 65 MWe facility over to Covanta, which commenced commercial operations on schedule.",
+              "source": "https://www.reworldwaste.com/news-resources/newsroom/covanta-starts-operating-the-rookery-south-energy-recovery-facility-on-schedule",
+              "expected": false
+            }
+          ]
+        },
+        "EN010013": {
+          "ref": "EN010013",
+          "name": "Clocaenog Forest Wind Farm",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Clocaenog Forest Wind Farm is a 96 MW onshore wind farm comprising 27 Vestas turbines in Clocaenog Forest on the Denbighshire/Conwy border in North Wales, developed by RWE. The Development Consent Order was granted by the Secretary of State for Energy and Climate Change on 12 September 2014, construction began in March 2018, and the wind farm became operational in 2020.",
+          "milestones": [
+            {
+              "date": "2013-03-28",
+              "phase": "application",
+              "title": "DCO application submitted to Planning Inspectorate",
+              "description": "RWE Innogy UK submitted its application for a Development Consent Order for the Clocaenog Forest Wind Farm to the Planning Inspectorate.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010013",
+              "expected": false
+            },
+            {
+              "date": "2013-09-12",
+              "phase": "examination",
+              "title": "Examination begins",
+              "description": "The Planning Inspectorate's appointed examining authority opened the six-month examination of the application.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010013",
+              "expected": false
+            },
+            {
+              "date": "2014-09-12",
+              "phase": "consent",
+              "title": "Development Consent Order granted",
+              "description": "Secretary of State for Energy and Climate Change Ed Davey granted the DCO, authorising up to 32 wind turbines in Clocaenog Forest. The Clocaenog Forest Wind Farm Order 2014 (SI 2014/2441) gave effect to the consent.",
+              "source": "https://www.legislation.gov.uk/uksi/2014/2441/made",
+              "expected": false
+            },
+            {
+              "date": "2018-03-01",
+              "phase": "build",
+              "title": "Construction begins",
+              "description": "Civil engineering contractor Jones Bros commenced mobilisation and groundworks under a contract worth over £20 million, including access roads and cable ducts through forested terrain.",
+              "source": "https://www.powersystemsuk.co.uk/projects/clocaenog-forest-wind-farm/",
+              "expected": false
+            },
+            {
+              "date": "2019-09-01",
+              "phase": "build",
+              "title": "Turbines erected and commissioning underway",
+              "description": "The 27 Vestas turbines were installed and commissioning activities progressed, with approximately 90% of cabling completed by September 2019.",
+              "source": "https://renews.biz/55327/turbines-stand-tall-at-clocaenog-forest/",
+              "expected": false
+            },
+            {
+              "date": "2020-01-01",
+              "phase": "operational",
+              "title": "Wind farm becomes operational",
+              "description": "The 96 MW wind farm, comprising 27 Vestas turbines, was completed and entered commercial operation, becoming the largest onshore wind farm in RWE's UK fleet.",
+              "source": "https://www.rwe.com/en/press/rwe-renewables/2022-07-11-clocaenog-forest-wind-farm-inauguration-event/",
+              "expected": false
+            },
+            {
+              "date": "2022-07-11",
+              "phase": "operational",
+              "title": "Official opening ceremony",
+              "description": "Welsh Government Minister for Climate Change Julie James MS formally inaugurated the wind farm, with the ceremony delayed from 2020 due to COVID-19 restrictions.",
+              "source": "https://www.rwe.com/en/press/rwe-renewables/2022-07-11-clocaenog-forest-wind-farm-inauguration-event/",
+              "expected": false
+            }
+          ]
+        },
+        "EN010016": {
+          "ref": "EN010016",
+          "name": "Port Blyth New Biomass Plant",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "A 99.9 MW biomass-fired power station proposed by North Blyth Energy Ltd (a Renewable Energy Systems subsidiary) at North Blyth, Northumberland. The Development Consent Order was granted in July 2013, but RES ceased development in March 2014, citing inconsistent UK government support for dedicated biomass under the Renewables Obligation and uncertainty around Electricity Market Reform. The plant was never built.",
+          "milestones": [
+            {
+              "date": "2012-03-30",
+              "phase": "application",
+              "title": "Application submitted to IPC",
+              "description": "North Blyth Energy Ltd (RES) submitted the application for a Development Consent Order to the Infrastructure Planning Commission for a circa 100 MW dedicated biomass power station at North Blyth.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/north-east/port-blyth-new-biomass-plant/",
+              "expected": false
+            },
+            {
+              "date": "2012-04-26",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "The Planning Inspectorate accepted the DCO application for examination under the Planning Act 2008 regime.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/north-east/port-blyth-new-biomass-plant/",
+              "expected": false
+            },
+            {
+              "date": "2012-08-02",
+              "phase": "examination",
+              "title": "Preliminary meeting held",
+              "description": "Preliminary meeting held by the Examining Authority, after which the examination timetable and first written questions were confirmed.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010016/examination-timetable",
+              "expected": false
+            },
+            {
+              "date": "2013-02-06",
+              "phase": "examination",
+              "title": "Examination closes",
+              "description": "The six-month examination of the Port Blyth biomass application closed, with the Examining Authority due to make its recommendation to the Secretary of State for Energy and Climate Change.",
+              "source": "https://www.pinsentmasons.com/en/media/dco-news/february-2013/06-february-2013/examination-of-port-blyth-biomass-power-station-closes/",
+              "expected": false
+            },
+            {
+              "date": "2013-07-24",
+              "phase": "consent",
+              "title": "DCO granted by Secretary of State",
+              "description": "The Secretary of State for Energy and Climate Change made the North Blyth Biomass Power Station Order 2013 (SI 2013/1873), granting development consent for the 99.9 MW biomass plant. The Order came into force on 15 August 2013.",
+              "source": "https://www.legislation.gov.uk/uksi/2013/1873/made",
+              "expected": false
+            },
+            {
+              "date": "2014-03-06",
+              "phase": "cancelled",
+              "title": "Project cancelled by developer",
+              "description": "Renewable Energy Systems announced it had ceased development of the consented project, citing inconsistent UK government support for dedicated biomass, the cap on dedicated biomass under the Renewables Obligation, and uncertainty around Electricity Market Reform. The plant was not built.",
+              "source": "https://www.itv.com/news/tyne-tees/story/2014-03-06/work-stops-on-blyth-power-station/",
+              "expected": false
+            }
+          ]
+        },
+        "EN010020": {
+          "ref": "EN010020",
+          "name": "Mynydd y Gwynt Wind Farm",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Proposed 102 MW (up to 27-turbine) onshore wind farm east of Aberystwyth in Powys, Wales, submitted by Mynydd y Gwynt Ltd. The DCO was refused by the Secretary of State for Energy and Climate Change on 20 November 2015 on the basis of uncertainty over impacts on red kites in the Elenydd-Mallaen Special Protection Area. A judicial review and subsequent Court of Appeal challenge by the developer were unsuccessful, with the refusal upheld in March 2018.",
+          "milestones": [
+            {
+              "date": "2014-07-31",
+              "phase": "application",
+              "title": "Application submitted",
+              "description": "Mynydd y Gwynt Ltd submitted the DCO application for up to 27 turbines (around 81-102 MW) to the Planning Inspectorate.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/wales/mynydd-y-gwynt-wind-farm/",
+              "expected": false
+            },
+            {
+              "date": "2014-08-20",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "The Planning Inspectorate accepted the application for examination under the Planning Act 2008.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/wales/mynydd-y-gwynt-wind-farm/",
+              "expected": false
+            },
+            {
+              "date": "2014-11-20",
+              "phase": "examination",
+              "title": "Examination opened",
+              "description": "The Examining Authority formally opened the six-month examination of the application.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN010020-000002-Examining%20Authoritys%20Report%20to%20the%20Secretary%20of%20State.pdf",
+              "expected": false
+            },
+            {
+              "date": "2015-05-20",
+              "phase": "examination",
+              "title": "Examination closed",
+              "description": "The Examining Authority closed the examination and began preparing its recommendation report.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/wales/mynydd-y-gwynt-wind-farm/",
+              "expected": false
+            },
+            {
+              "date": "2015-11-20",
+              "phase": "cancelled",
+              "title": "DCO refused",
+              "description": "The Secretary of State for Energy and Climate Change refused the Development Consent Order, citing the inability to conclude there would be no adverse effect on the integrity of the Elenydd-Mallaen Special Protection Area in relation to red kites.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/wales/mynydd-y-gwynt-wind-farm/",
+              "expected": false
+            },
+            {
+              "date": "2016-10-31",
+              "phase": "jr",
+              "title": "High Court refuses judicial review",
+              "description": "Following a pre-action letter in December 2015 and an oral renewal hearing in Cardiff in June 2016, the High Court refused the developer's application for judicial review of the refusal.",
+              "source": "https://www.bclplaw.com/en-US/insights/these-weren-t-a-few-birds-the-mynydd-y-gwynt-wind-farm-dco-refusal-and-the-habitats-regulations.html",
+              "expected": false
+            },
+            {
+              "date": "2018-03-31",
+              "phase": "jr",
+              "title": "Court of Appeal upholds refusal",
+              "description": "In Mynydd y Gwynt Ltd v Secretary of State for Business, Energy and Industrial Strategy [2018] EWCA Civ 231, the Court of Appeal upheld the refusal, finding the Secretary of State was entitled to conclude that environmental information on red kite impacts was insufficient under the Habitats Regulations.",
+              "source": "https://www.newpower.info/2018/03/mynydd-y-gwynt-refusal-upheld/",
+              "expected": false
+            }
+          ]
+        },
+        "EN010036": {
+          "ref": "EN010036",
+          "name": "Kentish Flats Extension",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Vattenfall's 49.5 MW (15-turbine) extension to the existing Kentish Flats Offshore Wind Farm off Whitstable, Kent. Development consent was granted by the Secretary of State in February 2013, with Final Investment Decision taken in November 2013 and the extension entering full operation in 2015.",
+          "milestones": [
+            {
+              "date": "2010-12-07",
+              "phase": "proposal",
+              "title": "Scoping opinion issued",
+              "description": "The Infrastructure Planning Commission issued its scoping opinion on the proposed Kentish Flats Offshore Wind Farm Extension.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/wp-content/uploads/2010/12/101207_EN0100036_Kentish_Flats_scoping_opinion_Web_Version.pdf",
+              "expected": false
+            },
+            {
+              "date": "2011-11-15",
+              "phase": "application",
+              "title": "DCO application submitted",
+              "description": "Vattenfall submitted its application for a Development Consent Order to the Infrastructure Planning Commission in autumn 2011 for an extension of 10 to 17 turbines with a maximum tip height of 145 m.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/south-east/kentish-flats-extension/",
+              "expected": false
+            },
+            {
+              "date": "2013-02-19",
+              "phase": "consent",
+              "title": "Development consent granted",
+              "description": "The Secretary of State for Energy and Climate Change granted the Development Consent Order for the Kentish Flats Extension, authorising up to 17 turbines and associated offshore and onshore infrastructure.",
+              "source": "https://www.legislation.gov.uk/uksi/2013/343/contents",
+              "expected": false
+            },
+            {
+              "date": "2013-11-04",
+              "phase": "fid",
+              "title": "Final Investment Decision",
+              "description": "Vattenfall's Board approved approximately £150 million of investment in the 49.5 MW Kentish Flats Extension, clearing the final hurdle before construction.",
+              "source": "https://www.offshorewind.biz/2013/11/04/vattenfall-gives-green-light-to-investment-in-kentish-flats-extension-uk/",
+              "expected": false
+            },
+            {
+              "date": "2014-10-01",
+              "phase": "build",
+              "title": "Onshore construction begins",
+              "description": "Onshore enabling works for the extension's cable landfall and grid connection at Hampton Pier commenced in late 2014, ahead of offshore installation.",
+              "source": "https://en.wikipedia.org/wiki/Kentish_Flats_Offshore_Wind_Farm",
+              "expected": false
+            },
+            {
+              "date": "2015-04-01",
+              "phase": "build",
+              "title": "Offshore installation begins",
+              "description": "Offshore construction started in April 2015 with foundation and Vestas V112 3.3 MW turbine installation through the second and third quarters of 2015.",
+              "source": "https://www.offshorewind.biz/2013/11/04/vattenfall-gives-green-light-to-investment-in-kentish-flats-extension-uk/",
+              "expected": false
+            },
+            {
+              "date": "2015-12-01",
+              "phase": "operational",
+              "title": "Fully operational",
+              "description": "All 15 turbines (49.5 MW total) entered full commercial operation by December 2015, providing electricity equivalent to the needs of around 42,000 UK households.",
+              "source": "https://en.wikipedia.org/wiki/Kentish_Flats_Offshore_Wind_Farm",
+              "expected": false
+            }
+          ]
+        },
+        "EN010038": {
+          "ref": "EN010038",
+          "name": "North Killingholme Power Project",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "C.GEN Killingholme Ltd secured a Development Consent Order in September 2014 for a 470 MW gas-fired (CCGT/IGCC) generating station on the Humber, but the plant was never built after failing to secure long-term capacity market contracts. A five-year deadline extension was granted in 2021, and in late 2024 Uniper acquired the development rights to explore a carbon capture variant of the consented scheme.",
+          "milestones": [
+            {
+              "date": "2013-03-29",
+              "phase": "application",
+              "title": "DCO application submitted to PINS",
+              "description": "C.GEN Killingholme Ltd submitted its Development Consent Order application for a 470 MWe thermal generating station at North Killingholme to the Planning Inspectorate, with the option to operate as CCGT or IGCC.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010038",
+              "expected": false
+            },
+            {
+              "date": "2013-04-19",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "PINS accepted the application for examination under the Planning Act 2008.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010038",
+              "expected": false
+            },
+            {
+              "date": "2013-09-11",
+              "phase": "examination",
+              "title": "Examination commenced",
+              "description": "The Examining Authority opened the six-month examination of the proposed 470 MW power station and associated development.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010038",
+              "expected": false
+            },
+            {
+              "date": "2014-09-11",
+              "phase": "consent",
+              "title": "Development Consent Order granted",
+              "description": "The Secretary of State for Energy and Climate Change made the North Killingholme (Generating Station) Order 2014, consenting the 470 MW gas-fired power station with a seven-year implementation deadline.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010038",
+              "expected": false
+            },
+            {
+              "date": "2014-12-19",
+              "phase": "dormant",
+              "title": "Unsuccessful in first Capacity Market T-4 auction",
+              "description": "The project entered the inaugural GB Capacity Market T-4 auction for 2018/19 delivery but did not clear, leaving the scheme without the long-term revenue contract sought to underpin construction financing.",
+              "source": "https://www.nsenergybusiness.com/features/featurecgen-looks-to-capacity-market-for-north-killingholme-ccgt-5819815/",
+              "expected": false
+            },
+            {
+              "date": "2021-09-16",
+              "phase": "consent",
+              "title": "Five-year deadline extension granted",
+              "description": "The Department for Business, Energy and Industrial Strategy approved a non-material change extending the time limit for commencing the authorised development by five years, the first such extension granted under the Planning Act 2008 regime.",
+              "source": "https://www.legislation.gov.uk/uksi/2021/1055/contents/made",
+              "expected": false
+            },
+            {
+              "date": "2024-12-01",
+              "phase": "revived",
+              "title": "Uniper acquires development rights from C.GEN",
+              "description": "Uniper purchased the land and development rights for the consented scheme from C.GEN Killingholme Ltd, rebranding the project as Killingholme Low Carbon Power and announcing plans to explore adding post-combustion carbon capture.",
+              "source": "https://www.businessgreen.com/news/4393872/uniper-acquires-rights-develop-470mw-humberside-carbon-capture-power-plant",
               "expected": false
             }
           ]
