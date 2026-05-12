@@ -3,7 +3,7 @@
   "id": "nsip-timelines",
   "pillar": "state",
   "topic": "construction",
-  "generated": "2026-05-12T07:39:09.400Z",
+  "generated": "2026-05-12T07:43:49.312Z",
   "sources": [
     {
       "id": "claude-agent-research",
@@ -14,7 +14,7 @@
     }
   ],
   "snapshot": {
-    "totalTimelines": 188,
+    "totalTimelines": 195,
     "researchedByAgent": 74,
     "researchedManually": 1
   },
@@ -16741,6 +16741,725 @@
               "description": "East Anglia THREE is scheduled to reach full commercial operation in 2026, delivering around 1.4 GW from 95 Siemens Gamesa 14 MW+ turbines.",
               "source": "https://en.wikipedia.org/wiki/East_Anglia_Array",
               "expected": true
+            }
+          ]
+        },
+        "EN010071": {
+          "ref": "EN010071",
+          "name": "North London Heat and Power Project",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "A major energy-from-waste facility being built by the North London Waste Authority (NLWA) at the Edmonton EcoPark to replace the existing 1971 incinerator. The Development Consent Order was granted in February 2017 and construction began in 2019, but the project has faced sustained opposition and significant cost escalation, with the budget rising from around £1.2 billion to £1.5 billion and full operation now expected by 2027.",
+          "milestones": [
+            {
+              "date": "2013-09-30",
+              "phase": "proposal",
+              "title": "NLWA selects EfW solution",
+              "description": "In September 2013 NLWA closed earlier procurement routes in favour of an energy recovery facility solution at the Edmonton EcoPark, following adoption of supportive Enfield and Upper Lee Valley planning frameworks earlier in the year.",
+              "source": "https://northlondonheatandpower.london/media/asvicpm2/ad05-03_alternatives_assessment_lores.pdf",
+              "expected": false
+            },
+            {
+              "date": "2014-06-01",
+              "phase": "consultation",
+              "title": "Statutory public consultation begins",
+              "description": "NLWA launched statutory pre-application consultation, holding 15 public exhibitions and engaging more than 28,000 homes across the seven north London boroughs.",
+              "source": "https://northlondonheatandpower.london/project/project-timeline",
+              "expected": false
+            },
+            {
+              "date": "2015-10-12",
+              "phase": "application",
+              "title": "DCO application submitted to Planning Inspectorate",
+              "description": "NLWA submitted its Development Consent Order application for the North London Heat and Power Project to the Planning Inspectorate under the Planning Act 2008.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010071",
+              "expected": false
+            },
+            {
+              "date": "2015-11-11",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "The Planning Inspectorate accepted NLWA's DCO application for examination following its 28-day review.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010071",
+              "expected": false
+            },
+            {
+              "date": "2016-02-23",
+              "phase": "examination",
+              "title": "Examination opens",
+              "description": "The six-month examination of the application began in February 2016, with issue-specific hearings, open-floor hearings and written representations from interested parties.",
+              "source": "https://northlondonheatandpower.london/news/examination-of-the-application-for-a-development-consent-order-closes",
+              "expected": false
+            },
+            {
+              "date": "2016-08-23",
+              "phase": "examination",
+              "title": "Examination closes",
+              "description": "The Examining Authority closed examination after the statutory six-month period and began preparing its recommendation to the Secretary of State.",
+              "source": "https://northlondonheatandpower.london/news/examination-of-the-application-for-a-development-consent-order-closes",
+              "expected": false
+            },
+            {
+              "date": "2017-02-24",
+              "phase": "consent",
+              "title": "Development Consent Order granted",
+              "description": "The Secretary of State for Business, Energy and Industrial Strategy granted the DCO authorising the new energy recovery facility and associated development at Edmonton EcoPark.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010071",
+              "expected": false
+            },
+            {
+              "date": "2019-03-01",
+              "phase": "build",
+              "title": "Enabling and access works begin on site",
+              "description": "Construction-preparation works commenced in 2019, including the Deephams Farm Road northern access improvements and sewer diversion works for the Angel and Chingford sewers.",
+              "source": "https://northlondonheatandpower.london/project/project-timeline",
+              "expected": false
+            },
+            {
+              "date": "2022-01-20",
+              "phase": "build",
+              "title": "Acciona signs £683m Energy Recovery Facility contract",
+              "description": "Following an extended procurement, NLWA signed a contract worth approximately £683 million with Acciona to design and build the new Energy Recovery Facility. Opposition groups including Stop the Edmonton Incinerator and Lib Dem and Conservative councillors had called for the scheme to be paused and reviewed; Labour-led councils rejected those motions.",
+              "source": "https://www.theconstructionindex.co.uk/news/view/acciona-wins-edmonton-incinerator-contract",
+              "expected": false
+            },
+            {
+              "date": "2023-05-04",
+              "phase": "build",
+              "title": "Project cost revised upward to £1.4-1.5bn",
+              "description": "NLWA disclosed that the total cost of the redevelopment had risen from the £1.2bn estimate to between £1.42bn and £1.52bn, citing inflation, Brexit-related supply pressures and the war in Ukraine.",
+              "source": "https://www.hackneycitizen.co.uk/2023/05/04/edmonton-incinerator-cost-spiralling-out-of-control-says-campaign-group/",
+              "expected": false
+            },
+            {
+              "date": "2024-07-01",
+              "phase": "build",
+              "title": "New Reuse and Recycling Centre opens",
+              "description": "The new public Reuse and Recycling Centre opened in July 2024, following the Resource Recovery Facility going operational in April and the EcoPark House educational hub being completed. The Energy Recovery Facility itself remains under construction.",
+              "source": "https://northlondonheatandpower.london/project/project-timeline",
+              "expected": false
+            },
+            {
+              "date": "2025-08-22",
+              "phase": "build",
+              "title": "Further delays disclosed; full operation slips to 2027",
+              "description": "NLWA confirmed continued delays to the Energy Recovery Facility, with full commissioning now expected by 2027 and the existing 1971 plant set to run beyond 2030.",
+              "source": "https://walthamforestecho.co.uk/2025/08/22/incinerator-faces-further-delays/",
+              "expected": false
+            }
+          ]
+        },
+        "EN010072": {
+          "ref": "EN010072",
+          "name": "Glyn Rhonwy Pumped Storage",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "A 99.9 MW pumped storage scheme proposed for two disused slate quarries near Llanberis, Snowdonia. It was the first onshore hydro project consented as a Nationally Significant Infrastructure Project under the Planning Act 2008, with a Development Consent Order granted in March 2017. The scheme has remained unbuilt and is dependent on a UK Government support mechanism; developer Snowdonia Pumped Hydro Limited remains active and has twice secured DCO time extensions from Welsh Ministers, most recently to March 2026.",
+          "milestones": [
+            {
+              "date": "2013-08-09",
+              "phase": "proposal",
+              "title": "Snowdonia Pumped Hydro incorporated",
+              "description": "Snowdonia Pumped Hydro Limited (company 08644844), a subsidiary of Quarry Battery Company, was incorporated to develop the Glyn Rhonwy scheme exclusively.",
+              "source": "https://find-and-update.company-information.service.gov.uk/company/08644844",
+              "expected": false
+            },
+            {
+              "date": "2014-02-01",
+              "phase": "consent",
+              "title": "Gwynedd Council approves 49.9 MW scheme",
+              "description": "Gwynedd Council granted planning permission for an initial 49.9 MW pumped storage scheme, below the NSIP threshold. Plans were later expanded to 99.9 MW, requiring a DCO.",
+              "source": "https://www.snowdoniapumpedhydro.com/about",
+              "expected": false
+            },
+            {
+              "date": "2015-11-01",
+              "phase": "proposal",
+              "title": "Capacity doubled to 99.9 MW",
+              "description": "The developer announced an expansion of the scheme from 49.9 MW to 99.9 MW, taking it above the threshold for nationally significant infrastructure consent.",
+              "source": "https://www.waterpowermagazine.com/news/setback-for-welsh-pumped-storage-scheme-4934195/",
+              "expected": false
+            },
+            {
+              "date": "2015-10-21",
+              "phase": "application",
+              "title": "DCO application received by Planning Inspectorate",
+              "description": "Snowdonia Pumped Hydro submitted its Development Consent Order application to the Planning Inspectorate.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010072/project-updates",
+              "expected": false
+            },
+            {
+              "date": "2015-11-17",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "The Planning Inspectorate accepted the application for examination as a Nationally Significant Infrastructure Project.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010072",
+              "expected": false
+            },
+            {
+              "date": "2016-03-08",
+              "phase": "examination",
+              "title": "Examination begins",
+              "description": "Preliminary meeting held and examination commenced. The examination covered impacts on water from Llyn Padarn, ecology, landscape and cultural heritage adjacent to Snowdonia National Park.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010072/project-updates",
+              "expected": false
+            },
+            {
+              "date": "2017-03-08",
+              "phase": "consent",
+              "title": "Development Consent Order granted",
+              "description": "Secretary of State for Business, Energy and Industrial Strategy Greg Clark granted the DCO, making Glyn Rhonwy the first onshore hydro scheme consented under the Planning Act 2008.",
+              "source": "https://aecom.com/uk/press-releases/development-consent-order-granted-major-uk-pumped-storage-scheme/",
+              "expected": false
+            },
+            {
+              "date": "2021-01-01",
+              "phase": "dormant",
+              "title": "DCO implementation deadline extended",
+              "description": "Welsh Ministers extended the five-year DCO implementation window beyond its 2022 expiry to 29 March 2024, with the developer citing COVID-19 restrictions.",
+              "source": "https://www.dailypost.co.uk/news/north-wales-news/160m-hydro-battery-scheme-north-29316012",
+              "expected": false
+            },
+            {
+              "date": "2024-02-06",
+              "phase": "dormant",
+              "title": "Non-material amendment and second extension to 2026",
+              "description": "The Welsh Minister for Climate Change issued a Decision Letter and Amendment Order approving a non-material change to the 2017 DCO and extending the implementation deadline to 29 March 2026.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010072",
+              "expected": false
+            },
+            {
+              "date": "2024-06-15",
+              "phase": "dormant",
+              "title": "Project awaits UK support scheme",
+              "description": "The developer reported significant capital cost increases (project estimated at around £160m) and stated the scheme's viability depends on a UK Government support mechanism for long-duration electricity storage. Front-end engineering design continues.",
+              "source": "https://www.dailypost.co.uk/news/north-wales-news/160m-hydro-battery-scheme-north-29316012",
+              "expected": false
+            }
+          ]
+        },
+        "EN010077": {
+          "ref": "EN010077",
+          "name": "East Anglia ONE North Offshore Windfarm",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "ScottishPower Renewables' ~800 MW offshore wind project in the East Anglia zone, around 36 km off the Suffolk coast. Development consent was granted in March 2022 alongside East Anglia TWO, despite sustained local opposition from Substation Action Save East Suffolk (SASES) over the onshore Friston substation. Legal challenges were rejected by the High Court, Court of Appeal and Supreme Court, and the project forms part of Iberdrola's wider East Anglia Hub. It did not secure a Contract for Difference in AR6 (2024) and remains pre-construction.",
+          "milestones": [
+            {
+              "date": "2010-01-08",
+              "phase": "proposal",
+              "title": "Crown Estate Round 3 zone awarded",
+              "description": "ScottishPower Renewables (with Vattenfall, later sole) won the East Anglia Zone in the Crown Estate's Round 3 offshore wind tender, the seabed area from which East Anglia ONE North was later carved out.",
+              "source": "https://en.wikipedia.org/wiki/East_Anglia_Array",
+              "expected": false
+            },
+            {
+              "date": "2017-11-30",
+              "phase": "proposal",
+              "title": "PINS scoping report submitted",
+              "description": "ScottishPower Renewables submitted a Scoping Report for East Anglia ONE North to the Planning Inspectorate, starting the formal pre-application stage of the DCO process.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/eastern/east-anglia-one-north-offshore-windfarm/",
+              "expected": false
+            },
+            {
+              "date": "2018-03-31",
+              "phase": "consultation",
+              "title": "Statement of Community Consultation published",
+              "description": "Statutory community consultation on the proposed offshore array and Friston onshore substation began, drawing organised local opposition that coalesced into Substation Action Save East Suffolk (SASES).",
+              "source": "https://www.suffolkenergyactionsolutions.co.uk/the-threat/",
+              "expected": false
+            },
+            {
+              "date": "2019-10-25",
+              "phase": "application",
+              "title": "DCO application submitted to PINS",
+              "description": "East Anglia ONE North Limited submitted the Development Consent Order application for an offshore wind farm of up to 800 MW (~67 turbines) approximately 36 km off Lowestoft, with onshore cables and a new substation at Friston.",
+              "source": "https://www.offshorewind.biz/2019/10/29/scottishpower-renewables-submits-east-anglia-dco-applications/",
+              "expected": false
+            },
+            {
+              "date": "2019-11-22",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "The Planning Inspectorate accepted the EN010077 application as meeting standards for examination under the Planning Act 2008.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/eastern/east-anglia-one-north-offshore-windfarm/",
+              "expected": false
+            },
+            {
+              "date": "2020-10-06",
+              "phase": "examination",
+              "title": "Examination opened",
+              "description": "The preliminary meeting was held and examination opened, with hearings covering ecology, landscape impact, cumulative effects at Friston and grid connection alternatives raised by SASES and Suffolk councils.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/eastern/east-anglia-one-north-offshore-windfarm/",
+              "expected": false
+            },
+            {
+              "date": "2021-07-06",
+              "phase": "examination",
+              "title": "Examination closed",
+              "description": "The six-month examination by the Examining Authority concluded.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/eastern/east-anglia-one-north-offshore-windfarm/",
+              "expected": false
+            },
+            {
+              "date": "2022-03-31",
+              "phase": "consent",
+              "title": "Development Consent Order granted",
+              "description": "The Secretary of State for Business, Energy and Industrial Strategy granted development consent for East Anglia ONE North (alongside East Anglia TWO), including the Friston onshore substation, after the statutory decision deadline had been extended from 2021.",
+              "source": "https://www.gov.uk/government/news/east-anglia-one-north-offshore-windfarm-east-anglia-two-offshore-windfarmdevelopment-consent-decisions-announced",
+              "expected": false
+            },
+            {
+              "date": "2022-05-20",
+              "phase": "jr",
+              "title": "SASES launches judicial review",
+              "description": "Substation Action Save East Suffolk applied for judicial review of the DCOs on six grounds, including flood risk, heritage impact, noise, and the cumulative effect of five energy projects connecting at Friston.",
+              "source": "https://www.eadt.co.uk/news/business/21260836.campaigners-seek-judicial-review-harmful-suffolk-substation-plans/",
+              "expected": false
+            },
+            {
+              "date": "2023-05-31",
+              "phase": "jr",
+              "title": "High Court dismisses challenge",
+              "description": "Mr Justice Holgate dismissed SASES's judicial review of the East Anglia ONE North and TWO DCOs, upholding the Secretary of State's grant of consent.",
+              "source": "https://www.ftbchambers.co.uk/news/case-view/the-east-anglia-one-north-and-east-anglia-two-offshore-windfarms",
+              "expected": false
+            },
+            {
+              "date": "2024-02-13",
+              "phase": "jr",
+              "title": "Court of Appeal rejects SASES appeal",
+              "description": "Following a December 2023 hearing, the Court of Appeal rejected SASES's appeal on all grounds. The Supreme Court subsequently refused permission to appeal.",
+              "source": "https://www.eadt.co.uk/news/24057191.court-appeal-rejects-latest-legal-appeal-suffolk-cables/",
+              "expected": false
+            },
+            {
+              "date": "2024-09-03",
+              "phase": "consent",
+              "title": "Not awarded in AR6",
+              "description": "In Contracts for Difference Allocation Round 6, ScottishPower Renewables' East Anglia TWO secured a 963 MW CfD but East Anglia ONE North did not receive an award, leaving its route to market dependent on a future allocation round.",
+              "source": "https://www.offshorewind.biz/2024/09/03/5-3-gw-of-uk-offshore-wind-projects-secure-contracts-for-difference/",
+              "expected": false
+            }
+          ]
+        },
+        "EN010078": {
+          "ref": "EN010078",
+          "name": "East Anglia TWO Offshore Windfarm",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "East Anglia TWO is a ~960 MW offshore wind project located ~32-37 km off the Suffolk coast within the Crown Estate Round 3 East Anglia Zone, developed by ScottishPower Renewables with onshore substation at Friston. The Development Consent Order was granted in March 2022 following a contested examination, the project secured a Contract for Difference in AR6 in September 2024, and offshore construction is expected to start from 2025-2027 with operations targeted for 2028.",
+          "milestones": [
+            {
+              "date": "2017-10-01",
+              "phase": "proposal",
+              "title": "Scoping report submitted",
+              "description": "ScottishPower Renewables submitted the EIA Scoping Report to the Planning Inspectorate for the proposed East Anglia TWO offshore windfarm, marking the start of formal pre-application engagement within the Crown Estate Round 3 East Anglia Zone.",
+              "source": "https://tethys.pnnl.gov/publications/east-anglia-two-offshore-windfarm-scoping-report",
+              "expected": false
+            },
+            {
+              "date": "2019-10-25",
+              "phase": "application",
+              "title": "DCO application submitted to PINS",
+              "description": "ScottishPower Renewables submitted the Development Consent Order application for the ~960 MW East Anglia TWO project, with onshore substation proposed at Friston in Suffolk.",
+              "source": "https://www.offshorewind.biz/2019/10/29/scottishpower-renewables-submits-east-anglia-dco-applications/",
+              "expected": false
+            },
+            {
+              "date": "2019-11-22",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "The Planning Inspectorate accepted the East Anglia TWO DCO application for examination under the Planning Act 2008.",
+              "source": "https://www.offshorewind.biz/2019/11/25/east-anglia-offshore-wind-farms-cleared-for-dco-review/",
+              "expected": false
+            },
+            {
+              "date": "2020-10-06",
+              "phase": "examination",
+              "title": "Examination opens",
+              "description": "The Examining Authority held the Preliminary Meeting and the six-month statutory examination commenced; the project was examined jointly with East Anglia ONE North (EN010077) given shared infrastructure at Friston.",
+              "source": "https://sases.org.uk/scottish-power-ea2-ea1n-substation-key-info/ea1n-ea2-examination/",
+              "expected": false
+            },
+            {
+              "date": "2021-07-06",
+              "phase": "examination",
+              "title": "Examination closes",
+              "description": "The examination closed following a three-month extension granted in April 2021, after evidence from statutory consultees and interested parties including the Friston-based Substation Action Save East Suffolk (SASES) campaign.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010078",
+              "expected": false
+            },
+            {
+              "date": "2022-03-31",
+              "phase": "consent",
+              "title": "Development Consent Order granted",
+              "description": "The Secretary of State granted development consent for East Anglia TWO, authorising up to ~960 MW of offshore wind generation with onshore connection via a new substation at Friston.",
+              "source": "https://www.gov.uk/government/news/east-anglia-one-north-offshore-windfarm-east-anglia-two-offshore-windfarmdevelopment-consent-decisions-announced",
+              "expected": false
+            },
+            {
+              "date": "2024-09-03",
+              "phase": "consent",
+              "title": "Contract for Difference secured in AR6",
+              "description": "East Anglia TWO (963 MW) was one of two new fixed-bottom offshore wind projects to secure a Contract for Difference in Allocation Round 6, providing the revenue floor needed to proceed to construction.",
+              "source": "https://www.regen.co.uk/insights/cfd-ar6-analysis-offshore-energy",
+              "expected": false
+            },
+            {
+              "date": "2024-10-31",
+              "phase": "fid",
+              "title": "Foundation supply contracts signed",
+              "description": "ScottishPower Renewables signed contracts with Sif Netherlands and a Sif-Smulders joint venture for the supply of 64 monopiles and transition pieces, indicating the project had reached financial investment decision.",
+              "source": "https://sif-group.com/en/news/sif-and-smulders-contracted-by-scottishpower-renewables-for-east-anglia-two-foundations/",
+              "expected": false
+            },
+            {
+              "date": "2025-04-08",
+              "phase": "build",
+              "title": "Offshore substation EPCIC contract awarded",
+              "description": "ScottishPower Renewables awarded HSM Offshore Energy the EPCIC contract for the 5,100-tonne offshore high-voltage substation and 3,700-tonne jacket foundation.",
+              "source": "https://www.offshorewind.biz/2025/04/08/scottishpower-hsm-offshore-energy-sign-east-anglia-two-substation-contract/",
+              "expected": false
+            },
+            {
+              "date": "2025-12-31",
+              "phase": "build",
+              "title": "Construction expected to start",
+              "description": "Onshore and early construction works are expected to begin in late 2025, with offshore installation programmed for 2027 ahead of commissioning.",
+              "source": "https://www.blackridgeresearch.com/project-profiles/all-about-east-anglia-two-2-offshore-wind-farm-project-details-england-britain-united-kingdom-uk",
+              "expected": true
+            },
+            {
+              "date": "2028-12-31",
+              "phase": "operational",
+              "title": "Expected commissioning",
+              "description": "East Anglia TWO is expected to become fully operational in 2028, delivering up to ~960 MW from 64 Siemens Gamesa SG14-236 DD turbines.",
+              "source": "https://www.iberdrola.com/about-us/what-we-do/offshore-wind-energy/offshore-energy-park-east-anglia-two",
+              "expected": true
+            }
+          ]
+        },
+        "EN010079": {
+          "ref": "EN010079",
+          "name": "Norfolk Vanguard",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "1.8 GW offshore wind project off the Norfolk coast, submitted by Vattenfall subsidiary Norfolk Vanguard Limited in 2018 and consented in July 2020. The High Court quashed the DCO in February 2021 in R (Pearce) v SoS BEIS over a failure to assess cumulative onshore impacts with the sister Norfolk Boreas project; the Secretary of State re-determined the application and re-granted consent in February 2022. The project, alongside Vanguard East and Boreas, was sold by Vattenfall to RWE in late 2023 after Vattenfall halted Norfolk Boreas over cost inflation.",
+          "milestones": [
+            {
+              "date": "2010-01-08",
+              "phase": "proposal",
+              "title": "East Anglia Round 3 zone awarded",
+              "description": "The Crown Estate announced East Anglia Offshore Wind (a 50:50 Vattenfall / ScottishPower Renewables JV) as developer of the 7.2 GW East Anglia Round 3 offshore wind zone, which would later be subdivided into the Norfolk and East Anglia project portfolios.",
+              "source": "https://www.rivieramm.com/news-content-hub/news-content-hub/crown-estate-announces-round-3-offshore-wind-zone-winners-45759",
+              "expected": false
+            },
+            {
+              "date": "2015-03-31",
+              "phase": "proposal",
+              "title": "Vattenfall takes sole control of Norfolk projects",
+              "description": "Following the split of the East Anglia JV, Vattenfall took sole control of the northern projects within the Round 3 zone (later named Norfolk Vanguard and Norfolk Boreas), while ScottishPower Renewables / Iberdrola retained the East Anglia projects.",
+              "source": "https://en.wikipedia.org/wiki/East_Anglia_Array",
+              "expected": false
+            },
+            {
+              "date": "2017-10-31",
+              "phase": "consultation",
+              "title": "Statutory consultation on Norfolk Vanguard",
+              "description": "Vattenfall set out detailed plans for the 1.8 GW Norfolk Vanguard offshore wind farm, comprising Vanguard East and Vanguard West, with an onshore cable route and substation at Necton connecting to the National Grid.",
+              "source": "https://www.offshorewind.biz/2017/10/31/vattenfall-paints-norfolk-vanguard-picture/",
+              "expected": false
+            },
+            {
+              "date": "2018-06-26",
+              "phase": "application",
+              "title": "DCO application submitted to PINS",
+              "description": "Norfolk Vanguard Limited submitted its Development Consent Order application to the Planning Inspectorate under the Planning Act 2008, covering offshore generation infrastructure and onshore cabling and substation works near Necton.",
+              "source": "https://www.offshorewind.biz/2018/07/25/uk-okays-norfolk-vanguard-dco-application-for-check-up/",
+              "expected": false
+            },
+            {
+              "date": "2018-07-24",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "The Planning Inspectorate accepted the Norfolk Vanguard DCO application for examination, finding it met the statutory standards under Section 55 of the Planning Act 2008.",
+              "source": "https://www.offshorewind.biz/2018/07/25/uk-okays-norfolk-vanguard-dco-application-for-check-up/",
+              "expected": false
+            },
+            {
+              "date": "2018-12-10",
+              "phase": "examination",
+              "title": "Examination opens with preliminary meeting",
+              "description": "The Examining Authority held the preliminary meeting at The Dukes Head Hotel in King's Lynn, formally opening the six-month examination period for the Norfolk Vanguard application.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN010079-004457-Norfolk%20Vanguard%20Final%20Report%20to%20SoS%2010092019%20FINAL.pdf",
+              "expected": false
+            },
+            {
+              "date": "2019-06-10",
+              "phase": "examination",
+              "title": "Examination closes",
+              "description": "The Examining Authority closed the six-month examination of the Norfolk Vanguard application.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN010079-004457-Norfolk%20Vanguard%20Final%20Report%20to%20SoS%2010092019%20FINAL.pdf",
+              "expected": false
+            },
+            {
+              "date": "2020-07-01",
+              "phase": "consent",
+              "title": "Development Consent Order granted",
+              "description": "Secretary of State Alok Sharma granted the Norfolk Vanguard DCO, authorising construction of a 1.8 GW offshore wind farm approximately 47 km off the Norfolk coast with onshore connection at Necton.",
+              "source": "https://www.theplanner.co.uk/2020/07/06/sharma-approves-norfolk-vanguards-dco-application",
+              "expected": false
+            },
+            {
+              "date": "2021-02-18",
+              "phase": "jr",
+              "title": "High Court quashes DCO on judicial review",
+              "description": "In R (Pearce) v Secretary of State for BEIS [2021] EWHC 326 (Admin), Mr Justice Holgate quashed the DCO, ruling the Secretary of State had unlawfully failed to assess the cumulative onshore landscape and visual impacts at Necton arising from Norfolk Vanguard taken together with the adjacent Norfolk Boreas project. It was the first contested judicial review to quash a DCO under the Planning Act 2008 regime.",
+              "source": "https://www.offshorewind.biz/2021/02/18/dco-decision-for-norfolk-vanguard-owf-quashed/",
+              "expected": false
+            },
+            {
+              "date": "2022-02-11",
+              "phase": "consent",
+              "title": "DCO re-granted following redetermination",
+              "description": "Secretary of State Kwasi Kwarteng re-granted development consent for Norfolk Vanguard after redetermining the application to address the cumulative-impact issues identified by the High Court. The Norfolk Vanguard Offshore Wind Farm Order 2022 (SI 2022/138) was made on the same date.",
+              "source": "https://www.gov.uk/government/news/norfolk-vanguard-development-consent-decision-announced",
+              "expected": false
+            },
+            {
+              "date": "2023-07-20",
+              "phase": "consent",
+              "title": "Vattenfall halts sister project Norfolk Boreas",
+              "description": "Vattenfall announced it would stop development of the 1.4 GW Norfolk Boreas, citing roughly 40% cost inflation that made the AR4 strike price unviable, and said it would review its entire 4.2 GW Norfolk zone, including Vanguard East and Vanguard West.",
+              "source": "https://www.offshorewind.biz/2023/07/20/breaking-vattenfall-stops-developing-major-wind-farm-offshore-uk-will-review-entire-4-2-gw-zone/",
+              "expected": false
+            },
+            {
+              "date": "2023-12-21",
+              "phase": "consent",
+              "title": "RWE agrees to acquire Norfolk zone from Vattenfall",
+              "description": "RWE announced the acquisition of Vattenfall's 4.2 GW Norfolk Offshore Wind Zone, comprising Vanguard West, Vanguard East and Boreas, at an enterprise value of around £963 million (EUR 1.1 billion), with the transaction completing on 27 March 2024.",
+              "source": "https://www.rwe.com/en/press/rwe-offshore-wind-gmbh/2023-12-21-rwe-acquires-4-2-gigawatt-uk-offshore-wind-development-portfolio-from-vattenfall/",
+              "expected": false
+            }
+          ]
+        },
+        "EN010080": {
+          "ref": "EN010080",
+          "name": "Hornsea Project Three Offshore Wind Farm",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Hornsea Project Three is a 2.852 GW offshore wind farm being developed by Orsted off the Yorkshire coast. The Development Consent Order was granted on 31 December 2020, final investment decision was taken in December 2023, and offshore construction began in 2024 with completion expected by end of 2027.",
+          "milestones": [
+            {
+              "date": "2016-05-04",
+              "phase": "consultation",
+              "title": "Consultation launched",
+              "description": "DONG Energy (later Orsted) launched public consultation on Hornsea Project Three, initially proposed at up to 2.4 GW.",
+              "source": "https://en.wikipedia.org/wiki/Hornsea_Wind_Farm",
+              "expected": false
+            },
+            {
+              "date": "2018-05-31",
+              "phase": "application",
+              "title": "DCO application submitted",
+              "description": "Orsted submitted the Development Consent Order application to the Planning Inspectorate for the 2.4 GW offshore wind farm.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/yorkshire-and-the-humber/hornsea-project-three-offshore-wind-farm/",
+              "expected": false
+            },
+            {
+              "date": "2018-06-28",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "The Planning Inspectorate accepted the Hornsea Project Three DCO application for examination.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/yorkshire-and-the-humber/hornsea-project-three-offshore-wind-farm/",
+              "expected": false
+            },
+            {
+              "date": "2018-12-04",
+              "phase": "examination",
+              "title": "Examination opened",
+              "description": "Six-month examination of the DCO application commenced, with hearings on environmental impacts including effects on the Flamborough and Filey Coast SPA seabird population.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/yorkshire-and-the-humber/hornsea-project-three-offshore-wind-farm/",
+              "expected": false
+            },
+            {
+              "date": "2019-06-04",
+              "phase": "examination",
+              "title": "Examination closed",
+              "description": "The Examining Authority concluded the examination and prepared its recommendation report to the Secretary of State.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/yorkshire-and-the-humber/hornsea-project-three-offshore-wind-farm/",
+              "expected": false
+            },
+            {
+              "date": "2020-12-31",
+              "phase": "consent",
+              "title": "Development Consent Order granted",
+              "description": "The Secretary of State for Business, Energy and Industrial Strategy granted development consent for Hornsea Project Three, authorising up to 2.852 GW of offshore wind capacity.",
+              "source": "https://en.wikipedia.org/wiki/Hornsea_Wind_Farm",
+              "expected": false
+            },
+            {
+              "date": "2022-07-08",
+              "phase": "consent",
+              "title": "CfD allocation in AR4",
+              "description": "Hornsea Three secured a Contract for Difference at the AR4 allocation round at GBP 37.35/MWh (2012 prices) for 2.852 GW of capacity.",
+              "source": "https://www.gov.uk/government/publications/contracts-for-difference-cfd-allocation-round-4-results",
+              "expected": false
+            },
+            {
+              "date": "2023-07-21",
+              "phase": "build",
+              "title": "Onshore construction begins",
+              "description": "Orsted commenced onshore construction works, including cable route preparation, and announced an industry-first foundation design milestone.",
+              "source": "https://renews.biz/87121/orsted-completes-industry-first-at-hornsea-3/",
+              "expected": false
+            },
+            {
+              "date": "2023-12-20",
+              "phase": "fid",
+              "title": "Final Investment Decision",
+              "description": "Orsted took final investment decision on Hornsea 3, confirming it would become the world's largest offshore wind farm at 2.852 GW.",
+              "source": "https://hornseaproject3.co.uk/news/2023/12/orsted-takes-final-investment-decision-on-hornsea-3-offshore-wind-farm",
+              "expected": false
+            },
+            {
+              "date": "2025-12-30",
+              "phase": "build",
+              "title": "Apollo acquires 50% stake",
+              "description": "Orsted closed a USD 6.1 billion deal selling a 50% stake in Hornsea 3 to Apollo Global Management to support project financing.",
+              "source": "https://www.oedigital.com/news/533926-rsted-closes-hornsea-3-offshore-wind-deal-with-apollo",
+              "expected": false
+            },
+            {
+              "date": "2026-02-11",
+              "phase": "build",
+              "title": "First monopiles arrive in UK",
+              "description": "The first monopile foundations for Hornsea 3, manufactured in Spain, arrived in the UK ahead of offshore installation.",
+              "source": "https://www.offshorewind.biz/2026/02/11/first-hornsea-3-monopiles-arrive-in-uk-from-spain/",
+              "expected": false
+            },
+            {
+              "date": "2026-03-26",
+              "phase": "build",
+              "title": "First offshore export cable installed",
+              "description": "The first offshore export cable for Hornsea 3 was laid, marking a major milestone in offshore construction.",
+              "source": "https://www.offshorewind.biz/2026/03/26/first-hornsea-3-offshore-export-cable-in-place/",
+              "expected": false
+            },
+            {
+              "date": "2027-12-31",
+              "phase": "operational",
+              "title": "Expected full commissioning",
+              "description": "Hornsea 3 is expected to complete construction and reach full commercial operation at the end of 2027, becoming the world's largest offshore wind farm.",
+              "source": "https://en.wikipedia.org/wiki/Hornsea_Wind_Farm",
+              "expected": true
+            }
+          ]
+        },
+        "EN010085": {
+          "ref": "EN010085",
+          "name": "Cleve Hill Solar Park",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Cleve Hill Solar Park is the UK's first solar Nationally Significant Infrastructure Project, a 373 MW solar farm with co-located battery storage on the north Kent coast near Faversham. Development consent was granted in May 2020 over local opposition; the project was acquired by Quinbrook Infrastructure Partners in 2021 and reached commercial operations on 1 July 2025.",
+          "milestones": [
+            {
+              "date": "2017-11-10",
+              "phase": "proposal",
+              "title": "Project unveiled by Hive Energy and Wirsol",
+              "description": "Hive Energy and Wirsol Energy announce plans for a 350 MW solar park at Cleve Hill near Faversham, Kent, positioned as the UK's first solar Nationally Significant Infrastructure Project (NSIP).",
+              "source": "https://www.solarpowerportal.co.uk/hive_energy_announces_plans_for_huge_pioneering_350mw_solar_farm_in_kent/",
+              "expected": false
+            },
+            {
+              "date": "2018-11-16",
+              "phase": "application",
+              "title": "DCO application submitted",
+              "description": "Cleve Hill Solar Park Ltd submits its Development Consent Order application to the Planning Inspectorate, the first solar NSIP application under the Planning Act 2008.",
+              "source": "https://www.hiveenergy.co.uk/2018/12/27/cleve-hill-application-for-proposed-solar-and-energy-a-storage-park-on-the-north-kent-coast-submitted-to-the-secretary-of-state/",
+              "expected": false
+            },
+            {
+              "date": "2018-12-14",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "The Planning Inspectorate accepts the DCO application for examination under section 55 of the Planning Act 2008.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/south-east/cleve-hill-solar-park/",
+              "expected": false
+            },
+            {
+              "date": "2019-05-30",
+              "phase": "examination",
+              "title": "Examination opens",
+              "description": "The Examining Authority formally opens the six-month examination period, during which statutory consultees, local authorities and interested parties submit evidence.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/south-east/cleve-hill-solar-park/",
+              "expected": false
+            },
+            {
+              "date": "2019-11-30",
+              "phase": "examination",
+              "title": "Examination closes",
+              "description": "Examination concludes after eleven issue-specific and open-floor hearings covering biodiversity, landscape, traffic and battery storage safety.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/south-east/cleve-hill-solar-park/",
+              "expected": false
+            },
+            {
+              "date": "2020-05-28",
+              "phase": "consent",
+              "title": "Development Consent Order granted",
+              "description": "Secretary of State Alok Sharma grants the DCO for the 350 MW solar park with co-located battery storage, making Cleve Hill the first solar NSIP consented in the UK.",
+              "source": "https://www.gov.uk/government/news/cleve-hill-solar-park-project-granted-development-consent",
+              "expected": false
+            },
+            {
+              "date": "2020-07-10",
+              "phase": "consent",
+              "title": "Judicial review threat dropped",
+              "description": "Swale Borough Council confirms it will not pursue a judicial review of the DCO decision after legal advice concluded there was no procedural basis on which to challenge it.",
+              "source": "https://www.kentonline.co.uk/faversham/news/legal-challenge-cant-stop-uks-biggest-solar-farm-230165/",
+              "expected": false
+            },
+            {
+              "date": "2021-10-01",
+              "phase": "consent",
+              "title": "Project acquired by Quinbrook",
+              "description": "Quinbrook Infrastructure Partners acquires the consented project from Hive Energy and Wirsol, rebranding it internally as Project Fortress and taking it forward to financing and construction.",
+              "source": "https://en.wikipedia.org/wiki/Cleve_Hill_Solar_Park",
+              "expected": false
+            },
+            {
+              "date": "2023-04-01",
+              "phase": "build",
+              "title": "Construction begins",
+              "description": "On-site construction of the solar PV array begins, with Quinbrook's affiliate Private Energy Partners managing delivery.",
+              "source": "https://www.quinbrook.com/news-insights/landmark-cleve-hill-solar-park-reaches-commercial-operations/",
+              "expected": false
+            },
+            {
+              "date": "2024-08-01",
+              "phase": "fid",
+              "title": "Solar project financing closes",
+              "description": "Quinbrook closes a GBP 218.5 million term loan plus GBP 20 million VAT facility for the solar PV element, arranged by Lloyds and NatWest.",
+              "source": "https://www.quinbrook.com/news-insights/quinbrook-closes-uks-largest-solar-pv-battery-storage-project-financing-for-cleve-hill-solar-park/",
+              "expected": false
+            },
+            {
+              "date": "2025-03-18",
+              "phase": "fid",
+              "title": "BESS financing closes",
+              "description": "Financing for the co-located 150 MW battery energy storage system reaches financial close, completing the project's funding package.",
+              "source": "https://en.wikipedia.org/wiki/Cleve_Hill_Solar_Park",
+              "expected": false
+            },
+            {
+              "date": "2025-07-01",
+              "phase": "operational",
+              "title": "Commercial operations begin",
+              "description": "Cleve Hill Solar Park reaches commercial operations, exporting at its full 373 MW dc solar capacity and becoming the UK's largest operational solar farm; the 150 MW co-located BESS remains under construction with completion expected in early 2026.",
+              "source": "https://www.businesswire.com/news/home/20250630090161/en/Landmark-Cleve-Hill-Solar-Park-Reaches-Commercial-Operations",
+              "expected": false
             }
           ]
         }
