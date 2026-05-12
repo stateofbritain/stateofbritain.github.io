@@ -3,7 +3,7 @@
   "id": "nsip-timelines",
   "pillar": "state",
   "topic": "construction",
-  "generated": "2026-05-12T07:15:15.595Z",
+  "generated": "2026-05-12T07:18:55.889Z",
   "sources": [
     {
       "id": "claude-agent-research",
@@ -14,7 +14,7 @@
     }
   ],
   "snapshot": {
-    "totalTimelines": 152,
+    "totalTimelines": 157,
     "researchedByAgent": 74,
     "researchedManually": 1
   },
@@ -13952,6 +13952,339 @@
               "title": "Examination expected",
               "description": "Examination of the application by the appointed Examining Authority, lasting up to six months.",
               "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0210005",
+              "expected": true
+            }
+          ]
+        },
+        "EN020008": {
+          "ref": "EN020008",
+          "name": "SP Mid Wales (Electricity) Connections Project (SP Manweb)",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "SP Manweb's proposed 132 kV overhead line scheme to connect TAN 8 Strategic Search Area wind farms in Mid Wales to a new National Grid substation at Cefn Coch, Powys. The project entered Planning Inspectorate scoping in June 2014 and reached a Final Scoping Opinion in July 2014, but progress halted after the Department of Energy and Climate Change refused consent for several of the dependent wind farms in 2015. The project remains formally at the pre-application stage with no submitted Development Consent Order application.",
+          "milestones": [
+            {
+              "date": "2012-05-15",
+              "phase": "consultation",
+              "title": "Stage 1 public consultation on connection options",
+              "description": "SP Manweb begins early public consultation on connection corridor options for the eight 132 kV connections linking Mid Wales wind farms in TAN 8 Strategic Search Areas B and C to the proposed National Grid substation at Cefn Coch.",
+              "source": "https://www.gillespies.co.uk/projects/sp-mid-wales-connections-project",
+              "expected": false
+            },
+            {
+              "date": "2013-10-09",
+              "phase": "consultation",
+              "title": "Stage 3 statutory consultation launched",
+              "description": "SP Manweb launches Stage 3 consultation on refined route proposals, running from 9 October to 6 December. Following earlier feedback, scope reduced to roughly 50 km of overhead line (around 80 percent wood pole) and approximately 650 MW capacity, down from an initial estimate of 1,000 MW.",
+              "source": "https://www.scottishpower.com/news/pages/sp_manweb_launches_stage_three_consultation_for_mid_wales_windfarm_connections.aspx",
+              "expected": false
+            },
+            {
+              "date": "2014-06-05",
+              "phase": "proposal",
+              "title": "EIA scoping request submitted",
+              "description": "SP Manweb submits its EIA scoping request to the Planning Inspectorate, formally beginning the NSIP pre-application process for the proposed eight 132 kV connections.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020008/documents",
+              "expected": false
+            },
+            {
+              "date": "2014-07-17",
+              "phase": "proposal",
+              "title": "Final Scoping Opinion issued by Planning Inspectorate",
+              "description": "The Planning Inspectorate issues its Final Scoping Opinion (subsequently updated to include the consultation response from Kerry Community Council), setting the environmental assessment scope for the proposed DCO application.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020008/documents",
+              "expected": false
+            },
+            {
+              "date": "2015-09-30",
+              "phase": "cancelled",
+              "title": "Dependent Mid Wales wind farms refused consent",
+              "description": "The Department of Energy and Climate Change refuses Section 36 consent for Carnedd Wen and other Mid Wales wind farms (Llanbrynmair refused on visual impact grounds), removing most of the generation the SP Manweb connection scheme was designed to accommodate.",
+              "source": "https://www.gov.uk/government/publications/llanbrynmair-and-carnedd-wen-wind-farm-applications-redetermination",
+              "expected": false
+            },
+            {
+              "date": "2016-07-01",
+              "phase": "dormant",
+              "title": "Project work suspended pending wind farm redeterminations",
+              "description": "Following the wind farm refusals and a subsequent BEIS call for evidence in July 2016 on the redetermination of the Carnedd Wen and Llanbrynmair schemes, SP Manweb suspends active development of the connections project.",
+              "source": "https://www.gillespies.co.uk/projects/sp-mid-wales-connections-project",
+              "expected": false
+            },
+            {
+              "date": "2020-02-05",
+              "phase": "dormant",
+              "title": "Carnedd Wen wind farm application withdrawn",
+              "description": "Innogy Renewables UK Ltd formally withdraws the Carnedd Wen onshore wind farm application, further reducing the connection demand underpinning the SP Manweb scheme.",
+              "source": "https://renews.biz/59533/innogy-withdraws-150mw-carnedd-wen-proposal/",
+              "expected": false
+            },
+            {
+              "date": "2026-04-30",
+              "phase": "dormant",
+              "title": "Project remains at pre-application with no DCO submission",
+              "description": "As of April 2026, EN020008 remains in pre-application on the PINS portal with no application submitted, no S46/S48 notifications and no further documents beyond the 2014 scoping materials. The scheme is effectively dormant given the loss of the dependent wind farms.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020008",
+              "expected": false
+            }
+          ]
+        },
+        "EN0110024": {
+          "ref": "EN0110024",
+          "name": "Beacon Solar",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Beacon Solar was a proposed ground-mounted solar generating station of over 100MW capacity on roughly 2,700 acres of agricultural land near Holsworthy Beacon in Torridge District, Devon, developed by Beacon Solar Limited (a Galileo Empower special purpose vehicle). The applicant withdrew the project from the Planning Inspectorate's pre-application service on 2 February 2026, stating the proposal required further assessment of its layout, scale and detailed design following 18 months of environmental and technical data collection.",
+          "milestones": [
+            {
+              "date": "2025-09-09",
+              "phase": "proposal",
+              "title": "Inception meeting with Planning Inspectorate",
+              "description": "Beacon Solar Limited met the Planning Inspectorate via Microsoft Teams to introduce the proposed DCO for a >100MW solar generating station with battery energy storage near Holsworthy Beacon, Torridge District, Devon.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN0110024-000003-Beacon%20-%20Inception%20Meeting%20note.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025-09-30",
+              "phase": "consultation",
+              "title": "Non-statutory consultation",
+              "description": "Applicant ran non-statutory consultation period (September to October 2025), prior to formal scoping.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN0110024-000003-Beacon%20-%20Inception%20Meeting%20note.pdf",
+              "expected": false
+            },
+            {
+              "date": "2025-10-31",
+              "phase": "consultation",
+              "title": "Public meeting at Holsworthy Memorial Hall",
+              "description": "Local opposition meeting featuring Sir Geoffrey Cox KC MP and residents organised by campaign groups including CPRE Devon and Stop Beacon Solar.",
+              "source": "https://www.holsworthy-today.co.uk/news/public-meeting-to-discuss-beacon-solar-farm-plans-announced-843396",
+              "expected": false
+            },
+            {
+              "date": "2026-02-02",
+              "phase": "cancelled",
+              "title": "Project withdrawn from pre-application service",
+              "description": "Beacon Solar Limited notified the Planning Inspectorate that it was withdrawing the project from the pre-application service and pausing consultation. Project director Rob Paul stated the proposal was undergoing further assessment of layout, scale and detailed design following 18 months of environmental and technical data collection.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110024",
+              "expected": false
+            }
+          ]
+        },
+        "EN0210007": {
+          "ref": "EN0210007",
+          "name": "Weston Marsh to East Leicestershire",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "National Grid Electricity Transmission's proposed circa 60 km 400 kV overhead transmission line from a new Weston Marsh substation in Lincolnshire (built under the Grimsby to Walpole project) west to a new substation near Wartnaby in Leicestershire, via a new substation near Corby Glen. The scheme also includes reconductoring approximately 55 km of existing infrastructure south to Grendon substation east of Northampton. The project is identified in the National Energy System Operator's Beyond 2030 network design and remains at the pre-application stage following a Secretary of State Scoping Opinion in December 2025.",
+          "milestones": [
+            {
+              "date": "2024-03-19",
+              "phase": "proposal",
+              "title": "NESO Beyond 2030 identifies route",
+              "description": "The Electricity System Operator (now NESO) published its Beyond 2030 report setting out the onshore transmission reinforcements required to connect new generation, identifying a new 400 kV connection across Lincolnshire, Leicestershire and Northamptonshire that became the Weston Marsh to East Leicestershire project.",
+              "source": "https://www.neso.energy/publications/beyond-2030",
+              "expected": false
+            },
+            {
+              "date": "2025-06-11",
+              "phase": "consultation",
+              "title": "Stage 1 non-statutory consultation opens",
+              "description": "National Grid Electricity Transmission launched its Stage 1 non-statutory consultation on the project, setting out preferred substation locations near Corby Glen and Wartnaby and an indicative corridor for the new 400 kV overhead line.",
+              "source": "https://rebuild.nationalgrid.com/the-great-grid-upgrade/weston-marsh-to-east-leicestershire",
+              "expected": false
+            },
+            {
+              "date": "2025-08-06",
+              "phase": "consultation",
+              "title": "Stage 1 consultation closes",
+              "description": "The Stage 1 consultation period ended on 6 August 2025. NGET stated that feedback, technical assessments and environmental surveys would inform more detailed proposals for a second stage of consultation in 2026.",
+              "source": "https://rebuild.nationalgrid.com/the-great-grid-upgrade/weston-marsh-to-east-leicestershire",
+              "expected": false
+            },
+            {
+              "date": "2025-11-06",
+              "phase": "proposal",
+              "title": "Scoping Report submitted to Secretary of State",
+              "description": "NGET submitted its EIA Scoping Report to the Planning Inspectorate, requesting a Scoping Opinion on the proposed environmental assessment for the new substations, 60 km overhead line and 55 km reconductoring works.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0210007",
+              "expected": false
+            },
+            {
+              "date": "2025-12-17",
+              "phase": "proposal",
+              "title": "Secretary of State Scoping Opinion adopted",
+              "description": "The Planning Inspectorate, on behalf of the Secretary of State, adopted the Scoping Opinion for the project, setting out the matters to be addressed in the Environmental Statement accompanying any future Development Consent Order application.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0210007",
+              "expected": false
+            },
+            {
+              "date": "2026-06-30",
+              "phase": "consultation",
+              "title": "Stage 2 statutory consultation planned",
+              "description": "NGET states that a second stage of consultation is planned for 2026, presenting refined proposals and a feedback report responding to issues raised at Stage 1, before a DCO application is finalised.",
+              "source": "https://rebuild.nationalgrid.com/the-great-grid-upgrade/weston-marsh-to-east-leicestershire",
+              "expected": true
+            },
+            {
+              "date": "2027-06-30",
+              "phase": "application",
+              "title": "DCO application anticipated",
+              "description": "NGET's published programme indicates a Development Consent Order application to the Planning Inspectorate following completion of statutory consultation and environmental assessment.",
+              "source": "https://rebuild.nationalgrid.com/the-great-grid-upgrade/weston-marsh-to-east-leicestershire",
+              "expected": true
+            }
+          ]
+        },
+        "EN0210011": {
+          "ref": "EN0210011",
+          "name": "Cross Border Connection (England)",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "National Grid Electricity Transmission's proposed reinforcement of the Anglo-Scottish grid: a new 400kV double-circuit overhead line between the England-Scotland border and the Carlisle area, plus a new 400kV substation and connection works. Identified in NESO's Beyond 2030 transmission network plan, the scheme would carry up to 6.9GW (enough for around six million homes) and pairs with SP Energy Networks' parallel Scottish project from Gala North to the border. The project is in pre-application, with DCO submission expected in September 2028 and target energisation in 2033.",
+          "milestones": [
+            {
+              "date": "2024-03-07",
+              "phase": "proposal",
+              "title": "Beyond 2030 plan published",
+              "description": "NESO published its Beyond 2030 transmission network plan, which identified the need for a reinforced Anglo-Scottish 400kV link between the Scottish Borders and Carlisle area, providing the strategic basis for the Cross Border Connection.",
+              "source": "https://www.neso.energy/publications/beyond-2030",
+              "expected": false
+            },
+            {
+              "date": "2024-10-01",
+              "phase": "consultation",
+              "title": "SP Energy Networks Scottish route consultation",
+              "description": "SP Energy Networks held its first round of public consultation on the preferred route for the Scottish section of the link (Gala North to England-Scotland border) in autumn 2024.",
+              "source": "https://www.spenergynetworks.co.uk/pages/working_with_national_grid.aspx",
+              "expected": false
+            },
+            {
+              "date": "2025-04-01",
+              "phase": "consultation",
+              "title": "SP Energy Networks spring consultation",
+              "description": "SP Energy Networks held further consultation events in spring 2025 on modifications to the Scottish route following feedback from the autumn 2024 round.",
+              "source": "https://www.spenergynetworks.co.uk/pages/working_with_national_grid.aspx",
+              "expected": false
+            },
+            {
+              "date": "2025-10-15",
+              "phase": "consultation",
+              "title": "Stage 1 non-statutory consultation opens",
+              "description": "National Grid launched an eight-week Stage 1 consultation on early plans for the English section, presenting two route options: Option A ending at a new substation north of Carlisle near Harker (around 28km of new overhead line), and Option B ending south of Carlisle (around 47km, crossing the Hadrian's Wall World Heritage Site as buried remains).",
+              "source": "https://www.nationalgrid.com/electricity-transmission/network-and-infrastructure/infrastructure-projects/cross-border-connection",
+              "expected": false
+            },
+            {
+              "date": "2025-12-10",
+              "phase": "consultation",
+              "title": "Stage 1 consultation closes",
+              "description": "The eight-week Stage 1 non-statutory consultation closed, with feedback to inform route refinement and preferred option selection.",
+              "source": "https://www.nationalgrid.com/sites/default/files/documents/2025-10/Cross%20Border%20Connection%20-%20Stage%201%20Consultation%20Document%20(A4%201%20page%20version)_0.pdf",
+              "expected": false
+            },
+            {
+              "date": "2026-09-01",
+              "phase": "proposal",
+              "title": "EIA Scoping Report (expected)",
+              "description": "National Grid has indicated that an EIA Scoping Report will be submitted to the Planning Inspectorate during the pre-application phase, with a full Environmental Statement to follow as part of the DCO application.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0210011",
+              "expected": true
+            },
+            {
+              "date": "2027-06-01",
+              "phase": "consultation",
+              "title": "Statutory consultation (expected)",
+              "description": "A statutory pre-application consultation on the preferred route and detailed proposals is expected ahead of DCO submission.",
+              "source": "https://www.nationalgrid.com/electricity-transmission/network-and-infrastructure/infrastructure-projects/cross-border-connection",
+              "expected": true
+            },
+            {
+              "date": "2028-09-01",
+              "phase": "application",
+              "title": "DCO application submission (expected)",
+              "description": "National Grid expects to submit the Development Consent Order application for the English section to the Planning Inspectorate in September 2028.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0210011",
+              "expected": true
+            },
+            {
+              "date": "2030-01-01",
+              "phase": "build",
+              "title": "Construction start (expected)",
+              "description": "Subject to DCO consent, construction is targeted to begin in 2030.",
+              "source": "https://www.nationalgrid.com/electricity-transmission/network-and-infrastructure/infrastructure-projects/cross-border-connection",
+              "expected": true
+            },
+            {
+              "date": "2033-01-01",
+              "phase": "operational",
+              "title": "Energisation target",
+              "description": "The Cross Border Connection is targeted to be operational by 2033.",
+              "source": "https://www.nationalgrid.com/electricity-transmission/network-and-infrastructure/infrastructure-projects/cross-border-connection",
+              "expected": true
+            }
+          ]
+        },
+        "EN0610001": {
+          "ref": "EN0610001",
+          "name": "H2East Pipeline: Humber to Nottinghamshire",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Cadent Gas Limited is developing a c.150km underground high-pressure hydrogen pipeline from production sites at North Killingholme (Humber) and High Marnham (Nottinghamshire) to industrial users across North Lincolnshire and Nottinghamshire, with associated Above Ground Installations. The project is part of East Coast Hydrogen (a collaboration between Cadent, National Gas and Northern Gas Networks) and is at the pre-application stage, with a DCO application expected in December 2028.",
+          "milestones": [
+            {
+              "date": "2026-01-12",
+              "phase": "proposal",
+              "title": "Project unveiled",
+              "description": "Cadent publicly unveiled plans for the c.150km (93-mile) H2East hydrogen pipeline linking Humber production to East Midlands industrial users.",
+              "source": "https://www.pipeline-journal.net/news/cadent-unveils-93-mile-hydrogen-pipeline-power-east-midlands-industry",
+              "expected": false
+            },
+            {
+              "date": "2026-02-06",
+              "phase": "proposal",
+              "title": "DNV appointed Owner's Engineer for FEED",
+              "description": "DNV appointed by Cadent as Owner's Engineer to assure the Front-End Engineering Design for the first phase, funded via Ofgem's Net Zero Pre-construction Work and Small Projects process.",
+              "source": "https://www.dnv.com/news/2026/dnv-to-ensure-robust-design-for-cadents-landmark-uk-hydrogen-pipeline/",
+              "expected": false
+            },
+            {
+              "date": "2026-03-03",
+              "phase": "consultation",
+              "title": "Statutory consultation opens",
+              "description": "Cadent opened a six-week public consultation on the early plans, including route options, with drop-in events scheduled across the Humber, Lincolnshire and Nottinghamshire from 9-25 March.",
+              "source": "https://www.eastcoasthydrogen.co.uk/have-your-say-on-new-hydrogen-pipeline-for-humber-lincolnshire-and-nottinghamshire/",
+              "expected": false
+            },
+            {
+              "date": "2026-03-06",
+              "phase": "proposal",
+              "title": "EIA Scoping Report submitted",
+              "description": "Cadent submitted the Environmental Impact Assessment Scoping Report (Volumes 1 and 2) to the Planning Inspectorate.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0610001/documents",
+              "expected": false
+            },
+            {
+              "date": "2026-04-13",
+              "phase": "proposal",
+              "title": "Scoping Opinion adopted",
+              "description": "The Planning Inspectorate published the Scoping Opinion, adopted by the Secretary of State, setting out the scope of environmental information required to accompany the DCO application.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0610001",
+              "expected": false
+            },
+            {
+              "date": "2026-04-14",
+              "phase": "consultation",
+              "title": "Statutory consultation closes",
+              "description": "Six-week public consultation on the early proposals and route options closed.",
+              "source": "https://www.eastcoasthydrogen.co.uk/have-your-say-on-new-hydrogen-pipeline-for-humber-lincolnshire-and-nottinghamshire/",
+              "expected": false
+            },
+            {
+              "date": "2028-12-01",
+              "phase": "application",
+              "title": "DCO application expected",
+              "description": "Cadent anticipates submitting the Development Consent Order application to the Planning Inspectorate in December 2028.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0610001",
               "expected": true
             }
           ]
