@@ -3,7 +3,7 @@
   "id": "nsip-timelines",
   "pillar": "state",
   "topic": "construction",
-  "generated": "2026-05-12T07:28:12.697Z",
+  "generated": "2026-05-12T07:29:13.519Z",
   "sources": [
     {
       "id": "claude-agent-research",
@@ -14,7 +14,7 @@
     }
   ],
   "snapshot": {
-    "totalTimelines": 171,
+    "totalTimelines": 174,
     "researchedByAgent": 74,
     "researchedManually": 1
   },
@@ -15179,6 +15179,137 @@
               "title": "Submission of DCO Application (expected)",
               "description": "The Planning Inspectorate records that the applicant expects to submit the Development Consent Order application in August 2027. The Inspectorate then has 28 days to decide whether to accept it for examination.",
               "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110032",
+              "expected": true
+            }
+          ]
+        },
+        "EN0110026": {
+          "ref": "EN0110026",
+          "name": "Sedgeby Solar Farm",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Sedgeby Solar Limited is proposing a 350 MW solar generating station with a Battery Energy Storage System (BESS) and associated infrastructure near Little Sessay, North Yorkshire. The project is at the Pre-application stage of the NSIP process, with a Scoping Opinion adopted by the Secretary of State on 2 March 2026.",
+          "milestones": [
+            {
+              "date": "2026-01-21",
+              "phase": "proposal",
+              "title": "Scoping Report submitted",
+              "description": "Applicant submitted the EIA Scoping Report (and appendices including Flood Risk Assessment) to the Secretary of State, requesting a Scoping Opinion under the EIA Regulations.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110026/documents",
+              "expected": false
+            },
+            {
+              "date": "2026-03-02",
+              "phase": "proposal",
+              "title": "Scoping Opinion adopted",
+              "description": "The Planning Inspectorate, on behalf of the Secretary of State, published its Scoping Opinion setting out the information required in the Environmental Statement.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN0110026-000026-SBSF%20-%20Scoping%20Opinion.pdf",
+              "expected": false
+            },
+            {
+              "date": "2026-09-01",
+              "phase": "consultation",
+              "title": "Statutory consultation (expected)",
+              "description": "Applicant expected to carry out statutory pre-application consultation under sections 42, 47 and 48 of the Planning Act 2008 with statutory consultees, local communities and landowners. Indicative timing; not yet confirmed by applicant.",
+              "source": "https://www.sedgeby-solar.co.uk",
+              "expected": true
+            },
+            {
+              "date": "2027-03-01",
+              "phase": "application",
+              "title": "DCO application submission (expected)",
+              "description": "Indicative submission of the Development Consent Order application to the Planning Inspectorate, following completion of statutory consultation and finalisation of the Environmental Statement.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110026",
+              "expected": true
+            }
+          ]
+        },
+        "EN0110027": {
+          "ref": "EN0110027",
+          "name": "South Brooks Solar Farm",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Proposed solar electricity generating station of over 100MW with co-located Battery Energy Storage System (BESS) near Lydd, Kent (Folkestone & Hythe district), connecting into the National Grid at Dungeness Substation. The applicant is Blue Planet Solar Limited, backed by PS Renewables and EDF Power Solutions UK. The project is in pre-application, with submission to the Planning Inspectorate expected March 2027.",
+          "milestones": [
+            {
+              "date": "2025-09-18",
+              "phase": "consultation",
+              "title": "Early non-statutory consultation opens",
+              "description": "Developers launched early consultation with local communities on emerging proposals for the scheme near Lydd, Kent.",
+              "source": "https://www.southbrookssolarfarm.co.uk",
+              "expected": false
+            },
+            {
+              "date": "2025-10-30",
+              "phase": "consultation",
+              "title": "Early consultation closes",
+              "description": "First-stage non-statutory consultation period ends; feedback to inform refinement of proposals ahead of further consultation in 2026.",
+              "source": "https://www.southbrookssolarfarm.co.uk",
+              "expected": false
+            },
+            {
+              "date": "2025-12-18",
+              "phase": "proposal",
+              "title": "EIA Scoping Opinion published",
+              "description": "The Planning Inspectorate published its Environmental Impact Assessment Scoping Opinion for the South Brooks Solar Farm.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN0110027-000004-EN0110027%20-%20EIA%20Scoping%20Opinion.pdf",
+              "expected": false
+            },
+            {
+              "date": "2026-01-01",
+              "phase": "consultation",
+              "title": "Statutory consultation (anticipated)",
+              "description": "Developers indicated proposals will be presented for further consultation during 2026 following review of early consultation feedback.",
+              "source": "https://www.southbrookssolarfarm.co.uk",
+              "expected": true
+            },
+            {
+              "date": "2027-03-01",
+              "phase": "application",
+              "title": "DCO application submission expected",
+              "description": "Blue Planet Solar Limited expects to submit its Development Consent Order application to the Planning Inspectorate in March 2027.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110027",
+              "expected": true
+            }
+          ]
+        },
+        "EN0110033": {
+          "ref": "EN0110033",
+          "name": "Arrow Valley Solar",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Arrow Valley Solar is a proposed ground-mounted solar photovoltaic generating station with a capacity in excess of 100MW, located approximately 4km south west of Alcester across the administrative areas of Wychavon District Council, Stratford-on-Avon District Council and Redditch Borough Council. The applicant is Arrow Valley Solar Limited. The project is at the pre-application stage; the Planning Inspectorate adopted a Scoping Opinion on 7 May 2026.",
+          "milestones": [
+            {
+              "date": "2026-03-27",
+              "phase": "proposal",
+              "title": "EIA Scoping Report submitted",
+              "description": "Arrow Valley Solar Limited submitted its Environmental Impact Assessment Scoping Report (Volumes 1-3) to the Secretary of State.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110033/documents",
+              "expected": false
+            },
+            {
+              "date": "2026-05-07",
+              "phase": "proposal",
+              "title": "Scoping Opinion adopted",
+              "description": "The Planning Inspectorate, on behalf of the Secretary of State, adopted and published the Scoping Opinion for Arrow Valley Solar.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN0110033-000010-Arrow%20Valley%20Solar%20Scoping%20Opinion.pdf",
+              "expected": false
+            },
+            {
+              "date": "2026-07-01",
+              "phase": "consultation",
+              "title": "Statutory consultation (section 42/47/48)",
+              "description": "Expected statutory pre-application consultation by the applicant with prescribed consultees, local authorities and the local community, following adoption of the Scoping Opinion. Date not yet confirmed by the applicant.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110033",
+              "expected": true
+            },
+            {
+              "date": "2027-01-01",
+              "phase": "application",
+              "title": "DCO application submission anticipated",
+              "description": "Anticipated submission of the Development Consent Order application by Arrow Valley Solar Limited to the Planning Inspectorate.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110033",
               "expected": true
             }
           ]
