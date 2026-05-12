@@ -3,7 +3,7 @@
   "id": "nsip-timelines",
   "pillar": "state",
   "topic": "construction",
-  "generated": "2026-05-12T07:34:12.558Z",
+  "generated": "2026-05-12T07:39:09.400Z",
   "sources": [
     {
       "id": "claude-agent-research",
@@ -14,7 +14,7 @@
     }
   ],
   "snapshot": {
-    "totalTimelines": 181,
+    "totalTimelines": 188,
     "researchedByAgent": 74,
     "researchedManually": 1
   },
@@ -16046,6 +16046,701 @@
               "description": "The Court of Appeal dismissed the developer's appeal, confirming that ground investigation works did not constitute material operations to begin development and that the DCO was no longer valid, definitively ending the consent.",
               "source": "https://www.bailii.org/ew/cases/EWCA/Civ/2022/1579.html",
               "expected": false
+            }
+          ]
+        },
+        "EN010003": {
+          "ref": "EN010003",
+          "name": "Galloper Offshore Wind Farm",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Galloper is a 353 MW offshore wind farm built as an extension to the Greater Gabbard project, located around 27 km off the Suffolk coast in the Outer Thames Estuary. Development consent was granted in May 2013, financial close was reached in October 2015 with a consortium led by RWE Innogy alongside Macquarie Capital, the UK Green Investment Bank and Siemens Financial Services, and the 56-turbine project became fully operational in March 2018.",
+          "milestones": [
+            {
+              "date": "2011-12-19",
+              "phase": "application",
+              "title": "DCO application accepted by IPC",
+              "description": "The Infrastructure Planning Commission accepted the Galloper Wind Farm Ltd application for examination under the Planning Act 2008.",
+              "source": "https://www.offshorewind.biz/2011/12/20/ipc-accepts-application-for-galloper-offshore-wind-farm-uk/",
+              "expected": false
+            },
+            {
+              "date": "2012-02-06",
+              "phase": "examination",
+              "title": "Application enters examination",
+              "description": "Following the pre-examination phase, the IPC formally accepted Galloper into examination, with submissions made by the applicant in June 2012.",
+              "source": "https://www.offshorewind.biz/2012/02/06/ipc-accepts-galloper-wind-farm-for-examination-uk/",
+              "expected": false
+            },
+            {
+              "date": "2013-05-13",
+              "phase": "consent",
+              "title": "Development Consent Order made",
+              "description": "The Galloper Wind Farm Order 2013 (S.I. 2013/1203) was made, authorising up to 140 turbines and 504 MW capacity within a 183 km² area off Suffolk.",
+              "source": "https://www.legislation.gov.uk/uksi/2013/1203/made",
+              "expected": false
+            },
+            {
+              "date": "2015-10-29",
+              "phase": "fid",
+              "title": "Financial close and consortium formed",
+              "description": "RWE Innogy reached financial close with Macquarie Capital, UK Green Investment Bank and Siemens Financial Services each taking 25% stakes. Total investment around £1.5 billion with £1.37 billion of debt from 12 commercial banks and the European Investment Bank.",
+              "source": "https://www.macquarie.com/us/en/about/news/2015/macquarie-capital-partners-with-rwe-gib-and-siemens-in-galloper-offshore-wind-farm.html",
+              "expected": false
+            },
+            {
+              "date": "2015-11-01",
+              "phase": "build",
+              "title": "Onshore construction starts",
+              "description": "Onshore enabling works began in late 2015 following financial close, with cable and substation works at Sizewell.",
+              "source": "https://uk.rwe.com/locations/galloper-offshore-wind-farm/",
+              "expected": false
+            },
+            {
+              "date": "2016-07-01",
+              "phase": "build",
+              "title": "Offshore construction starts",
+              "description": "Offshore installation works commenced in summer 2016, including foundation installation for 56 Siemens 6 MW turbines.",
+              "source": "https://www.4coffshore.com/news/green-light-for-galloper-nid2650.html",
+              "expected": false
+            },
+            {
+              "date": "2017-11-01",
+              "phase": "build",
+              "title": "First power generated",
+              "description": "The first turbines began exporting electricity to the grid in November 2017, ahead of full commissioning.",
+              "source": "https://uk.rwe.com/locations/galloper-offshore-wind-farm/",
+              "expected": false
+            },
+            {
+              "date": "2018-03-01",
+              "phase": "operational",
+              "title": "Fully operational",
+              "description": "Galloper completed commissioning of all 56 turbines and reached full operational status at 353 MW in March 2018.",
+              "source": "https://uk.rwe.com/locations/galloper-offshore-wind-farm/",
+              "expected": false
+            },
+            {
+              "date": "2020-09-28",
+              "phase": "operational",
+              "title": "Extension lease signed (Five Estuaries)",
+              "description": "The Crown Estate signed an Agreement for Lease with RWE for the Galloper extension, branded Five Estuaries, with potential capacity of up to 353 MW (subsequently developed as a separate NSIP).",
+              "source": "https://www.rwe.com/en/press/rwe-renewables/20-09-28-rwe-develops-uk-offshore-wind-farm-extensions-projects/",
+              "expected": false
+            }
+          ]
+        },
+        "EN010005": {
+          "ref": "EN010005",
+          "name": "Triton Knoll Offshore Wind Farm",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Triton Knoll is an 857 MW offshore wind farm located approximately 33 km off the Lincolnshire coast in the North Sea, comprising 90 turbines across a Round 2 development zone. Originally developed by RWE Npower Renewables and later innogy, the project is owned by RWE (59%), J-Power (25%) and Kansai Electric Power (16%), with offshore array consent granted in 2013, a separate electrical system DCO in 2016, and full commissioning completed in early 2022.",
+          "milestones": [
+            {
+              "date": "2003-12-18",
+              "phase": "proposal",
+              "title": "Round 2 zone awarded by The Crown Estate",
+              "description": "RWE Npower Renewables awarded a development lease for the Triton Knoll site, one of three Round 2 strategic offshore wind zones released by The Crown Estate in 2003.",
+              "source": "https://en.wikipedia.org/wiki/Triton_Knoll_Wind_Farm",
+              "expected": false
+            },
+            {
+              "date": "2012-08-31",
+              "phase": "application",
+              "title": "DCO application submitted for offshore array",
+              "description": "Application for development consent for the offshore array (up to 288 turbines, up to 1,200 MW) submitted to the Infrastructure Planning Commission, later transferred to the Planning Inspectorate under the Planning Act 2008 regime.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN010005-000010-Examining%20Authority%20report%20to%20the%20Secretary%20of%20State.pdf",
+              "expected": false
+            },
+            {
+              "date": "2013-07-11",
+              "phase": "consent",
+              "title": "Offshore array DCO granted",
+              "description": "Secretary of State granted the Triton Knoll Offshore Wind Farm Order 2013, consenting up to 288 turbines with maximum capacity of 1,200 MW plus associated intra-array cabling and up to four offshore substation platforms.",
+              "source": "https://www.legislation.gov.uk/uksi/2013/1734/contents/made",
+              "expected": false
+            },
+            {
+              "date": "2015-06-30",
+              "phase": "application",
+              "title": "Electrical system DCO application submitted",
+              "description": "A separate DCO application covering the offshore export cables, onshore cable route and intermediate electrical compound submitted to the Planning Inspectorate, reflecting design changes since the 2013 consent.",
+              "source": "https://www.tritonknoll.co.uk/triton-knoll-electrical-system-application-for-development-consent-order-accepted-by-the-planning-inspectorate/",
+              "expected": false
+            },
+            {
+              "date": "2016-09-06",
+              "phase": "consent",
+              "title": "Electrical system DCO granted",
+              "description": "The Triton Knoll Electrical System Order 2016 issued by the Secretary of State for Business, Energy and Industrial Strategy, providing consent for the offshore export cables and onshore grid connection works.",
+              "source": "https://www.legislation.gov.uk/uksi/2016/880/made",
+              "expected": false
+            },
+            {
+              "date": "2017-09-11",
+              "phase": "consent",
+              "title": "Contract for Difference awarded",
+              "description": "Triton Knoll secured a 15-year Contract for Difference in the second CfD allocation round at a strike price of GBP 74.75/MWh (2012 prices).",
+              "source": "https://assets.publishing.service.gov.uk/media/5a82efe7e5274a2e8ab5a1bb/CFD_allocation_round_2_outcome_FINAL.pdf",
+              "expected": false
+            },
+            {
+              "date": "2018-08-08",
+              "phase": "consent",
+              "title": "J-Power and Kansai Electric acquire stakes",
+              "description": "innogy agreed to sell a 41% stake in the project to J-Power (25%) and Kansai Electric Power (16%), with innogy (later RWE) retaining 59% ownership.",
+              "source": "https://en.wikipedia.org/wiki/Triton_Knoll_Wind_Farm",
+              "expected": false
+            },
+            {
+              "date": "2018-08-31",
+              "phase": "fid",
+              "title": "Financial close and FID",
+              "description": "Project reached financial close at the end of August 2018, enabling start of onshore construction and procurement of major contracts.",
+              "source": "https://en.wikipedia.org/wiki/Triton_Knoll_Wind_Farm",
+              "expected": false
+            },
+            {
+              "date": "2018-09-30",
+              "phase": "build",
+              "title": "Onshore construction begins",
+              "description": "Onshore civil works commenced for the cable route from the Lincolnshire landfall to the intermediate electrical compound and the new substation connection to the national grid.",
+              "source": "https://www.tritonknoll.co.uk/about-triton-knoll/",
+              "expected": false
+            },
+            {
+              "date": "2020-01-15",
+              "phase": "build",
+              "title": "Offshore construction begins",
+              "description": "Offshore installation works commenced in the North Sea, including monopile foundations, offshore substations and export cables.",
+              "source": "https://www.tritonknoll.co.uk/offshore-construction-starts/",
+              "expected": false
+            },
+            {
+              "date": "2021-03-01",
+              "phase": "build",
+              "title": "First power exported to the grid",
+              "description": "First electricity generated and exported to the GB transmission network following installation of substations at each end of the export cable and commissioning of the first MHI Vestas V164-9.5 MW turbine.",
+              "source": "https://www.tritonknoll.co.uk/triton-knoll-offshore-wind-farm-generates-first-power/",
+              "expected": false
+            },
+            {
+              "date": "2022-01-31",
+              "phase": "operational",
+              "title": "Full commissioning completed",
+              "description": "Turbine commissioning successfully completed in January 2022, with the wind farm reaching full operational status at 857 MW from 90 turbines.",
+              "source": "https://en.wikipedia.org/wiki/Triton_Knoll_Wind_Farm",
+              "expected": false
+            }
+          ]
+        },
+        "EN010026": {
+          "ref": "EN010026",
+          "name": "Burbo Bank Extension offshore wind farm",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Burbo Bank Extension is a 258 MW offshore wind farm in Liverpool Bay developed by DONG Energy (now Orsted) as a westward extension of the original Burbo Bank wind farm. It was the world's first commercial deployment of the MHI Vestas V164 8 MW turbine, with 32 turbines installed during 2016 and full commissioning reached in May 2017.",
+          "milestones": [
+            {
+              "date": "2010-04-01",
+              "phase": "proposal",
+              "title": "Crown Estate awards extension lease",
+              "description": "The Crown Estate awarded DONG Energy a 40 km² lease area off the Wirral coast for the Burbo Bank Extension, following its 2009 invitation for Round 1 and Round 2 extension proposals.",
+              "source": "https://en.wikipedia.org/wiki/Burbo_Bank_Offshore_Wind_Farm",
+              "expected": false
+            },
+            {
+              "date": "2010-11-01",
+              "phase": "proposal",
+              "title": "EIA scoping report submitted",
+              "description": "DONG Energy submitted the Environmental Impact Assessment scoping report for the proposed extension to inform the Planning Inspectorate's scoping opinion.",
+              "source": "https://tethys.pnnl.gov/publications/burbo-bank-extension-offshore-wind-farm-environmental-impact-assessment-scoping-report",
+              "expected": false
+            },
+            {
+              "date": "2013-03-25",
+              "phase": "application",
+              "title": "DCO application submitted to PINS",
+              "description": "DONG Energy Burbo Extension (UK) Limited submitted the Development Consent Order application to the Planning Inspectorate for a generating station of up to 259 MW.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010026",
+              "expected": false
+            },
+            {
+              "date": "2013-04-22",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "The Planning Inspectorate accepted the DCO application for examination under the Planning Act 2008.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010026",
+              "expected": false
+            },
+            {
+              "date": "2013-10-08",
+              "phase": "examination",
+              "title": "Examination opens",
+              "description": "The Examining Authority held the preliminary meeting and formally opened the six-month examination of the DCO application.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010026",
+              "expected": false
+            },
+            {
+              "date": "2014-09-26",
+              "phase": "consent",
+              "title": "DCO granted by Secretary of State",
+              "description": "The Secretary of State for Energy and Climate Change made the Burbo Bank Extension Offshore Wind Farm Order 2014, granting development consent for the 259 MW extension.",
+              "source": "https://www.legislation.gov.uk/uksi/2014/2594/contents/made",
+              "expected": false
+            },
+            {
+              "date": "2014-12-04",
+              "phase": "fid",
+              "title": "Final Investment Decision",
+              "description": "DONG Energy took the Final Investment Decision to build Burbo Bank Extension following confirmation of a Contract for Difference and selection of the MHI Vestas V164 8 MW turbine.",
+              "source": "https://orsted.co.uk/media/newsroom/news/2014/12/dong-energy-to-build-burbo-bank-extension-offshore-wind-farm-in-the-uk",
+              "expected": false
+            },
+            {
+              "date": "2016-02-26",
+              "phase": "fid",
+              "title": "DONG divests 50% stake to PKA and KIRKBI",
+              "description": "DONG Energy sold a 50% interest in the project to Danish pension fund PKA (25%) and KIRKBI A/S, parent of the LEGO Group (25%).",
+              "source": "https://orsted.com/en/company-announcement-list/2016/02/1431434",
+              "expected": false
+            },
+            {
+              "date": "2016-06-01",
+              "phase": "build",
+              "title": "Offshore construction begins",
+              "description": "Offshore installation works started, with the first of 32 MHI Vestas V164 8 MW turbines installed in September 2016 and the final turbine in place by December 2016.",
+              "source": "https://www.power-technology.com/projects/burbo-bank-extension-offshore-wind-farm-liverpool-bay/",
+              "expected": false
+            },
+            {
+              "date": "2016-11-15",
+              "phase": "build",
+              "title": "First power exported to grid",
+              "description": "The first turbine began exporting electricity to the National Grid, making Burbo Bank Extension the world's first wind farm to generate commercially using the V164 8 MW platform.",
+              "source": "https://orsted.com/en/media/news/2016/11/first-power-from-dong-energys-burbo-bank-extension",
+              "expected": false
+            },
+            {
+              "date": "2017-05-17",
+              "phase": "operational",
+              "title": "Fully commissioned and officially opened",
+              "description": "The 258 MW wind farm was officially inaugurated at a ceremony in Liverpool, with all 32 turbines commissioned and capable of supplying around 230,000 homes.",
+              "source": "https://orsted.com/en/media/news/2017/05/pioneering-burbo-bank-extension-offshore-wind-farm-opens-today",
+              "expected": false
+            }
+          ]
+        },
+        "EN010027": {
+          "ref": "EN010027",
+          "name": "Walney Extension Offshore Wind Farm",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "The Walney Extension is a 659 MW offshore wind farm off the Cumbria coast, developed by DONG Energy (now Ørsted). On commissioning in September 2018 it became the world's largest operational offshore wind farm, surpassing the 630 MW London Array, a position later overtaken by other projects.",
+          "milestones": [
+            {
+              "date": "2013-07-22",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "The Planning Inspectorate accepted DONG Energy Walney Extension (UK) Ltd's DCO application for examination.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010027",
+              "expected": false
+            },
+            {
+              "date": "2013-11-12",
+              "phase": "examination",
+              "title": "Examination opened",
+              "description": "The Examining Authority opened its examination of the application for the Walney Extension offshore wind farm.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010027",
+              "expected": false
+            },
+            {
+              "date": "2014-08-07",
+              "phase": "examination",
+              "title": "Examining Authority recommendation report",
+              "description": "The Examining Authority issued its recommendation report to the Secretary of State for Energy and Climate Change.",
+              "source": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN010027-000010-Examining%20Authority%20Recommendation%20Report.pdf",
+              "expected": false
+            },
+            {
+              "date": "2014-11-07",
+              "phase": "consent",
+              "title": "Development Consent Order granted",
+              "description": "The Secretary of State for Energy and Climate Change granted the Walney Extension Offshore Wind Farm Order 2014, consenting up to 207 turbines and up to 750 MW of capacity.",
+              "source": "https://www.legislation.gov.uk/id/uksi/2014/2950",
+              "expected": false
+            },
+            {
+              "date": "2014-12-31",
+              "phase": "consent",
+              "title": "Contract for Difference awarded",
+              "description": "Walney Extension was awarded an investment contract (early Contract for Difference) by the UK government, guaranteeing a strike price of £150/MWh for 15 years.",
+              "source": "https://www.gov.uk/government/publications/walney-extension-offshore-wind-farm",
+              "expected": false
+            },
+            {
+              "date": "2015-02-25",
+              "phase": "consent",
+              "title": "8 MW turbine selected for phase one",
+              "description": "DONG Energy selected MHI Vestas V164-8.0 MW turbines for the first phase of Walney Extension, the first commercial deployment of an 8 MW class offshore turbine.",
+              "source": "https://orsted.co.uk/media/newsroom/news/2015/02/dong-energy-chooses-8mw-turbine-for-walney-extension",
+              "expected": false
+            },
+            {
+              "date": "2015-10-31",
+              "phase": "fid",
+              "title": "Final Investment Decision",
+              "description": "DONG Energy announced the Final Investment Decision on Walney Extension in October 2015, following completion of permits, site assessments and supply contracts.",
+              "source": "https://www.power-technology.com/projects/walney-extension-offshore-wind-farm-cumbria/",
+              "expected": false
+            },
+            {
+              "date": "2017-02-01",
+              "phase": "build",
+              "title": "Offshore construction begins",
+              "description": "Offshore construction works, including foundation installation, commenced at the site in the Irish Sea.",
+              "source": "https://en.wikipedia.org/wiki/Walney_Wind_Farm",
+              "expected": false
+            },
+            {
+              "date": "2017-09-30",
+              "phase": "build",
+              "title": "First power exported to the grid",
+              "description": "The wind farm achieved first power, beginning energy generation as turbines were progressively commissioned.",
+              "source": "https://www.nsenergybusiness.com/projects/walney-extension-offshore-wind-farm/",
+              "expected": false
+            },
+            {
+              "date": "2018-04-30",
+              "phase": "build",
+              "title": "Final turbine installed",
+              "description": "Installation of the 87th and final turbine was completed, with the project comprising 40 MHI Vestas 8 MW and 47 Siemens 7 MW machines.",
+              "source": "https://www.windpowermonthly.com/article/1462922/turbine-installation-completed-walney-extension",
+              "expected": false
+            },
+            {
+              "date": "2018-09-06",
+              "phase": "operational",
+              "title": "Officially inaugurated and fully operational",
+              "description": "The 659 MW Walney Extension was officially opened, surpassing the 630 MW London Array to become the world's largest operational offshore wind farm at the time.",
+              "source": "https://www.windpowermonthly.com/article/1492066/worlds-largest-offshore-wind-project-online",
+              "expected": false
+            }
+          ]
+        },
+        "EN010051": {
+          "ref": "EN010051",
+          "name": "Dogger Bank Teesside A / Sofia Offshore Wind Farm",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Originally consented in 2015 as Dogger Bank Teesside B under the Forewind consortium (SSE, Statoil, RWE Innogy, Statkraft), the 1.4 GW project transferred to sole RWE ownership in August 2017 following the consortium's split and was rebranded Sofia Offshore Wind Farm. RWE took final investment decision in March 2021 and the project is under construction on the Dogger Bank, with first power expected in 2026 and full commissioning targeted by end of 2026.",
+          "milestones": [
+            {
+              "date": "2010-01-08",
+              "phase": "proposal",
+              "title": "Forewind awarded Dogger Bank zone",
+              "description": "The Crown Estate awarded the Forewind consortium (SSE, Statoil, RWE Innogy, Statkraft) development rights for the Dogger Bank zone, the largest Round 3 offshore wind zone.",
+              "source": "https://en.wikipedia.org/wiki/Dogger_Bank_Wind_Farm",
+              "expected": false
+            },
+            {
+              "date": "2014-03-26",
+              "phase": "application",
+              "title": "DCO application submitted",
+              "description": "Forewind submitted the Development Consent Order application for Dogger Bank Teesside A and B (each up to 1.2 GW) to the Planning Inspectorate.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010051",
+              "expected": false
+            },
+            {
+              "date": "2014-08-05",
+              "phase": "examination",
+              "title": "Examination opens",
+              "description": "The Planning Inspectorate's examination of the Dogger Bank Teesside A and B application began.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010051",
+              "expected": false
+            },
+            {
+              "date": "2015-02-05",
+              "phase": "examination",
+              "title": "Examination closes",
+              "description": "Examination concluded after six months, with the Examining Authority preparing its recommendation to the Secretary of State.",
+              "source": "https://doggerbank.com/wp-content/uploads/2020/06/Examining-Authority-Recommendation-Report.pdf",
+              "expected": false
+            },
+            {
+              "date": "2015-08-04",
+              "phase": "consent",
+              "title": "DCO granted",
+              "description": "The Secretary of State for Energy and Climate Change granted the Dogger Bank Teesside A and B Offshore Wind Farm Order 2015, consenting up to 2.4 GW across two projects.",
+              "source": "https://www.gov.uk/government/publications/dogger-bank-teesside-a-and-b-offshore-wind-farm",
+              "expected": false
+            },
+            {
+              "date": "2017-08-01",
+              "phase": "consent",
+              "title": "Forewind split, RWE takes sole ownership",
+              "description": "Following dissolution of the Forewind consortium, RWE Innogy took 100% ownership of Dogger Bank Teesside B and renamed it Sofia Offshore Wind Farm. Teesside A passed to SSE and Statoil and was later renamed Dogger Bank C.",
+              "source": "https://en.wikipedia.org/wiki/Dogger_Bank_Wind_Farm",
+              "expected": false
+            },
+            {
+              "date": "2019-09-20",
+              "phase": "consent",
+              "title": "CfD Allocation Round 3 award",
+              "description": "Sofia secured a 15-year Contract for Difference at a strike price of GBP 39.65 per MWh (2012 prices) in Allocation Round 3, with a 2023/24 delivery year.",
+              "source": "https://www.gov.uk/government/publications/contracts-for-difference-cfd-allocation-round-3-results/contracts-for-difference-cfd-allocation-round-3-results",
+              "expected": false
+            },
+            {
+              "date": "2021-03-24",
+              "phase": "fid",
+              "title": "Final investment decision",
+              "description": "RWE took final investment decision on the 1.4 GW Sofia project, a total investment of around GBP 3 billion, with 100 Siemens Gamesa SG 14-222 DD turbines selected.",
+              "source": "https://www.rwe.com/en/press/rwe-renewables/2021-03-24-rwe-marks-fid-for-sofia-offshore-wind-farm/",
+              "expected": false
+            },
+            {
+              "date": "2021-06-01",
+              "phase": "build",
+              "title": "Onshore enabling works begin",
+              "description": "Enabling works started at the onshore converter station site at Teesside, marking the start of physical construction.",
+              "source": "https://sofiawindfarm.com/about/",
+              "expected": false
+            },
+            {
+              "date": "2024-08-01",
+              "phase": "build",
+              "title": "Offshore converter platform installed",
+              "description": "The offshore HVDC converter platform was installed at the Sofia array, 195 km off the North East coast.",
+              "source": "https://sofiawindfarm.com/latest/announcements/offshore-converter-platform-successfully-installed-at-sofia-array/",
+              "expected": false
+            },
+            {
+              "date": "2025-03-27",
+              "phase": "build",
+              "title": "First turbine installed offshore",
+              "description": "RWE installed the first of 100 Siemens Gamesa 14 MW turbines at the Sofia array; all 100 monopile foundations were completed by July 2025.",
+              "source": "https://www.rwe.com/en/press/rwe-offshore-wind-gmbh/2025-03-27-rwe-marks-first-turbine-installation-at-sofia-offshore-wind-farm/",
+              "expected": false
+            },
+            {
+              "date": "2026-06-30",
+              "phase": "operational",
+              "title": "Full commissioning expected",
+              "description": "Sofia is scheduled to reach full commercial operation in the second half of 2026, supplying enough electricity for the equivalent of around 1.2 million UK homes.",
+              "source": "https://www.rwe.com/en/press/rwe-offshore-wind-gmbh/2025-03-17-rwe-marks-major-construction-milestones-at-sofia-offshore-wind-farm/",
+              "expected": true
+            }
+          ]
+        },
+        "EN010053": {
+          "ref": "EN010053",
+          "name": "Hornsea Offshore Wind Farm (Zone 4) - Project Two",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "Hornsea Project Two is a 1.32 GW offshore wind farm located approximately 89 km off the Yorkshire coast in the North Sea. Consented under the Planning Act 2008 in August 2016, it became fully operational in August 2022, taking over from Hornsea One as the world's largest operational offshore wind farm at the time.",
+          "milestones": [
+            {
+              "date": "2014-07-15",
+              "phase": "proposal",
+              "title": "Scoping opinion issued",
+              "description": "The Planning Inspectorate issued its scoping opinion to SMart Wind Limited on the proposed Hornsea Project Two offshore wind farm in Zone 4 of the Round 3 offshore wind leasing.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/yorkshire-and-the-humber/hornsea-offshore-wind-farm-zone-4-project-two/",
+              "expected": false
+            },
+            {
+              "date": "2015-01-30",
+              "phase": "application",
+              "title": "DCO application submitted",
+              "description": "SMart Wind Limited submitted the Development Consent Order application for Hornsea Project Two to the Planning Inspectorate.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/yorkshire-and-the-humber/hornsea-offshore-wind-farm-zone-4-project-two/",
+              "expected": false
+            },
+            {
+              "date": "2015-02-26",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "The Planning Inspectorate accepted the DCO application for examination following the statutory acceptance review.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/yorkshire-and-the-humber/hornsea-offshore-wind-farm-zone-4-project-two/",
+              "expected": false
+            },
+            {
+              "date": "2015-07-07",
+              "phase": "examination",
+              "title": "Examination begins",
+              "description": "The six-month examination of the Hornsea Project Two DCO application commenced, led by a panel of Examining Inspectors.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/yorkshire-and-the-humber/hornsea-offshore-wind-farm-zone-4-project-two/",
+              "expected": false
+            },
+            {
+              "date": "2016-01-07",
+              "phase": "examination",
+              "title": "Examination closes",
+              "description": "The Examining Authority closed the examination and began preparing its recommendation report to the Secretary of State.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/yorkshire-and-the-humber/hornsea-offshore-wind-farm-zone-4-project-two/",
+              "expected": false
+            },
+            {
+              "date": "2016-08-16",
+              "phase": "consent",
+              "title": "Development Consent Order granted",
+              "description": "The Secretary of State granted development consent for Hornsea Project Two, authorising up to 1.8 GW of offshore wind capacity across the consented area.",
+              "source": "https://infrastructure.planninginspectorate.gov.uk/projects/yorkshire-and-the-humber/hornsea-offshore-wind-farm-zone-4-project-two/",
+              "expected": false
+            },
+            {
+              "date": "2017-09-11",
+              "phase": "consent",
+              "title": "Contract for Difference awarded",
+              "description": "Hornsea Project Two secured a Contract for Difference at a strike price of GBP 57.50/MWh (2012 prices) in the second CfD allocation round.",
+              "source": "https://www.gov.uk/government/publications/contracts-for-difference-cfd-allocation-round-2-results",
+              "expected": false
+            },
+            {
+              "date": "2017-08-22",
+              "phase": "fid",
+              "title": "Orsted final investment decision",
+              "description": "Orsted (then DONG Energy) took the final investment decision on Hornsea Project Two following the CfD award, committing to construction of the 1.32 GW project.",
+              "source": "https://orsted.com/en/media/news/2017/08/final-investment-decision-on-hornsea-2",
+              "expected": false
+            },
+            {
+              "date": "2018-01-16",
+              "phase": "build",
+              "title": "Onshore construction begins",
+              "description": "Onshore construction works commenced, including the export cable route from the Horseshoe Point landfall in Lincolnshire to the new onshore substation at North Killingholme.",
+              "source": "https://hornseaprojects.co.uk/hornsea-project-two",
+              "expected": false
+            },
+            {
+              "date": "2020-09-08",
+              "phase": "build",
+              "title": "Offshore installation begins",
+              "description": "Offshore installation of the 165 Siemens Gamesa 8 MW wind turbines commenced at the project site approximately 89 km off the Yorkshire coast.",
+              "source": "https://orsted.com/en/media/news/2020/09/hornsea-2-offshore-installation",
+              "expected": false
+            },
+            {
+              "date": "2021-12-16",
+              "phase": "build",
+              "title": "First power generated",
+              "description": "The first turbine at Hornsea Project Two exported power to the GB grid, marking the start of energisation of the wind farm.",
+              "source": "https://orsted.com/en/media/news/2021/12/hornsea-2-first-power",
+              "expected": false
+            },
+            {
+              "date": "2022-08-31",
+              "phase": "operational",
+              "title": "Full commercial operation",
+              "description": "Orsted announced that Hornsea Project Two had reached full commercial operation, with all 165 turbines generating 1.32 GW, making it the world's largest operational offshore wind farm at that time.",
+              "source": "https://orsted.com/en/media/news/2022/08/hornsea-2-now-fully-operational",
+              "expected": false
+            }
+          ]
+        },
+        "EN010056": {
+          "ref": "EN010056",
+          "name": "East Anglia THREE Offshore Wind Farm",
+          "researcher": "claude-agent",
+          "lastResearched": "2026-04-30",
+          "summary": "East Anglia THREE is a 1.4 GW offshore wind farm being built by ScottishPower Renewables roughly 69 km off the Suffolk coast, within The Crown Estate's East Anglia Zone. The Development Consent Order was granted in August 2017, a Contract for Difference was secured in 2022, onshore works began the same year and offshore construction is underway with first power expected in 2026.",
+          "milestones": [
+            {
+              "date": "2010-01-08",
+              "phase": "proposal",
+              "title": "East Anglia Zone awarded",
+              "description": "The Crown Estate awards the 7.2 GW East Anglia Round 3 zone to East Anglia Offshore Wind, a 50:50 joint venture between ScottishPower Renewables and Vattenfall, of which East Anglia THREE forms part.",
+              "source": "https://en.wikipedia.org/wiki/East_Anglia_Array",
+              "expected": false
+            },
+            {
+              "date": "2014-06-16",
+              "phase": "consultation",
+              "title": "Statutory consultation launched",
+              "description": "ScottishPower Renewables holds public consultation events on the East Anglia THREE proposals across Suffolk and Norfolk.",
+              "source": "https://www.bbc.co.uk/news/uk-england-suffolk-27870847",
+              "expected": false
+            },
+            {
+              "date": "2015-11-30",
+              "phase": "application",
+              "title": "DCO application submitted to PINS",
+              "description": "East Anglia THREE Limited submits its Development Consent Order application for the up to 1,200 MW offshore wind farm to the Planning Inspectorate.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010056",
+              "expected": false
+            },
+            {
+              "date": "2015-12-23",
+              "phase": "application",
+              "title": "Application accepted for examination",
+              "description": "The Planning Inspectorate accepts the EN010056 application for examination under the Planning Act 2008.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010056",
+              "expected": false
+            },
+            {
+              "date": "2016-05-17",
+              "phase": "examination",
+              "title": "Examination opens",
+              "description": "Preliminary meeting held and six-month examination of the East Anglia THREE DCO commences before the Examining Authority.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010056",
+              "expected": false
+            },
+            {
+              "date": "2016-11-17",
+              "phase": "examination",
+              "title": "Examination closes",
+              "description": "The Examining Authority closes examination and begins drafting its recommendation report to the Secretary of State.",
+              "source": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010056",
+              "expected": false
+            },
+            {
+              "date": "2017-08-07",
+              "phase": "consent",
+              "title": "Development Consent Order granted",
+              "description": "The Secretary of State grants development consent for the East Anglia THREE Offshore Wind Farm, authorising up to 1,200 MW of capacity with associated offshore and onshore infrastructure.",
+              "source": "https://en.wikipedia.org/wiki/East_Anglia_Array",
+              "expected": false
+            },
+            {
+              "date": "2022-07-07",
+              "phase": "fid",
+              "title": "Contract for Difference awarded",
+              "description": "East Anglia THREE secures a 15-year CfD at a strike price of GBP 37.35/MWh (2012 prices) in the UK Government's Allocation Round 4.",
+              "source": "https://en.wikipedia.org/wiki/East_Anglia_Array",
+              "expected": false
+            },
+            {
+              "date": "2022-07-31",
+              "phase": "build",
+              "title": "Onshore construction commences",
+              "description": "ScottishPower Renewables begins onshore enabling and cabling works in Suffolk for the East Anglia THREE project.",
+              "source": "https://www.scottishpowerrenewables.com/pages/east_anglia_three.aspx",
+              "expected": false
+            },
+            {
+              "date": "2025-04-18",
+              "phase": "build",
+              "title": "First monopile foundation installed",
+              "description": "The first monopile and transition piece are installed offshore, marking the start of major offshore foundation works for the 95-turbine array.",
+              "source": "https://en.wikipedia.org/wiki/East_Anglia_Array",
+              "expected": false
+            },
+            {
+              "date": "2025-10-31",
+              "phase": "build",
+              "title": "HVDC offshore transformer installed",
+              "description": "The 10,700-tonne high voltage direct current offshore transformer is lifted into place by the SSCV Sleipnir, the world's largest crane vessel.",
+              "source": "https://en.wikipedia.org/wiki/East_Anglia_Array",
+              "expected": false
+            },
+            {
+              "date": "2026-12-31",
+              "phase": "operational",
+              "title": "Expected commercial operation",
+              "description": "East Anglia THREE is scheduled to reach full commercial operation in 2026, delivering around 1.4 GW from 95 Siemens Gamesa 14 MW+ turbines.",
+              "source": "https://en.wikipedia.org/wiki/East_Anglia_Array",
+              "expected": true
             }
           ]
         }
