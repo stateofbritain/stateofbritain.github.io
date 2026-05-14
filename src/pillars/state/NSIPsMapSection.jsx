@@ -370,7 +370,6 @@ function ProjectPanel({ project, timeline, cost, onClose }) {
       {timeline?.milestones && timeline.milestones.length >= 2 ? (
         <ProjectTimeline
           milestones={timeline.milestones}
-          summary={timeline.summary}
           researcher={timeline.researcher}
           lastResearched={timeline.lastResearched}
         />

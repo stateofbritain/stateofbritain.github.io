@@ -19,7 +19,6 @@ import P from "../theme/palette";
  */
 export default function ProjectTimeline({
   milestones = [],
-  summary,
   researcher,
   lastResearched,
 }) {
@@ -103,14 +102,6 @@ export default function ProjectTimeline({
   return (
     <div style={{ marginTop: 14 }} ref={containerRef}>
       <SectionLabel>Project lifecycle</SectionLabel>
-      {summary && (
-        <p style={{
-          fontFamily: "'DM Mono', monospace", fontSize: 12, color: P.text,
-          margin: "4px 0 10px", lineHeight: 1.5,
-        }}>
-          {summary}
-        </p>
-      )}
 
       <div style={{
         position: "relative",
