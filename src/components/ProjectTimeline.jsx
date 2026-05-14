@@ -275,10 +275,13 @@ export default function ProjectTimeline({
                   <div style={{
                     fontFamily: "'DM Mono', monospace", fontSize: 11,
                     color: P.textMuted, lineHeight: 1.4, marginTop: 1,
-                    display: "-webkit-box",
-                    WebkitLineClamp: 2,
-                    WebkitBoxOrient: "vertical",
-                    overflow: "hidden",
+                    ...(isActive ? {} : {
+                      display: "-webkit-box",
+                      WebkitLineClamp: 2,
+                      WebkitBoxOrient: "vertical",
+                      overflow: "hidden",
+                    }),
+                    transition: "max-height 0.18s ease",
                   }}>
                     {m.description}
                   </div>
