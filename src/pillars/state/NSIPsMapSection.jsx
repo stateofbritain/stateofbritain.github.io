@@ -26,11 +26,6 @@ export default function NSIPsMapSection() {
   const [selectedRef, setSelectedRef] = useState(null);
   const [categoryFilter, setCategoryFilter] = useState(new Set());
   const [stageFilter, setStageFilter] = useState(new Set());
-  // Default view shows "live" projects (in consenting, in build, or
-  // cancelled/completed since the current government took office on
-  // 5 July 2024). Toggle adds projects that finished before that date —
-  // historical context that isn't part of the current story.
-  const [showCompleted, setShowCompleted] = useState(false);
 
   const stageOrder = useMemo(() => {
     const counts = {};
@@ -38,29 +33,15 @@ export default function NSIPsMapSection() {
     return Object.entries(counts).sort((a, b) => b[1] - a[1]).map(([k]) => k);
   }, [projects]);
 
-  // A project is "live" when there's still something happening — it's
-  // pre-DCO, in build, has an upcoming target date, or was cancelled
-  // /completed under the current government. Older completed schemes
-  // are hidden by default to surface what's in flight today.
-  const liveLookup = useMemo(() => {
-    const CUTOFF = "2024-07-05"; // Labour government took office
-    const live = new Set();
-    for (const p of projects) {
-      if (isLiveProject(p, timelines[p.ref], CUTOFF)) live.add(p.ref);
-    }
-    return live;
-  }, [projects, timelines]);
-
   const visible = useMemo(() => {
     const cf = categoryFilter.size === 0 ? null : categoryFilter;
     const sf = stageFilter.size === 0 ? null : stageFilter;
     return projects.filter((p) => {
       if (cf && !cf.has(p.category)) return false;
       if (sf && !sf.has(p.stage || "Unknown")) return false;
-      if (!showCompleted && !liveLookup.has(p.ref)) return false;
       return true;
     });
-  }, [projects, categoryFilter, stageFilter, showCompleted, liveLookup]);
+  }, [projects, categoryFilter, stageFilter]);
 
   const selected = useMemo(
     () => projects.find((p) => p.ref === selectedRef) || null,
@@ -119,10 +100,7 @@ export default function NSIPsMapSection() {
         stageFilter={stageFilter}
         onToggleStage={(k) => toggleSet(setStageFilter, k)}
         visibleCount={visible.length}
-        liveCount={liveLookup.size}
         totalCount={projects.length}
-        showCompleted={showCompleted}
-        onToggleShowCompleted={() => setShowCompleted((v) => !v)}
       />
 
       <div style={{
@@ -170,27 +148,10 @@ function toggleSet(setter, key) {
 function Filters({
   totalsByCategory, categoryFilter, onToggleCategory,
   totalsByStage, stageOrder, stageFilter, onToggleStage,
-  visibleCount, liveCount, totalCount,
-  showCompleted, onToggleShowCompleted,
+  visibleCount, totalCount,
 }) {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <ChipRow label="View">
-        <Chip
-          label="Live projects"
-          count={liveCount}
-          color={null}
-          active={!showCompleted}
-          onClick={() => { if (showCompleted) onToggleShowCompleted(); }}
-        />
-        <Chip
-          label="All (incl. completed pre-2024)"
-          count={totalCount}
-          color={null}
-          active={showCompleted}
-          onClick={() => { if (!showCompleted) onToggleShowCompleted(); }}
-        />
-      </ChipRow>
       <ChipRow label="Category">
         {Object.keys(CATEGORY_LABEL).map((k) => (
           <Chip
@@ -217,7 +178,7 @@ function Filters({
           fontSize: 11, color: P.textLight,
           fontFamily: "'DM Mono', monospace", marginLeft: 6,
         }}>
-          {visibleCount} shown
+          {visibleCount} of {totalCount} shown
         </span>
       </ChipRow>
     </div>
@@ -561,58 +522,6 @@ function projectEvents(p) {
     { date: p.dateOfDecision,         label: "Decision issued" },
     { date: p.dateWithdrawn,          label: "Application withdrawn" },
   ].filter((e) => e.date).sort((a, b) => a.date.localeCompare(b.date));
-}
-
-/**
- * Decide whether an NSIP is "live" — still worth attention today.
- *   - Anything pre-DCO-decision stages is live.
- *   - Post-decision schemes are live if they have recent activity (date >= cutoff),
- *     a future-target milestone, an active REPD delivery status,
- *     or any cancellation/withdrawal.
- *   - Schemes whose only post-decision activity is a years-old "operational"
- *     milestone are NOT live — they completed before the current government and
- *     belong in the historical view.
- */
-function isLiveProject(p, timeline, cutoffDate) {
-  const liveStages = [
-    "Pre-application", "Pre-examination", "Examination",
-    "Recommendation", "Decision",
-  ];
-  if (liveStages.includes(p.stage)) return true;
-
-  // Active REPD delivery indicates something still happening on the ground.
-  const ds = p.delivery?.status || "";
-  if (/under construction|awaiting construction|planning application submitted|planning permission granted|revised/i.test(ds)) {
-    return true;
-  }
-
-  // Scan timeline milestones for recent or future activity.
-  if (timeline?.milestones?.length) {
-    for (const m of timeline.milestones) {
-      if (m.expected) return true; // future target
-      if (m.phase === "cancelled" || m.phase === "jr") {
-        const d = String(m.date || "");
-        if (d >= cutoffDate) return true;
-      }
-      // build / fid / consent milestones since the cutoff = current government activity
-      if (["build", "fid", "consent", "revived", "examination"].includes(m.phase)) {
-        const d = String(m.date || "");
-        if (d >= cutoffDate) return true;
-      }
-    }
-  }
-
-  // PINS examination dates since the cutoff
-  const dates = [
-    p.dateOfApplication, p.dateApplicationAccepted, p.dateExaminationStarted,
-    p.dateExaminationClosed, p.dateOfRecommendation, p.dateOfDecision,
-    p.dateWithdrawn,
-  ].filter(Boolean);
-  for (const d of dates) {
-    if (d >= cutoffDate) return true;
-  }
-
-  return false;
 }
 
 function Skeleton({ message }) {
