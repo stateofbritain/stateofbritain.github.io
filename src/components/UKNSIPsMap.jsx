@@ -106,6 +106,17 @@ export default function UKNSIPsMap({
 
   const handleLeave = useCallback(() => setHovered(null), []);
 
+  // On touch devices the tooltip latches open since `mouseleave` never
+  // fires. Dismiss on any window scroll so it doesn't linger over the
+  // map after the panel auto-scrolls into view (or when the user scrolls
+  // back up).
+  useEffect(() => {
+    if (!hovered) return;
+    const dismiss = () => setHovered(null);
+    window.addEventListener("scroll", dismiss, { passive: true });
+    return () => window.removeEventListener("scroll", dismiss);
+  }, [hovered]);
+
   if (!topo || !pathGen) {
     return (
       <div style={{ height: 400, display: "flex", alignItems: "center", justifyContent: "center" }}>
