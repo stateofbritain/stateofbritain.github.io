@@ -88,7 +88,7 @@ export default function NSIPsMapSection() {
         color: P.textMuted, margin: "0 0 24px",
         lineHeight: 1.55, maxWidth: 760,
       }}>
-        Every project on the Planning Inspectorate's DCO consenting register since 2010 ({projects.length} in total).
+        Every project on the Planning Inspectorate's DCO consenting register since 2010 ({projects.length} in total). Scotland consents its major infrastructure separately under devolved planning regimes and is not shown here.
       </p>
 
       <Filters
