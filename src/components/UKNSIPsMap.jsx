@@ -45,29 +45,30 @@ export default function UKNSIPsMap({
       .catch((err) => console.error("UKNSIPsMap: failed to load outline", err));
   }, []);
 
-  // Fit Transverse Mercator projection to England + Wales only. The PINS
-  // DCO regime doesn't cover Scotland or Northern Ireland, so cropping
-  // them out keeps the offshore wind farms in the North Sea from being
-  // pushed off the right-hand edge of the canvas.
+  // Fit Transverse Mercator projection to the full UK outline so all four
+  // countries render at correct relative positions. The visible viewport
+  // is then offset rightward (see CROP_LEFT / EXTEND_RIGHT below) so the
+  // North Sea offshore wind farms have more room and the western edge of
+  // NI / Wales is cropped a touch.
   const { projection, viewW, viewH, outlineFeatures } = useMemo(() => {
     if (!topo) return { projection: null, viewW: 300, viewH: height, outlineFeatures: [] };
     const objKey = Object.keys(topo.objects)[0];
     const geojson = feature(topo, topo.objects[objKey]);
-    const keep = new Set(["England", "Wales"]);
-    const fitFeatures = {
-      type: "FeatureCollection",
-      features: geojson.features.filter((f) => keep.has(f.properties?.name)),
-    };
     const proj = geoTransverseMercator().rotate([2, 0]);
-    const tempPath = d3GeoPath(proj.fitSize([2000, 2000], fitFeatures));
-    const [[bx0, by0], [bx1, by1]] = tempPath.bounds(fitFeatures);
+    const tempPath = d3GeoPath(proj.fitSize([2000, 2000], geojson));
+    const [[bx0, by0], [bx1, by1]] = tempPath.bounds(geojson);
     const bW = bx1 - bx0;
     const bH = by1 - by0;
     const scale = (height - 2 * PAD) / bH;
     const finalW = Math.ceil(bW * scale + 2 * PAD);
-    proj.fitSize([finalW, height], fitFeatures);
-    return { projection: proj, viewW: finalW, viewH: height, outlineFeatures: fitFeatures.features };
+    proj.fitSize([finalW, height], geojson);
+    return { projection: proj, viewW: finalW, viewH: height, outlineFeatures: geojson.features };
   }, [topo, height]);
+
+  const CROP_LEFT = 0.10;     // chop 10% off the western edge
+  const EXTEND_RIGHT = 0.18;  // extend 18% into the North Sea
+  const viewX = viewW * CROP_LEFT;
+  const viewBoxW = viewW * (1 - CROP_LEFT + EXTEND_RIGHT);
 
   const pathGen = useMemo(() => projection ? d3GeoPath(projection) : null, [projection]);
 
@@ -137,9 +138,9 @@ export default function UKNSIPsMap({
   return (
     <div ref={containerRef} style={{ position: "relative", width: "100%" }}>
       <svg
-        viewBox={`0 0 ${viewW} ${viewH}`}
+        viewBox={`${viewX} 0 ${viewBoxW} ${viewH}`}
         width="100%"
-        style={{ maxHeight: height, aspectRatio: `${viewW} / ${viewH}`, display: "block", margin: "0 auto" }}
+        style={{ maxHeight: height, aspectRatio: `${viewBoxW} / ${viewH}`, display: "block", margin: "0 auto" }}
         onMouseMove={handleMove}
       >
         {outlineFeatures.map((f, i) => (
