@@ -3,7 +3,7 @@
   "id": "co2-intensity",
   "pillar": "foundations",
   "topic": "energy",
-  "generated": "2026-04-30",
+  "generated": "2026-05-15",
   "sources": [
     {
       "id": "neso-carbon-intensity",
@@ -14,8 +14,8 @@
     }
   ],
   "snapshot": {
-    "intensity": 76,
-    "intensityPeriod": "2026-04",
+    "intensity": 91,
+    "intensityPeriod": "2026-05",
     "intensityUnit": "gCO2/kWh"
   },
   "series": {
@@ -25,10 +25,6 @@
       "unit": "gCO2/kWh",
       "description": "Monthly average carbon intensity of GB electricity generation. Sampled on the 15th of each month from NESO's half-hourly intensity feed.",
       "data": [
-        {
-          "period": "2024-05",
-          "intensity": 165
-        },
         {
           "period": "2024-06",
           "intensity": 116
@@ -120,6 +116,10 @@
         {
           "period": "2026-04",
           "intensity": 76
+        },
+        {
+          "period": "2026-05",
+          "intensity": 91
         }
       ]
     },
@@ -131,7 +131,7 @@
       "data": [
         {
           "year": 2024,
-          "intensity": 121
+          "intensity": 115
         },
         {
           "year": 2025,
@@ -139,7 +139,7 @@
         },
         {
           "year": 2026,
-          "intensity": 103
+          "intensity": 100
         }
       ]
     }
