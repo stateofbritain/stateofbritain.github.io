@@ -191,11 +191,6 @@ export default function UKNSIPsMap({
           <div style={{ opacity: 0.8 }}>
             {hovered.project.subtype} · {hovered.project.stage}
           </div>
-          {hovered.project.yearsInSystem != null && (
-            <div style={{ opacity: 0.7, marginTop: 2 }}>
-              {hovered.project.yearsInSystem} yrs in the system
-            </div>
-          )}
         </div>
       )}
     </div>
