@@ -2,7 +2,6 @@ import P from "../theme/palette";
 import { track } from "../analytics";
 
 const TABS = [
-  { key: "dashboard", label: "Dashboard", path: ["dashboard"] },
   { key: "data",      label: "Data",      path: ["data"] },
   { key: "policy",    label: "Policy",    path: ["policy"] },
 ];

@@ -111,7 +111,14 @@ const PILLARS = {
         },
       },
       education:      { label: "Education",            icon: "▲" },
-      industrial:     { label: "Industrial Production", icon: "⚙" },
+      industrial: {
+        label: "Industrial Production",
+        icon: "⚙",
+        subtopics: {
+          production:   { label: "Production" },
+          dependencies: { label: "Strategic Dependencies" },
+        },
+      },
       transport: {
         label: "Transport",
         icon: "≡",
@@ -121,6 +128,10 @@ const PILLARS = {
           buses:    { label: "Buses" },
           airports: { label: "Airports" },
         },
+      },
+      infrastructure: {
+        label: "Infrastructure",
+        icon: "▣",
       },
       digital: {
         label: "Digital Infrastructure",

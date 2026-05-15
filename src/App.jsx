@@ -50,6 +50,8 @@ import Rail from "./pillars/growth/Rail";
 import Buses from "./pillars/growth/Buses";
 import Airports from "./pillars/growth/Airports";
 import Broadband from "./pillars/growth/Broadband";
+import Infrastructure from "./pillars/growth/Infrastructure";
+import StrategicDependencies from "./pillars/growth/StrategicDependencies";
 import IndustrialProduction from "./pillars/growth/IndustrialProduction";
 import Education from "./pillars/growth/Education";
 import JobsOverview from "./pillars/growth/JobsOverview";
@@ -128,7 +130,9 @@ const TOPIC_COMPONENTS = {
   "growth/transport/buses": Buses,
   "growth/transport/airports": Airports,
   "growth/digital/broadband": Broadband,
-  "growth/industrial": IndustrialProduction,
+  "growth/infrastructure": Infrastructure,
+  "growth/industrial/production": IndustrialProduction,
+  "growth/industrial/dependencies": StrategicDependencies,
   "growth/education": Education,
   "state/justice": Justice,
   "state/defence/spending": DefenceSpending,
@@ -168,7 +172,10 @@ export default function App() {
   // /data                   → first data pillar's first topic
   // /policy                 → policy "overview" topic (or first available)
   useEffect(() => {
-    if (segments.length === 0) return;
+    if (segments.length === 0) {
+      replace("data");
+      return;
+    }
     const first = segments[0];
     if (OLD_DATA_PILLAR_SET.has(first)) {
       replace("data", ...segments);
@@ -291,7 +298,7 @@ export default function App() {
 
   // Search uses the pillar key embedded in its index. Translate to current routing.
   const searchNavigate = (pillar, topic, subtopic) => {
-    if (!pillar) { navigate("dashboard"); return; }
+    if (!pillar) { navigate("data"); return; }
     if (pillar === "about")      { navigate("about"); return; }
     if (pillar === "contribute") { navigate("contribute"); return; }
     if (pillar === "data")       { navigate("data", "api"); return; }
@@ -314,7 +321,7 @@ export default function App() {
     >
       <div style={{ maxWidth: 1280, margin: "0 auto", padding: isMobile ? "0 12px" : "0 28px" }}>
         <Header
-          onHome={() => navigate("dashboard")}
+          onHome={() => navigate("data")}
           onNavigate={searchNavigate}
           onAskOpen={() => setAskOpen(true)}
           isMobile={isMobile}
