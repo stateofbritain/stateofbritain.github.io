@@ -88,7 +88,7 @@ export default function NSIPsMapSection() {
         color: P.textMuted, margin: "0 0 24px",
         lineHeight: 1.55, maxWidth: 760,
       }}>
-        Every project on the Planning Inspectorate's DCO consenting register since 2010 ({projects.length} in total). Scotland consents its major infrastructure separately under devolved planning regimes and is not shown here.
+        Every project on the Planning Inspectorate's DCO consenting register since 2010 ({projects.length} in total). Scotland and Northern Ireland consent their infrastructure separately under devolved planning regimes. In Wales, only large energy projects remain in the PINS regime; other sectors go through Welsh Government's Developments of National Significance process.
       </p>
 
       <Filters
