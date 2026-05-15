@@ -1,6 +1,7 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import P from "../../theme/palette";
 import { useJsonDataset } from "../../hooks/useDataset";
+import useIsMobile from "../../hooks/useIsMobile";
 import UKNSIPsMap, { CATEGORY_COLOR, CATEGORY_LABEL } from "../../components/UKNSIPsMap";
 import ProjectTimeline from "../../components/ProjectTimeline";
 
@@ -20,6 +21,8 @@ export default function NSIPsMapSection() {
   const timelines = timelinesData?.timelines || {};
   const costs = costsData?.costs || {};
   const projects = data?.projects || [];
+  const isMobile = useIsMobile();
+  const panelRef = useRef(null);
   const [selectedRef, setSelectedRef] = useState(null);
   const [categoryFilter, setCategoryFilter] = useState(new Set());
   const [stageFilter, setStageFilter] = useState(new Set());
@@ -70,6 +73,11 @@ export default function NSIPsMapSection() {
     if (selected && !visible.includes(selected)) setSelectedRef(null);
   }, [selected, visible]);
 
+  useEffect(() => {
+    if (!isMobile || !selectedRef || !panelRef.current) return;
+    panelRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, [selectedRef, isMobile]);
+
   const totalsByCategory = useMemo(() => {
     const t = {};
     for (const p of projects) t[p.category] = (t[p.category] || 0) + 1;
@@ -119,7 +127,7 @@ export default function NSIPsMapSection() {
 
       <div style={{
         display: "grid",
-        gridTemplateColumns: selected ? "minmax(0, 1fr) minmax(0, 1fr)" : "minmax(0, 1fr)",
+        gridTemplateColumns: !isMobile && selected ? "minmax(0, 1fr) minmax(0, 1fr)" : "minmax(0, 1fr)",
         gap: 16,
         marginTop: 12,
       }}>
@@ -136,12 +144,14 @@ export default function NSIPsMapSection() {
           />
         </div>
         {selected && (
-          <ProjectPanel
-            project={selected}
-            timeline={timelines[selected.ref]}
-            cost={costs[selected.ref]}
-            onClose={() => setSelectedRef(null)}
-          />
+          <div ref={panelRef}>
+            <ProjectPanel
+              project={selected}
+              timeline={timelines[selected.ref]}
+              cost={costs[selected.ref]}
+              onClose={() => setSelectedRef(null)}
+            />
+          </div>
         )}
       </div>
     </div>
