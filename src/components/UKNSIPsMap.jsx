@@ -45,21 +45,28 @@ export default function UKNSIPsMap({
       .catch((err) => console.error("UKNSIPsMap: failed to load outline", err));
   }, []);
 
-  // Fit Transverse Mercator projection to UK outline bounds, deriving width
-  // from aspect ratio. Same shape as UKChoroplethMap.
+  // Fit Transverse Mercator projection to England + Wales only. The PINS
+  // DCO regime doesn't cover Scotland or Northern Ireland, so cropping
+  // them out keeps the offshore wind farms in the North Sea from being
+  // pushed off the right-hand edge of the canvas.
   const { projection, viewW, viewH, outlineFeatures } = useMemo(() => {
     if (!topo) return { projection: null, viewW: 300, viewH: height, outlineFeatures: [] };
     const objKey = Object.keys(topo.objects)[0];
     const geojson = feature(topo, topo.objects[objKey]);
+    const keep = new Set(["England", "Wales"]);
+    const fitFeatures = {
+      type: "FeatureCollection",
+      features: geojson.features.filter((f) => keep.has(f.properties?.name)),
+    };
     const proj = geoTransverseMercator().rotate([2, 0]);
-    const tempPath = d3GeoPath(proj.fitSize([2000, 2000], geojson));
-    const [[bx0, by0], [bx1, by1]] = tempPath.bounds(geojson);
+    const tempPath = d3GeoPath(proj.fitSize([2000, 2000], fitFeatures));
+    const [[bx0, by0], [bx1, by1]] = tempPath.bounds(fitFeatures);
     const bW = bx1 - bx0;
     const bH = by1 - by0;
     const scale = (height - 2 * PAD) / bH;
     const finalW = Math.ceil(bW * scale + 2 * PAD);
-    proj.fitSize([finalW, height], geojson);
-    return { projection: proj, viewW: finalW, viewH: height, outlineFeatures: geojson.features };
+    proj.fitSize([finalW, height], fitFeatures);
+    return { projection: proj, viewW: finalW, viewH: height, outlineFeatures: fitFeatures.features };
   }, [topo, height]);
 
   const pathGen = useMemo(() => projection ? d3GeoPath(projection) : null, [projection]);
