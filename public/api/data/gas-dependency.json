@@ -3,7 +3,7 @@
   "id": "gas-dependency",
   "pillar": "state",
   "topic": "sovereignCapability",
-  "generated": "2026-04-30",
+  "generated": "2026-05-16",
   "sources": [
     {
       "id": "hmrc-ots-2711",
@@ -29,11 +29,11 @@
   ],
   "snapshot": {
     "title": "Natural gas",
-    "month": "2026-02",
-    "production": 1062193471,
+    "month": "2026-03",
+    "production": 1315116205,
     "imports": {
-      "aligned": 1396654074,
-      "neutral": 196636133,
+      "aligned": 1841831191,
+      "neutral": 130843116,
       "low": 0,
       "unknown": 0
     },
@@ -43,7 +43,7 @@
       "low": 0,
       "unknown": 0
     },
-    "alignedShare": 52.6,
+    "alignedShare": 56,
     "domesticShare": 40,
     "partnersTracked": 17,
     "windowMonths": 24,
@@ -57,26 +57,6 @@
       "unit": "£ / month",
       "description": "Monthly UK natural gas supply: HS 2711.11 (LNG) + HS 2711.21 (pipeline) imports by alignment bucket, plus an estimated UKCS production component derived from a 40% self-sufficiency ratio.",
       "data": [
-        {
-          "month": "2024-03",
-          "production": 563208731,
-          "imports": {
-            "aligned": 820136671,
-            "neutral": 24676426,
-            "low": 0,
-            "unknown": 0
-          },
-          "exports": {
-            "aligned": 0,
-            "neutral": 0,
-            "low": 0,
-            "unknown": 0
-          },
-          "totalImports": 844813097,
-          "totalExports": 0,
-          "alignedShare": 58.2,
-          "domesticShare": 40
-        },
         {
           "month": "2024-04",
           "production": 507667981,
@@ -519,9 +499,9 @@
         },
         {
           "month": "2026-02",
-          "production": 1062193471,
+          "production": 1058861967,
           "imports": {
-            "aligned": 1396654074,
+            "aligned": 1391656818,
             "neutral": 196636133,
             "low": 0,
             "unknown": 0
@@ -532,9 +512,29 @@
             "low": 0,
             "unknown": 0
           },
-          "totalImports": 1593290207,
+          "totalImports": 1588292951,
           "totalExports": 0,
           "alignedShare": 52.6,
+          "domesticShare": 40
+        },
+        {
+          "month": "2026-03",
+          "production": 1315116205,
+          "imports": {
+            "aligned": 1841831191,
+            "neutral": 130843116,
+            "low": 0,
+            "unknown": 0
+          },
+          "exports": {
+            "aligned": 0,
+            "neutral": 0,
+            "low": 0,
+            "unknown": 0
+          },
+          "totalImports": 1972674307,
+          "totalExports": 0,
+          "alignedShare": 56,
           "domesticShare": 40
         }
       ]
@@ -551,7 +551,7 @@
           "alignmentPct": 89.1,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 20124619071,
+          "importTonnes": 20887622281,
           "exportTonnes": 0
         },
         {
@@ -560,7 +560,7 @@
           "alignmentPct": 81.5,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 6214554663,
+          "importTonnes": 6479561157,
           "exportTonnes": 0
         },
         {
@@ -569,7 +569,7 @@
           "alignmentPct": 50.8,
           "bucket": "neutral",
           "classifySource": "voeten",
-          "importTonnes": 402046527,
+          "importTonnes": 427033783,
           "exportTonnes": 0
         },
         {
@@ -578,16 +578,7 @@
           "alignmentPct": 60.3,
           "bucket": "neutral",
           "classifySource": "voeten",
-          "importTonnes": 333137200,
-          "exportTonnes": 0
-        },
-        {
-          "iso3": "NGA",
-          "country": "Nigeria",
-          "alignmentPct": 55.3,
-          "bucket": "neutral",
-          "classifySource": "voeten",
-          "importTonnes": 253003624,
+          "importTonnes": 336324845,
           "exportTonnes": 0
         },
         {
@@ -596,7 +587,16 @@
           "alignmentPct": 58.5,
           "bucket": "neutral",
           "classifySource": "voeten",
-          "importTonnes": 252603352,
+          "importTonnes": 313551848,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "NGA",
+          "country": "Nigeria",
+          "alignmentPct": 55.3,
+          "bucket": "neutral",
+          "classifySource": "voeten",
+          "importTonnes": 270046917,
           "exportTonnes": 0
         },
         {
@@ -605,7 +605,7 @@
           "alignmentPct": 91.6,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 215612545,
+          "importTonnes": 209528881,
           "exportTonnes": 0
         },
         {
@@ -632,7 +632,7 @@
           "alignmentPct": 92.2,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 102772089,
+          "importTonnes": 97543313,
           "exportTonnes": 0
         },
         {
