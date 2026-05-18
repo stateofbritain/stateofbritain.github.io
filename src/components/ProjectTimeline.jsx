@@ -1,5 +1,8 @@
-import { useMemo, useRef, useState, useCallback } from "react";
+import { useMemo, useRef, useState, useCallback, useEffect } from "react";
+import { createPortal } from "react-dom";
+import html2canvas from "html2canvas";
 import P from "../theme/palette";
+import TimelineExport from "./TimelineExport";
 
 /**
  * Vertical project-lifecycle timeline for a single NSIP.
@@ -21,7 +24,73 @@ export default function ProjectTimeline({
   milestones = [],
   researcher,
   lastResearched,
+  projectName,
 }) {
+  const [exportPortal, setExportPortal] = useState(null);
+  const [exporting, setExporting] = useState(false);
+  const captureResolveRef = useRef(null);
+
+  useEffect(() => {
+    if (!exportPortal) return;
+    let cancelled = false;
+    (async () => {
+      await document.fonts.ready;
+      await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+      if (cancelled) return;
+      await new Promise((r) => setTimeout(r, 200));
+      if (cancelled) return;
+      const captured = await html2canvas(exportPortal, {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: "#FFFDF8",
+        width: 1600,
+        height: 900,
+      });
+      if (captureResolveRef.current) {
+        captureResolveRef.current(captured);
+        captureResolveRef.current = null;
+      }
+    })();
+    return () => { cancelled = true; };
+  }, [exportPortal]);
+
+  const handleExport = useCallback(async () => {
+    if (exporting) return;
+    setExporting(true);
+    let wrapper = null;
+    try {
+      wrapper = document.createElement("div");
+      Object.assign(wrapper.style, {
+        position: "fixed", left: "-9999px", top: "0",
+        width: "1600px", height: "900px",
+        background: "#FFFDF8", overflow: "hidden",
+      });
+      document.body.appendChild(wrapper);
+
+      const captured = await new Promise((resolve) => {
+        captureResolveRef.current = resolve;
+        setExportPortal(wrapper);
+      });
+
+      setExportPortal(null);
+      document.body.removeChild(wrapper);
+      wrapper = null;
+
+      const blob = await new Promise((r) => captured.toBlob(r, "image/png"));
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `timeline-${slugify(projectName || "project")}.png`;
+      a.click();
+      URL.revokeObjectURL(url);
+    } catch (err) {
+      console.error("Timeline export failed:", err);
+      setExportPortal(null);
+      if (wrapper?.parentNode) document.body.removeChild(wrapper);
+    } finally {
+      setExporting(false);
+    }
+  }, [exporting, projectName]);
   const events = useMemo(() => {
     return milestones
       .map((m) => ({ ...m, year: parseYear(m.date) }))
@@ -101,7 +170,35 @@ export default function ProjectTimeline({
 
   return (
     <div style={{ marginTop: 14 }} ref={containerRef}>
-      <SectionLabel>Project lifecycle</SectionLabel>
+      <div style={{
+        display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 8,
+      }}>
+        <SectionLabel>Project lifecycle</SectionLabel>
+        <button
+          onClick={handleExport}
+          disabled={exporting}
+          style={{
+            fontSize: 10, fontFamily: "'DM Mono', monospace",
+            color: P.textMuted, background: "transparent",
+            border: `1px solid ${P.border}`, borderRadius: 3,
+            padding: "3px 9px", cursor: exporting ? "wait" : "pointer",
+            letterSpacing: "0.06em", textTransform: "uppercase",
+            transition: "background 0.15s, color 0.15s",
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.background = P.bgCard; e.currentTarget.style.color = P.text; }}
+          onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = P.textMuted; }}
+        >
+          {exporting ? "Exporting…" : "Export PNG"}
+        </button>
+      </div>
+
+      {exportPortal && createPortal(
+        <TimelineExport
+          projectName={projectName}
+          milestones={milestones}
+        />,
+        exportPortal,
+      )}
 
       <div style={{
         position: "relative",
@@ -314,6 +411,10 @@ export default function ProjectTimeline({
       )}
     </div>
   );
+}
+
+function slugify(s) {
+  return String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
 
 function formatDate(s) {

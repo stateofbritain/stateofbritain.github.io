@@ -128,6 +128,7 @@ export default function NSIPsMapSection() {
               timeline={timelines[selected.ref]}
               cost={costs[selected.ref]}
               onClose={() => setSelectedRef(null)}
+              projectName={selected.name}
             />
           </div>
         )}
@@ -222,7 +223,7 @@ function Chip({ label, count, color, active, onClick }) {
   );
 }
 
-function ProjectPanel({ project, timeline, cost, onClose }) {
+function ProjectPanel({ project, timeline, cost, onClose, projectName }) {
   const events = projectEvents(project);
   return (
     <aside style={{
@@ -275,6 +276,7 @@ function ProjectPanel({ project, timeline, cost, onClose }) {
           milestones={timeline.milestones}
           researcher={timeline.researcher}
           lastResearched={timeline.lastResearched}
+          projectName={projectName || project.name}
         />
       ) : (
         events.length > 0 && (
