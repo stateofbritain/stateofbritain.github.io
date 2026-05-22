@@ -2,8 +2,9 @@ import P from "../theme/palette";
 import { track } from "../analytics";
 
 const TABS = [
-  { key: "data",      label: "Data",      path: ["data"] },
-  { key: "policy",    label: "Policy",    path: ["policy"] },
+  { key: "data",       label: "Data",       path: ["data"] },
+  { key: "policy",     label: "Policy",     path: ["policy"] },
+  { key: "parliament", label: "Parliament", path: ["parliament"] },
 ];
 
 const ACCENT = P.sienna;

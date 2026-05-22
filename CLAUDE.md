@@ -92,6 +92,8 @@ Other standard components:
 - `src/components/Legend.jsx` — shared legend component
 - `src/components/MethodologyBreak.jsx` — renders methodology break reference lines
 - `src/theme/` — palette, chart styles
+- `parliament/` — Hansard Highlights pipeline (Python) and per-day output JSON; powers the /parliament tab
+- `src/parliament/` — React components for the /parliament tab
 
 ## Commands
 - `npm run dev` — local dev server
@@ -99,6 +101,10 @@ Other standard components:
 - `node scripts/validate-data.js` — validate all data files
 - `node scripts/generate-catalog.js` — regenerate data/catalog.json
 - `node scripts/sync-api-data.js` — sync public/data/ → public/api/data/ (run after any data update)
+- `node scripts/sync-parliament-data.js` — publish parliament/output/ → public/data/parliament/ (run after the Hansard pipeline)
+
+## Parliament tab
+The `/parliament` tab is Hansard Highlights — a daily, non-partisan digest of the House of Commons. The pipeline (fetch → editorial analysis → resolve → captions) lives in `parliament/`; see `parliament/INTEGRATION.md` for the full daily routine and the load-bearing editorial standards. The editorial selection step is done by hand in Claude Code each sitting day, never by an automated API call. After running the pipeline, `node scripts/sync-parliament-data.js` publishes the day to `public/data/parliament/`, and `src/parliament/` renders it with SOB styling. The Open Parliament Licence attribution and "fair and accurate report of parliamentary proceedings" notice are the legal basis and must not be removed.
 
 ## Guidance
 - write single-line commands instead of multiline (e.g., using && or ; instead of newlines) to avoid warning.

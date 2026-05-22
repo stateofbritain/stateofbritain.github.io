@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+# Large pipeline artefacts — regenerable, not part of the durable record.
+output/audio-*.wav
+output/asr-*.json
+output/*.start
+# whisper.cpp model (~465 MB) and the legacy standalone build.
+models/
+site/

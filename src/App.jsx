@@ -12,6 +12,7 @@ import AskPanel from "./components/AskPanel";
 import Dashboard from "./pillars/Dashboard";
 import Landing from "./pillars/Landing";
 import DataPage from "./pillars/DataPage";
+import Parliament from "./parliament/Parliament";
 import About from "./pillars/About";
 import Contribute from "./pillars/Contribute";
 import Placeholder from "./pillars/Placeholder";
@@ -206,8 +207,14 @@ export default function App() {
   const isDashboard = !section || section === "dashboard";
   const isData = section === "data";
   const isPolicy = section === "policy";
+  const isParliament = section === "parliament";
   const isAbout = section === "about";
   const isContribute = section === "contribute";
+
+  // Parliament section: optional sitting date in segments[1] (YYYY-MM-DD).
+  const parliamentDate = isParliament && segments[1] && /^\d{4}-\d{2}-\d{2}$/.test(segments[1])
+    ? segments[1]
+    : null;
 
   // Data section: derive pillar / topic / subtopic from segments[1..3]
   const dataPillarKey = isData && segments[1] && PILLARS[segments[1]] ? segments[1] : null;
@@ -279,6 +286,10 @@ export default function App() {
       document.title = policyTopicConfig
         ? `${policyTopicConfig.label} — Policy — ${base}`
         : `Policy — ${base}`;
+    } else if (isParliament) {
+      document.title = parliamentDate
+        ? `Parliament — ${parliamentDate} — ${base}`
+        : `Parliament — ${base}`;
     } else if (isAbout) {
       document.title = `About — ${base}`;
     } else if (isContribute) {
@@ -287,8 +298,8 @@ export default function App() {
       document.title = base;
     }
   }, [
-    segments, isDashboard, isData, isPolicy, isAbout, isContribute,
-    dataPillarConfig, dataTopicConfig, dataSubtopicConfig, policyTopicConfig,
+    segments, isDashboard, isData, isPolicy, isParliament, isAbout, isContribute,
+    parliamentDate, dataPillarConfig, dataTopicConfig, dataSubtopicConfig, policyTopicConfig,
   ]);
 
   // ── Section-aware navigation helpers ──────────────────────────────
@@ -430,6 +441,9 @@ export default function App() {
             </main>
           </div>
         )}
+
+        {/* Parliament */}
+        {isParliament && <Parliament date={parliamentDate} navigate={navigate} />}
 
         {/* Static pages */}
         {isAbout && <About />}
