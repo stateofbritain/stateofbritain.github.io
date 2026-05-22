@@ -302,6 +302,25 @@ export default function App() {
     parliamentDate, dataPillarConfig, dataTopicConfig, dataSubtopicConfig, policyTopicConfig,
   ]);
 
+  // Keep the pre-launch /parliament route out of search indexes — a robots
+  // noindex meta tag, injected only while that section is open and removed
+  // on navigation away, so the rest of the site stays indexable.
+  useEffect(() => {
+    const ID = "robots-noindex";
+    let tag = document.getElementById(ID);
+    if (isParliament) {
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.id = ID;
+        tag.name = "robots";
+        tag.content = "noindex";
+        document.head.appendChild(tag);
+      }
+    } else if (tag) {
+      tag.remove();
+    }
+  }, [isParliament]);
+
   // ── Section-aware navigation helpers ──────────────────────────────
   // Used by sub-tree components that still call the old (pillar, topic, sub) signature.
   const dataNavigate = (p, t, s) => navigate("data", p, t, s);
