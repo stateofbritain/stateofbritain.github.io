@@ -2,7 +2,7 @@ import { forwardRef, useEffect } from "react";
 import P from "../theme/palette";
 
 const PLIVE_PLAYER =
-  "https://videoplayback.parliamentlive.tv/Player/Index/{id}?audioOnly=False&autoStart=True&script=True";
+  "https://videoplayback.parliamentlive.tv/Player/Index/{id}?audioOnly=False&autoStart=False&script=True";
 
 /**
  * The single embedded parliamentlive.tv player. The forwarded ref points at
