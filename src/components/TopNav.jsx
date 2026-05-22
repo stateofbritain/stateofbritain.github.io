@@ -1,11 +1,10 @@
 import P from "../theme/palette";
 import { track } from "../analytics";
 
-// Note: /parliament is intentionally omitted — it is reachable by direct URL
-// only (pre-launch), and App.jsx applies a noindex tag to that route.
 const TABS = [
-  { key: "data",   label: "Data",   path: ["data"] },
-  { key: "policy", label: "Policy", path: ["policy"] },
+  { key: "data",       label: "Data",       path: ["data"] },
+  { key: "policy",     label: "Policy",     path: ["policy"] },
+  { key: "parliament", label: "Parliament", path: ["parliament"] },
 ];
 
 const ACCENT = P.sienna;
