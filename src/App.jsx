@@ -13,6 +13,7 @@ import Dashboard from "./pillars/Dashboard";
 import Landing from "./pillars/Landing";
 import DataPage from "./pillars/DataPage";
 import Parliament from "./parliament/Parliament";
+import ParliamentAbout from "./parliament/ParliamentAbout";
 import About from "./pillars/About";
 import Contribute from "./pillars/Contribute";
 import Placeholder from "./pillars/Placeholder";
@@ -287,9 +288,13 @@ export default function App() {
         ? `${policyTopicConfig.label} — Policy — ${base}`
         : `Policy — ${base}`;
     } else if (isParliament) {
-      document.title = parliamentDate
-        ? `Parliament — ${parliamentDate} — ${base}`
-        : `Parliament — ${base}`;
+      if (segments[1] === "about") {
+        document.title = `About — Parliament — ${base}`;
+      } else {
+        document.title = parliamentDate
+          ? `Parliament — ${parliamentDate} — ${base}`
+          : `Parliament — ${base}`;
+      }
     } else if (isAbout) {
       document.title = `About — ${base}`;
     } else if (isContribute) {
@@ -462,7 +467,10 @@ export default function App() {
         )}
 
         {/* Parliament */}
-        {isParliament && <Parliament date={parliamentDate} navigate={navigate} />}
+        {isParliament && segments[1] === "about" && <ParliamentAbout navigate={navigate} />}
+        {isParliament && segments[1] !== "about" && (
+          <Parliament date={parliamentDate} navigate={navigate} />
+        )}
 
         {/* Static pages */}
         {isAbout && <About />}

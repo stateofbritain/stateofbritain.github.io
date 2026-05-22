@@ -206,6 +206,17 @@ export default function Parliament({ date, navigate }) {
           }}>
             {highlights.length} highlights · a non-partisan daily digest
           </p>
+          <button
+            type="button"
+            onClick={() => navigate("parliament", "about")}
+            style={{
+              fontFamily: "'DM Mono', monospace", fontSize: "12px", fontWeight: 500,
+              color: P.teal, background: "none", border: "none", cursor: "pointer",
+              padding: 0, marginTop: 10,
+            }}
+          >
+            Why this exists →
+          </button>
         </header>
 
         {/* Highlights + sticky player */}
