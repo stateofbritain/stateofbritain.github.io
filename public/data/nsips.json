@@ -3,7 +3,7 @@
   "id": "nsips",
   "pillar": "state",
   "topic": "construction",
-  "generated": "2026-05-18",
+  "generated": "2026-05-25",
   "sources": [
     {
       "id": "pins-register",
@@ -32,12 +32,13 @@
       "waste": 3
     },
     "byStage": {
-      "Pre-application": 66,
+      "Pre-application": 65,
       "Examination": 11,
       "Post-decision": 176,
-      "Withdrawn": 9,
-      "Decision": 6,
-      "Recommendation": 6,
+      "Withdrawn": 8,
+      "Decision": 7,
+      "Recommendation": 5,
+      "Acceptance": 2,
       "Pre-examination": 4
     },
     "byDeliveryStatus": {
@@ -294,7 +295,7 @@
         {
           "ref": "EN010012",
           "name": "The Sizewell C Project",
-          "applicant": "NNB Generation Company (SZC) Limited",
+          "applicant": "Sizewell C Limited",
           "appType": "EN01 - Generating Stations",
           "category": "energy",
           "subtype": "Generating station",
@@ -3204,13 +3205,13 @@
           "location": "Site 2.5km N of Heckington and 6.5km NE of Sleaford, connecting to Bicker Fen.",
           "lat": 53.01545178962304,
           "lon": -0.2919634965706336,
-          "stage": "Recommendation",
+          "stage": "Decision",
           "description": "A 400MW solar photovoltaic farm incorporating up to 600MVA Battery Energy Storage System and on-site substation and electrical connection, including solar PV panels; single stacked BESS units; security perimeter fencing; hedgerow improvements; ecological enhancements; above and/or below ground electrical cable connection at up to 400kV; associated development and ancillary works.",
           "dateOfApplication": "2025-04-08",
           "dateApplicationAccepted": "2025-05-01",
           "dateExaminationStarted": "2025-09-23",
           "dateExaminationClosed": "2026-02-23",
-          "dateOfRecommendation": null,
+          "dateOfRecommendation": "2026-05-22",
           "dateOfDecision": null,
           "dateWithdrawn": null,
           "yearsInSystem": 1.1,
@@ -3327,7 +3328,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 0.8,
+          "yearsInSystem": 0.9,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010154",
           "delivery": {
             "status": "Planning Application Submitted",
@@ -3365,7 +3366,7 @@
           "dateOfRecommendation": "2026-04-02",
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 1.1,
+          "yearsInSystem": 1.2,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010155",
           "delivery": {
             "status": "Planning Application Submitted",
@@ -3426,7 +3427,7 @@
           "dateOfRecommendation": "2026-04-02",
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 1.2,
+          "yearsInSystem": 1.3,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010157",
           "delivery": {
             "status": "Planning Application Submitted",
@@ -3464,7 +3465,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 0.6,
+          "yearsInSystem": 0.7,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010158"
         },
         {
@@ -3638,16 +3639,16 @@
           "location": "SE of Cambridge, 2.5km NW of Balsham and 3.8W of West Wratting.",
           "lat": 52.14269346241048,
           "lon": 0.2832966677990466,
-          "stage": "Pre-application",
+          "stage": "Acceptance",
           "description": "Kingsway Solar Farm will comprise the construction, operation, maintenance and decommissioning of a solar photovoltaic (PV) and electrical battery storage generating facility with a generation capacity of up to 500MW. This will include the associated development and infrastructure required to facilitate a connection to the National Grid.",
-          "dateOfApplication": null,
+          "dateOfApplication": "2026-05-21",
           "dateApplicationAccepted": null,
           "dateExaminationStarted": null,
           "dateExaminationClosed": null,
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": null,
+          "yearsInSystem": 0,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010165"
         },
         {
@@ -4172,29 +4173,6 @@
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110023"
         },
         {
-          "ref": "EN0110024",
-          "name": "Beacon Solar",
-          "applicant": "Beacon Solar Limited",
-          "appType": "EN01 - Generating Stations",
-          "category": "energy",
-          "subtype": "Generating station",
-          "region": "South West",
-          "location": "Near Holsworthy Beacon, within the Torridge District of Devon.",
-          "lat": 50.85116019016628,
-          "lon": -4.329674165924619,
-          "stage": "Withdrawn",
-          "description": "A solar generating station with capacity of more than 100 megawatts (MW), involving the construction, operation, maintenance and decommissioning of a ground-mounted solar park and associated development.",
-          "dateOfApplication": null,
-          "dateApplicationAccepted": null,
-          "dateExaminationStarted": null,
-          "dateExaminationClosed": null,
-          "dateOfRecommendation": null,
-          "dateOfDecision": null,
-          "dateWithdrawn": "2026-01-30",
-          "yearsInSystem": null,
-          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110024"
-        },
-        {
           "ref": "EN0110025",
           "name": "Lighthouse Green Fuels Project",
           "applicant": "LGF Projects Limited",
@@ -4377,6 +4355,29 @@
           "dateWithdrawn": null,
           "yearsInSystem": null,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110033"
+        },
+        {
+          "ref": "EN0110038",
+          "name": "Hope Moor Wind Farm",
+          "applicant": "Fred. Olsen Renewables Ltd",
+          "appType": "EN01 - Generating Stations",
+          "category": "energy",
+          "subtype": "Generating station",
+          "region": "Yorkshire and the Humber",
+          "location": "The development is to be located on an area of moorland approximately 8km to the south of Barnard Castle and 12km north of Richmond across the administrative areas of Durham County Council and North Yorkshire Council.",
+          "lat": 54.43767815237223,
+          "lon": -1.9028373733522193,
+          "stage": "Pre-application",
+          "description": "An onshore wind farm with approximately 23 turbines, each upto 200m in height (to blade tip), with a generating capacity in excess of 100MW. The project also includes internal access tracks, an onsite substation, and highways works to the existing road network to facilitate access.",
+          "dateOfApplication": null,
+          "dateApplicationAccepted": null,
+          "dateExaminationStarted": null,
+          "dateExaminationClosed": null,
+          "dateOfRecommendation": null,
+          "dateOfDecision": null,
+          "dateWithdrawn": null,
+          "yearsInSystem": null,
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110038"
         },
         {
           "ref": "EN020001",
@@ -4720,7 +4721,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 1.1,
+          "yearsInSystem": 1.2,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020026"
         },
         {
@@ -5433,7 +5434,7 @@
           "dateOfRecommendation": "2025-05-28",
           "dateOfDecision": null,
           "dateWithdrawn": "2025-12-01",
-          "yearsInSystem": 2.1,
+          "yearsInSystem": 2.2,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN070009"
         },
         {
@@ -5586,7 +5587,7 @@
           "lat": 51.48454545384712,
           "lon": 0.003027178391918269,
           "stage": "Pre-application",
-          "description": "The Cory Strategic Heat Main is an NSIP by virtue of a s35 Direction and will comprise of the construction, operation and maintenance of a heat transmission network transporting waste heat from the Riverside Campus, located in Belvedere, in the London Borough of Bexley, westward across London, responding to heat demand. It will include underground heat transmission pipelines and supporting infrastructure that will allow connection to both heat distribution networks and other heat sources.",
+          "description": "The London Strategic Heat Main is an NSIP by virtue of a s35 Direction and will comprise of the construction, operation and maintenance of a heat transmission network transporting waste heat from the Riverside Campus, located in Belvedere, in the London Borough of Bexley, westward across London, responding to heat demand. It will include underground heat transmission pipelines and supporting infrastructure that will allow connection to both heat distribution networks and other heat sources.",
           "dateOfApplication": null,
           "dateApplicationAccepted": null,
           "dateExaminationStarted": null,
@@ -7181,7 +7182,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 0.1,
+          "yearsInSystem": 0.2,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR050008"
         },
         {
@@ -7238,19 +7239,19 @@
           "category": "water",
           "subtype": "Dam / reservoir",
           "region": "South East",
-          "location": "Proposed Water Recycling Plant at Harts Farm Way, Havant. Proposed Water Transfer pipeline between t",
-          "lat": 50.794531189897384,
-          "lon": -0.4624783203305292,
-          "stage": "Pre-application",
+          "location": "The project is located in Hampshire, South East England, extending from Havant on the south coast, to Otterbourne near Winchester. The proposed Water Recycling Plant would be located off Harts Farm Way in Havant.",
+          "lat": 50.8685210073376,
+          "lon": -1.1517373900524224,
+          "stage": "Acceptance",
           "description": "Circa 40km underground pipeline (minimum 800mm diameter) to transfer at peak operation (i.e. in a drought scenario) at least 75Ml/d of water from Havant Thicket Reservoir to Otterbourne Water Supply Works; \r\n\r\nShort circa 0.5km underground pipeline to transfer at peak operation a) at least 19Ml/d of treated waste water between Budds Farm Water Treatment Works and the proposed Water Recycling Plant and b) waste arising from the water recycling process from the WRP back to the Budds Farm area; \r\n\r\nWater Recycling Plant in vicinity of Budds Farm Water Treatment Works with a peak output of at least 15 Ml/d of recycled water; \r\n\r\nHigh lift pumping station, either located at the site of the Water Recycling Plant or located along the underground water transfer pipelines between Water Recycling Plant, Havant Thicket Reservoir and Otterbourne Water Supply Works;\r\n\r\nSecond stage pumping station and break pressure tank located along the underground water transfer pipelines between Water Recycling Plant, Havant Thicket Reservoir and Otterbourne Water Supply Works; \r\n\r\nand Related and ancillary development.",
-          "dateOfApplication": null,
+          "dateOfApplication": "2026-05-21",
           "dateApplicationAccepted": null,
           "dateExaminationStarted": null,
           "dateExaminationClosed": null,
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": null,
+          "yearsInSystem": 0,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/WA010002"
         },
         {
