@@ -3,7 +3,7 @@
     "source": "Department for Energy Security and Net Zero (DESNZ)",
     "publication": "Digest of UK Energy Statistics (DUKES) 2025",
     "url": "https://www.gov.uk/government/collections/digest-of-uk-energy-statistics-dukes",
-    "fetched": "2026-03-19"
+    "fetched": "2026-05-29"
   },
   "energyMix": [
     {
@@ -1600,10 +1600,7 @@
       "importsByFuelYear": 2024,
       "totalInterconnectorMw": 9800,
       "capacityMarginPct": 5.9,
-      "capacityMarginYear": 2024,
-      "liveFillPct": 61.3,
-      "liveDaysOfDemand": 5.6,
-      "liveFillAsOf": "2026-03-19"
+      "capacityMarginYear": 2024
     },
     "gasStorage": [
       {
@@ -1924,170 +1921,6 @@
         "marginPct": 5.9
       }
     ],
-    "liveFill": {
-      "fillPct": 61.3,
-      "gasInStorageTwh": 9.2608,
-      "gasInStorageBcm": 0.878,
-      "workingVolumeTwh": 15.1,
-      "daysAtCurrentFill": 5.6,
-      "asOf": "2026-03-19",
-      "history": [
-        {
-          "date": "2026-02-17",
-          "fillPct": 41.9,
-          "gasInStorageTwh": 6.3292
-        },
-        {
-          "date": "2026-02-18",
-          "fillPct": 36.6,
-          "gasInStorageTwh": 5.5271
-        },
-        {
-          "date": "2026-02-19",
-          "fillPct": 33.8,
-          "gasInStorageTwh": 5.1025
-        },
-        {
-          "date": "2026-02-20",
-          "fillPct": 29.8,
-          "gasInStorageTwh": 4.5001
-        },
-        {
-          "date": "2026-02-21",
-          "fillPct": 28.7,
-          "gasInStorageTwh": 4.3331
-        },
-        {
-          "date": "2026-02-22",
-          "fillPct": 29.9,
-          "gasInStorageTwh": 4.5157
-        },
-        {
-          "date": "2026-02-23",
-          "fillPct": 32.5,
-          "gasInStorageTwh": 4.9025
-        },
-        {
-          "date": "2026-02-24",
-          "fillPct": 33.1,
-          "gasInStorageTwh": 4.9932
-        },
-        {
-          "date": "2026-02-25",
-          "fillPct": 34.3,
-          "gasInStorageTwh": 5.1764
-        },
-        {
-          "date": "2026-02-26",
-          "fillPct": 37.1,
-          "gasInStorageTwh": 5.5969
-        },
-        {
-          "date": "2026-02-27",
-          "fillPct": 40.3,
-          "gasInStorageTwh": 6.0891
-        },
-        {
-          "date": "2026-02-28",
-          "fillPct": 40.7,
-          "gasInStorageTwh": 6.1384
-        },
-        {
-          "date": "2026-03-01",
-          "fillPct": 40.9,
-          "gasInStorageTwh": 6.1808
-        },
-        {
-          "date": "2026-03-02",
-          "fillPct": 41.8,
-          "gasInStorageTwh": 6.3159
-        },
-        {
-          "date": "2026-03-03",
-          "fillPct": 42.8,
-          "gasInStorageTwh": 6.4639
-        },
-        {
-          "date": "2026-03-04",
-          "fillPct": 43.1,
-          "gasInStorageTwh": 6.5035
-        },
-        {
-          "date": "2026-03-05",
-          "fillPct": 44.6,
-          "gasInStorageTwh": 6.7408
-        },
-        {
-          "date": "2026-03-06",
-          "fillPct": 47.1,
-          "gasInStorageTwh": 7.1096
-        },
-        {
-          "date": "2026-03-07",
-          "fillPct": 46.4,
-          "gasInStorageTwh": 6.9998
-        },
-        {
-          "date": "2026-03-08",
-          "fillPct": 48,
-          "gasInStorageTwh": 7.2536
-        },
-        {
-          "date": "2026-03-09",
-          "fillPct": 49.7,
-          "gasInStorageTwh": 7.5105
-        },
-        {
-          "date": "2026-03-10",
-          "fillPct": 49.6,
-          "gasInStorageTwh": 7.4824
-        },
-        {
-          "date": "2026-03-11",
-          "fillPct": 51.3,
-          "gasInStorageTwh": 7.7425
-        },
-        {
-          "date": "2026-03-12",
-          "fillPct": 53.4,
-          "gasInStorageTwh": 8.0638
-        },
-        {
-          "date": "2026-03-13",
-          "fillPct": 54.9,
-          "gasInStorageTwh": 8.2941
-        },
-        {
-          "date": "2026-03-14",
-          "fillPct": 55.2,
-          "gasInStorageTwh": 8.3345
-        },
-        {
-          "date": "2026-03-15",
-          "fillPct": 55.5,
-          "gasInStorageTwh": 8.3784
-        },
-        {
-          "date": "2026-03-16",
-          "fillPct": 57.3,
-          "gasInStorageTwh": 8.65
-        },
-        {
-          "date": "2026-03-17",
-          "fillPct": 57.9,
-          "gasInStorageTwh": 8.7437
-        },
-        {
-          "date": "2026-03-18",
-          "fillPct": 60,
-          "gasInStorageTwh": 9.0543
-        },
-        {
-          "date": "2026-03-19",
-          "fillPct": 61.3,
-          "gasInStorageTwh": 9.2608
-        }
-      ]
-    }
+    "liveFill": null
   }
 }

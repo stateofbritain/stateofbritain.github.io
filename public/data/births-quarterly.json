@@ -1,0 +1,26 @@
+{
+  "$schema": "sob-dataset-v1",
+  "id": "births-quarterly",
+  "pillar": "foundations",
+  "topic": "family",
+  "generated": "2026-05-29",
+  "sources": [
+    {
+      "id": "ons-quarterly-births",
+      "name": "ONS — Quarterly births in England and Wales",
+      "url": "https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/datasets/quarterlybirthsenglandandwales",
+      "publisher": "ONS",
+      "note": "Live discovery did not succeed this run; series empty (tile will show 'no data' until next successful fetch)."
+    }
+  ],
+  "snapshot": {},
+  "series": {
+    "quarterly": {
+      "sourceId": "ons-quarterly-births",
+      "timeField": "quarter",
+      "unit": "live births",
+      "description": "Quarterly live births in England & Wales.",
+      "data": []
+    }
+  }
+}

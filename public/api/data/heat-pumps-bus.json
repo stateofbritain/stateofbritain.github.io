@@ -1,0 +1,26 @@
+{
+  "$schema": "sob-dataset-v1",
+  "id": "heat-pumps-bus",
+  "pillar": "foundations",
+  "topic": "energy",
+  "generated": "2026-05-29",
+  "sources": [
+    {
+      "id": "desnz-bus",
+      "name": "DESNZ — Boiler Upgrade Scheme statistics",
+      "url": "https://www.gov.uk/government/collections/boiler-upgrade-scheme-statistics",
+      "publisher": "DESNZ",
+      "note": "Live discovery did not succeed this run; series empty."
+    }
+  ],
+  "snapshot": {},
+  "series": {
+    "monthly": {
+      "sourceId": "desnz-bus",
+      "timeField": "month",
+      "unit": "grants redeemed / month",
+      "description": "Monthly heat pump grant redemptions under the Boiler Upgrade Scheme.",
+      "data": []
+    }
+  }
+}
