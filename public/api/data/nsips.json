@@ -3,7 +3,7 @@
   "id": "nsips",
   "pillar": "state",
   "topic": "construction",
-  "generated": "2026-05-25",
+  "generated": "2026-06-01",
   "sources": [
     {
       "id": "pins-register",
@@ -21,18 +21,18 @@
     }
   ],
   "snapshot": {
-    "total": 278,
-    "withGps": 278,
+    "total": 279,
+    "withGps": 279,
     "withDelivery": 70,
     "byCategory": {
       "industrial": 2,
-      "energy": 194,
+      "energy": 195,
       "transport": 70,
       "water": 9,
       "waste": 3
     },
     "byStage": {
-      "Pre-application": 65,
+      "Pre-application": 66,
       "Examination": 11,
       "Post-decision": 176,
       "Withdrawn": 8,
@@ -61,7 +61,7 @@
       "sourceId": "pins-register",
       "timeField": "ref",
       "unit": "projects",
-      "description": "278 NSIPs (Nationally Significant Infrastructure Projects) on the PINS register, categorised by reference prefix.",
+      "description": "279 NSIPs (Nationally Significant Infrastructure Projects) on the PINS register, categorised by reference prefix.",
       "data": [
         {
           "ref": "BC0310001",
@@ -2955,7 +2955,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 0.6,
+          "yearsInSystem": 0.7,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010141"
         },
         {
@@ -3115,7 +3115,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": "2025-08-15",
-          "yearsInSystem": 0.7,
+          "yearsInSystem": 0.8,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010148",
           "delivery": {
             "status": "Planning Application Submitted",
@@ -3488,7 +3488,7 @@
           "dateOfRecommendation": "2026-04-08",
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 1.2,
+          "yearsInSystem": 1.3,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010159",
           "delivery": {
             "status": "Planning Application Submitted",
@@ -3801,7 +3801,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 0.7,
+          "yearsInSystem": 0.8,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110001"
         },
         {
@@ -4744,7 +4744,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 0.7,
+          "yearsInSystem": 0.8,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020027"
         },
         {
@@ -5551,6 +5551,29 @@
           "dateWithdrawn": null,
           "yearsInSystem": null,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0710006"
+        },
+        {
+          "ref": "EN0710007",
+          "name": "Project Union: East Coast",
+          "applicant": "National Gas Transmission",
+          "appType": "EN07 - Other Pipe-lines",
+          "category": "energy",
+          "subtype": "Other pipeline",
+          "region": "North East",
+          "location": "East Coast of England from Teesside in the north passing through North Yorkshire and the Humber region and Lincolnshire, extending into the East Midlands. Key areas of new build pipeline would be around Teesside, the Humber region and the East Midlands.",
+          "lat": 53.736500273348966,
+          "lon": -0.9402879246583911,
+          "stage": "Pre-application",
+          "description": "Repurpose existing and build new pipelines to create a core hydrogen network for Great Britain",
+          "dateOfApplication": null,
+          "dateApplicationAccepted": null,
+          "dateExaminationStarted": null,
+          "dateExaminationClosed": null,
+          "dateOfRecommendation": null,
+          "dateOfDecision": null,
+          "dateWithdrawn": null,
+          "yearsInSystem": null,
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0710007"
         },
         {
           "ref": "EN0710008",
