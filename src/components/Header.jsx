@@ -46,6 +46,7 @@ export default function Header({ onHome, onNavigate, onAskOpen, isMobile }) {
         </span>
         <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 10 }}>
           <Search onNavigate={onNavigate} isMobile={isMobile} />
+          {/* Ask feature temporarily disabled
           <button
             onClick={onAskOpen}
             style={{
@@ -68,6 +69,7 @@ export default function Header({ onHome, onNavigate, onAskOpen, isMobile }) {
           >
             Ask
           </button>
+          */}
         </div>
       </div>
       <p

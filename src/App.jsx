@@ -342,7 +342,9 @@ export default function App() {
           onAskOpen={() => setAskOpen(true)}
           isMobile={isMobile}
         />
+        {/* Ask feature temporarily disabled
         <AskPanel open={askOpen} onClose={() => setAskOpen(false)} isMobile={isMobile} />
+        */}
         <TopNav section={section} onNavigate={(...parts) => navigate(...parts)} isMobile={isMobile} />
 
         {/* Dashboard */}
