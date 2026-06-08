@@ -3,7 +3,7 @@
   "id": "nsips",
   "pillar": "state",
   "topic": "construction",
-  "generated": "2026-06-01",
+  "generated": "2026-06-08",
   "sources": [
     {
       "id": "pins-register",
@@ -21,21 +21,21 @@
     }
   ],
   "snapshot": {
-    "total": 279,
-    "withGps": 279,
+    "total": 281,
+    "withGps": 281,
     "withDelivery": 70,
     "byCategory": {
       "industrial": 2,
-      "energy": 195,
+      "energy": 197,
       "transport": 70,
       "water": 9,
       "waste": 3
     },
     "byStage": {
-      "Pre-application": 66,
+      "Pre-application": 67,
       "Examination": 11,
       "Post-decision": 176,
-      "Withdrawn": 8,
+      "Withdrawn": 9,
       "Decision": 7,
       "Recommendation": 5,
       "Acceptance": 2,
@@ -61,7 +61,7 @@
       "sourceId": "pins-register",
       "timeField": "ref",
       "unit": "projects",
-      "description": "279 NSIPs (Nationally Significant Infrastructure Projects) on the PINS register, categorised by reference prefix.",
+      "description": "281 NSIPs (Nationally Significant Infrastructure Projects) on the PINS register, categorised by reference prefix.",
       "data": [
         {
           "ref": "BC0310001",
@@ -3077,7 +3077,7 @@
           "dateOfRecommendation": "2026-02-10",
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 1.5,
+          "yearsInSystem": 1.6,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010147",
           "delivery": {
             "status": "Planning Application Submitted",
@@ -3214,7 +3214,7 @@
           "dateOfRecommendation": "2026-05-22",
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 1.1,
+          "yearsInSystem": 1.2,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010151",
           "delivery": {
             "status": "Planning Application Submitted",
@@ -3587,7 +3587,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 1,
+          "yearsInSystem": 1.1,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010163",
           "delivery": {
             "status": "Planning Application Submitted",
@@ -3648,7 +3648,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 0,
+          "yearsInSystem": 0.1,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010165"
         },
         {
@@ -4008,7 +4008,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 0.5,
+          "yearsInSystem": 0.6,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110013"
         },
         {
@@ -4031,7 +4031,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 0.2,
+          "yearsInSystem": 0.3,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110014"
         },
         {
@@ -4045,7 +4045,7 @@
           "location": "Land to the west of Leadenham, Welbourn and Wellingore, the east of Brant Broughton and to the north of the A17 road within North Kesteven District Council.",
           "lat": 53.08020258810444,
           "lon": -0.5862319268011671,
-          "stage": "Pre-application",
+          "stage": "Withdrawn",
           "description": "Ground-mounted solar electricity generating station with a targeted gross output of 500 to 600 Megawatts (MW) and associated grid connection infrastructure.",
           "dateOfApplication": null,
           "dateApplicationAccepted": null,
@@ -4357,6 +4357,52 @@
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110033"
         },
         {
+          "ref": "EN0110035",
+          "name": "South Kent Energy Park",
+          "applicant": "South Kent Energy Park Limited",
+          "appType": "EN01 - Generating Stations",
+          "category": "energy",
+          "subtype": "Generating station",
+          "region": "South East",
+          "location": "The site is in the administrative areas of Kent County Council and Folkstone and Hythe District Council, on farmland on Romney Marsh around the village of Old Romney.  Approximately half the site is to the north of the A259 and the remaining half to the south of it.",
+          "lat": 50.98857524476205,
+          "lon": 0.8958071108898643,
+          "stage": "Pre-application",
+          "description": "A ground mounted solar photovoltaic (PV) electricity generating station with a generating capacity in excess of 100MW. The proposed scheme also consists of the associated development comprising Battery Energy Storage System (BESS), on site grid connection infrastructure and other infrastructure integral to the construction, operation, maintenance and decommissioning phases in addition to landscaping and biodiversity enhancements.",
+          "dateOfApplication": null,
+          "dateApplicationAccepted": null,
+          "dateExaminationStarted": null,
+          "dateExaminationClosed": null,
+          "dateOfRecommendation": null,
+          "dateOfDecision": null,
+          "dateWithdrawn": null,
+          "yearsInSystem": null,
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110035"
+        },
+        {
+          "ref": "EN0110036",
+          "name": "Gwynt Glas Offshore Wind Farm",
+          "applicant": "Gwynt Glas Offshore Wind Farm Limited",
+          "appType": "EN01 - Generating Stations",
+          "category": "energy",
+          "subtype": "Generating station",
+          "region": "Wales",
+          "location": "Gwynt Glas Offshore Wind Farm Limited successfully secured PDA1 in The Crown Estate’s Leasing Round 5.\r\n\r\nPDA 1 lies wholly in Welsh Waters in the Celtic Sea.\r\n\r\nAssociated onshore infrastructure is anticipated to be near Llandyfaelog, Carmarthen, Wales.",
+          "lat": 51.32773056658636,
+          "lon": -5.641920375423025,
+          "stage": "Pre-application",
+          "description": "The proposed Gwynt Glas Floating Offshore Wind Farm (the ‘Development’) would be located approximately 42 kilometres (km) off the southwest coast of Pembrokeshire in the Celtic Sea, with an anticipated capacity of up to 1.5 gigawatt (GW). The array area covers approximately 369 square kilometres (km2). The Development would include offshore generating infrastructure and associated transmission assets. It is expected that the grid connection would be made at the proposed Llandyfaelog Substation in Carmarthenshire (to be built by National Grid), requiring the installation of underground export cables between the landfall and the grid connection point. Several landfall and onshore cable route options are currently under consideration, and a new onshore substation is considered to be located near the proposed National Grid substation at Llandyfaelog.",
+          "dateOfApplication": null,
+          "dateApplicationAccepted": null,
+          "dateExaminationStarted": null,
+          "dateExaminationClosed": null,
+          "dateOfRecommendation": null,
+          "dateOfDecision": null,
+          "dateWithdrawn": null,
+          "yearsInSystem": null,
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110036"
+        },
+        {
           "ref": "EN0110038",
           "name": "Hope Moor Wind Farm",
           "applicant": "Fred. Olsen Renewables Ltd",
@@ -4652,7 +4698,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 6.5,
+          "yearsInSystem": 6.6,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020022"
         },
         {
@@ -7274,7 +7320,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 0,
+          "yearsInSystem": 0.1,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/WA010002"
         },
         {
