@@ -3,7 +3,7 @@
   "id": "gas-imports",
   "pillar": "foundations",
   "topic": "energy",
-  "generated": "2026-05-18",
+  "generated": "2026-06-18",
   "sources": [
     {
       "id": "hmrc-bulk-gas",
@@ -14,10 +14,10 @@
     }
   ],
   "snapshot": {
-    "hhi": 5734,
-    "hhiMonth": "2026-03",
+    "hhi": 7267,
+    "hhiMonth": "2026-04",
     "hhiUnit": "Herfindahl-Hirschman Index (×10000)",
-    "partners": 7
+    "partners": 4
   },
   "series": {
     "monthly": {
@@ -26,11 +26,6 @@
       "unit": "HHI (×10000)",
       "description": "Monthly Herfindahl-Hirschman Index of UK gas-import country concentration, derived from HMRC bulk-COO import records for HS 2711.11 + 2711.21.",
       "data": [
-        {
-          "month": "2024-04",
-          "hhi": 7434,
-          "partners": 6
-        },
         {
           "month": "2024-05",
           "hhi": 7053,
@@ -145,6 +140,11 @@
           "month": "2026-03",
           "hhi": 5734,
           "partners": 7
+        },
+        {
+          "month": "2026-04",
+          "hhi": 7267,
+          "partners": 4
         }
       ]
     }
