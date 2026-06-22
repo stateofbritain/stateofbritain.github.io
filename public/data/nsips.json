@@ -3,7 +3,7 @@
   "id": "nsips",
   "pillar": "state",
   "topic": "construction",
-  "generated": "2026-06-15",
+  "generated": "2026-06-22",
   "sources": [
     {
       "id": "pins-register",
@@ -21,25 +21,25 @@
     }
   ],
   "snapshot": {
-    "total": 281,
-    "withGps": 281,
+    "total": 282,
+    "withGps": 282,
     "withDelivery": 70,
     "byCategory": {
       "industrial": 2,
-      "energy": 197,
+      "energy": 198,
       "transport": 70,
       "water": 9,
       "waste": 3
     },
     "byStage": {
-      "Pre-application": 66,
-      "Examination": 10,
+      "Pre-application": 67,
+      "Examination": 9,
       "Post-decision": 176,
-      "Withdrawn": 9,
+      "Withdrawn": 10,
       "Decision": 7,
-      "Recommendation": 6,
-      "Acceptance": 3,
-      "Pre-examination": 4
+      "Recommendation": 7,
+      "Pre-examination": 4,
+      "Acceptance": 2
     },
     "byDeliveryStatus": {
       "Operational": 12,
@@ -61,7 +61,7 @@
       "sourceId": "pins-register",
       "timeField": "ref",
       "unit": "projects",
-      "description": "281 NSIPs (Nationally Significant Infrastructure Projects) on the PINS register, categorised by reference prefix.",
+      "description": "282 NSIPs (Nationally Significant Infrastructure Projects) on the PINS register, categorised by reference prefix.",
       "data": [
         {
           "ref": "BC0310001",
@@ -213,7 +213,7 @@
           "dateOfRecommendation": "2019-07-23",
           "dateOfDecision": null,
           "dateWithdrawn": "2021-01-27",
-          "yearsInSystem": 8,
+          "yearsInSystem": 8.1,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010007"
         },
         {
@@ -3290,7 +3290,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 1,
+          "yearsInSystem": 1.1,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010153",
           "delivery": {
             "status": "Planning Application Submitted",
@@ -3639,7 +3639,7 @@
           "location": "SE of Cambridge, 2.5km NW of Balsham and 3.8W of West Wratting.",
           "lat": 52.14269346241048,
           "lon": 0.2832966677990466,
-          "stage": "Acceptance",
+          "stage": "Withdrawn",
           "description": "Kingsway Solar Farm will comprise the construction, operation, maintenance and decommissioning of a solar photovoltaic (PV) and electrical battery storage generating facility with a generation capacity of up to 500MW. This will include the associated development and infrastructure required to facilitate a connection to the National Grid.",
           "dateOfApplication": "2026-05-21",
           "dateApplicationAccepted": null,
@@ -3647,7 +3647,7 @@
           "dateExaminationClosed": null,
           "dateOfRecommendation": null,
           "dateOfDecision": null,
-          "dateWithdrawn": null,
+          "dateWithdrawn": "2026-06-17",
           "yearsInSystem": 0.1,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010165"
         },
@@ -3694,7 +3694,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 0.7,
+          "yearsInSystem": 0.8,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010168"
         },
         {
@@ -3717,7 +3717,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 0.2,
+          "yearsInSystem": 0.3,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010169"
         },
         {
@@ -3792,12 +3792,12 @@
           "location": "Land at and within the vicinity of Keadby Power Station Site, Trentside, Keadby, Scunthorpe, Lincolnshire,",
           "lat": 53.594688758715996,
           "lon": -0.762553026191652,
-          "stage": "Examination",
+          "stage": "Recommendation",
           "description": "A combined cycle gas turbine electricity generating station designed to run on 100% hydrogen (the ambition is that this would be the fuel used from inception) and able to run on 100% natural gas of up to 910 megawatts net electrical output; hydrogen and natural gas supply infrastructure, water supply and electricity connections; above ground installations; utilities connections; construction laydown areas; access; and other associated and ancillary development.",
           "dateOfApplication": "2025-08-29",
           "dateApplicationAccepted": "2025-09-22",
           "dateExaminationStarted": "2026-01-20",
-          "dateExaminationClosed": null,
+          "dateExaminationClosed": "2026-06-19",
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
@@ -3985,7 +3985,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 0.3,
+          "yearsInSystem": 0.4,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110012"
         },
         {
@@ -4014,7 +4014,7 @@
         {
           "ref": "EN0110014",
           "name": "East Pye Solar",
-          "applicant": "East Pye Solar Ltd",
+          "applicant": "East Pye Solar Limited",
           "appType": "EN01 - Generating Stations",
           "category": "energy",
           "subtype": "Generating station",
@@ -4115,7 +4115,7 @@
           "lat": 52.354242666606844,
           "lon": 1.1272331356808574,
           "stage": "Pre-application",
-          "description": "A Solar Farm with an anticipated generating capacity of up to 300MW, comprising photovoltaic (PV) solar panels, a Battery Energy Storage System (BESS), and associated development, with a planned connection to the existing National Grid electricity substation at Leys Lane, Yaxley, Suffolk.",
+          "description": "A Solar Farm with an anticipated generating capacity of over 100MW, comprising photovoltaic (PV) solar panels, a Battery Energy Storage System (BESS), and associated development, with a planned connection to the existing National Grid electricity substation at Leys Lane, Yaxley, Suffolk.",
           "dateOfApplication": null,
           "dateApplicationAccepted": null,
           "dateExaminationStarted": null,
@@ -4401,6 +4401,29 @@
           "dateWithdrawn": null,
           "yearsInSystem": null,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110036"
+        },
+        {
+          "ref": "EN0110037",
+          "name": "Castle Way Energy",
+          "applicant": "BSSL Derbyshire 1 Ltd",
+          "appType": "EN01 - Generating Stations",
+          "category": "energy",
+          "subtype": "Generating station",
+          "region": "East Midlands",
+          "location": "The proposed development includes five development sites (Sites A-E) which are situated in the rural expanse between Derby, Uttoxeter and Ashbourne.",
+          "lat": 52.83970137255848,
+          "lon": -1.5484915867101394,
+          "stage": "Pre-application",
+          "description": "A solar photovoltaic (PV) electricity generating station of over 100MW and associated development comprising Battery Energy Storage System (BESS), substations, grid connection infrastructure and other infrastructure integral to the construction, operation and maintenance, and decommissioning phases. The proposed development  plans to connect to the National Grid at the existing Willington 400kV substation.",
+          "dateOfApplication": null,
+          "dateApplicationAccepted": null,
+          "dateExaminationStarted": null,
+          "dateExaminationClosed": null,
+          "dateOfRecommendation": null,
+          "dateOfDecision": null,
+          "dateWithdrawn": null,
+          "yearsInSystem": null,
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110037"
         },
         {
           "ref": "EN0110038",
@@ -4813,7 +4836,7 @@
           "dateOfRecommendation": "2026-01-29",
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 1.6,
+          "yearsInSystem": 1.7,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020032"
         },
         {
@@ -7100,7 +7123,7 @@
           "appType": "TR04 - Railways",
           "category": "transport",
           "subtype": "Railway",
-          "region": null,
+          "region": "Eastern",
           "location": "New railway line between Bedford and Cambridge Stations. Associated works within Bedford and Oxford.",
           "lat": 52.22299079233104,
           "lon": -0.10558948924061186,
@@ -7313,7 +7336,7 @@
           "lon": -1.1517373900524224,
           "stage": "Acceptance",
           "description": "Circa 40km underground pipeline (minimum 800mm diameter) to transfer at peak operation (i.e. in a drought scenario) at least 75Ml/d of water from Havant Thicket Reservoir to Otterbourne Water Supply Works; \r\n\r\nShort circa 0.5km underground pipeline to transfer at peak operation a) at least 19Ml/d of treated waste water between Budds Farm Water Treatment Works and the proposed Water Recycling Plant and b) waste arising from the water recycling process from the WRP back to the Budds Farm area; \r\n\r\nWater Recycling Plant in vicinity of Budds Farm Water Treatment Works with a peak output of at least 15 Ml/d of recycled water; \r\n\r\nHigh lift pumping station, either located at the site of the Water Recycling Plant or located along the underground water transfer pipelines between Water Recycling Plant, Havant Thicket Reservoir and Otterbourne Water Supply Works;\r\n\r\nSecond stage pumping station and break pressure tank located along the underground water transfer pipelines between Water Recycling Plant, Havant Thicket Reservoir and Otterbourne Water Supply Works; \r\n\r\nand Related and ancillary development.",
-          "dateOfApplication": "2026-05-21",
+          "dateOfApplication": "2026-05-28",
           "dateApplicationAccepted": null,
           "dateExaminationStarted": null,
           "dateExaminationClosed": null,
