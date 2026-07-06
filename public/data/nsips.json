@@ -3,7 +3,7 @@
   "id": "nsips",
   "pillar": "state",
   "topic": "construction",
-  "generated": "2026-06-29",
+  "generated": "2026-07-06",
   "sources": [
     {
       "id": "pins-register",
@@ -34,12 +34,11 @@
     "byStage": {
       "Pre-application": 68,
       "Examination": 9,
-      "Post-decision": 176,
+      "Post-decision": 178,
       "Withdrawn": 9,
-      "Decision": 7,
+      "Decision": 5,
       "Recommendation": 7,
-      "Pre-examination": 5,
-      "Acceptance": 1
+      "Pre-examination": 6
     },
     "byDeliveryStatus": {
       "Operational": 12,
@@ -309,7 +308,7 @@
           "dateApplicationAccepted": "2020-06-24",
           "dateExaminationStarted": "2021-04-14",
           "dateExaminationClosed": "2021-10-14",
-          "dateOfRecommendation": null,
+          "dateOfRecommendation": "2022-02-25",
           "dateOfDecision": "2022-07-20",
           "dateWithdrawn": null,
           "yearsInSystem": 2.1,
@@ -1901,7 +1900,7 @@
           "dateOfApplication": "2021-07-19",
           "dateApplicationAccepted": "2021-08-16",
           "dateExaminationStarted": "2022-05-10",
-          "dateExaminationClosed": null,
+          "dateExaminationClosed": "2022-11-10",
           "dateOfRecommendation": "2023-02-10",
           "dateOfDecision": "2024-02-16",
           "dateWithdrawn": null,
@@ -2955,7 +2954,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 0.7,
+          "yearsInSystem": 0.8,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010141"
         },
         {
@@ -3115,7 +3114,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": "2025-08-15",
-          "yearsInSystem": 0.8,
+          "yearsInSystem": 0.9,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010148",
           "delivery": {
             "status": "Planning Application Submitted",
@@ -3328,7 +3327,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 0.9,
+          "yearsInSystem": 1,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010154",
           "delivery": {
             "status": "Planning Application Submitted",
@@ -3357,14 +3356,14 @@
           "location": "Site located primarily to the west of the A5086 at Branthwaite Edge, and approximately 6.5 KM south",
           "lat": 54.59084194093028,
           "lon": -3.478099359609771,
-          "stage": "Decision",
+          "stage": "Post-decision",
           "description": "The Proposed Development comprises the construction, operation, and decommissioning of a solar energy generating station comprising solar PV arrays, an on-site grid connection, associated infrastructure, and green infrastructure with a total capacity exceeding 50 megawatts (MW).\r\n\r\nThe Site is approximately 276.5ha\r\n\r\nThe generating station would export electricity via an on-Site connection to the local Electricity North West Limited (as Distribution Network Operator (DNO)) grid network.",
           "dateOfApplication": "2025-03-26",
           "dateApplicationAccepted": "2025-04-15",
           "dateExaminationStarted": "2025-07-22",
           "dateExaminationClosed": "2026-01-05",
           "dateOfRecommendation": "2026-04-02",
-          "dateOfDecision": null,
+          "dateOfDecision": "2026-07-02",
           "dateWithdrawn": null,
           "yearsInSystem": 1.3,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010155",
@@ -3418,14 +3417,14 @@
           "location": "The Proposed Development is located north-west of Leven (12 miles north of Hull), and between the villages of Tickton, Riston, Wawne and Woodmansey.",
           "lat": 53.85293339236758,
           "lon": -0.3422897090656991,
-          "stage": "Decision",
+          "stage": "Post-decision",
           "description": "The project comprises the construction of a Solar Farm and collated Battery Energy Storage System (BESS) that would allow for the generation, export and storage of electricity exceeding 50 MW. The project include works to facilitate the construction, operation, maintenance and decommissioning of a solar photovoltaic (PV) array electricity generating facility and BESS including PV modules and mounting structures, on-site supporting equipment including inverters, transformers and switchgears, up to two on-site substations and underground cabling to connect to the National Grid substation, associated infrastructure including fencing, drainage and storage containers and biodiversity and landscaping enhancement measures, together with temporary development during the construction phase.",
           "dateOfApplication": "2025-02-21",
           "dateApplicationAccepted": "2025-03-21",
           "dateExaminationStarted": "2025-07-22",
           "dateExaminationClosed": "2026-01-06",
           "dateOfRecommendation": "2026-04-02",
-          "dateOfDecision": null,
+          "dateOfDecision": "2026-07-02",
           "dateWithdrawn": null,
           "yearsInSystem": 1.4,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010157",
@@ -3488,7 +3487,7 @@
           "dateOfRecommendation": "2026-04-08",
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 1.3,
+          "yearsInSystem": 1.4,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010159",
           "delivery": {
             "status": "Planning Application Submitted",
@@ -3801,7 +3800,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 0.8,
+          "yearsInSystem": 0.9,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110001"
         },
         {
@@ -4137,10 +4136,10 @@
           "location": "Approximately 8km east of Rotherham, within the administrative areas of the City of Doncaster Council and Rotherham Metropolitan Borough Council.",
           "lat": 53.38130559467061,
           "lon": -1.2843770376823247,
-          "stage": "Acceptance",
+          "stage": "Pre-examination",
           "description": "A Solar Farm generating station with an estimated capacity of up to 750MW and connecting to the National Grid Brinsworth Substation. The development comprises of solar photovoltaic (PV) modules, an associated Battery Energy Storage System, onsite cabling, a collector substation and satellite substations, and other associated and ancillary development.",
           "dateOfApplication": "2026-06-10",
-          "dateApplicationAccepted": null,
+          "dateApplicationAccepted": "2026-07-03",
           "dateExaminationStarted": null,
           "dateExaminationClosed": null,
           "dateOfRecommendation": null,
@@ -4813,7 +4812,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 0.8,
+          "yearsInSystem": 0.9,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN020027"
         },
         {
@@ -4961,7 +4960,7 @@
           "appType": "EN02 - Electric Lines",
           "category": "energy",
           "subtype": "Electric line",
-          "region": null,
+          "region": "Eastern",
           "location": "Land between the Scotland/England Maritime boundary in the North Sea and the Walpole area of Kings Lynn and West Norfolk, Norfolk, with a landfall on the east coast of Lincolnshire.",
           "lat": 52.96732911493582,
           "lon": -0.08563774838432184,
@@ -7274,7 +7273,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 0.2,
+          "yearsInSystem": 0.3,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR050008"
         },
         {
