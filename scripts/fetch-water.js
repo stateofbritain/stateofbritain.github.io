@@ -2,12 +2,14 @@
  * fetch-water.js
  *
  * Curates water industry performance data from published Ofwat and
- * Environment Agency reports into public/data/water.json.
+ * Environment Agency reports into public/data/water.json (sob-dataset-v1).
  *
  * Sources:
  *   - Ofwat Water Company Performance Report 2024-25 (October 2025)
  *   - Environment Agency pollution incident report 2016-2024
  *   - Ofwat Leakage Dataset (June 2025) — sector totals from WCPR chart
+ *   - Environment Agency — Water resources 2024 to 2025: analysis of the
+ *     water industry's annual water resources performance (November 2025)
  *
  * These are annual publications. Re-run when new reports are published.
  *
@@ -20,6 +22,12 @@ import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUT_DIR = join(__dirname, "..", "public", "data");
+
+// ─── Source ids ──────────────────────────────────────────────────────
+const SRC_OFWAT = "ofwat-water-company-performance-report-2";
+const SRC_EA_POLLUTION = "environment-agency-water-company-polluti";
+const SRC_EA_EDM = "environment-agency-storm-overflow-edm-an";
+const SRC_EA_WATER_RESOURCES = "environment-agency-water-resources-annua";
 
 // ─── Sector performance 2019-20 vs 2024-25 (Ofwat WCPR p6) ─────────
 const sectorPerformance = {
@@ -63,6 +71,69 @@ const leakage = [
   { year: "2022-23", value: 2920 },
   { year: "2023-24", value: 2890 },
   { year: "2024-25", value: 2967 },
+];
+
+// ─── Water supplied — distribution input, England (EA Water resources
+//     2024 to 2025, Table 1 and Figure 5, Ml/d) ──────────────────────
+// 2019-20 onwards are the exact figures published in Table 1. Earlier
+// years are digitised from Figure 5 and rounded to the nearest 10 Ml/d
+// (digitised values cross-check against Table 1 within 7 Ml/d).
+const waterSupplied = [
+  { year: "2000-01", value: 14060 },
+  { year: "2001-02", value: 14400 },
+  { year: "2002-03", value: 14540 },
+  { year: "2003-04", value: 14660 },
+  { year: "2004-05", value: 14400 },
+  { year: "2005-06", value: 14370 },
+  { year: "2006-07", value: 14010 },
+  { year: "2007-08", value: 13800 },
+  { year: "2008-09", value: 13670 },
+  { year: "2009-10", value: 13670 },
+  { year: "2010-11", value: 13820 },
+  { year: "2011-12", value: 13580 },
+  { year: "2012-13", value: 13280 },
+  { year: "2013-14", value: 13440 },
+  { year: "2014-15", value: 13340 },
+  { year: "2015-16", value: 13420 },
+  { year: "2016-17", value: 13520 },
+  { year: "2017-18", value: 13740 },
+  { year: "2018-19", value: 14030 },
+  { year: "2019-20", value: 13732 },
+  { year: "2020-21", value: 14175 },
+  { year: "2021-22", value: 13927 },
+  { year: "2022-23", value: 14075 },
+  { year: "2023-24", value: 13877 },
+  { year: "2024-25", value: 13946 },
+];
+
+// ─── Water use per person, England (EA Water resources 2024 to 2025) ─
+// pcc: average household per capita consumption, l/person/day
+//   (Figure 12; 2023-24 and 2024-25 are exact published figures, earlier
+//   years digitised from the chart and rounded to the nearest 0.5).
+// diPerHead: distribution input per person, l/person/day (Table 1, exact;
+//   includes leakage and non-household use — the basis of the government
+//   target of a 20% reduction by 2037-38 from the 2019-20 baseline).
+const waterPerPerson = [
+  { year: "2005-06", pcc: 151 },
+  { year: "2006-07", pcc: 148 },
+  { year: "2007-08", pcc: 147.5 },
+  { year: "2008-09", pcc: 145.5 },
+  { year: "2009-10", pcc: 146 },
+  { year: "2010-11", pcc: 146.5 },
+  { year: "2011-12", pcc: 144 },
+  { year: "2012-13", pcc: 139.5 },
+  { year: "2013-14", pcc: 141.5 },
+  { year: "2014-15", pcc: 139 },
+  { year: "2015-16", pcc: 139.5 },
+  { year: "2016-17", pcc: 140.5 },
+  { year: "2017-18", pcc: 143.5 },
+  { year: "2018-19", pcc: 143.5 },
+  { year: "2019-20", pcc: 140, diPerHead: 241.4 },
+  { year: "2020-21", pcc: 152, diPerHead: 245.9 },
+  { year: "2021-22", pcc: 143.5, diPerHead: 238.5 },
+  { year: "2022-23", pcc: 141, diPerHead: 239.0 },
+  { year: "2023-24", pcc: 137, diPerHead: 232.8 },
+  { year: "2024-25", pcc: 136.5, diPerHead: 229.2 },
 ];
 
 // ─── Pollution incidents (Environment Agency, categories 1-3) ────────
@@ -121,32 +192,45 @@ const companyLeakage = [
 
 // ─── Assemble output ─────────────────────────────────────────────────
 const output = {
-  meta: {
-    sources: [
-      {
-        name: "Ofwat Water Company Performance Report 2024-25",
-        url: "https://www.ofwat.gov.uk/regulated-companies/company-obligations/outcomes/water-company-performance-report-2024-25/",
-        date: "October 2025",
-      },
-      {
-        name: "Environment Agency — Water company pollution incidents 2016-2024",
-        url: "https://www.gov.uk/government/publications/water-and-sewerage-companies-in-england-pollution-incident-report-for-2016-to-2024",
-        date: "2025",
-      },
-      {
-        name: "Environment Agency — Storm overflow EDM annual returns",
-        url: "https://www.gov.uk/government/news/environment-agency-storm-overflow-spill-data-for-2024",
-        date: "March 2025",
-      },
-    ],
-    fetched: new Date().toISOString().slice(0, 10),
+  $schema: "sob-dataset-v1",
+  id: "water",
+  pillar: "foundations",
+  topic: "water",
+  generated: new Date().toISOString().slice(0, 10),
+  sources: [
+    {
+      id: SRC_OFWAT,
+      name: "Ofwat Water Company Performance Report 2024-25",
+      url: "https://www.ofwat.gov.uk/regulated-companies/company-obligations/outcomes/water-company-performance-report-2024-25/",
+    },
+    {
+      id: SRC_EA_POLLUTION,
+      name: "Environment Agency — Water company pollution incidents 2016-2024",
+      url: "https://www.gov.uk/government/publications/water-and-sewerage-companies-in-england-pollution-incident-report-for-2016-to-2024",
+    },
+    {
+      id: SRC_EA_EDM,
+      name: "Environment Agency — Storm overflow EDM annual returns",
+      url: "https://www.gov.uk/government/news/environment-agency-storm-overflow-spill-data-for-2024",
+    },
+    {
+      id: SRC_EA_WATER_RESOURCES,
+      name: "Environment Agency — Water resources 2024 to 2025",
+      url: "https://www.gov.uk/government/publications/water-resources-2024-2025-analysis-of-the-water-industrys-annual-water-resources-performance/water-resources-2024-to-2025-analysis-of-the-water-industrys-annual-water-resources-performance",
+      publisher: "Environment Agency",
+      note: "England only. Distribution input from 2019-20 and DI per person are exact figures from Table 1; earlier distribution input and per capita consumption before 2023-24 are digitised from Figures 5 and 12 of the report.",
+    },
+  ],
+  series: {
+    sectorPerformance: { sourceId: SRC_OFWAT, timeField: "year", data: sectorPerformance },
+    leakage: { sourceId: SRC_OFWAT, timeField: "year", data: leakage },
+    waterSupplied: { sourceId: SRC_EA_WATER_RESOURCES, timeField: "year", data: waterSupplied },
+    waterPerPerson: { sourceId: SRC_EA_WATER_RESOURCES, timeField: "year", data: waterPerPerson },
+    pollutionIncidents: { sourceId: SRC_OFWAT, timeField: "year", data: pollutionIncidents },
+    stormOverflows: { sourceId: SRC_OFWAT, timeField: "year", data: stormOverflows },
+    companyCategories: { sourceId: SRC_OFWAT, timeField: "year", data: companyCategories },
+    companyLeakage: { sourceId: SRC_OFWAT, timeField: "company", data: companyLeakage },
   },
-  sectorPerformance,
-  leakage,
-  pollutionIncidents,
-  stormOverflows,
-  companyCategories,
-  companyLeakage,
 };
 
 mkdirSync(OUT_DIR, { recursive: true });
@@ -154,5 +238,7 @@ const outPath = join(OUT_DIR, "water.json");
 writeFileSync(outPath, JSON.stringify(output, null, 2));
 console.log(`Wrote ${outPath}`);
 console.log(`  Leakage: ${leakage.length} data points`);
+console.log(`  Water supplied: ${waterSupplied.length} data points`);
+console.log(`  Water per person: ${waterPerPerson.length} data points`);
 console.log(`  Pollution incidents: ${pollutionIncidents.length} years`);
 console.log(`  Company leakage: ${companyLeakage.length} companies`);

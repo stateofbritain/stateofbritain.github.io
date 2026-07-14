@@ -1,6 +1,6 @@
 {
   "$schema": "sob-catalog-v1",
-  "generated": "2026-04-07",
+  "generated": "2026-07-14",
   "datasets": [
     {
       "id": "adult-social-care",
@@ -348,6 +348,73 @@
           "timeRange": {
             "start": "heathrow",
             "end": "oxford-kidlington"
+          }
+        }
+      }
+    },
+    {
+      "id": "aluminium-dependency",
+      "title": "Aluminium-dependency",
+      "pillar": "state",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/aluminium-dependency.json",
+      "series": {
+        "monthly": {
+          "title": "monthly",
+          "fields": {
+            "production": {
+              "label": "production"
+            },
+            "imports": {
+              "label": "imports"
+            },
+            "exports": {
+              "label": "exports"
+            },
+            "totalImports": {
+              "label": "totalImports"
+            },
+            "totalExports": {
+              "label": "totalExports"
+            },
+            "alignedShare": {
+              "label": "alignedShare"
+            },
+            "domesticShare": {
+              "label": "domesticShare"
+            }
+          },
+          "timeRange": {
+            "start": "2024-05",
+            "end": "2026-04"
+          }
+        },
+        "byPartner": {
+          "title": "byPartner",
+          "fields": {
+            "country": {
+              "label": "country"
+            },
+            "alignmentPct": {
+              "label": "alignmentPct"
+            },
+            "bucket": {
+              "label": "bucket"
+            },
+            "classifySource": {
+              "label": "classifySource"
+            },
+            "importTonnes": {
+              "label": "importTonnes"
+            },
+            "exportTonnes": {
+              "label": "exportTonnes"
+            }
+          },
+          "timeRange": {
+            "start": "DEU",
+            "end": "KIR"
           }
         }
       }
@@ -897,6 +964,34 @@
             "start": 2004,
             "end": 2024
           }
+        }
+      }
+    },
+    {
+      "id": "births-monthly",
+      "title": "Births-monthly",
+      "pillar": "foundations",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/births-monthly.json",
+      "series": {
+        "monthly": {
+          "title": "monthly",
+          "fields": {}
+        }
+      }
+    },
+    {
+      "id": "births-quarterly",
+      "title": "Births-quarterly",
+      "pillar": "foundations",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/births-quarterly.json",
+      "series": {
+        "quarterly": {
+          "title": "quarterly",
+          "fields": {}
         }
       }
     },
@@ -1506,57 +1601,274 @@
       }
     },
     {
-      "id": "cpih",
-      "title": "Consumer Prices (CPIH)",
-      "pillar": "state",
-      "geography": "United Kingdom",
-      "summary": "Consumer Prices Index including owner-occupier housing costs, broken down by category.",
-      "tags": [
-        "inflation",
-        "prices",
-        "CPIH",
-        "cost of living",
-        "CPI"
-      ],
-      "dataFile": "/data/cpih.json",
+      "id": "co2-intensity",
+      "title": "Co2-intensity",
+      "pillar": "foundations",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/co2-intensity.json",
       "series": {
-        "aggregates": {
-          "title": "aggregates",
+        "monthly": {
+          "title": "monthly",
           "fields": {
-            "label": {
-              "label": "label"
+            "intensity": {
+              "label": "intensity"
             }
           },
           "timeRange": {
-            "start": "CP00",
-            "end": "CP09"
+            "start": "2024-08",
+            "end": "2026-06"
           }
         },
-        "series": {
-          "title": "series",
+        "annual": {
+          "title": "annual",
           "fields": {
-            "label": {
-              "label": "label"
-            },
-            "CP09": {
-              "label": "CP09"
-            },
-            "CP01": {
-              "label": "CP01"
-            },
-            "CP04": {
-              "label": "CP04"
-            },
-            "CP07": {
-              "label": "CP07"
-            },
-            "CP00": {
-              "label": "CP00"
+            "intensity": {
+              "label": "intensity"
             }
           },
           "timeRange": {
-            "start": "2010-01",
-            "end": "2026-01"
+            "start": 2024,
+            "end": 2026
+          }
+        }
+      }
+    },
+    {
+      "id": "copper-dependency",
+      "title": "Copper-dependency",
+      "pillar": "state",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/copper-dependency.json",
+      "series": {
+        "monthly": {
+          "title": "monthly",
+          "fields": {
+            "production": {
+              "label": "production"
+            },
+            "imports": {
+              "label": "imports"
+            },
+            "exports": {
+              "label": "exports"
+            },
+            "totalImports": {
+              "label": "totalImports"
+            },
+            "totalExports": {
+              "label": "totalExports"
+            },
+            "alignedShare": {
+              "label": "alignedShare"
+            },
+            "domesticShare": {
+              "label": "domesticShare"
+            }
+          },
+          "timeRange": {
+            "start": "2024-05",
+            "end": "2026-04"
+          }
+        },
+        "byPartner": {
+          "title": "byPartner",
+          "fields": {
+            "country": {
+              "label": "country"
+            },
+            "alignmentPct": {
+              "label": "alignmentPct"
+            },
+            "bucket": {
+              "label": "bucket"
+            },
+            "classifySource": {
+              "label": "classifySource"
+            },
+            "importTonnes": {
+              "label": "importTonnes"
+            },
+            "exportTonnes": {
+              "label": "exportTonnes"
+            }
+          },
+          "timeRange": {
+            "start": "DEU",
+            "end": "XKX"
+          }
+        }
+      }
+    },
+    {
+      "id": "cpi-inflation",
+      "title": "Cpi-inflation",
+      "pillar": "spending",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/cpi-inflation.json",
+      "series": {
+        "monthly": {
+          "title": "monthly",
+          "fields": {
+            "value": {
+              "label": "value"
+            }
+          },
+          "timeRange": {
+            "start": "1989-01",
+            "end": "2026-05"
+          }
+        },
+        "annual": {
+          "title": "annual",
+          "fields": {
+            "value": {
+              "label": "value"
+            }
+          },
+          "timeRange": {
+            "start": 1989,
+            "end": 2025
+          }
+        }
+      }
+    },
+    {
+      "id": "critical-minerals-dependency",
+      "title": "Critical-minerals-dependency",
+      "pillar": "state",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/critical-minerals-dependency.json",
+      "series": {
+        "monthly": {
+          "title": "monthly",
+          "fields": {
+            "production": {
+              "label": "production"
+            },
+            "imports": {
+              "label": "imports"
+            },
+            "exports": {
+              "label": "exports"
+            },
+            "totalImports": {
+              "label": "totalImports"
+            },
+            "totalExports": {
+              "label": "totalExports"
+            },
+            "alignedShare": {
+              "label": "alignedShare"
+            },
+            "domesticShare": {
+              "label": "domesticShare"
+            }
+          },
+          "timeRange": {
+            "start": "2024-05",
+            "end": "2026-04"
+          }
+        },
+        "byPartner": {
+          "title": "byPartner",
+          "fields": {
+            "country": {
+              "label": "country"
+            },
+            "alignmentPct": {
+              "label": "alignmentPct"
+            },
+            "bucket": {
+              "label": "bucket"
+            },
+            "classifySource": {
+              "label": "classifySource"
+            },
+            "importTonnes": {
+              "label": "importTonnes"
+            },
+            "exportTonnes": {
+              "label": "exportTonnes"
+            }
+          },
+          "timeRange": {
+            "start": "IDN",
+            "end": "GAB"
+          }
+        },
+        "facets": {
+          "title": "facets",
+          "fields": {}
+        }
+      }
+    },
+    {
+      "id": "crude-oil-dependency",
+      "title": "Crude-oil-dependency",
+      "pillar": "state",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/crude-oil-dependency.json",
+      "series": {
+        "monthly": {
+          "title": "monthly",
+          "fields": {
+            "production": {
+              "label": "production"
+            },
+            "imports": {
+              "label": "imports"
+            },
+            "exports": {
+              "label": "exports"
+            },
+            "totalImports": {
+              "label": "totalImports"
+            },
+            "totalExports": {
+              "label": "totalExports"
+            },
+            "alignedShare": {
+              "label": "alignedShare"
+            },
+            "domesticShare": {
+              "label": "domesticShare"
+            }
+          },
+          "timeRange": {
+            "start": "2024-05",
+            "end": "2026-04"
+          }
+        },
+        "byPartner": {
+          "title": "byPartner",
+          "fields": {
+            "country": {
+              "label": "country"
+            },
+            "alignmentPct": {
+              "label": "alignmentPct"
+            },
+            "bucket": {
+              "label": "bucket"
+            },
+            "classifySource": {
+              "label": "classifySource"
+            },
+            "importTonnes": {
+              "label": "importTonnes"
+            },
+            "exportTonnes": {
+              "label": "exportTonnes"
+            }
+          },
+          "timeRange": {
+            "start": "NOR",
+            "end": "ISR"
           }
         }
       }
@@ -2104,6 +2416,83 @@
       }
     },
     {
+      "id": "dependency-rollup",
+      "title": "Dependency-rollup",
+      "pillar": "state",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/dependency-rollup.json",
+      "series": {
+        "monthly": {
+          "title": "monthly",
+          "fields": {
+            "production": {
+              "label": "production"
+            },
+            "imports": {
+              "label": "imports"
+            },
+            "totalImports": {
+              "label": "totalImports"
+            },
+            "totalSupply": {
+              "label": "totalSupply"
+            },
+            "lowAlignmentImports": {
+              "label": "lowAlignmentImports"
+            },
+            "nonAlignedImports": {
+              "label": "nonAlignedImports"
+            },
+            "alignedShare": {
+              "label": "alignedShare"
+            },
+            "lowShare": {
+              "label": "lowShare"
+            }
+          },
+          "timeRange": {
+            "start": "2024-05",
+            "end": "2026-04"
+          }
+        }
+      }
+    },
+    {
+      "id": "economic-inactivity",
+      "title": "Economic-inactivity",
+      "pillar": "growth",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/economic-inactivity.json",
+      "series": {
+        "monthly": {
+          "title": "monthly",
+          "fields": {
+            "value": {
+              "label": "value"
+            }
+          },
+          "timeRange": {
+            "start": "1971-02",
+            "end": "2026-02"
+          }
+        },
+        "annual": {
+          "title": "annual",
+          "fields": {
+            "value": {
+              "label": "value"
+            }
+          },
+          "timeRange": {
+            "start": 1971,
+            "end": 2025
+          }
+        }
+      }
+    },
+    {
       "id": "education",
       "title": "Education & Skills",
       "pillar": "growth",
@@ -2250,6 +2639,40 @@
       }
     },
     {
+      "id": "employment-rate",
+      "title": "Employment-rate",
+      "pillar": "growth",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/employment-rate.json",
+      "series": {
+        "monthly": {
+          "title": "monthly",
+          "fields": {
+            "value": {
+              "label": "value"
+            }
+          },
+          "timeRange": {
+            "start": "1971-02",
+            "end": "2026-02"
+          }
+        },
+        "annual": {
+          "title": "annual",
+          "fields": {
+            "value": {
+              "label": "value"
+            }
+          },
+          "timeRange": {
+            "start": 1971,
+            "end": 2025
+          }
+        }
+      }
+    },
+    {
       "id": "environment",
       "title": "Environment & Air Quality",
       "pillar": "foundations",
@@ -2345,6 +2768,20 @@
             "start": 2015,
             "end": 2024
           }
+        }
+      }
+    },
+    {
+      "id": "epc-newbuild",
+      "title": "Epc-newbuild",
+      "pillar": "foundations",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/epc-newbuild.json",
+      "series": {
+        "monthly": {
+          "title": "monthly",
+          "fields": {}
         }
       }
     },
@@ -2468,7 +2905,7 @@
           },
           "timeRange": {
             "start": "2000-01",
-            "end": "2026-02"
+            "end": "2026-03"
           }
         }
       }
@@ -2584,6 +3021,236 @@
           "timeRange": {
             "start": 1961,
             "end": 2024
+          }
+        }
+      }
+    },
+    {
+      "id": "fertilisers-dependency",
+      "title": "Fertilisers-dependency",
+      "pillar": "state",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/fertilisers-dependency.json",
+      "series": {
+        "monthly": {
+          "title": "monthly",
+          "fields": {
+            "production": {
+              "label": "production"
+            },
+            "imports": {
+              "label": "imports"
+            },
+            "exports": {
+              "label": "exports"
+            },
+            "totalImports": {
+              "label": "totalImports"
+            },
+            "totalExports": {
+              "label": "totalExports"
+            },
+            "alignedShare": {
+              "label": "alignedShare"
+            },
+            "domesticShare": {
+              "label": "domesticShare"
+            }
+          },
+          "timeRange": {
+            "start": "2024-05",
+            "end": "2026-04"
+          }
+        },
+        "byPartner": {
+          "title": "byPartner",
+          "fields": {
+            "country": {
+              "label": "country"
+            },
+            "alignmentPct": {
+              "label": "alignmentPct"
+            },
+            "bucket": {
+              "label": "bucket"
+            },
+            "classifySource": {
+              "label": "classifySource"
+            },
+            "importTonnes": {
+              "label": "importTonnes"
+            },
+            "exportTonnes": {
+              "label": "exportTonnes"
+            }
+          },
+          "timeRange": {
+            "start": "NLD",
+            "end": "URY"
+          }
+        }
+      }
+    },
+    {
+      "id": "food-dependency",
+      "title": "Food-dependency",
+      "pillar": "state",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/food-dependency.json",
+      "series": {
+        "monthly": {
+          "title": "monthly",
+          "fields": {
+            "production": {
+              "label": "production"
+            },
+            "imports": {
+              "label": "imports"
+            },
+            "exports": {
+              "label": "exports"
+            },
+            "totalImports": {
+              "label": "totalImports"
+            },
+            "totalExports": {
+              "label": "totalExports"
+            },
+            "alignedShare": {
+              "label": "alignedShare"
+            },
+            "domesticShare": {
+              "label": "domesticShare"
+            }
+          },
+          "timeRange": {
+            "start": "2024-05",
+            "end": "2026-04"
+          }
+        },
+        "byPartner": {
+          "title": "byPartner",
+          "fields": {
+            "country": {
+              "label": "country"
+            },
+            "alignmentPct": {
+              "label": "alignmentPct"
+            },
+            "bucket": {
+              "label": "bucket"
+            },
+            "classifySource": {
+              "label": "classifySource"
+            },
+            "importTonnes": {
+              "label": "importTonnes"
+            },
+            "exportTonnes": {
+              "label": "exportTonnes"
+            }
+          },
+          "timeRange": {
+            "start": "ESP",
+            "end": "COG"
+          }
+        },
+        "facets": {
+          "title": "facets",
+          "fields": {}
+        }
+      }
+    },
+    {
+      "id": "gas-dependency",
+      "title": "Gas-dependency",
+      "pillar": "state",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/gas-dependency.json",
+      "series": {
+        "monthly": {
+          "title": "monthly",
+          "fields": {
+            "production": {
+              "label": "production"
+            },
+            "imports": {
+              "label": "imports"
+            },
+            "exports": {
+              "label": "exports"
+            },
+            "totalImports": {
+              "label": "totalImports"
+            },
+            "totalExports": {
+              "label": "totalExports"
+            },
+            "alignedShare": {
+              "label": "alignedShare"
+            },
+            "domesticShare": {
+              "label": "domesticShare"
+            }
+          },
+          "timeRange": {
+            "start": "2024-05",
+            "end": "2026-04"
+          }
+        },
+        "byPartner": {
+          "title": "byPartner",
+          "fields": {
+            "country": {
+              "label": "country"
+            },
+            "alignmentPct": {
+              "label": "alignmentPct"
+            },
+            "bucket": {
+              "label": "bucket"
+            },
+            "classifySource": {
+              "label": "classifySource"
+            },
+            "importTonnes": {
+              "label": "importTonnes"
+            },
+            "exportTonnes": {
+              "label": "exportTonnes"
+            }
+          },
+          "timeRange": {
+            "start": "NOR",
+            "end": "FRA"
+          }
+        }
+      }
+    },
+    {
+      "id": "gas-imports",
+      "title": "Gas-imports",
+      "pillar": "foundations",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/gas-imports.json",
+      "series": {
+        "monthly": {
+          "title": "monthly",
+          "fields": {
+            "hhi": {
+              "label": "hhi"
+            },
+            "partners": {
+              "label": "partners"
+            }
+          },
+          "timeRange": {
+            "start": "2024-05",
+            "end": "2026-04"
           }
         }
       }
@@ -3081,6 +3748,20 @@
       }
     },
     {
+      "id": "heat-pumps-bus",
+      "title": "Heat-pumps-bus",
+      "pillar": "foundations",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/heat-pumps-bus.json",
+      "series": {
+        "monthly": {
+          "title": "monthly",
+          "fields": {}
+        }
+      }
+    },
+    {
       "id": "hospital-capacity",
       "title": "Hospital Capacity",
       "pillar": "foundations",
@@ -3536,138 +4217,6 @@
       }
     },
     {
-      "id": "immigration",
-      "title": "Immigration & Demographics",
-      "pillar": "state",
-      "geography": "United Kingdom",
-      "summary": "Net migration, visa breakdown, asylum applications, population projections, age structure, and dependency ratios.",
-      "tags": [
-        "immigration",
-        "migration",
-        "population",
-        "demographics",
-        "asylum",
-        "visas"
-      ],
-      "dataFile": "/data/immigration.json",
-      "series": {
-        "netMigration": {
-          "title": "netMigration",
-          "fields": {
-            "immigration": {
-              "label": "immigration"
-            },
-            "emigration": {
-              "label": "emigration"
-            },
-            "net": {
-              "label": "net"
-            }
-          },
-          "timeRange": {
-            "start": 1991,
-            "end": 2024
-          }
-        },
-        "visaBreakdown": {
-          "title": "visaBreakdown",
-          "fields": {
-            "value": {
-              "label": "value"
-            }
-          },
-          "timeRange": {
-            "start": "Work",
-            "end": "Other"
-          }
-        },
-        "asylum": {
-          "title": "asylum",
-          "fields": {
-            "applications": {
-              "label": "applications"
-            },
-            "grants": {
-              "label": "grants"
-            }
-          },
-          "timeRange": {
-            "start": 2001,
-            "end": 2024
-          }
-        },
-        "populationSeries": {
-          "title": "populationSeries",
-          "fields": {
-            "population": {
-              "label": "population"
-            }
-          },
-          "timeRange": {
-            "start": 1971,
-            "end": 2024
-          }
-        },
-        "popComponents": {
-          "title": "popComponents",
-          "fields": {
-            "naturalChange": {
-              "label": "naturalChange"
-            },
-            "netMigration": {
-              "label": "netMigration"
-            }
-          },
-          "timeRange": {
-            "start": 2001,
-            "end": 2023
-          }
-        },
-        "ageStructure": {
-          "title": "ageStructure",
-          "fields": {
-            "pct": {
-              "label": "pct"
-            }
-          },
-          "timeRange": {
-            "start": "0-14",
-            "end": "75+"
-          }
-        },
-        "dependencyRatio": {
-          "title": "dependencyRatio",
-          "fields": {
-            "ratio": {
-              "label": "ratio"
-            },
-            "old": {
-              "label": "old"
-            },
-            "young": {
-              "label": "young"
-            }
-          },
-          "timeRange": {
-            "start": 1981,
-            "end": 2024
-          }
-        },
-        "foreignBorn": {
-          "title": "foreignBorn",
-          "fields": {
-            "pct": {
-              "label": "pct"
-            }
-          },
-          "timeRange": {
-            "start": 2004,
-            "end": 2024
-          }
-        }
-      }
-    },
-    {
       "id": "industrial",
       "title": "Industrial Strategy",
       "pillar": "growth",
@@ -3997,6 +4546,142 @@
       }
     },
     {
+      "id": "iop-cement",
+      "title": "Iop-cement",
+      "pillar": "foundations",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/iop-cement.json",
+      "series": {
+        "monthly": {
+          "title": "monthly",
+          "fields": {
+            "value": {
+              "label": "value"
+            }
+          },
+          "timeRange": {
+            "start": "1990-01",
+            "end": "2026-04"
+          }
+        },
+        "annual": {
+          "title": "annual",
+          "fields": {
+            "value": {
+              "label": "value"
+            }
+          },
+          "timeRange": {
+            "start": 1990,
+            "end": 2025
+          }
+        }
+      }
+    },
+    {
+      "id": "iop-chemicals",
+      "title": "Iop-chemicals",
+      "pillar": "growth",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/iop-chemicals.json",
+      "series": {
+        "monthly": {
+          "title": "monthly",
+          "fields": {
+            "value": {
+              "label": "value"
+            }
+          },
+          "timeRange": {
+            "start": "1990-01",
+            "end": "2026-04"
+          }
+        },
+        "annual": {
+          "title": "annual",
+          "fields": {
+            "value": {
+              "label": "value"
+            }
+          },
+          "timeRange": {
+            "start": 1990,
+            "end": 2025
+          }
+        }
+      }
+    },
+    {
+      "id": "iop-pharma",
+      "title": "Iop-pharma",
+      "pillar": "growth",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/iop-pharma.json",
+      "series": {
+        "monthly": {
+          "title": "monthly",
+          "fields": {
+            "value": {
+              "label": "value"
+            }
+          },
+          "timeRange": {
+            "start": "1990-01",
+            "end": "2026-04"
+          }
+        },
+        "annual": {
+          "title": "annual",
+          "fields": {
+            "value": {
+              "label": "value"
+            }
+          },
+          "timeRange": {
+            "start": 1990,
+            "end": 2025
+          }
+        }
+      }
+    },
+    {
+      "id": "iop-steel",
+      "title": "Iop-steel",
+      "pillar": "foundations",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/iop-steel.json",
+      "series": {
+        "monthly": {
+          "title": "monthly",
+          "fields": {
+            "value": {
+              "label": "value"
+            }
+          },
+          "timeRange": {
+            "start": "1990-01",
+            "end": "2026-04"
+          }
+        },
+        "annual": {
+          "title": "annual",
+          "fields": {
+            "value": {
+              "label": "value"
+            }
+          },
+          "timeRange": {
+            "start": 1990,
+            "end": 2025
+          }
+        }
+      }
+    },
+    {
       "id": "jobs",
       "title": "Jobs",
       "pillar": "growth",
@@ -4025,6 +4710,9 @@
         "bySector": {
           "title": "bySector",
           "fields": {
+            "sic": {
+              "label": "sic"
+            },
             "label": {
               "label": "label"
             },
@@ -4034,10 +4722,6 @@
             "pctTotal": {
               "label": "pctTotal"
             }
-          },
-          "timeRange": {
-            "start": "G",
-            "end": "B"
           }
         },
         "sectorTrend": {
@@ -4076,6 +4760,9 @@
         "byOccupation": {
           "title": "byOccupation",
           "fields": {
+            "soc": {
+              "label": "soc"
+            },
             "label": {
               "label": "label"
             },
@@ -4085,15 +4772,14 @@
             "pctTotal": {
               "label": "pctTotal"
             }
-          },
-          "timeRange": {
-            "start": 1,
-            "end": 9
           }
         },
         "earningsByOccupation": {
           "title": "earningsByOccupation",
           "fields": {
+            "soc": {
+              "label": "soc"
+            },
             "label": {
               "label": "label"
             },
@@ -4112,25 +4798,20 @@
             "p90": {
               "label": "p90"
             }
-          },
-          "timeRange": {
-            "start": 1,
-            "end": 9
           }
         },
         "earningsBySector": {
           "title": "earningsBySector",
           "fields": {
+            "sic": {
+              "label": "sic"
+            },
             "label": {
               "label": "label"
             },
             "medianAnnual": {
               "label": "medianAnnual"
             }
-          },
-          "timeRange": {
-            "start": "B",
-            "end": "I"
           }
         },
         "earningsTrend": {
@@ -4179,252 +4860,6 @@
           "timeRange": {
             "start": 2000,
             "end": 2025
-          }
-        },
-        "inactivityReasons": {
-          "title": "inactivityReasons",
-          "fields": {
-            "longTermSick": {
-              "label": "longTermSick"
-            },
-            "student": {
-              "label": "student"
-            },
-            "lookingAfterFamily": {
-              "label": "lookingAfterFamily"
-            },
-            "retired": {
-              "label": "retired"
-            },
-            "other": {
-              "label": "other"
-            }
-          },
-          "timeRange": {
-            "start": 2004,
-            "end": 2025
-          }
-        },
-        "vacancyTrend": {
-          "title": "vacancyTrend",
-          "fields": {
-            "vacanciesK": {
-              "label": "vacanciesK"
-            }
-          },
-          "timeRange": {
-            "start": 2001,
-            "end": 2025
-          }
-        },
-        "occupationalChange": {
-          "title": "occupationalChange",
-          "fields": {
-            "profManagerialK": {
-              "label": "profManagerialK"
-            },
-            "adminTradesK": {
-              "label": "adminTradesK"
-            },
-            "serviceManualK": {
-              "label": "serviceManualK"
-            }
-          },
-          "timeRange": {
-            "start": 2001,
-            "end": 2024
-          }
-        },
-        "occupationGrowth": {
-          "title": "occupationGrowth",
-          "fields": {
-            "changeK": {
-              "label": "changeK"
-            },
-            "employees2024K": {
-              "label": "employees2024K"
-            }
-          },
-          "timeRange": {
-            "start": "Caring personal services",
-            "end": "Secretarial & related occupations"
-          }
-        },
-        "selfEmploymentDetail": {
-          "title": "selfEmploymentDetail",
-          "fields": {
-            "withEmployeesK": {
-              "label": "withEmployeesK"
-            },
-            "soloK": {
-              "label": "soloK"
-            }
-          },
-          "timeRange": {
-            "start": 2000,
-            "end": 2025
-          }
-        },
-        "hoursWorkedTrend": {
-          "title": "hoursWorkedTrend",
-          "fields": {
-            "allHours": {
-              "label": "allHours"
-            },
-            "ftHours": {
-              "label": "ftHours"
-            },
-            "ptHours": {
-              "label": "ptHours"
-            }
-          },
-          "timeRange": {
-            "start": 1992,
-            "end": 2025
-          }
-        },
-        "ftPtTrend": {
-          "title": "ftPtTrend",
-          "fields": {
-            "fullTimeK": {
-              "label": "fullTimeK"
-            },
-            "partTimeK": {
-              "label": "partTimeK"
-            }
-          },
-          "timeRange": {
-            "start": 1992,
-            "end": 2025
-          }
-        },
-        "zeroHoursTrend": {
-          "title": "zeroHoursTrend",
-          "fields": {
-            "zeroHoursK": {
-              "label": "zeroHoursK"
-            }
-          },
-          "timeRange": {
-            "start": 2000,
-            "end": 2025
-          }
-        },
-        "apprenticeshipStarts": {
-          "title": "apprenticeshipStarts",
-          "fields": {
-            "startsK": {
-              "label": "startsK"
-            },
-            "completionsK": {
-              "label": "completionsK"
-            }
-          },
-          "timeRange": {
-            "start": 2010,
-            "end": 2024
-          }
-        },
-        "apprenticeshipsByLevel": {
-          "title": "apprenticeshipsByLevel",
-          "fields": {
-            "intermediateK": {
-              "label": "intermediateK"
-            },
-            "advancedK": {
-              "label": "advancedK"
-            },
-            "higherK": {
-              "label": "higherK"
-            }
-          },
-          "timeRange": {
-            "start": 2014,
-            "end": 2024
-          }
-        },
-        "employerTraining": {
-          "title": "employerTraining",
-          "fields": {
-            "spendPerEmployee": {
-              "label": "spendPerEmployee"
-            },
-            "pctTrained": {
-              "label": "pctTrained"
-            }
-          },
-          "timeRange": {
-            "start": 2005,
-            "end": 2022
-          }
-        },
-        "workforceQualifications": {
-          "title": "workforceQualifications",
-          "fields": {
-            "degreeK": {
-              "label": "degreeK"
-            },
-            "aLevelK": {
-              "label": "aLevelK"
-            },
-            "gcseK": {
-              "label": "gcseK"
-            },
-            "otherK": {
-              "label": "otherK"
-            },
-            "noneK": {
-              "label": "noneK"
-            }
-          },
-          "timeRange": {
-            "start": 2004,
-            "end": 2024
-          }
-        },
-        "empRateByQualification": {
-          "title": "empRateByQualification",
-          "fields": {
-            "empRate": {
-              "label": "empRate"
-            }
-          },
-          "timeRange": {
-            "start": "Degree or equivalent",
-            "end": "No qualifications"
-          }
-        },
-        "realEarningsTrend": {
-          "title": "realEarningsTrend",
-          "fields": {
-            "realMedian": {
-              "label": "realMedian"
-            },
-            "realMale": {
-              "label": "realMale"
-            },
-            "realFemale": {
-              "label": "realFemale"
-            }
-          },
-          "timeRange": {
-            "start": 1997,
-            "end": 2025
-          }
-        },
-        "productivityPayGap": {
-          "title": "productivityPayGap",
-          "fields": {
-            "productivityIndex": {
-              "label": "productivityIndex"
-            },
-            "realPayIndex": {
-              "label": "realPayIndex"
-            }
-          },
-          "timeRange": {
-            "start": 2000,
-            "end": 2024
           }
         }
       }
@@ -4946,6 +5381,40 @@
       }
     },
     {
+      "id": "mfg-output",
+      "title": "Mfg-output",
+      "pillar": "growth",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/mfg-output.json",
+      "series": {
+        "monthly": {
+          "title": "monthly",
+          "fields": {
+            "value": {
+              "label": "value"
+            }
+          },
+          "timeRange": {
+            "start": "1948-01",
+            "end": "2026-04"
+          }
+        },
+        "annual": {
+          "title": "annual",
+          "fields": {
+            "value": {
+              "label": "value"
+            }
+          },
+          "timeRange": {
+            "start": 1948,
+            "end": 2025
+          }
+        }
+      }
+    },
+    {
       "id": "money-supply",
       "title": "Money Supply & Inflation",
       "pillar": "state",
@@ -5121,76 +5590,6 @@
             "start": 2007,
             "end": 2025
           }
-        },
-        "mortgageApprovals": {
-          "title": "Mortgage Approvals for House Purchase",
-          "summary": "Monthly mortgage approvals (SA). Peaked at ~133k/month (2003), crashed to ~26k during GFC, ~9k during COVID, currently ~62k. A leading indicator of housing market activity.",
-          "unit": "approvals per month",
-          "fields": {
-            "approvals": {
-              "label": "approvals"
-            }
-          },
-          "timeRange": {
-            "start": "2000-01",
-            "end": "2026-02"
-          }
-        },
-        "cashIsaDeposits": {
-          "title": "Cash ISA Deposits Outstanding",
-          "summary": "Household cash ISA balances rose from £9.5bn (2000) to £458bn (Feb 2026). Accelerated from 2022 as interest rates rose.",
-          "unit": "£m",
-          "fields": {
-            "balance": {
-              "label": "balance"
-            }
-          },
-          "timeRange": {
-            "start": "2000-01",
-            "end": "2026-02"
-          }
-        },
-        "consumerCredit": {
-          "title": "Consumer Credit Outstanding",
-          "summary": "Total unsecured lending to individuals (credit cards, personal loans, car finance, overdrafts). Rose from £84bn (2000) to £137bn (Feb 2026).",
-          "unit": "£m",
-          "fields": {
-            "outstanding": {
-              "label": "outstanding"
-            }
-          },
-          "timeRange": {
-            "start": "2000-01",
-            "end": "2026-02"
-          }
-        },
-        "creditCardLending": {
-          "title": "Credit Card Lending Outstanding",
-          "summary": "Outstanding credit card debt held by UK individuals. Grew from £32bn (2000) to £80bn (Feb 2026).",
-          "unit": "£m",
-          "fields": {
-            "outstanding": {
-              "label": "outstanding"
-            }
-          },
-          "timeRange": {
-            "start": "2000-01",
-            "end": "2026-02"
-          }
-        },
-        "mortgageRate": {
-          "title": "Effective Interest Rate on New Mortgage Lending",
-          "summary": "Average rate paid by new mortgage borrowers, weighted by loan value. Fell from 7% (2000) to below 2% (2021), rose to 5% (2023), now around 4%.",
-          "unit": "%",
-          "fields": {
-            "rate": {
-              "label": "rate"
-            }
-          },
-          "timeRange": {
-            "start": "2000-01",
-            "end": "2026-02"
-          }
         }
       }
     },
@@ -5341,113 +5740,6 @@
       }
     },
     {
-      "id": "nhs-waiting",
-      "title": "NHS Waiting Lists",
-      "pillar": "foundations",
-      "geography": "England",
-      "summary": "NHS referral-to-treatment waiting times, A&E performance, waiting lists by specialty and procedure.",
-      "tags": [
-        "NHS",
-        "healthcare",
-        "waiting times",
-        "hospitals",
-        "A&E"
-      ],
-      "dataFile": "/data/nhs-waiting.json",
-      "series": {
-        "rtt": {
-          "title": "rtt",
-          "fields": {
-            "medianWait": {
-              "label": "medianWait"
-            },
-            "pctWithin18": {
-              "label": "pctWithin18"
-            },
-            "over52weeks": {
-              "label": "over52weeks"
-            },
-            "totalWaiting": {
-              "label": "totalWaiting"
-            }
-          },
-          "timeRange": {
-            "start": "2012-01",
-            "end": "2025-12"
-          }
-        },
-        "ae": {
-          "title": "ae",
-          "fields": {
-            "totalAttendances": {
-              "label": "totalAttendances"
-            },
-            "within4Hours": {
-              "label": "within4Hours"
-            },
-            "over4Hours": {
-              "label": "over4Hours"
-            },
-            "pctWithin4Hours": {
-              "label": "pctWithin4Hours"
-            },
-            "pctWithin4HoursType1": {
-              "label": "pctWithin4HoursType1"
-            },
-            "emergencyAdmissions": {
-              "label": "emergencyAdmissions"
-            }
-          },
-          "timeRange": {
-            "start": "2025-04",
-            "end": "2026-01"
-          }
-        },
-        "bySpecialty": {
-          "title": "bySpecialty",
-          "fields": {}
-        },
-        "byProcedure": {
-          "title": "byProcedure",
-          "fields": {}
-        },
-        "summary": {
-          "title": "summary",
-          "fields": {}
-        },
-        "diagnostics": {
-          "title": "diagnostics",
-          "fields": {
-            "totalWaiting": {
-              "label": "totalWaiting"
-            },
-            "pctOver6Weeks": {
-              "label": "pctOver6Weeks"
-            }
-          },
-          "timeRange": {
-            "start": "2012-01",
-            "end": "2025-12"
-          }
-        },
-        "cancerWaits": {
-          "title": "cancerWaits",
-          "fields": {
-            "pctWithin62Days": {
-              "label": "pctWithin62Days"
-            },
-            "pctWithin31Days": {
-              "label": "pctWithin31Days"
-            }
-          },
-          "timeRange": {
-            "start": "2013 Q1",
-            "end": "2025 Q4"
-          }
-        }
-      }
-    },
-    {
       "id": "nhs-workforce",
       "title": "NHS Workforce",
       "pillar": "foundations",
@@ -5543,6 +5835,385 @@
           "timeRange": {
             "start": 2010,
             "end": 2025
+          }
+        }
+      }
+    },
+    {
+      "id": "nsip-costs",
+      "title": "Nsip-costs",
+      "pillar": "state",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/nsip-costs.json",
+      "series": {
+        "costs": {
+          "title": "costs",
+          "fields": {}
+        }
+      }
+    },
+    {
+      "id": "nsip-timelines",
+      "title": "Nsip-timelines",
+      "pillar": "state",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/nsip-timelines.json",
+      "series": {
+        "timelines": {
+          "title": "timelines",
+          "fields": {}
+        }
+      }
+    },
+    {
+      "id": "nsips",
+      "title": "Nsips",
+      "pillar": "state",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/nsips.json",
+      "series": {
+        "projects": {
+          "title": "projects",
+          "fields": {
+            "name": {
+              "label": "name"
+            },
+            "applicant": {
+              "label": "applicant"
+            },
+            "appType": {
+              "label": "appType"
+            },
+            "category": {
+              "label": "category"
+            },
+            "subtype": {
+              "label": "subtype"
+            },
+            "region": {
+              "label": "region"
+            },
+            "location": {
+              "label": "location"
+            },
+            "lat": {
+              "label": "lat"
+            },
+            "lon": {
+              "label": "lon"
+            },
+            "stage": {
+              "label": "stage"
+            },
+            "description": {
+              "label": "description"
+            },
+            "dateOfApplication": {
+              "label": "dateOfApplication"
+            },
+            "dateApplicationAccepted": {
+              "label": "dateApplicationAccepted"
+            },
+            "dateExaminationStarted": {
+              "label": "dateExaminationStarted"
+            },
+            "dateExaminationClosed": {
+              "label": "dateExaminationClosed"
+            },
+            "dateOfRecommendation": {
+              "label": "dateOfRecommendation"
+            },
+            "dateOfDecision": {
+              "label": "dateOfDecision"
+            },
+            "dateWithdrawn": {
+              "label": "dateWithdrawn"
+            },
+            "yearsInSystem": {
+              "label": "yearsInSystem"
+            },
+            "projectUrl": {
+              "label": "projectUrl"
+            }
+          },
+          "timeRange": {
+            "start": "BC0310001",
+            "end": "WW010003"
+          }
+        }
+      }
+    },
+    {
+      "id": "petroleum-dependency",
+      "title": "Petroleum-dependency",
+      "pillar": "state",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/petroleum-dependency.json",
+      "series": {
+        "monthly": {
+          "title": "monthly",
+          "fields": {
+            "production": {
+              "label": "production"
+            },
+            "imports": {
+              "label": "imports"
+            },
+            "exports": {
+              "label": "exports"
+            },
+            "totalImports": {
+              "label": "totalImports"
+            },
+            "totalExports": {
+              "label": "totalExports"
+            },
+            "alignedShare": {
+              "label": "alignedShare"
+            },
+            "domesticShare": {
+              "label": "domesticShare"
+            }
+          },
+          "timeRange": {
+            "start": "2024-05",
+            "end": "2026-04"
+          }
+        },
+        "byPartner": {
+          "title": "byPartner",
+          "fields": {
+            "country": {
+              "label": "country"
+            },
+            "alignmentPct": {
+              "label": "alignmentPct"
+            },
+            "bucket": {
+              "label": "bucket"
+            },
+            "classifySource": {
+              "label": "classifySource"
+            },
+            "importTonnes": {
+              "label": "importTonnes"
+            },
+            "exportTonnes": {
+              "label": "exportTonnes"
+            }
+          },
+          "timeRange": {
+            "start": "NLD",
+            "end": "CYP"
+          }
+        }
+      }
+    },
+    {
+      "id": "pgms-dependency",
+      "title": "Pgms-dependency",
+      "pillar": "state",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/pgms-dependency.json",
+      "series": {
+        "monthly": {
+          "title": "monthly",
+          "fields": {
+            "production": {
+              "label": "production"
+            },
+            "imports": {
+              "label": "imports"
+            },
+            "exports": {
+              "label": "exports"
+            },
+            "totalImports": {
+              "label": "totalImports"
+            },
+            "totalExports": {
+              "label": "totalExports"
+            },
+            "alignedShare": {
+              "label": "alignedShare"
+            },
+            "domesticShare": {
+              "label": "domesticShare"
+            }
+          },
+          "timeRange": {
+            "start": "2024-05",
+            "end": "2026-04"
+          }
+        },
+        "byPartner": {
+          "title": "byPartner",
+          "fields": {
+            "country": {
+              "label": "country"
+            },
+            "alignmentPct": {
+              "label": "alignmentPct"
+            },
+            "bucket": {
+              "label": "bucket"
+            },
+            "classifySource": {
+              "label": "classifySource"
+            },
+            "importTonnes": {
+              "label": "importTonnes"
+            },
+            "exportTonnes": {
+              "label": "exportTonnes"
+            }
+          },
+          "timeRange": {
+            "start": "ZAF",
+            "end": "LTU"
+          }
+        },
+        "facets": {
+          "title": "facets",
+          "fields": {}
+        }
+      }
+    },
+    {
+      "id": "pharma-dependency",
+      "title": "Pharma-dependency",
+      "pillar": "state",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/pharma-dependency.json",
+      "series": {
+        "monthly": {
+          "title": "monthly",
+          "fields": {
+            "production": {
+              "label": "production"
+            },
+            "imports": {
+              "label": "imports"
+            },
+            "exports": {
+              "label": "exports"
+            },
+            "totalImports": {
+              "label": "totalImports"
+            },
+            "totalExports": {
+              "label": "totalExports"
+            },
+            "alignedShare": {
+              "label": "alignedShare"
+            },
+            "domesticShare": {
+              "label": "domesticShare"
+            }
+          },
+          "timeRange": {
+            "start": "2024-05",
+            "end": "2026-04"
+          }
+        },
+        "byPartner": {
+          "title": "byPartner",
+          "fields": {
+            "country": {
+              "label": "country"
+            },
+            "alignmentPct": {
+              "label": "alignmentPct"
+            },
+            "bucket": {
+              "label": "bucket"
+            },
+            "classifySource": {
+              "label": "classifySource"
+            },
+            "importTonnes": {
+              "label": "importTonnes"
+            },
+            "exportTonnes": {
+              "label": "exportTonnes"
+            }
+          },
+          "timeRange": {
+            "start": "USA",
+            "end": "ZWE"
+          }
+        }
+      }
+    },
+    {
+      "id": "polymers-dependency",
+      "title": "Polymers-dependency",
+      "pillar": "state",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/polymers-dependency.json",
+      "series": {
+        "monthly": {
+          "title": "monthly",
+          "fields": {
+            "production": {
+              "label": "production"
+            },
+            "imports": {
+              "label": "imports"
+            },
+            "exports": {
+              "label": "exports"
+            },
+            "totalImports": {
+              "label": "totalImports"
+            },
+            "totalExports": {
+              "label": "totalExports"
+            },
+            "alignedShare": {
+              "label": "alignedShare"
+            },
+            "domesticShare": {
+              "label": "domesticShare"
+            }
+          },
+          "timeRange": {
+            "start": "2024-05",
+            "end": "2026-04"
+          }
+        },
+        "byPartner": {
+          "title": "byPartner",
+          "fields": {
+            "country": {
+              "label": "country"
+            },
+            "alignmentPct": {
+              "label": "alignmentPct"
+            },
+            "bucket": {
+              "label": "bucket"
+            },
+            "classifySource": {
+              "label": "classifySource"
+            },
+            "importTonnes": {
+              "label": "importTonnes"
+            },
+            "exportTonnes": {
+              "label": "exportTonnes"
+            }
+          },
+          "timeRange": {
+            "start": "CHN",
+            "end": "MDV"
           }
         }
       }
@@ -5700,6 +6371,40 @@
           "timeRange": {
             "start": 2000,
             "end": 2023
+          }
+        }
+      }
+    },
+    {
+      "id": "public-sector-debt",
+      "title": "Public-sector-debt",
+      "pillar": "spending",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/public-sector-debt.json",
+      "series": {
+        "monthly": {
+          "title": "monthly",
+          "fields": {
+            "value": {
+              "label": "value"
+            }
+          },
+          "timeRange": {
+            "start": "1993-03",
+            "end": "2026-05"
+          }
+        },
+        "annual": {
+          "title": "annual",
+          "fields": {
+            "value": {
+              "label": "value"
+            }
+          },
+          "timeRange": {
+            "start": 1993,
+            "end": 2025
           }
         }
       }
@@ -6291,6 +6996,121 @@
       }
     },
     {
+      "id": "school-absence",
+      "title": "School-absence",
+      "pillar": "foundations",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/school-absence.json",
+      "series": {
+        "weekly": {
+          "title": "weekly",
+          "fields": {}
+        }
+      }
+    },
+    {
+      "id": "semiconductor-dependency",
+      "title": "Semiconductor-dependency",
+      "pillar": "state",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/semiconductor-dependency.json",
+      "series": {
+        "monthly": {
+          "title": "monthly",
+          "fields": {
+            "production": {
+              "label": "production"
+            },
+            "imports": {
+              "label": "imports"
+            },
+            "exports": {
+              "label": "exports"
+            },
+            "totalImports": {
+              "label": "totalImports"
+            },
+            "totalExports": {
+              "label": "totalExports"
+            },
+            "alignedShare": {
+              "label": "alignedShare"
+            },
+            "domesticShare": {
+              "label": "domesticShare"
+            }
+          },
+          "timeRange": {
+            "start": "2024-05",
+            "end": "2026-04"
+          }
+        },
+        "byPartner": {
+          "title": "byPartner",
+          "fields": {
+            "country": {
+              "label": "country"
+            },
+            "alignmentPct": {
+              "label": "alignmentPct"
+            },
+            "bucket": {
+              "label": "bucket"
+            },
+            "classifySource": {
+              "label": "classifySource"
+            },
+            "importTonnes": {
+              "label": "importTonnes"
+            },
+            "exportTonnes": {
+              "label": "exportTonnes"
+            }
+          },
+          "timeRange": {
+            "start": "CHN",
+            "end": "RWA"
+          }
+        }
+      }
+    },
+    {
+      "id": "services-output",
+      "title": "Services-output",
+      "pillar": "growth",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/services-output.json",
+      "series": {
+        "monthly": {
+          "title": "monthly",
+          "fields": {
+            "value": {
+              "label": "value"
+            }
+          },
+          "timeRange": {
+            "start": "1997-01",
+            "end": "2026-04"
+          }
+        },
+        "annual": {
+          "title": "annual",
+          "fields": {
+            "value": {
+              "label": "value"
+            }
+          },
+          "timeRange": {
+            "start": 1997,
+            "end": 2025
+          }
+        }
+      }
+    },
+    {
       "id": "spending",
       "title": "Government Spending",
       "pillar": "state",
@@ -6485,6 +7305,150 @@
           "timeRange": {
             "start": 2015,
             "end": 2024
+          }
+        }
+      }
+    },
+    {
+      "id": "steel-consumption",
+      "title": "Steel-consumption",
+      "pillar": "foundations",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/steel-consumption.json",
+      "series": {
+        "monthly": {
+          "title": "monthly",
+          "fields": {
+            "productionTonnes": {
+              "label": "productionTonnes"
+            },
+            "productionIndex": {
+              "label": "productionIndex"
+            },
+            "finishedImports": {
+              "label": "finishedImports"
+            },
+            "finishedExports": {
+              "label": "finishedExports"
+            },
+            "apparentConsumption": {
+              "label": "apparentConsumption"
+            }
+          },
+          "timeRange": {
+            "start": "2023-05",
+            "end": "2026-04"
+          }
+        }
+      }
+    },
+    {
+      "id": "steel-dependency",
+      "title": "Steel-dependency",
+      "pillar": "state",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/steel-dependency.json",
+      "series": {
+        "monthly": {
+          "title": "monthly",
+          "fields": {
+            "production": {
+              "label": "production"
+            },
+            "imports": {
+              "label": "imports"
+            },
+            "exports": {
+              "label": "exports"
+            },
+            "totalImports": {
+              "label": "totalImports"
+            },
+            "totalExports": {
+              "label": "totalExports"
+            },
+            "alignedShare": {
+              "label": "alignedShare"
+            },
+            "domesticShare": {
+              "label": "domesticShare"
+            }
+          },
+          "timeRange": {
+            "start": "2024-05",
+            "end": "2026-04"
+          }
+        },
+        "byPartner": {
+          "title": "byPartner",
+          "fields": {
+            "country": {
+              "label": "country"
+            },
+            "alignmentPct": {
+              "label": "alignmentPct"
+            },
+            "bucket": {
+              "label": "bucket"
+            },
+            "classifySource": {
+              "label": "classifySource"
+            },
+            "importTonnes": {
+              "label": "importTonnes"
+            },
+            "exportTonnes": {
+              "label": "exportTonnes"
+            }
+          },
+          "timeRange": {
+            "start": "IND",
+            "end": "NZL"
+          }
+        }
+      }
+    },
+    {
+      "id": "steel-trade",
+      "title": "Steel-trade",
+      "pillar": "foundations",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/steel-trade.json",
+      "series": {
+        "monthly": {
+          "title": "monthly",
+          "fields": {
+            "imports": {
+              "label": "imports"
+            },
+            "exports": {
+              "label": "exports"
+            },
+            "netImports": {
+              "label": "netImports"
+            },
+            "finishedImports": {
+              "label": "finishedImports"
+            },
+            "finishedExports": {
+              "label": "finishedExports"
+            },
+            "finishedNetImports": {
+              "label": "finishedNetImports"
+            },
+            "importValueGbp": {
+              "label": "importValueGbp"
+            },
+            "exportValueGbp": {
+              "label": "exportValueGbp"
+            }
+          },
+          "timeRange": {
+            "start": "2023-05",
+            "end": "2026-04"
           }
         }
       }
@@ -6704,6 +7668,34 @@
       }
     },
     {
+      "id": "tech-incorporations",
+      "title": "Tech-incorporations",
+      "pillar": "growth",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/tech-incorporations.json",
+      "series": {
+        "monthly": {
+          "title": "monthly",
+          "fields": {}
+        }
+      }
+    },
+    {
+      "id": "train-ppm",
+      "title": "Train-ppm",
+      "pillar": "growth",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/train-ppm.json",
+      "series": {
+        "periodic": {
+          "title": "periodic",
+          "fields": {}
+        }
+      }
+    },
+    {
       "id": "transport-fares",
       "title": "Transport Fares",
       "pillar": "foundations",
@@ -6759,6 +7751,77 @@
             "start": "1987-01",
             "end": "2026-02"
           }
+        }
+      }
+    },
+    {
+      "id": "tropical-dependency",
+      "title": "Tropical-dependency",
+      "pillar": "state",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/tropical-dependency.json",
+      "series": {
+        "monthly": {
+          "title": "monthly",
+          "fields": {
+            "production": {
+              "label": "production"
+            },
+            "imports": {
+              "label": "imports"
+            },
+            "exports": {
+              "label": "exports"
+            },
+            "totalImports": {
+              "label": "totalImports"
+            },
+            "totalExports": {
+              "label": "totalExports"
+            },
+            "alignedShare": {
+              "label": "alignedShare"
+            },
+            "domesticShare": {
+              "label": "domesticShare"
+            }
+          },
+          "timeRange": {
+            "start": "2024-05",
+            "end": "2026-04"
+          }
+        },
+        "byPartner": {
+          "title": "byPartner",
+          "fields": {
+            "country": {
+              "label": "country"
+            },
+            "alignmentPct": {
+              "label": "alignmentPct"
+            },
+            "bucket": {
+              "label": "bucket"
+            },
+            "classifySource": {
+              "label": "classifySource"
+            },
+            "importTonnes": {
+              "label": "importTonnes"
+            },
+            "exportTonnes": {
+              "label": "exportTonnes"
+            }
+          },
+          "timeRange": {
+            "start": "DEU",
+            "end": "CAF"
+          }
+        },
+        "facets": {
+          "title": "facets",
+          "fields": {}
         }
       }
     },
@@ -6841,17 +7904,99 @@
       }
     },
     {
+      "id": "unemployment-rate",
+      "title": "Unemployment-rate",
+      "pillar": "growth",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/unemployment-rate.json",
+      "series": {
+        "monthly": {
+          "title": "monthly",
+          "fields": {
+            "value": {
+              "label": "value"
+            }
+          },
+          "timeRange": {
+            "start": "1971-02",
+            "end": "2026-02"
+          }
+        },
+        "annual": {
+          "title": "annual",
+          "fields": {
+            "value": {
+              "label": "value"
+            }
+          },
+          "timeRange": {
+            "start": 1971,
+            "end": 2025
+          }
+        }
+      }
+    },
+    {
+      "id": "unga-alignment",
+      "title": "Unga-alignment",
+      "pillar": "state",
+      "summary": "",
+      "tags": [],
+      "dataFile": "/data/unga-alignment.json",
+      "series": {
+        "countries": {
+          "title": "countries",
+          "fields": {
+            "ccode": {
+              "label": "ccode"
+            },
+            "iso3": {
+              "label": "iso3"
+            },
+            "iso3num": {
+              "label": "iso3num"
+            },
+            "alignmentPct": {
+              "label": "alignmentPct"
+            },
+            "alignmentPriorPct": {
+              "label": "alignmentPriorPct"
+            },
+            "deltaPct": {
+              "label": "deltaPct"
+            },
+            "trendPctPerDecade": {
+              "label": "trendPctPerDecade"
+            },
+            "yearsObserved": {
+              "label": "yearsObserved"
+            },
+            "yearly": {
+              "label": "yearly"
+            }
+          },
+          "timeRange": {
+            "start": "France",
+            "end": "Syria"
+          }
+        }
+      }
+    },
+    {
       "id": "water",
       "title": "Water Industry",
       "pillar": "foundations",
       "geography": "England & Wales",
-      "summary": "Water company performance, leakage rates, pollution incidents, and storm overflow events.",
+      "summary": "Water company performance, water supplied (distribution input), per-person consumption, leakage rates, pollution incidents, and storm overflow events.",
       "tags": [
         "water",
         "utilities",
         "pollution",
         "sewage",
-        "leakage"
+        "leakage",
+        "water supply",
+        "consumption"
       ],
       "dataFile": "/data/water.json",
       "series": {
@@ -6860,7 +8005,9 @@
           "fields": {}
         },
         "leakage": {
-          "title": "leakage",
+          "title": "Sector Leakage",
+          "summary": "England & Wales water leakage fell from ~5,000 Ml/d (1992-93) to 2,967 Ml/d (2024-25), down 43% since privatisation.",
+          "unit": "Ml/d",
           "fields": {
             "value": {
               "label": "value"
@@ -6871,8 +8018,38 @@
             "end": "2024-25"
           }
         },
+        "waterSupplied": {
+          "title": "Water Supplied (Distribution Input)",
+          "summary": "Total water put into public supply in England, 2000-01 to 2024-25. Around 14,000 Ml/d throughout; 13,946 Ml/d in 2024-25. England only.",
+          "unit": "Ml/d",
+          "fields": {
+            "value": {
+              "label": "value"
+            }
+          },
+          "timeRange": {
+            "start": "2000-01",
+            "end": "2024-25"
+          }
+        },
+        "waterPerPerson": {
+          "title": "Water Use Per Person",
+          "summary": "England household per capita consumption fell from 151 l/person/day (2005-06) to 136.5 (2024-25), with a spike to 152 during 2020-21 COVID lockdowns. Total supplied per person (incl. leakage and non-household use) was 229.2 l/person/day in 2024-25, a 5.1% reduction from the 2019-20 baseline against a 20% by 2037-38 national demand target.",
+          "unit": "l/person/day",
+          "fields": {
+            "pcc": {
+              "label": "pcc"
+            }
+          },
+          "timeRange": {
+            "start": "2005-06",
+            "end": "2024-25"
+          }
+        },
         "pollutionIncidents": {
-          "title": "pollutionIncidents",
+          "title": "Pollution Incidents",
+          "summary": "Water company pollution incidents (categories 1-3) in England, 2016-2024. 2,801 incidents in 2024, up 29% year on year; 75 serious (category 1-2).",
+          "unit": "incidents",
           "fields": {
             "total": {
               "label": "total"
@@ -7165,25 +8342,35 @@
     "byPillar": {
       "foundations": [
         "adult-social-care",
+        "births-monthly",
+        "births-quarterly",
         "childrens-social-care",
+        "co2-intensity",
         "culture",
         "environment",
+        "epc-newbuild",
         "ethnicity",
         "family",
+        "gas-imports",
         "gp-access",
         "health-outcomes",
+        "heat-pumps-bus",
         "hospital-capacity",
         "hospital-infrastructure",
         "housing-density",
         "housing-stock",
         "housing-supply",
+        "iop-cement",
+        "iop-steel",
         "mental-health",
         "nhs-funding",
-        "nhs-waiting",
         "nhs-workforce",
         "population",
         "reservoirs",
         "safety",
+        "school-absence",
+        "steel-consumption",
+        "steel-trade",
         "transport-fares",
         "water",
         "workforce"
@@ -7191,38 +8378,66 @@
       "growth": [
         "airports",
         "buses",
+        "economic-inactivity",
         "education",
+        "employment-rate",
         "exchange-rates",
         "gdp",
         "industrial",
         "infrastructure",
         "investment",
+        "iop-chemicals",
+        "iop-pharma",
         "jobs",
+        "mfg-output",
         "productivity",
         "research",
+        "services-output",
         "startups",
+        "tech-incorporations",
+        "train-ppm",
+        "unemployment-rate",
         "unemployment",
         "youth-unemployment"
       ],
-      "challenges": [
-        "asylum-statistics"
-      ],
       "state": [
+        "aluminium-dependency",
         "borrowing",
-        "cpih",
+        "copper-dependency",
+        "critical-minerals-dependency",
+        "crude-oil-dependency",
         "defence",
+        "dependency-rollup",
+        "fertilisers-dependency",
+        "food-dependency",
+        "gas-dependency",
         "hate-crime",
-        "immigration",
         "justice",
         "local-gov-spending",
         "local-government",
         "money-supply",
+        "nsip-costs",
+        "nsip-timelines",
+        "nsips",
+        "petroleum-dependency",
+        "pgms-dependency",
+        "pharma-dependency",
+        "polymers-dependency",
+        "semiconductor-dependency",
         "spending",
+        "steel-dependency",
         "taxation",
+        "tropical-dependency",
+        "unga-alignment",
         "welfare"
       ],
+      "challenges": [
+        "asylum-statistics"
+      ],
       "spending": [
-        "mayoral-spending"
+        "cpi-inflation",
+        "mayoral-spending",
+        "public-sector-debt"
       ]
     },
     "byTag": {
@@ -7311,15 +8526,13 @@
         "airports"
       ],
       "asylum": [
-        "asylum-statistics",
-        "immigration"
+        "asylum-statistics"
       ],
       "refugees": [
         "asylum-statistics"
       ],
       "immigration": [
-        "asylum-statistics",
-        "immigration"
+        "asylum-statistics"
       ],
       "Channel crossings": [
         "asylum-statistics"
@@ -7549,24 +8762,6 @@
       "residential care": [
         "childrens-social-care"
       ],
-      "inflation": [
-        "cpih",
-        "money-supply"
-      ],
-      "prices": [
-        "cpih",
-        "housing-density"
-      ],
-      "CPIH": [
-        "cpih"
-      ],
-      "cost of living": [
-        "cpih"
-      ],
-      "CPI": [
-        "cpih",
-        "money-supply"
-      ],
       "religion": [
         "culture",
         "hate-crime"
@@ -7731,12 +8926,10 @@
       "demographics": [
         "ethnicity",
         "family",
-        "immigration",
         "population"
       ],
       "population": [
         "ethnicity",
-        "immigration",
         "population"
       ],
       "White British": [
@@ -8005,8 +9198,7 @@
         "hospital-capacity"
       ],
       "hospitals": [
-        "hospital-infrastructure",
-        "nhs-waiting"
+        "hospital-infrastructure"
       ],
       "building": [
         "hospital-infrastructure"
@@ -8076,6 +9268,9 @@
       "regional": [
         "housing-density"
       ],
+      "prices": [
+        "housing-density"
+      ],
       "cities": [
         "housing-density"
       ],
@@ -8118,12 +9313,6 @@
       ],
       "leading indicators": [
         "housing-supply"
-      ],
-      "migration": [
-        "immigration"
-      ],
-      "visas": [
-        "immigration"
       ],
       "industry": [
         "industrial"
@@ -8328,6 +9517,12 @@
       "M4": [
         "money-supply"
       ],
+      "inflation": [
+        "money-supply"
+      ],
+      "CPI": [
+        "money-supply"
+      ],
       "quantitative easing": [
         "money-supply"
       ],
@@ -8375,7 +9570,6 @@
       ],
       "NHS": [
         "nhs-funding",
-        "nhs-waiting",
         "nhs-workforce"
       ],
       "health expenditure": [
@@ -8387,15 +9581,6 @@
       "budget": [
         "nhs-funding",
         "spending"
-      ],
-      "healthcare": [
-        "nhs-waiting"
-      ],
-      "waiting times": [
-        "nhs-waiting"
-      ],
-      "A&E": [
-        "nhs-waiting"
       ],
       "doctors": [
         "nhs-workforce"
@@ -8608,6 +9793,12 @@
         "water"
       ],
       "leakage": [
+        "water"
+      ],
+      "water supply": [
+        "water"
+      ],
+      "consumption": [
         "water"
       ],
       "welfare": [

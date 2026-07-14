@@ -1,16 +1,17 @@
 import { useState, useMemo } from "react";
 import {
-  LineChart, Line, BarChart, Bar, Cell,
+  LineChart, Line, BarChart, Bar, Cell, ReferenceLine,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import P from "../../theme/palette";
 import {
   CHART_CARD, CHART_TITLE, CHART_SUBTITLE, SOURCE_TEXT,
   AXIS_TICK_MONO, yAxisLabel, withFyNum, fyTickFormatter } from "../../theme/chartStyles";
 import MetricCard from "../../components/MetricCard";
+import ChartCard from "../../components/ChartCard";
 import CustomTooltip from "../../components/CustomTooltip";
 import AnalysisBox from "../../components/AnalysisBox";
 import ShareableChart from "../../components/ShareableChart";
-import { useJsonDataset } from "../../hooks/useDataset";
+import { useJsonDataset, sourceFrom } from "../../hooks/useDataset";
 
 const VIEWS = ["leakage", "pollution", "overview"];
 const VIEW_LABELS = {
@@ -21,6 +22,7 @@ const VIEW_LABELS = {
 export default function Water() {
   const { data, loading, error, raw } = useJsonDataset("water.json");
   const [view, setView] = useState("leakage");
+  const [supplyView, setSupplyView] = useState("total");
 
   const overviewData = useMemo(() => {
     if (!data?.sectorPerformance?.metrics) return [];
@@ -49,6 +51,8 @@ export default function Water() {
 
   const latestLeakage = data.leakage[data.leakage.length - 1];
   const latestPollution = data.pollutionIncidents[data.pollutionIncidents.length - 1];
+  const latestSupplied = data.waterSupplied[data.waterSupplied.length - 1];
+  const latestPerPerson = data.waterPerPerson[data.waterPerPerson.length - 1];
   const cats = data.companyCategories;
 
   return (
@@ -56,18 +60,34 @@ export default function Water() {
       <div style={{ display: "flex", alignItems: "baseline", gap: 14, marginBottom: 8, flexWrap: "wrap" }}>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(26px, 4vw, 36px)", fontWeight: 600, color: P.text, margin: 0 }}>Water</h2>
         <span style={{ fontSize: "13px", color: P.textLight, fontStyle: "italic", fontFamily: "'Playfair Display', serif" }}>
-          Ofwat WCPR 2024-25 &middot; Environment Agency 2024
+          Ofwat WCPR 2024-25 &middot; Environment Agency 2024-25
         </span>
       </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 12, marginBottom: 28 }}>
+        <MetricCard
+          label="Water Supplied"
+          value={`${latestSupplied.value.toLocaleString()} Ml/d`}
+          change={`England, ${latestSupplied.year}`}
+          up={false}
+          color={P.navy}
+          delay={0.06}
+        />
+        <MetricCard
+          label="Household Use"
+          value={`${latestPerPerson.pcc} l/person/day`}
+          change={`England, ${latestPerPerson.year}`}
+          up={false}
+          color={P.teal}
+          delay={0.14}
+        />
         <MetricCard
           label="Leakage"
           value={`${latestLeakage.value.toLocaleString()} Ml/d`}
           change="43% reduction since privatisation"
           up={false}
           color={P.teal}
-          delay={0.1}
+          delay={0.22}
         />
         <MetricCard
           label="Pollution Incidents"
@@ -75,23 +95,7 @@ export default function Water() {
           change={`+29% vs 2023 (${latestPollution.year})`}
           up={true}
           color={P.red}
-          delay={0.18}
-        />
-        <MetricCard
-          label="Serious Incidents"
-          value={latestPollution.serious.toString()}
-          change={`cat 1-2 (${latestPollution.year})`}
-          up={true}
-          color={P.sienna}
-          delay={0.26}
-        />
-        <MetricCard
-          label="Storm Overflow Spills"
-          value={`${data.stormOverflows.avgSpillsPerOverflow2024}/overflow`}
-          change={`avg spills per year (2024)`}
-          up={true}
-          color={P.navy}
-          delay={0.34}
+          delay={0.3}
         />
       </div>
 
@@ -147,6 +151,24 @@ export default function Water() {
       </div>
       </ShareableChart>
 
+      {/* Water supplied */}
+      <ChartCard
+        title="Water Supplied"
+        subtitle={supplyView === "total"
+          ? "England, million litres per day put into public supply, 2000-01 to 2024-25"
+          : "England, household consumption, litres per person per day, 2005-06 to 2024-25"}
+        source={sourceFrom(raw, "waterSupplied")}
+        views={["total", "perPerson"]}
+        viewLabels={{ total: "Total", perPerson: "Per Person" }}
+        activeView={supplyView}
+        onViewChange={setSupplyView}
+        style={{ marginBottom: 24 }}
+      >
+        {supplyView === "total"
+          ? <WaterSuppliedChart data={data.waterSupplied} />
+          : <PerPersonChart data={data.waterPerPerson} />}
+      </ChartCard>
+
       {/* Company categorisation */}
       <ShareableChart title="Ofwat Company Categorisation 2024-25">
       <div style={{ ...CHART_CARD, marginBottom: 24, boxShadow: "0 1px 6px rgba(28,43,69,0.05)" }}>
@@ -163,7 +185,12 @@ export default function Water() {
       </ShareableChart>
 
       <AnalysisBox color={P.navy} label="Context">
-        Sector leakage: {latestLeakage.value.toLocaleString()} Ml/d (2024-25), down 43% since privatisation but
+        Water companies in England put {latestSupplied.value.toLocaleString()} million litres per day into
+        public supply in {latestSupplied.year}, around {latestPerPerson.diPerHead} litres per person per day
+        including leakage and non-household use. Average household consumption was {latestPerPerson.pcc} litres
+        per person per day. Against the national water demand target, a 20% reduction in water supplied per
+        person by 2037-38 from a 2019-20 baseline, the reduction stood at 5.1% in 2024-25.
+        {" "}Sector leakage (England and Wales): {latestLeakage.value.toLocaleString()} Ml/d (2024-25), down 43% since privatisation but
         missing the 2020-25 target of 16% reduction (achieved 9%).
         {" "}Pollution incidents: {latestPollution.total.toLocaleString()} in {latestPollution.year}, up 29% year-on-year —
         third consecutive annual increase.
@@ -187,6 +214,50 @@ function CategoryGroup({ label, color, companies }) {
         </div>
       ))}
     </div>
+  );
+}
+
+function WaterSuppliedChart({ data }) {
+  return (
+    <ResponsiveContainer width="100%" height={340}>
+      <LineChart data={withFyNum(data, "year")} margin={{ top: 5, right: 10, left: 10, bottom: 0 }}>
+        <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
+        <XAxis dataKey="fyNum" type="number" domain={["dataMin", "dataMax"]} tickFormatter={fyTickFormatter} tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
+        <YAxis
+          tick={AXIS_TICK_MONO}
+          axisLine={false} tickLine={false} domain={[0, 15000]}
+          ticks={[0, 3000, 6000, 9000, 12000, 15000]}
+          label={yAxisLabel("Water supplied (Ml/d)")}
+        />
+        <Tooltip content={<CustomTooltip />} />
+        <ReferenceLine x={2020} stroke={P.grey} strokeDasharray="4 4"
+          label={{ value: "COVID-19 lockdowns", fontSize: 10, fill: P.grey,
+                   position: "insideTopRight", fontFamily: "'DM Mono', monospace" }} />
+        <Line type="monotone" dataKey="value" name="Water supplied (Ml/d)" stroke={P.navy} strokeWidth={2.5} dot={false} />
+      </LineChart>
+    </ResponsiveContainer>
+  );
+}
+
+function PerPersonChart({ data }) {
+  return (
+    <ResponsiveContainer width="100%" height={340}>
+      <LineChart data={withFyNum(data, "year")} margin={{ top: 5, right: 10, left: 10, bottom: 0 }}>
+        <CartesianGrid strokeDasharray="3 3" stroke="rgba(28,43,69,0.06)" />
+        <XAxis dataKey="fyNum" type="number" domain={["dataMin", "dataMax"]} tickFormatter={fyTickFormatter} tick={{ fontSize: 10, fill: P.textLight, fontFamily: "'DM Mono', monospace" }} axisLine={{ stroke: P.border }} tickLine={false} />
+        <YAxis
+          tick={AXIS_TICK_MONO}
+          axisLine={false} tickLine={false} domain={[0, 160]}
+          ticks={[0, 40, 80, 120, 160]}
+          label={yAxisLabel("Litres per person per day")}
+        />
+        <Tooltip content={<CustomTooltip />} />
+        <ReferenceLine x={2020} stroke={P.grey} strokeDasharray="4 4"
+          label={{ value: "COVID-19 lockdowns", fontSize: 10, fill: P.grey,
+                   position: "insideTopRight", fontFamily: "'DM Mono', monospace" }} />
+        <Line type="monotone" dataKey="pcc" name="Household consumption per person" stroke={P.teal} strokeWidth={2.5} dot={false} />
+      </LineChart>
+    </ResponsiveContainer>
   );
 }
 

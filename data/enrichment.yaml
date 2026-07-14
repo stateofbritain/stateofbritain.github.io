@@ -339,8 +339,25 @@ energy:
 water:
   title: "Water Industry"
   geography: "England & Wales"
-  summary: "Water company performance, leakage rates, pollution incidents, and storm overflow events."
-  tags: [water, utilities, pollution, sewage, leakage]
+  summary: "Water company performance, water supplied (distribution input), per-person consumption, leakage rates, pollution incidents, and storm overflow events."
+  tags: [water, utilities, pollution, sewage, leakage, water supply, consumption]
+  series:
+    waterSupplied:
+      title: "Water Supplied (Distribution Input)"
+      summary: "Total water put into public supply in England, 2000-01 to 2024-25. Around 14,000 Ml/d throughout; 13,946 Ml/d in 2024-25. England only."
+      unit: "Ml/d"
+    waterPerPerson:
+      title: "Water Use Per Person"
+      summary: "England household per capita consumption fell from 151 l/person/day (2005-06) to 136.5 (2024-25), with a spike to 152 during 2020-21 COVID lockdowns. Total supplied per person (incl. leakage and non-household use) was 229.2 l/person/day in 2024-25, a 5.1% reduction from the 2019-20 baseline against a 20% by 2037-38 national demand target."
+      unit: "l/person/day"
+    leakage:
+      title: "Sector Leakage"
+      summary: "England & Wales water leakage fell from ~5,000 Ml/d (1992-93) to 2,967 Ml/d (2024-25), down 43% since privatisation."
+      unit: "Ml/d"
+    pollutionIncidents:
+      title: "Pollution Incidents"
+      summary: "Water company pollution incidents (categories 1-3) in England, 2016-2024. 2,801 incidents in 2024, up 29% year on year; 75 serious (category 1-2)."
+      unit: "incidents"
 
 nhs-waiting:
   title: "NHS Waiting Lists"
