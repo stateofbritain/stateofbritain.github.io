@@ -3,7 +3,7 @@
   "id": "steel-consumption",
   "pillar": "foundations",
   "topic": "housing",
-  "generated": "2026-07-14",
+  "generated": "2026-07-15",
   "sources": [
     {
       "id": "hmrc-ots-72-finished",
@@ -42,14 +42,6 @@
       "unit": "tonnes / month",
       "description": "Apparent UK steel consumption: production (K23I × 2022 baseline) + finished imports - finished exports. Tracks the World Steel Association apparent-steel-use methodology at monthly cadence.",
       "data": [
-        {
-          "month": "2023-05",
-          "productionTonnes": 490033,
-          "productionIndex": 96.4,
-          "finishedImports": 358259,
-          "finishedExports": 237539,
-          "apparentConsumption": 610753
-        },
         {
           "month": "2023-06",
           "productionTonnes": 505791,
