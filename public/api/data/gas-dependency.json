@@ -3,7 +3,7 @@
   "id": "gas-dependency",
   "pillar": "state",
   "topic": "sovereignCapability",
-  "generated": "2026-06-16",
+  "generated": "2026-07-16",
   "sources": [
     {
       "id": "hmrc-ots-2711",
@@ -46,7 +46,7 @@
     "alignedShare": 55.3,
     "domesticShare": 40,
     "partnersTracked": 16,
-    "windowMonths": 24,
+    "windowMonths": 23,
     "metric": "value",
     "unit": "£ / month"
   },
@@ -57,26 +57,6 @@
       "unit": "£ / month",
       "description": "Monthly UK natural gas supply: HS 2711.11 (LNG) + HS 2711.21 (pipeline) imports by alignment bucket, plus an estimated UKCS production component derived from a 40% self-sufficiency ratio.",
       "data": [
-        {
-          "month": "2024-05",
-          "production": 451835864,
-          "imports": {
-            "aligned": 637034829,
-            "neutral": 40718967,
-            "low": 0,
-            "unknown": 0
-          },
-          "exports": {
-            "aligned": 0,
-            "neutral": 0,
-            "low": 0,
-            "unknown": 0
-          },
-          "totalImports": 677753796,
-          "totalExports": 0,
-          "alignedShare": 56.4,
-          "domesticShare": 40
-        },
         {
           "month": "2024-06",
           "production": 487541348,
@@ -551,7 +531,7 @@
           "alignmentPct": 89.1,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 21157765004,
+          "importTonnes": 20594069018,
           "exportTonnes": 0
         },
         {
@@ -560,7 +540,7 @@
           "alignmentPct": 81.5,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 6514828669,
+          "importTonnes": 6441547206,
           "exportTonnes": 0
         },
         {
@@ -569,7 +549,7 @@
           "alignmentPct": 50.8,
           "bucket": "neutral",
           "classifySource": "voeten",
-          "importTonnes": 432655662,
+          "importTonnes": 410468656,
           "exportTonnes": 0
         },
         {
@@ -587,7 +567,7 @@
           "alignmentPct": 58.5,
           "bucket": "neutral",
           "classifySource": "voeten",
-          "importTonnes": 332623872,
+          "importTonnes": 314091911,
           "exportTonnes": 0
         },
         {
@@ -632,7 +612,7 @@
           "alignmentPct": 92.2,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 97543313,
+          "importTonnes": 97509041,
           "exportTonnes": 0
         },
         {
@@ -677,7 +657,7 @@
           "alignmentPct": 92.8,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 25740,
+          "importTonnes": 2632,
           "exportTonnes": 0
         },
         {
