@@ -3,7 +3,7 @@
   "id": "dependency-rollup",
   "pillar": "state",
   "topic": "sovereignCapability",
-  "generated": "2026-06-19",
+  "generated": "2026-07-19",
   "sources": [
     {
       "id": "dependency-rollup",
@@ -15,20 +15,20 @@
   ],
   "snapshot": {
     "title": "Strategic dependency roll-up",
-    "month": "2026-04",
-    "production": 16578466451,
+    "month": "2026-05",
+    "production": 13457369411,
     "imports": {
-      "aligned": 10065955330,
-      "neutral": 2144714525,
-      "low": 580476139,
-      "unknown": 54388531
+      "aligned": 7302531196,
+      "neutral": 2009556786,
+      "low": 388295033,
+      "unknown": 37828613
     },
-    "totalImports": 12845534525,
-    "totalSupply": 29424000976,
-    "lowAlignmentImports": 580476139,
-    "nonAlignedImports": 2779579195,
-    "alignedShare": 34.2,
-    "lowShare": 2,
+    "totalImports": 9738211628,
+    "totalSupply": 23195581039,
+    "lowAlignmentImports": 388295033,
+    "nonAlignedImports": 2435680432,
+    "alignedShare": 31.5,
+    "lowShare": 1.7,
     "cardsAggregated": 13,
     "metric": "value",
     "unit": "£ / month"
@@ -40,22 +40,6 @@
       "unit": "£ / month",
       "description": "Cross-cutting monthly UK strategic-dependency imports, summed across 13 cards on the Sovereign Capability dashboard. Each row carries lowAlignmentImports (HMRC partner UNGA <50%) and nonAlignedImports (UNGA <70% + unknown).",
       "data": [
-        {
-          "month": "2024-05",
-          "production": 13789109994,
-          "imports": {
-            "aligned": 8281560986,
-            "neutral": 2315487611,
-            "low": 622144348,
-            "unknown": 57821455
-          },
-          "totalImports": 11277014400,
-          "totalSupply": 25066124394,
-          "lowAlignmentImports": 622144348,
-          "nonAlignedImports": 2995453414,
-          "alignedShare": 33,
-          "lowShare": 2.5
-        },
         {
           "month": "2024-06",
           "production": 14206859617,
@@ -346,83 +330,99 @@
         },
         {
           "month": "2025-12",
-          "production": 13981156275,
+          "production": 13981183501,
           "imports": {
             "aligned": 8288123040,
             "neutral": 2014022296,
             "low": 622732394,
-            "unknown": 60470342
+            "unknown": 60459178
           },
-          "totalImports": 10985348072,
-          "totalSupply": 24966504347,
+          "totalImports": 10985336908,
+          "totalSupply": 24966520409,
           "lowAlignmentImports": 622732394,
-          "nonAlignedImports": 2697225032,
+          "nonAlignedImports": 2697213868,
           "alignedShare": 33.2,
           "lowShare": 2.5
         },
         {
           "month": "2026-01",
-          "production": 13170870405,
+          "production": 13170805615,
           "imports": {
             "aligned": 8629647018,
             "neutral": 2148628968,
             "low": 751949042,
-            "unknown": 51174608
+            "unknown": 51051110
           },
-          "totalImports": 11581399636,
-          "totalSupply": 24752270041,
+          "totalImports": 11581276138,
+          "totalSupply": 24752081753,
           "lowAlignmentImports": 751949042,
-          "nonAlignedImports": 2951752618,
+          "nonAlignedImports": 2951629120,
           "alignedShare": 34.9,
           "lowShare": 3
         },
         {
           "month": "2026-02",
-          "production": 13120261064,
+          "production": 13120201716,
           "imports": {
             "aligned": 8769732938,
             "neutral": 2018094403,
             "low": 583023332,
-            "unknown": 51708402
+            "unknown": 51550367
           },
-          "totalImports": 11422559075,
-          "totalSupply": 24542820139,
+          "totalImports": 11422401040,
+          "totalSupply": 24542602756,
           "lowAlignmentImports": 583023332,
-          "nonAlignedImports": 2652826137,
+          "nonAlignedImports": 2652668102,
           "alignedShare": 35.7,
           "lowShare": 2.4
         },
         {
           "month": "2026-03",
-          "production": 16380019983,
+          "production": 16379514102,
           "imports": {
             "aligned": 10114915881,
             "neutral": 2855514669,
             "low": 579686009,
-            "unknown": 58939430
+            "unknown": 58647859
           },
-          "totalImports": 13609055989,
-          "totalSupply": 29989075972,
+          "totalImports": 13608764418,
+          "totalSupply": 29988278520,
           "lowAlignmentImports": 579686009,
-          "nonAlignedImports": 3494140108,
+          "nonAlignedImports": 3493848537,
           "alignedShare": 33.7,
           "lowShare": 1.9
         },
         {
           "month": "2026-04",
-          "production": 16578466451,
+          "production": 16577284286,
           "imports": {
             "aligned": 10065955330,
             "neutral": 2144714525,
             "low": 580476139,
-            "unknown": 54388531
+            "unknown": 52691442
           },
-          "totalImports": 12845534525,
-          "totalSupply": 29424000976,
+          "totalImports": 12843837436,
+          "totalSupply": 29421121722,
           "lowAlignmentImports": 580476139,
-          "nonAlignedImports": 2779579195,
+          "nonAlignedImports": 2777882106,
           "alignedShare": 34.2,
           "lowShare": 2
+        },
+        {
+          "month": "2026-05",
+          "production": 13457369411,
+          "imports": {
+            "aligned": 7302531196,
+            "neutral": 2009556786,
+            "low": 388295033,
+            "unknown": 37828613
+          },
+          "totalImports": 9738211628,
+          "totalSupply": 23195581039,
+          "lowAlignmentImports": 388295033,
+          "nonAlignedImports": 2435680432,
+          "alignedShare": 31.5,
+          "lowShare": 1.7
         }
       ]
     }
