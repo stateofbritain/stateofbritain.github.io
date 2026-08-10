@@ -3,7 +3,7 @@
   "id": "nsips",
   "pillar": "state",
   "topic": "construction",
-  "generated": "2026-08-03",
+  "generated": "2026-08-10",
   "sources": [
     {
       "id": "pins-register",
@@ -36,8 +36,8 @@
       "Examination": 9,
       "Post-decision": 179,
       "Withdrawn": 10,
-      "Decision": 9,
-      "Recommendation": 3,
+      "Decision": 10,
+      "Recommendation": 2,
       "Pre-examination": 5
     },
     "byDeliveryStatus": {
@@ -2954,7 +2954,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 0.8,
+          "yearsInSystem": 0.9,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010141",
           "delivery": {
             "status": "Planning Application Submitted",
@@ -3129,7 +3129,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": "2025-08-15",
-          "yearsInSystem": 0.9,
+          "yearsInSystem": 1,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010148",
           "delivery": {
             "status": "Planning Application Submitted",
@@ -3342,7 +3342,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 1,
+          "yearsInSystem": 1.1,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010154",
           "delivery": {
             "status": "Planning Application Submitted",
@@ -3821,13 +3821,13 @@
           "location": "Land at and within the vicinity of Keadby Power Station Site, Trentside, Keadby, Scunthorpe, Lincolnshire,",
           "lat": 53.594688758715996,
           "lon": -0.762553026191652,
-          "stage": "Recommendation",
+          "stage": "Decision",
           "description": "A combined cycle gas turbine electricity generating station designed to run on 100% hydrogen (the ambition is that this would be the fuel used from inception) and able to run on 100% natural gas of up to 910 megawatts net electrical output; hydrogen and natural gas supply infrastructure, water supply and electricity connections; above ground installations; utilities connections; construction laydown areas; access; and other associated and ancillary development.",
           "dateOfApplication": "2025-08-29",
           "dateApplicationAccepted": "2025-09-22",
           "dateExaminationStarted": "2026-01-20",
           "dateExaminationClosed": "2026-06-19",
-          "dateOfRecommendation": null,
+          "dateOfRecommendation": "2026-08-06",
           "dateOfDecision": null,
           "dateWithdrawn": null,
           "yearsInSystem": 0.9,
@@ -4220,7 +4220,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 0.1,
+          "yearsInSystem": 0.2,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110020",
           "delivery": {
             "status": "Planning Application Submitted",
@@ -5143,11 +5143,11 @@
           "category": "energy",
           "subtype": "Electric line",
           "region": "East Midlands",
-          "location": "A new circa 60 kilometre 400kV overhead electricity transmission line which connects into the Weston Marsh substation infrastructure (to be constructed under the Grimsby to Walpole Project), in the Spalding region of Lincolnshire, and runs west to a new 400kV transmission substation (WMEL-B) near Wartnaby in Leicestershire, via a new 400kV transmission substation (WMEL-A) near Corby Glen in Lincolnshire.\r\n\r\nThe Project also includes reconductoring of approximately 55 kilometres of existing transmission infrastructure from the new WMEL-B substation, running south to the existing Grendon substation, east of Northampton.",
+          "location": "A new circa 60 kilometre 400kV overhead electricity transmission line which connects into the Weston Marsh substation infrastructure (to be constructed under the Grimsby to Walpole Project), in the Spalding region of Lincolnshire, and runs west to a new 400kV transmission substation (WMEL-B) near Wartnaby in Leicestershire, via a new 400kV transmission substation (WMEL-A) near Corby Glen in Lincolnshire.\r\n\r\nThe Project also includes reconductoring of approximately 66 kilometres of existing transmission infrastructure from the new WMEL-B substation, running south to the existing Grendon substation, east of Northampton.",
           "lat": 52.79461733028638,
           "lon": -0.9560807390718401,
           "stage": "Pre-application",
-          "description": "The project consists of: A new circa 60 kilometre 400kV transmission connection between the following 400kV transmission substations, described east to west:\r\n- Connection into Weston Marsh substation infrastructure in Lincolnshire (to be constructed under the Grimsby to Walpole project);\r\n- A new 400kV transmission substation (WMEL-A) near Corby Glen in Lincolnshire;\r\n- A new 400kV transmission substation (WMEL-B) near Wartnaby in Leicestershire; and\r\n\r\nThe Project also includes reconductoring of approximately 55 kilometres of existing transmission infrastructure from WMEL-B substation to the existing Grendon substation, east of Northampton.",
+          "description": "The project consists of: A new circa 60 kilometre 400kV transmission connection between the following 400kV transmission substations, described east to west:\r\n- Connection into Weston Marsh substation infrastructure in Lincolnshire (to be constructed under the Grimsby to Walpole project);\r\n- A new 400kV transmission substation (WMEL-A) near Corby Glen in Lincolnshire;\r\n- A new 400kV transmission substation (WMEL-B) near Wartnaby in Leicestershire; and\r\n\r\nThe Project also includes reconductoring of approximately 66 kilometres of existing transmission infrastructure from WMEL-B substation to the existing Grendon substation, east of Northampton.",
           "dateOfApplication": null,
           "dateApplicationAccepted": null,
           "dateExaminationStarted": null,
@@ -5308,7 +5308,7 @@
           "lat": 53.8088370883737,
           "lon": -0.08208381099262332,
           "stage": "Pre-application",
-          "description": "Underground Gas Storage Facility - up to 9 underground caverns (cavities), gas processing plant and associated development with capacity to store up to 420 standard million cubic meters (mcm) of hydrogen, having an import and export capability of up to 12.1 mcm per day.",
+          "description": "Underground Gas Storage Facility - up to 9 underground caverns (cavities), gas processing plant and associated development with capacity to store up to 420 standard million cubic meters (mcm) of hydrogen, having an import and export capability of up to 12.1 mcm per day",
           "dateOfApplication": null,
           "dateApplicationAccepted": null,
           "dateExaminationStarted": null,
@@ -7340,7 +7340,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 0.3,
+          "yearsInSystem": 0.4,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR050008"
         },
         {
