@@ -3,7 +3,7 @@
   "id": "steel-consumption",
   "pillar": "foundations",
   "topic": "housing",
-  "generated": "2026-08-14",
+  "generated": "2026-08-15",
   "sources": [
     {
       "id": "hmrc-ots-72-finished",
@@ -28,11 +28,11 @@
     }
   ],
   "snapshot": {
-    "apparentConsumption": 745875,
-    "productionTonnes": 267383,
-    "finishedImports": 620041,
-    "finishedExports": 141549,
-    "consumptionMonth": "2026-04",
+    "apparentConsumption": 705713,
+    "productionTonnes": 262808,
+    "finishedImports": 568120,
+    "finishedExports": 125215,
+    "consumptionMonth": "2026-06",
     "consumptionUnit": "tonnes / month"
   },
   "series": {
@@ -42,14 +42,6 @@
       "unit": "tonnes / month",
       "description": "Apparent UK steel consumption: production (K23I × 2022 baseline) + finished imports - finished exports. Tracks the World Steel Association apparent-steel-use methodology at monthly cadence.",
       "data": [
-        {
-          "month": "2023-06",
-          "productionTonnes": 505791,
-          "productionIndex": 99.5,
-          "finishedImports": 490358,
-          "finishedExports": 233169,
-          "apparentConsumption": 762980
-        },
         {
           "month": "2023-07",
           "productionTonnes": 530191,
@@ -230,9 +222,9 @@
           "month": "2025-05",
           "productionTonnes": 330925,
           "productionIndex": 65.1,
-          "finishedImports": 496197,
+          "finishedImports": 496221,
           "finishedExports": 187088,
-          "apparentConsumption": 640034
+          "apparentConsumption": 640058
         },
         {
           "month": "2025-06",
@@ -246,9 +238,9 @@
           "month": "2025-07",
           "productionTonnes": 268908,
           "productionIndex": 52.9,
-          "finishedImports": 475509,
+          "finishedImports": 475510,
           "finishedExports": 172419,
-          "apparentConsumption": 571998
+          "apparentConsumption": 571999
         },
         {
           "month": "2025-08",
@@ -262,65 +254,81 @@
           "month": "2025-09",
           "productionTonnes": 296866,
           "productionIndex": 58.4,
-          "finishedImports": 427431,
+          "finishedImports": 427432,
           "finishedExports": 167317,
-          "apparentConsumption": 556980
+          "apparentConsumption": 556981
         },
         {
           "month": "2025-10",
           "productionTonnes": 293816,
           "productionIndex": 57.8,
           "finishedImports": 571751,
-          "finishedExports": 218471,
-          "apparentConsumption": 647096
+          "finishedExports": 218498,
+          "apparentConsumption": 647069
         },
         {
           "month": "2025-11",
           "productionTonnes": 308558,
           "productionIndex": 60.7,
           "finishedImports": 375311,
-          "finishedExports": 172002,
-          "apparentConsumption": 511867
+          "finishedExports": 172020,
+          "apparentConsumption": 511849
         },
         {
           "month": "2025-12",
           "productionTonnes": 266875,
           "productionIndex": 52.5,
-          "finishedImports": 411066,
+          "finishedImports": 411067,
           "finishedExports": 126265,
-          "apparentConsumption": 551676
+          "apparentConsumption": 551677
         },
         {
           "month": "2026-01",
           "productionTonnes": 283650,
           "productionIndex": 55.8,
-          "finishedImports": 466293,
-          "finishedExports": 136825,
-          "apparentConsumption": 613118
+          "finishedImports": 466312,
+          "finishedExports": 136838,
+          "apparentConsumption": 613124
         },
         {
           "month": "2026-02",
           "productionTonnes": 272466,
           "productionIndex": 53.6,
-          "finishedImports": 386908,
-          "finishedExports": 142232,
-          "apparentConsumption": 517142
+          "finishedImports": 386915,
+          "finishedExports": 142246,
+          "apparentConsumption": 517135
         },
         {
           "month": "2026-03",
           "productionTonnes": 265350,
           "productionIndex": 52.2,
-          "finishedImports": 451250,
-          "finishedExports": 188207,
-          "apparentConsumption": 528393
+          "finishedImports": 451253,
+          "finishedExports": 188264,
+          "apparentConsumption": 528339
         },
         {
           "month": "2026-04",
           "productionTonnes": 267383,
           "productionIndex": 52.6,
-          "finishedImports": 620041,
-          "finishedExports": 141549,
-          "apparentConsumption": 745875
+          "finishedImports": 620134,
+          "finishedExports": 141679,
+          "apparentConsumption": 745838
+        },
+        {
+          "month": "2026-05",
+          "productionTonnes": 265858,
+          "productionIndex": 52.3,
+          "finishedImports": 524797,
+          "finishedExports": 135858,
+          "apparentConsumption": 654797
+        },
+        {
+          "month": "2026-06",
+          "productionTonnes": 262808,
+          "productionIndex": 51.7,
+          "finishedImports": 568120,
+          "finishedExports": 125215,
+          "apparentConsumption": 705713
         }
       ]
     }
