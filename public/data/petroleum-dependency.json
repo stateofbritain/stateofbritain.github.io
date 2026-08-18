@@ -3,7 +3,7 @@
   "id": "petroleum-dependency",
   "pillar": "state",
   "topic": "sovereignCapability",
-  "generated": "2026-07-18",
+  "generated": "2026-08-18",
   "sources": [
     {
       "id": "hmrc-bulk-2710",
@@ -29,13 +29,13 @@
   ],
   "snapshot": {
     "title": "Refined petroleum",
-    "month": "2026-05",
-    "production": 5933982157,
+    "month": "2026-06",
+    "production": 4926183988,
     "imports": {
-      "aligned": 2111801630,
-      "neutral": 422398484,
-      "low": 8375506,
-      "unknown": 559590
+      "aligned": 1509584960,
+      "neutral": 586137055,
+      "low": 13176736,
+      "unknown": 2322958
     },
     "exports": {
       "aligned": 0,
@@ -43,9 +43,9 @@
       "low": 0,
       "unknown": 0
     },
-    "alignedShare": 24.9,
+    "alignedShare": 21.5,
     "domesticShare": 70,
-    "partnersTracked": 82,
+    "partnersTracked": 81,
     "windowMonths": 24,
     "metric": "value",
     "unit": "£ / month"
@@ -57,26 +57,6 @@
       "unit": "£ / month",
       "description": "Monthly UK refined petroleum supply: HS 2710.12 (gasoline) + 2710.19 (diesel/jet/heating) imports by alignment bucket, plus an estimated UK refinery production component derived from a 70% self-sufficiency ratio.",
       "data": [
-        {
-          "month": "2024-06",
-          "production": 4277599123,
-          "imports": {
-            "aligned": 1015593466,
-            "neutral": 787901823,
-            "low": 29176418,
-            "unknown": 585060
-          },
-          "exports": {
-            "aligned": 0,
-            "neutral": 0,
-            "low": 0,
-            "unknown": 0
-          },
-          "totalImports": 1833256767,
-          "totalExports": 0,
-          "alignedShare": 16.6,
-          "domesticShare": 70
-        },
         {
           "month": "2024-07",
           "production": 4159206340,
@@ -536,6 +516,26 @@
           "totalExports": 0,
           "alignedShare": 24.9,
           "domesticShare": 70
+        },
+        {
+          "month": "2026-06",
+          "production": 4926183988,
+          "imports": {
+            "aligned": 1509584960,
+            "neutral": 586137055,
+            "low": 13176736,
+            "unknown": 2322958
+          },
+          "exports": {
+            "aligned": 0,
+            "neutral": 0,
+            "low": 0,
+            "unknown": 0
+          },
+          "totalImports": 2111221709,
+          "totalExports": 0,
+          "alignedShare": 21.5,
+          "domesticShare": 70
         }
       ]
     },
@@ -551,7 +551,7 @@
           "alignmentPct": 81.5,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 7815818813,
+          "importTonnes": 8010981125,
           "exportTonnes": 0
         },
         {
@@ -560,7 +560,7 @@
           "alignmentPct": 92.2,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 7499836380,
+          "importTonnes": 7802508193,
           "exportTonnes": 0
         },
         {
@@ -569,7 +569,7 @@
           "alignmentPct": 57.4,
           "bucket": "neutral",
           "classifySource": "voeten",
-          "importTonnes": 4664136947,
+          "importTonnes": 4471117824,
           "exportTonnes": 0
         },
         {
@@ -578,7 +578,7 @@
           "alignmentPct": 91.6,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 2898722013,
+          "importTonnes": 2907167687,
           "exportTonnes": 0
         },
         {
@@ -587,16 +587,7 @@
           "alignmentPct": 56.3,
           "bucket": "neutral",
           "classifySource": "voeten",
-          "importTonnes": 2424411768,
-          "exportTonnes": 0
-        },
-        {
-          "iso3": "IND",
-          "country": "India",
-          "alignmentPct": 55.9,
-          "bucket": "neutral",
-          "classifySource": "voeten",
-          "importTonnes": 2073082757,
+          "importTonnes": 2293507939,
           "exportTonnes": 0
         },
         {
@@ -605,7 +596,16 @@
           "alignmentPct": 54,
           "bucket": "neutral",
           "classifySource": "voeten",
-          "importTonnes": 2046552701,
+          "importTonnes": 2025659372,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "IND",
+          "country": "India",
+          "alignmentPct": 55.9,
+          "bucket": "neutral",
+          "classifySource": "voeten",
+          "importTonnes": 1943388934,
           "exportTonnes": 0
         },
         {
@@ -614,16 +614,7 @@
           "alignmentPct": 90.1,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 1353099059,
-          "exportTonnes": 0
-        },
-        {
-          "iso3": "NOR",
-          "country": "Norway",
-          "alignmentPct": 89.1,
-          "bucket": "aligned",
-          "classifySource": "voeten",
-          "importTonnes": 867785869,
+          "importTonnes": 1354405444,
           "exportTonnes": 0
         },
         {
@@ -632,25 +623,16 @@
           "alignmentPct": 55.3,
           "bucket": "neutral",
           "classifySource": "voeten",
-          "importTonnes": 812125197,
+          "importTonnes": 977640948,
           "exportTonnes": 0
         },
         {
-          "iso3": "QAT",
-          "country": "Qatar",
-          "alignmentPct": 58.5,
-          "bucket": "neutral",
+          "iso3": "NOR",
+          "country": "Norway",
+          "alignmentPct": 89.1,
+          "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 585323284,
-          "exportTonnes": 0
-        },
-        {
-          "iso3": "CHN",
-          "country": "China",
-          "alignmentPct": 46.4,
-          "bucket": "low",
-          "classifySource": "voeten",
-          "importTonnes": 571110013,
+          "importTonnes": 875146424,
           "exportTonnes": 0
         },
         {
@@ -659,43 +641,25 @@
           "alignmentPct": 50.8,
           "bucket": "neutral",
           "classifySource": "voeten",
-          "importTonnes": 527955295,
+          "importTonnes": 608298317,
           "exportTonnes": 0
         },
         {
-          "iso3": "ESP",
-          "country": "Spain",
-          "alignmentPct": 91.3,
-          "bucket": "aligned",
+          "iso3": "QAT",
+          "country": "Qatar",
+          "alignmentPct": 58.5,
+          "bucket": "neutral",
           "classifySource": "voeten",
-          "importTonnes": 473124654,
+          "importTonnes": 584705816,
           "exportTonnes": 0
         },
         {
-          "iso3": "DEU",
-          "country": "Germany",
-          "alignmentPct": 92.8,
-          "bucket": "aligned",
+          "iso3": "CHN",
+          "country": "China",
+          "alignmentPct": 46.4,
+          "bucket": "low",
           "classifySource": "voeten",
-          "importTonnes": 453791182,
-          "exportTonnes": 0
-        },
-        {
-          "iso3": "FRA",
-          "country": "France",
-          "alignmentPct": 95.4,
-          "bucket": "aligned",
-          "classifySource": "voeten",
-          "importTonnes": 452665903,
-          "exportTonnes": 0
-        },
-        {
-          "iso3": "IRL",
-          "country": "Ireland",
-          "alignmentPct": 82.2,
-          "bucket": "aligned",
-          "classifySource": "voeten",
-          "importTonnes": 446609049,
+          "importTonnes": 556199738,
           "exportTonnes": 0
         },
         {
@@ -704,7 +668,43 @@
           "alignmentPct": 55.3,
           "bucket": "neutral",
           "classifySource": "voeten",
-          "importTonnes": 426018775,
+          "importTonnes": 477932113,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "FRA",
+          "country": "France",
+          "alignmentPct": 95.4,
+          "bucket": "aligned",
+          "classifySource": "voeten",
+          "importTonnes": 471102971,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "IRL",
+          "country": "Ireland",
+          "alignmentPct": 82.2,
+          "bucket": "aligned",
+          "classifySource": "voeten",
+          "importTonnes": 466824940,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "DEU",
+          "country": "Germany",
+          "alignmentPct": 92.8,
+          "bucket": "aligned",
+          "classifySource": "voeten",
+          "importTonnes": 449655157,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "ESP",
+          "country": "Spain",
+          "alignmentPct": 91.3,
+          "bucket": "aligned",
+          "classifySource": "voeten",
+          "importTonnes": 448240384,
           "exportTonnes": 0
         },
         {
@@ -713,7 +713,7 @@
           "alignmentPct": 89.8,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 401865763,
+          "importTonnes": 402639219,
           "exportTonnes": 0
         },
         {
@@ -722,7 +722,7 @@
           "alignmentPct": 90.3,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 394705289,
+          "importTonnes": 391782628,
           "exportTonnes": 0
         },
         {
@@ -731,16 +731,7 @@
           "alignmentPct": 93.2,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 337612642,
-          "exportTonnes": 0
-        },
-        {
-          "iso3": "ITA",
-          "country": "Italy",
-          "alignmentPct": 92.8,
-          "bucket": "aligned",
-          "classifySource": "voeten",
-          "importTonnes": 289491261,
+          "importTonnes": 343691374,
           "exportTonnes": 0
         },
         {
@@ -749,7 +740,16 @@
           "alignmentPct": 86.9,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 253040882,
+          "importTonnes": 268005945,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "ITA",
+          "country": "Italy",
+          "alignmentPct": 92.8,
+          "bucket": "aligned",
+          "classifySource": "voeten",
+          "importTonnes": 243483915,
           "exportTonnes": 0
         },
         {
@@ -758,7 +758,7 @@
           "alignmentPct": 56.7,
           "bucket": "neutral",
           "classifySource": "voeten",
-          "importTonnes": 163825743,
+          "importTonnes": 163898820,
           "exportTonnes": 0
         },
         {
@@ -767,7 +767,7 @@
           "alignmentPct": 90.4,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 130536180,
+          "importTonnes": 148943914,
           "exportTonnes": 0
         },
         {
@@ -776,16 +776,7 @@
           "alignmentPct": 62.9,
           "bucket": "neutral",
           "classifySource": "voeten",
-          "importTonnes": 107355745,
-          "exportTonnes": 0
-        },
-        {
-          "iso3": "GEO",
-          "country": "Georgia",
-          "alignmentPct": 87.5,
-          "bucket": "aligned",
-          "classifySource": "voeten",
-          "importTonnes": 99510048,
+          "importTonnes": 110990020,
           "exportTonnes": 0
         },
         {
@@ -794,16 +785,16 @@
           "alignmentPct": null,
           "bucket": "unknown",
           "classifySource": "unknown",
-          "importTonnes": 89744609,
+          "importTonnes": 91448535,
           "exportTonnes": 0
         },
         {
-          "iso3": "LTU",
-          "country": "Lithuania",
-          "alignmentPct": 93.9,
+          "iso3": "GEO",
+          "country": "Georgia",
+          "alignmentPct": 87.5,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 69346404,
+          "importTonnes": 75274999,
           "exportTonnes": 0
         },
         {
@@ -812,7 +803,16 @@
           "alignmentPct": 93.4,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 69214270,
+          "importTonnes": 70321844,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "LTU",
+          "country": "Lithuania",
+          "alignmentPct": 93.9,
+          "bucket": "aligned",
+          "classifySource": "voeten",
+          "importTonnes": 69350214,
           "exportTonnes": 0
         },
         {
@@ -821,7 +821,7 @@
           "alignmentPct": 48.4,
           "bucket": "low",
           "classifySource": "voeten",
-          "importTonnes": 50227950,
+          "importTonnes": 48944060,
           "exportTonnes": 0
         },
         {
@@ -830,7 +830,7 @@
           "alignmentPct": 56.9,
           "bucket": "neutral",
           "classifySource": "voeten",
-          "importTonnes": 35471249,
+          "importTonnes": 32396195,
           "exportTonnes": 0
         },
         {
@@ -839,7 +839,7 @@
           "alignmentPct": 59,
           "bucket": "neutral",
           "classifySource": "voeten",
-          "importTonnes": 31099771,
+          "importTonnes": 21092343,
           "exportTonnes": 0
         },
         {
@@ -848,7 +848,25 @@
           "alignmentPct": 91.7,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 20208566,
+          "importTonnes": 20210079,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "TUR",
+          "country": "Turkey",
+          "alignmentPct": 80.6,
+          "bucket": "aligned",
+          "classifySource": "voeten",
+          "importTonnes": 17328733,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "IDN",
+          "country": "Indonesia",
+          "alignmentPct": 53.7,
+          "bucket": "neutral",
+          "classifySource": "voeten",
+          "importTonnes": 16577051,
           "exportTonnes": 0
         },
         {
@@ -858,33 +876,6 @@
           "bucket": "neutral",
           "classifySource": "voeten",
           "importTonnes": 16525205,
-          "exportTonnes": 0
-        },
-        {
-          "iso3": "IDN",
-          "country": "Indonesia",
-          "alignmentPct": 53.7,
-          "bucket": "neutral",
-          "classifySource": "voeten",
-          "importTonnes": 16259080,
-          "exportTonnes": 0
-        },
-        {
-          "iso3": "TUR",
-          "country": "Turkey",
-          "alignmentPct": 80.6,
-          "bucket": "aligned",
-          "classifySource": "voeten",
-          "importTonnes": 16251539,
-          "exportTonnes": 0
-        },
-        {
-          "iso3": "LBY",
-          "country": "Libya",
-          "alignmentPct": 55.5,
-          "bucket": "neutral",
-          "classifySource": "voeten",
-          "importTonnes": 16136551,
           "exportTonnes": 0
         },
         {
@@ -929,7 +920,7 @@
           "alignmentPct": 91.9,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 5101776,
+          "importTonnes": 5100402,
           "exportTonnes": 0
         },
         {
@@ -938,7 +929,7 @@
           "alignmentPct": 86,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 4148268,
+          "importTonnes": 4190208,
           "exportTonnes": 0
         },
         {
@@ -947,7 +938,7 @@
           "alignmentPct": 84.3,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 4106873,
+          "importTonnes": 4035391,
           "exportTonnes": 0
         },
         {
@@ -956,7 +947,7 @@
           "alignmentPct": 93.4,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 2921135,
+          "importTonnes": 2901560,
           "exportTonnes": 0
         },
         {
@@ -974,7 +965,7 @@
           "alignmentPct": null,
           "bucket": "aligned",
           "classifySource": "override",
-          "importTonnes": 1941337,
+          "importTonnes": 1943114,
           "exportTonnes": 0
         },
         {
@@ -983,7 +974,7 @@
           "alignmentPct": 91.2,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 1640568,
+          "importTonnes": 1765440,
           "exportTonnes": 0
         },
         {
@@ -992,7 +983,7 @@
           "alignmentPct": 48.9,
           "bucket": "low",
           "classifySource": "voeten",
-          "importTonnes": 1091152,
+          "importTonnes": 1285635,
           "exportTonnes": 0
         },
         {
@@ -1019,7 +1010,7 @@
           "alignmentPct": 74.3,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 905745,
+          "importTonnes": 945269,
           "exportTonnes": 0
         },
         {
@@ -1032,12 +1023,21 @@
           "exportTonnes": 0
         },
         {
+          "iso3": "LBY",
+          "country": "Libya",
+          "alignmentPct": 55.5,
+          "bucket": "neutral",
+          "classifySource": "voeten",
+          "importTonnes": 776103,
+          "exportTonnes": 0
+        },
+        {
           "iso3": "AUT",
           "country": "Austria",
           "alignmentPct": 83.2,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 595717,
+          "importTonnes": 653643,
           "exportTonnes": 0
         },
         {
@@ -1046,7 +1046,7 @@
           "alignmentPct": 84.3,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 593882,
+          "importTonnes": 596686,
           "exportTonnes": 0
         },
         {
@@ -1055,7 +1055,7 @@
           "alignmentPct": 60.2,
           "bucket": "neutral",
           "classifySource": "voeten",
-          "importTonnes": 551197,
+          "importTonnes": 550269,
           "exportTonnes": 0
         },
         {
@@ -1064,7 +1064,7 @@
           "alignmentPct": 89.6,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 388444,
+          "importTonnes": 411777,
           "exportTonnes": 0
         },
         {
@@ -1086,6 +1086,15 @@
           "exportTonnes": 0
         },
         {
+          "iso3": "CZE",
+          "country": "Czechia",
+          "alignmentPct": 92.8,
+          "bucket": "aligned",
+          "classifySource": "voeten",
+          "importTonnes": 133476,
+          "exportTonnes": 0
+        },
+        {
           "iso3": "HRV",
           "country": "Croatia",
           "alignmentPct": 93.7,
@@ -1095,12 +1104,12 @@
           "exportTonnes": 0
         },
         {
-          "iso3": "CZE",
-          "country": "Czechia",
-          "alignmentPct": 92.8,
-          "bucket": "aligned",
+          "iso3": "CRI",
+          "country": "Costa Rica",
+          "alignmentPct": 65.2,
+          "bucket": "neutral",
           "classifySource": "voeten",
-          "importTonnes": 119898,
+          "importTonnes": 91430,
           "exportTonnes": 0
         },
         {
@@ -1109,16 +1118,7 @@
           "alignmentPct": 92.3,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 119190,
-          "exportTonnes": 0
-        },
-        {
-          "iso3": "CRI",
-          "country": "Costa Rica",
-          "alignmentPct": 65.2,
-          "bucket": "neutral",
-          "classifySource": "voeten",
-          "importTonnes": 84862,
+          "importTonnes": 68184,
           "exportTonnes": 0
         },
         {
@@ -1190,7 +1190,7 @@
           "alignmentPct": 64.3,
           "bucket": "neutral",
           "classifySource": "voeten",
-          "importTonnes": 16351,
+          "importTonnes": 19011,
           "exportTonnes": 0
         },
         {
@@ -1199,7 +1199,7 @@
           "alignmentPct": 93.4,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 14250,
+          "importTonnes": 15135,
           "exportTonnes": 0
         },
         {
@@ -1254,15 +1254,6 @@
           "bucket": "neutral",
           "classifySource": "voeten",
           "importTonnes": 1147,
-          "exportTonnes": 0
-        },
-        {
-          "iso3": "MLT",
-          "country": "Malta",
-          "alignmentPct": 83.8,
-          "bucket": "aligned",
-          "classifySource": "voeten",
-          "importTonnes": 1131,
           "exportTonnes": 0
         },
         {

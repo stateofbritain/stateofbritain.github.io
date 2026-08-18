@@ -3,7 +3,7 @@
   "id": "crude-oil-dependency",
   "pillar": "state",
   "topic": "sovereignCapability",
-  "generated": "2026-07-18",
+  "generated": "2026-08-18",
   "sources": [
     {
       "id": "hmrc-bulk-2709",
@@ -29,11 +29,11 @@
   ],
   "snapshot": {
     "title": "Crude oil",
-    "month": "2026-05",
-    "production": 1193004583,
+    "month": "2026-06",
+    "production": 1205689679,
     "imports": {
-      "aligned": 1688832489,
-      "neutral": 526747451,
+      "aligned": 1931033656,
+      "neutral": 308104320,
       "low": 0,
       "unknown": 0
     },
@@ -43,7 +43,7 @@
       "low": 0,
       "unknown": 0
     },
-    "alignedShare": 49.5,
+    "alignedShare": 56.1,
     "domesticShare": 35,
     "partnersTracked": 24,
     "windowMonths": 24,
@@ -57,26 +57,6 @@
       "unit": "£ / month",
       "description": "Monthly UK crude oil imports (HS 2709) by alignment, plus an estimated UKCS production component derived from a 35% self-sufficiency ratio.",
       "data": [
-        {
-          "month": "2024-06",
-          "production": 1133847198,
-          "imports": {
-            "aligned": 1513456292,
-            "neutral": 592259932,
-            "low": 0,
-            "unknown": 0
-          },
-          "exports": {
-            "aligned": 0,
-            "neutral": 0,
-            "low": 0,
-            "unknown": 0
-          },
-          "totalImports": 2105716224,
-          "totalExports": 0,
-          "alignedShare": 46.7,
-          "domesticShare": 35
-        },
         {
           "month": "2024-07",
           "production": 1027486298,
@@ -536,6 +516,26 @@
           "totalExports": 0,
           "alignedShare": 49.5,
           "domesticShare": 35
+        },
+        {
+          "month": "2026-06",
+          "production": 1205689679,
+          "imports": {
+            "aligned": 1931033656,
+            "neutral": 308104320,
+            "low": 0,
+            "unknown": 0
+          },
+          "exports": {
+            "aligned": 0,
+            "neutral": 0,
+            "low": 0,
+            "unknown": 0
+          },
+          "totalImports": 2239137976,
+          "totalExports": 0,
+          "alignedShare": 56.1,
+          "domesticShare": 35
         }
       ]
     },
@@ -551,7 +551,7 @@
           "alignmentPct": 89.1,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 16556472732,
+          "importTonnes": 16708438619,
           "exportTonnes": 0
         },
         {
@@ -560,7 +560,7 @@
           "alignmentPct": 81.5,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 12597515263,
+          "importTonnes": 12731716923,
           "exportTonnes": 0
         },
         {
@@ -569,7 +569,7 @@
           "alignmentPct": 55.5,
           "bucket": "neutral",
           "classifySource": "voeten",
-          "importTonnes": 3642845388,
+          "importTonnes": 3528312681,
           "exportTonnes": 0
         },
         {
@@ -578,7 +578,7 @@
           "alignmentPct": 50.8,
           "bucket": "neutral",
           "classifySource": "voeten",
-          "importTonnes": 1821262000,
+          "importTonnes": 1789612757,
           "exportTonnes": 0
         },
         {
@@ -587,7 +587,7 @@
           "alignmentPct": 55.3,
           "bucket": "neutral",
           "classifySource": "voeten",
-          "importTonnes": 1758044630,
+          "importTonnes": 1742168704,
           "exportTonnes": 0
         },
         {
@@ -596,7 +596,7 @@
           "alignmentPct": 63.8,
           "bucket": "neutral",
           "classifySource": "voeten",
-          "importTonnes": 1747993326,
+          "importTonnes": 1721240631,
           "exportTonnes": 0
         },
         {
@@ -605,7 +605,7 @@
           "alignmentPct": 86.9,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 1507658269,
+          "importTonnes": 1713401646,
           "exportTonnes": 0
         },
         {
@@ -614,7 +614,7 @@
           "alignmentPct": 56.7,
           "bucket": "neutral",
           "classifySource": "voeten",
-          "importTonnes": 929442364,
+          "importTonnes": 879386179,
           "exportTonnes": 0
         },
         {
@@ -623,7 +623,7 @@
           "alignmentPct": 80.6,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 617764394,
+          "importTonnes": 543407639,
           "exportTonnes": 0
         },
         {
@@ -681,15 +681,6 @@
           "exportTonnes": 0
         },
         {
-          "iso3": "AZE",
-          "country": "Azerbaijan",
-          "alignmentPct": 53.6,
-          "bucket": "neutral",
-          "classifySource": "voeten",
-          "importTonnes": 45292003,
-          "exportTonnes": 0
-        },
-        {
           "iso3": "MYS",
           "country": "Malaysia",
           "alignmentPct": 56.9,
@@ -740,7 +731,16 @@
           "alignmentPct": 82.2,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 137981,
+          "importTonnes": 161176,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "AZE",
+          "country": "Azerbaijan",
+          "alignmentPct": 53.6,
+          "bucket": "neutral",
+          "classifySource": "voeten",
+          "importTonnes": 3147,
           "exportTonnes": 0
         },
         {
