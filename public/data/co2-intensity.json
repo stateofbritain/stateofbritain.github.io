@@ -3,7 +3,7 @@
   "id": "co2-intensity",
   "pillar": "foundations",
   "topic": "energy",
-  "generated": "2026-09-14",
+  "generated": "2026-09-15",
   "sources": [
     {
       "id": "neso-carbon-intensity",
@@ -14,8 +14,8 @@
     }
   ],
   "snapshot": {
-    "intensity": 125,
-    "intensityPeriod": "2026-08",
+    "intensity": 64,
+    "intensityPeriod": "2026-09",
     "intensityUnit": "gCO2/kWh"
   },
   "series": {
@@ -116,6 +116,10 @@
         {
           "period": "2026-08",
           "intensity": 125
+        },
+        {
+          "period": "2026-09",
+          "intensity": 64
         }
       ]
     },
@@ -135,7 +139,7 @@
         },
         {
           "year": 2026,
-          "intensity": 118
+          "intensity": 112
         }
       ]
     }
