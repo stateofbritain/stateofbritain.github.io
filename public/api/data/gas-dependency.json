@@ -3,7 +3,7 @@
   "id": "gas-dependency",
   "pillar": "state",
   "topic": "sovereignCapability",
-  "generated": "2026-08-16",
+  "generated": "2026-09-16",
   "sources": [
     {
       "id": "hmrc-ots-2711",
@@ -29,11 +29,11 @@
   ],
   "snapshot": {
     "title": "Natural gas",
-    "month": "2026-06",
-    "production": 614036263,
+    "month": "2026-07",
+    "production": 791168606,
     "imports": {
-      "aligned": 880319836,
-      "neutral": 40734559,
+      "aligned": 1186752909,
+      "neutral": 0,
       "low": 0,
       "unknown": 0
     },
@@ -43,7 +43,7 @@
       "low": 0,
       "unknown": 0
     },
-    "alignedShare": 57.3,
+    "alignedShare": 60,
     "domesticShare": 40,
     "partnersTracked": 16,
     "windowMonths": 24,
@@ -57,26 +57,6 @@
       "unit": "£ / month",
       "description": "Monthly UK natural gas supply: HS 2711.11 (LNG) + HS 2711.21 (pipeline) imports by alignment bucket, plus an estimated UKCS production component derived from a 40% self-sufficiency ratio.",
       "data": [
-        {
-          "month": "2024-07",
-          "production": 564927680,
-          "imports": {
-            "aligned": 847391520,
-            "neutral": 0,
-            "low": 0,
-            "unknown": 0
-          },
-          "exports": {
-            "aligned": 0,
-            "neutral": 0,
-            "low": 0,
-            "unknown": 0
-          },
-          "totalImports": 847391520,
-          "totalExports": 0,
-          "alignedShare": 60,
-          "domesticShare": 40
-        },
         {
           "month": "2024-08",
           "production": 594095578,
@@ -536,6 +516,26 @@
           "totalExports": 0,
           "alignedShare": 57.3,
           "domesticShare": 40
+        },
+        {
+          "month": "2026-07",
+          "production": 791168606,
+          "imports": {
+            "aligned": 1186752909,
+            "neutral": 0,
+            "low": 0,
+            "unknown": 0
+          },
+          "exports": {
+            "aligned": 0,
+            "neutral": 0,
+            "low": 0,
+            "unknown": 0
+          },
+          "totalImports": 1186752909,
+          "totalExports": 0,
+          "alignedShare": 60,
+          "domesticShare": 40
         }
       ]
     },
@@ -551,7 +551,7 @@
           "alignmentPct": 89.1,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 21449650442,
+          "importTonnes": 21726491010,
           "exportTonnes": 0
         },
         {
@@ -560,7 +560,7 @@
           "alignmentPct": 81.5,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 6536661509,
+          "importTonnes": 6599171055,
           "exportTonnes": 0
         },
         {
@@ -632,7 +632,7 @@
           "alignmentPct": 92.2,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 97554248,
+          "importTonnes": 97565523,
           "exportTonnes": 0
         },
         {
