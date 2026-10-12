@@ -3,7 +3,7 @@
   "id": "nsips",
   "pillar": "state",
   "topic": "construction",
-  "generated": "2026-09-28",
+  "generated": "2026-10-12",
   "sources": [
     {
       "id": "pins-register",
@@ -21,24 +21,24 @@
     }
   ],
   "snapshot": {
-    "total": 285,
-    "withGps": 285,
+    "total": 286,
+    "withGps": 286,
     "withDelivery": 76,
     "byCategory": {
       "industrial": 3,
       "energy": 201,
-      "transport": 69,
+      "transport": 70,
       "water": 9,
       "waste": 3
     },
     "byStage": {
-      "Pre-application": 69,
-      "Recommendation": 6,
-      "Post-decision": 181,
+      "Pre-application": 70,
+      "Recommendation": 5,
+      "Post-decision": 183,
       "Withdrawn": 10,
-      "Decision": 9,
-      "Examination": 6,
-      "Pre-examination": 3,
+      "Decision": 8,
+      "Examination": 7,
+      "Pre-examination": 2,
       "Acceptance": 1
     },
     "byDeliveryStatus": {
@@ -61,7 +61,7 @@
       "sourceId": "pins-register",
       "timeField": "ref",
       "unit": "projects",
-      "description": "285 NSIPs (Nationally Significant Infrastructure Projects) on the PINS register, categorised by reference prefix.",
+      "description": "286 NSIPs (Nationally Significant Infrastructure Projects) on the PINS register, categorised by reference prefix.",
       "data": [
         {
           "ref": "BC0310001",
@@ -236,7 +236,7 @@
           "dateOfRecommendation": "2019-07-23",
           "dateOfDecision": null,
           "dateWithdrawn": "2021-01-27",
-          "yearsInSystem": 8.3,
+          "yearsInSystem": 8.4,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010007"
         },
         {
@@ -2974,7 +2974,7 @@
           "dateOfApplication": "2025-10-03",
           "dateApplicationAccepted": "2025-10-30",
           "dateExaminationStarted": "2026-03-17",
-          "dateExaminationClosed": null,
+          "dateExaminationClosed": "2026-09-16",
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
@@ -3211,7 +3211,7 @@
         },
         {
           "ref": "EN010150",
-          "name": "Lighthouse Green Fuels Project (DISCONTINUED)",
+          "name": "Lighthouse Green Fuels Project (WITHDRAWN)",
           "applicant": "Lighthouse Green Fuels Limited",
           "appType": "EN01 - Generating Stations",
           "category": "energy",
@@ -3328,7 +3328,7 @@
           "dateOfRecommendation": "2026-07-29",
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 1.3,
+          "yearsInSystem": 1.4,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010153",
           "delivery": {
             "status": "Planning Application Submitted",
@@ -3357,13 +3357,13 @@
           "location": "The Scheme is located in Lincolnshire CC and North Kesteven DC land approximately 9km SW of Lincoln",
           "lat": 53.15171423344374,
           "lon": -0.6480072066425869,
-          "stage": "Recommendation",
+          "stage": "Decision",
           "description": "Generating station with an anticipated capacity in excess of 50MW comprising the installation of solar photovoltaic panels, associated electrical equipment, cabling and on-site energy storage facilities together with grid connection infrastructure for the construction, operation, maintenance and decommissioning of the Fosse Green Energy scheme.",
           "dateOfApplication": "2025-07-18",
           "dateApplicationAccepted": "2025-08-15",
           "dateExaminationStarted": "2026-01-06",
           "dateExaminationClosed": "2026-07-06",
-          "dateOfRecommendation": null,
+          "dateOfRecommendation": "2026-10-06",
           "dateOfDecision": null,
           "dateWithdrawn": null,
           "yearsInSystem": 1.2,
@@ -3499,7 +3499,7 @@
           "dateOfApplication": "2025-09-26",
           "dateApplicationAccepted": "2025-10-23",
           "dateExaminationStarted": "2026-02-24",
-          "dateExaminationClosed": null,
+          "dateExaminationClosed": "2026-08-24",
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
@@ -3616,14 +3616,14 @@
           "location": "Nottinghamshire",
           "lat": 53.354085673413394,
           "lon": -0.8073790033089695,
-          "stage": "Decision",
+          "stage": "Post-decision",
           "description": "Proposed development of a Solar Farm located in Nottinghamshire comprising approximately 450MW of solar energy generation and approximately 150MW Battery Energy Storage System (BESS).",
           "dateOfApplication": "2025-05-14",
           "dateApplicationAccepted": "2025-06-11",
           "dateExaminationStarted": "2025-11-11",
           "dateExaminationClosed": "2026-04-10",
           "dateOfRecommendation": "2026-07-10",
-          "dateOfDecision": null,
+          "dateOfDecision": "2026-10-09",
           "dateWithdrawn": null,
           "yearsInSystem": 1.4,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010163",
@@ -3709,7 +3709,7 @@
           "dateOfRecommendation": "2026-09-09",
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 1.1,
+          "yearsInSystem": 1.2,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010166"
         },
         {
@@ -3732,7 +3732,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 1,
+          "yearsInSystem": 1.1,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010168",
           "delivery": {
             "status": "Planning Application Submitted",
@@ -3770,7 +3770,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 0.5,
+          "yearsInSystem": 0.6,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010169"
         },
         {
@@ -3784,14 +3784,14 @@
           "location": "Land to the south and west of Wellingborough and north of Northampton.",
           "lat": 52.24280801647628,
           "lon": -0.7283657433460661,
-          "stage": "Decision",
+          "stage": "Post-decision",
           "description": "Green Hill Solar Farm consists of an electricity generating station with a capacity of up to 500 megawatts (MW) comprising of ground mounted solar arrays and associated development including energy storage, grid connection infrastructure and other infrastructure integral to the construction, operation and maintenance of the scheme.",
           "dateOfApplication": "2025-05-23",
           "dateApplicationAccepted": "2025-06-19",
           "dateExaminationStarted": "2025-10-21",
           "dateExaminationClosed": "2026-04-10",
           "dateOfRecommendation": "2026-07-08",
-          "dateOfDecision": null,
+          "dateOfDecision": "2026-10-08",
           "dateWithdrawn": null,
           "yearsInSystem": 1.4,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010170",
@@ -4038,7 +4038,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 0.6,
+          "yearsInSystem": 0.7,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110012",
           "delivery": {
             "status": "Planning Application Submitted",
@@ -4305,7 +4305,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 0,
+          "yearsInSystem": 0.1,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110025"
         },
         {
@@ -5685,7 +5685,7 @@
           "dateOfRecommendation": "2025-05-28",
           "dateOfDecision": null,
           "dateWithdrawn": "2025-12-01",
-          "yearsInSystem": 2.5,
+          "yearsInSystem": 2.6,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN070009"
         },
         {
@@ -6977,6 +6977,29 @@
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR020003"
         },
         {
+          "ref": "TR020004",
+          "name": "Heathrow West",
+          "applicant": "Heathrow West Limited",
+          "appType": "TR02 - Airports",
+          "category": "transport",
+          "subtype": "Airport",
+          "region": "London,South East",
+          "location": "Heathrow Airport and land to the north-west and west of Heathrow Airport",
+          "lat": 51.48683768075368,
+          "lon": -0.47511320238840676,
+          "stage": "Pre-application",
+          "description": "Expansion of Heathrow Airport, including a 2,400m third runway, a new Terminal 6, associated airfield infrastructure, surface access and public transport improvements, utilities, environmental mitigation, and other works required to support the expansion of the airport",
+          "dateOfApplication": null,
+          "dateApplicationAccepted": null,
+          "dateExaminationStarted": null,
+          "dateExaminationClosed": null,
+          "dateOfRecommendation": null,
+          "dateOfDecision": null,
+          "dateWithdrawn": null,
+          "yearsInSystem": null,
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR020004"
+        },
+        {
           "ref": "TR020005",
           "name": "Gatwick Airport Northern Runway",
           "applicant": "Gatwick Airport Limited",
@@ -7424,11 +7447,11 @@
           "location": "Land west of the B430, east of Upper Heyford Former Airfield, and south of the village of Ardley",
           "lat": 51.93219949134392,
           "lon": -1.2231456603810265,
-          "stage": "Pre-examination",
+          "stage": "Examination",
           "description": "An intermodal rail terminal served via new connections to the Chiltern Main Line (part of the Strategic Rail Freight Network), including container storage; \r\nUp to 603,850 sqm (approx. 6.5 million square feet) of warehousing, including ancillary office accommodation, plus up to 201,283 sqm of additional floorspace in the form of mezzanines. Maximum building heights are proposed at 25m; \r\nImprovements to Junction 10 of the M40 involving works on the A43 east of the M40, new slip roads to and from the M40 an Ardley Bypass to the east of Ardley; \r\nImprovements to Junction 9 of the M40 involving a dedicated slip road for vehicles travelling between the A43 and M40 northbound; \r\nA Heyford Park Link Road which runs from Camp Road south-east of Heyford Park and south of the proposed development to a new junction on the B430; \r\nA Middleton Stoney Relief Road around the north-eastern side of the village connecting from a new junction on the B430 to the existing B4030 which links over the M40 to Bicester which will remove key traffic flows from the centre of the village; \r\nThe Principal Access to the Main Site will be from a new roundabout on the B430 in the north-eastern corner of the Main Site, south of the railway line. This primary access will serve all HGV and car traffic accessing the site; \r\nA Secondary Access into the Main Site will be provided from the Heyford Park Link Road for bus, pedestrian, cyclists and emergency vehicles only;\r\nRetention of the Grade II listed Threshing Barn at Ashgrove Farm as part of a Central Hub of estate management and communal facilities for the other development on the Main Site; \r\nRetained key landscape features and new landscaping and planting, including on the proposed earthwork bunds within the Main Site.",
           "dateOfApplication": "2026-03-31",
           "dateApplicationAccepted": "2026-04-28",
-          "dateExaminationStarted": null,
+          "dateExaminationStarted": "2026-09-29",
           "dateExaminationClosed": null,
           "dateOfRecommendation": null,
           "dateOfDecision": null,
@@ -7502,7 +7525,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 0.3,
+          "yearsInSystem": 0.4,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/WA010002"
         },
         {
