@@ -3,7 +3,7 @@
   "id": "steel-consumption",
   "pillar": "foundations",
   "topic": "housing",
-  "generated": "2026-10-14",
+  "generated": "2026-10-15",
   "sources": [
     {
       "id": "hmrc-ots-72-finished",
@@ -28,10 +28,10 @@
     }
   ],
   "snapshot": {
-    "apparentConsumption": 802169,
+    "apparentConsumption": 802023,
     "productionTonnes": 265350,
-    "finishedImports": 636587,
-    "finishedExports": 99768,
+    "finishedImports": 636634,
+    "finishedExports": 99961,
     "consumptionMonth": "2026-07",
     "consumptionUnit": "tonnes / month"
   },
@@ -42,14 +42,6 @@
       "unit": "tonnes / month",
       "description": "Apparent UK steel consumption: production (K23I × 2022 baseline) + finished imports - finished exports. Tracks the World Steel Association apparent-steel-use methodology at monthly cadence.",
       "data": [
-        {
-          "month": "2023-08",
-          "productionTonnes": 486475,
-          "productionIndex": 95.7,
-          "finishedImports": 311627,
-          "finishedExports": 185963,
-          "apparentConsumption": 612139
-        },
         {
           "month": "2023-09",
           "productionTonnes": 509858,
@@ -311,24 +303,24 @@
           "productionTonnes": 265858,
           "productionIndex": 52.3,
           "finishedImports": 524797,
-          "finishedExports": 135867,
-          "apparentConsumption": 654788
+          "finishedExports": 135927,
+          "apparentConsumption": 654728
         },
         {
           "month": "2026-06",
           "productionTonnes": 262808,
           "productionIndex": 51.7,
           "finishedImports": 568171,
-          "finishedExports": 125223,
-          "apparentConsumption": 705756
+          "finishedExports": 125255,
+          "apparentConsumption": 705724
         },
         {
           "month": "2026-07",
           "productionTonnes": 265350,
           "productionIndex": 52.2,
-          "finishedImports": 636587,
-          "finishedExports": 99768,
-          "apparentConsumption": 802169
+          "finishedImports": 636634,
+          "finishedExports": 99961,
+          "apparentConsumption": 802023
         }
       ]
     }
