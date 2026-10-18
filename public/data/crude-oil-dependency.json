@@ -3,7 +3,7 @@
   "id": "crude-oil-dependency",
   "pillar": "state",
   "topic": "sovereignCapability",
-  "generated": "2026-09-18",
+  "generated": "2026-10-18",
   "sources": [
     {
       "id": "hmrc-bulk-2709",
@@ -29,11 +29,11 @@
   ],
   "snapshot": {
     "title": "Crude oil",
-    "month": "2026-07",
-    "production": 1052401132,
+    "month": "2026-08",
+    "production": 867644864,
     "imports": {
-      "aligned": 1415696763,
-      "neutral": 538762482,
+      "aligned": 1159831525,
+      "neutral": 451508937,
       "low": 0,
       "unknown": 0
     },
@@ -43,9 +43,9 @@
       "low": 0,
       "unknown": 0
     },
-    "alignedShare": 47.1,
+    "alignedShare": 46.8,
     "domesticShare": 35,
-    "partnersTracked": 24,
+    "partnersTracked": 23,
     "windowMonths": 24,
     "metric": "value",
     "unit": "£ / month"
@@ -57,26 +57,6 @@
       "unit": "£ / month",
       "description": "Monthly UK crude oil imports (HS 2709) by alignment, plus an estimated UKCS production component derived from a 35% self-sufficiency ratio.",
       "data": [
-        {
-          "month": "2024-08",
-          "production": 1190726999,
-          "imports": {
-            "aligned": 1643547564,
-            "neutral": 567802577,
-            "low": 0,
-            "unknown": 0
-          },
-          "exports": {
-            "aligned": 0,
-            "neutral": 0,
-            "low": 0,
-            "unknown": 0
-          },
-          "totalImports": 2211350141,
-          "totalExports": 0,
-          "alignedShare": 48.3,
-          "domesticShare": 35
-        },
         {
           "month": "2024-09",
           "production": 869218383,
@@ -536,6 +516,26 @@
           "totalExports": 0,
           "alignedShare": 47.1,
           "domesticShare": 35
+        },
+        {
+          "month": "2026-08",
+          "production": 867644864,
+          "imports": {
+            "aligned": 1159831525,
+            "neutral": 451508937,
+            "low": 0,
+            "unknown": 0
+          },
+          "exports": {
+            "aligned": 0,
+            "neutral": 0,
+            "low": 0,
+            "unknown": 0
+          },
+          "totalImports": 1611340462,
+          "totalExports": 0,
+          "alignedShare": 46.8,
+          "domesticShare": 35
         }
       ]
     },
@@ -551,7 +551,7 @@
           "alignmentPct": 89.1,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 16900145752,
+          "importTonnes": 16646536068,
           "exportTonnes": 0
         },
         {
@@ -560,7 +560,7 @@
           "alignmentPct": 81.5,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 12567339955,
+          "importTonnes": 12396957711,
           "exportTonnes": 0
         },
         {
@@ -569,7 +569,7 @@
           "alignmentPct": 55.5,
           "bucket": "neutral",
           "classifySource": "voeten",
-          "importTonnes": 3522746269,
+          "importTonnes": 3400521816,
           "exportTonnes": 0
         },
         {
@@ -578,16 +578,7 @@
           "alignmentPct": 50.8,
           "bucket": "neutral",
           "classifySource": "voeten",
-          "importTonnes": 1855465961,
-          "exportTonnes": 0
-        },
-        {
-          "iso3": "CAN",
-          "country": "Canada",
-          "alignmentPct": 86.9,
-          "bucket": "aligned",
-          "classifySource": "voeten",
-          "importTonnes": 1849934240,
+          "importTonnes": 1945870906,
           "exportTonnes": 0
         },
         {
@@ -596,7 +587,16 @@
           "alignmentPct": 63.8,
           "bucket": "neutral",
           "classifySource": "voeten",
-          "importTonnes": 1798829410,
+          "importTonnes": 1861670736,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "CAN",
+          "country": "Canada",
+          "alignmentPct": 86.9,
+          "bucket": "aligned",
+          "classifySource": "voeten",
+          "importTonnes": 1860178131,
           "exportTonnes": 0
         },
         {
@@ -605,7 +605,7 @@
           "alignmentPct": 55.3,
           "bucket": "neutral",
           "classifySource": "voeten",
-          "importTonnes": 1672644195,
+          "importTonnes": 1474558617,
           "exportTonnes": 0
         },
         {
@@ -614,7 +614,7 @@
           "alignmentPct": 56.7,
           "bucket": "neutral",
           "classifySource": "voeten",
-          "importTonnes": 920418707,
+          "importTonnes": 924560259,
           "exportTonnes": 0
         },
         {
@@ -623,7 +623,7 @@
           "alignmentPct": 80.6,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 436125849,
+          "importTonnes": 367568019,
           "exportTonnes": 0
         },
         {
@@ -654,12 +654,12 @@
           "exportTonnes": 0
         },
         {
-          "iso3": "AGO",
-          "country": "Angola",
-          "alignmentPct": 59.1,
+          "iso3": "GAB",
+          "country": "Gabon",
+          "alignmentPct": 53.3,
           "bucket": "neutral",
           "classifySource": "voeten",
-          "importTonnes": 129195003,
+          "importTonnes": 132813944,
           "exportTonnes": 0
         },
         {
@@ -678,6 +678,15 @@
           "bucket": "neutral",
           "classifySource": "voeten",
           "importTonnes": 76996098,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "AGO",
+          "country": "Angola",
+          "alignmentPct": 59.1,
+          "bucket": "neutral",
+          "classifySource": "voeten",
+          "importTonnes": 64815735,
           "exportTonnes": 0
         },
         {
@@ -704,16 +713,7 @@
           "alignmentPct": 92.2,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 24570670,
-          "exportTonnes": 0
-        },
-        {
-          "iso3": "GAB",
-          "country": "Gabon",
-          "alignmentPct": 53.3,
-          "bucket": "neutral",
-          "classifySource": "voeten",
-          "importTonnes": 21802961,
+          "importTonnes": 23160498,
           "exportTonnes": 0
         },
         {
@@ -732,15 +732,6 @@
           "bucket": "aligned",
           "classifySource": "voeten",
           "importTonnes": 161176,
-          "exportTonnes": 0
-        },
-        {
-          "iso3": "AZE",
-          "country": "Azerbaijan",
-          "alignmentPct": 53.6,
-          "bucket": "neutral",
-          "classifySource": "voeten",
-          "importTonnes": 3147,
           "exportTonnes": 0
         },
         {
