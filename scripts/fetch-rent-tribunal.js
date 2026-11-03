@@ -179,6 +179,28 @@ function caseRef(doc) {
   return m ? { office: m[1], laCode: m[2], type: m[3], ref: m.slice(1).join("/") } : null;
 }
 
+// Date the tenant referred the landlord's notice to the tribunal, e.g.
+// "On 18 May 2026, under Section 13(4)(a) of the Housing Act 1988, the Tenant referred..."
+const DATE = String.raw`(\d{1,2})(?:st|nd|rd|th)?\s+([A-Za-z]+),?\s+(\d{4})`;
+const REFERRAL = [
+  new RegExp(String.raw`On\s+${DATE},?\s+(?:under\s+[Ss]ection\s+1[34]|the\s+(?:Tenant|Applicant)s?\s+(?:referred|applied|made))`, "i"),
+  new RegExp(String.raw`(?:application|referral)\s+(?:was\s+)?(?:received|made|dated|lodged)\s+(?:by\s+the\s+Tribunal\s+)?(?:on\s+)?${DATE}`, "i"),
+];
+
+function referralDate(doc, decided) {
+  const text = doc.text.replace(/\s+/g, " ");
+  for (const re of REFERRAL) {
+    const m = re.exec(text);
+    const mi = m ? MONTHS.indexOf(m[2].toLowerCase()) : -1;
+    if (mi < 0) continue;
+    const iso = `${m[3]}-${String(mi + 1).padStart(2, "0")}-${m[1].padStart(2, "0")}`;
+    const wait = (Date.parse(decided) - Date.parse(iso)) / 864e5;
+    // Waits outside 0 to 2 years are usually a misread date
+    return wait >= 0 && wait <= 730 ? iso : null;
+  }
+  return null;
+}
+
 // ── Aggregate ────────────────────────────────────────────────────────
 const RRA_START = "2026-05";  // Renters' Rights Act rent rules take effect, 1 May 2026
 const OUTCOMES = [
@@ -196,22 +218,39 @@ const median = xs => {
 };
 const round1 = v => v == null ? null : Math.round(v * 10) / 10;
 const pct = (a, b) => (100 * (a - b)) / b;
+const quantile = (xs, p) => {
+  if (!xs.length) return null;
+  const s = [...xs].sort((a, b) => a - b);
+  return s[Math.min(s.length - 1, Math.floor(s.length * p))];
+};
+const days = (from, to) => Math.round((Date.parse(to) - Date.parse(from)) / 864e5);
+const addMonths = (ym, n) => {
+  const d = new Date(Date.UTC(+ym.slice(0, 4), +ym.slice(5, 7) - 1 + n, 1));
+  return d.toISOString().slice(0, 7);
+};
+const quarterOf = ym => `${ym.slice(0, 4)}-Q${Math.floor((+ym.slice(5, 7) - 1) / 3) + 1}`;
+const PUBLICATION_HORIZONS = [30, 60, 90, 120, 180, 270, 365];
 
 function build(docs, today) {
   const records = docs.map(doc => {
     const rents = parseRents(doc.text);
     const ref = caseRef(doc);
+    const date = decisionDate(doc, today);
+    const referred = referralDate(doc, date);
     return {
-      date: decisionDate(doc, today), region: REGION[ref?.office] ?? null,
+      date, region: REGION[ref?.office] ?? null,
       ...rents, outcome: classify(rents),
+      waitDays: referred ? days(referred, date) : null,
+      publishLagDays: days(date, doc.firstPublished.slice(0, 10)),
     };
   });
 
   const month = r => r.date.slice(0, 7);
   const thisMonth = today.slice(0, 7);
   const months = [...new Set(records.map(month))].filter(m => m >= "2022-01" && m < thisMonth).sort();
-  // Decisions are published weeks or months after the decision date, so recent months are incomplete
-  const provisionalFrom = new Date(Date.parse(`${thisMonth}-01`) - 40 * 864e5).toISOString().slice(0, 7);
+  // Decisions are published weeks or months after the decision date (about 30% are
+  // still unpublished four months on), so the last four months are incomplete
+  const provisionalFrom = addMonths(thisMonth, -4);
 
   const monthly = months.map(m => ({
     month: m, decisions: records.filter(r => month(r) === m).length, provisional: m >= provisionalFrom,
@@ -249,8 +288,28 @@ function build(docs, today) {
     return { region, totalDecisions: rs.length, ...increases(rs) };
   });
 
+  // Time from referral to decision, by quarter of decision (complete quarters only)
+  const waits = rs => rs.map(r => r.waitDays).filter(v => v != null);
+  const quarters = [...new Set(months.filter(m => m >= "2024-01" && addMonths(m, 3 - ((+m.slice(5, 7) - 1) % 3)) <= thisMonth).map(quarterOf))];
+  const timeToDecision = quarters.map(q => {
+    const w = waits(records.filter(r => quarterOf(month(r)) === q));
+    return {
+      quarter: q, decisions: w.length,
+      medianDays: quantile(w, 0.5), p25Days: quantile(w, 0.25), p75Days: quantile(w, 0.75),
+      provisional: q >= quarterOf(provisionalFrom),
+    };
+  });
+
+  // Share of decisions published within N days, for decisions made 12 to 24 months ago
+  const cohortFrom = addMonths(thisMonth, -24), cohortTo = addMonths(thisMonth, -12);
+  const cohort = records.filter(r => month(r) >= cohortFrom && month(r) < cohortTo && r.publishLagDays >= 0);
+  const publicationLag = PUBLICATION_HORIZONS.map(n => ({
+    days: n, pct: round1((100 * cohort.filter(r => r.publishLagDays <= n).length) / cohort.length),
+  }));
+
   const all = increases(sinceRra);
   const preRra = records.filter(r => month(r) >= "2025-05" && month(r) < RRA_START);
+  const lagAt = n => publicationLag.find(p => p.days === n).pct;
   const snapshot = {
     decisionsSinceRra: sinceRra.length,
     decisionsSinceRraFrom: "May 2026",
@@ -262,11 +321,20 @@ function build(docs, today) {
     classifiedPct: round1((100 * classified.length) / sinceRra.length),
     latestMonth: months.at(-1),
     provisionalFrom,
+    medianWaitDaysPrevYear: quantile(waits(preRra), 0.5),
+    medianWaitDaysSinceRra: quantile(waits(sinceRra), 0.5),
+    waitDatedPct: round1((100 * waits(sinceRra).length) / sinceRra.length),
+    publishedWithin60Pct: lagAt(60),
+    publishedWithin180Pct: lagAt(180),
+    publicationCohortFrom: cohortFrom,
+    publicationCohortTo: addMonths(cohortTo, -1),
   };
   const counts = Object.fromEntries(["unparsed", ...OUTCOMES.map(o => o[0])].map(k => [k, sinceRra.filter(r => r.outcome === k).length]));
   console.log("since RRA", sinceRra.length, counts);
   console.log("snapshot", snapshot);
-  return { snapshot, monthly, outcomes, outcomesByMonth, increasesByMonth, byRegion };
+  console.log("time to decision", timeToDecision.slice(-6));
+  console.log("publication lag", publicationLag);
+  return { snapshot, monthly, outcomes, outcomesByMonth, increasesByMonth, byRegion, timeToDecision, publicationLag };
 }
 
 function writeDataset(agg, today, total) {
@@ -292,6 +360,8 @@ function writeDataset(agg, today, total) {
       outcomes: series(agg.outcomes, "key"),
       outcomesByMonth: series(agg.outcomesByMonth, "month", { methodologyBreaks: [rra] }),
       increasesByMonth: series(agg.increasesByMonth, "month", { methodologyBreaks: [rra] }),
+      timeToDecision: series(agg.timeToDecision, "quarter", { methodologyBreaks: [{ ...rra, at: "2026-Q2" }] }),
+      publicationLag: series(agg.publicationLag, "days"),
       byRegion: series(agg.byRegion, "region"),
     },
   };

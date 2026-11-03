@@ -1,5 +1,5 @@
 import {
-  BarChart, Bar, LineChart, Line, Cell, LabelList, ReferenceLine,
+  BarChart, Bar, LineChart, Line, ComposedChart, Area, Cell, LabelList, ReferenceLine,
   XAxis, YAxis, CartesianGrid, Tooltip,
 } from "recharts";
 import P from "../../theme/palette";
@@ -24,6 +24,7 @@ const OUTCOME_COLORS = {
 
 const monthLabel = m => new Date(`${m}-01`).toLocaleDateString("en-GB", { month: "long", year: "numeric" });
 const shortMonth = m => new Date(`${m}-01`).toLocaleDateString("en-GB", { month: "short", year: "2-digit" });
+const quarterLabel = q => `${q.slice(5)} ${q.slice(0, 4)}`;
 // Break lines with the label to the left of the line, so it is not clipped at the right edge on phones
 const breakLines = breaks => breaks.map(b => (
   <ReferenceLine key={b.at} x={b.at} stroke={P.red} strokeDasharray="4 4" strokeWidth={1.5}
@@ -65,7 +66,7 @@ export default function RentTribunal() {
   const source = sourceFrom(raw, "monthly");
   const firstMonth = data.monthly[0].month;
   const lastMonth = snap.latestMonth;
-  const provisionalNote = `Months from ${monthLabel(snap.provisionalFrom)} are incomplete: decisions are published weeks or months after they are made.`;
+  const provisionalNote = `Months from ${monthLabel(snap.provisionalFrom)} are incomplete: ${Math.round(snap.publishedWithin60Pct)}% of decisions are published within 60 days of being made and ${Math.round(snap.publishedWithin180Pct)}% within 180 days.`;
   const outcomeTotal = data.outcomes.reduce((s, o) => s + o.decisions, 0);
   const outcomeLegend = data.outcomes.map(o => ({ key: o.key, label: o.label, color: OUTCOME_COLORS[o.key] }));
   const monthTicks = { tickFormatter: v => v.slice(0, 4), interval: isMobile ? 23 : 11 };
@@ -132,7 +133,30 @@ export default function RentTribunal() {
             {breakLines(getBreaks(raw, "monthly"))}
           </BarChart>
         </ChartCard>
-        <p style={{ ...SECTION_NOTE, fontSize: "12px", marginTop: 8 }}>{provisionalNote}</p>
+
+        <ChartCard
+          style={{ marginTop: 24 }}
+          title="Time From Decision to Publication"
+          subtitle={`England, % of decisions published on the register within each period, decisions dated ${monthLabel(snap.publicationCohortFrom)} to ${monthLabel(snap.publicationCohortTo)}`}
+          source={source}
+          height={280}
+        >
+          <BarChart data={data.publicationLag} margin={{ top: 20, right: 10, left: isMobile ? 0 : 10, bottom: 0 }}>
+            <CartesianGrid {...GRID_PROPS} vertical={false} />
+            <XAxis dataKey="days" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} tickFormatter={v => `${v} days`} />
+            <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} domain={[0, 100]} ticks={[0, 25, 50, 75, 100]} tickFormatter={v => `${v}%`} label={yAxisLabel("% published")} />
+            <Tooltip content={<CustomTooltip />} />
+            <Bar dataKey="pct" name="% published" fill={P.teal} radius={[2, 2, 0, 0]}>
+              <LabelList dataKey="pct" position="top" formatter={v => `${Math.round(v)}%`} style={{ ...AXIS_TICK_MONO, fill: P.text }} />
+            </Bar>
+          </BarChart>
+        </ChartCard>
+        <p style={{ ...SECTION_NOTE, fontSize: "12px", marginTop: 8 }}>
+          Decisions appear on the register some time after they are made, so counts for recent months rise as
+          more are published. This chart uses decisions made at least a year ago, nearly all of which have now been
+          published, to show how long publication takes. On that basis, months from {monthLabel(snap.provisionalFrom)} in
+          the chart above are incomplete and are shaded lighter.
+        </p>
       </div>
 
       {/* ═══ SECTION 2 — OUTCOMES ═══ */}
@@ -243,6 +267,49 @@ export default function RentTribunal() {
             {breakLines(getBreaks(raw, "increasesByMonth"))}
           </LineChart>
         </ChartCard>
+      </div>
+
+      {/* ═══ SECTION 4 — TIME TO DECISION ═══ */}
+      <div style={{ marginBottom: 40 }}>
+        <h3 style={SECTION_HEADING}>Time to Decision</h3>
+        <p style={SECTION_NOTE}>
+          Most decisions state the date the tenant referred the landlord's notice to the tribunal. For decisions
+          dated {snap.decisionsPrevYearFrom}, the median time from referral to decision was{" "}
+          {snap.medianWaitDaysPrevYear} days; for decisions dated since {snap.decisionsSinceRraFrom} it
+          is {snap.medianWaitDaysSinceRra} days. These figures cover decided cases only and do not show how long
+          open cases have been waiting. The Ministry of Justice's{" "}
+          <a href="https://www.gov.uk/government/collections/tribunals-statistics" target="_blank" rel="noopener noreferrer" style={{ color: "inherit" }}>quarterly
+          tribunal statistics</a> show the open caseload for all residential property cases rising since 2025.
+        </p>
+        <ChartCard
+          title="Time From Referral to Decision"
+          subtitle={`England, days, by quarter of decision, ${quarterLabel(data.timeToDecision[0].quarter)} to ${quarterLabel(data.timeToDecision.at(-1).quarter)}`}
+          source={source}
+          legend={[
+            { key: "m", label: "Median", color: P.navy },
+            { key: "r", label: "IQR", color: "rgba(28,43,69,0.15)" },
+          ]}
+          height={320}
+        >
+          <ComposedChart data={data.timeToDecision} margin={{ top: 20, right: 30, left: isMobile ? 0 : 10, bottom: 0 }}>
+            <CartesianGrid {...GRID_PROPS} vertical={false} />
+            <XAxis dataKey="quarter" tick={AXIS_TICK_MONO} axisLine={{ stroke: P.border }} tickLine={false} tickFormatter={isMobile ? q => `${q.slice(5)} '${q.slice(2, 4)}` : quarterLabel} interval={isMobile ? 1 : 0} />
+            <YAxis tick={AXIS_TICK_MONO} axisLine={false} tickLine={false} domain={[0, "auto"]} label={yAxisLabel("Days")} />
+            <Tooltip content={<CustomTooltip />} />
+            <Area dataKey={d => [d.p25Days, d.p75Days]} name="IQR (days)" fill={P.navy} fillOpacity={0.12} stroke="none" isAnimationActive={false} />
+            <Line type="monotone" dataKey="medianDays" name="Median (days)" stroke={P.navy} strokeWidth={2} dot={{ r: 3 }} />
+            {breakLines(getBreaks(raw, "timeToDecision"))}
+          </ComposedChart>
+        </ChartCard>
+        <p style={{ ...SECTION_NOTE, fontSize: "12px", marginTop: 8 }}>
+          IQR is the interquartile range: the middle 50% of decisions by time taken.
+          Referral dates could be read for {snap.waitDatedPct}% of decisions since {snap.decisionsSinceRraFrom}.
+          Before {quarterLabel(data.timeToDecision.find(q => q.quarter >= "2026-Q2")?.quarter ?? "2026-Q2")}, each quarter's figure
+          rests on {Math.min(...data.timeToDecision.filter(q => q.quarter < "2026-Q2").map(q => q.decisions))} to{" "}
+          {Math.max(...data.timeToDecision.filter(q => q.quarter < "2026-Q2").map(q => q.decisions))} decisions.
+          {" "}{quarterLabel(data.timeToDecision.find(q => q.provisional)?.quarter ?? data.timeToDecision.at(-1).quarter)} is
+          incomplete because many of its decisions are not yet published.
+        </p>
       </div>
 
       <AnalysisBox color={P.navy} label="About this data">

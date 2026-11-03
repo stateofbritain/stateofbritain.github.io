@@ -23,7 +23,14 @@
     "belowProposedPct": 64.5,
     "classifiedPct": 88.4,
     "latestMonth": "2026-10",
-    "provisionalFrom": "2026-09"
+    "provisionalFrom": "2026-07",
+    "medianWaitDaysPrevYear": 124,
+    "medianWaitDaysSinceRra": 81,
+    "waitDatedPct": 84.8,
+    "publishedWithin60Pct": 41.4,
+    "publishedWithin180Pct": 77.1,
+    "publicationCohortFrom": "2024-11",
+    "publicationCohortTo": "2025-10"
   },
   "series": {
     "monthly": {
@@ -311,12 +318,12 @@
         {
           "month": "2026-07",
           "decisions": 194,
-          "provisional": false
+          "provisional": true
         },
         {
           "month": "2026-08",
           "decisions": 169,
-          "provisional": false
+          "provisional": true
         },
         {
           "month": "2026-09",
@@ -585,7 +592,7 @@
         {
           "month": "2026-07",
           "classified": 177,
-          "provisional": false,
+          "provisional": true,
           "atProposed": 22,
           "between": 48.6,
           "atCurrent": 10.2,
@@ -596,7 +603,7 @@
         {
           "month": "2026-08",
           "classified": 156,
-          "provisional": false,
+          "provisional": true,
           "atProposed": 25,
           "between": 51.3,
           "atCurrent": 10.9,
@@ -790,7 +797,7 @@
           "medianCurrent": 1100,
           "medianProposedPct": 13.3,
           "medianDeterminedPct": 7.3,
-          "provisional": false
+          "provisional": true
         },
         {
           "month": "2026-08",
@@ -798,7 +805,7 @@
           "medianCurrent": 1177.5,
           "medianProposedPct": 11.4,
           "medianDeterminedPct": 6.4,
-          "provisional": false
+          "provisional": true
         },
         {
           "month": "2026-09",
@@ -815,6 +822,142 @@
           "medianProposedPct": 14.9,
           "medianDeterminedPct": 6.2,
           "provisional": true
+        }
+      ]
+    },
+    "timeToDecision": {
+      "sourceId": "gov-uk-rpt-decisions",
+      "timeField": "quarter",
+      "methodologyBreaks": [
+        {
+          "at": "2026-Q2",
+          "label": "Renters' Rights Act",
+          "description": "Rent increase rules under the Renters' Rights Act 2025 took effect on 1 May 2026.",
+          "severity": "major"
+        }
+      ],
+      "data": [
+        {
+          "quarter": "2024-Q1",
+          "decisions": 42,
+          "medianDays": 68,
+          "p25Days": 63,
+          "p75Days": 138,
+          "provisional": false
+        },
+        {
+          "quarter": "2024-Q2",
+          "decisions": 34,
+          "medianDays": 75,
+          "p25Days": 65,
+          "p75Days": 116,
+          "provisional": false
+        },
+        {
+          "quarter": "2024-Q3",
+          "decisions": 60,
+          "medianDays": 105,
+          "p25Days": 74,
+          "p75Days": 140,
+          "provisional": false
+        },
+        {
+          "quarter": "2024-Q4",
+          "decisions": 49,
+          "medianDays": 73,
+          "p25Days": 61,
+          "p75Days": 118,
+          "provisional": false
+        },
+        {
+          "quarter": "2025-Q1",
+          "decisions": 59,
+          "medianDays": 109,
+          "p25Days": 71,
+          "p75Days": 172,
+          "provisional": false
+        },
+        {
+          "quarter": "2025-Q2",
+          "decisions": 53,
+          "medianDays": 91,
+          "p25Days": 70,
+          "p75Days": 150,
+          "provisional": false
+        },
+        {
+          "quarter": "2025-Q3",
+          "decisions": 71,
+          "medianDays": 117,
+          "p25Days": 72,
+          "p75Days": 156,
+          "provisional": false
+        },
+        {
+          "quarter": "2025-Q4",
+          "decisions": 59,
+          "medianDays": 115,
+          "p25Days": 68,
+          "p75Days": 180,
+          "provisional": false
+        },
+        {
+          "quarter": "2026-Q1",
+          "decisions": 81,
+          "medianDays": 133,
+          "p25Days": 76,
+          "p75Days": 192,
+          "provisional": false
+        },
+        {
+          "quarter": "2026-Q2",
+          "decisions": 273,
+          "medianDays": 88,
+          "p25Days": 68,
+          "p75Days": 147,
+          "provisional": false
+        },
+        {
+          "quarter": "2026-Q3",
+          "decisions": 500,
+          "medianDays": 77,
+          "p25Days": 57,
+          "p75Days": 134,
+          "provisional": true
+        }
+      ]
+    },
+    "publicationLag": {
+      "sourceId": "gov-uk-rpt-decisions",
+      "timeField": "days",
+      "data": [
+        {
+          "days": 30,
+          "pct": 16.9
+        },
+        {
+          "days": 60,
+          "pct": 41.4
+        },
+        {
+          "days": 90,
+          "pct": 58
+        },
+        {
+          "days": 120,
+          "pct": 71.4
+        },
+        {
+          "days": 180,
+          "pct": 77.1
+        },
+        {
+          "days": 270,
+          "pct": 84.6
+        },
+        {
+          "days": 365,
+          "pct": 92.9
         }
       ]
     },

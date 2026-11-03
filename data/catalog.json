@@ -6527,6 +6527,46 @@
             "end": "2026-10"
           }
         },
+        "timeToDecision": {
+          "title": "Time From Referral to Decision",
+          "summary": "Median and interquartile range of days from the tenant's referral to the tribunal's decision, by quarter of decision from 2024, using referral dates read from the decision text. Covers decided cases only, not how long open cases have been waiting.",
+          "unit": "days",
+          "fields": {
+            "decisions": {
+              "label": "decisions"
+            },
+            "medianDays": {
+              "label": "medianDays"
+            },
+            "p25Days": {
+              "label": "p25Days"
+            },
+            "p75Days": {
+              "label": "p75Days"
+            },
+            "provisional": {
+              "label": "provisional"
+            }
+          },
+          "timeRange": {
+            "start": "2024-Q1",
+            "end": "2026-Q3"
+          }
+        },
+        "publicationLag": {
+          "title": "Time From Decision to Publication",
+          "summary": "Share of market rent decisions published on the GOV.UK register within 30 to 365 days of the decision date, for decisions made 12 to 24 months earlier. Shows why counts for recent months are incomplete.",
+          "unit": "%",
+          "fields": {
+            "pct": {
+              "label": "pct"
+            }
+          },
+          "timeRange": {
+            "start": 30,
+            "end": 365
+          }
+        },
         "byRegion": {
           "title": "Median Rent Increase by Tribunal Region",
           "summary": "Median proposed and determined rent increase since May 2026 for the tribunal's five regions: London, Southern, Eastern, Midlands and Northern.",
