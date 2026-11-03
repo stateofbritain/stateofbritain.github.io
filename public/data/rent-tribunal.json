@@ -1,0 +1,868 @@
+{
+  "$schema": "sob-dataset-v1",
+  "id": "rent-tribunal",
+  "pillar": "foundations",
+  "topic": "housing",
+  "generated": "2026-11-03",
+  "sources": [
+    {
+      "id": "gov-uk-rpt-decisions",
+      "name": "GOV.UK Residential property tribunal decisions",
+      "url": "https://www.gov.uk/residential-property-tribunal-decisions?tribunal_decision_category=rents&tribunal_decision_sub_category%5B%5D=rents---market-rent-assured-shorthold-tenancy",
+      "publisher": "HM Courts & Tribunals Service",
+      "note": "Market rent decisions (First-tier Tribunal, Property Chamber), England. 3842 published decisions. Rents parsed from decision text; see scripts/fetch-rent-tribunal.js."
+    }
+  ],
+  "snapshot": {
+    "decisionsSinceRra": 955,
+    "decisionsSinceRraFrom": "May 2026",
+    "decisionsPrevYear": 553,
+    "decisionsPrevYearFrom": "May 2025 to April 2026",
+    "medianProposedPct": 13.6,
+    "medianDeterminedPct": 7.7,
+    "belowProposedPct": 64.5,
+    "classifiedPct": 88.4,
+    "latestMonth": "2026-10",
+    "provisionalFrom": "2026-09"
+  },
+  "series": {
+    "monthly": {
+      "sourceId": "gov-uk-rpt-decisions",
+      "timeField": "month",
+      "methodologyBreaks": [
+        {
+          "at": "2026-05",
+          "label": "Renters' Rights Act",
+          "description": "Rent increase rules under the Renters' Rights Act 2025 took effect on 1 May 2026.",
+          "severity": "major"
+        }
+      ],
+      "data": [
+        {
+          "month": "2022-01",
+          "decisions": 18,
+          "provisional": false
+        },
+        {
+          "month": "2022-02",
+          "decisions": 19,
+          "provisional": false
+        },
+        {
+          "month": "2022-03",
+          "decisions": 14,
+          "provisional": false
+        },
+        {
+          "month": "2022-04",
+          "decisions": 20,
+          "provisional": false
+        },
+        {
+          "month": "2022-05",
+          "decisions": 22,
+          "provisional": false
+        },
+        {
+          "month": "2022-06",
+          "decisions": 27,
+          "provisional": false
+        },
+        {
+          "month": "2022-07",
+          "decisions": 35,
+          "provisional": false
+        },
+        {
+          "month": "2022-08",
+          "decisions": 39,
+          "provisional": false
+        },
+        {
+          "month": "2022-09",
+          "decisions": 23,
+          "provisional": false
+        },
+        {
+          "month": "2022-10",
+          "decisions": 31,
+          "provisional": false
+        },
+        {
+          "month": "2022-11",
+          "decisions": 31,
+          "provisional": false
+        },
+        {
+          "month": "2022-12",
+          "decisions": 25,
+          "provisional": false
+        },
+        {
+          "month": "2023-01",
+          "decisions": 30,
+          "provisional": false
+        },
+        {
+          "month": "2023-02",
+          "decisions": 27,
+          "provisional": false
+        },
+        {
+          "month": "2023-03",
+          "decisions": 29,
+          "provisional": false
+        },
+        {
+          "month": "2023-04",
+          "decisions": 36,
+          "provisional": false
+        },
+        {
+          "month": "2023-05",
+          "decisions": 45,
+          "provisional": false
+        },
+        {
+          "month": "2023-06",
+          "decisions": 51,
+          "provisional": false
+        },
+        {
+          "month": "2023-07",
+          "decisions": 39,
+          "provisional": false
+        },
+        {
+          "month": "2023-08",
+          "decisions": 56,
+          "provisional": false
+        },
+        {
+          "month": "2023-09",
+          "decisions": 44,
+          "provisional": false
+        },
+        {
+          "month": "2023-10",
+          "decisions": 59,
+          "provisional": false
+        },
+        {
+          "month": "2023-11",
+          "decisions": 49,
+          "provisional": false
+        },
+        {
+          "month": "2023-12",
+          "decisions": 46,
+          "provisional": false
+        },
+        {
+          "month": "2024-01",
+          "decisions": 58,
+          "provisional": false
+        },
+        {
+          "month": "2024-02",
+          "decisions": 50,
+          "provisional": false
+        },
+        {
+          "month": "2024-03",
+          "decisions": 41,
+          "provisional": false
+        },
+        {
+          "month": "2024-04",
+          "decisions": 37,
+          "provisional": false
+        },
+        {
+          "month": "2024-05",
+          "decisions": 64,
+          "provisional": false
+        },
+        {
+          "month": "2024-06",
+          "decisions": 47,
+          "provisional": false
+        },
+        {
+          "month": "2024-07",
+          "decisions": 78,
+          "provisional": false
+        },
+        {
+          "month": "2024-08",
+          "decisions": 50,
+          "provisional": false
+        },
+        {
+          "month": "2024-09",
+          "decisions": 50,
+          "provisional": false
+        },
+        {
+          "month": "2024-10",
+          "decisions": 71,
+          "provisional": false
+        },
+        {
+          "month": "2024-11",
+          "decisions": 38,
+          "provisional": false
+        },
+        {
+          "month": "2024-12",
+          "decisions": 37,
+          "provisional": false
+        },
+        {
+          "month": "2025-01",
+          "decisions": 54,
+          "provisional": false
+        },
+        {
+          "month": "2025-02",
+          "decisions": 60,
+          "provisional": false
+        },
+        {
+          "month": "2025-03",
+          "decisions": 51,
+          "provisional": false
+        },
+        {
+          "month": "2025-04",
+          "decisions": 49,
+          "provisional": false
+        },
+        {
+          "month": "2025-05",
+          "decisions": 74,
+          "provisional": false
+        },
+        {
+          "month": "2025-06",
+          "decisions": 46,
+          "provisional": false
+        },
+        {
+          "month": "2025-07",
+          "decisions": 49,
+          "provisional": false
+        },
+        {
+          "month": "2025-08",
+          "decisions": 54,
+          "provisional": false
+        },
+        {
+          "month": "2025-09",
+          "decisions": 47,
+          "provisional": false
+        },
+        {
+          "month": "2025-10",
+          "decisions": 33,
+          "provisional": false
+        },
+        {
+          "month": "2025-11",
+          "decisions": 30,
+          "provisional": false
+        },
+        {
+          "month": "2025-12",
+          "decisions": 49,
+          "provisional": false
+        },
+        {
+          "month": "2026-01",
+          "decisions": 44,
+          "provisional": false
+        },
+        {
+          "month": "2026-02",
+          "decisions": 37,
+          "provisional": false
+        },
+        {
+          "month": "2026-03",
+          "decisions": 52,
+          "provisional": false
+        },
+        {
+          "month": "2026-04",
+          "decisions": 38,
+          "provisional": false
+        },
+        {
+          "month": "2026-05",
+          "decisions": 116,
+          "provisional": false
+        },
+        {
+          "month": "2026-06",
+          "decisions": 165,
+          "provisional": false
+        },
+        {
+          "month": "2026-07",
+          "decisions": 194,
+          "provisional": false
+        },
+        {
+          "month": "2026-08",
+          "decisions": 169,
+          "provisional": false
+        },
+        {
+          "month": "2026-09",
+          "decisions": 225,
+          "provisional": true
+        },
+        {
+          "month": "2026-10",
+          "decisions": 86,
+          "provisional": true
+        }
+      ]
+    },
+    "outcomes": {
+      "sourceId": "gov-uk-rpt-decisions",
+      "timeField": "key",
+      "data": [
+        {
+          "key": "atProposed",
+          "label": "Set at landlord's proposed rent",
+          "decisions": 201,
+          "pct": 23.8
+        },
+        {
+          "key": "between",
+          "label": "Between current and proposed rent",
+          "decisions": 418,
+          "pct": 49.5
+        },
+        {
+          "key": "atCurrent",
+          "label": "Kept at current rent",
+          "decisions": 87,
+          "pct": 10.3
+        },
+        {
+          "key": "belowCurrent",
+          "label": "Set below current rent",
+          "decisions": 40,
+          "pct": 4.7
+        },
+        {
+          "key": "aboveProposed",
+          "label": "Market rent assessed above proposal",
+          "decisions": 35,
+          "pct": 4.1
+        },
+        {
+          "key": "noDetermination",
+          "label": "No rent determined",
+          "decisions": 63,
+          "pct": 7.5
+        }
+      ]
+    },
+    "outcomesByMonth": {
+      "sourceId": "gov-uk-rpt-decisions",
+      "timeField": "month",
+      "methodologyBreaks": [
+        {
+          "at": "2026-05",
+          "label": "Renters' Rights Act",
+          "description": "Rent increase rules under the Renters' Rights Act 2025 took effect on 1 May 2026.",
+          "severity": "major"
+        }
+      ],
+      "data": [
+        {
+          "month": "2025-01",
+          "classified": 13,
+          "provisional": false,
+          "atProposed": 7.7,
+          "between": 61.5,
+          "atCurrent": 15.4,
+          "belowCurrent": 0,
+          "aboveProposed": 0,
+          "noDetermination": 15.4
+        },
+        {
+          "month": "2025-02",
+          "classified": 21,
+          "provisional": false,
+          "atProposed": 14.3,
+          "between": 47.6,
+          "atCurrent": 9.5,
+          "belowCurrent": 4.8,
+          "aboveProposed": 14.3,
+          "noDetermination": 9.5
+        },
+        {
+          "month": "2025-03",
+          "classified": 20,
+          "provisional": false,
+          "atProposed": 15,
+          "between": 65,
+          "atCurrent": 5,
+          "belowCurrent": 5,
+          "aboveProposed": 10,
+          "noDetermination": 0
+        },
+        {
+          "month": "2025-04",
+          "classified": 15,
+          "provisional": false,
+          "atProposed": 13.3,
+          "between": 53.3,
+          "atCurrent": 0,
+          "belowCurrent": 20,
+          "aboveProposed": 6.7,
+          "noDetermination": 6.7
+        },
+        {
+          "month": "2025-05",
+          "classified": 22,
+          "provisional": false,
+          "atProposed": 22.7,
+          "between": 36.4,
+          "atCurrent": 9.1,
+          "belowCurrent": 4.5,
+          "aboveProposed": 13.6,
+          "noDetermination": 13.6
+        },
+        {
+          "month": "2025-06",
+          "classified": 24,
+          "provisional": false,
+          "atProposed": 12.5,
+          "between": 50,
+          "atCurrent": 16.7,
+          "belowCurrent": 4.2,
+          "aboveProposed": 4.2,
+          "noDetermination": 12.5
+        },
+        {
+          "month": "2025-07",
+          "classified": 26,
+          "provisional": false,
+          "atProposed": 19.2,
+          "between": 53.8,
+          "atCurrent": 3.8,
+          "belowCurrent": 0,
+          "aboveProposed": 7.7,
+          "noDetermination": 15.4
+        },
+        {
+          "month": "2025-08",
+          "classified": 30,
+          "provisional": false,
+          "atProposed": 13.3,
+          "between": 60,
+          "atCurrent": 6.7,
+          "belowCurrent": 6.7,
+          "aboveProposed": 13.3,
+          "noDetermination": 0
+        },
+        {
+          "month": "2025-09",
+          "classified": 21,
+          "provisional": false,
+          "atProposed": 9.5,
+          "between": 76.2,
+          "atCurrent": 4.8,
+          "belowCurrent": 0,
+          "aboveProposed": 4.8,
+          "noDetermination": 4.8
+        },
+        {
+          "month": "2025-10",
+          "classified": 19,
+          "provisional": false,
+          "atProposed": 15.8,
+          "between": 47.4,
+          "atCurrent": 15.8,
+          "belowCurrent": 5.3,
+          "aboveProposed": 15.8,
+          "noDetermination": 0
+        },
+        {
+          "month": "2025-11",
+          "classified": 16,
+          "provisional": false,
+          "atProposed": 31.3,
+          "between": 62.5,
+          "atCurrent": 6.3,
+          "belowCurrent": 0,
+          "aboveProposed": 0,
+          "noDetermination": 0
+        },
+        {
+          "month": "2025-12",
+          "classified": 28,
+          "provisional": false,
+          "atProposed": 3.6,
+          "between": 64.3,
+          "atCurrent": 0,
+          "belowCurrent": 17.9,
+          "aboveProposed": 0,
+          "noDetermination": 14.3
+        },
+        {
+          "month": "2026-01",
+          "classified": 24,
+          "provisional": false,
+          "atProposed": 25,
+          "between": 66.7,
+          "atCurrent": 4.2,
+          "belowCurrent": 0,
+          "aboveProposed": 0,
+          "noDetermination": 4.2
+        },
+        {
+          "month": "2026-02",
+          "classified": 21,
+          "provisional": false,
+          "atProposed": 42.9,
+          "between": 33.3,
+          "atCurrent": 0,
+          "belowCurrent": 0,
+          "aboveProposed": 14.3,
+          "noDetermination": 9.5
+        },
+        {
+          "month": "2026-03",
+          "classified": 41,
+          "provisional": false,
+          "atProposed": 12.2,
+          "between": 65.9,
+          "atCurrent": 12.2,
+          "belowCurrent": 4.9,
+          "aboveProposed": 4.9,
+          "noDetermination": 0
+        },
+        {
+          "month": "2026-04",
+          "classified": 36,
+          "provisional": false,
+          "atProposed": 16.7,
+          "between": 66.7,
+          "atCurrent": 5.6,
+          "belowCurrent": 8.3,
+          "aboveProposed": 2.8,
+          "noDetermination": 0
+        },
+        {
+          "month": "2026-05",
+          "classified": 96,
+          "provisional": false,
+          "atProposed": 19.8,
+          "between": 60.4,
+          "atCurrent": 6.3,
+          "belowCurrent": 5.2,
+          "aboveProposed": 5.2,
+          "noDetermination": 3.1
+        },
+        {
+          "month": "2026-06",
+          "classified": 143,
+          "provisional": false,
+          "atProposed": 24.5,
+          "between": 53.8,
+          "atCurrent": 6.3,
+          "belowCurrent": 3.5,
+          "aboveProposed": 6.3,
+          "noDetermination": 5.6
+        },
+        {
+          "month": "2026-07",
+          "classified": 177,
+          "provisional": false,
+          "atProposed": 22,
+          "between": 48.6,
+          "atCurrent": 10.2,
+          "belowCurrent": 3.4,
+          "aboveProposed": 4.5,
+          "noDetermination": 11.3
+        },
+        {
+          "month": "2026-08",
+          "classified": 156,
+          "provisional": false,
+          "atProposed": 25,
+          "between": 51.3,
+          "atCurrent": 10.9,
+          "belowCurrent": 3.8,
+          "aboveProposed": 2.6,
+          "noDetermination": 6.4
+        },
+        {
+          "month": "2026-09",
+          "classified": 200,
+          "provisional": true,
+          "atProposed": 27,
+          "between": 43,
+          "atCurrent": 11.5,
+          "belowCurrent": 6,
+          "aboveProposed": 4.5,
+          "noDetermination": 8
+        },
+        {
+          "month": "2026-10",
+          "classified": 72,
+          "provisional": true,
+          "atProposed": 20.8,
+          "between": 43.1,
+          "atCurrent": 19.4,
+          "belowCurrent": 8.3,
+          "aboveProposed": 0,
+          "noDetermination": 8.3
+        }
+      ]
+    },
+    "increasesByMonth": {
+      "sourceId": "gov-uk-rpt-decisions",
+      "timeField": "month",
+      "methodologyBreaks": [
+        {
+          "at": "2026-05",
+          "label": "Renters' Rights Act",
+          "description": "Rent increase rules under the Renters' Rights Act 2025 took effect on 1 May 2026.",
+          "severity": "major"
+        }
+      ],
+      "data": [
+        {
+          "month": "2025-01",
+          "decisions": 11,
+          "medianCurrent": 1100,
+          "medianProposedPct": 32.7,
+          "medianDeterminedPct": 10,
+          "provisional": false
+        },
+        {
+          "month": "2025-02",
+          "decisions": 19,
+          "medianCurrent": 800,
+          "medianProposedPct": 22.2,
+          "medianDeterminedPct": 5,
+          "provisional": false
+        },
+        {
+          "month": "2025-03",
+          "decisions": 20,
+          "medianCurrent": 787.5,
+          "medianProposedPct": 24.3,
+          "medianDeterminedPct": 19.3,
+          "provisional": false
+        },
+        {
+          "month": "2025-04",
+          "decisions": 14,
+          "medianCurrent": 972.5,
+          "medianProposedPct": 27.8,
+          "medianDeterminedPct": 8.6,
+          "provisional": false
+        },
+        {
+          "month": "2025-05",
+          "decisions": 19,
+          "medianCurrent": 950,
+          "medianProposedPct": 23.8,
+          "medianDeterminedPct": 14.3,
+          "provisional": false
+        },
+        {
+          "month": "2025-06",
+          "decisions": 21,
+          "medianCurrent": 800,
+          "medianProposedPct": 16.1,
+          "medianDeterminedPct": 6.9,
+          "provisional": false
+        },
+        {
+          "month": "2025-07",
+          "decisions": 22,
+          "medianCurrent": 762.5,
+          "medianProposedPct": 36.1,
+          "medianDeterminedPct": 26.2,
+          "provisional": false
+        },
+        {
+          "month": "2025-08",
+          "decisions": 30,
+          "medianCurrent": 750,
+          "medianProposedPct": 25.9,
+          "medianDeterminedPct": 16.8,
+          "provisional": false
+        },
+        {
+          "month": "2025-09",
+          "decisions": 20,
+          "medianCurrent": 894.3399999999999,
+          "medianProposedPct": 26.8,
+          "medianDeterminedPct": 10.7,
+          "provisional": false
+        },
+        {
+          "month": "2025-10",
+          "decisions": 19,
+          "medianCurrent": 975,
+          "medianProposedPct": 13.5,
+          "medianDeterminedPct": 18.3,
+          "provisional": false
+        },
+        {
+          "month": "2025-11",
+          "decisions": 16,
+          "medianCurrent": 984.4,
+          "medianProposedPct": 10.3,
+          "medianDeterminedPct": 9.4,
+          "provisional": false
+        },
+        {
+          "month": "2025-12",
+          "decisions": 24,
+          "medianCurrent": 900,
+          "medianProposedPct": 39.1,
+          "medianDeterminedPct": 12.4,
+          "provisional": false
+        },
+        {
+          "month": "2026-01",
+          "decisions": 23,
+          "medianCurrent": 1200,
+          "medianProposedPct": 28.3,
+          "medianDeterminedPct": 19.8,
+          "provisional": false
+        },
+        {
+          "month": "2026-02",
+          "decisions": 19,
+          "medianCurrent": 752.98,
+          "medianProposedPct": 20.5,
+          "medianDeterminedPct": 16.7,
+          "provisional": false
+        },
+        {
+          "month": "2026-03",
+          "decisions": 41,
+          "medianCurrent": 980,
+          "medianProposedPct": 9.4,
+          "medianDeterminedPct": 6.5,
+          "provisional": false
+        },
+        {
+          "month": "2026-04",
+          "decisions": 36,
+          "medianCurrent": 805,
+          "medianProposedPct": 17.4,
+          "medianDeterminedPct": 8.3,
+          "provisional": false
+        },
+        {
+          "month": "2026-05",
+          "decisions": 93,
+          "medianCurrent": 1025,
+          "medianProposedPct": 15.8,
+          "medianDeterminedPct": 8.6,
+          "provisional": false
+        },
+        {
+          "month": "2026-06",
+          "decisions": 135,
+          "medianCurrent": 995,
+          "medianProposedPct": 14.1,
+          "medianDeterminedPct": 8.7,
+          "provisional": false
+        },
+        {
+          "month": "2026-07",
+          "decisions": 157,
+          "medianCurrent": 1100,
+          "medianProposedPct": 13.3,
+          "medianDeterminedPct": 7.3,
+          "provisional": false
+        },
+        {
+          "month": "2026-08",
+          "decisions": 146,
+          "medianCurrent": 1177.5,
+          "medianProposedPct": 11.4,
+          "medianDeterminedPct": 6.4,
+          "provisional": false
+        },
+        {
+          "month": "2026-09",
+          "decisions": 184,
+          "medianCurrent": 1060,
+          "medianProposedPct": 13.3,
+          "medianDeterminedPct": 8.1,
+          "provisional": true
+        },
+        {
+          "month": "2026-10",
+          "decisions": 66,
+          "medianCurrent": 1085,
+          "medianProposedPct": 14.9,
+          "medianDeterminedPct": 6.2,
+          "provisional": true
+        }
+      ]
+    },
+    "byRegion": {
+      "sourceId": "gov-uk-rpt-decisions",
+      "timeField": "region",
+      "data": [
+        {
+          "region": "London",
+          "totalDecisions": 330,
+          "decisions": 236,
+          "medianCurrent": 1600,
+          "medianProposedPct": 16.4,
+          "medianDeterminedPct": 9.5
+        },
+        {
+          "region": "Southern",
+          "totalDecisions": 152,
+          "decisions": 133,
+          "medianCurrent": 1060,
+          "medianProposedPct": 10.7,
+          "medianDeterminedPct": 5
+        },
+        {
+          "region": "Eastern",
+          "totalDecisions": 84,
+          "decisions": 74,
+          "medianCurrent": 1272.625,
+          "medianProposedPct": 8.8,
+          "medianDeterminedPct": 5.2
+        },
+        {
+          "region": "Midlands",
+          "totalDecisions": 132,
+          "decisions": 121,
+          "medianCurrent": 755.61,
+          "medianProposedPct": 15.3,
+          "medianDeterminedPct": 7.9
+        },
+        {
+          "region": "Northern",
+          "totalDecisions": 257,
+          "decisions": 217,
+          "medianCurrent": 800,
+          "medianProposedPct": 13.7,
+          "medianDeterminedPct": 8
+        }
+      ]
+    }
+  }
+}

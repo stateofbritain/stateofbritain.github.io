@@ -765,6 +765,33 @@ housing-stock:
       summary: "Only 2% of pre-1919 homes rated EPC A-B vs 55% of post-2002 homes. 45% of pre-1919 rated E or below."
       unit: "%"
 
+rent-tribunal:
+  title: "Rent Tribunal Decisions"
+  geography: "England"
+  summary: "First-tier Tribunal (Property Chamber) market rent decisions, where tenants challenge a landlord's proposed rent increase (Housing Act 1988 sections 13 and 14). Monthly decision counts since 2019, and for each decision the existing, proposed and tribunal-determined rent, parsed from the published decision text. Covers the Renters' Rights Act 2025 rent rules from 1 May 2026. Updated daily."
+  tags: [housing, renting, rents, rent increases, tribunal, Renters' Rights Act, private rented sector, tenants, landlords, section 13]
+  series:
+    monthly:
+      title: "Market Rent Decisions by Month"
+      summary: "Number of published market rent decisions by date of decision, England, from January 2019. Recent months are incomplete because decisions are published with a lag."
+      unit: "decisions"
+    outcomes:
+      title: "Outcome of Market Rent Decisions"
+      summary: "Share of decisions since May 2026 where the tribunal set the rent at the landlord's proposal, between the existing and proposed rent, at the existing rent, below it, assessed a market rent above the proposal, or determined no rent (withdrawn, struck out or invalid notice)."
+      unit: "%"
+    outcomesByMonth:
+      title: "Outcomes by Month"
+      summary: "Monthly share of decisions by outcome from January 2025, showing the change after the Renters' Rights Act rent rules took effect."
+      unit: "%"
+    increasesByMonth:
+      title: "Median Rent Increase by Month"
+      summary: "Median rent increase proposed by landlords and median increase determined by the tribunal, as % above the existing rent, by month from January 2025."
+      unit: "%"
+    byRegion:
+      title: "Median Rent Increase by Tribunal Region"
+      summary: "Median proposed and determined rent increase since May 2026 for the tribunal's five regions: London, Southern, Eastern, Midlands and Northern."
+      unit: "%"
+
 housing-density:
   title: "Housing Density & Geography"
   geography: "United Kingdom"

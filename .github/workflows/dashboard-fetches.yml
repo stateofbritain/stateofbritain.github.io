@@ -47,6 +47,15 @@ jobs:
       - name: Install deps
         run: npm ci
 
+      # Decision documents for fetch-rent-tribunal.js; a unique key saves the
+      # updated cache each run and restore-keys picks up the latest one.
+      - name: Restore rent tribunal decision cache
+        uses: actions/cache@v4
+        with:
+          path: data/manual-uploads/rent-tribunal-cache
+          key: rent-tribunal-${{ github.run_id }}
+          restore-keys: rent-tribunal-
+
       - name: Run scheduled fetches
         run: |
           MODE="${{ github.event.inputs.mode || 'scheduled' }}"

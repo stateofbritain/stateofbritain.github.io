@@ -47,6 +47,7 @@ const PILLARS = {
           supply:  { label: "Housebuilding" },
           stock:   { label: "Housing Stock" },
           density: { label: "Density & Geography" },
+          tribunal: { label: "Rent Tribunal" },
         },
       },
       energy: {

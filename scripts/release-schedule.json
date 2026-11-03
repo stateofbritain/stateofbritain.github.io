@@ -12,6 +12,7 @@
   "co2-intensity":          { "type": "daily", "release": "NESO real-time API" },
   "tech-incorporations":    { "type": "daily", "release": "Companies House daily API" },
   "battery-storage-neso":   { "type": "daily", "release": "NESO Data Portal (irregular; poll daily)" },
+  "rent-tribunal":          { "type": "daily", "release": "GOV.UK tribunal decisions register (published continuously; poll daily, cached incrementally)" },
 
   "cpih":                   { "type": "nth-weekday", "n": 3, "weekday": 3, "offsetDays": 1, "release": "ONS CPI 3rd Wed 07:00 UK + 1d" },
   "cpi-inflation":          { "type": "nth-weekday", "n": 3, "weekday": 3, "offsetDays": 1, "release": "ONS CPI 3rd Wed 07:00 UK + 1d" },

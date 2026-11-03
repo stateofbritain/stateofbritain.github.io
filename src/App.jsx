@@ -22,6 +22,7 @@ import HousingPrices from "./pillars/foundations/HousingPrices";
 import HousingSupply from "./pillars/foundations/HousingSupply";
 import HousingStock from "./pillars/foundations/HousingStock";
 import HousingDensity from "./pillars/foundations/HousingDensity";
+import RentTribunal from "./pillars/foundations/RentTribunal";
 import Safety from "./pillars/foundations/Safety";
 import FoodCostOfLiving from "./pillars/foundations/FoodCostOfLiving";
 import Energy from "./pillars/foundations/Energy";
@@ -97,6 +98,7 @@ const TOPIC_COMPONENTS = {
   "foundations/housing/supply": HousingSupply,
   "foundations/housing/stock": HousingStock,
   "foundations/housing/density": HousingDensity,
+  "foundations/housing/tribunal": RentTribunal,
   "foundations/safety": Safety,
   "foundations/food": FoodCostOfLiving,
   "foundations/energy/overview": Energy,
