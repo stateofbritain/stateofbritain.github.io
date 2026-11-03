@@ -252,6 +252,10 @@ export default function RentTribunal() {
         and the rest are excluded from the outcome and increase figures. Only decisions that reach the tribunal
         and are published are counted: most rent increases are agreed without an application, and many
         applications are settled or withdrawn before a hearing.
+        {" "}The number of rent applications waiting to be decided is not currently published. The Ministry of
+        Justice's <a href="https://www.gov.uk/government/collections/tribunals-statistics" target="_blank" rel="noopener noreferrer" style={{ color: "inherit" }}>quarterly
+        tribunal statistics</a> report open cases for residential property tribunals as a whole, without a breakdown
+        by case type.
       </AnalysisBox>
     </div>
   );
