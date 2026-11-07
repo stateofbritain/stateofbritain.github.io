@@ -3,25 +3,25 @@
   "id": "rent-tribunal",
   "pillar": "foundations",
   "topic": "housing",
-  "generated": "2026-11-06",
+  "generated": "2026-11-07",
   "sources": [
     {
       "id": "gov-uk-rpt-decisions",
       "name": "GOV.UK Residential property tribunal decisions",
       "url": "https://www.gov.uk/residential-property-tribunal-decisions?tribunal_decision_category=rents&tribunal_decision_sub_category%5B%5D=rents---market-rent-assured-shorthold-tenancy",
       "publisher": "HM Courts & Tribunals Service",
-      "note": "Market rent decisions (First-tier Tribunal, Property Chamber), England. 3874 published decisions. Rents parsed from decision text; see scripts/fetch-rent-tribunal.js."
+      "note": "Market rent decisions (First-tier Tribunal, Property Chamber), England. 3881 published decisions. Rents parsed from decision text; see scripts/fetch-rent-tribunal.js."
     }
   ],
   "snapshot": {
-    "decisionsSinceRra": 977,
+    "decisionsSinceRra": 983,
     "decisionsSinceRraFrom": "May 2026",
-    "decisionsPrevYear": 553,
+    "decisionsPrevYear": 552,
     "decisionsPrevYearFrom": "May 2025 to April 2026",
     "medianProposedPct": 13.6,
     "medianDeterminedPct": 7.7,
-    "belowProposedPct": 64.9,
-    "classifiedPct": 88.6,
+    "belowProposedPct": 64.8,
+    "classifiedPct": 88.7,
     "latestMonth": "2026-10",
     "provisionalFrom": "2026-07",
     "medianWaitDaysPrevYear": 124,
@@ -282,7 +282,7 @@
         },
         {
           "month": "2025-12",
-          "decisions": 49,
+          "decisions": 48,
           "provisional": false
         },
         {
@@ -332,7 +332,7 @@
         },
         {
           "month": "2026-10",
-          "decisions": 108,
+          "decisions": 114,
           "provisional": true
         }
       ]
@@ -344,38 +344,38 @@
         {
           "key": "atProposed",
           "label": "Set at landlord's proposed rent",
-          "decisions": 201,
+          "decisions": 202,
           "pct": 23.2
         },
         {
           "key": "between",
           "label": "Between current and proposed rent",
-          "decisions": 428,
-          "pct": 49.4
+          "decisions": 432,
+          "pct": 49.5
         },
         {
           "key": "atCurrent",
           "label": "Kept at current rent",
           "decisions": 90,
-          "pct": 10.4
+          "pct": 10.3
         },
         {
           "key": "belowCurrent",
           "label": "Set below current rent",
           "decisions": 44,
-          "pct": 5.1
+          "pct": 5
         },
         {
           "key": "aboveProposed",
           "label": "Market rent assessed above proposal",
           "decisions": 37,
-          "pct": 4.3
+          "pct": 4.2
         },
         {
           "key": "noDetermination",
           "label": "No rent determined",
-          "decisions": 66,
-          "pct": 7.6
+          "decisions": 67,
+          "pct": 7.7
         }
       ]
     },
@@ -624,14 +624,14 @@
         },
         {
           "month": "2026-10",
-          "classified": 94,
+          "classified": 100,
           "provisional": true,
           "atProposed": 16,
-          "between": 43.6,
-          "atCurrent": 18.1,
-          "belowCurrent": 10.6,
-          "aboveProposed": 2.1,
-          "noDetermination": 9.6
+          "between": 45,
+          "atCurrent": 17,
+          "belowCurrent": 10,
+          "aboveProposed": 2,
+          "noDetermination": 10
         }
       ]
     },
@@ -817,10 +817,10 @@
         },
         {
           "month": "2026-10",
-          "decisions": 85,
-          "medianCurrent": 1100.1,
-          "medianProposedPct": 14.6,
-          "medianDeterminedPct": 6.3,
+          "decisions": 90,
+          "medianCurrent": 1100,
+          "medianProposedPct": 14.9,
+          "medianDeterminedPct": 6.5,
           "provisional": true
         }
       ]
@@ -991,16 +991,16 @@
         },
         {
           "region": "Midlands",
-          "totalDecisions": 138,
-          "decisions": 126,
-          "medianCurrent": 775.85,
-          "medianProposedPct": 15.2,
-          "medianDeterminedPct": 7.8
+          "totalDecisions": 140,
+          "decisions": 127,
+          "medianCurrent": 795,
+          "medianProposedPct": 15.3,
+          "medianDeterminedPct": 7.9
         },
         {
           "region": "Northern",
-          "totalDecisions": 258,
-          "decisions": 218,
+          "totalDecisions": 262,
+          "decisions": 222,
           "medianCurrent": 800,
           "medianProposedPct": 13.8,
           "medianDeterminedPct": 8.1
