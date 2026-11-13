@@ -3,30 +3,30 @@
   "id": "rent-tribunal",
   "pillar": "foundations",
   "topic": "housing",
-  "generated": "2026-11-12",
+  "generated": "2026-11-13",
   "sources": [
     {
       "id": "gov-uk-rpt-decisions",
       "name": "GOV.UK Residential property tribunal decisions",
       "url": "https://www.gov.uk/residential-property-tribunal-decisions?tribunal_decision_category=rents&tribunal_decision_sub_category%5B%5D=rents---market-rent-assured-shorthold-tenancy",
       "publisher": "HM Courts & Tribunals Service",
-      "note": "Market rent decisions (First-tier Tribunal, Property Chamber), England. 3976 published decisions. Rents parsed from decision text; see scripts/fetch-rent-tribunal.js."
+      "note": "Market rent decisions (First-tier Tribunal, Property Chamber), England. 4022 published decisions. Rents parsed from decision text; see scripts/fetch-rent-tribunal.js."
     }
   ],
   "snapshot": {
-    "decisionsSinceRra": 1049,
+    "decisionsSinceRra": 1093,
     "decisionsSinceRraFrom": "May 2026",
-    "decisionsPrevYear": 563,
+    "decisionsPrevYear": 564,
     "decisionsPrevYearFrom": "May 2025 to April 2026",
     "medianProposedPct": 13.3,
     "medianDeterminedPct": 7.7,
-    "belowProposedPct": 64.6,
-    "classifiedPct": 88.4,
+    "belowProposedPct": 64.8,
+    "classifiedPct": 88.5,
     "latestMonth": "2026-10",
     "provisionalFrom": "2026-07",
     "medianWaitDaysPrevYear": 124,
-    "medianWaitDaysSinceRra": 83,
-    "waitDatedPct": 84.3,
+    "medianWaitDaysSinceRra": 84,
+    "waitDatedPct": 84.2,
     "publishedWithin60Pct": 41.4,
     "publishedWithin180Pct": 77.1,
     "publicationCohortFrom": "2024-11",
@@ -297,7 +297,7 @@
         },
         {
           "month": "2026-03",
-          "decisions": 53,
+          "decisions": 54,
           "provisional": false
         },
         {
@@ -317,7 +317,7 @@
         },
         {
           "month": "2026-07",
-          "decisions": 197,
+          "decisions": 198,
           "provisional": true
         },
         {
@@ -332,7 +332,7 @@
         },
         {
           "month": "2026-10",
-          "decisions": 156,
+          "decisions": 199,
           "provisional": true
         }
       ]
@@ -344,37 +344,37 @@
         {
           "key": "atProposed",
           "label": "Set at landlord's proposed rent",
-          "decisions": 217,
+          "decisions": 226,
           "pct": 23.4
         },
         {
           "key": "between",
           "label": "Between current and proposed rent",
-          "decisions": 456,
-          "pct": 49.2
+          "decisions": 478,
+          "pct": 49.4
         },
         {
           "key": "atCurrent",
           "label": "Kept at current rent",
-          "decisions": 97,
-          "pct": 10.5
+          "decisions": 103,
+          "pct": 10.7
         },
         {
           "key": "belowCurrent",
           "label": "Set below current rent",
           "decisions": 45,
-          "pct": 4.9
+          "pct": 4.7
         },
         {
           "key": "aboveProposed",
           "label": "Market rent assessed above proposal",
           "decisions": 40,
-          "pct": 4.3
+          "pct": 4.1
         },
         {
           "key": "noDetermination",
           "label": "No rent determined",
-          "decisions": 72,
+          "decisions": 75,
           "pct": 7.8
         }
       ]
@@ -624,14 +624,14 @@
         },
         {
           "month": "2026-10",
-          "classified": 135,
+          "classified": 175,
           "provisional": true,
-          "atProposed": 19.3,
-          "between": 44.4,
-          "atCurrent": 15.6,
-          "belowCurrent": 8.1,
-          "aboveProposed": 2.2,
-          "noDetermination": 10.4
+          "atProposed": 20,
+          "between": 46.9,
+          "atCurrent": 15.4,
+          "belowCurrent": 6.3,
+          "aboveProposed": 1.7,
+          "noDetermination": 9.7
         }
       ]
     },
@@ -817,10 +817,10 @@
         },
         {
           "month": "2026-10",
-          "decisions": 121,
+          "decisions": 158,
           "medianCurrent": 1150,
-          "medianProposedPct": 12.6,
-          "medianDeterminedPct": 6.5,
+          "medianProposedPct": 13.2,
+          "medianDeterminedPct": 7.1,
           "provisional": true
         }
       ]
@@ -967,8 +967,8 @@
       "data": [
         {
           "region": "London",
-          "totalDecisions": 378,
-          "decisions": 272,
+          "totalDecisions": 392,
+          "decisions": 283,
           "medianCurrent": 1600,
           "medianProposedPct": 15.8,
           "medianDeterminedPct": 9.5
@@ -983,27 +983,27 @@
         },
         {
           "region": "Eastern",
-          "totalDecisions": 100,
-          "decisions": 86,
-          "medianCurrent": 1219.665,
+          "totalDecisions": 114,
+          "decisions": 98,
+          "medianCurrent": 1182.165,
           "medianProposedPct": 8.8,
-          "medianDeterminedPct": 4.8
+          "medianDeterminedPct": 5.3
         },
         {
           "region": "Midlands",
-          "totalDecisions": 150,
-          "decisions": 136,
+          "totalDecisions": 159,
+          "decisions": 145,
           "medianCurrent": 800,
-          "medianProposedPct": 14.4,
-          "medianDeterminedPct": 7.5
+          "medianProposedPct": 14.7,
+          "medianDeterminedPct": 7.6
         },
         {
           "region": "Northern",
-          "totalDecisions": 269,
-          "decisions": 228,
+          "totalDecisions": 276,
+          "decisions": 233,
           "medianCurrent": 800,
           "medianProposedPct": 13.7,
-          "medianDeterminedPct": 8.5
+          "medianDeterminedPct": 8.6
         }
       ]
     }
