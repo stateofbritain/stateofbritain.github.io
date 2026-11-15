@@ -3,7 +3,7 @@
   "id": "steel-trade",
   "pillar": "foundations",
   "topic": "housing",
-  "generated": "2026-10-15",
+  "generated": "2026-11-15",
   "sources": [
     {
       "id": "hmrc-ots-72",
@@ -14,10 +14,10 @@
     }
   ],
   "snapshot": {
-    "imports": 398430,
-    "exports": 668131,
-    "netImports": -269701,
-    "tradeMonth": "2026-08",
+    "imports": 592583,
+    "exports": 624006,
+    "netImports": -31423,
+    "tradeMonth": "2026-09",
     "tradeUnit": "tonnes / month"
   },
   "series": {
@@ -27,17 +27,6 @@
       "unit": "tonnes / month",
       "description": "Monthly UK iron & steel imports, exports, and net imports (HS chapter 72). Net imports = imports - exports.",
       "data": [
-        {
-          "month": "2023-09",
-          "imports": 434243,
-          "exports": 810284,
-          "netImports": -376041,
-          "finishedImports": 356999,
-          "finishedExports": 224271,
-          "finishedNetImports": 132728,
-          "importValueGbp": 433975622,
-          "exportValueGbp": 515751393
-        },
         {
           "month": "2023-10",
           "imports": 475031,
@@ -337,91 +326,102 @@
         },
         {
           "month": "2026-01",
-          "imports": 574774,
+          "imports": 574776,
           "exports": 589747,
-          "netImports": -14973,
-          "finishedImports": 466312,
+          "netImports": -14971,
+          "finishedImports": 466314,
           "finishedExports": 136838,
-          "finishedNetImports": 329474,
-          "importValueGbp": 422141054,
+          "finishedNetImports": 329476,
+          "importValueGbp": 422144600,
           "exportValueGbp": 313923079
         },
         {
           "month": "2026-02",
-          "imports": 467919,
-          "exports": 781997,
-          "netImports": -314078,
-          "finishedImports": 386915,
-          "finishedExports": 142246,
-          "finishedNetImports": 244669,
-          "importValueGbp": 356464832,
-          "exportValueGbp": 435954235
+          "imports": 467920,
+          "exports": 782037,
+          "netImports": -314117,
+          "finishedImports": 386917,
+          "finishedExports": 142286,
+          "finishedNetImports": 244631,
+          "importValueGbp": 356466773,
+          "exportValueGbp": 435958889
         },
         {
           "month": "2026-03",
-          "imports": 629468,
+          "imports": 628755,
           "exports": 1038263,
-          "netImports": -408795,
-          "finishedImports": 451253,
+          "netImports": -409508,
+          "finishedImports": 450541,
           "finishedExports": 188264,
-          "finishedNetImports": 262989,
-          "importValueGbp": 448121892,
-          "exportValueGbp": 511727108
+          "finishedNetImports": 262277,
+          "importValueGbp": 447547192,
+          "exportValueGbp": 511727332
         },
         {
           "month": "2026-04",
-          "imports": 712657,
-          "exports": 908083,
-          "netImports": -195426,
-          "finishedImports": 620134,
-          "finishedExports": 141679,
-          "finishedNetImports": 478455,
-          "importValueGbp": 523910820,
-          "exportValueGbp": 433288580
+          "imports": 713369,
+          "exports": 908105,
+          "netImports": -194736,
+          "finishedImports": 620846,
+          "finishedExports": 141701,
+          "finishedNetImports": 479145,
+          "importValueGbp": 524485520,
+          "exportValueGbp": 433281359
         },
         {
           "month": "2026-05",
           "imports": 588231,
-          "exports": 1044548,
-          "netImports": -456317,
+          "exports": 1044569,
+          "netImports": -456338,
           "finishedImports": 524797,
-          "finishedExports": 135927,
-          "finishedNetImports": 388870,
+          "finishedExports": 135948,
+          "finishedNetImports": 388849,
           "importValueGbp": 470823490,
-          "exportValueGbp": 508764549
+          "exportValueGbp": 508801612
         },
         {
           "month": "2026-06",
           "imports": 774775,
-          "exports": 760036,
-          "netImports": 14739,
+          "exports": 760057,
+          "netImports": 14718,
           "finishedImports": 568171,
-          "finishedExports": 125255,
-          "finishedNetImports": 442916,
+          "finishedExports": 125277,
+          "finishedNetImports": 442894,
           "importValueGbp": 605692560,
-          "exportValueGbp": 421216604
+          "exportValueGbp": 421094163
         },
         {
           "month": "2026-07",
           "imports": 785210,
-          "exports": 819353,
-          "netImports": -34143,
+          "exports": 819383,
+          "netImports": -34173,
           "finishedImports": 636634,
-          "finishedExports": 99961,
-          "finishedNetImports": 536673,
-          "importValueGbp": 594706521,
-          "exportValueGbp": 406884141
+          "finishedExports": 99991,
+          "finishedNetImports": 536643,
+          "importValueGbp": 594709234,
+          "exportValueGbp": 406941915
         },
         {
           "month": "2026-08",
-          "imports": 398430,
-          "exports": 668131,
-          "netImports": -269701,
-          "finishedImports": 319482,
-          "finishedExports": 72253,
-          "finishedNetImports": 247229,
-          "importValueGbp": 345217733,
-          "exportValueGbp": 296193882
+          "imports": 398441,
+          "exports": 668213,
+          "netImports": -269772,
+          "finishedImports": 319492,
+          "finishedExports": 72334,
+          "finishedNetImports": 247158,
+          "importValueGbp": 345246992,
+          "exportValueGbp": 296402728
+        },
+        {
+          "month": "2026-09",
+          "imports": 592583,
+          "exports": 624006,
+          "netImports": -31423,
+          "finishedImports": 373242,
+          "finishedExports": 89986,
+          "finishedNetImports": 283256,
+          "importValueGbp": 447003725,
+          "exportValueGbp": 332207631
         }
       ]
     }
