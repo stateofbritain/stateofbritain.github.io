@@ -3,32 +3,32 @@
   "id": "rent-tribunal",
   "pillar": "foundations",
   "topic": "housing",
-  "generated": "2026-11-15",
+  "generated": "2026-11-16",
   "sources": [
     {
       "id": "gov-uk-rpt-decisions",
       "name": "GOV.UK Residential property tribunal decisions",
       "url": "https://www.gov.uk/residential-property-tribunal-decisions?tribunal_decision_category=rents&tribunal_decision_sub_category%5B%5D=rents---market-rent-assured-shorthold-tenancy",
       "publisher": "HM Courts & Tribunals Service",
-      "note": "Market rent decisions (First-tier Tribunal, Property Chamber), England. 4025 published decisions. Rents parsed from decision text; see scripts/fetch-rent-tribunal.js."
+      "note": "Market rent decisions (First-tier Tribunal, Property Chamber), England. 4042 published decisions. Rents parsed from decision text; see scripts/fetch-rent-tribunal.js."
     }
   ],
   "snapshot": {
-    "decisionsSinceRra": 1095,
+    "decisionsSinceRra": 1103,
     "decisionsSinceRraFrom": "May 2026",
-    "decisionsPrevYear": 564,
+    "decisionsPrevYear": 567,
     "decisionsPrevYearFrom": "May 2025 to April 2026",
     "medianProposedPct": 13.3,
     "medianDeterminedPct": 7.7,
-    "belowProposedPct": 64.6,
-    "classifiedPct": 88.5,
+    "belowProposedPct": 64.5,
+    "classifiedPct": 88.4,
     "latestMonth": "2026-10",
     "provisionalFrom": "2026-07",
     "medianWaitDaysPrevYear": 124,
     "medianWaitDaysSinceRra": 84,
-    "waitDatedPct": 84.2,
+    "waitDatedPct": 84.1,
     "publishedWithin60Pct": 41.4,
-    "publishedWithin180Pct": 77.2,
+    "publishedWithin180Pct": 77.3,
     "publicationCohortFrom": "2024-11",
     "publicationCohortTo": "2025-10"
   },
@@ -267,7 +267,7 @@
         },
         {
           "month": "2025-09",
-          "decisions": 47,
+          "decisions": 48,
           "provisional": false
         },
         {
@@ -297,7 +297,7 @@
         },
         {
           "month": "2026-03",
-          "decisions": 54,
+          "decisions": 56,
           "provisional": false
         },
         {
@@ -307,7 +307,7 @@
         },
         {
           "month": "2026-05",
-          "decisions": 116,
+          "decisions": 117,
           "provisional": false
         },
         {
@@ -317,22 +317,22 @@
         },
         {
           "month": "2026-07",
-          "decisions": 198,
+          "decisions": 199,
           "provisional": true
         },
         {
           "month": "2026-08",
-          "decisions": 191,
+          "decisions": 192,
           "provisional": true
         },
         {
           "month": "2026-09",
-          "decisions": 225,
+          "decisions": 226,
           "provisional": true
         },
         {
           "month": "2026-10",
-          "decisions": 201,
+          "decisions": 205,
           "provisional": true
         }
       ]
@@ -344,14 +344,14 @@
         {
           "key": "atProposed",
           "label": "Set at landlord's proposed rent",
-          "decisions": 227,
-          "pct": 23.4
+          "decisions": 231,
+          "pct": 23.7
         },
         {
           "key": "between",
           "label": "Between current and proposed rent",
-          "decisions": 479,
-          "pct": 49.4
+          "decisions": 480,
+          "pct": 49.2
         },
         {
           "key": "atCurrent",
@@ -362,8 +362,8 @@
         {
           "key": "belowCurrent",
           "label": "Set below current rent",
-          "decisions": 45,
-          "pct": 4.6
+          "decisions": 46,
+          "pct": 4.7
         },
         {
           "key": "aboveProposed",
@@ -547,13 +547,13 @@
         },
         {
           "month": "2026-03",
-          "classified": 42,
+          "classified": 43,
           "provisional": false,
-          "atProposed": 11.9,
-          "between": 64.3,
-          "atCurrent": 11.9,
-          "belowCurrent": 4.8,
-          "aboveProposed": 7.1,
+          "atProposed": 11.6,
+          "between": 65.1,
+          "atCurrent": 11.6,
+          "belowCurrent": 4.7,
+          "aboveProposed": 7,
           "noDetermination": 0
         },
         {
@@ -569,11 +569,11 @@
         },
         {
           "month": "2026-05",
-          "classified": 96,
+          "classified": 97,
           "provisional": false,
-          "atProposed": 19.8,
-          "between": 60.4,
-          "atCurrent": 6.3,
+          "atProposed": 20.6,
+          "between": 59.8,
+          "atCurrent": 6.2,
           "belowCurrent": 5.2,
           "aboveProposed": 5.2,
           "noDetermination": 3.1
@@ -591,14 +591,14 @@
         },
         {
           "month": "2026-07",
-          "classified": 180,
+          "classified": 181,
           "provisional": true,
-          "atProposed": 22.2,
-          "between": 47.8,
-          "atCurrent": 10.6,
+          "atProposed": 22.7,
+          "between": 47.5,
+          "atCurrent": 10.5,
           "belowCurrent": 3.3,
           "aboveProposed": 5,
-          "noDetermination": 11.1
+          "noDetermination": 11
         },
         {
           "month": "2026-08",
@@ -613,25 +613,25 @@
         },
         {
           "month": "2026-09",
-          "classified": 200,
+          "classified": 201,
           "provisional": true,
-          "atProposed": 27,
-          "between": 43,
-          "atCurrent": 11.5,
+          "atProposed": 27.4,
+          "between": 42.8,
+          "atCurrent": 11.4,
           "belowCurrent": 6,
           "aboveProposed": 4.5,
           "noDetermination": 8
         },
         {
           "month": "2026-10",
-          "classified": 177,
+          "classified": 180,
           "provisional": true,
-          "atProposed": 20.3,
-          "between": 46.9,
-          "atCurrent": 15.3,
-          "belowCurrent": 6.2,
+          "atProposed": 20.6,
+          "between": 46.7,
+          "atCurrent": 15,
+          "belowCurrent": 6.7,
           "aboveProposed": 1.7,
-          "noDetermination": 9.6
+          "noDetermination": 9.4
         }
       ]
     },
@@ -761,10 +761,10 @@
         },
         {
           "month": "2026-03",
-          "decisions": 42,
-          "medianCurrent": 1040,
-          "medianProposedPct": 9.1,
-          "medianDeterminedPct": 6.9,
+          "decisions": 43,
+          "medianCurrent": 1100,
+          "medianProposedPct": 9.4,
+          "medianDeterminedPct": 6.5,
           "provisional": false
         },
         {
@@ -777,10 +777,10 @@
         },
         {
           "month": "2026-05",
-          "decisions": 93,
+          "decisions": 94,
           "medianCurrent": 1025,
           "medianProposedPct": 15.8,
-          "medianDeterminedPct": 8.6,
+          "medianDeterminedPct": 8.3,
           "provisional": false
         },
         {
@@ -793,10 +793,10 @@
         },
         {
           "month": "2026-07",
-          "decisions": 160,
-          "medianCurrent": 1092.5,
-          "medianProposedPct": 13.6,
-          "medianDeterminedPct": 7.5,
+          "decisions": 161,
+          "medianCurrent": 1100,
+          "medianProposedPct": 13.3,
+          "medianDeterminedPct": 7.6,
           "provisional": true
         },
         {
@@ -809,17 +809,17 @@
         },
         {
           "month": "2026-09",
-          "decisions": 184,
-          "medianCurrent": 1060,
+          "decisions": 185,
+          "medianCurrent": 1050,
           "medianProposedPct": 13.3,
           "medianDeterminedPct": 8.1,
           "provisional": true
         },
         {
           "month": "2026-10",
-          "decisions": 160,
-          "medianCurrent": 1155,
-          "medianProposedPct": 13.2,
+          "decisions": 163,
+          "medianCurrent": 1150,
+          "medianProposedPct": 13,
           "medianDeterminedPct": 7.1,
           "provisional": true
         }
@@ -903,7 +903,7 @@
         },
         {
           "quarter": "2026-Q1",
-          "decisions": 85,
+          "decisions": 86,
           "medianDays": 134,
           "p25Days": 76,
           "p75Days": 188,
@@ -911,7 +911,7 @@
         },
         {
           "quarter": "2026-Q2",
-          "decisions": 272,
+          "decisions": 273,
           "medianDays": 88,
           "p25Days": 68,
           "p75Days": 147,
@@ -919,10 +919,10 @@
         },
         {
           "quarter": "2026-Q3",
-          "decisions": 519,
+          "decisions": 521,
           "medianDays": 77,
           "p25Days": 57,
-          "p75Days": 133,
+          "p75Days": 134,
           "provisional": true
         }
       ]
@@ -933,7 +933,7 @@
       "data": [
         {
           "days": 30,
-          "pct": 17
+          "pct": 16.9
         },
         {
           "days": 60,
@@ -949,7 +949,7 @@
         },
         {
           "days": 180,
-          "pct": 77.2
+          "pct": 77.3
         },
         {
           "days": 270,
@@ -957,7 +957,7 @@
         },
         {
           "days": 365,
-          "pct": 93
+          "pct": 93.1
         }
       ]
     },
@@ -967,10 +967,10 @@
       "data": [
         {
           "region": "London",
-          "totalDecisions": 394,
-          "decisions": 285,
+          "totalDecisions": 401,
+          "decisions": 290,
           "medianCurrent": 1600,
-          "medianProposedPct": 15.8,
+          "medianProposedPct": 15.6,
           "medianDeterminedPct": 9.5
         },
         {
@@ -983,10 +983,10 @@
         },
         {
           "region": "Eastern",
-          "totalDecisions": 114,
-          "decisions": 98,
-          "medianCurrent": 1182.165,
-          "medianProposedPct": 8.8,
+          "totalDecisions": 115,
+          "decisions": 99,
+          "medianCurrent": 1189.33,
+          "medianProposedPct": 8.7,
           "medianDeterminedPct": 5.3
         },
         {

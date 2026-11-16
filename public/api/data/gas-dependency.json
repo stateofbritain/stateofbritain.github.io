@@ -3,7 +3,7 @@
   "id": "gas-dependency",
   "pillar": "state",
   "topic": "sovereignCapability",
-  "generated": "2026-10-16",
+  "generated": "2026-11-16",
   "sources": [
     {
       "id": "hmrc-ots-2711",
@@ -29,11 +29,11 @@
   ],
   "snapshot": {
     "title": "Natural gas",
-    "month": "2026-08",
-    "production": 837356013,
+    "month": "2026-09",
+    "production": 696143421,
     "imports": {
-      "aligned": 1256034020,
-      "neutral": 0,
+      "aligned": 986073324,
+      "neutral": 58141808,
       "low": 0,
       "unknown": 0
     },
@@ -43,7 +43,7 @@
       "low": 0,
       "unknown": 0
     },
-    "alignedShare": 60,
+    "alignedShare": 56.7,
     "domesticShare": 40,
     "partnersTracked": 16,
     "windowMonths": 24,
@@ -57,26 +57,6 @@
       "unit": "£ / month",
       "description": "Monthly UK natural gas supply: HS 2711.11 (LNG) + HS 2711.21 (pipeline) imports by alignment bucket, plus an estimated UKCS production component derived from a 40% self-sufficiency ratio.",
       "data": [
-        {
-          "month": "2024-09",
-          "production": 417020367,
-          "imports": {
-            "aligned": 564198769,
-            "neutral": 61331781,
-            "low": 0,
-            "unknown": 0
-          },
-          "exports": {
-            "aligned": 0,
-            "neutral": 0,
-            "low": 0,
-            "unknown": 0
-          },
-          "totalImports": 625530550,
-          "totalExports": 0,
-          "alignedShare": 54.1,
-          "domesticShare": 40
-        },
         {
           "month": "2024-10",
           "production": 682258979,
@@ -519,9 +499,9 @@
         },
         {
           "month": "2026-08",
-          "production": 837356013,
+          "production": 852767266,
           "imports": {
-            "aligned": 1256034020,
+            "aligned": 1279150899,
             "neutral": 0,
             "low": 0,
             "unknown": 0
@@ -532,9 +512,29 @@
             "low": 0,
             "unknown": 0
           },
-          "totalImports": 1256034020,
+          "totalImports": 1279150899,
           "totalExports": 0,
           "alignedShare": 60,
+          "domesticShare": 40
+        },
+        {
+          "month": "2026-09",
+          "production": 696143421,
+          "imports": {
+            "aligned": 986073324,
+            "neutral": 58141808,
+            "low": 0,
+            "unknown": 0
+          },
+          "exports": {
+            "aligned": 0,
+            "neutral": 0,
+            "low": 0,
+            "unknown": 0
+          },
+          "totalImports": 1044215132,
+          "totalExports": 0,
+          "alignedShare": 56.7,
           "domesticShare": 40
         }
       ]
@@ -551,7 +551,7 @@
           "alignmentPct": 89.1,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 22132895817,
+          "importTonnes": 22583592785,
           "exportTonnes": 0
         },
         {
@@ -560,7 +560,7 @@
           "alignmentPct": 81.5,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 6590215311,
+          "importTonnes": 6584478528,
           "exportTonnes": 0
         },
         {
@@ -569,7 +569,7 @@
           "alignmentPct": 50.8,
           "bucket": "neutral",
           "classifySource": "voeten",
-          "importTonnes": 490874864,
+          "importTonnes": 549016672,
           "exportTonnes": 0
         },
         {
@@ -587,7 +587,7 @@
           "alignmentPct": 58.5,
           "bucket": "neutral",
           "classifySource": "voeten",
-          "importTonnes": 311136960,
+          "importTonnes": 305454275,
           "exportTonnes": 0
         },
         {
@@ -618,21 +618,12 @@
           "exportTonnes": 0
         },
         {
-          "iso3": "PER",
-          "country": "Peru",
-          "alignmentPct": 64.8,
-          "bucket": "neutral",
-          "classifySource": "voeten",
-          "importTonnes": 112106864,
-          "exportTonnes": 0
-        },
-        {
           "iso3": "NLD",
           "country": "Netherlands",
           "alignmentPct": 92.2,
           "bucket": "aligned",
           "classifySource": "voeten",
-          "importTonnes": 97597062,
+          "importTonnes": 97628311,
           "exportTonnes": 0
         },
         {
@@ -651,6 +642,15 @@
           "bucket": "low",
           "classifySource": "voeten",
           "importTonnes": 79924431,
+          "exportTonnes": 0
+        },
+        {
+          "iso3": "PER",
+          "country": "Peru",
+          "alignmentPct": 64.8,
+          "bucket": "neutral",
+          "classifySource": "voeten",
+          "importTonnes": 56457768,
           "exportTonnes": 0
         },
         {
