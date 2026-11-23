@@ -3,7 +3,7 @@
   "id": "nsips",
   "pillar": "state",
   "topic": "construction",
-  "generated": "2026-11-16",
+  "generated": "2026-11-23",
   "sources": [
     {
       "id": "pins-register",
@@ -21,23 +21,23 @@
     }
   ],
   "snapshot": {
-    "total": 291,
-    "withGps": 291,
+    "total": 292,
+    "withGps": 292,
     "withDelivery": 78,
     "byCategory": {
       "industrial": 3,
-      "energy": 206,
+      "energy": 207,
       "transport": 70,
       "water": 9,
       "waste": 3
     },
     "byStage": {
       "Pre-application": 72,
-      "Recommendation": 7,
+      "Recommendation": 6,
       "Post-decision": 187,
       "Withdrawn": 10,
-      "Decision": 5,
-      "Acceptance": 2,
+      "Decision": 6,
+      "Acceptance": 3,
       "Examination": 6,
       "Pre-examination": 2
     },
@@ -61,7 +61,7 @@
       "sourceId": "pins-register",
       "timeField": "ref",
       "unit": "projects",
-      "description": "291 NSIPs (Nationally Significant Infrastructure Projects) on the PINS register, categorised by reference prefix.",
+      "description": "292 NSIPs (Nationally Significant Infrastructure Projects) on the PINS register, categorised by reference prefix.",
       "data": [
         {
           "ref": "BC0310001",
@@ -3366,7 +3366,7 @@
           "dateOfRecommendation": "2026-10-06",
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 1.3,
+          "yearsInSystem": 1.4,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010154",
           "delivery": {
             "status": "Planning Application Submitted",
@@ -3494,16 +3494,16 @@
           "location": "Four land parcels to the south and west of the East Claydon substation, Bucks.",
           "lat": 51.90530442584662,
           "lon": -0.9374122846239806,
-          "stage": "Recommendation",
+          "stage": "Decision",
           "description": "Solar generating station with a gross output of over 50 megawatts (MW).",
           "dateOfApplication": "2025-09-26",
           "dateApplicationAccepted": "2025-10-23",
           "dateExaminationStarted": "2026-02-24",
           "dateExaminationClosed": "2026-08-24",
-          "dateOfRecommendation": null,
+          "dateOfRecommendation": "2026-11-23",
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 1.1,
+          "yearsInSystem": 1.2,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010158",
           "delivery": {
             "status": "Planning Application Submitted",
@@ -3678,7 +3678,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 0,
+          "yearsInSystem": 0.1,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN010165"
         },
         {
@@ -4251,7 +4251,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 0.4,
+          "yearsInSystem": 0.5,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110020",
           "delivery": {
             "status": "Planning Application Submitted",
@@ -4590,6 +4590,29 @@
           "dateWithdrawn": null,
           "yearsInSystem": null,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110039"
+        },
+        {
+          "ref": "EN0110040",
+          "name": "Gwyndod Power Station",
+          "applicant": "Great British Energy - Nuclear",
+          "appType": "EN01 - Generating Stations",
+          "category": "energy",
+          "subtype": "Generating station",
+          "region": "Wales",
+          "location": "Wylfa Power Station, Cemaes, North Wales",
+          "lat": 53.4121722812319,
+          "lon": -4.476644998303855,
+          "stage": "Pre-application",
+          "description": "Delivery of a nuclear new build development comprising several Small Modular Reactors, with each reactor having a capacity of 470MWe. The Project would comprise the Power Station development (including permanent and temporary development), off-site Power Station facilities and on-site and off-site associated developments (including temporary and permanent development).",
+          "dateOfApplication": null,
+          "dateApplicationAccepted": null,
+          "dateExaminationStarted": null,
+          "dateExaminationClosed": null,
+          "dateOfRecommendation": null,
+          "dateOfDecision": null,
+          "dateWithdrawn": null,
+          "yearsInSystem": null,
+          "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0110040"
         },
         {
           "ref": "EN0110041",
@@ -5045,7 +5068,7 @@
           "dateApplicationAccepted": "2019-12-12",
           "dateExaminationStarted": "2020-09-08",
           "dateExaminationClosed": "2021-03-08",
-          "dateOfRecommendation": null,
+          "dateOfRecommendation": "2021-06-08",
           "dateOfDecision": null,
           "dateWithdrawn": null,
           "yearsInSystem": 7,
@@ -5301,7 +5324,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 0,
+          "yearsInSystem": 0.1,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN0210003"
         },
         {
@@ -5830,7 +5853,7 @@
           "dateOfRecommendation": "2025-05-28",
           "dateOfDecision": null,
           "dateWithdrawn": "2025-12-01",
-          "yearsInSystem": 2.6,
+          "yearsInSystem": 2.7,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/EN070009"
         },
         {
@@ -7601,7 +7624,7 @@
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": 0.6,
+          "yearsInSystem": 0.7,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/TR050008"
         },
         {
@@ -7728,18 +7751,18 @@
           "subtype": "Dam / reservoir",
           "region": "South East",
           "location": "The site for the proposed new reservoir is south west of Abingdon in Oxfordshire. The site is bounded by the A34 to the east, the Great Western Main Line railway (London to Bristol) to the south, the A338 to the west, and the River Ock to the north.",
-          "lat": 51.64211033599233,
-          "lon": -1.3510927958177397,
-          "stage": "Pre-application",
+          "lat": 51.639467757705745,
+          "lon": -1.3496276449436573,
+          "stage": "Acceptance",
           "description": "Reservoir exceeding 30 million cubic metres of water storage, together with associated development required for the construction and operation of the project including, but not limited to, water transfer tunnel/pipelines; water inlet and outlet structures; pumping stations; watercourse diversions; new access roads; temporary railways sidings for material handling; parking, wildlife and environmental areas; leisure and recreation and education facilities.",
-          "dateOfApplication": null,
+          "dateOfApplication": "2026-11-19",
           "dateApplicationAccepted": null,
           "dateExaminationStarted": null,
           "dateExaminationClosed": null,
           "dateOfRecommendation": null,
           "dateOfDecision": null,
           "dateWithdrawn": null,
-          "yearsInSystem": null,
+          "yearsInSystem": 0,
           "projectUrl": "https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/WA010005"
         },
         {
